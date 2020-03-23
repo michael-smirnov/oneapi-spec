@@ -6,3 +6,4 @@ Data management
 
    tables.rst
    accessors.rst
+   builders.rst
