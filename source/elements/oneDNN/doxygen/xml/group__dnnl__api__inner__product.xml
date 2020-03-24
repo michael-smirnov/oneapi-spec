@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="group__dnnl__api__inner__product" kind="group">
+    <compoundname>dnnl_api_inner_product</compoundname>
+    <title>Inner Product</title>
+    <innerclass refid="structdnnl_1_1inner__product__forward" prot="public">dnnl::inner_product_forward</innerclass>
+    <innerclass refid="structdnnl_1_1inner__product__backward__data" prot="public">dnnl::inner_product_backward_data</innerclass>
+    <innerclass refid="structdnnl_1_1inner__product__backward__weights" prot="public">dnnl::inner_product_backward_weights</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A primitive to compute an inner product. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

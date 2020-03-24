@@ -1,0 +1,679 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="vpl__video_8h" kind="file" language="C++">
+    <compoundname>vpl_video.h</compoundname>
+    <includes local="yes">vpl_export.h</includes>
+    <includes refid="vpl__types_8h" local="yes">vpl_types.h</includes>
+    <includes refid="vplm_8h" local="no">vplmemory/vplm.h</includes>
+    <includes refid="vpl__config_8hpp" local="yes">vpl_config.hpp</includes>
+    <includes refid="vpl__device_8hpp" local="yes">vpl_device.hpp</includes>
+    <includedby refid="vpl__utils_8h" local="yes">include/vpl/vpl_utils.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>include/vpl/vpl_video.h</label>
+        <link refid="vpl__video_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>stdint.h</label>
+      </node>
+      <node id="8">
+        <label>vpl_config.hpp</label>
+        <link refid="vpl__config_8hpp_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>stdexcept</label>
+      </node>
+      <node id="10">
+        <label>string</label>
+      </node>
+      <node id="15">
+        <label>vpl/vpl_utils.h</label>
+        <link refid="vpl__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>vpl/vpl.h</label>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="7">
+        <label>uchar.h</label>
+      </node>
+      <node id="12">
+        <label>vpl/vpl_export.h</label>
+      </node>
+      <node id="11">
+        <label>vector</label>
+      </node>
+      <node id="6">
+        <label>vplmemory/vplm.h</label>
+        <link refid="vplm_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>vpl_device.hpp</label>
+        <link refid="vpl__device_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>vpl_types.h</label>
+        <link refid="vpl__types_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>vpl_export.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>include/vpl/vpl_video.h</label>
+        <link refid="vpl__video_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>include/vpl/vpl.hpp</label>
+        <link refid="vpl_8hpp"/>
+      </node>
+      <node id="5">
+        <label>include/vpl/vpl_context.hpp</label>
+        <link refid="vpl__context_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>include/vpl/vpl_utils.h</label>
+        <link refid="vpl__utils_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>include/vpl/vpl_device.hpp</label>
+        <link refid="vpl__device_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="vpl__video_8h_1ac36d9c58bfb9c1ccbb0fb0b02273b782" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vplWorkstream</type>
+        <definition>vplWorkstream vplCreateWorkStream</definition>
+        <argsstring>(VplDeviceType device, vpl::VplParams *config)</argsstring>
+        <name>vplCreateWorkStream</name>
+        <param>
+          <type><ref refid="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90" kindref="member">VplDeviceType</ref></type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type><ref refid="classvpl_1_1_vpl_params" kindref="compound">vpl::VplParams</ref> *</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Construct a workstream. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="26" column="16" declfile="include/vpl/vpl_video.h" declline="26" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1a5ccf0b313a6b253658c7d791ac116e1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref></type>
+        <definition>vplStatus vplSetConfigProperty</definition>
+        <argsstring>(vplWorkstream ws, VplWorkstreamProp prop, void *value, size_t size)</argsstring>
+        <name>vplSetConfigProperty</name>
+        <param>
+          <type>vplWorkstream</type>
+          <declname>ws</declname>
+        </param>
+        <param>
+          <type><ref refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258" kindref="member">VplWorkstreamProp</ref></type>
+          <declname>prop</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Set a workstream property. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="29" column="12" declfile="include/vpl/vpl_video.h" declline="29" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1a4151265ab19272ee384e5aa70a9dc3b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref></type>
+        <definition>vplStatus vplGetConfigProperty</definition>
+        <argsstring>(vplWorkstream workstream, VplWorkstreamProp prop, void *out_value, size_t *out_size)</argsstring>
+        <name>vplGetConfigProperty</name>
+        <param>
+          <type>vplWorkstream</type>
+          <declname>workstream</declname>
+        </param>
+        <param>
+          <type><ref refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258" kindref="member">VplWorkstreamProp</ref></type>
+          <declname>prop</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>out_value</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>out_size</declname>
+        </param>
+        <briefdescription>
+<para>Get a workstream property. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="32" column="12" declfile="include/vpl/vpl_video.h" declline="32" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1a7cddd578a95f2868cff6782a7605ff4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref></type>
+        <definition>vplStatus vplDestroyWorkstream</definition>
+        <argsstring>(vplWorkstream *ws)</argsstring>
+        <name>vplDestroyWorkstream</name>
+        <param>
+          <type>vplWorkstream *</type>
+          <declname>ws</declname>
+        </param>
+        <briefdescription>
+<para>Destruct a workstream. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="35" column="12" declfile="include/vpl/vpl_video.h" declline="35" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1aaee070e0f5c6c3088693aa719a7c33f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref></type>
+        <definition>vplStatus vplGetWorkstreamPreset</definition>
+        <argsstring>(VplDeviceType device, VplWorkstreamType type, vplm_variant *config)</argsstring>
+        <name>vplGetWorkstreamPreset</name>
+        <param>
+          <type><ref refid="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90" kindref="member">VplDeviceType</ref></type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type><ref refid="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2b" kindref="member">VplWorkstreamType</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="structvplm__variant" kindref="compound">vplm_variant</ref> *</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Get preconfigured default parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="38" column="12" declfile="include/vpl/vpl_video.h" declline="38" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1a103fc867f21129aefba0d8c851424379" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925f" kindref="member">vplWorkstreamState</ref></type>
+        <definition>vplWorkstreamState vplWorkstreamGetState</definition>
+        <argsstring>(vplWorkstream ws)</argsstring>
+        <name>vplWorkstreamGetState</name>
+        <param>
+          <type>vplWorkstream</type>
+          <declname>ws</declname>
+        </param>
+        <briefdescription>
+<para>Get workstream state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="41" column="21" declfile="include/vpl/vpl_video.h" declline="41" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1a1567807f5823e9b5642b0e38b9ddbce9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref> *</type>
+        <definition>vplm_mem* vplDecodeFrame</definition>
+        <argsstring>(vplWorkstream decode, const void *pbs, size_t size)</argsstring>
+        <name>vplDecodeFrame</name>
+        <param>
+          <type>vplWorkstream</type>
+          <declname>decode</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>pbs</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Decode workstream decodes a frame. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="44" column="11" declfile="include/vpl/vpl_video.h" declline="44" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1af63e1560d73077e4e782a8b35e7a468d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref> *</type>
+        <definition>vplm_mem* vplDecodeProcessFrame</definition>
+        <argsstring>(vplWorkstream decode, const void *pbs, size_t size)</argsstring>
+        <name>vplDecodeProcessFrame</name>
+        <param>
+          <type>vplWorkstream</type>
+          <declname>decode</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>pbs</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Decode workstream decodes a frame with fused frame postprocessing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="47" column="11" declfile="include/vpl/vpl_video.h" declline="47" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1a9f8c9bd96285c80309de7b87d60cc4ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref> *</type>
+        <definition>vplm_mem* vplProcessFrame</definition>
+        <argsstring>(vplWorkstream procframe, vplm_mem *image)</argsstring>
+        <name>vplProcessFrame</name>
+        <param>
+          <type>vplWorkstream</type>
+          <declname>procframe</declname>
+        </param>
+        <param>
+          <type><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref> *</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+<para>ProcessFrame workstream runs frame processing operation(s) on a frame. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="50" column="11" declfile="include/vpl/vpl_video.h" declline="50" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1a15234b6f14f71520c0f27b6791c3baf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t vplProcessEncodeFrame</definition>
+        <argsstring>(vplWorkstream encode, vplm_mem *image, void *pbs_out)</argsstring>
+        <name>vplProcessEncodeFrame</name>
+        <param>
+          <type>vplWorkstream</type>
+          <declname>encode</declname>
+        </param>
+        <param>
+          <type><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref> *</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>pbs_out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="53" column="9" declfile="include/vpl/vpl_video.h" declline="53" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1a98a0c70abf94d8282c84d31f63605083" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t vplEncodeFrame</definition>
+        <argsstring>(vplWorkstream encode, vplm_mem *image, void *pbs_out)</argsstring>
+        <name>vplEncodeFrame</name>
+        <param>
+          <type>vplWorkstream</type>
+          <declname>encode</declname>
+        </param>
+        <param>
+          <type><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref> *</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>pbs_out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="56" column="9" declfile="include/vpl/vpl_video.h" declline="56" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1a3ec630ce39e6fd43b38533920c267db3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t vplTranscodeFrame</definition>
+        <argsstring>(vplWorkstream transcode, const void *pbs, size_t size, void *pbs_out)</argsstring>
+        <name>vplTranscodeFrame</name>
+        <param>
+          <type>vplWorkstream</type>
+          <declname>transcode</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>pbs</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>pbs_out</declname>
+        </param>
+        <briefdescription>
+<para>Transcode workstream transcodes a frame. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="59" column="9" declfile="include/vpl/vpl_video.h" declline="59" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1aef438edad18c6f497b48aa914cc1ec56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vplDevice</type>
+        <definition>vplDevice vplCreateDevice</definition>
+        <argsstring>(VplDeviceType dtype)</argsstring>
+        <name>vplCreateDevice</name>
+        <param>
+          <type><ref refid="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90" kindref="member">VplDeviceType</ref></type>
+          <declname>dtype</declname>
+        </param>
+        <briefdescription>
+<para>Construct a device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="62" column="12" declfile="include/vpl/vpl_video.h" declline="62" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1aa0430b313b03b67423019f5d09fca081" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref></type>
+        <definition>vplStatus vplDestroyDevice</definition>
+        <argsstring>(vplDevice *dev)</argsstring>
+        <name>vplDestroyDevice</name>
+        <param>
+          <type>vplDevice *</type>
+          <declname>dev</declname>
+        </param>
+        <briefdescription>
+<para>Destruct a device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="65" column="12" declfile="include/vpl/vpl_video.h" declline="65" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1abaf0d1c4466cd5a87b9217f45a15da61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classvpl_1_1_vpl_params" kindref="compound">vpl::VplParams</ref> *</type>
+        <definition>vpl::VplParams* vplGetPreset</definition>
+        <argsstring>(vplDevice dev, VplWorkstreamType wstype, uint32_t id)</argsstring>
+        <name>vplGetPreset</name>
+        <param>
+          <type>vplDevice</type>
+          <declname>dev</declname>
+        </param>
+        <param>
+          <type><ref refid="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2b" kindref="member">VplWorkstreamType</ref></type>
+          <declname>wstype</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Get default preset configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="68" column="17" declfile="include/vpl/vpl_video.h" declline="68" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1a3614b747e33f9d108ee5be2138c11fb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structvpl_1_1_vpl_device_property" kindref="compound">vpl::VplDeviceProperty</ref> *</type>
+        <definition>vpl::VplDeviceProperty* vplGetDeviceProperty</definition>
+        <argsstring>(vplDevice dev, uint32_t id)</argsstring>
+        <name>vplGetDeviceProperty</name>
+        <param>
+          <type>vplDevice</type>
+          <declname>dev</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Get device property. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="71" column="25" declfile="include/vpl/vpl_video.h" declline="71" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1ae41df2d01d3dc7121a201b43ba8d2f39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int vplGetDeviceCount</definition>
+        <argsstring>(vplDevice dev)</argsstring>
+        <name>vplGetDeviceCount</name>
+        <param>
+          <type>vplDevice</type>
+          <declname>dev</declname>
+        </param>
+        <briefdescription>
+<para>Get device count. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="74" column="6" declfile="include/vpl/vpl_video.h" declline="74" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1ab782a665f384faf4ffabdc68b30803bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref></type>
+        <definition>vplStatus vplSetPropertyPB</definition>
+        <argsstring>(vplWorkstream ws, vpl::VplParams *)</argsstring>
+        <name>vplSetPropertyPB</name>
+        <param>
+          <type>vplWorkstream</type>
+          <declname>ws</declname>
+        </param>
+        <param>
+          <type><ref refid="classvpl_1_1_vpl_params" kindref="compound">vpl::VplParams</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="76" column="12" declfile="include/vpl/vpl_video.h" declline="76" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1a4d8ca26e08536f21b271a21a0c60b856" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref></type>
+        <definition>vplStatus vplGetPropertyPB</definition>
+        <argsstring>(vplWorkstream ws, vpl::VplParams *)</argsstring>
+        <name>vplGetPropertyPB</name>
+        <param>
+          <type>vplWorkstream</type>
+          <declname>ws</declname>
+        </param>
+        <param>
+          <type><ref refid="classvpl_1_1_vpl_params" kindref="compound">vpl::VplParams</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="77" column="12" declfile="include/vpl/vpl_video.h" declline="77" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="vpl__video_8h_1acc5947f0c70977afff503fd02447f162" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref></type>
+        <definition>vplStatus vplPushBlob</definition>
+        <argsstring>(vplWorkstream ws, void *, size_t size)</argsstring>
+        <name>vplPushBlob</name>
+        <param>
+          <type>vplWorkstream</type>
+          <declname>ws</declname>
+        </param>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_video.h" line="78" column="12" declfile="include/vpl/vpl_video.h" declline="78" declcolumn="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>C API for Intel® oneAPI Video Processing Library. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*############################################################################</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>#<sp/>Copyright<sp/>(C)<sp/>2019<sp/>Intel<sp/>Corporation</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>#</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>#<sp/>SPDX-License-Identifier:<sp/>MIT</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/>############################################################################*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="preprocessor">#ifndef<sp/>VPL_VIDEO_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VPL_VIDEO_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;vpl_export.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="vpl__types_8h" kindref="compound">vpl_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vplmemory/vplm.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;vpl_config.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="vpl__device_8hpp" kindref="compound">vpl_device.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">VPL_EXPORT<sp/>vplWorkstream<sp/><ref refid="vpl__video_8h_1ac36d9c58bfb9c1ccbb0fb0b02273b782" kindref="member">vplCreateWorkStream</ref>(<ref refid="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90" kindref="member">VplDeviceType</ref><sp/>device,<sp/><ref refid="classvpl_1_1_vpl_params" kindref="compound">vpl::VplParams</ref><sp/>*config);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal">VPL_EXPORT<sp/><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref><sp/><ref refid="vpl__video_8h_1a5ccf0b313a6b253658c7d791ac116e1a" kindref="member">vplSetConfigProperty</ref>(vplWorkstream<sp/>ws,<sp/><ref refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258" kindref="member">VplWorkstreamProp</ref><sp/>prop,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>value,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">VPL_EXPORT<sp/><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref><sp/><ref refid="vpl__video_8h_1a4151265ab19272ee384e5aa70a9dc3b1" kindref="member">vplGetConfigProperty</ref>(vplWorkstream<sp/>workstream,<sp/><ref refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258" kindref="member">VplWorkstreamProp</ref><sp/>prop,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>out_value,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>*<sp/>out_size);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">VPL_EXPORT<sp/><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref><sp/><ref refid="vpl__video_8h_1a7cddd578a95f2868cff6782a7605ff4d" kindref="member">vplDestroyWorkstream</ref>(vplWorkstream<sp/>*ws);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal">VPL_EXPORT<sp/><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref><sp/><ref refid="vpl__video_8h_1aaee070e0f5c6c3088693aa719a7c33f6" kindref="member">vplGetWorkstreamPreset</ref>(<ref refid="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90" kindref="member">VplDeviceType</ref><sp/>device,<sp/><ref refid="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2b" kindref="member">VplWorkstreamType</ref><sp/>type,<sp/><ref refid="structvplm__variant" kindref="compound">vplm_variant</ref>*<sp/>config);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">VPL_EXPORT<sp/><ref refid="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925f" kindref="member">vplWorkstreamState</ref><sp/><ref refid="vpl__video_8h_1a103fc867f21129aefba0d8c851424379" kindref="member">vplWorkstreamGetState</ref>(vplWorkstream<sp/>ws);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">VPL_EXPORT<sp/><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref>*<sp/><ref refid="vpl__video_8h_1a1567807f5823e9b5642b0e38b9ddbce9" kindref="member">vplDecodeFrame</ref>(vplWorkstream<sp/>decode,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pbs,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal">VPL_EXPORT<sp/><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref>*<sp/><ref refid="vpl__video_8h_1af63e1560d73077e4e782a8b35e7a468d" kindref="member">vplDecodeProcessFrame</ref>(vplWorkstream<sp/>decode,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pbs,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal">VPL_EXPORT<sp/><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref>*<sp/><ref refid="vpl__video_8h_1a9f8c9bd96285c80309de7b87d60cc4ea" kindref="member">vplProcessFrame</ref>(vplWorkstream<sp/>procframe,<sp/><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref>*<sp/>image);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@brief<sp/>Encode<sp/>workstream<sp/>encodes<sp/>a<sp/>frame<sp/>with<sp/>fused<sp/>frame<sp/>preprocessing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">VPL_EXPORT<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>vplProcessEncodeFrame(vplWorkstream<sp/>encode,<sp/><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref>*<sp/>image,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pbs_out);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@brief<sp/>Encode<sp/>workstream<sp/>encodes<sp/>a<sp/>frame</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">VPL_EXPORT<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>vplEncodeFrame(vplWorkstream<sp/>encode,<sp/><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref>*<sp/>image,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pbs_out);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">VPL_EXPORT<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="vpl__video_8h_1a3ec630ce39e6fd43b38533920c267db3" kindref="member">vplTranscodeFrame</ref>(vplWorkstream<sp/>transcode,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pbs,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pbs_out);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal">VPL_EXPORT<sp/>vplDevice<sp/><ref refid="vpl__video_8h_1aef438edad18c6f497b48aa914cc1ec56" kindref="member">vplCreateDevice</ref>(<ref refid="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90" kindref="member">VplDeviceType</ref><sp/>dtype);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">VPL_EXPORT<sp/><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref><sp/><ref refid="vpl__video_8h_1aa0430b313b03b67423019f5d09fca081" kindref="member">vplDestroyDevice</ref>(vplDevice<sp/>*dev);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">VPL_EXPORT<sp/><ref refid="classvpl_1_1_vpl_params" kindref="compound">vpl::VplParams</ref>*<sp/><ref refid="vpl__video_8h_1abaf0d1c4466cd5a87b9217f45a15da61" kindref="member">vplGetPreset</ref>(vplDevice<sp/>dev,<sp/><ref refid="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2b" kindref="member">VplWorkstreamType</ref><sp/>wstype,<sp/>uint32_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">VPL_EXPORT<sp/><ref refid="structvpl_1_1_vpl_device_property" kindref="compound">vpl::VplDeviceProperty</ref>*<sp/><ref refid="vpl__video_8h_1a3614b747e33f9d108ee5be2138c11fb9" kindref="member">vplGetDeviceProperty</ref>(vplDevice<sp/>dev,<sp/>uint32_t<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal">VPL_EXPORT<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="vpl__video_8h_1ae41df2d01d3dc7121a201b43ba8d2f39" kindref="member">vplGetDeviceCount</ref>(vplDevice<sp/>dev);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">VPL_EXPORT<sp/><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref><sp/>vplSetPropertyPB(vplWorkstream<sp/>ws,<sp/><ref refid="classvpl_1_1_vpl_params" kindref="compound">vpl::VplParams</ref>*);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">VPL_EXPORT<sp/><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref><sp/>vplGetPropertyPB(vplWorkstream<sp/>ws,<sp/><ref refid="classvpl_1_1_vpl_params" kindref="compound">vpl::VplParams</ref>*);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">VPL_EXPORT<sp/><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref><sp/>vplPushBlob(vplWorkstream<sp/>ws,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>VPL_VIDEO_H</highlight></codeline>
+    </programlisting>
+    <location file="include/vpl/vpl_video.h"/>
+  </compounddef>
+</doxygen>

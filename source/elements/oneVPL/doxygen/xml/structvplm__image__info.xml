@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structvplm__image__info" kind="struct" language="C++" prot="public">
+    <compoundname>vplm_image_info</compoundname>
+    <includes refid="vplm_8h" local="no">vplm.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structvplm__image__info_1a193c77d624a202a8c82182e0ba921b69" prot="public" static="no" mutable="no">
+        <type>vplm_pixel_format</type>
+        <definition>vplm_pixel_format vplm_image_info::format</definition>
+        <argsstring></argsstring>
+        <name>format</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="208" column="23" bodyfile="include/vplmemory/vplm.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__image__info_1a187369fce6615bc8ecf2b7c36c581b73" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vplm_image_info::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+<para>Width of the image containing valid data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="210" column="14" bodyfile="include/vplmemory/vplm.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__image__info_1a3a66738580fa1475bd747c518194f680" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vplm_image_info::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+<para>Width of the image containing valid data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="213" column="14" bodyfile="include/vplmemory/vplm.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__image__info_1a723bc779ad627ded7f01d570606025a7" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vplm_image_info::aligned_width</definition>
+        <argsstring></argsstring>
+        <name>aligned_width</name>
+        <briefdescription>
+<para>Padded width of the image. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Should be greater or equal to <ref refid="structvplm__image__info_1a187369fce6615bc8ecf2b7c36c581b73" kindref="member">width</ref> or equal to 0. In the latter case, vpl memory library decides on alignment during memory allocation.</para>
+<para>Padded area might not contain valid data. Moreover, padded area might or might not be initialized depending on implementation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="223" column="14" bodyfile="include/vplmemory/vplm.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__image__info_1ae8eb2f09e0b0c038b111a72c5f9fd49e" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vplm_image_info::aligned_height</definition>
+        <argsstring></argsstring>
+        <name>aligned_height</name>
+        <briefdescription>
+<para>Padded height of the image. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Should be greater or equal to <ref refid="structvplm__image__info_1a3a66738580fa1475bd747c518194f680" kindref="member">height</ref> or equal to 0. In the latter case, vpl memory library decides on alignment during memory allocation.</para>
+<para>Padded area might not contain valid data. Moreover, padded area might or might not be initialized depending on implementation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="233" column="14" bodyfile="include/vplmemory/vplm.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__image__info_1acc0a4f0241128eaf2f555ccc9c0fcac9" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t vplm_image_info::reserved[32]</definition>
+        <argsstring>[32]</argsstring>
+        <name>reserved</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="235" column="14" bodyfile="include/vplmemory/vplm.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>VPL Memory Image description. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vplmemory/vplm.h" line="207" column="15" bodyfile="include/vplmemory/vplm.h" bodystart="207" bodyend="236"/>
+    <listofallmembers>
+      <member refid="structvplm__image__info_1ae8eb2f09e0b0c038b111a72c5f9fd49e" prot="public" virt="non-virtual"><scope>vplm_image_info</scope><name>aligned_height</name></member>
+      <member refid="structvplm__image__info_1a723bc779ad627ded7f01d570606025a7" prot="public" virt="non-virtual"><scope>vplm_image_info</scope><name>aligned_width</name></member>
+      <member refid="structvplm__image__info_1a193c77d624a202a8c82182e0ba921b69" prot="public" virt="non-virtual"><scope>vplm_image_info</scope><name>format</name></member>
+      <member refid="structvplm__image__info_1a3a66738580fa1475bd747c518194f680" prot="public" virt="non-virtual"><scope>vplm_image_info</scope><name>height</name></member>
+      <member refid="structvplm__image__info_1acc0a4f0241128eaf2f555ccc9c0fcac9" prot="public" virt="non-virtual"><scope>vplm_image_info</scope><name>reserved</name></member>
+      <member refid="structvplm__image__info_1a187369fce6615bc8ecf2b7c36c581b73" prot="public" virt="non-virtual"><scope>vplm_image_info</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

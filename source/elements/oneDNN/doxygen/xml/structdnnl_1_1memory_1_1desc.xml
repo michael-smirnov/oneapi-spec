@@ -1,0 +1,467 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structdnnl_1_1memory_1_1desc" kind="struct" language="C++" prot="public">
+    <compoundname>dnnl::memory::desc</compoundname>
+    <includes refid="dnnl_8hpp" local="no">dnnl.hpp</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structdnnl_1_1memory_1_1desc_1a2a12f9b43aae8c214d695b321b543b5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::memory::desc::desc</definition>
+        <argsstring>()</argsstring>
+        <name>desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a zero (empty) memory descriptor. Such a memory descriptor can be used to indicate absence of an argument. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1342" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1memory_1_1desc_1af8efdb0761b98bfe82d71786a4e1d39e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::memory::desc::desc</definition>
+        <argsstring>(const memory::dims &amp;dims, data_type data_type, format_tag format_tag, bool allow_empty=false)</argsstring>
+        <name>desc</name>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1a7d9f4b6ad8caf3969f436cd9ff27e9bb" kindref="member">memory::dims</ref> &amp;</type>
+          <declname>dims</declname>
+        </param>
+        <param>
+          <type><ref refid="structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce" kindref="member">data_type</ref></type>
+          <declname>data_type</declname>
+        </param>
+        <param>
+          <type><ref refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3f" kindref="member">format_tag</ref></type>
+          <declname>format_tag</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>allow_empty</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a memory descriptor.</para>
+<para><simplesect kind="note"><para>The logical order of dimensions corresponds to the <computeroutput>abc...</computeroutput> format tag, and the physical meaning of the dimensions depends on both the primitive that consumes the memory and the context of that consumption.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dims</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tensor dimensions. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data precision/type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>format_tag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Memory format tag. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>allow_empty</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A flag signifying whether construction is allowed to fail without throwing an exception. In this case a zero memory descriptor will be constructed. This flag is optional and defaults to false. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1359" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1memory_1_1desc_1aa37dd11b790b39442c29cd74ea75a166" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::memory::desc::desc</definition>
+        <argsstring>(const memory::dims &amp;dims, data_type data_type, const memory::dims &amp;strides, bool allow_empty=false)</argsstring>
+        <name>desc</name>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1a7d9f4b6ad8caf3969f436cd9ff27e9bb" kindref="member">memory::dims</ref> &amp;</type>
+          <declname>dims</declname>
+        </param>
+        <param>
+          <type><ref refid="structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce" kindref="member">data_type</ref></type>
+          <declname>data_type</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1a7d9f4b6ad8caf3969f436cd9ff27e9bb" kindref="member">memory::dims</ref> &amp;</type>
+          <declname>strides</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>allow_empty</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a memory descriptor by strides.</para>
+<para><simplesect kind="note"><para>The logical order of dimensions corresponds to the <computeroutput>abc...</computeroutput> format tag, and the physical meaning of the dimensions depends on both the primitive that consumes the memory and the context of that consumption.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dims</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tensor dimensions. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data precision/type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>strides</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Strides for each dimension. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>allow_empty</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A flag signifying whether construction is allowed to fail without throwing an exception. In this case a zero memory descriptor will be constructed. This flag is optional and defaults to false. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1377" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1memory_1_1desc_1a3573d45ed89399339ad2af05b8097a3a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">desc</ref></type>
+        <definition>desc dnnl::memory::desc::submemory_desc</definition>
+        <argsstring>(const memory::dims &amp;dims, const memory::dims &amp;offsets, bool allow_empty=false) const</argsstring>
+        <name>submemory_desc</name>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1a7d9f4b6ad8caf3969f436cd9ff27e9bb" kindref="member">memory::dims</ref> &amp;</type>
+          <declname>dims</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1a7d9f4b6ad8caf3969f436cd9ff27e9bb" kindref="member">memory::dims</ref> &amp;</type>
+          <declname>offsets</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>allow_empty</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a memory descriptor for a region inside an area described by this memory descriptor. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dims</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sizes of the region. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offsets</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Offsets to the region from the encompassing memory object in each dimension. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>allow_empty</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A flag signifying whether construction is allowed to fail without throwing an exception. In this case a zero memory descriptor will be returned. This flag is optional and defaults to false. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A memory descriptor for the region. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1391" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1memory_1_1desc_1accdc5b253fedb7243c72a9ed4b3b3f7f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">desc</ref></type>
+        <definition>desc dnnl::memory::desc::reshape</definition>
+        <argsstring>(const memory::dims &amp;dims, bool allow_empty=false) const</argsstring>
+        <name>reshape</name>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1a7d9f4b6ad8caf3969f436cd9ff27e9bb" kindref="member">memory::dims</ref> &amp;</type>
+          <declname>dims</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>allow_empty</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a memory descriptor by reshaping an existing one. The new memory descriptor inherits the data type.</para>
+<para>The operation ensures that the transformation of the physical memory format corresponds to the transformation of the logical dimensions. If such transformation is impossible, the function either throws an exception (default) or returns a zero memory descriptor depending on the <computeroutput>allow_empty</computeroutput> flag.</para>
+<para>The reshape operation can be described as a combination of the following basic operations:<orderedlist>
+<listitem><para>Add a dimension of size <computeroutput>1</computeroutput>. This is always possible.</para>
+</listitem><listitem><para>Remove a dimension of size <computeroutput>1</computeroutput>. This is possible only if the dimension has no padding (i.e. <computeroutput>padded_dims[dim] == dims[dim] &amp;&amp; dims[dim] == 1</computeroutput>).</para>
+</listitem><listitem><para>Split a dimension into multiple ones. This is possible only if the size of the dimension is exactly equal to the product of the split ones and the dimension does not have padding (i.e. <computeroutput>padded_dims[dim] = dims[dim]</computeroutput>).</para>
+</listitem><listitem><para>Joining multiple consecutive dimensions into a single one. As in the cases above, this requires that the dimensions do not have padding and that the memory format is such that in physical memory these dimensions are dense and have the same order as their logical counterparts. This also assumes that these dimensions are not blocked.<itemizedlist>
+<listitem><para>Here, dense means: <computeroutput>stride for dim[i] == (stride for dim[i + 1]) * dim[i + 1]</computeroutput>;</para>
+</listitem><listitem><para>And same order means: <computeroutput>i &lt; j</computeroutput> if and only if <computeroutput>stride for dim[i] &lt; stride for dim[j]</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></orderedlist>
+</para>
+<para><simplesect kind="warning"><para>Some combinations of physical memory layout and/or offsets or dimensions may result in a failure to make a reshape.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dims</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New dimensions. The product of dimensions must remain constant. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>allow_empty</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A flag signifying whether construction is allowed to fail without throwing an exception. In this case a zero memory descriptor will be returned. This flag is optional and defaults to false. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new memory descriptor with new dimensions. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1435" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1memory_1_1desc_1a70e831b990a91d61bc44e57f6e895a83" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">desc</ref></type>
+        <definition>desc dnnl::memory::desc::permute_axes</definition>
+        <argsstring>(const std::vector&lt; int &gt; &amp;permutation, bool allow_empty=false) const</argsstring>
+        <name>permute_axes</name>
+        <param>
+          <type>const std::vector&lt; int &gt; &amp;</type>
+          <declname>permutation</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>allow_empty</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a memory descriptor by permuting axes in an existing one.</para>
+<para>The physical memory layout representation is adjusted accordingly to maintain the consistency between the logical and physical parts of the memory descriptor. The new memory descriptor inherits the data type.</para>
+<para>The logical axes will be permuted in the following manner: <programlisting><codeline><highlight class="normal">for<sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>ndims();<sp/>i++)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>new_desc.dims()[permutation[i]]<sp/>=<sp/>dims()[i];</highlight></codeline>
+</programlisting></para>
+<para>Example: <programlisting><codeline><highlight class="normal">std::vector&lt;int&gt;<sp/>permutation<sp/>=<sp/>{1,<sp/>0};<sp/>//<sp/>swap<sp/>the<sp/>first<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>the<sp/>second<sp/>axes</highlight></codeline>
+<codeline><highlight class="normal">dnnl::memory::desc<sp/>in_md(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{2,<sp/>3},<sp/>data_type,<sp/>memory::format_tag::ab);</highlight></codeline>
+<codeline><highlight class="normal">dnnl::memory::desc<sp/>expect_out_md(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{3,<sp/>2},<sp/>data_type,<sp/>memory::format_tag::ba);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">assert(in_md.permute_axes(permutation)<sp/>==<sp/>expect_out_md);</highlight></codeline>
+</programlisting></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>permutation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Axes permutation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>allow_empty</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A flag signifying whether construction is allowed to fail without throwing an exception. In this case a zero memory descriptor will be returned. This flag is optional and defaults to false. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A new memory descriptor with new dimensions. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1469" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1memory_1_1desc_1aaf95c174b7d7f5ea59646886719d0a2b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1a7d9f4b6ad8caf3969f436cd9ff27e9bb" kindref="member">memory::dims</ref></type>
+        <definition>memory::dims dnnl::memory::desc::dims</definition>
+        <argsstring>() const</argsstring>
+        <name>dims</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns dimensions of the memory descriptor.</para>
+<para>Potentially expensive due to the data copy involved. <simplesect kind="return"><para>A copy of the dimensions vector. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1476" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1memory_1_1desc_1ab3cb5e5f28d660a0105eb7580e5ab213" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce" kindref="member">memory::data_type</ref></type>
+        <definition>memory::data_type dnnl::memory::desc::data_type</definition>
+        <argsstring>() const</argsstring>
+        <name>data_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the data type of the memory descriptor. <simplesect kind="return"><para>The data type. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1480" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1memory_1_1desc_1ac20108bc192912382aa4a95ae27df804" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t dnnl::memory::desc::get_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns size of the memory descriptor in bytes. <simplesect kind="return"><para>The number of bytes required to allocate a memory buffer for the memory object described by this memory descriptor including the padding area. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1486" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1memory_1_1desc_1aa162a1ba5621a799c8a909c726f021a2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool dnnl::memory::desc::is_zero</definition>
+        <argsstring>() const</argsstring>
+        <name>is_zero</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks whether the memory descriptor is zero (empty). <simplesect kind="return"><para><computeroutput>true</computeroutput> if the memory descriptor describes an empty memory and <computeroutput>false</computeroutput> otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1491" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1memory_1_1desc_1a9d623dab6f8a8ebc34b0da95814e3728" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool dnnl::memory::desc::operator==</definition>
+        <argsstring>(const desc &amp;other) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">desc</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>An equality operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Another memory descriptor. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether this and the other memory descriptors have the same format tag, dimensions, strides, blocking, etc. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1497" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1memory_1_1desc_1a5a1bc8d3b88a2c304fd9535ea45fbb72" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool dnnl::memory::desc::operator!=</definition>
+        <argsstring>(const desc &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">desc</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>An inequality operator. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Another memory descriptor. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether this and the other memory descriptors describe different memory. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1503" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A memory descriptor. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/dnnl.hpp" line="1339" column="15" bodyfile="include/dnnl.hpp" bodystart="1339" bodyend="1504"/>
+    <listofallmembers>
+      <member refid="structdnnl_1_1memory_1_1desc_1ab3cb5e5f28d660a0105eb7580e5ab213" prot="public" virt="non-virtual"><scope>dnnl::memory::desc</scope><name>data_type</name></member>
+      <member refid="structdnnl_1_1memory_1_1desc_1a2a12f9b43aae8c214d695b321b543b5c" prot="public" virt="non-virtual"><scope>dnnl::memory::desc</scope><name>desc</name></member>
+      <member refid="structdnnl_1_1memory_1_1desc_1af8efdb0761b98bfe82d71786a4e1d39e" prot="public" virt="non-virtual"><scope>dnnl::memory::desc</scope><name>desc</name></member>
+      <member refid="structdnnl_1_1memory_1_1desc_1aa37dd11b790b39442c29cd74ea75a166" prot="public" virt="non-virtual"><scope>dnnl::memory::desc</scope><name>desc</name></member>
+      <member refid="structdnnl_1_1memory_1_1desc_1aaf95c174b7d7f5ea59646886719d0a2b" prot="public" virt="non-virtual"><scope>dnnl::memory::desc</scope><name>dims</name></member>
+      <member refid="structdnnl_1_1memory_1_1desc_1ac20108bc192912382aa4a95ae27df804" prot="public" virt="non-virtual"><scope>dnnl::memory::desc</scope><name>get_size</name></member>
+      <member refid="structdnnl_1_1memory_1_1desc_1aa162a1ba5621a799c8a909c726f021a2" prot="public" virt="non-virtual"><scope>dnnl::memory::desc</scope><name>is_zero</name></member>
+      <member refid="structdnnl_1_1memory_1_1desc_1a5a1bc8d3b88a2c304fd9535ea45fbb72" prot="public" virt="non-virtual"><scope>dnnl::memory::desc</scope><name>operator!=</name></member>
+      <member refid="structdnnl_1_1memory_1_1desc_1a9d623dab6f8a8ebc34b0da95814e3728" prot="public" virt="non-virtual"><scope>dnnl::memory::desc</scope><name>operator==</name></member>
+      <member refid="structdnnl_1_1memory_1_1desc_1a70e831b990a91d61bc44e57f6e895a83" prot="public" virt="non-virtual"><scope>dnnl::memory::desc</scope><name>permute_axes</name></member>
+      <member refid="structdnnl_1_1memory_1_1desc_1accdc5b253fedb7243c72a9ed4b3b3f7f" prot="public" virt="non-virtual"><scope>dnnl::memory::desc</scope><name>reshape</name></member>
+      <member refid="structdnnl_1_1memory_1_1desc_1a3573d45ed89399339ad2af05b8097a3a" prot="public" virt="non-virtual"><scope>dnnl::memory::desc</scope><name>submemory_desc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

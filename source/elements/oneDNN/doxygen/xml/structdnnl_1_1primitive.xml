@@ -1,0 +1,648 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structdnnl_1_1primitive" kind="struct" language="C++" prot="public">
+    <compoundname>dnnl::primitive</compoundname>
+    <derivedcompoundref refid="structdnnl_1_1batch__normalization__backward" prot="public" virt="non-virtual">dnnl::batch_normalization_backward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1batch__normalization__forward" prot="public" virt="non-virtual">dnnl::batch_normalization_forward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1binary" prot="public" virt="non-virtual">dnnl::binary</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1concat" prot="public" virt="non-virtual">dnnl::concat</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1convolution__backward__data" prot="public" virt="non-virtual">dnnl::convolution_backward_data</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1convolution__backward__weights" prot="public" virt="non-virtual">dnnl::convolution_backward_weights</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1convolution__forward" prot="public" virt="non-virtual">dnnl::convolution_forward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1deconvolution__backward__data" prot="public" virt="non-virtual">dnnl::deconvolution_backward_data</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1deconvolution__backward__weights" prot="public" virt="non-virtual">dnnl::deconvolution_backward_weights</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1deconvolution__forward" prot="public" virt="non-virtual">dnnl::deconvolution_forward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1eltwise__backward" prot="public" virt="non-virtual">dnnl::eltwise_backward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1eltwise__forward" prot="public" virt="non-virtual">dnnl::eltwise_forward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1gru__backward" prot="public" virt="non-virtual">dnnl::gru_backward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1gru__forward" prot="public" virt="non-virtual">dnnl::gru_forward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1inner__product__backward__data" prot="public" virt="non-virtual">dnnl::inner_product_backward_data</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1inner__product__backward__weights" prot="public" virt="non-virtual">dnnl::inner_product_backward_weights</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1inner__product__forward" prot="public" virt="non-virtual">dnnl::inner_product_forward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1layer__normalization__backward" prot="public" virt="non-virtual">dnnl::layer_normalization_backward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1layer__normalization__forward" prot="public" virt="non-virtual">dnnl::layer_normalization_forward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1lbr__gru__backward" prot="public" virt="non-virtual">dnnl::lbr_gru_backward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1lbr__gru__forward" prot="public" virt="non-virtual">dnnl::lbr_gru_forward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1logsoftmax__backward" prot="public" virt="non-virtual">dnnl::logsoftmax_backward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1logsoftmax__forward" prot="public" virt="non-virtual">dnnl::logsoftmax_forward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1lrn__backward" prot="public" virt="non-virtual">dnnl::lrn_backward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1lrn__forward" prot="public" virt="non-virtual">dnnl::lrn_forward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1lstm__backward" prot="public" virt="non-virtual">dnnl::lstm_backward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1lstm__forward" prot="public" virt="non-virtual">dnnl::lstm_forward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1matmul" prot="public" virt="non-virtual">dnnl::matmul</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1pooling__backward" prot="public" virt="non-virtual">dnnl::pooling_backward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1pooling__forward" prot="public" virt="non-virtual">dnnl::pooling_forward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1reorder" prot="public" virt="non-virtual">dnnl::reorder</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1resampling__backward" prot="public" virt="non-virtual">dnnl::resampling_backward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1resampling__forward" prot="public" virt="non-virtual">dnnl::resampling_forward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1shuffle__backward" prot="public" virt="non-virtual">dnnl::shuffle_backward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1shuffle__forward" prot="public" virt="non-virtual">dnnl::shuffle_forward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1softmax__backward" prot="public" virt="non-virtual">dnnl::softmax_backward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1softmax__forward" prot="public" virt="non-virtual">dnnl::softmax_forward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1sum" prot="public" virt="non-virtual">dnnl::sum</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1vanilla__rnn__backward" prot="public" virt="non-virtual">dnnl::vanilla_rnn_backward</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1vanilla__rnn__forward" prot="public" virt="non-virtual">dnnl::vanilla_rnn_forward</derivedcompoundref>
+    <includes refid="dnnl_8hpp" local="no">dnnl.hpp</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>kind</name>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169af31ee5e3824f1f5e5d206bdf3029f22b" prot="public">
+          <name>undef</name>
+          <briefdescription>
+<para>Undefined primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a8dbc5523c131d7900138d32d1dcbf093" prot="public">
+          <name>reorder</name>
+          <briefdescription>
+<para>A reorder primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a644c45fc2b003bf415a3fb655412508d" prot="public">
+          <name>shuffle</name>
+          <briefdescription>
+<para>A shuffle primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a414e7c8ede73a0c2c3d17699134f4080" prot="public">
+          <name>concat</name>
+          <briefdescription>
+<para>A (out-of-place) tensor concatenation primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a1d623b89683f9ce4e074de1676d12416" prot="public">
+          <name>sum</name>
+          <briefdescription>
+<para>A summation primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169aa9595c1c24c33b16056d2ad07e71682d" prot="public">
+          <name>convolution</name>
+          <briefdescription>
+<para>A convolution primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a2294014fceafa2f8ca8d16ad35f25875" prot="public">
+          <name>deconvolution</name>
+          <briefdescription>
+<para>A deconvolution primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a98b908c7d0339bb6a4832db44fc2c8da" prot="public">
+          <name>eltwise</name>
+          <briefdescription>
+<para>An element-wise primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169ace2f1fbd249d24aabc07ac4488ab5b8c" prot="public">
+          <name>softmax</name>
+          <briefdescription>
+<para>A softmax primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a4abcef116566139e94c82bb1bb37583f" prot="public">
+          <name>pooling</name>
+          <briefdescription>
+<para>A pooling primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a7d9c7d1747abfac2c3c3ff337712f575" prot="public">
+          <name>lrn</name>
+          <briefdescription>
+<para>An LRN primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a780789647a31acedb6477412a99154bb" prot="public">
+          <name>batch_normalization</name>
+          <briefdescription>
+<para>A batch normalization primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a40f3d68401fd64071877b5263c3d8706" prot="public">
+          <name>layer_normalization</name>
+          <briefdescription>
+<para>A layer normalization primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a30813812e3beef3eefcc2b97dc2e0783" prot="public">
+          <name>inner_product</name>
+          <briefdescription>
+<para>An inner product primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a6eed45b9327120cabad6916919a9a600" prot="public">
+          <name>rnn</name>
+          <briefdescription>
+<para>A rnn primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a9d7183f16acce70658f686ae7f1a4d20" prot="public">
+          <name>binary</name>
+          <briefdescription>
+<para>A binary primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a3e392964a863f0168f631708934c2acf" prot="public">
+          <name>logsoftmax</name>
+          <briefdescription>
+<para>A logsoftmax primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a0f2e1c85f0064ca22d3ac468c44b0327" prot="public">
+          <name>matmul</name>
+          <briefdescription>
+<para>A matmul (matrix multiplication) primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a4f9776b23053c32400f732de532df397" prot="public">
+          <name>resampling</name>
+          <briefdescription>
+<para>A resampling primitive. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Kinds of primitives supported by the library. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="64" column="20" bodyfile="include/dnnl.hpp" bodystart="64" bodyend="103"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structdnnl_1_1primitive_1a621390063073910b5a1bf8c25e30bc18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::primitive::primitive</definition>
+        <argsstring>()</argsstring>
+        <name>primitive</name>
+        <briefdescription>
+<para>Default constructor. Constructs an empty object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="106" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive_1a5c62a7df729fe0c22b5deb9afdbc337f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::primitive::primitive</definition>
+        <argsstring>(const primitive_desc_base &amp;pd)</argsstring>
+        <name>primitive</name>
+        <param>
+          <type>const <ref refid="structdnnl_1_1primitive__desc__base" kindref="compound">primitive_desc_base</ref> &amp;</type>
+          <declname>pd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a primitive from a primitive descriptor.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Primitive descriptor. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="111" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive_1af2fbde28f5dfa02647c1d78b02f9cab7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169" kindref="member">kind</ref></type>
+        <definition>kind dnnl::primitive::get_kind</definition>
+        <argsstring>() const</argsstring>
+        <name>get_kind</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the kind of the primitive.</para>
+<para><simplesect kind="return"><para>The primitive kind. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="116" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive_1ae2704b0577f2eaad1043256d8d619bc5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dnnl::primitive::execute</definition>
+        <argsstring>(stream &amp;stream, const std::unordered_map&lt; int, memory &gt; &amp;args) const</argsstring>
+        <name>execute</name>
+        <param>
+          <type><ref refid="structdnnl_1_1stream" kindref="compound">stream</ref> &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const std::unordered_map&lt; int, <ref refid="structdnnl_1_1memory" kindref="compound">memory</ref> &gt; &amp;</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes computations specified by the primitive in a specified stream.</para>
+<para>Arguments are passed via an arguments map containing &lt;index, memory object&gt; pairs. The index must be one of the <computeroutput>DNNL_ARG_*</computeroutput> values such as <computeroutput>DNNL_ARG_SRC</computeroutput>, and the memory must have a memory descriptor matching the one returned by <ref refid="structdnnl_1_1primitive__desc__base_1a35d24b553ba6aa807516e9470fdd7d16" kindref="member">primitive_desc::query_md</ref>(<ref refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1ad531896cf1d66c4832790f428623f164" kindref="member">query::exec_arg_md</ref>, index) unless using dynamic shapes (see <ref refid="group__dnnl__api__primitives__common_1gaa596c5a6102df77a550bad98f0d5cc12" kindref="member">DNNL_RUNTIME_DIM_VAL</ref>).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stream object. The stream must belong to the same engine as the primitive. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Arguments map. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="130" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive_1a5ce859d7357431fdeb50f308f9b22cf6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>cl::sycl::event</type>
+        <definition>cl::sycl::event dnnl::primitive::execute_sycl</definition>
+        <argsstring>(stream &amp;stream, const std::unordered_map&lt; int, memory &gt; &amp;args, const std::vector&lt; cl::sycl::event &gt; &amp;deps={}) const</argsstring>
+        <name>execute_sycl</name>
+        <param>
+          <type><ref refid="structdnnl_1_1stream" kindref="compound">stream</ref> &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>const std::unordered_map&lt; int, <ref refid="structdnnl_1_1memory" kindref="compound">memory</ref> &gt; &amp;</type>
+          <declname>args</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; cl::sycl::event &gt; &amp;</type>
+          <declname>deps</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes computations specified by the primitive in a specified stream.</para>
+<para>Arguments are passed via an arguments map containing &lt;index, memory object&gt; pairs. The index must be one of the <computeroutput>DNNL_ARG_*</computeroutput> values such as <computeroutput>DNNL_ARG_SRC</computeroutput>, and the memory must have a memory descriptor matching the one returned by <ref refid="structdnnl_1_1primitive__desc__base_1a35d24b553ba6aa807516e9470fdd7d16" kindref="member">primitive_desc::query_md</ref>(<ref refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1ad531896cf1d66c4832790f428623f164" kindref="member">query::exec_arg_md</ref>, index) unless using dynamic shapes (see <ref refid="group__dnnl__api__primitives__common_1gaa596c5a6102df77a550bad98f0d5cc12" kindref="member">DNNL_RUNTIME_DIM_VAL</ref>).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stream object. The stream must belong to the same engine as the primitive. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Arguments map. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deps</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional vector with <computeroutput>cl::sycl::event</computeroutput> dependencies. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="147" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive_1ab9f980d33289778feed22fa599700858" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1primitive" kindref="compound">primitive</ref> &amp;</type>
+        <definition>primitive&amp; dnnl::primitive::operator=</definition>
+        <argsstring>(const primitive &amp;rhs)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structdnnl_1_1primitive" kindref="compound">primitive</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Assignment operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="152" column="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Base class for all computational primitives. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="26">
+        <label>dnnl::lrn_forward</label>
+        <link refid="structdnnl_1_1lrn__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>dnnl::deconvolution_backward_weights</label>
+        <link refid="structdnnl_1_1deconvolution__backward__weights"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>dnnl::inner_product_backward_weights</label>
+        <link refid="structdnnl_1_1inner__product__backward__weights"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>dnnl::pooling_backward</label>
+        <link refid="structdnnl_1_1pooling__backward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>dnnl::pooling_forward</label>
+        <link refid="structdnnl_1_1pooling__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>dnnl::layer_normalization_backward</label>
+        <link refid="structdnnl_1_1layer__normalization__backward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>dnnl::resampling_forward</label>
+        <link refid="structdnnl_1_1resampling__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>dnnl::softmax_forward</label>
+        <link refid="structdnnl_1_1softmax__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>dnnl::lstm_forward</label>
+        <link refid="structdnnl_1_1lstm__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>dnnl::vanilla_rnn_backward</label>
+        <link refid="structdnnl_1_1vanilla__rnn__backward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>dnnl::eltwise_forward</label>
+        <link refid="structdnnl_1_1eltwise__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>dnnl::layer_normalization_forward</label>
+        <link refid="structdnnl_1_1layer__normalization__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>dnnl::convolution_backward_weights</label>
+        <link refid="structdnnl_1_1convolution__backward__weights"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>dnnl::deconvolution_backward_data</label>
+        <link refid="structdnnl_1_1deconvolution__backward__data"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>dnnl::inner_product_backward_data</label>
+        <link refid="structdnnl_1_1inner__product__backward__data"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>dnnl::deconvolution_forward</label>
+        <link refid="structdnnl_1_1deconvolution__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>dnnl::binary</label>
+        <link refid="structdnnl_1_1binary"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>dnnl::lstm_backward</label>
+        <link refid="structdnnl_1_1lstm__backward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>dnnl::eltwise_backward</label>
+        <link refid="structdnnl_1_1eltwise__backward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>dnnl::reorder</label>
+        <link refid="structdnnl_1_1reorder"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>dnnl::lbr_gru_forward</label>
+        <link refid="structdnnl_1_1lbr__gru__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>dnnl::softmax_backward</label>
+        <link refid="structdnnl_1_1softmax__backward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>dnnl::gru_backward</label>
+        <link refid="structdnnl_1_1gru__backward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>dnnl::shuffle_backward</label>
+        <link refid="structdnnl_1_1shuffle__backward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>dnnl::concat</label>
+        <link refid="structdnnl_1_1concat"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>dnnl::resampling_backward</label>
+        <link refid="structdnnl_1_1resampling__backward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>dnnl::convolution_backward_data</label>
+        <link refid="structdnnl_1_1convolution__backward__data"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>dnnl::batch_normalization_forward</label>
+        <link refid="structdnnl_1_1batch__normalization__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>dnnl::shuffle_forward</label>
+        <link refid="structdnnl_1_1shuffle__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>dnnl::vanilla_rnn_forward</label>
+        <link refid="structdnnl_1_1vanilla__rnn__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>dnnl::logsoftmax_forward</label>
+        <link refid="structdnnl_1_1logsoftmax__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>dnnl::sum</label>
+        <link refid="structdnnl_1_1sum"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>dnnl::convolution_forward</label>
+        <link refid="structdnnl_1_1convolution__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>dnnl::lbr_gru_backward</label>
+        <link refid="structdnnl_1_1lbr__gru__backward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>dnnl::lrn_backward</label>
+        <link refid="structdnnl_1_1lrn__backward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>dnnl::matmul</label>
+        <link refid="structdnnl_1_1matmul"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>dnnl::logsoftmax_backward</label>
+        <link refid="structdnnl_1_1logsoftmax__backward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>dnnl::primitive</label>
+        <link refid="structdnnl_1_1primitive"/>
+      </node>
+      <node id="18">
+        <label>dnnl::inner_product_forward</label>
+        <link refid="structdnnl_1_1inner__product__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>dnnl::batch_normalization_backward</label>
+        <link refid="structdnnl_1_1batch__normalization__backward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>dnnl::gru_forward</label>
+        <link refid="structdnnl_1_1gru__forward"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="include/dnnl.hpp" line="62" column="16" bodyfile="include/dnnl.hpp" bodystart="62" bodyend="153"/>
+    <listofallmembers>
+      <member refid="structdnnl_1_1primitive_1ae2704b0577f2eaad1043256d8d619bc5" prot="public" virt="non-virtual"><scope>dnnl::primitive</scope><name>execute</name></member>
+      <member refid="structdnnl_1_1primitive_1a5ce859d7357431fdeb50f308f9b22cf6" prot="public" virt="non-virtual"><scope>dnnl::primitive</scope><name>execute_sycl</name></member>
+      <member refid="structdnnl_1_1primitive_1af2fbde28f5dfa02647c1d78b02f9cab7" prot="public" virt="non-virtual"><scope>dnnl::primitive</scope><name>get_kind</name></member>
+      <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169" prot="public" virt="non-virtual"><scope>dnnl::primitive</scope><name>kind</name></member>
+      <member refid="structdnnl_1_1primitive_1ab9f980d33289778feed22fa599700858" prot="public" virt="non-virtual"><scope>dnnl::primitive</scope><name>operator=</name></member>
+      <member refid="structdnnl_1_1primitive_1a621390063073910b5a1bf8c25e30bc18" prot="public" virt="non-virtual"><scope>dnnl::primitive</scope><name>primitive</name></member>
+      <member refid="structdnnl_1_1primitive_1a5c62a7df729fe0c22b5deb9afdbc337f" prot="public" virt="non-virtual"><scope>dnnl::primitive</scope><name>primitive</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

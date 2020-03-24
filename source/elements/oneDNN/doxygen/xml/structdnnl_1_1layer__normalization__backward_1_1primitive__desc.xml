@@ -1,0 +1,394 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structdnnl_1_1layer__normalization__backward_1_1primitive__desc" kind="struct" language="C++" prot="public">
+    <compoundname>dnnl::layer_normalization_backward::primitive_desc</compoundname>
+    <basecompoundref refid="structdnnl_1_1primitive__desc" prot="public" virt="non-virtual">dnnl::primitive_desc</basecompoundref>
+    <includes refid="dnnl_8hpp" local="no">dnnl.hpp</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a3fd5a4fe60b0d6b0ac87c4e786eb8653" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::layer_normalization_backward::primitive_desc::primitive_desc</definition>
+        <argsstring>()</argsstring>
+        <name>primitive_desc</name>
+        <briefdescription>
+<para>Default constructor. Produces an empty object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="4435" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a889efeceec03df5619fd51bf7bc66ba5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::layer_normalization_backward::primitive_desc::primitive_desc</definition>
+        <argsstring>(const desc &amp;desc, const engine &amp;engine, const layer_normalization_forward::primitive_desc &amp;hint_fwd_pd, bool allow_empty=false)</argsstring>
+        <name>primitive_desc</name>
+        <param>
+          <type>const <ref refid="structdnnl_1_1layer__normalization__backward_1_1desc" kindref="compound">desc</ref> &amp;</type>
+          <declname>desc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1engine" kindref="compound">engine</ref> &amp;</type>
+          <declname>engine</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1layer__normalization__forward_1_1primitive__desc" kindref="compound">layer_normalization_forward::primitive_desc</ref> &amp;</type>
+          <declname>hint_fwd_pd</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>allow_empty</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a primitive descriptor for a layer normalization backward propagation primitive.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Descriptor for a layer normalization backward propagation primitive. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>engine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Engine to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hint_fwd_pd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Primitive descriptor for a layer normalization forward propagation primitive. It is used as a hint for deciding which memory format to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>allow_empty</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A flag signifying whether construction is allowed to fail without throwing an exception. In this case an empty object will be produced. This flag is optional and defaults to false. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="4450" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a466ce020e23c87e4b4a307d36a59860a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::layer_normalization_backward::primitive_desc::primitive_desc</definition>
+        <argsstring>(const desc &amp;desc, const primitive_attr &amp;attr, const engine &amp;engine, const layer_normalization_forward::primitive_desc &amp;hint_fwd_pd, bool allow_empty=false)</argsstring>
+        <name>primitive_desc</name>
+        <param>
+          <type>const <ref refid="structdnnl_1_1layer__normalization__backward_1_1desc" kindref="compound">desc</ref> &amp;</type>
+          <declname>desc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1primitive__attr" kindref="compound">primitive_attr</ref> &amp;</type>
+          <declname>attr</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1engine" kindref="compound">engine</ref> &amp;</type>
+          <declname>engine</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1layer__normalization__forward_1_1primitive__desc" kindref="compound">layer_normalization_forward::primitive_desc</ref> &amp;</type>
+          <declname>hint_fwd_pd</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>allow_empty</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a primitive descriptor for a layer normalization backward propagation primitive.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Descriptor for a layer normalization backward propagation primitive. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>attr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Primitive attributes to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>engine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Engine to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hint_fwd_pd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Primitive descriptor for a layer normalization forward propagation primitive. It is used as a hint for deciding which memory format to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>allow_empty</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A flag signifying whether construction is allowed to fail without throwing an exception. In this case an empty object will be produced. This flag is optional and defaults to false. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="4468" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1ae18d68c7b8ed354031031146b9c9b396" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::layer_normalization_backward::primitive_desc::src_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>src_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a source memory descriptor. <simplesect kind="return"><para>Source memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a source parameter. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="4474" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a9d1aca510d293af15665f20c5f8250f2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::layer_normalization_backward::primitive_desc::weights_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>weights_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a weights memory descriptor. <simplesect kind="return"><para>Weights memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a weights parameter. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="4477" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a7161632174cf25ba1095fb349c89abee" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::layer_normalization_backward::primitive_desc::dst_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>dst_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a destination memory descriptor. <simplesect kind="return"><para>Destination memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a destination parameter. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="4480" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a38933c147bf1f8ab11ce77737f4a7e3a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::layer_normalization_backward::primitive_desc::diff_src_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>diff_src_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a diff source memory descriptor. <simplesect kind="return"><para>Diff source memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a diff source memory with. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="4483" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a676cc7c7737c4ae08f340747033fb6c0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::layer_normalization_backward::primitive_desc::diff_dst_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>diff_dst_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a diff destination memory descriptor. <simplesect kind="return"><para>Diff destination memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a diff destination parameter. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="4486" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1aab2ef19d90df6c0334cbb4031d2ecf38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::layer_normalization_backward::primitive_desc::diff_weights_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>diff_weights_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a diff weights memory descriptor. <simplesect kind="return"><para>Diff weights memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a diff weights parameter. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="4489" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a3942862c9c754407d4dd2cc09e34c6b3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::layer_normalization_backward::primitive_desc::mean_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>mean_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns memory descriptor for mean. <simplesect kind="return"><para>Memory descriptor for mean. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="4492" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a83855eaf5a4b1f9cf99f82db527bef16" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::layer_normalization_backward::primitive_desc::variance_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>variance_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns memory descriptor for variance. <simplesect kind="return"><para>Memory descriptor for variance. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="4495" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a4a859f92c4cc99b57510b6135eff5e8e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::layer_normalization_backward::primitive_desc::workspace_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>workspace_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the workspace memory descriptor. <simplesect kind="return"><para>Workspace memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not require workspace parameter. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="4498" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Primitive descriptor for a layer normalization backward propagation primitive. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>dnnl::layer_normalization_backward::primitive_desc</label>
+        <link refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>dnnl::primitive_desc_base</label>
+        <link refid="structdnnl_1_1primitive__desc__base"/>
+      </node>
+      <node id="2">
+        <label>dnnl::primitive_desc</label>
+        <link refid="structdnnl_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>dnnl::layer_normalization_backward::primitive_desc</label>
+        <link refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>dnnl::primitive_desc_base</label>
+        <link refid="structdnnl_1_1primitive__desc__base"/>
+      </node>
+      <node id="2">
+        <label>dnnl::primitive_desc</label>
+        <link refid="structdnnl_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/dnnl.hpp" line="4433" column="53" bodyfile="include/dnnl.hpp" bodystart="4433" bodyend="4499"/>
+    <listofallmembers>
+      <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a676cc7c7737c4ae08f340747033fb6c0" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>diff_dst_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a60f17d04c493c42e4a50ad5feff5c8ca" prot="public" virt="non-virtual" ambiguityscope="dnnl::primitive_desc::"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>diff_dst_desc</name></member>
+      <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a38933c147bf1f8ab11ce77737f4a7e3a" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>diff_src_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a733e6ff4e78a758e69ae6232e8955871" prot="public" virt="non-virtual" ambiguityscope="dnnl::primitive_desc::"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>diff_src_desc</name></member>
+      <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1aab2ef19d90df6c0334cbb4031d2ecf38" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>diff_weights_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a192f7b334efac9a5ac20344a76d4d552" prot="public" virt="non-virtual" ambiguityscope="dnnl::primitive_desc::"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>diff_weights_desc</name></member>
+      <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a7161632174cf25ba1095fb349c89abee" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>dst_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a495ee7c8e1ec3eab35f6329fdcd352bb" prot="public" virt="non-virtual" ambiguityscope="dnnl::primitive_desc::"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>dst_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a32f7477c79e715a341bb9127df521fbc" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>get_engine</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a0ef600ea3666f0fd93c9c5d112aaf05c" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>get_primitive_attr</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1ae680492d4e4b16a938cfc051e5c906be" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>impl_info_str</name></member>
+      <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a3942862c9c754407d4dd2cc09e34c6b3" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>mean_desc</name></member>
+      <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a3fd5a4fe60b0d6b0ac87c4e786eb8653" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>primitive_desc</name></member>
+      <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a889efeceec03df5619fd51bf7bc66ba5" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>primitive_desc</name></member>
+      <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a466ce020e23c87e4b4a307d36a59860a" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>primitive_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1abaec6897940cf14b0b3113a593ec5dbf" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>primitive_desc_base</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a35d24b553ba6aa807516e9470fdd7d16" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>query_md</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1acbedc4257eaa26f868356f9f594a856a" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>query_s64</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a6238358ec03afd57fb20dffa65b48d2f" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>scratchpad_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1ad4079e0891373bd2dc841f3f94cf47ed" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>scratchpad_engine</name></member>
+      <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1ae18d68c7b8ed354031031146b9c9b396" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>src_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43" prot="public" virt="non-virtual" ambiguityscope="dnnl::primitive_desc::"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>src_desc</name></member>
+      <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a83855eaf5a4b1f9cf99f82db527bef16" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>variance_desc</name></member>
+      <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a9d1aca510d293af15665f20c5f8250f2" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>weights_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1acb13d08987cca8d8f05ec4858fa61fb4" prot="public" virt="non-virtual" ambiguityscope="dnnl::primitive_desc::"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>weights_desc</name></member>
+      <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a4a859f92c4cc99b57510b6135eff5e8e" prot="public" virt="non-virtual"><scope>dnnl::layer_normalization_backward::primitive_desc</scope><name>workspace_desc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

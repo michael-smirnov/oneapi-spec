@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structdnnl_1_1batch__normalization__backward_1_1desc" kind="struct" language="C++" prot="public">
+    <compoundname>dnnl::batch_normalization_backward::desc</compoundname>
+    <includes refid="dnnl_8hpp" local="no">dnnl.hpp</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structdnnl_1_1batch__normalization__backward_1_1desc_1a2f6c9c84d30a74a2e84c239212ca155a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::batch_normalization_backward::desc::desc</definition>
+        <argsstring>(prop_kind prop_kind, const memory::desc &amp;diff_data_desc, const memory::desc &amp;data_desc, float epsilon, normalization_flags flags)</argsstring>
+        <name>desc</name>
+        <param>
+          <type><ref refid="group__dnnl__api__attributes_1gac7db48f6583aa9903e54c2a39d65438f" kindref="member">prop_kind</ref></type>
+          <declname>prop_kind</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref> &amp;</type>
+          <declname>diff_data_desc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref> &amp;</type>
+          <declname>data_desc</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>epsilon</declname>
+        </param>
+        <param>
+          <type><ref refid="group__dnnl__api__primitives__common_1gad8ef0fcbb7b10cae3d67dd46892002be" kindref="member">normalization_flags</ref></type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a batch normalization descriptor for backward propagation.</para>
+<para>Inputs:<itemizedlist>
+<listitem><para><computeroutput>src</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43" kindref="member">dnnl::primitive_desc_base::src_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem><listitem><para><computeroutput>mean</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43" kindref="member">dnnl::primitive_desc_base::src_desc</ref> (<computeroutput>1</computeroutput>))</para>
+</listitem><listitem><para><computeroutput>variance</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43" kindref="member">dnnl::primitive_desc_base::src_desc</ref> (<computeroutput>2</computeroutput>))</para>
+</listitem><listitem><para><computeroutput>diff_dst</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1a60f17d04c493c42e4a50ad5feff5c8ca" kindref="member">dnnl::primitive_desc_base::diff_dst_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem><listitem><para><computeroutput>scale_and_shift</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1acb13d08987cca8d8f05ec4858fa61fb4" kindref="member">dnnl::primitive_desc_base::weights_desc</ref> (<computeroutput>0</computeroutput>)), if <ref refid="group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea0cbad8a346551ec47da7ff1afb1e1f76" kindref="member">dnnl::normalization_flags::use_scale_shift</ref> bit-flag is set in <computeroutput>flags</computeroutput> </para>
+</listitem><listitem><para><computeroutput>workspace</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1ad26f416a149cb44cc5cfc130012c614e" kindref="member">dnnl::primitive_desc_base::workspace_desc</ref> (<computeroutput>0</computeroutput>)), if <ref refid="group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea898ce555425ee54271096bc9c8e0400c" kindref="member">dnnl::normalization_flags::fuse_norm_relu</ref> bit-flag is set in <computeroutput>flags</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+<para>Outputs:<itemizedlist>
+<listitem><para><computeroutput>diff_src</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1a733e6ff4e78a758e69ae6232e8955871" kindref="member">dnnl::primitive_desc_base::diff_src_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem><listitem><para>diff_scale_and_shift (<ref refid="structdnnl_1_1primitive__desc__base_1a192f7b334efac9a5ac20344a76d4d552" kindref="member">dnnl::primitive_desc_base::diff_weights_desc</ref> (<computeroutput>0</computeroutput>)), if <ref refid="group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea0cbad8a346551ec47da7ff1afb1e1f76" kindref="member">dnnl::normalization_flags::use_scale_shift</ref> bitflags is set in <computeroutput>flags</computeroutput> and <computeroutput>prop_kind</computeroutput> = <ref refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa195fe59b6f103787a914aead0f3db502" kindref="member">dnnl::prop_kind::backward</ref></para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prop_kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Propagation kind. Possible values are <ref refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438faa12627cacf73ecb7ef088beedd650e96" kindref="member">dnnl::prop_kind::backward_data</ref> and <ref refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa195fe59b6f103787a914aead0f3db502" kindref="member">dnnl::prop_kind::backward</ref> (diffs for all parameters are computed in this case). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>diff_data_desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Diff source and diff destination memory descriptor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data_desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source memory descriptor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>epsilon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Batch normalization epsilon parameter. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Batch normalization flags (<ref refid="group__dnnl__api__primitives__common_1gad8ef0fcbb7b10cae3d67dd46892002be" kindref="member">dnnl::normalization_flags</ref>). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="4115" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Descriptor for a batch normalization backward propagation primitive. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/dnnl.hpp" line="4083" column="15" bodyfile="include/dnnl.hpp" bodystart="4083" bodyend="4118"/>
+    <listofallmembers>
+      <member refid="structdnnl_1_1batch__normalization__backward_1_1desc_1a2f6c9c84d30a74a2e84c239212ca155a" prot="public" virt="non-virtual"><scope>dnnl::batch_normalization_backward::desc</scope><name>desc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

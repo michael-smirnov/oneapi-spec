@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structvplm__cl__image" kind="struct" language="C++" prot="public">
+    <compoundname>vplm_cl_image</compoundname>
+    <includes refid="vplm__opencl_8h" local="no">vplm_opencl.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structvplm__cl__image_1acd34cecb53f16c987201b3b6e1a00e62" prot="public" static="no" mutable="no">
+        <type>uintptr_t</type>
+        <definition>uintptr_t vplm_cl_image::priv</definition>
+        <argsstring></argsstring>
+        <name>priv</name>
+        <briefdescription>
+<para>Private data assigned to the object by VPL Memory library. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Do not modify this field. Otherwise library behavior is undefined. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="39" column="15" bodyfile="include/vplmemory/vplm_opencl.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__cl__image_1a55201b1d63ff7157c3c1f9c2f79a4ad2" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref> *</type>
+        <definition>vplm_mem* vplm_cl_image::memory</definition>
+        <argsstring></argsstring>
+        <name>memory</name>
+        <briefdescription>
+<para>Memory handle from which this CL representation was derived. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="42" column="14" bodyfile="include/vplmemory/vplm_opencl.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__cl__image_1a8eb2ddaeb5a7af43ab4a7a083e0bf199" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t vplm_cl_image::num_planes</definition>
+        <argsstring></argsstring>
+        <name>num_planes</name>
+        <briefdescription>
+<para>Number of planes composing CL representation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="45" column="12" bodyfile="include/vplmemory/vplm_opencl.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__cl__image_1aaa20e50bcac500a71f8405d4c57cc183" prot="public" static="no" mutable="no">
+        <type>cl_mem</type>
+        <definition>cl_mem vplm_cl_image::clmem</definition>
+        <argsstring></argsstring>
+        <name>clmem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="49" column="16" bodyfile="include/vplmemory/vplm_opencl.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__cl__image_1a6a6c5757be2f5bf4838c7166ebc9d150" prot="public" static="no" mutable="no">
+        <type>struct vplm_cl_image::@3</type>
+        <definition>struct vplm_cl_image::@3 vplm_cl_image::planes[VPLM_IMAGE_MAX_PLANES]</definition>
+        <argsstring>[VPLM_IMAGE_MAX_PLANES]</argsstring>
+        <name>planes</name>
+        <briefdescription>
+<para>Per-plane description. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="50" column="35"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>OpenCL image representation. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>_vplm_vtable</label>
+        <link refid="struct__vplm__vtable"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>va</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>cl</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>_vplm_va_vtable</label>
+        <link refid="struct__vplm__va__vtable"/>
+      </node>
+      <node id="1">
+        <label>vplm_cl_image</label>
+        <link refid="structvplm__cl__image"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>memory</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>_vplm_cl_vtable</label>
+        <link refid="struct__vplm__cl__vtable"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/vplmemory/vplm_opencl.h" line="34" column="15" bodyfile="include/vplmemory/vplm_opencl.h" bodystart="34" bodyend="51"/>
+    <listofallmembers>
+      <member refid="structvplm__cl__image_1aaa20e50bcac500a71f8405d4c57cc183" prot="public" virt="non-virtual"><scope>vplm_cl_image</scope><name>clmem</name></member>
+      <member refid="structvplm__cl__image_1a55201b1d63ff7157c3c1f9c2f79a4ad2" prot="public" virt="non-virtual"><scope>vplm_cl_image</scope><name>memory</name></member>
+      <member refid="structvplm__cl__image_1a8eb2ddaeb5a7af43ab4a7a083e0bf199" prot="public" virt="non-virtual"><scope>vplm_cl_image</scope><name>num_planes</name></member>
+      <member refid="structvplm__cl__image_1a6a6c5757be2f5bf4838c7166ebc9d150" prot="public" virt="non-virtual"><scope>vplm_cl_image</scope><name>planes</name></member>
+      <member refid="structvplm__cl__image_1acd34cecb53f16c987201b3b6e1a00e62" prot="public" virt="non-virtual"><scope>vplm_cl_image</scope><name>priv</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

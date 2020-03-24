@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="struct__vplm__cl__vtable" kind="struct" language="C++" prot="public">
+    <compoundname>_vplm_cl_vtable</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__vplm__cl__vtable_1ab98e581a008ab58bdc76578ae58bf3d6" prot="public" static="no" mutable="no">
+        <type>size_t(*</type>
+        <definition>size_t(* _vplm_cl_vtable::query_queues) (const vplm_mem *mem, cl_command_queue *queues, size_t num_queues)</definition>
+        <argsstring>)(const vplm_mem *mem, cl_command_queue *queues, size_t num_queues)</argsstring>
+        <name>query_queues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="57" column="5" bodyfile="include/vplmemory/vplm_opencl.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__cl__vtable_1ad6806ce36e44028c1614162eff467b20" prot="public" static="no" mutable="no">
+        <type>vplm_status(*</type>
+        <definition>vplm_status(* _vplm_cl_vtable::get_image) (const vplm_mem *mem, cl_command_queue queue, vplm_cl_image *clmem)</definition>
+        <argsstring>)(const vplm_mem *mem, cl_command_queue queue, vplm_cl_image *clmem)</argsstring>
+        <name>get_image</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="59" column="5" bodyfile="include/vplmemory/vplm_opencl.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__cl__vtable_1a69dad2fedf0f6d0c7178de022d523b04" prot="public" static="no" mutable="no">
+        <type>vplm_status(*</type>
+        <definition>vplm_status(* _vplm_cl_vtable::begin_image_access) (const vplm_cl_image *image, cl_uint num_events_in_wait_list, const cl_event *event_wait_list, cl_event *event)</definition>
+        <argsstring>)(const vplm_cl_image *image, cl_uint num_events_in_wait_list, const cl_event *event_wait_list, cl_event *event)</argsstring>
+        <name>begin_image_access</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="61" column="5" bodyfile="include/vplmemory/vplm_opencl.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__cl__vtable_1afc253ffe3f67c411517e5e885bf436bc" prot="public" static="no" mutable="no">
+        <type>vplm_status(*</type>
+        <definition>vplm_status(* _vplm_cl_vtable::end_image_access) (const vplm_cl_image *image, cl_uint num_events_in_wait_list, const cl_event *event_wait_list, cl_event *event)</definition>
+        <argsstring>)(const vplm_cl_image *image, cl_uint num_events_in_wait_list, const cl_event *event_wait_list, cl_event *event)</argsstring>
+        <name>end_image_access</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="67" column="5" bodyfile="include/vplmemory/vplm_opencl.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vplmemory/vplm_opencl.h" line="56" column="30" bodyfile="include/vplmemory/vplm_opencl.h" bodystart="56" bodyend="72"/>
+    <listofallmembers>
+      <member refid="struct__vplm__cl__vtable_1a69dad2fedf0f6d0c7178de022d523b04" prot="public" virt="non-virtual"><scope>_vplm_cl_vtable</scope><name>begin_image_access</name></member>
+      <member refid="struct__vplm__cl__vtable_1afc253ffe3f67c411517e5e885bf436bc" prot="public" virt="non-virtual"><scope>_vplm_cl_vtable</scope><name>end_image_access</name></member>
+      <member refid="struct__vplm__cl__vtable_1ad6806ce36e44028c1614162eff467b20" prot="public" virt="non-virtual"><scope>_vplm_cl_vtable</scope><name>get_image</name></member>
+      <member refid="struct__vplm__cl__vtable_1ab98e581a008ab58bdc76578ae58bf3d6" prot="public" virt="non-virtual"><scope>_vplm_cl_vtable</scope><name>query_queues</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="group__dnnl__api__engine" kind="group">
+    <compoundname>dnnl_api_engine</compoundname>
+    <title>Engine</title>
+    <innerclass refid="structdnnl_1_1engine" prot="public">dnnl::engine</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>An abstraction of a computational device: a CPU, a specific GPU card in the system, etc. Most primitives are created to execute computations on one specific engine. The only exceptions are reorder primitives that transfer data between two different engines. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

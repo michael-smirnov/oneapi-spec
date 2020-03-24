@@ -1,0 +1,784 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structdnnl_1_1primitive__desc__base" kind="struct" language="C++" prot="public">
+    <compoundname>dnnl::primitive_desc_base</compoundname>
+    <derivedcompoundref refid="structdnnl_1_1concat_1_1primitive__desc" prot="public" virt="non-virtual">dnnl::concat::primitive_desc</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1primitive__desc" prot="public" virt="non-virtual">dnnl::primitive_desc</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1reorder_1_1primitive__desc" prot="public" virt="non-virtual">dnnl::reorder::primitive_desc</derivedcompoundref>
+    <derivedcompoundref refid="structdnnl_1_1sum_1_1primitive__desc" prot="public" virt="non-virtual">dnnl::sum::primitive_desc</derivedcompoundref>
+    <includes refid="dnnl_8hpp" local="no">dnnl.hpp</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1abaec6897940cf14b0b3113a593ec5dbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::primitive_desc_base::primitive_desc_base</definition>
+        <argsstring>()</argsstring>
+        <name>primitive_desc_base</name>
+        <briefdescription>
+<para>Default constructor. Produces an empty object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1584" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1a32f7477c79e715a341bb9127df521fbc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1engine" kindref="compound">engine</ref></type>
+        <definition>engine dnnl::primitive_desc_base::get_engine</definition>
+        <argsstring>() const</argsstring>
+        <name>get_engine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the engine of the primitive descriptor. <simplesect kind="return"><para>The engine of the primitive descriptor. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1588" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1ae680492d4e4b16a938cfc051e5c906be" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* dnnl::primitive_desc_base::impl_info_str</definition>
+        <argsstring>() const</argsstring>
+        <name>impl_info_str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns implementation name. <simplesect kind="return"><para>the implementation name. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1592" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1acbedc4257eaa26f868356f9f594a856a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1af647d5cd96f05e7876a5826ac83d9bd6" kindref="member">memory::dim</ref></type>
+        <definition>memory::dim dnnl::primitive_desc_base::query_s64</definition>
+        <argsstring>(query what) const</argsstring>
+        <name>query_s64</name>
+        <param>
+          <type><ref refid="group__dnnl__api__primitives__common_1ga94efdd650364f4d9776cfb9b711cbdc1" kindref="member">query</ref></type>
+          <declname>what</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a <ref refid="structdnnl_1_1memory_1af647d5cd96f05e7876a5826ac83d9bd6" kindref="member">memory::dim</ref> value (same as int64_t). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value to query. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The result of the query. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1597" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1a35d24b553ba6aa807516e9470fdd7d16" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::primitive_desc_base::query_md</definition>
+        <argsstring>(query what, int idx=0) const</argsstring>
+        <name>query_md</name>
+        <param>
+          <type><ref refid="group__dnnl__api__primitives__common_1ga94efdd650364f4d9776cfb9b711cbdc1" kindref="member">query</ref></type>
+          <declname>what</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a memory descriptor.</para>
+<para><simplesect kind="note"><para>There are convenience methods <ref refid="structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43" kindref="member">dnnl::primitive_desc_base::src_desc()</ref>, <ref refid="structdnnl_1_1primitive__desc__base_1a495ee7c8e1ec3eab35f6329fdcd352bb" kindref="member">dnnl::primitive_desc_base::dst_desc()</ref>, and others.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The kind of parameter to query; can be <ref refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a90a729e395453e1d9411ad416c796819" kindref="member">dnnl::query::src_md</ref>, <ref refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a701158248eed4e5fc84610f2f6026493" kindref="member">dnnl::query::dst_md</ref>, etc. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the parameter. For example, convolution bias can be queried with what = <ref refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a06ba7b00a8c95dcf3a90e16d00eeb0e9" kindref="member">dnnl::query::weights_md</ref> and idx = 1. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The requested memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a parameter of the specified kind or index. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1613" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::primitive_desc_base::src_desc</definition>
+        <argsstring>(int idx) const</argsstring>
+        <name>src_desc</name>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a source memory descriptor. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source index. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Source memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a source parameter with index <computeroutput>pdx</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1620" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1a495ee7c8e1ec3eab35f6329fdcd352bb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::primitive_desc_base::dst_desc</definition>
+        <argsstring>(int idx) const</argsstring>
+        <name>dst_desc</name>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a destination memory descriptor. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination index. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Destination memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a destination parameter with index <computeroutput>pdx</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1627" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1acb13d08987cca8d8f05ec4858fa61fb4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::primitive_desc_base::weights_desc</definition>
+        <argsstring>(int idx) const</argsstring>
+        <name>weights_desc</name>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a weights memory descriptor. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Weights index. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Weights memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a weights parameter with index <computeroutput>pdx</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1634" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1a733e6ff4e78a758e69ae6232e8955871" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::primitive_desc_base::diff_src_desc</definition>
+        <argsstring>(int idx) const</argsstring>
+        <name>diff_src_desc</name>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a diff source memory descriptor. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Diff source index. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Diff source memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a diff source parameter with index <computeroutput>pdx</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1641" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1a60f17d04c493c42e4a50ad5feff5c8ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::primitive_desc_base::diff_dst_desc</definition>
+        <argsstring>(int idx) const</argsstring>
+        <name>diff_dst_desc</name>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a diff destination memory descriptor. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Diff destination index. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Diff destination memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a diff destination parameter with index <computeroutput>pdx</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1648" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1a192f7b334efac9a5ac20344a76d4d552" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::primitive_desc_base::diff_weights_desc</definition>
+        <argsstring>(int idx) const</argsstring>
+        <name>diff_weights_desc</name>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a diff weights memory descriptor. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Diff weights index. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Diff weights memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a diff weights parameter with index <computeroutput>pdx</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1655" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1af48dcff294cadb2916fd784b8474d221" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::primitive_desc_base::src_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>src_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a source memory descriptor. <simplesect kind="return"><para>Source memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a source parameter. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1664" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1addbec977643a7900f4156f7aab3fb4db" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::primitive_desc_base::dst_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>dst_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a destination memory descriptor. <simplesect kind="return"><para>Destination memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a destination parameter. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1670" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1a93f0904566b399874c47b3b1ad3d1495" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::primitive_desc_base::weights_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>weights_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a weights memory descriptor. <simplesect kind="return"><para>Weights memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a weights parameter. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1676" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1ab4268c6bb70dd6c22de43141cc301b77" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::primitive_desc_base::diff_src_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>diff_src_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a diff source memory descriptor. <simplesect kind="return"><para>Diff source memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a diff source memory with. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1682" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1a6b9fb7da987329256c04db6ecbb9dc36" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::primitive_desc_base::diff_dst_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>diff_dst_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a diff destination memory descriptor. <simplesect kind="return"><para>Diff destination memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a diff destination parameter. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1688" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1af51378982968e2b4f7abb6a32acfb0af" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::primitive_desc_base::diff_weights_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>diff_weights_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a diff weights memory descriptor. <simplesect kind="return"><para>Diff weights memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a diff weights parameter. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1694" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1ad26f416a149cb44cc5cfc130012c614e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::primitive_desc_base::workspace_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>workspace_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the workspace memory descriptor. <simplesect kind="return"><para>Workspace memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not require workspace parameter. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1700" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1a6238358ec03afd57fb20dffa65b48d2f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::primitive_desc_base::scratchpad_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>scratchpad_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the scratchpad memory descriptor. <simplesect kind="return"><para>scratchpad memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not require scratchpad parameter. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1705" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1ad4079e0891373bd2dc841f3f94cf47ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1engine" kindref="compound">engine</ref></type>
+        <definition>engine dnnl::primitive_desc_base::scratchpad_engine</definition>
+        <argsstring>() const</argsstring>
+        <name>scratchpad_engine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the engine on which the scratchpad memory is located. <simplesect kind="return"><para>The engine on which the scratchpad memory is located. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1709" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1primitive__desc__base_1a0ef600ea3666f0fd93c9c5d112aaf05c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1primitive__attr" kindref="compound">primitive_attr</ref></type>
+        <definition>primitive_attr dnnl::primitive_desc_base::get_primitive_attr</definition>
+        <argsstring>() const</argsstring>
+        <name>get_primitive_attr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the primitive attributes. <simplesect kind="return"><para>The primitive attributes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1713" column="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Base class for all primitive descriptors. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="18">
+        <label>dnnl::layer_normalization_backward::primitive_desc</label>
+        <link refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>dnnl::rnn_primitive_desc_base</label>
+        <link refid="structdnnl_1_1rnn__primitive__desc__base"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>dnnl::matmul::primitive_desc</label>
+        <link refid="structdnnl_1_1matmul_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>dnnl::convolution_backward_data::primitive_desc</label>
+        <link refid="structdnnl_1_1convolution__backward__data_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>dnnl::sum::primitive_desc</label>
+        <link refid="structdnnl_1_1sum_1_1primitive__desc"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>dnnl::lrn_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1lrn__forward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>dnnl::softmax_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1softmax__forward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>dnnl::primitive_desc_base</label>
+        <link refid="structdnnl_1_1primitive__desc__base"/>
+      </node>
+      <node id="16">
+        <label>dnnl::inner_product_backward_weights::primitive_desc</label>
+        <link refid="structdnnl_1_1inner__product__backward__weights_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>dnnl::softmax_backward::primitive_desc</label>
+        <link refid="structdnnl_1_1softmax__backward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>dnnl::deconvolution_backward_weights::primitive_desc</label>
+        <link refid="structdnnl_1_1deconvolution__backward__weights_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>dnnl::vanilla_rnn_backward::primitive_desc</label>
+        <link refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>dnnl::vanilla_rnn_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1vanilla__rnn__forward_1_1primitive__desc"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>dnnl::convolution_backward_weights::primitive_desc</label>
+        <link refid="structdnnl_1_1convolution__backward__weights_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>dnnl::shuffle_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1shuffle__forward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>dnnl::concat::primitive_desc</label>
+        <link refid="structdnnl_1_1concat_1_1primitive__desc"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>dnnl::shuffle_backward::primitive_desc</label>
+        <link refid="structdnnl_1_1shuffle__backward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>dnnl::pooling_backward::primitive_desc</label>
+        <link refid="structdnnl_1_1pooling__backward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>dnnl::resampling_backward::primitive_desc</label>
+        <link refid="structdnnl_1_1resampling__backward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>dnnl::convolution_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1convolution__forward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>dnnl::lstm_backward::primitive_desc</label>
+        <link refid="structdnnl_1_1lstm__backward_1_1primitive__desc"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>dnnl::pooling_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1pooling__forward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>dnnl::deconvolution_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1deconvolution__forward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>dnnl::primitive_desc</label>
+        <link refid="structdnnl_1_1primitive__desc"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>dnnl::layer_normalization_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1layer__normalization__forward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>dnnl::reorder::primitive_desc</label>
+        <link refid="structdnnl_1_1reorder_1_1primitive__desc"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>dnnl::logsoftmax_backward::primitive_desc</label>
+        <link refid="structdnnl_1_1logsoftmax__backward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>dnnl::gru_backward::primitive_desc</label>
+        <link refid="structdnnl_1_1gru__backward_1_1primitive__desc"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>dnnl::batch_normalization_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1batch__normalization__forward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>dnnl::gru_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1gru__forward_1_1primitive__desc"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>dnnl::batch_normalization_backward::primitive_desc</label>
+        <link refid="structdnnl_1_1batch__normalization__backward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>dnnl::binary::primitive_desc</label>
+        <link refid="structdnnl_1_1binary_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>dnnl::inner_product_backward_data::primitive_desc</label>
+        <link refid="structdnnl_1_1inner__product__backward__data_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>dnnl::deconvolution_backward_data::primitive_desc</label>
+        <link refid="structdnnl_1_1deconvolution__backward__data_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>dnnl::inner_product_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1inner__product__forward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>dnnl::eltwise_backward::primitive_desc</label>
+        <link refid="structdnnl_1_1eltwise__backward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>dnnl::lrn_backward::primitive_desc</label>
+        <link refid="structdnnl_1_1lrn__backward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>dnnl::logsoftmax_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1logsoftmax__forward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>dnnl::lbr_gru_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1lbr__gru__forward_1_1primitive__desc"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>dnnl::lstm_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1lstm__forward_1_1primitive__desc"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>dnnl::resampling_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1resampling__forward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>dnnl::lbr_gru_backward::primitive_desc</label>
+        <link refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>dnnl::eltwise_forward::primitive_desc</label>
+        <link refid="structdnnl_1_1eltwise__forward_1_1primitive__desc"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="include/dnnl.hpp" line="1582" column="26" bodyfile="include/dnnl.hpp" bodystart="1582" bodyend="1714"/>
+    <listofallmembers>
+      <member refid="structdnnl_1_1primitive__desc__base_1a60f17d04c493c42e4a50ad5feff5c8ca" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>diff_dst_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a6b9fb7da987329256c04db6ecbb9dc36" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>diff_dst_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a733e6ff4e78a758e69ae6232e8955871" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>diff_src_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1ab4268c6bb70dd6c22de43141cc301b77" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>diff_src_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a192f7b334efac9a5ac20344a76d4d552" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>diff_weights_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1af51378982968e2b4f7abb6a32acfb0af" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>diff_weights_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a495ee7c8e1ec3eab35f6329fdcd352bb" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>dst_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1addbec977643a7900f4156f7aab3fb4db" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>dst_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a32f7477c79e715a341bb9127df521fbc" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>get_engine</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a0ef600ea3666f0fd93c9c5d112aaf05c" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>get_primitive_attr</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1ae680492d4e4b16a938cfc051e5c906be" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>impl_info_str</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1abaec6897940cf14b0b3113a593ec5dbf" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>primitive_desc_base</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a35d24b553ba6aa807516e9470fdd7d16" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>query_md</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1acbedc4257eaa26f868356f9f594a856a" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>query_s64</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a6238358ec03afd57fb20dffa65b48d2f" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>scratchpad_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1ad4079e0891373bd2dc841f3f94cf47ed" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>scratchpad_engine</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>src_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1af48dcff294cadb2916fd784b8474d221" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>src_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1acb13d08987cca8d8f05ec4858fa61fb4" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>weights_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a93f0904566b399874c47b3b1ad3d1495" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>weights_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1ad26f416a149cb44cc5cfc130012c614e" prot="public" virt="non-virtual"><scope>dnnl::primitive_desc_base</scope><name>workspace_desc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

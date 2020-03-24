@@ -1,0 +1,381 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="vplm__opencl_8h" kind="file" language="C++">
+    <compoundname>vplm_opencl.h</compoundname>
+    <includes refid="vplm_8h" local="no">vplmemory/vplm.h</includes>
+    <includes local="no">CL/cl.h</includes>
+    <includedby refid="vplm__opencl_09_09_8h" local="no">include/vplmemory/vplm_opencl++.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="4">
+        <label>uchar.h</label>
+      </node>
+      <node id="5">
+        <label>CL/cl.h</label>
+      </node>
+      <node id="1">
+        <label>include/vplmemory/vplm_opencl.h</label>
+        <link refid="vplm__opencl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>vplmemory/vplm.h</label>
+        <link refid="vplm_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>include/vplmemory/vplm_opencl++.h</label>
+        <link refid="vplm__opencl_09_09_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>include/vplmemory/vplm_sycl.h</label>
+        <link refid="vplm__sycl_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/vplmemory/vplm_opencl.h</label>
+        <link refid="vplm__opencl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structvplm__cl__image" prot="public">vplm_cl_image</innerclass>
+    <innerclass refid="struct__vplm__cl__vtable" prot="public">_vplm_cl_vtable</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="vplm__opencl_8h_1a6d75a9cac6c9846ac2f4ea74e5981db6" prot="public" static="no">
+        <type>struct <ref refid="struct__vplm__cl__vtable" kindref="compound">_vplm_cl_vtable</ref></type>
+        <definition>typedef struct _vplm_cl_vtable vplm_cl_vtable</definition>
+        <argsstring></argsstring>
+        <name>vplm_cl_vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="72" column="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="vplm__opencl_8h_1aebfaa8ad4036437398a47ff5abf7b327" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VPLM_API vplm_status</type>
+        <definition>VPLM_API vplm_status vplm_create_cl_image</definition>
+        <argsstring>(cl_command_queue queue, const vplm_image_info *info, vplm_mem **memory)</argsstring>
+        <name>vplm_create_cl_image</name>
+        <param>
+          <type>cl_command_queue</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structvplm__image__info" kindref="compound">vplm_image_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref> **</type>
+          <declname>memory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="53" column="22" declfile="include/vplmemory/vplm_opencl.h" declline="53" declcolumn="22"/>
+      </memberdef>
+      <memberdef kind="function" id="vplm__opencl_8h_1ad7f48f414647617d6d73a0cc13fb9ac8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VPLM_API vplm_status</type>
+        <definition>VPLM_API vplm_status vplm_create_from_cl_image</definition>
+        <argsstring>(cl_command_queue queue, const vplm_cl_image *image, vplm_mem **memory)</argsstring>
+        <name>vplm_create_from_cl_image</name>
+        <param>
+          <type>cl_command_queue</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structvplm__cl__image" kindref="compound">vplm_cl_image</ref> *</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref> **</type>
+          <declname>memory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="54" column="22" declfile="include/vplmemory/vplm_opencl.h" declline="54" declcolumn="22"/>
+      </memberdef>
+      <memberdef kind="function" id="vplm__opencl_8h_1a54aa2eab4db130187204c0694f5f80a9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>static size_t vplm_cl_query_queues</definition>
+        <argsstring>(const vplm_mem *memory, cl_command_queue *queues, size_t num_queues)</argsstring>
+        <name>vplm_cl_query_queues</name>
+        <param>
+          <type>const <ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref> *</type>
+          <declname>memory</declname>
+        </param>
+        <param>
+          <type>cl_command_queue *</type>
+          <declname>queues</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>num_queues</declname>
+        </param>
+        <briefdescription>
+<para>Returns OpenCL queues for which the library manages OpenCL representation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If function is called with queues=NULL or with num_queues=0, then function returns number of OpenCL queues for which the library tracks object representation.</para>
+<para>If function is called with queues!=NULL and num_queues!=0, then function fills queues array with the valid queues for which the library tracks object representation and returns number of valid items in queues array.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">memory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Memory object to query. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">queues</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User supplied array where library should return OpenCL queues for which memory object has valid representations. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">num_queues</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of queues array.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of valid items in user supplied queues array. </para>
+</simplesect>
+<simplesect kind="return"><para>If queues=NULL or num_queues=0 - number of valid queues for which the library tracks object representation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="92" column="22" bodyfile="include/vplmemory/vplm_opencl.h" bodystart="92" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="vplm__opencl_8h_1a42b3e719d671a3748a35e0a6bb0b8c9d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vplm_status</type>
+        <definition>static vplm_status vplm_cl_get_image</definition>
+        <argsstring>(const vplm_mem *memory, cl_command_queue queue, vplm_cl_image *image)</argsstring>
+        <name>vplm_cl_get_image</name>
+        <param>
+          <type>const <ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref> *</type>
+          <declname>memory</declname>
+        </param>
+        <param>
+          <type>cl_command_queue</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type><ref refid="structvplm__cl__image" kindref="compound">vplm_cl_image</ref> *</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+<para>Returns memory object representation as OpenCL image. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If memory object does not have OpenCL representation yet, it will be generated or an error returned if that&apos;s not possible for some reason. Under the hood VPL Memory library uses one of OpenCL memory sharing APIs unless memory object wasn&apos;t initially created as an OpenCL object. vplm_cl_begin_image_access and vplm_cl_end_image_access functions should further be used to mark access period to the OpenCL object in the OpenCL queue(s). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="108" column="27" bodyfile="include/vplmemory/vplm_opencl.h" bodystart="108" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="vplm__opencl_8h_1acd66f2dbac5a9d63ff7a656710d6a9fa" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vplm_status</type>
+        <definition>static vplm_status vplm_cl_begin_image_access</definition>
+        <argsstring>(const vplm_cl_image *image, cl_uint num_events_in_wait_list, const cl_event *event_wait_list, cl_event *event)</argsstring>
+        <name>vplm_cl_begin_image_access</name>
+        <param>
+          <type>const <ref refid="structvplm__cl__image" kindref="compound">vplm_cl_image</ref> *</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>cl_uint</type>
+          <declname>num_events_in_wait_list</declname>
+        </param>
+        <param>
+          <type>const cl_event *</type>
+          <declname>event_wait_list</declname>
+        </param>
+        <param>
+          <type>cl_event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Begins access to OpenCL object representation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="116" column="27" bodyfile="include/vplmemory/vplm_opencl.h" bodystart="116" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="vplm__opencl_8h_1a5e560f44f3abf4cd96a48ec81d9ce8fc" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vplm_status</type>
+        <definition>static vplm_status vplm_cl_end_image_access</definition>
+        <argsstring>(const vplm_cl_image *image, cl_uint num_events_in_wait_list, const cl_event *event_wait_list, cl_event *event)</argsstring>
+        <name>vplm_cl_end_image_access</name>
+        <param>
+          <type>const <ref refid="structvplm__cl__image" kindref="compound">vplm_cl_image</ref> *</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>cl_uint</type>
+          <declname>num_events_in_wait_list</declname>
+        </param>
+        <param>
+          <type>const cl_event *</type>
+          <declname>event_wait_list</declname>
+        </param>
+        <param>
+          <type>cl_event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Ends access to OpenCL object representation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl.h" line="128" column="27" bodyfile="include/vplmemory/vplm_opencl.h" bodystart="128" bodyend="137"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2019<sp/>Intel<sp/>Corporation</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in<sp/>all</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__VPLM_OPENCL_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__VPLM_OPENCL_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vplmemory/vplm.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CL/cl.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="structvplm__cl__image" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39" refid="structvplm__cl__image_1acd34cecb53f16c987201b3b6e1a00e62" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uintptr_t<sp/><ref refid="structvplm__cl__image_1acd34cecb53f16c987201b3b6e1a00e62" kindref="member">priv</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="structvplm__cl__image_1a55201b1d63ff7157c3c1f9c2f79a4ad2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref>*<sp/><ref refid="structvplm__cl__image_1a55201b1d63ff7157c3c1f9c2f79a4ad2" kindref="member">memory</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="structvplm__cl__image_1a8eb2ddaeb5a7af43ab4a7a083e0bf199" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structvplm__cl__image_1a8eb2ddaeb5a7af43ab4a7a083e0bf199" kindref="member">num_planes</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cl_mem<sp/>clmem;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>planes[VPLM_IMAGE_MAX_PLANES];</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}<sp/><ref refid="structvplm__cl__image" kindref="compound">vplm_cl_image</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">VPLM_API<sp/>vplm_status<sp/>vplm_create_cl_image(cl_command_queue<sp/>queue,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structvplm__image__info" kindref="compound">vplm_image_info</ref>*<sp/>info,<sp/><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref>**<sp/>memory);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">VPLM_API<sp/>vplm_status<sp/>vplm_create_from_cl_image(cl_command_queue<sp/>queue,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structvplm__cl__image" kindref="compound">vplm_cl_image</ref>*<sp/>image,<sp/><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref>**<sp/>memory);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="struct__vplm__cl__vtable" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct__vplm__cl__vtable" kindref="compound">_vplm_cl_vtable</ref><sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>size_t<sp/>(*query_queues)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref>*<sp/>mem,<sp/>cl_command_queue*<sp/>queues,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>num_queues);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>vplm_status<sp/>(*get_image)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref>*<sp/>mem,<sp/>cl_command_queue<sp/>queue,<sp/><ref refid="structvplm__cl__image" kindref="compound">vplm_cl_image</ref>*<sp/>clmem);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>vplm_status<sp/>(*begin_image_access)(</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structvplm__cl__image" kindref="compound">vplm_cl_image</ref>*<sp/>image,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cl_uint<sp/>num_events_in_wait_list,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>cl_event<sp/>*event_wait_list,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cl_event<sp/>*event);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>vplm_status<sp/>(*end_image_access)(</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structvplm__cl__image" kindref="compound">vplm_cl_image</ref>*<sp/>image,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cl_uint<sp/>num_events_in_wait_list,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>cl_event<sp/>*event_wait_list,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cl_event<sp/>*event);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}<sp/><ref refid="struct__vplm__cl__vtable" kindref="compound">vplm_cl_vtable</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>vplm_cl_query_queues(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref>*<sp/>memory,<sp/>cl_command_queue*<sp/>queues,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>num_queues)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!memory<sp/>||<sp/>!memory-&gt;cl)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>memory-&gt;cl-&gt;query_queues(memory,<sp/>queues,<sp/>num_queues);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>vplm_status<sp/>vplm_cl_get_image(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref>*<sp/>memory,<sp/>cl_command_queue<sp/>queue,<sp/><ref refid="structvplm__cl__image" kindref="compound">vplm_cl_image</ref>*<sp/>image)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!memory<sp/>||<sp/>!memory-&gt;cl)</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>VPLM_ERROR_INVALID_MEMORY_OBJECT;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>memory-&gt;cl-&gt;get_image(memory,<sp/>queue,<sp/>image);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>vplm_status<sp/>vplm_cl_begin_image_access(</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structvplm__cl__image" kindref="compound">vplm_cl_image</ref>*<sp/>image,</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>cl_uint<sp/>num_events_in_wait_list,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>cl_event<sp/>*event_wait_list,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>cl_event<sp/>*event)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!image<sp/>||<sp/>!image-&gt;<ref refid="structvplm__cl__image_1a55201b1d63ff7157c3c1f9c2f79a4ad2" kindref="member">memory</ref><sp/>||<sp/>!image-&gt;<ref refid="structvplm__cl__image_1a55201b1d63ff7157c3c1f9c2f79a4ad2" kindref="member">memory</ref>-&gt;cl)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>VPLM_ERROR_INVALID_MEMORY_OBJECT;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>image-&gt;<ref refid="structvplm__cl__image_1a55201b1d63ff7157c3c1f9c2f79a4ad2" kindref="member">memory</ref>-&gt;cl-&gt;begin_image_access(image,<sp/>num_events_in_wait_list,<sp/>event_wait_list,<sp/>event);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>vplm_status<sp/>vplm_cl_end_image_access(</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structvplm__cl__image" kindref="compound">vplm_cl_image</ref>*<sp/>image,</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>cl_uint<sp/>num_events_in_wait_list,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>cl_event<sp/>*event_wait_list,</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>cl_event<sp/>*event)</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!image<sp/>||<sp/>!image-&gt;<ref refid="structvplm__cl__image_1a55201b1d63ff7157c3c1f9c2f79a4ad2" kindref="member">memory</ref><sp/>||<sp/>!image-&gt;<ref refid="structvplm__cl__image_1a55201b1d63ff7157c3c1f9c2f79a4ad2" kindref="member">memory</ref>-&gt;cl)</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>VPLM_ERROR_INVALID_MEMORY_OBJECT;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>image-&gt;<ref refid="structvplm__cl__image_1a55201b1d63ff7157c3c1f9c2f79a4ad2" kindref="member">memory</ref>-&gt;cl-&gt;end_image_access(image,<sp/>num_events_in_wait_list,<sp/>event_wait_list,<sp/>event);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>__VPLM_OPENCL_H__</highlight></codeline>
+    </programlisting>
+    <location file="include/vplmemory/vplm_opencl.h"/>
+  </compounddef>
+</doxygen>

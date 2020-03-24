@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="struct_vpl_video_surface_resolution" kind="struct" language="C++" prot="public">
+    <compoundname>VplVideoSurfaceResolution</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_vpl_video_surface_resolution_1a11896af53830c38153c6c25e78d7323d" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t VplVideoSurfaceResolution::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="226" column="12" bodyfile="include/vpl/vpl_types.h" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_vpl_video_surface_resolution_1a19137b5a1761ffe56d6747b990364b01" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t VplVideoSurfaceResolution::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="227" column="12" bodyfile="include/vpl/vpl_types.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vpl/vpl_types.h" line="225" column="15" bodyfile="include/vpl/vpl_types.h" bodystart="225" bodyend="228"/>
+    <listofallmembers>
+      <member refid="struct_vpl_video_surface_resolution_1a19137b5a1761ffe56d6747b990364b01" prot="public" virt="non-virtual"><scope>VplVideoSurfaceResolution</scope><name>height</name></member>
+      <member refid="struct_vpl_video_surface_resolution_1a11896af53830c38153c6c25e78d7323d" prot="public" virt="non-virtual"><scope>VplVideoSurfaceResolution</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classvplm_1_1vaapi_1_1image" kind="class" language="C++" prot="public">
+    <compoundname>vplm::vaapi::image</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classvplm_1_1vaapi_1_1image_1ae98f2aed809f1644c2a1c389f29cff06" prot="private" static="no" mutable="no">
+        <type><ref refid="classvplm_1_1vaapi_1_1memory" kindref="compound">vplm::vaapi::memory</ref></type>
+        <definition>vplm::vaapi::memory vplm::vaapi::image::memory_</definition>
+        <argsstring></argsstring>
+        <name>memory_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_vaapi++.h" line="90" column="25" bodyfile="include/vplmemory/vplm_vaapi++.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classvplm_1_1vaapi_1_1image_1a296c7041422d8afca4acaea64f1144c9" prot="private" static="no" mutable="no">
+        <type>VASurfaceID</type>
+        <definition>VASurfaceID vplm::vaapi::image::id_</definition>
+        <argsstring></argsstring>
+        <name>id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_vaapi++.h" line="91" column="17" bodyfile="include/vplmemory/vplm_vaapi++.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classvplm_1_1vaapi_1_1image_1a4b99c3f6aa8dacd9089febd4dee896f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>vplm::vaapi::image::image</definition>
+        <argsstring>(VADisplay dpy, const vplm::memory &amp;mem)</argsstring>
+        <name>image</name>
+        <param>
+          <type>VADisplay</type>
+          <declname>dpy</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classvplm_1_1memory" kindref="compound">vplm::memory</ref> &amp;</type>
+          <declname>mem</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_vaapi++.h" line="79" column="5" bodyfile="include/vplmemory/vplm_vaapi++.h" bodystart="79" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classvplm_1_1vaapi_1_1image_1a6d0a91e1e64ae6a2ca8bffeb10b5db2a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>VASurfaceID</type>
+        <definition>VASurfaceID vplm::vaapi::image::id</definition>
+        <argsstring>() const</argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_vaapi++.h" line="87" column="24" bodyfile="include/vplmemory/vplm_vaapi++.h" bodystart="87" bodyend="87"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vplmemory/vplm_vaapi++.h" line="77" column="1" bodyfile="include/vplmemory/vplm_vaapi++.h" bodystart="76" bodyend="92"/>
+    <listofallmembers>
+      <member refid="classvplm_1_1vaapi_1_1image_1a6d0a91e1e64ae6a2ca8bffeb10b5db2a" prot="public" virt="non-virtual"><scope>vplm::vaapi::image</scope><name>id</name></member>
+      <member refid="classvplm_1_1vaapi_1_1image_1a296c7041422d8afca4acaea64f1144c9" prot="private" virt="non-virtual"><scope>vplm::vaapi::image</scope><name>id_</name></member>
+      <member refid="classvplm_1_1vaapi_1_1image_1a4b99c3f6aa8dacd9089febd4dee896f8" prot="public" virt="non-virtual"><scope>vplm::vaapi::image</scope><name>image</name></member>
+      <member refid="classvplm_1_1vaapi_1_1image_1ae98f2aed809f1644c2a1c389f29cff06" prot="private" virt="non-virtual"><scope>vplm::vaapi::image</scope><name>memory_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

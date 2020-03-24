@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="group__dnnl__api__rnn" kind="group">
+    <compoundname>dnnl_api_rnn</compoundname>
+    <title>RNN</title>
+    <innerclass refid="structdnnl_1_1rnn__primitive__desc__base" prot="public">dnnl::rnn_primitive_desc_base</innerclass>
+    <innerclass refid="structdnnl_1_1vanilla__rnn__forward" prot="public">dnnl::vanilla_rnn_forward</innerclass>
+    <innerclass refid="structdnnl_1_1vanilla__rnn__backward" prot="public">dnnl::vanilla_rnn_backward</innerclass>
+    <innerclass refid="structdnnl_1_1lstm__forward" prot="public">dnnl::lstm_forward</innerclass>
+    <innerclass refid="structdnnl_1_1lstm__backward" prot="public">dnnl::lstm_backward</innerclass>
+    <innerclass refid="structdnnl_1_1gru__forward" prot="public">dnnl::gru_forward</innerclass>
+    <innerclass refid="structdnnl_1_1gru__backward" prot="public">dnnl::gru_backward</innerclass>
+    <innerclass refid="structdnnl_1_1lbr__gru__forward" prot="public">dnnl::lbr_gru_forward</innerclass>
+    <innerclass refid="structdnnl_1_1lbr__gru__backward" prot="public">dnnl::lbr_gru_backward</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__dnnl__api__rnn_1gad27d0db2a86ae3072207769f5c2ddd1e" prot="public" static="no" strong="yes">
+        <type>unsigned</type>
+        <name>rnn_flags</name>
+        <enumvalue id="group__dnnl__api__rnn_1ggad27d0db2a86ae3072207769f5c2ddd1eaf31ee5e3824f1f5e5d206bdf3029f22b" prot="public">
+          <name>undef</name>
+          <briefdescription>
+<para>Undefined RNN flags. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>RNN cell flags. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="524" column="21" bodyfile="include/dnnl.hpp" bodystart="524" bodyend="527"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__dnnl__api__rnn_1ga33315cf335d1cbe26fd6b70d956e23d5" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>rnn_direction</name>
+        <enumvalue id="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5a04f4bf4bc6a47e30f0353597e244c44a" prot="public">
+          <name>unidirectional_left2right</name>
+          <briefdescription>
+<para>Unidirectional execution of RNN primitive from left to right. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5a0b694765eed7cf5a48e18c1d05b74118" prot="public">
+          <name>unidirectional_right2left</name>
+          <briefdescription>
+<para>Unidirectional execution of RNN primitive from right to left. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5a7a1bb9f8699e8c03cbe4bd681fb50830" prot="public">
+          <name>bidirectional_concat</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Bidirectional execution of RNN primitive with concatenation of the results. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5aa6199c5b651803844c8c054b11e88d8c" prot="public">
+          <name>bidirectional_sum</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Bidirectional execution of RNN primitive with summation of the results. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5aa0c3ef5c69c32081a31c33df63192cda" prot="public">
+          <name>unidirectional</name>
+          <initializer>= unidirectional_left2right</initializer>
+          <briefdescription>
+<para>Alias for <ref refid="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5a04f4bf4bc6a47e30f0353597e244c44a" kindref="member">dnnl::rnn_direction::unidirectional_left2right</ref>. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>A direction of RNN primitive execution. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="533" column="25" bodyfile="include/dnnl.hpp" bodystart="533" bodyend="546"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__dnnl__api__rnn_1ga8a1ddcd99ba74311e25ee48aed43d6c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>rnn_flags</type>
+        <definition>rnn_flags dnnl::operator|</definition>
+        <argsstring>(rnn_flags lhs, rnn_flags rhs)</argsstring>
+        <name>operator|</name>
+        <param>
+          <type>rnn_flags</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>rnn_flags</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Bitwise OR operation for RNN cell flags. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="530" column="11" declfile="include/dnnl.hpp" declline="530" declcolumn="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A primitive to compute recurrent neural network layers. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

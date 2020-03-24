@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacevplm_1_1opencl" kind="namespace" language="C++">
+    <compoundname>vplm::opencl</compoundname>
+    <innerclass refid="classvplm_1_1opencl_1_1image" prot="public">vplm::opencl::image</innerclass>
+    <innerclass refid="classvplm_1_1opencl_1_1memory" prot="public">vplm::opencl::memory</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="vplm__opencl_09_09_8h_1af79431008211d87a04b1a487c07c20d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classvplm_1_1opencl_1_1memory" kindref="compound">vplm::opencl::memory</ref></type>
+        <definition>vplm::opencl::memory vplm::opencl::make_memory</definition>
+        <argsstring>(cl_command_queue queue, vplm::cl_image &amp;image)</argsstring>
+        <name>make_memory</name>
+        <param>
+          <type>cl_command_queue</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type><ref refid="classvplm_1_1cl__image" kindref="compound">vplm::cl_image</ref> &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl++.h" line="143" column="29" bodyfile="include/vplmemory/vplm_opencl++.h" bodystart="143" bodyend="154"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vplmemory/vplm_opencl++.h" line="52" column="1"/>
+  </compounddef>
+</doxygen>

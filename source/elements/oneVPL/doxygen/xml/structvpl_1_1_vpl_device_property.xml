@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structvpl_1_1_vpl_device_property" kind="struct" language="C++" prot="public">
+    <compoundname>vpl::VplDeviceProperty</compoundname>
+    <includes refid="vpl__device_8hpp" local="no">vpl_device.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structvpl_1_1_vpl_device_property_1a5e9022ffca22fb854a5fc1b80a1b3294" prot="public" static="no" mutable="no">
+        <type><ref refid="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90" kindref="member">VplDeviceType</ref></type>
+        <definition>VplDeviceType vpl::VplDeviceProperty::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_device.hpp" line="45" column="17" bodyfile="include/vpl/vpl_device.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvpl_1_1_vpl_device_property_1ab7e25e11b212ccef69b7567f031fc63d" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplDeviceProperty::vendorId</definition>
+        <argsstring></argsstring>
+        <name>vendorId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_device.hpp" line="46" column="12" bodyfile="include/vpl/vpl_device.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvpl_1_1_vpl_device_property_1a6bbe43f916ab17ef8b510c352b1d76cc" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplDeviceProperty::deviceId</definition>
+        <argsstring></argsstring>
+        <name>deviceId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_device.hpp" line="47" column="12" bodyfile="include/vpl/vpl_device.hpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvpl_1_1_vpl_device_property_1a9d675498ab2dd649a41cb007d664fb83" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplDeviceProperty::subdeviceId</definition>
+        <argsstring></argsstring>
+        <name>subdeviceId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_device.hpp" line="49" column="12" bodyfile="include/vpl/vpl_device.hpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvpl_1_1_vpl_device_property_1a690b4d9bc3c3fbe77a6b9f39f2ab0f4c" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplDeviceProperty::coreClockRate</definition>
+        <argsstring></argsstring>
+        <name>coreClockRate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_device.hpp" line="50" column="12" bodyfile="include/vpl/vpl_device.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvpl_1_1_vpl_device_property_1a9b3940278de5b238d0b210023fe81694" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplDeviceProperty::maxCmdEngines</definition>
+        <argsstring></argsstring>
+        <name>maxCmdEngines</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_device.hpp" line="51" column="12" bodyfile="include/vpl/vpl_device.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvpl_1_1_vpl_device_property_1abdda39fde70e43188df03ba5ef1e99a3" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool vpl::VplDeviceProperty::unifiedMemorySupported</definition>
+        <argsstring></argsstring>
+        <name>unifiedMemorySupported</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_device.hpp" line="52" column="8" bodyfile="include/vpl/vpl_device.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvpl_1_1_vpl_device_property_1a7a7a029d69e5d9262b8d90c3527265fd" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool vpl::VplDeviceProperty::eccMemorySupported</definition>
+        <argsstring></argsstring>
+        <name>eccMemorySupported</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_device.hpp" line="53" column="8" bodyfile="include/vpl/vpl_device.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvpl_1_1_vpl_device_property_1a222cdffdc84df6fc9448f0a9789712c3" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplDeviceProperty::numUnits</definition>
+        <argsstring></argsstring>
+        <name>numUnits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_device.hpp" line="54" column="12" bodyfile="include/vpl/vpl_device.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvpl_1_1_vpl_device_property_1affe74b1c19235f1489fc378f5334cbd3" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char vpl::VplDeviceProperty::name[VPL_MAX_DEVICE_NAME]</definition>
+        <argsstring>[VPL_MAX_DEVICE_NAME]</argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_device.hpp" line="55" column="8" bodyfile="include/vpl/vpl_device.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>VPL device property structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vpl/vpl_device.hpp" line="44" column="24" bodyfile="include/vpl/vpl_device.hpp" bodystart="44" bodyend="56"/>
+    <listofallmembers>
+      <member refid="structvpl_1_1_vpl_device_property_1a690b4d9bc3c3fbe77a6b9f39f2ab0f4c" prot="public" virt="non-virtual"><scope>vpl::VplDeviceProperty</scope><name>coreClockRate</name></member>
+      <member refid="structvpl_1_1_vpl_device_property_1a6bbe43f916ab17ef8b510c352b1d76cc" prot="public" virt="non-virtual"><scope>vpl::VplDeviceProperty</scope><name>deviceId</name></member>
+      <member refid="structvpl_1_1_vpl_device_property_1a7a7a029d69e5d9262b8d90c3527265fd" prot="public" virt="non-virtual"><scope>vpl::VplDeviceProperty</scope><name>eccMemorySupported</name></member>
+      <member refid="structvpl_1_1_vpl_device_property_1a9b3940278de5b238d0b210023fe81694" prot="public" virt="non-virtual"><scope>vpl::VplDeviceProperty</scope><name>maxCmdEngines</name></member>
+      <member refid="structvpl_1_1_vpl_device_property_1affe74b1c19235f1489fc378f5334cbd3" prot="public" virt="non-virtual"><scope>vpl::VplDeviceProperty</scope><name>name</name></member>
+      <member refid="structvpl_1_1_vpl_device_property_1a222cdffdc84df6fc9448f0a9789712c3" prot="public" virt="non-virtual"><scope>vpl::VplDeviceProperty</scope><name>numUnits</name></member>
+      <member refid="structvpl_1_1_vpl_device_property_1a9d675498ab2dd649a41cb007d664fb83" prot="public" virt="non-virtual"><scope>vpl::VplDeviceProperty</scope><name>subdeviceId</name></member>
+      <member refid="structvpl_1_1_vpl_device_property_1a5e9022ffca22fb854a5fc1b80a1b3294" prot="public" virt="non-virtual"><scope>vpl::VplDeviceProperty</scope><name>type</name></member>
+      <member refid="structvpl_1_1_vpl_device_property_1abdda39fde70e43188df03ba5ef1e99a3" prot="public" virt="non-virtual"><scope>vpl::VplDeviceProperty</scope><name>unifiedMemorySupported</name></member>
+      <member refid="structvpl_1_1_vpl_device_property_1ab7e25e11b212ccef69b7567f031fc63d" prot="public" virt="non-virtual"><scope>vpl::VplDeviceProperty</scope><name>vendorId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

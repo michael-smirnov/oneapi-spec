@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structdnnl_1_1logsoftmax__forward_1_1desc" kind="struct" language="C++" prot="public">
+    <compoundname>dnnl::logsoftmax_forward::desc</compoundname>
+    <includes refid="dnnl_8hpp" local="no">dnnl.hpp</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structdnnl_1_1logsoftmax__forward_1_1desc_1a49b30c50887908b9e8abaae5edcc7c00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::logsoftmax_forward::desc::desc</definition>
+        <argsstring>()</argsstring>
+        <name>desc</name>
+        <briefdescription>
+<para>Default constructor. Produces an empty object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="3793" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1logsoftmax__forward_1_1desc_1a335da9e45cd45d8fc4742bb3c02b591f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::logsoftmax_forward::desc::desc</definition>
+        <argsstring>(prop_kind prop_kind, const memory::desc &amp;data_desc, int logsoftmax_axis)</argsstring>
+        <name>desc</name>
+        <param>
+          <type><ref refid="group__dnnl__api__attributes_1gac7db48f6583aa9903e54c2a39d65438f" kindref="member">prop_kind</ref></type>
+          <declname>prop_kind</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref> &amp;</type>
+          <declname>data_desc</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>logsoftmax_axis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a descriptor for a logsoftmax forward propagation primitive.</para>
+<para>Inputs:<itemizedlist>
+<listitem><para><computeroutput>src</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43" kindref="member">dnnl::primitive_desc_base::src_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem></itemizedlist>
+</para>
+<para>Outputs:<itemizedlist>
+<listitem><para><computeroutput>dst</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1a495ee7c8e1ec3eab35f6329fdcd352bb" kindref="member">dnnl::primitive_desc_base::dst_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>prop_kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Propagation kind. Possible values are <ref refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa24775787fab8f13aa4809e1ce8f82aeb" kindref="member">dnnl::prop_kind::forward_training</ref>, and <ref refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa3b9fad4f80d45368f856b5403198ac4c" kindref="member">dnnl::prop_kind::forward_inference</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data_desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source and destination memory descriptor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>logsoftmax_axis</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Axis over which softmax is computed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="3809" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Descriptor for a logsoftmax forward propagation primitive. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/dnnl.hpp" line="3791" column="15" bodyfile="include/dnnl.hpp" bodystart="3791" bodyend="3811"/>
+    <listofallmembers>
+      <member refid="structdnnl_1_1logsoftmax__forward_1_1desc_1a49b30c50887908b9e8abaae5edcc7c00" prot="public" virt="non-virtual"><scope>dnnl::logsoftmax_forward::desc</scope><name>desc</name></member>
+      <member refid="structdnnl_1_1logsoftmax__forward_1_1desc_1a335da9e45cd45d8fc4742bb3c02b591f" prot="public" virt="non-virtual"><scope>dnnl::logsoftmax_forward::desc</scope><name>desc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

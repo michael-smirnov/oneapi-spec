@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacevplm_1_1vaapi" kind="namespace" language="C++">
+    <compoundname>vplm::vaapi</compoundname>
+    <innerclass refid="classvplm_1_1vaapi_1_1image" prot="public">vplm::vaapi::image</innerclass>
+    <innerclass refid="classvplm_1_1vaapi_1_1memory" prot="public">vplm::vaapi::memory</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="vplm__vaapi_09_09_8h_1a421e445979769d83d9ec98791a981959" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classvplm_1_1vaapi_1_1memory" kindref="compound">vplm::vaapi::memory</ref></type>
+        <definition>vplm::vaapi::memory vplm::vaapi::make_surface</definition>
+        <argsstring>(VADisplay dpy, VASurfaceID id)</argsstring>
+        <name>make_surface</name>
+        <param>
+          <type>VADisplay</type>
+          <declname>dpy</declname>
+        </param>
+        <param>
+          <type>VASurfaceID</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_vaapi++.h" line="94" column="28" bodyfile="include/vplmemory/vplm_vaapi++.h" bodystart="94" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="vplm__vaapi_09_09_8h_1ab6f2b43c7a7593687d7baf69ec5f3700" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classvplm_1_1vaapi_1_1memory" kindref="compound">vplm::vaapi::memory</ref></type>
+        <definition>vplm::vaapi::memory vplm::vaapi::make_buffer</definition>
+        <argsstring>(VADisplay dpy, VABufferID id)</argsstring>
+        <name>make_buffer</name>
+        <param>
+          <type>VADisplay</type>
+          <declname>dpy</declname>
+        </param>
+        <param>
+          <type>VABufferID</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_vaapi++.h" line="107" column="28" bodyfile="include/vplmemory/vplm_vaapi++.h" bodystart="107" bodyend="118"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vplmemory/vplm_vaapi++.h" line="34" column="1"/>
+  </compounddef>
+</doxygen>

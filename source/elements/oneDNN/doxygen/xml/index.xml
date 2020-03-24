@@ -1,0 +1,1331 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="structdnnl_1_1batch__normalization__backward" kind="struct"><name>dnnl::batch_normalization_backward</name>
+    <member refid="structdnnl_1_1batch__normalization__backward_1ab8296427120813d2738f7ad76774d6cf" kind="function"><name>batch_normalization_backward</name></member>
+    <member refid="structdnnl_1_1batch__normalization__backward_1a8bbb84e1762b1d3c70846dba72a2d2a0" kind="function"><name>batch_normalization_backward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1batch__normalization__forward" kind="struct"><name>dnnl::batch_normalization_forward</name>
+    <member refid="structdnnl_1_1batch__normalization__forward_1a5e86fd5cde278a396117b18ee2d0179b" kind="function"><name>batch_normalization_forward</name></member>
+    <member refid="structdnnl_1_1batch__normalization__forward_1af42e870bd82918d29d0e851882d7d65a" kind="function"><name>batch_normalization_forward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1binary" kind="struct"><name>dnnl::binary</name>
+    <member refid="structdnnl_1_1binary_1a399b1718f4bfd77d0b5e6e1f00c3c85f" kind="function"><name>binary</name></member>
+    <member refid="structdnnl_1_1binary_1ad1c3928248051918ab44b523165e312e" kind="function"><name>binary</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1concat" kind="struct"><name>dnnl::concat</name>
+    <member refid="structdnnl_1_1concat_1a9d2752fc811ace9c14438739f263fc3a" kind="function"><name>concat</name></member>
+    <member refid="structdnnl_1_1concat_1a024112606be8b645b6a89cc5c93ff7e7" kind="function"><name>concat</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1convolution__backward__data" kind="struct"><name>dnnl::convolution_backward_data</name>
+    <member refid="structdnnl_1_1convolution__backward__data_1ab90a4a05d36573cd81349ae43eca4611" kind="function"><name>convolution_backward_data</name></member>
+    <member refid="structdnnl_1_1convolution__backward__data_1ab3feaa09f3041b77984b7446a113a473" kind="function"><name>convolution_backward_data</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1convolution__backward__weights" kind="struct"><name>dnnl::convolution_backward_weights</name>
+    <member refid="structdnnl_1_1convolution__backward__weights_1a74bea156ced21462cb9f60524da778e4" kind="function"><name>convolution_backward_weights</name></member>
+    <member refid="structdnnl_1_1convolution__backward__weights_1ac85c02892cfb3139b3e18e5a4111758d" kind="function"><name>convolution_backward_weights</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1convolution__forward" kind="struct"><name>dnnl::convolution_forward</name>
+    <member refid="structdnnl_1_1convolution__forward_1a2f66479c7f7d2d296da985b0e1a94763" kind="function"><name>convolution_forward</name></member>
+    <member refid="structdnnl_1_1convolution__forward_1a47c1106e8a332097b4e355fe743963c4" kind="function"><name>convolution_forward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1deconvolution__backward__data" kind="struct"><name>dnnl::deconvolution_backward_data</name>
+    <member refid="structdnnl_1_1deconvolution__backward__data_1a5434945fa44f9e3f0cc41bff16213911" kind="function"><name>deconvolution_backward_data</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__data_1a47fdec8f6615245111d2b847d7a9de82" kind="function"><name>deconvolution_backward_data</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1deconvolution__backward__weights" kind="struct"><name>dnnl::deconvolution_backward_weights</name>
+    <member refid="structdnnl_1_1deconvolution__backward__weights_1ac227d7f9410fb3a27b1af7c790092b73" kind="function"><name>deconvolution_backward_weights</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__weights_1ab723f3cd9b4534d4161ba9f0a75653fe" kind="function"><name>deconvolution_backward_weights</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1deconvolution__forward" kind="struct"><name>dnnl::deconvolution_forward</name>
+    <member refid="structdnnl_1_1deconvolution__forward_1a5823858eacbcd62fb7440af2c10596a3" kind="function"><name>deconvolution_forward</name></member>
+    <member refid="structdnnl_1_1deconvolution__forward_1aa61db12ba85daa7804172ed084c8b8cc" kind="function"><name>deconvolution_forward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1convolution__forward_1_1desc" kind="struct"><name>dnnl::convolution_forward::desc</name>
+    <member refid="structdnnl_1_1convolution__forward_1_1desc_1a440ede0f3dbff0f72579e5361fad32ea" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1convolution__forward_1_1desc_1a21f19a8e200632542b89066134afe36d" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1convolution__forward_1_1desc_1a32dbd0fce0340b71296a13e53661c398" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1convolution__forward_1_1desc_1ae90ed5f46efb023ebcda172055924209" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1deconvolution__backward__weights_1_1desc" kind="struct"><name>dnnl::deconvolution_backward_weights::desc</name>
+    <member refid="structdnnl_1_1deconvolution__backward__weights_1_1desc_1a958daf3f54993240f172b8a207837a93" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__weights_1_1desc_1abb95cce1f13617358d550c58c6c5cccd" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__weights_1_1desc_1a0262263aa5af7c2e940f3ce6110e521f" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__weights_1_1desc_1a85697a70e0050464cc0d94c239bb9c5d" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1batch__normalization__forward_1_1desc" kind="struct"><name>dnnl::batch_normalization_forward::desc</name>
+    <member refid="structdnnl_1_1batch__normalization__forward_1_1desc_1a21ff436613c100d60de398660340b4fc" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1batch__normalization__backward_1_1desc" kind="struct"><name>dnnl::batch_normalization_backward::desc</name>
+    <member refid="structdnnl_1_1batch__normalization__backward_1_1desc_1a2f6c9c84d30a74a2e84c239212ca155a" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lrn__forward_1_1desc" kind="struct"><name>dnnl::lrn_forward::desc</name>
+    <member refid="structdnnl_1_1lrn__forward_1_1desc_1a61840141223ac7465440f42967f8b8d2" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1layer__normalization__forward_1_1desc" kind="struct"><name>dnnl::layer_normalization_forward::desc</name>
+    <member refid="structdnnl_1_1layer__normalization__forward_1_1desc_1a820147906b6e85315ffda07c48845eed" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__forward_1_1desc_1a5a096e3357f6bec659da705912075ebd" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1layer__normalization__backward_1_1desc" kind="struct"><name>dnnl::layer_normalization_backward::desc</name>
+    <member refid="structdnnl_1_1layer__normalization__backward_1_1desc_1a9edbb05f1c83a9170ec87bef7d73bf58" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__backward_1_1desc_1a1335b431e23e1b450db169e7c67dec77" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lrn__backward_1_1desc" kind="struct"><name>dnnl::lrn_backward::desc</name>
+    <member refid="structdnnl_1_1lrn__backward_1_1desc_1a0bf5c6804295875719a5fec96b8e311d" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1inner__product__forward_1_1desc" kind="struct"><name>dnnl::inner_product_forward::desc</name>
+    <member refid="structdnnl_1_1inner__product__forward_1_1desc_1a88192f59a9ed3dd54380c9fd0fe1eeab" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1inner__product__forward_1_1desc_1adb2eba9828e8541f044a9a97d55ea720" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1convolution__backward__data_1_1desc" kind="struct"><name>dnnl::convolution_backward_data::desc</name>
+    <member refid="structdnnl_1_1convolution__backward__data_1_1desc_1a5f55ca554fa4c9497d37234e5f1949b5" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1convolution__backward__data_1_1desc_1a82d0678627480f7a355ba00498a492c1" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1inner__product__backward__data_1_1desc" kind="struct"><name>dnnl::inner_product_backward_data::desc</name>
+    <member refid="structdnnl_1_1inner__product__backward__data_1_1desc_1acb7a59b3dee40a7f67a388bbdd1d5a22" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lbr__gru__backward_1_1desc" kind="struct"><name>dnnl::lbr_gru_backward::desc</name>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1desc_1a2dc808be19af0c05539350db36885d8e" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1pooling__forward_1_1desc" kind="struct"><name>dnnl::pooling_forward::desc</name>
+    <member refid="structdnnl_1_1pooling__forward_1_1desc_1a10fa8b4b3736e1056ff54e91cb5f3294" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1inner__product__backward__weights_1_1desc" kind="struct"><name>dnnl::inner_product_backward_weights::desc</name>
+    <member refid="structdnnl_1_1inner__product__backward__weights_1_1desc_1a08da17f4f460b7613d8c6143f984f941" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1inner__product__backward__weights_1_1desc_1aec714169ef02d38afdd353a3962387ea" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1pooling__backward_1_1desc" kind="struct"><name>dnnl::pooling_backward::desc</name>
+    <member refid="structdnnl_1_1pooling__backward_1_1desc_1a6773c6fb2ed5fb7602046685fced8dda" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1vanilla__rnn__forward_1_1desc" kind="struct"><name>dnnl::vanilla_rnn_forward::desc</name>
+    <member refid="structdnnl_1_1vanilla__rnn__forward_1_1desc_1a0dcf9214fa827bb73e847ee4b676b49d" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1vanilla__rnn__backward_1_1desc" kind="struct"><name>dnnl::vanilla_rnn_backward::desc</name>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1desc_1a9a017a58e0ccb5f1725235c518094162" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lstm__forward_1_1desc" kind="struct"><name>dnnl::lstm_forward::desc</name>
+    <member refid="structdnnl_1_1lstm__forward_1_1desc_1a782aad00599efd5a1d24568637e210fc" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1memory_1_1desc" kind="struct"><name>dnnl::memory::desc</name>
+    <member refid="structdnnl_1_1memory_1_1desc_1a2a12f9b43aae8c214d695b321b543b5c" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1memory_1_1desc_1af8efdb0761b98bfe82d71786a4e1d39e" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1memory_1_1desc_1aa37dd11b790b39442c29cd74ea75a166" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1memory_1_1desc_1a3573d45ed89399339ad2af05b8097a3a" kind="function"><name>submemory_desc</name></member>
+    <member refid="structdnnl_1_1memory_1_1desc_1accdc5b253fedb7243c72a9ed4b3b3f7f" kind="function"><name>reshape</name></member>
+    <member refid="structdnnl_1_1memory_1_1desc_1a70e831b990a91d61bc44e57f6e895a83" kind="function"><name>permute_axes</name></member>
+    <member refid="structdnnl_1_1memory_1_1desc_1aaf95c174b7d7f5ea59646886719d0a2b" kind="function"><name>dims</name></member>
+    <member refid="structdnnl_1_1memory_1_1desc_1ab3cb5e5f28d660a0105eb7580e5ab213" kind="function"><name>data_type</name></member>
+    <member refid="structdnnl_1_1memory_1_1desc_1ac20108bc192912382aa4a95ae27df804" kind="function"><name>get_size</name></member>
+    <member refid="structdnnl_1_1memory_1_1desc_1aa162a1ba5621a799c8a909c726f021a2" kind="function"><name>is_zero</name></member>
+    <member refid="structdnnl_1_1memory_1_1desc_1a9d623dab6f8a8ebc34b0da95814e3728" kind="function"><name>operator==</name></member>
+    <member refid="structdnnl_1_1memory_1_1desc_1a5a1bc8d3b88a2c304fd9535ea45fbb72" kind="function"><name>operator!=</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1eltwise__forward_1_1desc" kind="struct"><name>dnnl::eltwise_forward::desc</name>
+    <member refid="structdnnl_1_1eltwise__forward_1_1desc_1ae7c6744d2c292b00441577291323fe84" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lstm__backward_1_1desc" kind="struct"><name>dnnl::lstm_backward::desc</name>
+    <member refid="structdnnl_1_1lstm__backward_1_1desc_1aab68a02ae4b08cc0b9474ee28d999346" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1eltwise__backward_1_1desc" kind="struct"><name>dnnl::eltwise_backward::desc</name>
+    <member refid="structdnnl_1_1eltwise__backward_1_1desc_1ad94c1c1fce3f2f6756184a40bfb6ce01" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1gru__forward_1_1desc" kind="struct"><name>dnnl::gru_forward::desc</name>
+    <member refid="structdnnl_1_1gru__forward_1_1desc_1a2ed1811f1c69cdef5a48afb6a2ca5e17" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1gru__backward_1_1desc" kind="struct"><name>dnnl::gru_backward::desc</name>
+    <member refid="structdnnl_1_1gru__backward_1_1desc_1adbd26b1c332c66d839040e9c0d183437" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1convolution__backward__weights_1_1desc" kind="struct"><name>dnnl::convolution_backward_weights::desc</name>
+    <member refid="structdnnl_1_1convolution__backward__weights_1_1desc_1ad8e3a4c77b5c487497aac9ca4975747b" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1convolution__backward__weights_1_1desc_1ae8a8cfa31a6584edac5699336e86973c" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1convolution__backward__weights_1_1desc_1a86fb250fe7e8d376a5226ae2dcf27609" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1convolution__backward__weights_1_1desc_1a8c15986640c1e2a90749551f0bd68cbc" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lbr__gru__forward_1_1desc" kind="struct"><name>dnnl::lbr_gru_forward::desc</name>
+    <member refid="structdnnl_1_1lbr__gru__forward_1_1desc_1a8fe6d6b989749c248eef7b2ec9cef913" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1deconvolution__forward_1_1desc" kind="struct"><name>dnnl::deconvolution_forward::desc</name>
+    <member refid="structdnnl_1_1deconvolution__forward_1_1desc_1a0047a0daaa6a75d7e7bdd70a4181d4aa" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__forward_1_1desc_1a03574f586711b1f4f26beaa21dfeb606" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__forward_1_1desc_1acdc09416491e2562f9add9d7a869205b" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__forward_1_1desc_1ae3fd5882193f10497949860215fb0cbc" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1softmax__forward_1_1desc" kind="struct"><name>dnnl::softmax_forward::desc</name>
+    <member refid="structdnnl_1_1softmax__forward_1_1desc_1a15d07a0e32916d4a77b6df1689656e8f" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1softmax__forward_1_1desc_1a74ad273e533932c4f16aaf5c94c77941" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1shuffle__forward_1_1desc" kind="struct"><name>dnnl::shuffle_forward::desc</name>
+    <member refid="structdnnl_1_1shuffle__forward_1_1desc_1a04aa3bcc3729b177a4b8aaeba66e2f60" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1shuffle__backward_1_1desc" kind="struct"><name>dnnl::shuffle_backward::desc</name>
+    <member refid="structdnnl_1_1shuffle__backward_1_1desc_1a62ed7c449986d9cb474a3570ba665966" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1softmax__backward_1_1desc" kind="struct"><name>dnnl::softmax_backward::desc</name>
+    <member refid="structdnnl_1_1softmax__backward_1_1desc_1aacb6e968e872e639217059d41ce07e93" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1softmax__backward_1_1desc_1a7c3b01c94cfd34670dc1176c57de0bf9" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1binary_1_1desc" kind="struct"><name>dnnl::binary::desc</name>
+    <member refid="structdnnl_1_1binary_1_1desc_1ac569f40aa387a2766e224d3a34e1ea55" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1deconvolution__backward__data_1_1desc" kind="struct"><name>dnnl::deconvolution_backward_data::desc</name>
+    <member refid="structdnnl_1_1deconvolution__backward__data_1_1desc_1a16512164e489cc3d24408143ff27cd3b" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__data_1_1desc_1a4be980827eb1d4c0641083a35918d06c" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1logsoftmax__forward_1_1desc" kind="struct"><name>dnnl::logsoftmax_forward::desc</name>
+    <member refid="structdnnl_1_1logsoftmax__forward_1_1desc_1a49b30c50887908b9e8abaae5edcc7c00" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1logsoftmax__forward_1_1desc_1a335da9e45cd45d8fc4742bb3c02b591f" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1matmul_1_1desc" kind="struct"><name>dnnl::matmul::desc</name>
+    <member refid="structdnnl_1_1matmul_1_1desc_1a44e9e36ad615dc438fc96c74317fe487" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1matmul_1_1desc_1a6c302d130aa85dc058f3f19a2612bcd3" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1logsoftmax__backward_1_1desc" kind="struct"><name>dnnl::logsoftmax_backward::desc</name>
+    <member refid="structdnnl_1_1logsoftmax__backward_1_1desc_1a859afe8fbdff569b7c23a7e331eedc23" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1logsoftmax__backward_1_1desc_1a6818afe6a767ad7af4b5c286d533be66" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1resampling__forward_1_1desc" kind="struct"><name>dnnl::resampling_forward::desc</name>
+    <member refid="structdnnl_1_1resampling__forward_1_1desc_1a2cbc8dbe0e0004610ea2b7d56b4ed192" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1resampling__forward_1_1desc_1a4878dfb8b7c2351451ec2b5c7759e76e" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1resampling__forward_1_1desc_1a7c5e4e69a9b8b67e1b06b7053acc1d76" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1resampling__backward_1_1desc" kind="struct"><name>dnnl::resampling_backward::desc</name>
+    <member refid="structdnnl_1_1resampling__backward_1_1desc_1a8cf1245babaa313d2a493a4ae355094d" kind="function"><name>desc</name></member>
+    <member refid="structdnnl_1_1resampling__backward_1_1desc_1a782982e52e78e4fe3c998c18d79b581c" kind="function"><name>desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1eltwise__backward" kind="struct"><name>dnnl::eltwise_backward</name>
+    <member refid="structdnnl_1_1eltwise__backward_1a8d4178f2fcb34b0d78b61b5689754b93" kind="function"><name>eltwise_backward</name></member>
+    <member refid="structdnnl_1_1eltwise__backward_1adaf18ede58521c74dbccf53f8ca7f2fa" kind="function"><name>eltwise_backward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1eltwise__forward" kind="struct"><name>dnnl::eltwise_forward</name>
+    <member refid="structdnnl_1_1eltwise__forward_1ad93382cd4609f37a2de94de9c327b263" kind="function"><name>eltwise_forward</name></member>
+    <member refid="structdnnl_1_1eltwise__forward_1a2979502351c78589b1584d6bd25f5a09" kind="function"><name>eltwise_forward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1engine" kind="struct"><name>dnnl::engine</name>
+    <member refid="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1a" kind="enum"><name>kind</name></member>
+    <member refid="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1aa100b8cad7cf2a56f6df78f171f97a1ec" kind="enumvalue"><name>any</name></member>
+    <member refid="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1aad9747e2da342bdb995f6389533ad1a3d" kind="enumvalue"><name>cpu</name></member>
+    <member refid="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1aa0aa0be2a866411d9ff03515227454947" kind="enumvalue"><name>gpu</name></member>
+    <member refid="structdnnl_1_1engine_1a789ae75053453a04b122f303d2ad177f" kind="function"><name>engine</name></member>
+    <member refid="structdnnl_1_1engine_1abfbca449ff03e4103de0b45cfa39b59d" kind="function"><name>engine</name></member>
+    <member refid="structdnnl_1_1engine_1a6c0d8f0aeac1f0e1ba3edb7f9ec61d79" kind="function"><name>engine</name></member>
+    <member refid="structdnnl_1_1engine_1afe81649a67fff16348ca2b7e15f78c3b" kind="function"><name>get_kind</name></member>
+    <member refid="structdnnl_1_1engine_1ad457436b693c5ca1b4dcdfb2fa2db25e" kind="function"><name>get_sycl_context</name></member>
+    <member refid="structdnnl_1_1engine_1ab6639e361bdc7dbd20da2f6ff730c3db" kind="function"><name>get_sycl_device</name></member>
+    <member refid="structdnnl_1_1engine_1a35bcbdd6fa35663ca73e24d63c2f8ff4" kind="function"><name>get_count</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1error" kind="struct"><name>dnnl::error</name>
+  </compound>
+  <compound refid="structdnnl_1_1gru__backward" kind="struct"><name>dnnl::gru_backward</name>
+    <member refid="structdnnl_1_1gru__backward_1a476361571f0007e4b445941a48bba118" kind="function"><name>gru_backward</name></member>
+    <member refid="structdnnl_1_1gru__backward_1a8a341b3745ab0c27b1d48b88fa4ac1f6" kind="function"><name>gru_backward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1gru__forward" kind="struct"><name>dnnl::gru_forward</name>
+    <member refid="structdnnl_1_1gru__forward_1ab363d1e47e46066f261cf74be91e312f" kind="function"><name>gru_forward</name></member>
+    <member refid="structdnnl_1_1gru__forward_1a120dbe542bd785423ac1dea0128764aa" kind="function"><name>gru_forward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1inner__product__backward__data" kind="struct"><name>dnnl::inner_product_backward_data</name>
+    <member refid="structdnnl_1_1inner__product__backward__data_1a992d10d9af41f42585aa4f29ab7d5cda" kind="function"><name>inner_product_backward_data</name></member>
+    <member refid="structdnnl_1_1inner__product__backward__data_1a5fe16e09062a20988dd5305c0410693d" kind="function"><name>inner_product_backward_data</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1inner__product__backward__weights" kind="struct"><name>dnnl::inner_product_backward_weights</name>
+    <member refid="structdnnl_1_1inner__product__backward__weights_1ab208941d37032aa8ede2c12d63682322" kind="function"><name>inner_product_backward_weights</name></member>
+    <member refid="structdnnl_1_1inner__product__backward__weights_1a5f050012a7044d8cb694dbd1382ba3ae" kind="function"><name>inner_product_backward_weights</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1inner__product__forward" kind="struct"><name>dnnl::inner_product_forward</name>
+    <member refid="structdnnl_1_1inner__product__forward_1a51dcac732c17bbe0e44e90e6f6afbb21" kind="function"><name>inner_product_forward</name></member>
+    <member refid="structdnnl_1_1inner__product__forward_1a1626abb1c2dc58648dc6271cebb31a14" kind="function"><name>inner_product_forward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1layer__normalization__backward" kind="struct"><name>dnnl::layer_normalization_backward</name>
+    <member refid="structdnnl_1_1layer__normalization__backward_1a3d2f13720cc6bfff376f37c8cdb47ab3" kind="function"><name>layer_normalization_backward</name></member>
+    <member refid="structdnnl_1_1layer__normalization__backward_1a36cbbc365c0f37c4725d44f68bc180d3" kind="function"><name>layer_normalization_backward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1layer__normalization__forward" kind="struct"><name>dnnl::layer_normalization_forward</name>
+    <member refid="structdnnl_1_1layer__normalization__forward_1a1566f285916ea5e9015987a5d346e2b5" kind="function"><name>layer_normalization_forward</name></member>
+    <member refid="structdnnl_1_1layer__normalization__forward_1aff43626ba95cf18f0d1aa599d8e3c034" kind="function"><name>layer_normalization_forward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lbr__gru__backward" kind="struct"><name>dnnl::lbr_gru_backward</name>
+    <member refid="structdnnl_1_1lbr__gru__backward_1a08d3f268cdcbf705353e75ce14f583d3" kind="function"><name>lbr_gru_backward</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1a40c9872f52e24b681108489dd5dc5cb7" kind="function"><name>lbr_gru_backward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lbr__gru__forward" kind="struct"><name>dnnl::lbr_gru_forward</name>
+    <member refid="structdnnl_1_1lbr__gru__forward_1a0f222a6434bff58efe98d18cbd38078b" kind="function"><name>lbr_gru_forward</name></member>
+    <member refid="structdnnl_1_1lbr__gru__forward_1a9ba7eb699c98dd91c3a1a1f040bded1c" kind="function"><name>lbr_gru_forward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1logsoftmax__backward" kind="struct"><name>dnnl::logsoftmax_backward</name>
+    <member refid="structdnnl_1_1logsoftmax__backward_1a1084c4d14cea1d90aff6736b4ff2b496" kind="function"><name>logsoftmax_backward</name></member>
+    <member refid="structdnnl_1_1logsoftmax__backward_1a82d9b8f2df006a0d4ad0ad37130007d5" kind="function"><name>logsoftmax_backward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1logsoftmax__forward" kind="struct"><name>dnnl::logsoftmax_forward</name>
+    <member refid="structdnnl_1_1logsoftmax__forward_1af5516a14719a1997636f712f129ab616" kind="function"><name>logsoftmax_forward</name></member>
+    <member refid="structdnnl_1_1logsoftmax__forward_1ae3130bb95ce92bf08cfeb0adb0022bd2" kind="function"><name>logsoftmax_forward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lrn__backward" kind="struct"><name>dnnl::lrn_backward</name>
+    <member refid="structdnnl_1_1lrn__backward_1ad96b22726f1b994e08d56448215f5471" kind="function"><name>lrn_backward</name></member>
+    <member refid="structdnnl_1_1lrn__backward_1a68f483e09faea1a0bc6624547d50c5d5" kind="function"><name>lrn_backward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lrn__forward" kind="struct"><name>dnnl::lrn_forward</name>
+    <member refid="structdnnl_1_1lrn__forward_1ad556a5449b0b5d93e222730a83d12bc4" kind="function"><name>lrn_forward</name></member>
+    <member refid="structdnnl_1_1lrn__forward_1af08a4b4986501182caf804266af08dce" kind="function"><name>lrn_forward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lstm__backward" kind="struct"><name>dnnl::lstm_backward</name>
+    <member refid="structdnnl_1_1lstm__backward_1a875b7bda8500386200669052bfdd42f8" kind="function"><name>lstm_backward</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1ac739e79fb7340c8b05a058ca85efe8ce" kind="function"><name>lstm_backward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lstm__forward" kind="struct"><name>dnnl::lstm_forward</name>
+    <member refid="structdnnl_1_1lstm__forward_1ab5ea79e94e431b7e6977e48ddce22e51" kind="function"><name>lstm_forward</name></member>
+    <member refid="structdnnl_1_1lstm__forward_1a336a0c5ca05b04f96d13f1e4a1bfbbcb" kind="function"><name>lstm_forward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1matmul" kind="struct"><name>dnnl::matmul</name>
+    <member refid="structdnnl_1_1matmul_1adea4d1b3286e673662a9bd6d6720a796" kind="function"><name>matmul</name></member>
+    <member refid="structdnnl_1_1matmul_1aa1052f851d887db245f58f014cd6b0f5" kind="function"><name>matmul</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1memory" kind="struct"><name>dnnl::memory</name>
+    <member refid="structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce" kind="enum"><name>data_type</name></member>
+    <member refid="structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dceaf31ee5e3824f1f5e5d206bdf3029f22b" kind="enumvalue"><name>undef</name></member>
+    <member refid="structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dceaa2449b6477c1fef79be4202906486876" kind="enumvalue"><name>f16</name></member>
+    <member refid="structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dceafe2904d9fb3b0f4a81c92b03dec11424" kind="enumvalue"><name>bf16</name></member>
+    <member refid="structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dcea512dc597be7ae761876315165dc8bd2e" kind="enumvalue"><name>f32</name></member>
+    <member refid="structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dceaa860868d23f3a68323a2e3f6563d7f31" kind="enumvalue"><name>s32</name></member>
+    <member refid="structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dcea3e8d88fdd85d7153525e0647cdd97686" kind="enumvalue"><name>s8</name></member>
+    <member refid="structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dcea077393852be20e37026d6281827662f2" kind="enumvalue"><name>u8</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3f" kind="enum"><name>format_tag</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3faf31ee5e3824f1f5e5d206bdf3029f22b" kind="enumvalue"><name>undef</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa100b8cad7cf2a56f6df78f171f97a1ec" kind="enumvalue"><name>any</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa0cc175b9c0f1b6a831c399e269772661" kind="enumvalue"><name>a</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa187ef4436122d1cc2f40dc2b92f0eba0" kind="enumvalue"><name>ab</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa07159c47ee1b19ae4fb9c40d480856c4" kind="enumvalue"><name>ba</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa900150983cd24fb0d6963f7d28e17f72" kind="enumvalue"><name>abc</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa5ff832d9bca8241d653279756f3ccd11" kind="enumvalue"><name>acb</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa79ec16df80b57696a03bb364410061f3" kind="enumvalue"><name>bac</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fab64eab8ce39e013604e243089c687e4f" kind="enumvalue"><name>bca</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa3944b025c9ca7eec3154b44666ae04a0" kind="enumvalue"><name>cba</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fae2fc714c4727ee9395f324cd2e7f331f" kind="enumvalue"><name>abcd</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa776649ab3d00664587b889457db87da7" kind="enumvalue"><name>acdb</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa5a3b732e0600663606054f6d8dfd465e" kind="enumvalue"><name>bacd</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa078c4e73146ba90c3e4e9daa1facac28" kind="enumvalue"><name>bcda</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3faff2458511a39d703bd273eabbb1395d6" kind="enumvalue"><name>cdba</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3faab56b4d92b40713acc5af89985d4b786" kind="enumvalue"><name>abcde</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa7a05226d93263d6fc613f52400f7416d" kind="enumvalue"><name>abdec</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fae0e56a95aff0ee48fc44e8a4faf69adb" kind="enumvalue"><name>acbde</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3faf95d333a023ac787b43babc5b5c480ae" kind="enumvalue"><name>acdeb</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa6debec47fc73823aa65cc49b94b7e1fb" kind="enumvalue"><name>bcdea</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fafafcbfdfcede01281676ab63df88a919" kind="enumvalue"><name>cdeba</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fab9a152e018d02395e6e94c5619da4a91" kind="enumvalue"><name>decab</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fae80b5017098950fc58aad83c8c14978e" kind="enumvalue"><name>abcdef</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa66fd87374b1ec6be9fdbea534e17adeb" kind="enumvalue"><name>acbdef</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fac9cdbbb9640597fea44206cee7f8a151" kind="enumvalue"><name>defcab</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa9dd4e461268c8034f5c8564e155c67a6" kind="enumvalue"><name>x</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa1e7342845e24eb3b5b3554490da1c128" kind="enumvalue"><name>nc</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa7efdfc94655a25dcea3ec85e9bb703fa" kind="enumvalue"><name>cn</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3faaafb96b2fa8806be307c4496867bad56" kind="enumvalue"><name>tn</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa25930e3036f13852cb0b29694bbab611" kind="enumvalue"><name>nt</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fabc4eee572ad38f8a5c2534e0b2533100" kind="enumvalue"><name>ncw</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3faccc0543dc9272f9fffd720fe55f818e4" kind="enumvalue"><name>nwc</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3faded7ac40158367123c5467281d44cbeb" kind="enumvalue"><name>nchw</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa763cbf7ba1b7b8793dcdc6e2157b5c42" kind="enumvalue"><name>nhwc</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fafd2263500e815d8ce46e79e6b178a10a" kind="enumvalue"><name>chwn</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fae7a84f08ef10d4fe3096307c6d9770fd" kind="enumvalue"><name>ncdhw</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fad2f2770ca9883423f680fd4a29481d64" kind="enumvalue"><name>ndhwc</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3faa2e63ee01401aaeca78be023dfbb8c59" kind="enumvalue"><name>oi</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3faf98ed07a4d5f50f7de1410d905f1477f" kind="enumvalue"><name>io</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa3a8cb832bca6da72735b742014560a5b" kind="enumvalue"><name>oiw</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa55e9a1b1cc2aaf0f5b7417d8098ea4b3" kind="enumvalue"><name>owi</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa5b12270b2f1c52cb9ae37905880a5a6f" kind="enumvalue"><name>wio</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa7afa5d2c0d2aa139eb213430ec70d91d" kind="enumvalue"><name>iwo</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa14b72a467aeefa06a5cb802ec4a7743c" kind="enumvalue"><name>oihw</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fadd942f902c741de7193e1869b13ba55a" kind="enumvalue"><name>hwio</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fab889a0cb4d051674706433941a2e867f" kind="enumvalue"><name>ohwi</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa56fe35ca9f339b4948384c2a2fa02de5" kind="enumvalue"><name>ihwo</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fac16710619e6550753801926b5388bef8" kind="enumvalue"><name>iohw</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa98407962f915285419b23f5b0a223882" kind="enumvalue"><name>oidhw</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3faeafcb3d831eef23cde0b46f64646327c" kind="enumvalue"><name>dhwio</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fabf55006478a9dae3506eb67923703a1d" kind="enumvalue"><name>odhwi</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa2b3d6389089fb08059ece8a9642b8991" kind="enumvalue"><name>idhwo</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa1f1bc797706732c22eb9987e3cea3e54" kind="enumvalue"><name>goiw</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa3dc0e53430a6368210356118196f821a" kind="enumvalue"><name>goihw</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fafd710c828421b3c91725b0e5aa53ecc6" kind="enumvalue"><name>hwigo</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa5f1d6f8a3a8842611d15affa574b864f" kind="enumvalue"><name>giohw</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3faa678de4e5a5e34c9a71a632b8f334b8b" kind="enumvalue"><name>goidhw</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa4f2399cfdc9861fee9d39cb1d703aadc" kind="enumvalue"><name>giodhw</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fab291a9717fdf353288d2d6082d578059" kind="enumvalue"><name>dhwigo</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fac775cf954921a129a65eb929476de911" kind="enumvalue"><name>tnc</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa6758344f9f89d390953c6718f34e9be1" kind="enumvalue"><name>ntc</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fab49be97ff353a86d84d06d98f846b61d" kind="enumvalue"><name>ldnc</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa4e62e330c56963f9ead98490cd57ef7b" kind="enumvalue"><name>ldigo</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa4c850fa02c9e56a4c20dbfde737f1f8d" kind="enumvalue"><name>ldgoi</name></member>
+    <member refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fab8690cd92ccee6a0ad55faccc0346aab" kind="enumvalue"><name>ldgo</name></member>
+    <member refid="structdnnl_1_1memory_1af647d5cd96f05e7876a5826ac83d9bd6" kind="typedef"><name>dim</name></member>
+    <member refid="structdnnl_1_1memory_1a7d9f4b6ad8caf3969f436cd9ff27e9bb" kind="typedef"><name>dims</name></member>
+    <member refid="structdnnl_1_1memory_1a078c619ff6b4efe873e635f1178391cb" kind="function"><name>memory</name></member>
+    <member refid="structdnnl_1_1memory_1a7349cd8dd17e53fbde7648fd7dc108a9" kind="function"><name>memory</name></member>
+    <member refid="structdnnl_1_1memory_1a8ae911088bc89746e49146c18d86ac3a" kind="function"><name>memory</name></member>
+    <member refid="structdnnl_1_1memory_1aa28e9a81e89a97b90b49535dc3a5c96e" kind="function"><name>memory</name></member>
+    <member refid="structdnnl_1_1memory_1ad8a1ad28ed7acf9c34c69e4b882c6e92" kind="function"><name>get_desc</name></member>
+    <member refid="structdnnl_1_1memory_1a9074709c5af8dc9d25dd9a98c4d1dbd3" kind="function"><name>get_engine</name></member>
+    <member refid="structdnnl_1_1memory_1a8968c24c4a95255f68ab2a483769343d" kind="function"><name>get_data_handle</name></member>
+    <member refid="structdnnl_1_1memory_1ab0ca87db309b17d747ec8e0d3adcdd15" kind="function"><name>set_data_handle</name></member>
+    <member refid="structdnnl_1_1memory_1a170571437afeabe2923477fdd6eea2fd" kind="function"><name>get_sycl_buffer</name></member>
+    <member refid="structdnnl_1_1memory_1aaf55a9972d3af57d6a4997520c6067e4" kind="function"><name>set_sycl_buffer</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1pooling__backward" kind="struct"><name>dnnl::pooling_backward</name>
+    <member refid="structdnnl_1_1pooling__backward_1ad00ffa2040ee6d623fb6103c96a18567" kind="function"><name>pooling_backward</name></member>
+    <member refid="structdnnl_1_1pooling__backward_1ad002497e9938c6407fd2d38abd15cad2" kind="function"><name>pooling_backward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1pooling__forward" kind="struct"><name>dnnl::pooling_forward</name>
+    <member refid="structdnnl_1_1pooling__forward_1af5dccc84ad6c6aa5c4936d824246fec9" kind="function"><name>pooling_forward</name></member>
+    <member refid="structdnnl_1_1pooling__forward_1abccc5797009b6c1fa2f2c6f761a5faac" kind="function"><name>pooling_forward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1post__ops" kind="struct"><name>dnnl::post_ops</name>
+    <member refid="structdnnl_1_1post__ops_1a8e1d47722db8f53b3689468788ec2c01" kind="function"><name>post_ops</name></member>
+    <member refid="structdnnl_1_1post__ops_1a84653b68d83c2d84d3ac432a8dc1f5fd" kind="function"><name>len</name></member>
+    <member refid="structdnnl_1_1post__ops_1a454acad1a18f2763f07b42912778c0f8" kind="function"><name>kind</name></member>
+    <member refid="structdnnl_1_1post__ops_1a078ab8ec15423d2b3d26f3619a78ca38" kind="function"><name>append_sum</name></member>
+    <member refid="structdnnl_1_1post__ops_1aaeb404084e7f9c65e8e266acca2ea6ac" kind="function"><name>get_params_sum</name></member>
+    <member refid="structdnnl_1_1post__ops_1a66606f08467b19091e696b52a2f789e6" kind="function"><name>append_eltwise</name></member>
+    <member refid="structdnnl_1_1post__ops_1a9b9a693f7b369058debb5fe818eca631" kind="function"><name>get_params_eltwise</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1primitive" kind="struct"><name>dnnl::primitive</name>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169" kind="enum"><name>kind</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169af31ee5e3824f1f5e5d206bdf3029f22b" kind="enumvalue"><name>undef</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a8dbc5523c131d7900138d32d1dcbf093" kind="enumvalue"><name>reorder</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a644c45fc2b003bf415a3fb655412508d" kind="enumvalue"><name>shuffle</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a414e7c8ede73a0c2c3d17699134f4080" kind="enumvalue"><name>concat</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a1d623b89683f9ce4e074de1676d12416" kind="enumvalue"><name>sum</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169aa9595c1c24c33b16056d2ad07e71682d" kind="enumvalue"><name>convolution</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a2294014fceafa2f8ca8d16ad35f25875" kind="enumvalue"><name>deconvolution</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a98b908c7d0339bb6a4832db44fc2c8da" kind="enumvalue"><name>eltwise</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169ace2f1fbd249d24aabc07ac4488ab5b8c" kind="enumvalue"><name>softmax</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a4abcef116566139e94c82bb1bb37583f" kind="enumvalue"><name>pooling</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a7d9c7d1747abfac2c3c3ff337712f575" kind="enumvalue"><name>lrn</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a780789647a31acedb6477412a99154bb" kind="enumvalue"><name>batch_normalization</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a40f3d68401fd64071877b5263c3d8706" kind="enumvalue"><name>layer_normalization</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a30813812e3beef3eefcc2b97dc2e0783" kind="enumvalue"><name>inner_product</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a6eed45b9327120cabad6916919a9a600" kind="enumvalue"><name>rnn</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a9d7183f16acce70658f686ae7f1a4d20" kind="enumvalue"><name>binary</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a3e392964a863f0168f631708934c2acf" kind="enumvalue"><name>logsoftmax</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a0f2e1c85f0064ca22d3ac468c44b0327" kind="enumvalue"><name>matmul</name></member>
+    <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169a4f9776b23053c32400f732de532df397" kind="enumvalue"><name>resampling</name></member>
+    <member refid="structdnnl_1_1primitive_1a621390063073910b5a1bf8c25e30bc18" kind="function"><name>primitive</name></member>
+    <member refid="structdnnl_1_1primitive_1a5c62a7df729fe0c22b5deb9afdbc337f" kind="function"><name>primitive</name></member>
+    <member refid="structdnnl_1_1primitive_1af2fbde28f5dfa02647c1d78b02f9cab7" kind="function"><name>get_kind</name></member>
+    <member refid="structdnnl_1_1primitive_1ae2704b0577f2eaad1043256d8d619bc5" kind="function"><name>execute</name></member>
+    <member refid="structdnnl_1_1primitive_1a5ce859d7357431fdeb50f308f9b22cf6" kind="function"><name>execute_sycl</name></member>
+    <member refid="structdnnl_1_1primitive_1ab9f980d33289778feed22fa599700858" kind="function"><name>operator=</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1primitive__attr" kind="struct"><name>dnnl::primitive_attr</name>
+    <member refid="structdnnl_1_1primitive__attr_1acfbfd85b7ca82bf97e2b07c2427427de" kind="function"><name>primitive_attr</name></member>
+    <member refid="structdnnl_1_1primitive__attr_1af4131b946ec3af3bc2974b603d30029b" kind="function"><name>get_scratchpad_mode</name></member>
+    <member refid="structdnnl_1_1primitive__attr_1a91a597649afa13b7d2416b708d0620d2" kind="function"><name>set_scratchpad_mode</name></member>
+    <member refid="structdnnl_1_1primitive__attr_1aadcfc1f7a787a0b75d6b0daab8da14af" kind="function"><name>get_output_scales</name></member>
+    <member refid="structdnnl_1_1primitive__attr_1a4b81acc8e48886313154f75c1708ae02" kind="function"><name>set_output_scales</name></member>
+    <member refid="structdnnl_1_1primitive__attr_1a9fc7eb58cc958963a2d26743cfd5c763" kind="function"><name>get_scales</name></member>
+    <member refid="structdnnl_1_1primitive__attr_1a9bf717bd25b6fddd89055da8178eab75" kind="function"><name>set_scales</name></member>
+    <member refid="structdnnl_1_1primitive__attr_1a010dfd54aa839ca1c0da892b99963bdf" kind="function"><name>get_zero_points</name></member>
+    <member refid="structdnnl_1_1primitive__attr_1aee82deb014cf9702ceb3e725156c25a1" kind="function"><name>set_zero_points</name></member>
+    <member refid="structdnnl_1_1primitive__attr_1a05664ef63c94acbcc59e921c4a4da6b8" kind="function"><name>get_post_ops</name></member>
+    <member refid="structdnnl_1_1primitive__attr_1ac830fa9f4fcf480b494d73153ad579bf" kind="function"><name>set_post_ops</name></member>
+    <member refid="structdnnl_1_1primitive__attr_1a39ce5aa8b06ed331d8e2158108cc8324" kind="function"><name>set_rnn_data_qparams</name></member>
+    <member refid="structdnnl_1_1primitive__attr_1a61bd70f97baa628fd49b2c8b334b913e" kind="function"><name>set_rnn_weights_qparams</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1softmax__forward_1_1primitive__desc" kind="struct"><name>dnnl::softmax_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1softmax__forward_1_1primitive__desc_1a8f74a2902d829217949afb040c608b8e" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1softmax__forward_1_1primitive__desc_1a03aa48c8f02f0a9a85764b26e0019aca" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1softmax__forward_1_1primitive__desc_1ae1457837d76e03fd71ffd4686d62f04d" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1softmax__forward_1_1primitive__desc_1a158cc82d9ce111b4839525ca1ee4aa9a" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1softmax__forward_1_1primitive__desc_1a4cb716ad7e8d7ce5ba43f374a21586a9" kind="function"><name>dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1deconvolution__backward__data_1_1primitive__desc" kind="struct"><name>dnnl::deconvolution_backward_data::primitive_desc</name>
+    <member refid="structdnnl_1_1deconvolution__backward__data_1_1primitive__desc_1ad1ae2255b6fddfa237788d4c0aabd786" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__data_1_1primitive__desc_1a7d3027cc091557ea480609718b0683fc" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__data_1_1primitive__desc_1ac0d214573f88db6476c747c9a6968056" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__data_1_1primitive__desc_1aa7a1213caffe31aa78c5cff01b1e3fa1" kind="function"><name>diff_src_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__data_1_1primitive__desc_1a31e87998cf5e97be4e5413f3aee207b2" kind="function"><name>weights_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__data_1_1primitive__desc_1a734a211fafe7b94b981a8e52d09158a6" kind="function"><name>diff_dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lstm__backward_1_1primitive__desc" kind="struct"><name>dnnl::lstm_backward::primitive_desc</name>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1af409a57d712b87ca97daa6533f69da18" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1a8c07bec7095b49d9db815ed185f2af4e" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1a7b9be423747e099150c938150b0b2f6b" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1a3659b46ba6d6d04a7ff416bb813c39fc" kind="function"><name>src_layer_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1a6adf5abfc5e0d64eb26713c0d2a5aed6" kind="function"><name>src_iter_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1aa5b5b2c30ac63d88b14df056b4706cca" kind="function"><name>src_iter_c_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1ace7359f78f3e0cf9c80412ce130dd144" kind="function"><name>weights_layer_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1a0daa23fec7194553abac9535716bc6e1" kind="function"><name>weights_iter_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1a97d40d6d41f51d3985db0ddf5c6fe3d0" kind="function"><name>bias_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1aa62fe0ea10ca14021330599994538def" kind="function"><name>dst_layer_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1a3bd545695c4d625c9856520789a0e34e" kind="function"><name>dst_iter_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1a35275df9da984cdcd135b30941b0766c" kind="function"><name>dst_iter_c_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1af661a9e27013725a9fdf6aaba6a7b06a" kind="function"><name>workspace_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1a5d639c4e986db14577b74890579789fd" kind="function"><name>diff_src_layer_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1ab2bdb5e6b5696c425582d0b5948cbfd3" kind="function"><name>diff_src_iter_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1af66e2af6de27f737d17c4d05d1b5714f" kind="function"><name>diff_src_iter_c_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1aed6c10c83a400320aa797724855914e3" kind="function"><name>diff_weights_layer_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1a7790dd3353fd2a9665c55b5dbb2c9792" kind="function"><name>diff_weights_iter_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1a7f9abbdefe0dd122ee9afaa7445813d1" kind="function"><name>diff_bias_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1ac56eccc1f7c254ad7a612561221bc2c4" kind="function"><name>diff_dst_layer_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1a0ff4550a4cffded7a5ed94fb8746a4d4" kind="function"><name>diff_dst_iter_desc</name></member>
+    <member refid="structdnnl_1_1lstm__backward_1_1primitive__desc_1aaa5aaba04fdad31a2cb86f59738a6e89" kind="function"><name>diff_dst_iter_c_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1concat_1_1primitive__desc" kind="struct"><name>dnnl::concat::primitive_desc</name>
+    <member refid="structdnnl_1_1concat_1_1primitive__desc_1a82e1c274d8b8e7c7295213718f242344" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1concat_1_1primitive__desc_1ad2579e313096b1abad67b1631d5b75c2" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1concat_1_1primitive__desc_1ac149ddacc87abc5859fcb29812eb1c22" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1concat_1_1primitive__desc_1aec0c39ce601f680ced21db39e238be1c" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1concat_1_1primitive__desc_1a06379c9005f0da7c22293126e804add1" kind="function"><name>dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1gru__forward_1_1primitive__desc" kind="struct"><name>dnnl::gru_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1gru__forward_1_1primitive__desc_1a04a4e6633fbaefab83bd2c4c9609196f" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1gru__forward_1_1primitive__desc_1ab9143fb408c50f7fef5780c3ee57c934" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1gru__forward_1_1primitive__desc_1a2bbab1c7c419c3e68e5943fb9f92ca8c" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1gru__forward_1_1primitive__desc_1a151aa8bd2688df79756db865fdcf2448" kind="function"><name>src_layer_desc</name></member>
+    <member refid="structdnnl_1_1gru__forward_1_1primitive__desc_1a9b77d6a1d123c22a4d0d029153cf47d6" kind="function"><name>src_iter_desc</name></member>
+    <member refid="structdnnl_1_1gru__forward_1_1primitive__desc_1a534a21c5cc64d91e09c8851c749f06f1" kind="function"><name>weights_layer_desc</name></member>
+    <member refid="structdnnl_1_1gru__forward_1_1primitive__desc_1a146831b7fb433c08b3bf10448b3e48ea" kind="function"><name>weights_iter_desc</name></member>
+    <member refid="structdnnl_1_1gru__forward_1_1primitive__desc_1a6dfda803c06a02bf85052121f68240b4" kind="function"><name>bias_desc</name></member>
+    <member refid="structdnnl_1_1gru__forward_1_1primitive__desc_1a1cd31d5990750746ad0358b718e477ba" kind="function"><name>dst_layer_desc</name></member>
+    <member refid="structdnnl_1_1gru__forward_1_1primitive__desc_1a8941a399a805849a67e017ba0f6e41f5" kind="function"><name>dst_iter_desc</name></member>
+    <member refid="structdnnl_1_1gru__forward_1_1primitive__desc_1a97f152c8ef732520ef7c6bb275a464e9" kind="function"><name>workspace_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1convolution__backward__weights_1_1primitive__desc" kind="struct"><name>dnnl::convolution_backward_weights::primitive_desc</name>
+    <member refid="structdnnl_1_1convolution__backward__weights_1_1primitive__desc_1a55fde92e1b0792f0982591c5d5f87bb1" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1convolution__backward__weights_1_1primitive__desc_1a47dbe5cd9f56ea74539d96328bb76e07" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1convolution__backward__weights_1_1primitive__desc_1abbebe3c7904f73ff759af3971b0cd754" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1convolution__backward__weights_1_1primitive__desc_1a651343ab0369c7febf698ab9a2f82776" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1convolution__backward__weights_1_1primitive__desc_1a23b1ce306fc691d543686e6470c9d738" kind="function"><name>diff_weights_desc</name></member>
+    <member refid="structdnnl_1_1convolution__backward__weights_1_1primitive__desc_1ae3a22d74244d48c7bd3170fab5e9040d" kind="function"><name>diff_dst_desc</name></member>
+    <member refid="structdnnl_1_1convolution__backward__weights_1_1primitive__desc_1a08b92d934402dd6b4215459f8b0c347d" kind="function"><name>diff_bias_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1layer__normalization__forward_1_1primitive__desc" kind="struct"><name>dnnl::layer_normalization_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1layer__normalization__forward_1_1primitive__desc_1a6f52fb0621e7b2857a31e5e1018cd9d2" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__forward_1_1primitive__desc_1ad9d877581e87481f47d7bc5362fb093d" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__forward_1_1primitive__desc_1a9d374b92c2e7c2d060a18922c7a219fc" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__forward_1_1primitive__desc_1a15f2d8ad523655199b6b9eed1a906e16" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__forward_1_1primitive__desc_1a0f9a0d3bfab1851f4f1ed6af9e7bc511" kind="function"><name>dst_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__forward_1_1primitive__desc_1a8449344876675993b5dcea83612fcc60" kind="function"><name>weights_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__forward_1_1primitive__desc_1a1f0dd45d979923e85cc2fa81de24d772" kind="function"><name>workspace_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__forward_1_1primitive__desc_1ae0ad9c407ce41e013def79956309881e" kind="function"><name>mean_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__forward_1_1primitive__desc_1a5446956542a78e8bdee3bde838c6e9b1" kind="function"><name>variance_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1resampling__forward_1_1primitive__desc" kind="struct"><name>dnnl::resampling_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1resampling__forward_1_1primitive__desc_1a0cce2bd2842386b0e394e8e8fe5fc35c" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1resampling__forward_1_1primitive__desc_1aceec7416c557f5c4e084b4c3e018edac" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1resampling__forward_1_1primitive__desc_1a36e2a55772b8aa7c627088ee3e35fac7" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1resampling__forward_1_1primitive__desc_1a866c89ad7ad348ec2da25e9aeac44a80" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1resampling__forward_1_1primitive__desc_1a2ce7a2319ca0f068131c4d32690c96f7" kind="function"><name>dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1reorder_1_1primitive__desc" kind="struct"><name>dnnl::reorder::primitive_desc</name>
+    <member refid="structdnnl_1_1reorder_1_1primitive__desc_1a9db95f00490222c15d31778e93a0ac45" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1reorder_1_1primitive__desc_1ae9078780b5b1baf1b0b48e256d8312b2" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1reorder_1_1primitive__desc_1a6b9ec5ab005bb668e4db7cefeec04c54" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1reorder_1_1primitive__desc_1a3793240346a9e432cfa8364eacbc3fac" kind="function"><name>get_src_engine</name></member>
+    <member refid="structdnnl_1_1reorder_1_1primitive__desc_1a6667395ce77d7c4651d8d9d11dae4a4b" kind="function"><name>get_dst_engine</name></member>
+    <member refid="structdnnl_1_1reorder_1_1primitive__desc_1a07491b1aa7302a3d43ecb0671d9a6cd5" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1reorder_1_1primitive__desc_1ab167220e0773c3e8a66782ad62aef373" kind="function"><name>dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1eltwise__backward_1_1primitive__desc" kind="struct"><name>dnnl::eltwise_backward::primitive_desc</name>
+    <member refid="structdnnl_1_1eltwise__backward_1_1primitive__desc_1a313523bdfca90caebba5bb61283beac7" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1eltwise__backward_1_1primitive__desc_1aad12b85ea4cb1bd6d7750eb8c988b1bd" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1eltwise__backward_1_1primitive__desc_1a08359d4c050cca2aa3aa24329a7e6dd8" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1eltwise__backward_1_1primitive__desc_1a8d78475cfeda855b23b0e9335aacacc1" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1eltwise__backward_1_1primitive__desc_1a090cc653f9ea9b8186078b764d2ec033" kind="function"><name>diff_src_desc</name></member>
+    <member refid="structdnnl_1_1eltwise__backward_1_1primitive__desc_1acaf67e02a1a65bd0f5480d98f520ec73" kind="function"><name>diff_dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1gru__backward_1_1primitive__desc" kind="struct"><name>dnnl::gru_backward::primitive_desc</name>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1a43fb14481048adde83bbcf1eb1bf3e45" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1a5d8d77965523bee54ceb08bc111da2e8" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1a9cdd625e31372bb0446fe530f44e4fee" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1ac4298f951fe3454bccfecad8a60cd268" kind="function"><name>src_layer_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1a3dceec3e3d8334d47cc64fc3045a9f9b" kind="function"><name>src_iter_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1a3a604367dc1c473f0b797c3e820152ba" kind="function"><name>weights_layer_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1a4b177c7980d28ae343a736531c46205a" kind="function"><name>weights_iter_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1a998c641a2955765ed9bcd41bd51909b1" kind="function"><name>bias_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1a2d8d19fd60d5baf2646ce8a479cb7bec" kind="function"><name>dst_layer_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1af81e2ded399345152f01b6a75ff44f9e" kind="function"><name>dst_iter_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1acf97d3c73d20e50e2c6b8c596dcb69f7" kind="function"><name>workspace_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1ae322d435f1f8f0a067bfb2256add9f3c" kind="function"><name>diff_src_layer_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1aefba2d792b5904d02fa7cea38dbaa1a1" kind="function"><name>diff_src_iter_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1af32c0138b9b2be0a0ae6d8d7e2a582ac" kind="function"><name>diff_weights_layer_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1a1c33860cef78d46aaedff4d05d4dc14b" kind="function"><name>diff_weights_iter_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1a428a5618de526ba3744881fd3640c956" kind="function"><name>diff_bias_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1aa48ce3f3b574f1d12610d55e3f685e9f" kind="function"><name>diff_dst_layer_desc</name></member>
+    <member refid="structdnnl_1_1gru__backward_1_1primitive__desc_1aa19c8ef4b947ea5eb0804d735e190042" kind="function"><name>diff_dst_iter_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1convolution__backward__data_1_1primitive__desc" kind="struct"><name>dnnl::convolution_backward_data::primitive_desc</name>
+    <member refid="structdnnl_1_1convolution__backward__data_1_1primitive__desc_1a3e0890661a2ed2d514f2d835a65d5961" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1convolution__backward__data_1_1primitive__desc_1a4729cf5f15663d94e250e45b058d8524" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1convolution__backward__data_1_1primitive__desc_1a8d59ca067ce0a2aab6f27968e05ce367" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1convolution__backward__data_1_1primitive__desc_1a88c762e7e6c335c307d9ab4f1f30a747" kind="function"><name>diff_src_desc</name></member>
+    <member refid="structdnnl_1_1convolution__backward__data_1_1primitive__desc_1a0e99aaeac43bb2e837ba8c40568542ee" kind="function"><name>weights_desc</name></member>
+    <member refid="structdnnl_1_1convolution__backward__data_1_1primitive__desc_1a1d0a59818f66b81fd8dac537fcf37db6" kind="function"><name>diff_dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1pooling__forward_1_1primitive__desc" kind="struct"><name>dnnl::pooling_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1pooling__forward_1_1primitive__desc_1a2300c976dd1c6a3c86a067848be1a8e4" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1pooling__forward_1_1primitive__desc_1aab96c5250e7a2c2ea2b167b2daafffeb" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1pooling__forward_1_1primitive__desc_1a3ae91e4f90aa61bde703f7824c6a7261" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1pooling__forward_1_1primitive__desc_1a74d06e6a0132733cd7bdd7155acd90d1" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1pooling__forward_1_1primitive__desc_1a507e60d22313a7adba7446644d51ba29" kind="function"><name>dst_desc</name></member>
+    <member refid="structdnnl_1_1pooling__forward_1_1primitive__desc_1acf4ef6c3ff264e6a3abf556a93e91e88" kind="function"><name>workspace_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1matmul_1_1primitive__desc" kind="struct"><name>dnnl::matmul::primitive_desc</name>
+    <member refid="structdnnl_1_1matmul_1_1primitive__desc_1af6e384a8b18f561af03a97a904fdf113" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1matmul_1_1primitive__desc_1a2d04b018b03dbbfe63ba8a4752288fc9" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1matmul_1_1primitive__desc_1af28f8d7dd12269587b1af1e4195259f0" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1matmul_1_1primitive__desc_1a9b9fc61ab0fe6354dd96757ede7b92dc" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1matmul_1_1primitive__desc_1a0be2d3c1fd1674bd6808c0e82c035c2f" kind="function"><name>weights_desc</name></member>
+    <member refid="structdnnl_1_1matmul_1_1primitive__desc_1a8158f4a37657da12ee8cfa59e2929583" kind="function"><name>bias_desc</name></member>
+    <member refid="structdnnl_1_1matmul_1_1primitive__desc_1ad35cf09a2aaf3cd7db751b6c01d44f80" kind="function"><name>dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1deconvolution__backward__weights_1_1primitive__desc" kind="struct"><name>dnnl::deconvolution_backward_weights::primitive_desc</name>
+    <member refid="structdnnl_1_1deconvolution__backward__weights_1_1primitive__desc_1a0b29a8c84e5c4cd452f39c3afc5d6236" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__weights_1_1primitive__desc_1ad34043e2b1c62f5999068def89be50fb" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__weights_1_1primitive__desc_1a19de38e4e0d2ca9b70209a2bb92cb844" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__weights_1_1primitive__desc_1a13f1b17ca1e1f075a651aec178debf1d" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__weights_1_1primitive__desc_1ab3c99b817600f5f19c8afcdd2d7fd33f" kind="function"><name>diff_weights_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__weights_1_1primitive__desc_1a5810b82227869be298ff32cd56cd3903" kind="function"><name>diff_dst_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__backward__weights_1_1primitive__desc_1ac9ff86e573a1ba31c270265ae84a623b" kind="function"><name>diff_bias_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1batch__normalization__backward_1_1primitive__desc" kind="struct"><name>dnnl::batch_normalization_backward::primitive_desc</name>
+    <member refid="structdnnl_1_1batch__normalization__backward_1_1primitive__desc_1a25233cae2977ab0dbb2fcdc17dd753de" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__backward_1_1primitive__desc_1aca38cc2166de60197f0df3afc57b16db" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__backward_1_1primitive__desc_1af05c7d6354bfb80b46cc45a8c6bcff4a" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__backward_1_1primitive__desc_1acfb04f3de67e2b14b5f9eb8bbfa321ad" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__backward_1_1primitive__desc_1a46068cc421d7482f38436764e5d4cb47" kind="function"><name>weights_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__backward_1_1primitive__desc_1abf7da869049513ff6eee318582c99bc7" kind="function"><name>dst_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__backward_1_1primitive__desc_1aa1e00ff3e132d9cc6fb68556d07d1f27" kind="function"><name>diff_src_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__backward_1_1primitive__desc_1ad03474044a0dbaf76019ca5d61c95346" kind="function"><name>diff_dst_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__backward_1_1primitive__desc_1ada439dfc183dfc84d86474c3de542cae" kind="function"><name>diff_weights_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__backward_1_1primitive__desc_1ae16d35998de069d54e0ce7391654d6db" kind="function"><name>mean_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__backward_1_1primitive__desc_1aa8585406f7445e214698e7f6e629acc9" kind="function"><name>variance_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__backward_1_1primitive__desc_1a915a39691088ddec35bb160094b293a6" kind="function"><name>workspace_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1shuffle__backward_1_1primitive__desc" kind="struct"><name>dnnl::shuffle_backward::primitive_desc</name>
+    <member refid="structdnnl_1_1shuffle__backward_1_1primitive__desc_1a1bae1c89bbb51f5d1308ec412ba10d79" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1shuffle__backward_1_1primitive__desc_1ab8db27c80fe3a48f30f3bb0a7d4af1fc" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1shuffle__backward_1_1primitive__desc_1a42bb890f5e4c6b4663c587c6180581d1" kind="function"><name>diff_src_desc</name></member>
+    <member refid="structdnnl_1_1shuffle__backward_1_1primitive__desc_1acc7680d4e600bf248d27be9c8ed8414f" kind="function"><name>diff_dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1inner__product__forward_1_1primitive__desc" kind="struct"><name>dnnl::inner_product_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1inner__product__forward_1_1primitive__desc_1a5991e19b0d0b81dd0bc6da4cd2e8b9f0" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__forward_1_1primitive__desc_1aa779a1968eeb0fa28fb8b0549fe274e6" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__forward_1_1primitive__desc_1a27e53bbe141e9d38c8d0c080f13470f2" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__forward_1_1primitive__desc_1ae56e3be8da7215d6ac96030cf94dcb2a" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__forward_1_1primitive__desc_1a987cf534713889f94347eaf75c744b8a" kind="function"><name>weights_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__forward_1_1primitive__desc_1a186c88a9b62a2e34dc4e6b894083a602" kind="function"><name>dst_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__forward_1_1primitive__desc_1ab0f8e32093d94d741adabd81451a0793" kind="function"><name>bias_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1softmax__backward_1_1primitive__desc" kind="struct"><name>dnnl::softmax_backward::primitive_desc</name>
+    <member refid="structdnnl_1_1softmax__backward_1_1primitive__desc_1a39a975a51092b4a66a6446a156e89ed8" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1softmax__backward_1_1primitive__desc_1a985a693044a418903636d62a60209af4" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1softmax__backward_1_1primitive__desc_1a528153d30165af6bd828b5765ad9d78f" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1softmax__backward_1_1primitive__desc_1ad3b920f55e4320d8bd526c6161b71033" kind="function"><name>dst_desc</name></member>
+    <member refid="structdnnl_1_1softmax__backward_1_1primitive__desc_1a30e8e79fd5b9c632e2b6dee01652d617" kind="function"><name>diff_src_desc</name></member>
+    <member refid="structdnnl_1_1softmax__backward_1_1primitive__desc_1a2d258a7048205995bf3c80a25832122d" kind="function"><name>diff_dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lrn__forward_1_1primitive__desc" kind="struct"><name>dnnl::lrn_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1lrn__forward_1_1primitive__desc_1ae01d473bb9db15ca0df5941f58879119" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lrn__forward_1_1primitive__desc_1ab6215ca5184160c7615ee12ccd06039c" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lrn__forward_1_1primitive__desc_1a4c5457de404dd6a7cbf39297bbcb6263" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lrn__forward_1_1primitive__desc_1a1077ba30698a1b1e96cf26d60f9bfe63" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1lrn__forward_1_1primitive__desc_1a342599939c27dcfbfa8f6a452654d0e9" kind="function"><name>dst_desc</name></member>
+    <member refid="structdnnl_1_1lrn__forward_1_1primitive__desc_1acea0a4aa5ebd51ffefd5323d9657d1d6" kind="function"><name>workspace_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc" kind="struct"><name>dnnl::layer_normalization_backward::primitive_desc</name>
+    <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a3fd5a4fe60b0d6b0ac87c4e786eb8653" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a889efeceec03df5619fd51bf7bc66ba5" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a466ce020e23c87e4b4a307d36a59860a" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1ae18d68c7b8ed354031031146b9c9b396" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a9d1aca510d293af15665f20c5f8250f2" kind="function"><name>weights_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a7161632174cf25ba1095fb349c89abee" kind="function"><name>dst_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a38933c147bf1f8ab11ce77737f4a7e3a" kind="function"><name>diff_src_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a676cc7c7737c4ae08f340747033fb6c0" kind="function"><name>diff_dst_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1aab2ef19d90df6c0334cbb4031d2ecf38" kind="function"><name>diff_weights_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a3942862c9c754407d4dd2cc09e34c6b3" kind="function"><name>mean_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a83855eaf5a4b1f9cf99f82db527bef16" kind="function"><name>variance_desc</name></member>
+    <member refid="structdnnl_1_1layer__normalization__backward_1_1primitive__desc_1a4a859f92c4cc99b57510b6135eff5e8e" kind="function"><name>workspace_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1pooling__backward_1_1primitive__desc" kind="struct"><name>dnnl::pooling_backward::primitive_desc</name>
+    <member refid="structdnnl_1_1pooling__backward_1_1primitive__desc_1a4d813502e0562539e7ddb2c936dd2015" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1pooling__backward_1_1primitive__desc_1abffbb0bec3f0c9339ec53fcf4a22056e" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1pooling__backward_1_1primitive__desc_1a729e6caf01cd639f44750c2a1f4d0cce" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1pooling__backward_1_1primitive__desc_1af7f7a7752b30fbf77f6a4b21a70b23fe" kind="function"><name>diff_src_desc</name></member>
+    <member refid="structdnnl_1_1pooling__backward_1_1primitive__desc_1ac1da8cdf8dcf3740da177c148b79f718" kind="function"><name>diff_dst_desc</name></member>
+    <member refid="structdnnl_1_1pooling__backward_1_1primitive__desc_1ae579ebaab0505dd3e1d67557fc9b8039" kind="function"><name>workspace_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1inner__product__backward__data_1_1primitive__desc" kind="struct"><name>dnnl::inner_product_backward_data::primitive_desc</name>
+    <member refid="structdnnl_1_1inner__product__backward__data_1_1primitive__desc_1aad500203655c6f7e852accedf4a71750" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__backward__data_1_1primitive__desc_1afe43c26378c277fca720d0f603dd5ab8" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__backward__data_1_1primitive__desc_1a02cdb0c421fc14869f43e121f3f08d60" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__backward__data_1_1primitive__desc_1ad6fec0ed82f4c500c9d561c0868f679d" kind="function"><name>diff_src_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__backward__data_1_1primitive__desc_1a523020039651b75ce9dbc9f2910ba38b" kind="function"><name>weights_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__backward__data_1_1primitive__desc_1a2d18d8c7318a5fefa944879626db78c6" kind="function"><name>diff_dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc" kind="struct"><name>dnnl::lbr_gru_backward::primitive_desc</name>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1a72261d946a2fe263c884aaabaaca2164" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1a49c3434efbcdf2194fa17eb58f5f61d2" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1a0c94c4c01f71ffff6fae8b348465f954" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1ac5e76271c4b1068efdf67fa2df2ebd0e" kind="function"><name>src_layer_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1a89f422bb6d9aa4c2a44575ef6ea900c5" kind="function"><name>src_iter_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1a0d00a5ab343ec1e2eaf698d2cbe2c782" kind="function"><name>weights_layer_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1a84aa1828c6d7b420c16f83cc382644a6" kind="function"><name>weights_iter_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1aaae06ada730fed7102e49ff27d23b624" kind="function"><name>bias_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1abdc21cc1dcfa82716f9a6dfa3a022e83" kind="function"><name>dst_layer_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1a737ba2657ae745e7726002a08e639b5b" kind="function"><name>dst_iter_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1aaa2ee5edf648714875439a5b16727c1e" kind="function"><name>workspace_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1af20e858fb85afcd1de1e28f765a5b8a4" kind="function"><name>diff_src_layer_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1a8b74335cfbb97f998112552711213f7a" kind="function"><name>diff_src_iter_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1a0e782933010de9ecae223edc3e0072e6" kind="function"><name>diff_weights_layer_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1aced33d6588cec7110c1589ff3cce5f6d" kind="function"><name>diff_weights_iter_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1a63ce41ac65185ba5c92aa60ad0b44017" kind="function"><name>diff_bias_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1ae021142c658dc528db8451e63de9db6d" kind="function"><name>diff_dst_layer_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__backward_1_1primitive__desc_1a21f8cb5bad1d721e7f01a3d618dd6b3b" kind="function"><name>diff_dst_iter_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1inner__product__backward__weights_1_1primitive__desc" kind="struct"><name>dnnl::inner_product_backward_weights::primitive_desc</name>
+    <member refid="structdnnl_1_1inner__product__backward__weights_1_1primitive__desc_1a09fae3c61b39f35eb69f2e7d1e0b7e5e" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__backward__weights_1_1primitive__desc_1a9f00074660ad00f4d15c7a49197eddfe" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__backward__weights_1_1primitive__desc_1a26f8582505a2a643003cf113cb04287e" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__backward__weights_1_1primitive__desc_1a0a4f40fadb88bd6603b9121b7426fb51" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__backward__weights_1_1primitive__desc_1a46ac4299a91d79986c6fb7d905e0f00b" kind="function"><name>diff_weights_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__backward__weights_1_1primitive__desc_1a70b4d3e444dc173602b87cc76999b171" kind="function"><name>diff_dst_desc</name></member>
+    <member refid="structdnnl_1_1inner__product__backward__weights_1_1primitive__desc_1ab68ee3171f06000cf006ab486d219f13" kind="function"><name>diff_bias_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1logsoftmax__forward_1_1primitive__desc" kind="struct"><name>dnnl::logsoftmax_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1logsoftmax__forward_1_1primitive__desc_1a32f1bcf30ebcbb6fbe15f531c23ae791" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1logsoftmax__forward_1_1primitive__desc_1ad8c1a14e83c4188a398b0b9a88e39b92" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1logsoftmax__forward_1_1primitive__desc_1a8fe8ed6f7bb8512905e0f6dc43159723" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1logsoftmax__forward_1_1primitive__desc_1a598738f45522a367975d814240399070" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1logsoftmax__forward_1_1primitive__desc_1a55658232f5246b44855a6031a575d85b" kind="function"><name>dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lbr__gru__forward_1_1primitive__desc" kind="struct"><name>dnnl::lbr_gru_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1lbr__gru__forward_1_1primitive__desc_1a725917ba2fcee07efa9114f7c02dd0db" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__forward_1_1primitive__desc_1a19a88be71610386e8c0b2ae29dd8aa33" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__forward_1_1primitive__desc_1a99859542a81eb3cb5fa2b3dbaa710e80" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__forward_1_1primitive__desc_1abf2294dfaf93efe319f79daa08cecd0e" kind="function"><name>src_layer_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__forward_1_1primitive__desc_1a349ebaf677751c78cadf679fa03d41fb" kind="function"><name>src_iter_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__forward_1_1primitive__desc_1af79ef1043a078370952f885c56cc676b" kind="function"><name>weights_layer_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__forward_1_1primitive__desc_1ae343222d3990a5012c0b0bb321c5d08b" kind="function"><name>weights_iter_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__forward_1_1primitive__desc_1a9e351766a4109631b40d2bb7fb62dd96" kind="function"><name>bias_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__forward_1_1primitive__desc_1a6f024209e7752122a0ca53f91392a3c3" kind="function"><name>dst_layer_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__forward_1_1primitive__desc_1a0ea3e2c113f800e3f3c865d02714f434" kind="function"><name>dst_iter_desc</name></member>
+    <member refid="structdnnl_1_1lbr__gru__forward_1_1primitive__desc_1a8104b43652481cd5c3893fde8e567a4e" kind="function"><name>workspace_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1resampling__backward_1_1primitive__desc" kind="struct"><name>dnnl::resampling_backward::primitive_desc</name>
+    <member refid="structdnnl_1_1resampling__backward_1_1primitive__desc_1a7efff80cc7f0add565c9739b925fe969" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1resampling__backward_1_1primitive__desc_1a29a4b0565571508be5a008798a7c4be3" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1resampling__backward_1_1primitive__desc_1a432d61d0d5a262725f97fcfbc5c92249" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1resampling__backward_1_1primitive__desc_1a34b6453d3ffa6b0b4fddd5aaf14341dd" kind="function"><name>diff_src_desc</name></member>
+    <member refid="structdnnl_1_1resampling__backward_1_1primitive__desc_1ae6b102a2549d6e850249a3880db22c3e" kind="function"><name>diff_dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1convolution__forward_1_1primitive__desc" kind="struct"><name>dnnl::convolution_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1convolution__forward_1_1primitive__desc_1ad9608b47f2d41fa7efc43936fa354233" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1convolution__forward_1_1primitive__desc_1acac1c124c5208a827d386f78840005d1" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1convolution__forward_1_1primitive__desc_1a58c37be1fd684017e32b3cd989d85c68" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1convolution__forward_1_1primitive__desc_1a585a3809a4f28938e53f901ed103da24" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1convolution__forward_1_1primitive__desc_1ae7a0079fa420674154f7944ad1fa527e" kind="function"><name>weights_desc</name></member>
+    <member refid="structdnnl_1_1convolution__forward_1_1primitive__desc_1af0496636db4f6284e9225baa45b85cfa" kind="function"><name>dst_desc</name></member>
+    <member refid="structdnnl_1_1convolution__forward_1_1primitive__desc_1abae1c6321a3a14ba5af46d89c5fd95a6" kind="function"><name>bias_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lstm__forward_1_1primitive__desc" kind="struct"><name>dnnl::lstm_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1lstm__forward_1_1primitive__desc_1a1398d856d14686bff741cf0ae30fbb9e" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lstm__forward_1_1primitive__desc_1a04e0f28e526758a4795e5095af1f905a" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lstm__forward_1_1primitive__desc_1ae7c43c660b438ab1105ead4f46340b39" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lstm__forward_1_1primitive__desc_1afd262a03436e463c97bb5dbe4b54a89d" kind="function"><name>src_layer_desc</name></member>
+    <member refid="structdnnl_1_1lstm__forward_1_1primitive__desc_1af48ac5235429822d462bb96437f2ecdc" kind="function"><name>src_iter_desc</name></member>
+    <member refid="structdnnl_1_1lstm__forward_1_1primitive__desc_1ac863a772baf671e7fc776a2312f58416" kind="function"><name>src_iter_c_desc</name></member>
+    <member refid="structdnnl_1_1lstm__forward_1_1primitive__desc_1a832e7468c8062760a262a82fdf7b8976" kind="function"><name>weights_layer_desc</name></member>
+    <member refid="structdnnl_1_1lstm__forward_1_1primitive__desc_1a3b3aa227de71f38560588b535b19cee7" kind="function"><name>weights_iter_desc</name></member>
+    <member refid="structdnnl_1_1lstm__forward_1_1primitive__desc_1af9c2058bcb514ff8ac065e5c631450de" kind="function"><name>bias_desc</name></member>
+    <member refid="structdnnl_1_1lstm__forward_1_1primitive__desc_1a47da32a15db013f1d5859a55522aa2f5" kind="function"><name>dst_layer_desc</name></member>
+    <member refid="structdnnl_1_1lstm__forward_1_1primitive__desc_1a080c46ade77a802333e1fd4bbce56e69" kind="function"><name>dst_iter_desc</name></member>
+    <member refid="structdnnl_1_1lstm__forward_1_1primitive__desc_1a790534f833ee4215df25bfd5f17cec22" kind="function"><name>dst_iter_c_desc</name></member>
+    <member refid="structdnnl_1_1lstm__forward_1_1primitive__desc_1a56222845e809457d73180adf8494959a" kind="function"><name>workspace_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1eltwise__forward_1_1primitive__desc" kind="struct"><name>dnnl::eltwise_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1eltwise__forward_1_1primitive__desc_1a4fa6a54eab38b85b5b3f51db2da5b900" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1eltwise__forward_1_1primitive__desc_1aa5d9b6864bfde86fcb1a314027e1e3dd" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1eltwise__forward_1_1primitive__desc_1ace49c912843ebc205e2648a02ec28ebc" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1eltwise__forward_1_1primitive__desc_1aaaa037bb4465d8686d9ae222efc77b43" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1eltwise__forward_1_1primitive__desc_1a82b022faa09644eaf0c2b146a970901a" kind="function"><name>dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1primitive__desc" kind="struct"><name>dnnl::primitive_desc</name>
+    <member refid="structdnnl_1_1primitive__desc_1a29956aba7ec69edaa60ddd1cd333bf13" kind="function"><name>primitive_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1sum_1_1primitive__desc" kind="struct"><name>dnnl::sum::primitive_desc</name>
+    <member refid="structdnnl_1_1sum_1_1primitive__desc_1acf864b6e5a6b368708eea8ef098316a8" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1sum_1_1primitive__desc_1ac94c9eb0351f08367bfa0ae566c3f418" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1sum_1_1primitive__desc_1a69ba8eeb28c0f8826b8074105fb9de1b" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1sum_1_1primitive__desc_1a27db7c274a1c459edc5666e7e8ff8bcc" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1sum_1_1primitive__desc_1a0d43b4a7a2d2d14633fd90fb3be310b6" kind="function"><name>dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1deconvolution__forward_1_1primitive__desc" kind="struct"><name>dnnl::deconvolution_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1deconvolution__forward_1_1primitive__desc_1ae06b33b14c3b6e4b00786d5494b45d18" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__forward_1_1primitive__desc_1a20412f662830d7074b8836284e2550e7" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__forward_1_1primitive__desc_1a8370c111542a71657ebe4418c7197c39" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__forward_1_1primitive__desc_1a7740f0f049f5523c2a710c84ce3c607f" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__forward_1_1primitive__desc_1acb16abce7a8322135cc4dfdb2835dbed" kind="function"><name>weights_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__forward_1_1primitive__desc_1a44623950eaf7b10d1022ad29e115c4b4" kind="function"><name>dst_desc</name></member>
+    <member refid="structdnnl_1_1deconvolution__forward_1_1primitive__desc_1aa6d31eafea4a206b4211023555b4c1e1" kind="function"><name>bias_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc" kind="struct"><name>dnnl::vanilla_rnn_backward::primitive_desc</name>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1af89c43dacbd22ca0ecf98e8c82df2817" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1a6b27d2bbd53d2e9061ef97afe9959ff2" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1abc82619a278b23c0185d6bf136660302" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1ae0bb0e4bdc6f1dc70b8726fecfffbf9d" kind="function"><name>src_layer_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1a09bc34015fb85dd6169fe77f604e3e5b" kind="function"><name>src_iter_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1abd9a4f50fc48d3d260d294641fb5804c" kind="function"><name>weights_layer_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1ab15c6816074c04dbf71c6809fca50265" kind="function"><name>weights_iter_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1abf9730fa0073ddf0a556cef045262a85" kind="function"><name>bias_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1a255ec605c277c287b5413a511b1ef752" kind="function"><name>dst_layer_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1acc12febaf26a3145bf8fafd42a57a8d4" kind="function"><name>dst_iter_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1af9aba6bf0176ac7004ec511d56914b43" kind="function"><name>workspace_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1ae02fa94c5e2aec9f2a4e7276870d7b65" kind="function"><name>diff_src_layer_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1a40702982621016d0bb3d2082e76acfca" kind="function"><name>diff_src_iter_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1af6db8304c9e8a762c3f900823c0c8d5a" kind="function"><name>diff_weights_layer_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1a49a68b6e78ef99ad4c45564ee5a68697" kind="function"><name>diff_weights_iter_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1a9e5b2141e4df496dc36f2c85dd81c49f" kind="function"><name>diff_bias_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1a1d032311ae45201e9c7ccb8751f48cc5" kind="function"><name>diff_dst_layer_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1_1primitive__desc_1acd165a44f6fc41b4bcfe31916b4b6482" kind="function"><name>diff_dst_iter_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1batch__normalization__forward_1_1primitive__desc" kind="struct"><name>dnnl::batch_normalization_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1batch__normalization__forward_1_1primitive__desc_1adeb4c3db599c647fd5c057e493a5be5d" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__forward_1_1primitive__desc_1ab493bf318fd6c01cebfc123d22687558" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__forward_1_1primitive__desc_1aecf31f0d2b729a51f9dc52b4620030df" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__forward_1_1primitive__desc_1a106fc3376b5c0f5e67b0e92633600b9f" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__forward_1_1primitive__desc_1af669f0f68951673f4ceba14eb631b7fa" kind="function"><name>dst_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__forward_1_1primitive__desc_1a33cc89eb552f12861e9e622a92986e50" kind="function"><name>weights_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__forward_1_1primitive__desc_1a863e40b42e49a970b3c564709c3ce64f" kind="function"><name>workspace_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__forward_1_1primitive__desc_1a4b5dd117d1f71776d8bff086c41ced41" kind="function"><name>mean_desc</name></member>
+    <member refid="structdnnl_1_1batch__normalization__forward_1_1primitive__desc_1add11ea349ccd74483990b612fc4b8f15" kind="function"><name>variance_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1lrn__backward_1_1primitive__desc" kind="struct"><name>dnnl::lrn_backward::primitive_desc</name>
+    <member refid="structdnnl_1_1lrn__backward_1_1primitive__desc_1a4672ba382fea6052f1c503debbdf36ec" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lrn__backward_1_1primitive__desc_1a83db0dbbe3c1bb276df9da9a3b459f19" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lrn__backward_1_1primitive__desc_1a51f643ef7fa50d7772a468adb4f25a73" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1lrn__backward_1_1primitive__desc_1abc447ef99d09cf45ce40524bbe4ccc1e" kind="function"><name>diff_src_desc</name></member>
+    <member refid="structdnnl_1_1lrn__backward_1_1primitive__desc_1a96df5abf39107ec66f0b3c56968bf66b" kind="function"><name>diff_dst_desc</name></member>
+    <member refid="structdnnl_1_1lrn__backward_1_1primitive__desc_1ab1c7008d921ecf37703d779e95aa17b8" kind="function"><name>workspace_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1binary_1_1primitive__desc" kind="struct"><name>dnnl::binary::primitive_desc</name>
+    <member refid="structdnnl_1_1binary_1_1primitive__desc_1aa4aba7bc79dec52bd12d80ad7d852067" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1binary_1_1primitive__desc_1a01ef067155c50ae5b25c5703d000ac9d" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1binary_1_1primitive__desc_1a747506626856c93012ac0487747a4ae3" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1binary_1_1primitive__desc_1a69618bf51de3aab412db31dffa8784b3" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1binary_1_1primitive__desc_1a7cc236972b1ad9b3c072e96c221cb3c8" kind="function"><name>src0_desc</name></member>
+    <member refid="structdnnl_1_1binary_1_1primitive__desc_1ad3d19867872ecbe0e7738ef1821d6e83" kind="function"><name>src1_desc</name></member>
+    <member refid="structdnnl_1_1binary_1_1primitive__desc_1ac552b6afc7e7e422e28d477d6c1218e5" kind="function"><name>dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1logsoftmax__backward_1_1primitive__desc" kind="struct"><name>dnnl::logsoftmax_backward::primitive_desc</name>
+    <member refid="structdnnl_1_1logsoftmax__backward_1_1primitive__desc_1a5b24e0527bc991f16c722344b9223386" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1logsoftmax__backward_1_1primitive__desc_1a04707babc7d3a7926a6e2f506535a207" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1logsoftmax__backward_1_1primitive__desc_1acbc5781af80b23bc1a7b8532377fc9e0" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1logsoftmax__backward_1_1primitive__desc_1a08338a68bf1f911678cfb26fc560bce6" kind="function"><name>dst_desc</name></member>
+    <member refid="structdnnl_1_1logsoftmax__backward_1_1primitive__desc_1a5f65f5d99aed7898c4aaf585c8fcc5ba" kind="function"><name>diff_src_desc</name></member>
+    <member refid="structdnnl_1_1logsoftmax__backward_1_1primitive__desc_1a4a020150c5c7625840bb26b1b9d9d64c" kind="function"><name>diff_dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1shuffle__forward_1_1primitive__desc" kind="struct"><name>dnnl::shuffle_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1shuffle__forward_1_1primitive__desc_1a3e52af9ba197a4002601e1ecfdeeefaf" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1shuffle__forward_1_1primitive__desc_1ac20ec6f292ecf5fe84cccc152aa7506c" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1shuffle__forward_1_1primitive__desc_1a13a941fe894b362782f785697206c15a" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1shuffle__forward_1_1primitive__desc_1a073852873b42543bfb1ae0993d009ad9" kind="function"><name>dst_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1vanilla__rnn__forward_1_1primitive__desc" kind="struct"><name>dnnl::vanilla_rnn_forward::primitive_desc</name>
+    <member refid="structdnnl_1_1vanilla__rnn__forward_1_1primitive__desc_1a97728f13f6b5601fae73a1986e74cc29" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__forward_1_1primitive__desc_1a4c170e9f2e37763f4fa8b831a742211e" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__forward_1_1primitive__desc_1a0ae3d6edcbe2a47e2fe049931e252a17" kind="function"><name>primitive_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__forward_1_1primitive__desc_1a32ed3a703458547ad779d0a6eff479ae" kind="function"><name>src_layer_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__forward_1_1primitive__desc_1a4f6b64881ac4ce8279ab4853d9ceca07" kind="function"><name>src_iter_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__forward_1_1primitive__desc_1a8320bbc18cfcd232b0047971b5842c4b" kind="function"><name>weights_layer_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__forward_1_1primitive__desc_1a6aa188fe45f762d743661aae4a8f3f56" kind="function"><name>weights_iter_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__forward_1_1primitive__desc_1ae4d6a0095453879f99e98506edeca9bb" kind="function"><name>bias_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__forward_1_1primitive__desc_1acdde05e13b014c5956ada79800c55263" kind="function"><name>dst_layer_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__forward_1_1primitive__desc_1aa9e3cfaf4629a8e668aa69cfee2f4aef" kind="function"><name>dst_iter_desc</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__forward_1_1primitive__desc_1aa52c6f3e61c538ba303660cb1a42b206" kind="function"><name>workspace_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1primitive__desc__base" kind="struct"><name>dnnl::primitive_desc_base</name>
+    <member refid="structdnnl_1_1primitive__desc__base_1abaec6897940cf14b0b3113a593ec5dbf" kind="function"><name>primitive_desc_base</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1a32f7477c79e715a341bb9127df521fbc" kind="function"><name>get_engine</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1ae680492d4e4b16a938cfc051e5c906be" kind="function"><name>impl_info_str</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1acbedc4257eaa26f868356f9f594a856a" kind="function"><name>query_s64</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1a35d24b553ba6aa807516e9470fdd7d16" kind="function"><name>query_md</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1a495ee7c8e1ec3eab35f6329fdcd352bb" kind="function"><name>dst_desc</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1acb13d08987cca8d8f05ec4858fa61fb4" kind="function"><name>weights_desc</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1a733e6ff4e78a758e69ae6232e8955871" kind="function"><name>diff_src_desc</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1a60f17d04c493c42e4a50ad5feff5c8ca" kind="function"><name>diff_dst_desc</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1a192f7b334efac9a5ac20344a76d4d552" kind="function"><name>diff_weights_desc</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1af48dcff294cadb2916fd784b8474d221" kind="function"><name>src_desc</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1addbec977643a7900f4156f7aab3fb4db" kind="function"><name>dst_desc</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1a93f0904566b399874c47b3b1ad3d1495" kind="function"><name>weights_desc</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1ab4268c6bb70dd6c22de43141cc301b77" kind="function"><name>diff_src_desc</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1a6b9fb7da987329256c04db6ecbb9dc36" kind="function"><name>diff_dst_desc</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1af51378982968e2b4f7abb6a32acfb0af" kind="function"><name>diff_weights_desc</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1ad26f416a149cb44cc5cfc130012c614e" kind="function"><name>workspace_desc</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1a6238358ec03afd57fb20dffa65b48d2f" kind="function"><name>scratchpad_desc</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1ad4079e0891373bd2dc841f3f94cf47ed" kind="function"><name>scratchpad_engine</name></member>
+    <member refid="structdnnl_1_1primitive__desc__base_1a0ef600ea3666f0fd93c9c5d112aaf05c" kind="function"><name>get_primitive_attr</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1reorder" kind="struct"><name>dnnl::reorder</name>
+    <member refid="structdnnl_1_1reorder_1a52a3e3afb773f6b5c77e964c1fa37fde" kind="function"><name>reorder</name></member>
+    <member refid="structdnnl_1_1reorder_1a8052aeb588fa278d3e56ef85490b6690" kind="function"><name>reorder</name></member>
+    <member refid="structdnnl_1_1reorder_1af04b380a824816defecb488a724bfb37" kind="function"><name>reorder</name></member>
+    <member refid="structdnnl_1_1reorder_1a1332845d212dca21e45ebe08c9a77e2f" kind="function"><name>execute</name></member>
+    <member refid="structdnnl_1_1reorder_1a813ed1a442b89d113eeb3055026006bf" kind="function"><name>execute_sycl</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1resampling__backward" kind="struct"><name>dnnl::resampling_backward</name>
+    <member refid="structdnnl_1_1resampling__backward_1a9a3f2c3544369aeb42ecd9c2248d0b4e" kind="function"><name>resampling_backward</name></member>
+    <member refid="structdnnl_1_1resampling__backward_1a30f9341cbd8e18fac629a25b68010c4d" kind="function"><name>resampling_backward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1resampling__forward" kind="struct"><name>dnnl::resampling_forward</name>
+    <member refid="structdnnl_1_1resampling__forward_1a6083bb555eaa22857d14a36df5274c3a" kind="function"><name>resampling_forward</name></member>
+    <member refid="structdnnl_1_1resampling__forward_1ae78e079af6300bd2523c99a2c590b3f3" kind="function"><name>resampling_forward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1rnn__primitive__desc__base" kind="struct"><name>dnnl::rnn_primitive_desc_base</name>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1a8ecd7977ed8cf79c9e131139a034c2e1" kind="function"><name>rnn_primitive_desc_base</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1ae49709b806f2cb108affe1ec5aebb504" kind="function"><name>src_layer_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1ab73a02922a9a7d2f0d6066572d5c6a09" kind="function"><name>src_iter_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1ab37877634785901c8d8850d1a928c9b2" kind="function"><name>src_iter_c_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1a20737480e3672640657a34afd631f11f" kind="function"><name>weights_layer_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1a2464426ea23b9d026fd5d2c8d92c942a" kind="function"><name>weights_iter_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1ac2045ddda996b5e3ac2c0974ca70bfa1" kind="function"><name>bias_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1aa9a4652f8f5c8d1b32d2f26deac70f92" kind="function"><name>dst_layer_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1af82a946c412df434d8842292d77a496c" kind="function"><name>dst_iter_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1a1d56829ac12568aea3a7203631e7c202" kind="function"><name>dst_iter_c_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1afbf93e3cf53b5ef7d04a0b2fcb41f77b" kind="function"><name>diff_src_layer_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1a248bcc0f5bec8d76eda24ad391693fa2" kind="function"><name>diff_src_iter_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1a6f3d6865c312c3231ff7dec8df561ecb" kind="function"><name>diff_src_iter_c_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1a1df1f7cb00c68c73bc4320d7b5fda7bb" kind="function"><name>diff_weights_layer_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1a4243bb55a8d07fa66a3c44633996e73b" kind="function"><name>diff_weights_iter_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1aa81c0dbda6447fe83d1d37122fdc708c" kind="function"><name>diff_bias_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1aeb8d331bd2bcb80bd06ec729175e4314" kind="function"><name>diff_dst_layer_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1a4a5eceabe7b1ffd9f181376192f5d397" kind="function"><name>diff_dst_iter_desc</name></member>
+    <member refid="structdnnl_1_1rnn__primitive__desc__base_1a33e735717f2dffa22cc28e90e20bd344" kind="function"><name>diff_dst_iter_c_desc</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1shuffle__backward" kind="struct"><name>dnnl::shuffle_backward</name>
+    <member refid="structdnnl_1_1shuffle__backward_1a04370d2d41439fc564e730a43b998901" kind="function"><name>shuffle_backward</name></member>
+    <member refid="structdnnl_1_1shuffle__backward_1af7c950680ea4d14a09b8a2fed06043a9" kind="function"><name>shuffle_backward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1shuffle__forward" kind="struct"><name>dnnl::shuffle_forward</name>
+    <member refid="structdnnl_1_1shuffle__forward_1ac50928a0f2ade2c1a91b2d35d83c8e7b" kind="function"><name>shuffle_forward</name></member>
+    <member refid="structdnnl_1_1shuffle__forward_1ad8f1fe049e780c9b103ea923d8bd9d5a" kind="function"><name>shuffle_forward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1softmax__backward" kind="struct"><name>dnnl::softmax_backward</name>
+    <member refid="structdnnl_1_1softmax__backward_1a3b3688fa77a37488c2dc88976532d6e8" kind="function"><name>softmax_backward</name></member>
+    <member refid="structdnnl_1_1softmax__backward_1a4e058991b8cf4e67c9e9dacd87284367" kind="function"><name>softmax_backward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1softmax__forward" kind="struct"><name>dnnl::softmax_forward</name>
+    <member refid="structdnnl_1_1softmax__forward_1a8f338a373e70edfa6feb8cbb9122b5d6" kind="function"><name>softmax_forward</name></member>
+    <member refid="structdnnl_1_1softmax__forward_1ab84d1ab8764d37e46fffbf1f3e11dc47" kind="function"><name>softmax_forward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1stream" kind="struct"><name>dnnl::stream</name>
+    <member refid="structdnnl_1_1stream_1abc7ec7dfa1718f366abd8f495164de59" kind="enum"><name>flags</name></member>
+    <member refid="structdnnl_1_1stream_1abc7ec7dfa1718f366abd8f495164de59aeedb23e15d8dfa33877588b9bcf9df8c" kind="enumvalue"><name>default_order</name></member>
+    <member refid="structdnnl_1_1stream_1abc7ec7dfa1718f366abd8f495164de59af51b25ca6f591d130cd0b575bf7821b3" kind="enumvalue"><name>in_order</name></member>
+    <member refid="structdnnl_1_1stream_1abc7ec7dfa1718f366abd8f495164de59a6f68b64d0cb895344cb033c850457f0b" kind="enumvalue"><name>out_of_order</name></member>
+    <member refid="structdnnl_1_1stream_1abc7ec7dfa1718f366abd8f495164de59aeffb2d149f637ca450767d77cd927108" kind="enumvalue"><name>default_flags</name></member>
+    <member refid="structdnnl_1_1stream_1a4d5c6a4b863e4086d6522e2317ca00a0" kind="function"><name>stream</name></member>
+    <member refid="structdnnl_1_1stream_1a681be26446cb86ddcc727f3a00a69cd9" kind="function"><name>stream</name></member>
+    <member refid="structdnnl_1_1stream_1a007cd67c0fcb5e80d4fc67a4b7f9624b" kind="function"><name>stream</name></member>
+    <member refid="structdnnl_1_1stream_1a53d7cf6f9281b670e8f2bd899b408110" kind="function"><name>get_sycl_queue</name></member>
+    <member refid="structdnnl_1_1stream_1a59985fa8746436057cf51a820ef8929c" kind="function"><name>wait</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1sum" kind="struct"><name>dnnl::sum</name>
+    <member refid="structdnnl_1_1sum_1a72b730c89d5f23ccd58dfb40f9cad546" kind="function"><name>sum</name></member>
+    <member refid="structdnnl_1_1sum_1a393855f591d5700e6d35e458f6910110" kind="function"><name>sum</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1vanilla__rnn__backward" kind="struct"><name>dnnl::vanilla_rnn_backward</name>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1ac52c5892a440dbe4fc413c004e70181b" kind="function"><name>vanilla_rnn_backward</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__backward_1a30fe391d2779475af4f1ae77186bd6bd" kind="function"><name>vanilla_rnn_backward</name></member>
+  </compound>
+  <compound refid="structdnnl_1_1vanilla__rnn__forward" kind="struct"><name>dnnl::vanilla_rnn_forward</name>
+    <member refid="structdnnl_1_1vanilla__rnn__forward_1a29f49ae1a6f3a5478621573e08b9678a" kind="function"><name>vanilla_rnn_forward</name></member>
+    <member refid="structdnnl_1_1vanilla__rnn__forward_1aceb6795da2b674b1cbce138ccb699ada" kind="function"><name>vanilla_rnn_forward</name></member>
+  </compound>
+  <compound refid="namespacednnl" kind="namespace"><name>dnnl</name>
+    <member refid="group__dnnl__api__attributes_1gac24d40ceea0256c7d6cc3a383a0fa07f" kind="enum"><name>scratchpad_mode</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac24d40ceea0256c7d6cc3a383a0fa07fad521f765a49c72507257a2620612ee96" kind="enumvalue"><name>library</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac24d40ceea0256c7d6cc3a383a0fa07faee11cbb19052e40b07aac0ca060c23ee" kind="enumvalue"><name>user</name></member>
+    <member refid="group__dnnl__api__attributes_1gac7db48f6583aa9903e54c2a39d65438f" kind="enum"><name>prop_kind</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438faf31ee5e3824f1f5e5d206bdf3029f22b" kind="enumvalue"><name>undef</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa24775787fab8f13aa4809e1ce8f82aeb" kind="enumvalue"><name>forward_training</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa3b9fad4f80d45368f856b5403198ac4c" kind="enumvalue"><name>forward_inference</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa4f2df7bab0115f1ddbe25392e3a71542" kind="enumvalue"><name>forward_scoring</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa965dbaac085fc891bfbbd4f9d145bbc8" kind="enumvalue"><name>forward</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa195fe59b6f103787a914aead0f3db502" kind="enumvalue"><name>backward</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438faa12627cacf73ecb7ef088beedd650e96" kind="enumvalue"><name>backward_data</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa1a002980f340e61153a9f7de4f794cf6" kind="enumvalue"><name>backward_weights</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fab6b02795407dc7897e390e48f1d0ea02" kind="enumvalue"><name>backward_bias</name></member>
+    <member refid="group__dnnl__api__attributes_1ga00377dd4982333e42e8ae1d09a309640" kind="enum"><name>algorithm</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640af31ee5e3824f1f5e5d206bdf3029f22b" kind="enumvalue"><name>undef</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640acfdececd63a8bc0cfe1021ad614e2ded" kind="enumvalue"><name>convolution_auto</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a5028ad8f818a45333a8a0eefad35c5c0" kind="enumvalue"><name>convolution_direct</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a6a73ed41c67672f76f53a69e96c31ed4" kind="enumvalue"><name>convolution_winograd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a73f81608d2b7315f04c438fb8be5f99c" kind="enumvalue"><name>deconvolution_direct</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640aeb5da82914413424bf941fa04eb065aa" kind="enumvalue"><name>deconvolution_winograd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640aba09bebb742494255b90b43871c01c69" kind="enumvalue"><name>eltwise_relu</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a38dd7159307eab45742c78e72f06abb0" kind="enumvalue"><name>eltwise_tanh</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a690376cad4a7f001e967a6a40d04da3a" kind="enumvalue"><name>eltwise_elu</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a448fc250a28e651c02966142f7f66cce" kind="enumvalue"><name>eltwise_square</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a30046c43b9399a7aaa4281da7cff2d5c" kind="enumvalue"><name>eltwise_abs</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a83b978b280304349860c7cdc3519865f" kind="enumvalue"><name>eltwise_sqrt</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a97395201ce1744f18c19d243d24fbd13" kind="enumvalue"><name>eltwise_swish</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a21aba6844d2de47b92ab1d110f561945" kind="enumvalue"><name>eltwise_linear</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a4142c71f159526fef4c85b8c5ae78a72" kind="enumvalue"><name>eltwise_bounded_relu</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a23175afeee905a4de38e5a24b46cb6e2" kind="enumvalue"><name>eltwise_soft_relu</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a282836cce833348ee509b0ecd764d217" kind="enumvalue"><name>eltwise_logistic</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a6506e1f0284a4bb8cb999b49c6142599" kind="enumvalue"><name>eltwise_exp</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a8320b34de5fed32c795cd92a7fbf4749" kind="enumvalue"><name>eltwise_gelu</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640af2a460e3ec273e904c6f6b39baa5e477" kind="enumvalue"><name>eltwise_log</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a2aa1edfbe21c6770d63301058ec753ed" kind="enumvalue"><name>eltwise_clip</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a30977b2a33c3a2bd6a5d71a352fa4bcc" kind="enumvalue"><name>eltwise_pow</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ac227b99192be41d4060b700d1e788fd6" kind="enumvalue"><name>eltwise_relu_use_dst_for_bwd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a0be1df5ff86383197efdfeb01b10e046" kind="enumvalue"><name>eltwise_tanh_use_dst_for_bwd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a09b26fc530b10556b14bc8e9b2d29d35" kind="enumvalue"><name>eltwise_elu_use_dst_for_bwd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ad5704aaf680703d473f983e3f19b8d4d" kind="enumvalue"><name>eltwise_sqrt_use_dst_for_bwd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a40f1d6681d0ad7bf3e9313641e03ae14" kind="enumvalue"><name>eltwise_logistic_use_dst_for_bwd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ad10dade245ba1cbe70859fcbdad27637" kind="enumvalue"><name>eltwise_exp_use_dst_for_bwd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ab9e2d858b551792385a4b5b86672b24b" kind="enumvalue"><name>lrn_across_channels</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640aa25c4ccc5c7c9bd3a977a2089189a494" kind="enumvalue"><name>lrn_within_channel</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a8c73d4bb88a0497586a74256bb338e88" kind="enumvalue"><name>pooling_max</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a7702ff2872aa0321d96ea7134bad855a" kind="enumvalue"><name>pooling_avg</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ad62617dd43972a6bbff8d263a5c4462c" kind="enumvalue"><name>pooling_avg_include_padding</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a7ed10af2056450d8f6ac7277b48fc6a8" kind="enumvalue"><name>pooling_avg_exclude_padding</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ab2b3bfcaad515fd1bf0245e8ae6bd407" kind="enumvalue"><name>vanilla_rnn</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a716a71a7a6ec13785b552dc2412380ce" kind="enumvalue"><name>vanilla_lstm</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a272fa682d36b810a24ec89202b7a31f7" kind="enumvalue"><name>vanilla_gru</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a792e966b14bd4e16625ee4df357a0723" kind="enumvalue"><name>lbr_gru</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ab2c3faf084cf82b5603946995f637b35" kind="enumvalue"><name>binary_add</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a0905fc5c22e79a8eed0988681eb6a0ae" kind="enumvalue"><name>binary_mul</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a4ae0aa1c0bf5bd1bf54564a2485618be" kind="enumvalue"><name>binary_max</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ad096699e4ea7ada3d71428484e6119d8" kind="enumvalue"><name>binary_min</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a091b262cfae5e610fcad1490bfb79431" kind="enumvalue"><name>resampling_nearest</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a05731680a83c6dccd19a758b72a4ecbd" kind="enumvalue"><name>resampling_linear</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gad8ef0fcbb7b10cae3d67dd46892002be" kind="enum"><name>normalization_flags</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea95768ff8afb8ee75dc24be0d307627f8" kind="enumvalue"><name>use_global_stats</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea0cbad8a346551ec47da7ff1afb1e1f76" kind="enumvalue"><name>use_scale_shift</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea898ce555425ee54271096bc9c8e0400c" kind="enumvalue"><name>fuse_norm_relu</name></member>
+    <member refid="group__dnnl__api__rnn_1gad27d0db2a86ae3072207769f5c2ddd1e" kind="enum"><name>rnn_flags</name></member>
+    <member refid="group__dnnl__api__rnn_1ggad27d0db2a86ae3072207769f5c2ddd1eaf31ee5e3824f1f5e5d206bdf3029f22b" kind="enumvalue"><name>undef</name></member>
+    <member refid="group__dnnl__api__rnn_1ga33315cf335d1cbe26fd6b70d956e23d5" kind="enum"><name>rnn_direction</name></member>
+    <member refid="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5a04f4bf4bc6a47e30f0353597e244c44a" kind="enumvalue"><name>unidirectional_left2right</name></member>
+    <member refid="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5a0b694765eed7cf5a48e18c1d05b74118" kind="enumvalue"><name>unidirectional_right2left</name></member>
+    <member refid="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5a7a1bb9f8699e8c03cbe4bd681fb50830" kind="enumvalue"><name>bidirectional_concat</name></member>
+    <member refid="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5aa6199c5b651803844c8c054b11e88d8c" kind="enumvalue"><name>bidirectional_sum</name></member>
+    <member refid="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5aa0c3ef5c69c32081a31c33df63192cda" kind="enumvalue"><name>unidirectional</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga94efdd650364f4d9776cfb9b711cbdc1" kind="enum"><name>query</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1af31ee5e3824f1f5e5d206bdf3029f22b" kind="enumvalue"><name>undef</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1aad1943a9fd6d3d7ee1e6af41a5b0d3e7" kind="enumvalue"><name>engine</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a6e115efac481dc815e442e6ff181f7e2" kind="enumvalue"><name>primitive_kind</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a8e76d4a603e890128e5205c75581f80b" kind="enumvalue"><name>num_of_inputs_s32</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a60ba192a313fabc2c91f5295d1422491" kind="enumvalue"><name>num_of_outputs_s32</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1ab307b4b4cf28742beddf2e9e2de6bce0" kind="enumvalue"><name>time_estimate_f64</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a0ed44d67e94c1c7ac5f219491e422506" kind="enumvalue"><name>memory_consumption_s64</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a75db5e5697414843589825652e338a9a" kind="enumvalue"><name>scratchpad_engine</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a783fb4ccfa962b218a2acbd35dd7ec27" kind="enumvalue"><name>reorder_src_engine</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1aa08e784e657998224809d67bde0787ce" kind="enumvalue"><name>reorder_dst_engine</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a2c6dbd26a5e4bd5689bdcbfdf00e35cf" kind="enumvalue"><name>impl_info_str</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a2ba5356a73a761f488b6d9e5f028134f" kind="enumvalue"><name>prop_kind</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a80d6826f84ba733d4bd57ca0812d1d24" kind="enumvalue"><name>op_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1aae384e1cebb4565bd9a57ff4a19145a7" kind="enumvalue"><name>convolution_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a2c191a4c2f3830f7960fd2d7eff440ff" kind="enumvalue"><name>deconvolution_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a22964f067fb5f173218eb8aa9f6c22c2" kind="enumvalue"><name>shuffle_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a43bc6c42da7ccfcbc6ef6a26035ed932" kind="enumvalue"><name>eltwise_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a5be7596ca77ae38c8f14dd9d29c55760" kind="enumvalue"><name>softmax_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a8c55c4b147af6d6e1de777e25e519bd4" kind="enumvalue"><name>pooling_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1adfe43d0a7bd9b03655ad7bcbdeba3b49" kind="enumvalue"><name>lrn_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a045eb225315e70a20e0b8c6d9700f642" kind="enumvalue"><name>batch_normalization_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a867a57dd825838fe593a8ef3a07cfa60" kind="enumvalue"><name>layer_normalization_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1aded69e5210888fc8315d2f7e90d7ba15" kind="enumvalue"><name>inner_product_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52" kind="enumvalue"><name>rnn_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1ab63c80112add4f3a967c6a08c2d4884b" kind="enumvalue"><name>binary_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a88653ad56ff6de4e2f36f3feda914af1" kind="enumvalue"><name>logsoftmax_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a4a7fa4b07a2f5ef2534d7159225f480d" kind="enumvalue"><name>matmul_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1afcc6f3d53b14544cb287a355c2f1f228" kind="enumvalue"><name>resampling_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a90a729e395453e1d9411ad416c796819" kind="enumvalue"><name>src_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a8f85b9dfff73532e30d8aab798020233" kind="enumvalue"><name>diff_src_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a06ba7b00a8c95dcf3a90e16d00eeb0e9" kind="enumvalue"><name>weights_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a345e134a47299ca126f8cc4aeeeb05ac" kind="enumvalue"><name>diff_weights_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a701158248eed4e5fc84610f2f6026493" kind="enumvalue"><name>dst_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1ab731735b7280a17b7b03c964cf9b1967" kind="enumvalue"><name>diff_dst_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a3874c56bb4069607213666573dff2a96" kind="enumvalue"><name>workspace_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a9cbdd03b65c030ef560b5555be1a86c2" kind="enumvalue"><name>scratchpad_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1ad531896cf1d66c4832790f428623f164" kind="enumvalue"><name>exec_arg_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gad8e70644d9fbaa2f759a911d026204f2" kind="function"><name>operator|</name></member>
+    <member refid="group__dnnl__api__rnn_1ga8a1ddcd99ba74311e25ee48aed43d6c9" kind="function"><name>operator|</name></member>
+  </compound>
+  <compound refid="dnnl_8hpp" kind="file"><name>dnnl.hpp</name>
+    <member refid="group__dnnl__api__primitives__common_1ga53dc83e64489cd69bd82c1c2025eb5bd" kind="define"><name>DNNL_ARG_SRC_0</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gac37ad67b48edeb9e742af0e50b70fe09" kind="define"><name>DNNL_ARG_SRC</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gab91ce4d04cf4e98e3a407daa0676764f" kind="define"><name>DNNL_ARG_SRC_LAYER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga953b34f004a8222b04e21851487c611a" kind="define"><name>DNNL_ARG_FROM</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gadc5a5761633c05f4378780d23b7c9692" kind="define"><name>DNNL_ARG_SRC_1</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaf35f4f604284f1b00bb35bffd0f7a143" kind="define"><name>DNNL_ARG_SRC_ITER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga2ad44d7072cc1c13f0d2eeb3f5f59a24" kind="define"><name>DNNL_ARG_SRC_2</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga8ef6969516e717208a33766542410410" kind="define"><name>DNNL_ARG_SRC_ITER_C</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga7ba773575a68b592f3ef0fa885d87c20" kind="define"><name>DNNL_ARG_DST_0</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga3ca217e4a06d42a0ede3c018383c388f" kind="define"><name>DNNL_ARG_DST</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaf700c3396987b450413c8df5d78bafd9" kind="define"><name>DNNL_ARG_TO</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gacfc123a6a4ff3b4af4cd27ed66fb8528" kind="define"><name>DNNL_ARG_DST_LAYER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gae4215f24ddcf9e4b20b246e10a992687" kind="define"><name>DNNL_ARG_DST_1</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga13b91cbd3f531d9c90227895a275d5a6" kind="define"><name>DNNL_ARG_DST_ITER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gabec2200437d5553747fe56a15548a9b1" kind="define"><name>DNNL_ARG_DST_2</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga8b77d8716fc0ab9923d6cb409dbdf900" kind="define"><name>DNNL_ARG_DST_ITER_C</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga12d6c5c4ea17c90ade1e324d47756c3f" kind="define"><name>DNNL_ARG_WEIGHTS_0</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaf279f28c59a807e71a70c719db56c5b3" kind="define"><name>DNNL_ARG_WEIGHTS</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga6d529c1a672c080d4b13f6929e915de4" kind="define"><name>DNNL_ARG_SCALE_SHIFT</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga1ac9e1f1327be3902b488b64bae1b4c5" kind="define"><name>DNNL_ARG_WEIGHTS_LAYER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga6daaa6a32731e2a670821f95f8e353fd" kind="define"><name>DNNL_ARG_WEIGHTS_1</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga5a9c39486c01ad263e29677a32735af8" kind="define"><name>DNNL_ARG_WEIGHTS_ITER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gad0cbc09942aba93fbe3c0c2e09166f0d" kind="define"><name>DNNL_ARG_BIAS</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga9bcff7f442a5d6a0ac1183533e721066" kind="define"><name>DNNL_ARG_MEAN</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaa0e60e8d129936ba29555e17efb82581" kind="define"><name>DNNL_ARG_VARIANCE</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga550c80e1b9ba4f541202a7ac98be117f" kind="define"><name>DNNL_ARG_WORKSPACE</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga81836a4db2cb1c4a14d959e304d3f63d" kind="define"><name>DNNL_ARG_SCRATCHPAD</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga5d7ebcd603a037e0cd53a22377d1addf" kind="define"><name>DNNL_ARG_DIFF_SRC_0</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga18ee0e360399cfe9d3b58a13dfcb9333" kind="define"><name>DNNL_ARG_DIFF_SRC</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga24709fa44c67cf453facbc1c52b0d598" kind="define"><name>DNNL_ARG_DIFF_SRC_LAYER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga79861408c787de29acec450006dace7f" kind="define"><name>DNNL_ARG_DIFF_SRC_1</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga4f7ed97882e020a1cbaa891bbe0da45b" kind="define"><name>DNNL_ARG_DIFF_SRC_ITER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gae5520b100e7e94e218ccda5697d720bf" kind="define"><name>DNNL_ARG_DIFF_SRC_2</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga1d8616925684111f3a1b6d8116ab0077" kind="define"><name>DNNL_ARG_DIFF_SRC_ITER_C</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga5cf662f6dc742a3500ec4f54290b86da" kind="define"><name>DNNL_ARG_DIFF_DST_0</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gac9302f4cbd2668bf9a98ba99d752b971" kind="define"><name>DNNL_ARG_DIFF_DST</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gafc6053e276352b05b3b526141586e0ac" kind="define"><name>DNNL_ARG_DIFF_DST_LAYER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga87fad7b00d52b6bff673fca344d0f96d" kind="define"><name>DNNL_ARG_DIFF_DST_1</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gad9c83f558d1b229b4185ccbf939590a3" kind="define"><name>DNNL_ARG_DIFF_DST_ITER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaf6ae542064ad032e7c335f3701398034" kind="define"><name>DNNL_ARG_DIFF_DST_2</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga5524b26b690b9b4b81f0c7f3f9ac3b62" kind="define"><name>DNNL_ARG_DIFF_DST_ITER_C</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaece55926acecbbf375cd4fb06c5786ab" kind="define"><name>DNNL_ARG_DIFF_WEIGHTS_0</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga3324092ef421f77aebee83b0117cac60" kind="define"><name>DNNL_ARG_DIFF_WEIGHTS</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga5ba61ea97841abbbc18babb9a439c5c4" kind="define"><name>DNNL_ARG_DIFF_SCALE_SHIFT</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gac0bd0c223011ee2fbbc3c430c047c756" kind="define"><name>DNNL_ARG_DIFF_WEIGHTS_LAYER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga789a5f68ece3af7f3c86217a4a5dab7e" kind="define"><name>DNNL_ARG_DIFF_WEIGHTS_1</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga4a8e5f32de3856588b2976a766d0af0f" kind="define"><name>DNNL_ARG_DIFF_WEIGHTS_ITER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga1cd79979dda6df65ec45eef32a839901" kind="define"><name>DNNL_ARG_DIFF_BIAS</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga0afb48b0c2b8f3ee30609aaa47aa29db" kind="define"><name>DNNL_ARG_ATTR_OUTPUT_SCALES</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga1f0da423df3fb6853ddcbe6ffe964267" kind="define"><name>DNNL_ARG_MULTIPLE_SRC</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaa4183403de9fac3efd3f32c7a975580b" kind="define"><name>DNNL_ARG_MULTIPLE_DST</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaf8d879adfe2baa2f9f2a5143a0f274b6" kind="define"><name>DNNL_ARG_ATTR_ZERO_POINTS</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaa596c5a6102df77a550bad98f0d5cc12" kind="define"><name>DNNL_RUNTIME_DIM_VAL</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga61466fbd352b6c94b6541977fbe199b8" kind="define"><name>DNNL_RUNTIME_SIZE_VAL</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gab16365c11b4dc88fbb453edb51f1979f" kind="define"><name>DNNL_RUNTIME_F32_VAL</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga30139d5110e9e895ccd93fe503ca4c35" kind="define"><name>DNNL_RUNTIME_S32_VAL</name></member>
+  </compound>
+  <compound refid="group__dnnl__api" kind="group"><name>dnnl_api</name>
+  </compound>
+  <compound refid="group__dnnl__api__utils" kind="group"><name>dnnl_api_utils</name>
+  </compound>
+  <compound refid="group__dnnl__api__primitives" kind="group"><name>dnnl_api_primitives</name>
+  </compound>
+  <compound refid="group__dnnl__api__primitives__common" kind="group"><name>dnnl_api_primitives_common</name>
+    <member refid="group__dnnl__api__primitives__common_1gad8ef0fcbb7b10cae3d67dd46892002be" kind="enum"><name>normalization_flags</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea95768ff8afb8ee75dc24be0d307627f8" kind="enumvalue"><name>use_global_stats</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea0cbad8a346551ec47da7ff1afb1e1f76" kind="enumvalue"><name>use_scale_shift</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea898ce555425ee54271096bc9c8e0400c" kind="enumvalue"><name>fuse_norm_relu</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga94efdd650364f4d9776cfb9b711cbdc1" kind="enum"><name>query</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1af31ee5e3824f1f5e5d206bdf3029f22b" kind="enumvalue"><name>undef</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1aad1943a9fd6d3d7ee1e6af41a5b0d3e7" kind="enumvalue"><name>engine</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a6e115efac481dc815e442e6ff181f7e2" kind="enumvalue"><name>primitive_kind</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a8e76d4a603e890128e5205c75581f80b" kind="enumvalue"><name>num_of_inputs_s32</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a60ba192a313fabc2c91f5295d1422491" kind="enumvalue"><name>num_of_outputs_s32</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1ab307b4b4cf28742beddf2e9e2de6bce0" kind="enumvalue"><name>time_estimate_f64</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a0ed44d67e94c1c7ac5f219491e422506" kind="enumvalue"><name>memory_consumption_s64</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a75db5e5697414843589825652e338a9a" kind="enumvalue"><name>scratchpad_engine</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a783fb4ccfa962b218a2acbd35dd7ec27" kind="enumvalue"><name>reorder_src_engine</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1aa08e784e657998224809d67bde0787ce" kind="enumvalue"><name>reorder_dst_engine</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a2c6dbd26a5e4bd5689bdcbfdf00e35cf" kind="enumvalue"><name>impl_info_str</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a2ba5356a73a761f488b6d9e5f028134f" kind="enumvalue"><name>prop_kind</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a80d6826f84ba733d4bd57ca0812d1d24" kind="enumvalue"><name>op_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1aae384e1cebb4565bd9a57ff4a19145a7" kind="enumvalue"><name>convolution_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a2c191a4c2f3830f7960fd2d7eff440ff" kind="enumvalue"><name>deconvolution_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a22964f067fb5f173218eb8aa9f6c22c2" kind="enumvalue"><name>shuffle_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a43bc6c42da7ccfcbc6ef6a26035ed932" kind="enumvalue"><name>eltwise_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a5be7596ca77ae38c8f14dd9d29c55760" kind="enumvalue"><name>softmax_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a8c55c4b147af6d6e1de777e25e519bd4" kind="enumvalue"><name>pooling_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1adfe43d0a7bd9b03655ad7bcbdeba3b49" kind="enumvalue"><name>lrn_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a045eb225315e70a20e0b8c6d9700f642" kind="enumvalue"><name>batch_normalization_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a867a57dd825838fe593a8ef3a07cfa60" kind="enumvalue"><name>layer_normalization_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1aded69e5210888fc8315d2f7e90d7ba15" kind="enumvalue"><name>inner_product_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52" kind="enumvalue"><name>rnn_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1ab63c80112add4f3a967c6a08c2d4884b" kind="enumvalue"><name>binary_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a88653ad56ff6de4e2f36f3feda914af1" kind="enumvalue"><name>logsoftmax_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a4a7fa4b07a2f5ef2534d7159225f480d" kind="enumvalue"><name>matmul_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1afcc6f3d53b14544cb287a355c2f1f228" kind="enumvalue"><name>resampling_d</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a90a729e395453e1d9411ad416c796819" kind="enumvalue"><name>src_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a8f85b9dfff73532e30d8aab798020233" kind="enumvalue"><name>diff_src_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a06ba7b00a8c95dcf3a90e16d00eeb0e9" kind="enumvalue"><name>weights_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a345e134a47299ca126f8cc4aeeeb05ac" kind="enumvalue"><name>diff_weights_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a701158248eed4e5fc84610f2f6026493" kind="enumvalue"><name>dst_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1ab731735b7280a17b7b03c964cf9b1967" kind="enumvalue"><name>diff_dst_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a3874c56bb4069607213666573dff2a96" kind="enumvalue"><name>workspace_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a9cbdd03b65c030ef560b5555be1a86c2" kind="enumvalue"><name>scratchpad_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1ad531896cf1d66c4832790f428623f164" kind="enumvalue"><name>exec_arg_md</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gad8e70644d9fbaa2f759a911d026204f2" kind="function"><name>operator|</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga53dc83e64489cd69bd82c1c2025eb5bd" kind="define"><name>DNNL_ARG_SRC_0</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gac37ad67b48edeb9e742af0e50b70fe09" kind="define"><name>DNNL_ARG_SRC</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gab91ce4d04cf4e98e3a407daa0676764f" kind="define"><name>DNNL_ARG_SRC_LAYER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga953b34f004a8222b04e21851487c611a" kind="define"><name>DNNL_ARG_FROM</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gadc5a5761633c05f4378780d23b7c9692" kind="define"><name>DNNL_ARG_SRC_1</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaf35f4f604284f1b00bb35bffd0f7a143" kind="define"><name>DNNL_ARG_SRC_ITER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga2ad44d7072cc1c13f0d2eeb3f5f59a24" kind="define"><name>DNNL_ARG_SRC_2</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga8ef6969516e717208a33766542410410" kind="define"><name>DNNL_ARG_SRC_ITER_C</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga7ba773575a68b592f3ef0fa885d87c20" kind="define"><name>DNNL_ARG_DST_0</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga3ca217e4a06d42a0ede3c018383c388f" kind="define"><name>DNNL_ARG_DST</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaf700c3396987b450413c8df5d78bafd9" kind="define"><name>DNNL_ARG_TO</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gacfc123a6a4ff3b4af4cd27ed66fb8528" kind="define"><name>DNNL_ARG_DST_LAYER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gae4215f24ddcf9e4b20b246e10a992687" kind="define"><name>DNNL_ARG_DST_1</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga13b91cbd3f531d9c90227895a275d5a6" kind="define"><name>DNNL_ARG_DST_ITER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gabec2200437d5553747fe56a15548a9b1" kind="define"><name>DNNL_ARG_DST_2</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga8b77d8716fc0ab9923d6cb409dbdf900" kind="define"><name>DNNL_ARG_DST_ITER_C</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga12d6c5c4ea17c90ade1e324d47756c3f" kind="define"><name>DNNL_ARG_WEIGHTS_0</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaf279f28c59a807e71a70c719db56c5b3" kind="define"><name>DNNL_ARG_WEIGHTS</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga6d529c1a672c080d4b13f6929e915de4" kind="define"><name>DNNL_ARG_SCALE_SHIFT</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga1ac9e1f1327be3902b488b64bae1b4c5" kind="define"><name>DNNL_ARG_WEIGHTS_LAYER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga6daaa6a32731e2a670821f95f8e353fd" kind="define"><name>DNNL_ARG_WEIGHTS_1</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga5a9c39486c01ad263e29677a32735af8" kind="define"><name>DNNL_ARG_WEIGHTS_ITER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gad0cbc09942aba93fbe3c0c2e09166f0d" kind="define"><name>DNNL_ARG_BIAS</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga9bcff7f442a5d6a0ac1183533e721066" kind="define"><name>DNNL_ARG_MEAN</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaa0e60e8d129936ba29555e17efb82581" kind="define"><name>DNNL_ARG_VARIANCE</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga550c80e1b9ba4f541202a7ac98be117f" kind="define"><name>DNNL_ARG_WORKSPACE</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga81836a4db2cb1c4a14d959e304d3f63d" kind="define"><name>DNNL_ARG_SCRATCHPAD</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga5d7ebcd603a037e0cd53a22377d1addf" kind="define"><name>DNNL_ARG_DIFF_SRC_0</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga18ee0e360399cfe9d3b58a13dfcb9333" kind="define"><name>DNNL_ARG_DIFF_SRC</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga24709fa44c67cf453facbc1c52b0d598" kind="define"><name>DNNL_ARG_DIFF_SRC_LAYER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga79861408c787de29acec450006dace7f" kind="define"><name>DNNL_ARG_DIFF_SRC_1</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga4f7ed97882e020a1cbaa891bbe0da45b" kind="define"><name>DNNL_ARG_DIFF_SRC_ITER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gae5520b100e7e94e218ccda5697d720bf" kind="define"><name>DNNL_ARG_DIFF_SRC_2</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga1d8616925684111f3a1b6d8116ab0077" kind="define"><name>DNNL_ARG_DIFF_SRC_ITER_C</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga5cf662f6dc742a3500ec4f54290b86da" kind="define"><name>DNNL_ARG_DIFF_DST_0</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gac9302f4cbd2668bf9a98ba99d752b971" kind="define"><name>DNNL_ARG_DIFF_DST</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gafc6053e276352b05b3b526141586e0ac" kind="define"><name>DNNL_ARG_DIFF_DST_LAYER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga87fad7b00d52b6bff673fca344d0f96d" kind="define"><name>DNNL_ARG_DIFF_DST_1</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gad9c83f558d1b229b4185ccbf939590a3" kind="define"><name>DNNL_ARG_DIFF_DST_ITER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaf6ae542064ad032e7c335f3701398034" kind="define"><name>DNNL_ARG_DIFF_DST_2</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga5524b26b690b9b4b81f0c7f3f9ac3b62" kind="define"><name>DNNL_ARG_DIFF_DST_ITER_C</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaece55926acecbbf375cd4fb06c5786ab" kind="define"><name>DNNL_ARG_DIFF_WEIGHTS_0</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga3324092ef421f77aebee83b0117cac60" kind="define"><name>DNNL_ARG_DIFF_WEIGHTS</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga5ba61ea97841abbbc18babb9a439c5c4" kind="define"><name>DNNL_ARG_DIFF_SCALE_SHIFT</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gac0bd0c223011ee2fbbc3c430c047c756" kind="define"><name>DNNL_ARG_DIFF_WEIGHTS_LAYER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga789a5f68ece3af7f3c86217a4a5dab7e" kind="define"><name>DNNL_ARG_DIFF_WEIGHTS_1</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga4a8e5f32de3856588b2976a766d0af0f" kind="define"><name>DNNL_ARG_DIFF_WEIGHTS_ITER</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga1cd79979dda6df65ec45eef32a839901" kind="define"><name>DNNL_ARG_DIFF_BIAS</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga0afb48b0c2b8f3ee30609aaa47aa29db" kind="define"><name>DNNL_ARG_ATTR_OUTPUT_SCALES</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga1f0da423df3fb6853ddcbe6ffe964267" kind="define"><name>DNNL_ARG_MULTIPLE_SRC</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaa4183403de9fac3efd3f32c7a975580b" kind="define"><name>DNNL_ARG_MULTIPLE_DST</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaf8d879adfe2baa2f9f2a5143a0f274b6" kind="define"><name>DNNL_ARG_ATTR_ZERO_POINTS</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gaa596c5a6102df77a550bad98f0d5cc12" kind="define"><name>DNNL_RUNTIME_DIM_VAL</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga61466fbd352b6c94b6541977fbe199b8" kind="define"><name>DNNL_RUNTIME_SIZE_VAL</name></member>
+    <member refid="group__dnnl__api__primitives__common_1gab16365c11b4dc88fbb453edb51f1979f" kind="define"><name>DNNL_RUNTIME_F32_VAL</name></member>
+    <member refid="group__dnnl__api__primitives__common_1ga30139d5110e9e895ccd93fe503ca4c35" kind="define"><name>DNNL_RUNTIME_S32_VAL</name></member>
+  </compound>
+  <compound refid="group__dnnl__api__attributes" kind="group"><name>Dnnl_api_attributes</name>
+    <member refid="group__dnnl__api__attributes_1gac24d40ceea0256c7d6cc3a383a0fa07f" kind="enum"><name>scratchpad_mode</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac24d40ceea0256c7d6cc3a383a0fa07fad521f765a49c72507257a2620612ee96" kind="enumvalue"><name>library</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac24d40ceea0256c7d6cc3a383a0fa07faee11cbb19052e40b07aac0ca060c23ee" kind="enumvalue"><name>user</name></member>
+    <member refid="group__dnnl__api__attributes_1gac7db48f6583aa9903e54c2a39d65438f" kind="enum"><name>prop_kind</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438faf31ee5e3824f1f5e5d206bdf3029f22b" kind="enumvalue"><name>undef</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa24775787fab8f13aa4809e1ce8f82aeb" kind="enumvalue"><name>forward_training</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa3b9fad4f80d45368f856b5403198ac4c" kind="enumvalue"><name>forward_inference</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa4f2df7bab0115f1ddbe25392e3a71542" kind="enumvalue"><name>forward_scoring</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa965dbaac085fc891bfbbd4f9d145bbc8" kind="enumvalue"><name>forward</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa195fe59b6f103787a914aead0f3db502" kind="enumvalue"><name>backward</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438faa12627cacf73ecb7ef088beedd650e96" kind="enumvalue"><name>backward_data</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa1a002980f340e61153a9f7de4f794cf6" kind="enumvalue"><name>backward_weights</name></member>
+    <member refid="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fab6b02795407dc7897e390e48f1d0ea02" kind="enumvalue"><name>backward_bias</name></member>
+    <member refid="group__dnnl__api__attributes_1ga00377dd4982333e42e8ae1d09a309640" kind="enum"><name>algorithm</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640af31ee5e3824f1f5e5d206bdf3029f22b" kind="enumvalue"><name>undef</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640acfdececd63a8bc0cfe1021ad614e2ded" kind="enumvalue"><name>convolution_auto</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a5028ad8f818a45333a8a0eefad35c5c0" kind="enumvalue"><name>convolution_direct</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a6a73ed41c67672f76f53a69e96c31ed4" kind="enumvalue"><name>convolution_winograd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a73f81608d2b7315f04c438fb8be5f99c" kind="enumvalue"><name>deconvolution_direct</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640aeb5da82914413424bf941fa04eb065aa" kind="enumvalue"><name>deconvolution_winograd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640aba09bebb742494255b90b43871c01c69" kind="enumvalue"><name>eltwise_relu</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a38dd7159307eab45742c78e72f06abb0" kind="enumvalue"><name>eltwise_tanh</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a690376cad4a7f001e967a6a40d04da3a" kind="enumvalue"><name>eltwise_elu</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a448fc250a28e651c02966142f7f66cce" kind="enumvalue"><name>eltwise_square</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a30046c43b9399a7aaa4281da7cff2d5c" kind="enumvalue"><name>eltwise_abs</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a83b978b280304349860c7cdc3519865f" kind="enumvalue"><name>eltwise_sqrt</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a97395201ce1744f18c19d243d24fbd13" kind="enumvalue"><name>eltwise_swish</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a21aba6844d2de47b92ab1d110f561945" kind="enumvalue"><name>eltwise_linear</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a4142c71f159526fef4c85b8c5ae78a72" kind="enumvalue"><name>eltwise_bounded_relu</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a23175afeee905a4de38e5a24b46cb6e2" kind="enumvalue"><name>eltwise_soft_relu</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a282836cce833348ee509b0ecd764d217" kind="enumvalue"><name>eltwise_logistic</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a6506e1f0284a4bb8cb999b49c6142599" kind="enumvalue"><name>eltwise_exp</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a8320b34de5fed32c795cd92a7fbf4749" kind="enumvalue"><name>eltwise_gelu</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640af2a460e3ec273e904c6f6b39baa5e477" kind="enumvalue"><name>eltwise_log</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a2aa1edfbe21c6770d63301058ec753ed" kind="enumvalue"><name>eltwise_clip</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a30977b2a33c3a2bd6a5d71a352fa4bcc" kind="enumvalue"><name>eltwise_pow</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ac227b99192be41d4060b700d1e788fd6" kind="enumvalue"><name>eltwise_relu_use_dst_for_bwd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a0be1df5ff86383197efdfeb01b10e046" kind="enumvalue"><name>eltwise_tanh_use_dst_for_bwd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a09b26fc530b10556b14bc8e9b2d29d35" kind="enumvalue"><name>eltwise_elu_use_dst_for_bwd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ad5704aaf680703d473f983e3f19b8d4d" kind="enumvalue"><name>eltwise_sqrt_use_dst_for_bwd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a40f1d6681d0ad7bf3e9313641e03ae14" kind="enumvalue"><name>eltwise_logistic_use_dst_for_bwd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ad10dade245ba1cbe70859fcbdad27637" kind="enumvalue"><name>eltwise_exp_use_dst_for_bwd</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ab9e2d858b551792385a4b5b86672b24b" kind="enumvalue"><name>lrn_across_channels</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640aa25c4ccc5c7c9bd3a977a2089189a494" kind="enumvalue"><name>lrn_within_channel</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a8c73d4bb88a0497586a74256bb338e88" kind="enumvalue"><name>pooling_max</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a7702ff2872aa0321d96ea7134bad855a" kind="enumvalue"><name>pooling_avg</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ad62617dd43972a6bbff8d263a5c4462c" kind="enumvalue"><name>pooling_avg_include_padding</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a7ed10af2056450d8f6ac7277b48fc6a8" kind="enumvalue"><name>pooling_avg_exclude_padding</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ab2b3bfcaad515fd1bf0245e8ae6bd407" kind="enumvalue"><name>vanilla_rnn</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a716a71a7a6ec13785b552dc2412380ce" kind="enumvalue"><name>vanilla_lstm</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a272fa682d36b810a24ec89202b7a31f7" kind="enumvalue"><name>vanilla_gru</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a792e966b14bd4e16625ee4df357a0723" kind="enumvalue"><name>lbr_gru</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ab2c3faf084cf82b5603946995f637b35" kind="enumvalue"><name>binary_add</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a0905fc5c22e79a8eed0988681eb6a0ae" kind="enumvalue"><name>binary_mul</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a4ae0aa1c0bf5bd1bf54564a2485618be" kind="enumvalue"><name>binary_max</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ad096699e4ea7ada3d71428484e6119d8" kind="enumvalue"><name>binary_min</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a091b262cfae5e610fcad1490bfb79431" kind="enumvalue"><name>resampling_nearest</name></member>
+    <member refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a05731680a83c6dccd19a758b72a4ecbd" kind="enumvalue"><name>resampling_linear</name></member>
+  </compound>
+  <compound refid="group__dnnl__api__rnn" kind="group"><name>dnnl_api_rnn</name>
+    <member refid="group__dnnl__api__rnn_1gad27d0db2a86ae3072207769f5c2ddd1e" kind="enum"><name>rnn_flags</name></member>
+    <member refid="group__dnnl__api__rnn_1ggad27d0db2a86ae3072207769f5c2ddd1eaf31ee5e3824f1f5e5d206bdf3029f22b" kind="enumvalue"><name>undef</name></member>
+    <member refid="group__dnnl__api__rnn_1ga33315cf335d1cbe26fd6b70d956e23d5" kind="enum"><name>rnn_direction</name></member>
+    <member refid="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5a04f4bf4bc6a47e30f0353597e244c44a" kind="enumvalue"><name>unidirectional_left2right</name></member>
+    <member refid="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5a0b694765eed7cf5a48e18c1d05b74118" kind="enumvalue"><name>unidirectional_right2left</name></member>
+    <member refid="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5a7a1bb9f8699e8c03cbe4bd681fb50830" kind="enumvalue"><name>bidirectional_concat</name></member>
+    <member refid="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5aa6199c5b651803844c8c054b11e88d8c" kind="enumvalue"><name>bidirectional_sum</name></member>
+    <member refid="group__dnnl__api__rnn_1gga33315cf335d1cbe26fd6b70d956e23d5aa0c3ef5c69c32081a31c33df63192cda" kind="enumvalue"><name>unidirectional</name></member>
+    <member refid="group__dnnl__api__rnn_1ga8a1ddcd99ba74311e25ee48aed43d6c9" kind="function"><name>operator|</name></member>
+  </compound>
+  <compound refid="group__dnnl__api__engine" kind="group"><name>dnnl_api_engine</name>
+  </compound>
+  <compound refid="group__dnnl__api__stream" kind="group"><name>dnnl_api_stream</name>
+  </compound>
+  <compound refid="group__dnnl__api__memory" kind="group"><name>dnnl_api_memory</name>
+  </compound>
+  <compound refid="group__dnnl__api__reorder" kind="group"><name>dnnl_api_reorder</name>
+  </compound>
+  <compound refid="group__dnnl__api__concat" kind="group"><name>dnnl_api_concat</name>
+  </compound>
+  <compound refid="group__dnnl__api__sum" kind="group"><name>dnnl_api_sum</name>
+  </compound>
+  <compound refid="group__dnnl__api__convolution" kind="group"><name>dnnl_api_convolution</name>
+  </compound>
+  <compound refid="group__dnnl__api__deconvolution" kind="group"><name>dnnl_api_deconvolution</name>
+  </compound>
+  <compound refid="group__dnnl__api__lrn" kind="group"><name>dnnl_api_lrn</name>
+  </compound>
+  <compound refid="group__dnnl__api__pooling" kind="group"><name>dnnl_api_pooling</name>
+  </compound>
+  <compound refid="group__dnnl__api__eltwise" kind="group"><name>dnnl_api_eltwise</name>
+  </compound>
+  <compound refid="group__dnnl__api__softmax" kind="group"><name>dnnl_api_softmax</name>
+  </compound>
+  <compound refid="group__dnnl__api__logsoftmax" kind="group"><name>dnnl_api_logsoftmax</name>
+  </compound>
+  <compound refid="group__dnnl__api__batch__normalization" kind="group"><name>dnnl_api_batch_normalization</name>
+  </compound>
+  <compound refid="group__dnnl__api__layer__normalization" kind="group"><name>dnnl_api_layer_normalization</name>
+  </compound>
+  <compound refid="group__dnnl__api__inner__product" kind="group"><name>dnnl_api_inner_product</name>
+  </compound>
+  <compound refid="group__dnnl__api__shuffle" kind="group"><name>dnnl_api_shuffle</name>
+  </compound>
+  <compound refid="group__dnnl__api__binary" kind="group"><name>dnnl_api_binary</name>
+  </compound>
+  <compound refid="group__dnnl__api__matmul" kind="group"><name>dnnl_api_matmul</name>
+  </compound>
+  <compound refid="group__dnnl__api__resampling" kind="group"><name>dnnl_api_resampling</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="struct__vplm__va__vtable" kind="struct" language="C++" prot="public">
+    <compoundname>_vplm_va_vtable</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__vplm__va__vtable_1a27beb9910bf31e32336d10bc6f83208c" prot="public" static="no" mutable="no">
+        <type>size_t(*</type>
+        <definition>size_t(* _vplm_va_vtable::query_displays) (const vplm_mem *mem, VADisplay *displays, size_t num_displays)</definition>
+        <argsstring>)(const vplm_mem *mem, VADisplay *displays, size_t num_displays)</argsstring>
+        <name>query_displays</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_vaapi.h" line="50" column="5" bodyfile="include/vplmemory/vplm_vaapi.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__va__vtable_1aaa541b821d2d603fb8fd0080526425db" prot="public" static="no" mutable="no">
+        <type>vplm_status(*</type>
+        <definition>vplm_status(* _vplm_va_vtable::get_surface) (const vplm_mem *memory, VADisplay dpy, VASurfaceID *image)</definition>
+        <argsstring>)(const vplm_mem *memory, VADisplay dpy, VASurfaceID *image)</argsstring>
+        <name>get_surface</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_vaapi.h" line="52" column="5" bodyfile="include/vplmemory/vplm_vaapi.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__va__vtable_1a28e609c32809b078d7197cbacd77305e" prot="public" static="no" mutable="no">
+        <type>vplm_status(*</type>
+        <definition>vplm_status(* _vplm_va_vtable::get_buffer) (const vplm_mem *memory, VADisplay dpy, VABufferID *buffer)</definition>
+        <argsstring>)(const vplm_mem *memory, VADisplay dpy, VABufferID *buffer)</argsstring>
+        <name>get_buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_vaapi.h" line="53" column="5" bodyfile="include/vplmemory/vplm_vaapi.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vplmemory/vplm_vaapi.h" line="49" column="30" bodyfile="include/vplmemory/vplm_vaapi.h" bodystart="49" bodyend="54"/>
+    <listofallmembers>
+      <member refid="struct__vplm__va__vtable_1a28e609c32809b078d7197cbacd77305e" prot="public" virt="non-virtual"><scope>_vplm_va_vtable</scope><name>get_buffer</name></member>
+      <member refid="struct__vplm__va__vtable_1aaa541b821d2d603fb8fd0080526425db" prot="public" virt="non-virtual"><scope>_vplm_va_vtable</scope><name>get_surface</name></member>
+      <member refid="struct__vplm__va__vtable_1a27beb9910bf31e32336d10bc6f83208c" prot="public" virt="non-virtual"><scope>_vplm_va_vtable</scope><name>query_displays</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

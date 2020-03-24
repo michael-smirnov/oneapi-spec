@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structdnnl_1_1sum_1_1primitive__desc" kind="struct" language="C++" prot="public">
+    <compoundname>dnnl::sum::primitive_desc</compoundname>
+    <basecompoundref refid="structdnnl_1_1primitive__desc__base" prot="public" virt="non-virtual">dnnl::primitive_desc_base</basecompoundref>
+    <includes refid="dnnl_8hpp" local="no">dnnl.hpp</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structdnnl_1_1sum_1_1primitive__desc_1acf864b6e5a6b368708eea8ef098316a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::sum::primitive_desc::primitive_desc</definition>
+        <argsstring>()</argsstring>
+        <name>primitive_desc</name>
+        <briefdescription>
+<para>Default constructor. Produces an empty object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1898" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1sum_1_1primitive__desc_1ac94c9eb0351f08367bfa0ae566c3f418" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::sum::primitive_desc::primitive_desc</definition>
+        <argsstring>(const memory::desc &amp;dst, const std::vector&lt; float &gt; &amp;scales, const std::vector&lt; memory::desc &gt; &amp;srcs, const engine &amp;engine, const primitive_attr &amp;attr=primitive_attr())</argsstring>
+        <name>primitive_desc</name>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref> &amp;</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>scales</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref> &gt; &amp;</type>
+          <declname>srcs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1engine" kindref="compound">engine</ref> &amp;</type>
+          <declname>engine</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1primitive__attr" kindref="compound">primitive_attr</ref> &amp;</type>
+          <declname>attr</declname>
+          <defval><ref refid="structdnnl_1_1primitive__attr" kindref="compound">primitive_attr</ref>()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a primitive descriptor for a sum primitive.</para>
+<para>Inputs:<itemizedlist>
+<listitem><para><computeroutput>src[0]</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43" kindref="member">dnnl::primitive_desc_base::src_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem><listitem><para><computeroutput>src[1]</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43" kindref="member">dnnl::primitive_desc_base::src_desc</ref> (<computeroutput>1</computeroutput>))</para>
+</listitem><listitem><para>...</para>
+</listitem><listitem><para><computeroutput>src[n - 1]</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43" kindref="member">dnnl::primitive_desc_base::src_desc</ref> (<computeroutput>n - 1</computeroutput>))</para>
+</listitem></itemizedlist>
+</para>
+<para>Outputs:<itemizedlist>
+<listitem><para><computeroutput>dst</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1a495ee7c8e1ec3eab35f6329fdcd352bb" kindref="member">dnnl::primitive_desc_base::dst_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination memory descriptor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>scales</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector of scales to multiply data in each source memory by. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>srcs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector of source memory descriptors. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>engine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Engine to perform the operation on. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>attr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Primitive attributes to use (optional). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1917" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1sum_1_1primitive__desc_1a69ba8eeb28c0f8826b8074105fb9de1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::sum::primitive_desc::primitive_desc</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;scales, const std::vector&lt; memory::desc &gt; &amp;srcs, const engine &amp;engine, const primitive_attr &amp;attr=primitive_attr())</argsstring>
+        <name>primitive_desc</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>scales</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref> &gt; &amp;</type>
+          <declname>srcs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1engine" kindref="compound">engine</ref> &amp;</type>
+          <declname>engine</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1primitive__attr" kindref="compound">primitive_attr</ref> &amp;</type>
+          <declname>attr</declname>
+          <defval><ref refid="structdnnl_1_1primitive__attr" kindref="compound">primitive_attr</ref>()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a primitive descriptor for a sum primitive.</para>
+<para>This version derives the destination memory descriptor automatically.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scales</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector of scales by which to multiply data in each source memory object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>srcs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector of source memory descriptors. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>engine</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Engine on which to perform the operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>attr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Primitive attributes to use (optional). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1932" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1sum_1_1primitive__desc_1a27db7c274a1c459edc5666e7e8ff8bcc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::sum::primitive_desc::src_desc</definition>
+        <argsstring>(int idx=0) const</argsstring>
+        <name>src_desc</name>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a source memory descriptor. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source index. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Source memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a source parameter with index <computeroutput>pdx</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1937" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1sum_1_1primitive__desc_1a0d43b4a7a2d2d14633fd90fb3be310b6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref></type>
+        <definition>memory::desc dnnl::sum::primitive_desc::dst_desc</definition>
+        <argsstring>() const</argsstring>
+        <name>dst_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a destination memory descriptor. <simplesect kind="return"><para>Destination memory descriptor. </para>
+</simplesect>
+<simplesect kind="return"><para>A zero memory descriptor if the primitive does not have a destination parameter. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1940" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Primitive descriptor for a sum primitive. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>dnnl::sum::primitive_desc</label>
+        <link refid="structdnnl_1_1sum_1_1primitive__desc"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>dnnl::primitive_desc_base</label>
+        <link refid="structdnnl_1_1primitive__desc__base"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>dnnl::sum::primitive_desc</label>
+        <link refid="structdnnl_1_1sum_1_1primitive__desc"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>dnnl::primitive_desc_base</label>
+        <link refid="structdnnl_1_1primitive__desc__base"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/dnnl.hpp" line="1896" column="58" bodyfile="include/dnnl.hpp" bodystart="1896" bodyend="1941"/>
+    <listofallmembers>
+      <member refid="structdnnl_1_1primitive__desc__base_1a60f17d04c493c42e4a50ad5feff5c8ca" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>diff_dst_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a6b9fb7da987329256c04db6ecbb9dc36" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>diff_dst_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a733e6ff4e78a758e69ae6232e8955871" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>diff_src_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1ab4268c6bb70dd6c22de43141cc301b77" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>diff_src_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a192f7b334efac9a5ac20344a76d4d552" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>diff_weights_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1af51378982968e2b4f7abb6a32acfb0af" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>diff_weights_desc</name></member>
+      <member refid="structdnnl_1_1sum_1_1primitive__desc_1a0d43b4a7a2d2d14633fd90fb3be310b6" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>dst_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a495ee7c8e1ec3eab35f6329fdcd352bb" prot="public" virt="non-virtual" ambiguityscope="dnnl::primitive_desc_base::"><scope>dnnl::sum::primitive_desc</scope><name>dst_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a32f7477c79e715a341bb9127df521fbc" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>get_engine</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a0ef600ea3666f0fd93c9c5d112aaf05c" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>get_primitive_attr</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1ae680492d4e4b16a938cfc051e5c906be" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>impl_info_str</name></member>
+      <member refid="structdnnl_1_1sum_1_1primitive__desc_1acf864b6e5a6b368708eea8ef098316a8" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>primitive_desc</name></member>
+      <member refid="structdnnl_1_1sum_1_1primitive__desc_1ac94c9eb0351f08367bfa0ae566c3f418" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>primitive_desc</name></member>
+      <member refid="structdnnl_1_1sum_1_1primitive__desc_1a69ba8eeb28c0f8826b8074105fb9de1b" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>primitive_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1abaec6897940cf14b0b3113a593ec5dbf" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>primitive_desc_base</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a35d24b553ba6aa807516e9470fdd7d16" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>query_md</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1acbedc4257eaa26f868356f9f594a856a" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>query_s64</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a6238358ec03afd57fb20dffa65b48d2f" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>scratchpad_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1ad4079e0891373bd2dc841f3f94cf47ed" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>scratchpad_engine</name></member>
+      <member refid="structdnnl_1_1sum_1_1primitive__desc_1a27db7c274a1c459edc5666e7e8ff8bcc" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>src_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1af48dcff294cadb2916fd784b8474d221" prot="public" virt="non-virtual" ambiguityscope="dnnl::primitive_desc_base::"><scope>dnnl::sum::primitive_desc</scope><name>src_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1acb13d08987cca8d8f05ec4858fa61fb4" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>weights_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1a93f0904566b399874c47b3b1ad3d1495" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>weights_desc</name></member>
+      <member refid="structdnnl_1_1primitive__desc__base_1ad26f416a149cb44cc5cfc130012c614e" prot="public" virt="non-virtual"><scope>dnnl::sum::primitive_desc</scope><name>workspace_desc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

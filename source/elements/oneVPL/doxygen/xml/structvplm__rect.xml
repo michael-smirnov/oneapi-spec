@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structvplm__rect" kind="struct" language="C++" prot="public">
+    <compoundname>vplm_rect</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structvplm__rect_1a49d73afcac7782eb08d433bc14ff8093" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vplm_rect::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="114" column="14" bodyfile="include/vplmemory/vplm.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__rect_1af6cf65d8cf41c132ba9f716ab53d4c8b" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vplm_rect::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="115" column="14" bodyfile="include/vplmemory/vplm.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__rect_1ad48c8babc202bfaedeafcd9000f708db" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vplm_rect::w</definition>
+        <argsstring></argsstring>
+        <name>w</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="116" column="14" bodyfile="include/vplmemory/vplm.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__rect_1a8162aec1de0c60c36d5954257f3ad412" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vplm_rect::h</definition>
+        <argsstring></argsstring>
+        <name>h</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="117" column="14" bodyfile="include/vplmemory/vplm.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vplmemory/vplm.h" line="113" column="15" bodyfile="include/vplmemory/vplm.h" bodystart="113" bodyend="118"/>
+    <listofallmembers>
+      <member refid="structvplm__rect_1a8162aec1de0c60c36d5954257f3ad412" prot="public" virt="non-virtual"><scope>vplm_rect</scope><name>h</name></member>
+      <member refid="structvplm__rect_1ad48c8babc202bfaedeafcd9000f708db" prot="public" virt="non-virtual"><scope>vplm_rect</scope><name>w</name></member>
+      <member refid="structvplm__rect_1a49d73afcac7782eb08d433bc14ff8093" prot="public" virt="non-virtual"><scope>vplm_rect</scope><name>x</name></member>
+      <member refid="structvplm__rect_1af6cf65d8cf41c132ba9f716ab53d4c8b" prot="public" virt="non-virtual"><scope>vplm_rect</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

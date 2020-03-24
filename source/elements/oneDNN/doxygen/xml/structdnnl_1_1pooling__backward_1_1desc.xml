@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structdnnl_1_1pooling__backward_1_1desc" kind="struct" language="C++" prot="public">
+    <compoundname>dnnl::pooling_backward::desc</compoundname>
+    <includes refid="dnnl_8hpp" local="no">dnnl.hpp</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structdnnl_1_1pooling__backward_1_1desc_1a6773c6fb2ed5fb7602046685fced8dda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::pooling_backward::desc::desc</definition>
+        <argsstring>(algorithm algorithm, const memory::desc &amp;diff_src_desc, const memory::desc &amp;diff_dst_desc, const memory::dims &amp;strides, const memory::dims &amp;kernel, const memory::dims &amp;padding_l, const memory::dims &amp;padding_r)</argsstring>
+        <name>desc</name>
+        <param>
+          <type><ref refid="group__dnnl__api__attributes_1ga00377dd4982333e42e8ae1d09a309640" kindref="member">algorithm</ref></type>
+          <declname>algorithm</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref> &amp;</type>
+          <declname>diff_src_desc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref> &amp;</type>
+          <declname>diff_dst_desc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1a7d9f4b6ad8caf3969f436cd9ff27e9bb" kindref="member">memory::dims</ref> &amp;</type>
+          <declname>strides</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1a7d9f4b6ad8caf3969f436cd9ff27e9bb" kindref="member">memory::dims</ref> &amp;</type>
+          <declname>kernel</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1a7d9f4b6ad8caf3969f436cd9ff27e9bb" kindref="member">memory::dims</ref> &amp;</type>
+          <declname>padding_l</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1a7d9f4b6ad8caf3969f436cd9ff27e9bb" kindref="member">memory::dims</ref> &amp;</type>
+          <declname>padding_r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a descriptor for pooling backward propagation primitive.</para>
+<para>Inputs:<itemizedlist>
+<listitem><para><computeroutput>diff_dst</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1a60f17d04c493c42e4a50ad5feff5c8ca" kindref="member">dnnl::primitive_desc_base::diff_dst_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem><listitem><para><computeroutput>workspace</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1ad26f416a149cb44cc5cfc130012c614e" kindref="member">dnnl::primitive_desc_base::workspace_desc</ref> (<computeroutput>0</computeroutput>)), if <computeroutput>alg_kind</computeroutput> = <ref refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a8c73d4bb88a0497586a74256bb338e88" kindref="member">dnnl::algorithm::pooling_max</ref>; must be queried for using <ref refid="structdnnl_1_1primitive__desc__base_1a35d24b553ba6aa807516e9470fdd7d16" kindref="member">dnnl::primitive_desc_base::query_md()</ref> after a corresponding primitive descriptor is created</para>
+</listitem></itemizedlist>
+</para>
+<para>Outputs:<itemizedlist>
+<listitem><para><computeroutput>diff_src</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1a733e6ff4e78a758e69ae6232e8955871" kindref="member">dnnl::primitive_desc_base::diff_src_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>algorithm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pooling algorithm kind: either <ref refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a8c73d4bb88a0497586a74256bb338e88" kindref="member">dnnl::algorithm::pooling_max</ref>, <ref refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ad62617dd43972a6bbff8d263a5c4462c" kindref="member">dnnl::algorithm::pooling_avg_include_padding</ref>, or <ref refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a7702ff2872aa0321d96ea7134bad855a" kindref="member">dnnl::algorithm::pooling_avg</ref> (same as <ref refid="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a7ed10af2056450d8f6ac7277b48fc6a8" kindref="member">dnnl::algorithm::pooling_avg_exclude_padding</ref>). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>diff_src_desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Diff source memory descriptor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>diff_dst_desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Diff destination memory descriptor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>strides</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector of strides for spatial dimension. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>kernel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector of kernel spatial dimensions. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>padding_l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector of padding values for low indices for each spatial dimension (front, top, left). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>padding_r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector of padding values for high indices for each spatial dimension (back, bottom, right). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="3365" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Descriptor for a pooling backward propagation primitive. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/dnnl.hpp" line="3339" column="15" bodyfile="include/dnnl.hpp" bodystart="3339" bodyend="3369"/>
+    <listofallmembers>
+      <member refid="structdnnl_1_1pooling__backward_1_1desc_1a6773c6fb2ed5fb7602046685fced8dda" prot="public" virt="non-virtual"><scope>dnnl::pooling_backward::desc</scope><name>desc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="vpl__config_8hpp" kind="file" language="C++">
+    <compoundname>vpl_config.hpp</compoundname>
+    <includes local="no">stdexcept</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <includes refid="vpl__types_8h" local="yes">vpl/vpl_types.h</includes>
+    <includes local="yes">vpl/vpl_export.h</includes>
+    <includedby refid="vpl__video_8h" local="yes">include/vpl/vpl_video.h</includedby>
+    <incdepgraph>
+      <node id="7">
+        <label>stdint.h</label>
+      </node>
+      <node id="1">
+        <label>include/vpl/vpl_config.hpp</label>
+        <link refid="vpl__config_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdexcept</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>stddef.h</label>
+      </node>
+      <node id="8">
+        <label>vpl/vpl_export.h</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+      <node id="5">
+        <label>vpl/vpl_types.h</label>
+        <link refid="vpl__types_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>include/vpl/vpl_video.h</label>
+        <link refid="vpl__video_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>include/vpl/vpl.hpp</label>
+        <link refid="vpl_8hpp"/>
+      </node>
+      <node id="1">
+        <label>include/vpl/vpl_config.hpp</label>
+        <link refid="vpl__config_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>include/vpl/vpl_context.hpp</label>
+        <link refid="vpl__context_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>include/vpl/vpl_utils.h</label>
+        <link refid="vpl__utils_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>include/vpl/vpl_device.hpp</label>
+        <link refid="vpl__device_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classvpl_1_1_vpl_params" prot="public">vpl::VplParams</innerclass>
+    <innerclass refid="classvpl_1_1_vpl_params_decode" prot="public">vpl::VplParamsDecode</innerclass>
+    <innerclass refid="classvpl_1_1_vpl_params_encode" prot="public">vpl::VplParamsEncode</innerclass>
+    <innernamespace refid="namespacevpl">vpl</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*############################################################################</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>#<sp/>Copyright<sp/>(C)<sp/>2019<sp/>Intel<sp/>Corporation</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>#</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>#<sp/>SPDX-License-Identifier:<sp/>MIT</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/>############################################################################*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="preprocessor">#ifndef<sp/>VPL_CONFIG_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VPL_CONFIG_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdexcept&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="vpl__types_8h" kindref="compound">vpl/vpl_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;vpl/vpl_export.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">vpl<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="classvpl_1_1_vpl_params" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal">VPL_EXPORT<sp/><ref refid="classvpl_1_1_vpl_params" kindref="compound">VplParams</ref><sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="classvpl_1_1_vpl_params_1a6c273cbb1560fd9a053b7e0fb93e6b9c" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64" kindref="member">VplFourCC</ref><sp/><ref refid="classvpl_1_1_vpl_params_1a6c273cbb1560fd9a053b7e0fb93e6b9c" kindref="member">GetInputFormat</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_iformat;<sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SetInputFormat(<ref refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64" kindref="member">VplFourCC</ref><sp/>format)<sp/>{<sp/>m_iformat<sp/>=<sp/>format;<sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64" kindref="member">VplFourCC</ref><sp/>GetOutputFormat()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_oformat;<sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SetOutputFormat(<ref refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64" kindref="member">VplFourCC</ref><sp/>format)<sp/>{<sp/>m_oformat<sp/>=<sp/>format;<sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_frame_rate" kindref="compound">VplFrameRate</ref><sp/>&amp;GetInputFrameRate()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_iframerate;<sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SetInputFrameRate(<ref refid="struct_vpl_frame_rate" kindref="compound">VplFrameRate</ref><sp/>&amp;fr)<sp/>{<sp/>m_iframerate<sp/>=<sp/>fr;<sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_frame_rate" kindref="compound">VplFrameRate</ref><sp/>&amp;GetOutputFrameRate()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_oframerate;<sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SetOutputFrameRate(<ref refid="struct_vpl_frame_rate" kindref="compound">VplFrameRate</ref><sp/>&amp;fr)<sp/>{<sp/>m_oframerate<sp/>=<sp/>fr;<sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_video_surface_resolution" kindref="compound">VplVideoSurfaceResolution</ref><sp/>&amp;GetInputResolution()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_iresolution;<sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SetInputResolution(<ref refid="struct_vpl_video_surface_resolution" kindref="compound">VplVideoSurfaceResolution</ref><sp/>&amp;res)<sp/>{<sp/>m_iresolution<sp/>=<sp/>res;<sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_video_surface_resolution" kindref="compound">VplVideoSurfaceResolution</ref><sp/>&amp;GetOutputResolution()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_oresolution;<sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SetOutputResolution(<ref refid="struct_vpl_video_surface_resolution" kindref="compound">VplVideoSurfaceResolution</ref><sp/>&amp;res)<sp/>{<sp/>m_oresolution<sp/>=<sp/>res;<sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_crop" kindref="compound">VplCrop</ref><sp/>&amp;GetInputCrop()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_icrop;<sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SetInputCrop(<ref refid="struct_vpl_crop" kindref="compound">VplCrop</ref><sp/>&amp;crop)<sp/>{<sp/>m_icrop<sp/>=<sp/>crop;<sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_crop" kindref="compound">VplCrop</ref><sp/>&amp;GetOutputCrop()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_ocrop;<sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SetOutputCrop(<ref refid="struct_vpl_crop" kindref="compound">VplCrop</ref><sp/>&amp;crop)<sp/>{<sp/>m_icrop<sp/>=<sp/>crop;<sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_aspect_ratio" kindref="compound">VplAspectRatio</ref><sp/>&amp;GetInputAspectRatio()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_iaspect;<sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SetInputAspectRatio(<ref refid="struct_vpl_aspect_ratio" kindref="compound">VplAspectRatio</ref><sp/>&amp;ratio)<sp/>{<sp/>m_iaspect<sp/>=<sp/>ratio;<sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_aspect_ratio" kindref="compound">VplAspectRatio</ref><sp/>&amp;GetOutputAspectRatio()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_oaspect;<sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SetOutputAspectRatio(<ref refid="struct_vpl_aspect_ratio" kindref="compound">VplAspectRatio</ref><sp/>&amp;ratio)<sp/>{<sp/>m_oaspect<sp/>=<sp/>ratio;<sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>uint16_t<sp/><sp/>GetPictStruct()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_picstruct;<sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>SetPictStruct(uint16_t<sp/>ps)<sp/>{<sp/>m_picstruct<sp/>=<sp/>ps;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>VplParams();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>~VplParams()<sp/>{}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><ref refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64" kindref="member">VplFourCC</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_iformat;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><ref refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64" kindref="member">VplFourCC</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_oformat;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_frame_rate" kindref="compound">VplFrameRate</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_iframerate;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_frame_rate" kindref="compound">VplFrameRate</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_oframerate;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_video_surface_resolution" kindref="compound">VplVideoSurfaceResolution</ref><sp/>m_iresolution;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_video_surface_resolution" kindref="compound">VplVideoSurfaceResolution</ref><sp/>m_oresolution;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_crop" kindref="compound">VplCrop</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_icrop;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_crop" kindref="compound">VplCrop</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_ocrop;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_aspect_ratio" kindref="compound">VplAspectRatio</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_iaspect;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><ref refid="struct_vpl_aspect_ratio" kindref="compound">VplAspectRatio</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_oaspect;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_picstruct;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="classvpl_1_1_vpl_params_decode" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">VPL_EXPORT<sp/><ref refid="classvpl_1_1_vpl_params_decode" kindref="compound">VplParamsDecode</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classvpl_1_1_vpl_params" kindref="compound">VplParams</ref><sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><ref refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eea" kindref="member">VplCodecType</ref><sp/>GetCodecType()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_codec;<sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetCodecType(<ref refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eea" kindref="member">VplCodecType</ref><sp/>codec)<sp/>{<sp/>m_codec<sp/>=<sp/>codec;<sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>uint32_t<sp/>GetDecodeBufferSize()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_buffersz;<sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>SetDecodeBufferSize(uint32_t<sp/>s)<sp/>{<sp/>m_buffersz<sp/>=<sp/>s;<sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>uint32_t<sp/>GetMaxNumBuffers()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_maxnumbuffers;<sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SetMaxNumBuffers(uint32_t<sp/>m)<sp/><sp/>{<sp/>m_maxnumbuffers<sp/>=<sp/>m;<sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><ref refid="classvpl_1_1_vpl_params_decode" kindref="compound">VplParamsDecode</ref>();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>~<ref refid="classvpl_1_1_vpl_params_decode" kindref="compound">VplParamsDecode</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><ref refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eea" kindref="member">VplCodecType</ref><sp/>m_codec;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/>m_buffersz;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/>m_maxnumbuffers;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="classvpl_1_1_vpl_params_encode" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">VPL_EXPORT<sp/><ref refid="classvpl_1_1_vpl_params_encode" kindref="compound">VplParamsEncode</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classvpl_1_1_vpl_params" kindref="compound">VplParams</ref><sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><ref refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eea" kindref="member">VplCodecType</ref><sp/>GetCodecType()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_codec;<sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetCodecType(<ref refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eea" kindref="member">VplCodecType</ref><sp/>codec)<sp/>{<sp/>m_codec<sp/>=<sp/>codec;<sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>uint32_t<sp/>GetBitRateKps()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_bitratekbps;<sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>SetBitRateKps(uint32_t<sp/>r)<sp/>{<sp/>m_bitratekbps<sp/>=<sp/>r;<sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>uint32_t<sp/>GetIFrameInterval()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_iframeinterval;<sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>SetIFrameInterval(uint32_t<sp/>il)<sp/>{<sp/>m_iframeinterval<sp/>=<sp/>il;<sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>uint32_t<sp/>GetBFrameInterval()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_bframeinterval;<sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>SetBFrameInterval(uint32_t<sp/>il)<sp/>{<sp/>m_bframeinterval<sp/>=<sp/>il;<sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>uint32_t<sp/>GetFrameRateNumerator()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_fr_num;<sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>SetFrameRateNumerator(uint32_t<sp/>n)<sp/><sp/>{<sp/>m_fr_num<sp/>=<sp/>n;<sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>uint32_t<sp/>GetFrameRateDenominator()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_fr_denom;<sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>SetFrameRateDenominator(uint32_t<sp/>d)<sp/>{<sp/>m_fr_denom<sp/>=<sp/>d;<sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>VplEncodePreset<sp/>GetEncodePreset()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_encodepreset;<sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>SetEncodePreset(VplEncodePreset<sp/>ps)<sp/>{<sp/>m_encodepreset<sp/>=<sp/>ps;<sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>VplRateControl<sp/>GetRateControl()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_ratecontrol;<sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>SetRateControl(VplRateControl<sp/>rc)<sp/>{<sp/>m_ratecontrol<sp/>=<sp/>rc;<sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>VplBRC<sp/><sp/><sp/>GetBRC()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_brc;<sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>SetBRC(VplBRC<sp/>brc)<sp/>{<sp/>m_brc<sp/>=<sp/>brc;<sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><ref refid="classvpl_1_1_vpl_params_encode" kindref="compound">VplParamsEncode</ref>();</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>~<ref refid="classvpl_1_1_vpl_params_encode" kindref="compound">VplParamsEncode</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><ref refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eea" kindref="member">VplCodecType</ref><sp/><sp/><sp/><sp/><sp/><sp/>m_codec;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_bitratekbps;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_iframeinterval;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_bframeinterval;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_fr_num;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_fr_denom;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/>VplEncodePreset<sp/><sp/><sp/>m_encodepreset;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>VplRateControl<sp/><sp/><sp/><sp/>m_ratecontrol;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>VplEncodeScenario<sp/>m_scenario;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>VplBRC<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_brc;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>vpl</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>VPL_CONFIG_HPP</highlight></codeline>
+    </programlisting>
+    <location file="include/vpl/vpl_config.hpp"/>
+  </compounddef>
+</doxygen>

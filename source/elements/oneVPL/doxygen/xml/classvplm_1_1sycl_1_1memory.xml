@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classvplm_1_1sycl_1_1memory" kind="class" language="C++" prot="public">
+    <compoundname>vplm::sycl::memory</compoundname>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classvplm_1_1sycl_1_1memory_1acbe4d6462287fb88b248acde7f7e1612" prot="protected" static="no" mutable="no">
+        <type>const <ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref> *</type>
+        <definition>const vplm_mem* vplm::sycl::memory::mem_</definition>
+        <argsstring></argsstring>
+        <name>mem_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_sycl.h" line="80" column="20" bodyfile="include/vplmemory/vplm_sycl.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classvplm_1_1sycl_1_1memory_1a0dc6ef6fd64d7651638e2b48752641fb" prot="protected" static="no" mutable="no">
+        <type><ref refid="structvplm__cpu__image" kindref="compound">vplm_cpu_image</ref></type>
+        <definition>vplm_cpu_image vplm::sycl::memory::cpu_image_</definition>
+        <argsstring></argsstring>
+        <name>cpu_image_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_sycl.h" line="81" column="20" bodyfile="include/vplmemory/vplm_sycl.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classvplm_1_1sycl_1_1memory_1a02776242579068de2da9b6f462569588" prot="protected" static="no" mutable="no">
+        <type><ref refid="structvplm__cl__image" kindref="compound">vplm_cl_image</ref></type>
+        <definition>vplm_cl_image vplm::sycl::memory::cl_image_</definition>
+        <argsstring></argsstring>
+        <name>cl_image_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_sycl.h" line="82" column="19" bodyfile="include/vplmemory/vplm_sycl.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classvplm_1_1sycl_1_1memory_1ab44c9e6030db4f26a6a1233ad8ae4c7f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>vplm::sycl::memory::memory</definition>
+        <argsstring>(const vplm_mem *vpl_mem)</argsstring>
+        <name>memory</name>
+        <param>
+          <type>const <ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref> *</type>
+          <declname>vpl_mem</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_sycl.h" line="38" column="5" bodyfile="include/vplmemory/vplm_sycl.h" bodystart="38" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classvplm_1_1sycl_1_1memory_1af93714745e59098d30d740bf3ad28d99" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>vplm::sycl::memory::memory</definition>
+        <argsstring>(const ::vplm::memory &amp;vpl_mem)</argsstring>
+        <name>memory</name>
+        <param>
+          <type>const ::<ref refid="classvplm_1_1memory" kindref="compound">vplm::memory</ref> &amp;</type>
+          <declname>vpl_mem</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_sycl.h" line="42" column="5" bodyfile="include/vplmemory/vplm_sycl.h" bodystart="42" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classvplm_1_1sycl_1_1memory_1a07470f991b6e6f4217a5c088c4801baa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>cl::sycl::image&lt; 2 &gt;</type>
+        <definition>cl::sycl::image&lt;2&gt; vplm::sycl::memory::acquire_image</definition>
+        <argsstring>(const cl::sycl::queue &amp;sycl_queue, cl::sycl::access::mode access_mode)</argsstring>
+        <name>acquire_image</name>
+        <param>
+          <type>const cl::sycl::queue &amp;</type>
+          <declname>sycl_queue</declname>
+        </param>
+        <param>
+          <type>cl::sycl::access::mode</type>
+          <declname>access_mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_sycl.h" line="46" column="21" bodyfile="include/vplmemory/vplm_sycl.h" bodystart="46" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classvplm_1_1sycl_1_1memory_1a0a193e8ae73814add972b597414dc116" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void vplm::sycl::memory::release_image</definition>
+        <argsstring>()</argsstring>
+        <name>release_image</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_sycl.h" line="69" column="10" bodyfile="include/vplmemory/vplm_sycl.h" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classvplm_1_1sycl_1_1memory_1aa7b20c1f05c9ec9740543d3e43b23cea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>vplm::sycl::memory::~memory</definition>
+        <argsstring>()</argsstring>
+        <name>~memory</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_sycl.h" line="74" column="5" bodyfile="include/vplmemory/vplm_sycl.h" bodystart="74" bodyend="77"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classvplm_1_1sycl_1_1memory_1ac10a17276219b428737f829ca3b8fd0c" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void vplm::sycl::memory::release_handle</definition>
+        <argsstring>()</argsstring>
+        <name>release_handle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_sycl.h" line="84" column="10" bodyfile="include/vplmemory/vplm_sycl.h" bodystart="84" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classvplm_1_1sycl_1_1memory_1aa65cd8cce14215d4243f3a3c44ebf020" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>cl::sycl::image_channel_order</type>
+        <definition>cl::sycl::image_channel_order vplm::sycl::memory::vplFormat2SYCL</definition>
+        <argsstring>(int32_t format)</argsstring>
+        <name>vplFormat2SYCL</name>
+        <param>
+          <type>int32_t</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_sycl.h" line="98" column="42" bodyfile="include/vplmemory/vplm_sycl.h" bodystart="98" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classvplm_1_1sycl_1_1memory_1a584415a53952a2ed05546ff2475e1e86" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vplm_access_flags</type>
+        <definition>vplm_access_flags vplm::sycl::memory::access_mode_sycl2vpl</definition>
+        <argsstring>(cl::sycl::access::mode access_mode)</argsstring>
+        <name>access_mode_sycl2vpl</name>
+        <param>
+          <type>cl::sycl::access::mode</type>
+          <declname>access_mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_sycl.h" line="113" column="30" bodyfile="include/vplmemory/vplm_sycl.h" bodystart="113" bodyend="125"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>_vplm_vtable</label>
+        <link refid="struct__vplm__vtable"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>va</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>cl</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>vplm_image_info</label>
+        <link refid="structvplm__image__info"/>
+      </node>
+      <node id="5">
+        <label>_vplm_va_vtable</label>
+        <link refid="struct__vplm__va__vtable"/>
+      </node>
+      <node id="2">
+        <label>vplm_cpu_image</label>
+        <link refid="structvplm__cpu__image"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>info</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>memory</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>vplm_cl_image</label>
+        <link refid="structvplm__cl__image"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>memory</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>vplm::sycl::memory</label>
+        <link refid="classvplm_1_1sycl_1_1memory"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>cpu_image_</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>cl_image_</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>mem_</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>_vplm_cl_vtable</label>
+        <link refid="struct__vplm__cl__vtable"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/vplmemory/vplm_sycl.h" line="36" column="1" bodyfile="include/vplmemory/vplm_sycl.h" bodystart="35" bodyend="126"/>
+    <listofallmembers>
+      <member refid="classvplm_1_1sycl_1_1memory_1a584415a53952a2ed05546ff2475e1e86" prot="protected" virt="non-virtual"><scope>vplm::sycl::memory</scope><name>access_mode_sycl2vpl</name></member>
+      <member refid="classvplm_1_1sycl_1_1memory_1a07470f991b6e6f4217a5c088c4801baa" prot="public" virt="non-virtual"><scope>vplm::sycl::memory</scope><name>acquire_image</name></member>
+      <member refid="classvplm_1_1sycl_1_1memory_1a02776242579068de2da9b6f462569588" prot="protected" virt="non-virtual"><scope>vplm::sycl::memory</scope><name>cl_image_</name></member>
+      <member refid="classvplm_1_1sycl_1_1memory_1a0dc6ef6fd64d7651638e2b48752641fb" prot="protected" virt="non-virtual"><scope>vplm::sycl::memory</scope><name>cpu_image_</name></member>
+      <member refid="classvplm_1_1sycl_1_1memory_1acbe4d6462287fb88b248acde7f7e1612" prot="protected" virt="non-virtual"><scope>vplm::sycl::memory</scope><name>mem_</name></member>
+      <member refid="classvplm_1_1sycl_1_1memory_1ab44c9e6030db4f26a6a1233ad8ae4c7f" prot="public" virt="non-virtual"><scope>vplm::sycl::memory</scope><name>memory</name></member>
+      <member refid="classvplm_1_1sycl_1_1memory_1af93714745e59098d30d740bf3ad28d99" prot="public" virt="non-virtual"><scope>vplm::sycl::memory</scope><name>memory</name></member>
+      <member refid="classvplm_1_1sycl_1_1memory_1ac10a17276219b428737f829ca3b8fd0c" prot="protected" virt="non-virtual"><scope>vplm::sycl::memory</scope><name>release_handle</name></member>
+      <member refid="classvplm_1_1sycl_1_1memory_1a0a193e8ae73814add972b597414dc116" prot="public" virt="non-virtual"><scope>vplm::sycl::memory</scope><name>release_image</name></member>
+      <member refid="classvplm_1_1sycl_1_1memory_1aa65cd8cce14215d4243f3a3c44ebf020" prot="protected" virt="non-virtual"><scope>vplm::sycl::memory</scope><name>vplFormat2SYCL</name></member>
+      <member refid="classvplm_1_1sycl_1_1memory_1aa7b20c1f05c9ec9740543d3e43b23cea" prot="public" virt="non-virtual"><scope>vplm::sycl::memory</scope><name>~memory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

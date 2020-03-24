@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="group__dnnl__api__reorder" kind="group">
+    <compoundname>dnnl_api_reorder</compoundname>
+    <title>Reorder</title>
+    <innerclass refid="structdnnl_1_1reorder" prot="public">dnnl::reorder</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A primitive to copy data between two memory objects. This primitive is typically used to change the way the data is laid out in memory. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

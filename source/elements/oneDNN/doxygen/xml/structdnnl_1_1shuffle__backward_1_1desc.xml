@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structdnnl_1_1shuffle__backward_1_1desc" kind="struct" language="C++" prot="public">
+    <compoundname>dnnl::shuffle_backward::desc</compoundname>
+    <includes refid="dnnl_8hpp" local="no">dnnl.hpp</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structdnnl_1_1shuffle__backward_1_1desc_1a62ed7c449986d9cb474a3570ba665966" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::shuffle_backward::desc::desc</definition>
+        <argsstring>(const memory::desc &amp;diff_data_desc, int axis, int group_size)</argsstring>
+        <name>desc</name>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref> &amp;</type>
+          <declname>diff_data_desc</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>axis</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>group_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a descriptor for a shuffle backward propagation primitive.</para>
+<para>Inputs:<itemizedlist>
+<listitem><para><computeroutput>diff_dst</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1a60f17d04c493c42e4a50ad5feff5c8ca" kindref="member">dnnl::primitive_desc_base::diff_dst_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem></itemizedlist>
+</para>
+<para>Outputs:<itemizedlist>
+<listitem><para><computeroutput>diff_src</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1a733e6ff4e78a758e69ae6232e8955871" kindref="member">dnnl::primitive_desc_base::diff_src_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>diff_data_desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Diff source and diff destination memory descriptor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>axis</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The axis along which the data is shuffled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>group_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Shuffle group size. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="6306" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Descriptor for a shuffle primitive backward propagation primitive. </para>
+    </detaileddescription>
+    <location file="include/dnnl.hpp" line="6292" column="15" bodyfile="include/dnnl.hpp" bodystart="6292" bodyend="6307"/>
+    <listofallmembers>
+      <member refid="structdnnl_1_1shuffle__backward_1_1desc_1a62ed7c449986d9cb474a3570ba665966" prot="public" virt="non-virtual"><scope>dnnl::shuffle_backward::desc</scope><name>desc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

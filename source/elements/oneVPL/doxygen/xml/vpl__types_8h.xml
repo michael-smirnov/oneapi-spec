@@ -1,0 +1,1294 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="vpl__types_8h" kind="file" language="C++">
+    <compoundname>vpl_types.h</compoundname>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includedby refid="vpl__config_8hpp" local="yes">include/vpl/vpl_config.hpp</includedby>
+    <includedby refid="vpl__video_8h" local="yes">include/vpl/vpl_video.h</includedby>
+    <includedby refid="vpl__utils_8hpp" local="yes">include/vpl/vpl_utils.hpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="2">
+        <label>stddef.h</label>
+      </node>
+      <node id="1">
+        <label>include/vpl/vpl_types.h</label>
+        <link refid="vpl__types_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>include/vpl/vpl_video.h</label>
+        <link refid="vpl__video_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>include/vpl/vpl_utils.hpp</label>
+        <link refid="vpl__utils_8hpp_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>include/vpl/vpl.hpp</label>
+        <link refid="vpl_8hpp"/>
+      </node>
+      <node id="2">
+        <label>include/vpl/vpl_config.hpp</label>
+        <link refid="vpl__config_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>include/vpl/vpl_context.hpp</label>
+        <link refid="vpl__context_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>include/vpl/vpl_utils.h</label>
+        <link refid="vpl__utils_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>include/vpl/vpl_device.hpp</label>
+        <link refid="vpl__device_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>include/vpl/vpl_types.h</label>
+        <link refid="vpl__types_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_vpl_frame_rate" prot="public">VplFrameRate</innerclass>
+    <innerclass refid="struct_vpl_crop" prot="public">VplCrop</innerclass>
+    <innerclass refid="struct_vpl_aspect_ratio" prot="public">VplAspectRatio</innerclass>
+    <innerclass refid="struct_vpl_version" prot="public">VplVersion</innerclass>
+    <innerclass refid="struct_vpl_video_surface_resolution" prot="public">VplVideoSurfaceResolution</innerclass>
+    <innerclass refid="struct_v_p_l_frame_info" prot="public">VPLFrameInfo</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="vpl__types_8h_1a5c11a162e02cfd31c432bcc71b5036d3" prot="public" static="no">
+        <name>VPL_MAKEFOURCC</name>
+        <param><defname>A</defname></param>
+        <param><defname>B</defname></param>
+        <param><defname>C</defname></param>
+        <param><defname>D</defname></param>
+        <initializer>((((uint32_t)A)) + (((uint32_t)B) &lt;&lt; 8) + (((uint32_t)C) &lt;&lt; 16) + (((uint32_t)D) &lt;&lt; 24))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="18" column="9" bodyfile="include/vpl/vpl_types.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>vplStatus</name>
+        <enumvalue id="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4ea7d94b72694ffb22d49781e5e195ecce7" prot="public">
+          <name>VPL_OK</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4eaf637884c5456dcbb7e8f880127cc3103" prot="public">
+          <name>VPL_ERR_NOT_SUPPORTED</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4ea4b3444869409ce576273b23b2dc11f18" prot="public">
+          <name>VPL_ERR_NULL_POINTER</name>
+          <initializer>= -2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4eaedaa29869a6ff9f34f62fbd18ece6662" prot="public">
+          <name>VPL_ERR_NOT_FOUND</name>
+          <initializer>= -3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4ea173c5d5bb9dd497fd8970311bf418486" prot="public">
+          <name>VPL_ERR_HW_UNAVALIBLE</name>
+          <initializer>= -4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4ea8942d2f217e6faeba9f95128d6a04520" prot="public">
+          <name>VPL_ERR_INVALID_FRAME</name>
+          <initializer>= -5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4ea825597c695242e20a4766f7af45a9bae" prot="public">
+          <name>VPL_ERR_OUT_OF_RESOURCES</name>
+          <initializer>= -6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4eadf0fc13c1e6c21c1b2f4c6311bdcdc79" prot="public">
+          <name>VPL_ERR_INTERNAL_ERROR</name>
+          <initializer>= -7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4ea6fc61ed0e22da19c653742da482c256b" prot="public">
+          <name>VPL_ERR_INVALID_SIZE</name>
+          <initializer>= -8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4ea838ec040517eb57a70658c9d0aad7b80" prot="public">
+          <name>VPL_ERR_INVALID_PROPERTY</name>
+          <initializer>= -9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>status codes </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="29" column="14" bodyfile="include/vpl/vpl_types.h" bodystart="29" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="enum" id="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>vplWorkstreamState</name>
+        <enumvalue id="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925fa56ac1511a1f6bc106b380c914b3683bc" prot="public">
+          <name>VPL_STATE_READ_INPUT</name>
+          <initializer>= 1000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925fa0969497f4982e534db46521dc9cc9dcd" prot="public">
+          <name>VPL_STATE_CLOSED_TO_INPUT</name>
+          <initializer>= 1001</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925faa5c02f399e6cece94faf92915da28fa9" prot="public">
+          <name>VPL_STATE_ERROR</name>
+          <initializer>= 1002</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925fae30afd54950e4b94a9e0627aa4201dc1" prot="public">
+          <name>VPL_STATE_INPUT_BUFFER_FULL</name>
+          <initializer>= 1003</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925fa3381381725fa595c76e81da65680b7e8" prot="public">
+          <name>VPL_STATE_INPUT_EXCEEDS_BUFFER_SIZE</name>
+          <initializer>= 1004</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925fade41d1dffb4ea3ee371d4f13d43720c4" prot="public">
+          <name>VPL_STATE_END_OF_OPERATION</name>
+          <initializer>= 1005</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925faa7eeab70d2fc7e5f93ebdcdc3dc0155d" prot="public">
+          <name>VPL_STATE_OK</name>
+          <initializer>= 1006</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>workstream state communicates next steps to the application </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="43" column="14" bodyfile="include/vpl/vpl_types.h" bodystart="43" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="enum" id="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>VplWorkstreamType</name>
+        <enumvalue id="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2ba7b01aa6e151d2349f40d258945d412a3" prot="public">
+          <name>VPL_WORKSTREAM_DECODE</name>
+          <initializer>= 0x01</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2ba863bccc9a3d53f683ade7a33827bed73" prot="public">
+          <name>VPL_WORKSTREAM_VIDEOPROC</name>
+          <initializer>= 0x02</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2bae2bc90c316b83a56e6aae84feb75eeed" prot="public">
+          <name>VPL_WORKSTREAM_ENCODE</name>
+          <initializer>= 0x04</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2ba7cfdd44fd7540a30fe1bbd5b10d31d0c" prot="public">
+          <name>VPL_WORKSTREAM_INFER</name>
+          <initializer>= 0x08</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>workstream type </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="55" column="15" bodyfile="include/vpl/vpl_types.h" bodystart="55" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="enum" id="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90" prot="public" static="no" strong="no">
+        <type></type>
+        <name>VplDeviceType</name>
+        <enumvalue id="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90a55ec5ec2996f9efff0a48dc6742d5c17" prot="public">
+          <name>VPL_DEVICE_CPU</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90a1a88e79904e721c6d03903458680e446" prot="public">
+          <name>VPL_DEVICE_GEN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90ac35aaab216058d8435cc5090512bf764" prot="public">
+          <name>VPL_DEVICE_HDDL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90a0d47c5c55799e9fa0f8cd477d42d83d4" prot="public">
+          <name>VPL_DEVICE_FPGA</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90acb68ecc30c6db7ed4da6047ec2b0b664" prot="public">
+          <name>VPL_DEVICE_COUNT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Specifies which device extension is available and will be loaded. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="63" column="14" bodyfile="include/vpl/vpl_types.h" bodystart="63" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="enum" id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258" prot="public" static="no" strong="no">
+        <type></type>
+        <name>VplWorkstreamProp</name>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a445fbe755ae244f5e0686ca23a93be6e" prot="public">
+          <name>VPL_PROP_WORKSTREAM_TYPE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a796b0aaae2e199d0e9735d8f095e56de" prot="public">
+          <name>VPL_PROP_VERSION</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a7fd49b357dd025f5cbc1dbe9dd1ee5c2" prot="public">
+          <name>VPL_PROP_VERSION_STRING</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258af08a50bcceee573d0b2824fafbede5cb" prot="public">
+          <name>VPL_PROP_DECODED_BUFFER_SIZE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a563a382963e15e067aac771e2dc0284d" prot="public">
+          <name>VPL_MAX_NUMBER_OF_DECODED_IMAGES</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258aec965a4ae5e653319cf8851a895bcb1f" prot="public">
+          <name>VPL_PROP_ENCODE_BITRATE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a12dc092a8b9eb1015625e44457cced1f" prot="public">
+          <name>VPL_PROP_ENCODE_BRC_ALGORITHM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a57a084a43755fbdfb2e1b2361f7c1f7e" prot="public">
+          <name>VPL_PROP_ENCODE_FRAMERATE_NUMERATOR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a4d226f4b591f683089fe913c6117ff79" prot="public">
+          <name>VPL_PROP_ENCODE_FRAMERATE_DENOMINATOR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258ae044b8ac8c883384a001ebd31c6523fb" prot="public">
+          <name>VPL_PROP_ENCODE_PERFQUALITY_PRESET</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a718ede2d8444ac6c727503a9f97c9ea5" prot="public">
+          <name>VPL_PROP_ENCODE_SCENARIO</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a861a0acee47d3259d01b2a930b4919c0" prot="public">
+          <name>VPL_PROP_ENCODE_IFRAME_INTERVAL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a3bd9f08deba17121ae07fbdb9c584148" prot="public">
+          <name>VPL_PROP_ENCODE_BFRAME_INTERVAL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a3a96ea75daba1064098ca27bac097527" prot="public">
+          <name>VPL_PROP_SRC_BITSTREAM_FORMAT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a9ff78e2165590c6cb9da24e324f11459" prot="public">
+          <name>VPL_PROP_SRC_RAW_FORMAT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a88c0620b04931cbaffbd1e6cbbe496e6" prot="public">
+          <name>VPL_PROP_DST_BITSTREAM_FORMAT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a5e152562f80833189a96f67a80bc99f1" prot="public">
+          <name>VPL_PROP_DST_RAW_FORMAT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a880e45b29ea1127d8cc5d17d8c4a0266" prot="public">
+          <name>VPL_PROP_INPUT_FRAMERATE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a23e3c376c00938682eccb0894fb94e88" prot="public">
+          <name>VPL_PROP_OUTPUT_FRAMERATE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258ab9e6eb451b3e804888747836dbf35ada" prot="public">
+          <name>VPL_PROP_INPUT_RESOLUTION</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a86435f2abe2746b0f7d44951dcb96cdc" prot="public">
+          <name>VPL_PROP_OUTPUT_RESOLUTION</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a30671d16f3c3e955224ad7b8ec93d55f" prot="public">
+          <name>VPL_PROP_INPUT_CROPS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258ab0d4cbfc9e37e1a806701b7f052250d9" prot="public">
+          <name>VPL_PROP_OUTPUT_CROPS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a86bc659f531a664490975da4f54e549f" prot="public">
+          <name>VPL_PROP_INPUT_ASPECTRATIO</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a7406341bef584172f39203106cb5ee1e" prot="public">
+          <name>VPL_PROP_OUTPUT_ASPECTRATIO</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258ade746e10f966ff4fd86ec271b95011a3" prot="public">
+          <name>VPL_PROP_INPUT_PICSTRUCT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a45143eff37f6b02decba269dd7a23ced" prot="public">
+          <name>VPL_PROP_OUTPUT_PICSTRUCT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a04f4932736b7a57579e61531120f0864" prot="public">
+          <name>VPL_PROP_STATUS_CALLBACK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a54d5200722d3eeefddb9f9be5beade54" prot="public">
+          <name>VPL_PROP_STATUS_CALLBACK_DATA</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258ab99956635833bfad083826d51d0f6378" prot="public">
+          <name>VPL_PROP_STATUS_LOGLEVEL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a8b99c2bd3e49efe3e76250a3fdf2b5cf" prot="public">
+          <name>VPL_PROP_NUMPROPS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Settable/Gettable properties for workstreams. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="72" column="14" bodyfile="include/vpl/vpl_types.h" bodystart="72" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="enum" id="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>vplLogLevel</name>
+        <enumvalue id="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97ba85639df34979de4e5ff6f7b05e4de8f1" prot="public">
+          <name>LOG_NONE</name>
+          <initializer>= 0x0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97ba6e98ff471e3ce6c4ef2d75c37ee51837" prot="public">
+          <name>LOG_INFO</name>
+          <initializer>= 0x1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97ba8f6fe15bfe15104da6d1b360194a5400" prot="public">
+          <name>LOG_WARNING</name>
+          <initializer>= 0x2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97ba230506cce5c68c3bac5a821c42ed3473" prot="public">
+          <name>LOG_ERROR</name>
+          <initializer>= 0x4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97ba065aa62cc0698301fbbe7b5448990708" prot="public">
+          <name>LOG_CRITICAL</name>
+          <initializer>= 0x8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97ba87cff070224b283d7aace436723245fc" prot="public">
+          <name>LOG_ALL</name>
+          <initializer>= 0xFFFF</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>logging level </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="117" column="14" bodyfile="include/vpl/vpl_types.h" bodystart="117" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="enum" id="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1" prot="public" static="no" strong="no">
+        <type></type>
+        <name>VplEncodeScenario</name>
+        <enumvalue id="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1a46419f208585a1b5963ced97feeb12ae" prot="public">
+          <name>GAME_STREAMING</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1a00245dc03172383868f23f4b7b627b74" prot="public">
+          <name>CLOUD_GAMING</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1a7a27ade2616f677d3714625cddca4313" prot="public">
+          <name>VIDEO_CONFERENCING</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1ac8a51def7419d5aada39bd0d2827616f" prot="public">
+          <name>LIVE_STREAMING</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1a8f9bfa199ad75825f0a71c5e6829e22b" prot="public">
+          <name>LIVE_STREAMING_LD</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1a875fadf1437508cebb97bb5c3445cbdc" prot="public">
+          <name>RECORDING</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1a731b81e25f4f3211a7c9e457efd31f38" prot="public">
+          <name>SURVEILLANCE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1a59fbef761fc8c74a00c6ef3f9f7caf97" prot="public">
+          <name>REMOTE_DISPLAY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="126" column="14" bodyfile="include/vpl/vpl_types.h" bodystart="126" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="enum" id="vpl__types_8h_1aabd2983b44caa1c13f8898e618e7e42a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>VplBRC</name>
+        <enumvalue id="vpl__types_8h_1aabd2983b44caa1c13f8898e618e7e42aade4f9cd8d5631790f4adf7010e8b4fd5" prot="public">
+          <name>VPL_BRC_CBR</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1aabd2983b44caa1c13f8898e618e7e42aa165371812164f95ad9b7470889d5e9a6" prot="public">
+          <name>VPL_BRC_VBR</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1aabd2983b44caa1c13f8898e618e7e42aa32238f8b14074f0a793bfc7811ea6bc8" prot="public">
+          <name>VPL_BRC_CQP</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1aabd2983b44caa1c13f8898e618e7e42aa72ed302974874ea5723dca2f24a2d806" prot="public">
+          <name>VPL_BRC_AVBR</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1aabd2983b44caa1c13f8898e618e7e42aa3c1fae2c7ecbe27e211352fc67f3db87" prot="public">
+          <name>VPL_BRC_COUNT</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="137" column="14" bodyfile="include/vpl/vpl_types.h" bodystart="137" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="enum" id="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64" prot="public" static="no" strong="no">
+        <type></type>
+        <name>VplFourCC</name>
+        <enumvalue id="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64a4cc76e9e188d45c040c6e3eb55b0831a" prot="public">
+          <name>VPL_FOURCC_H264</name>
+          <initializer>= VPL_MAKEFOURCC(&apos;H&apos;, &apos;2&apos;, &apos;6&apos;, &apos;4&apos;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64aaece186acd8dcbb0a30ed3738561cae2" prot="public">
+          <name>VPL_FOURCC_H265</name>
+          <initializer>= VPL_MAKEFOURCC(&apos;H&apos;, &apos;2&apos;, &apos;6&apos;, &apos;5&apos;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64ae5a07927b084e836e3af351569b35b63" prot="public">
+          <name>VPL_FOURCC_NV12</name>
+          <initializer>= VPL_MAKEFOURCC(&apos;N&apos;, &apos;V&apos;, &apos;1&apos;, &apos;2&apos;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64a27350551e355e6c0f659374d071562e3" prot="public">
+          <name>VPL_FOURCC_RGB4</name>
+          <initializer>= VPL_MAKEFOURCC(&apos;R&apos;, &apos;G&apos;, &apos;B&apos;, &apos;4&apos;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64a4bb3eb0446f385ed5d063049e8031f68" prot="public">
+          <name>VPL_FOURCC_I420</name>
+          <initializer>= VPL_MAKEFOURCC(&apos;I&apos;, &apos;4&apos;, &apos;2&apos;, &apos;0&apos;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64af2b530932a937a5148ed5d710c71dc66" prot="public">
+          <name>VPL_FOURCC_BGRA</name>
+          <initializer>= VPL_MAKEFOURCC(&apos;B&apos;, &apos;G&apos;, &apos;R&apos;, &apos;A&apos;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64a07613fab8881524b1755f79be90e5585" prot="public">
+          <name>VPL_FOURCC_I010</name>
+          <initializer>= VPL_MAKEFOURCC(&apos;I&apos;, &apos;0&apos;, &apos;1&apos;, &apos;0&apos;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>bitstream and raw frame format FourCC codes </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="153" column="14" bodyfile="include/vpl/vpl_types.h" bodystart="153" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="enum" id="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eea" prot="public" static="no" strong="no">
+        <type></type>
+        <name>VplCodecType</name>
+        <enumvalue id="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eeaac883b1135db2582c984bcc78f1dfa0c9" prot="public">
+          <name>VPL_CODEC_H264</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eeaa74608ed3af1cf668e72ea0b78276118b" prot="public">
+          <name>VPL_CODEC_H265</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eeaab3a8e6a39bdec6a8d36f5f7cdf8ccbb7" prot="public">
+          <name>VPL_CODEC_MPEG2</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eeaa990d064be4b9349438818704aebfe9c2" prot="public">
+          <name>VPL_CODEC_VC1</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eeaa3b780b8af3abc9329ad2757a91a74a5f" prot="public">
+          <name>VPL_CODEC_VP9</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eeaa18286659c58fa8a02bd8b04b59b434dd" prot="public">
+          <name>VPL_CODEC_AV1</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eeaa4b10bbfeef1e75cd39b052d6125029a1" prot="public">
+          <name>VPL_CODEC_COUNT</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>bitstream codec types </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="178" column="14" bodyfile="include/vpl/vpl_types.h" bodystart="178" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="enum" id="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>VplEncodePreset</name>
+        <enumvalue id="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971ba8699333456d479ccc2f06a0682f21c49" prot="public">
+          <name>VPL_BALANCED</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971ba2f8a92e3b213bf034ee276103d308a2d" prot="public">
+          <name>VPL_MAX_QUALITY</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971ba67b5617b142f73d57e98194898a7f3e7" prot="public">
+          <name>VPL_HIGH_QUALITY</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971ba1ea56dc4c7641a5c27e02ad7a8966642" prot="public">
+          <name>VPL_QUALITY</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971baf395f519ee8b48ab99501a807532c6c4" prot="public">
+          <name>VPL_SPEED</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971baa9dd3070088a93618edd1d75ba00d9de" prot="public">
+          <name>VPL_HIGH_SPEED</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971baeabd2f347841fdb9b84a5de372122382" prot="public">
+          <name>VPL_MAX_SPEED</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971bad631201a8697db8a6be39741f9150a23" prot="public">
+          <name>VPL_LOW_LATENCY_MAX_QUALITY</name>
+          <initializer>= 7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971ba1f3905cb67a490ca590152eb2af5aefa" prot="public">
+          <name>VPL_LOW_LATENCY_MAX_SPEED</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971ba2639e959fde24e35b93acefafc55625a" prot="public">
+          <name>VPL_LOWEST_LATENCY_MAX_QUALITY</name>
+          <initializer>= 9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971ba83d04c4caecce64e9e7094a2c87aff01" prot="public">
+          <name>VPL_LOWEST_LATENCY_MAX_SPEED</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971bab525353bc9a7ccbde0c35322e6bd83a2" prot="public">
+          <name>VPL_EP_COUNT</name>
+          <initializer>= 11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="189" column="14" bodyfile="include/vpl/vpl_types.h" bodystart="189" bodyend="202"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="vpl__types_8h_1a051dcb7d9fff54645ed76541447c7a7e" prot="public" static="no">
+        <type>class _vplWorkstream *</type>
+        <definition>typedef class _vplWorkstream* vplWorkstream</definition>
+        <argsstring></argsstring>
+        <name>vplWorkstream</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="25" column="29" bodyfile="include/vpl/vpl_types.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="vpl__types_8h_1a1a78f76dc5b4a7437e2956f12bc61d51" prot="public" static="no">
+        <type>class _vplDeviceInfo *</type>
+        <definition>typedef class _vplDeviceInfo* vplDevice</definition>
+        <argsstring></argsstring>
+        <name>vplDevice</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="26" column="29" bodyfile="include/vpl/vpl_types.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Structs, enums, etc. used by VPL. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*############################################################################</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/>#<sp/>Copyright<sp/>(C)<sp/>2019<sp/>Intel<sp/>Corporation</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>#</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>#<sp/>SPDX-License-Identifier:<sp/>MIT</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/>############################################################################*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="preprocessor">#ifndef<sp/>VPL_TYPES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VPL_TYPES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VPL_MAKEFOURCC(A,<sp/>B,<sp/>C,<sp/>D)<sp/>\</highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>((((uint32_t)A))<sp/>+<sp/>(((uint32_t)B)<sp/>&lt;&lt;<sp/>8)<sp/>+<sp/>(((uint32_t)C)<sp/>&lt;&lt;<sp/>16)<sp/>+<sp/>(((uint32_t)D)<sp/>&lt;&lt;<sp/>24))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">_vplWorkstream<sp/>*vplWorkstream;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">_vplDeviceInfo<sp/>*vplDevice;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_OK<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_ERR_NOT_SUPPORTED<sp/><sp/><sp/><sp/>=<sp/>-1,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_ERR_NULL_POINTER<sp/><sp/><sp/><sp/><sp/>=<sp/>-2,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_ERR_NOT_FOUND<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>-3,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_ERR_HW_UNAVALIBLE<sp/><sp/><sp/><sp/>=<sp/>-4,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_ERR_INVALID_FRAME<sp/><sp/><sp/><sp/>=<sp/>-5,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_ERR_OUT_OF_RESOURCES<sp/>=<sp/>-6,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_ERR_INTERNAL_ERROR<sp/><sp/><sp/>=<sp/>-7,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_ERR_INVALID_SIZE<sp/><sp/><sp/><sp/><sp/>=<sp/>-8,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_ERR_INVALID_PROPERTY<sp/>=<sp/>-9</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}<ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref>;<sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925f" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>special<sp/>decoder&apos;s<sp/>state</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_STATE_READ_INPUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>1000,<sp/></highlight><highlight class="comment">//<sp/>decoder<sp/>is<sp/>ready<sp/>to<sp/>read<sp/>input<sp/>bitstream<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_STATE_CLOSED_TO_INPUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>1001,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_STATE_ERROR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>1002,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_STATE_INPUT_BUFFER_FULL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>1003,<sp/></highlight><highlight class="comment">//<sp/>The<sp/>input<sp/>buffer<sp/>is<sp/>at<sp/>capacity,<sp/>frames<sp/>must<sp/>be<sp/>drain<sp/>to<sp/>make<sp/>space</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_STATE_INPUT_EXCEEDS_BUFFER_SIZE<sp/>=<sp/>1004,<sp/></highlight><highlight class="comment">//<sp/>The<sp/>input<sp/>data<sp/>exceeds<sp/>the<sp/>capacity<sp/>of<sp/>the<sp/>input<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_STATE_END_OF_OPERATION<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>1005,<sp/></highlight><highlight class="comment">//<sp/>End<sp/>of<sp/>operations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_STATE_OK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>1006</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}<ref refid="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925f" kindref="member">vplWorkstreamState</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2b" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_WORKSTREAM_DECODE<sp/><sp/><sp/><sp/>=<sp/>0x01,<sp/><sp/></highlight><highlight class="comment">//<sp/>decode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_WORKSTREAM_VIDEOPROC<sp/>=<sp/>0x02,<sp/><sp/></highlight><highlight class="comment">//<sp/>video<sp/>processing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_WORKSTREAM_ENCODE<sp/><sp/><sp/><sp/>=<sp/>0x04,<sp/><sp/></highlight><highlight class="comment">//<sp/>encode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_WORKSTREAM_INFER<sp/><sp/><sp/><sp/><sp/>=<sp/>0x08,<sp/><sp/></highlight><highlight class="comment">//<sp/>DL<sp/>inference</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}<sp/><ref refid="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2b" kindref="member">VplWorkstreamType</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_DEVICE_CPU<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_DEVICE_GEN,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_DEVICE_HDDL,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_DEVICE_FPGA,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_DEVICE_COUNT</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}<sp/><ref refid="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90" kindref="member">VplDeviceType</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_WORKSTREAM_TYPE,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_VERSION,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_VERSION_STRING,<sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//special<sp/>decoded<sp/>configs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_DECODED_BUFFER_SIZE,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_MAX_NUMBER_OF_DECODED_IMAGES,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>special<sp/>encode<sp/>config</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_ENCODE_BITRATE,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_ENCODE_BRC_ALGORITHM,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_ENCODE_FRAMERATE_NUMERATOR,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_ENCODE_FRAMERATE_DENOMINATOR,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_ENCODE_PERFQUALITY_PRESET,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_ENCODE_SCENARIO,</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_ENCODE_IFRAME_INTERVAL,</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_ENCODE_BFRAME_INTERVAL,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>common<sp/>configs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_SRC_BITSTREAM_FORMAT,</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_SRC_RAW_FORMAT,<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_DST_BITSTREAM_FORMAT,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_DST_RAW_FORMAT,<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_INPUT_FRAMERATE,<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_OUTPUT_FRAMERATE,<sp/><sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_INPUT_RESOLUTION,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_OUTPUT_RESOLUTION,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_INPUT_CROPS,</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_OUTPUT_CROPS,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_INPUT_ASPECTRATIO,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_OUTPUT_ASPECTRATIO,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_INPUT_PICSTRUCT,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_OUTPUT_PICSTRUCT,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>status<sp/>callback<sp/>configurations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_STATUS_CALLBACK,</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_STATUS_CALLBACK_DATA,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_STATUS_LOGLEVEL,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>always<sp/>last<sp/>property</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_PROP_NUMPROPS</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}<sp/><ref refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258" kindref="member">VplWorkstreamProp</ref>;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97b" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>LOG_NONE<sp/><sp/><sp/><sp/><sp/>=<sp/>0x0,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>LOG_INFO<sp/><sp/><sp/><sp/><sp/>=<sp/>0x1,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>LOG_WARNING<sp/><sp/>=<sp/>0x2,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>LOG_ERROR<sp/><sp/><sp/><sp/>=<sp/>0x4,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>LOG_CRITICAL<sp/>=<sp/>0x8,</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>LOG_ALL<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0xFFFF,</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}<ref refid="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97b" kindref="member">vplLogLevel</ref>;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>GAME_STREAMING,</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>CLOUD_GAMING,</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>VIDEO_CONFERENCING,</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>LIVE_STREAMING,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>LIVE_STREAMING_LD,</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>RECORDING,</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>SURVEILLANCE,</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>REMOTE_DISPLAY,</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">}VplEncodeScenario;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_BRC_CBR<sp/><sp/><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_BRC_VBR<sp/><sp/><sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_BRC_CQP<sp/><sp/><sp/>=<sp/>2,</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_BRC_AVBR<sp/><sp/>=<sp/>3,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_BRC_COUNT<sp/>=<sp/>4,</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}VplBRC;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145" refid="struct_vpl_frame_rate" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>FrameRateExtN;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>FrameRateExtD;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal">}<ref refid="struct_vpl_frame_rate" kindref="compound">VplFrameRate</ref>;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Bitstream<sp/>formats</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_FOURCC_H264<sp/>=<sp/>VPL_MAKEFOURCC(</highlight><highlight class="charliteral">&apos;H&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;2&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;6&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;4&apos;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_FOURCC_H265<sp/>=<sp/>VPL_MAKEFOURCC(</highlight><highlight class="charliteral">&apos;H&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;2&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;6&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;5&apos;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Raw<sp/>frame<sp/>formats</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_FOURCC_NV12<sp/>=<sp/>VPL_MAKEFOURCC(</highlight><highlight class="charliteral">&apos;N&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;V&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;1&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;2&apos;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//VPL_FOURCC_YV12<sp/>=<sp/>VPL_MAKEFOURCC(&apos;Y&apos;,<sp/>&apos;V&apos;,<sp/>&apos;1&apos;,<sp/>&apos;2&apos;),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_FOURCC_RGB4<sp/>=<sp/>VPL_MAKEFOURCC(</highlight><highlight class="charliteral">&apos;R&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;G&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;B&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;4&apos;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//VPL_FOURCC_YUY2<sp/>=<sp/>VPL_MAKEFOURCC(&apos;Y&apos;,<sp/>&apos;U&apos;,<sp/>&apos;Y&apos;,<sp/>&apos;2&apos;),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//VPL_FOURCC_P210<sp/>=<sp/>VPL_MAKEFOURCC(&apos;P&apos;,<sp/>&apos;2&apos;,<sp/>&apos;1&apos;,<sp/>&apos;0&apos;),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//VPL_FOURCC_BGR4<sp/>=<sp/>VPL_MAKEFOURCC(&apos;B&apos;,<sp/>&apos;G&apos;,<sp/>&apos;R&apos;,<sp/>&apos;4&apos;),<sp/><sp/><sp/><sp/><sp/><sp/>/*<sp/>ABGR<sp/>in<sp/>that<sp/>order,<sp/>A<sp/>channel<sp/>is<sp/>8<sp/>MSBs<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//VPL_FOURCC_A2RGB10<sp/>=<sp/>VPL_MAKEFOURCC(&apos;R&apos;,<sp/>&apos;G&apos;,<sp/>&apos;1&apos;,<sp/>&apos;0&apos;),<sp/><sp/><sp/>/*<sp/>ARGB<sp/>in<sp/>that<sp/>order,<sp/>A<sp/>channel<sp/>is<sp/>two<sp/>MSBs<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//VPL_FOURCC_AYUV<sp/>=<sp/>VPL_MAKEFOURCC(&apos;A&apos;,<sp/>&apos;Y&apos;,<sp/>&apos;U&apos;,<sp/>&apos;V&apos;),<sp/><sp/><sp/><sp/><sp/><sp/>/*<sp/>YUV<sp/>4:4:4,<sp/>AYUV<sp/>in<sp/>that<sp/>order,<sp/>A<sp/>channel<sp/>is<sp/>8<sp/>MSBs<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//VPL_FOURCC_UYVY<sp/>=<sp/>VPL_MAKEFOURCC(&apos;U&apos;,<sp/>&apos;Y&apos;,<sp/>&apos;V&apos;,<sp/>&apos;Y&apos;),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//VPL_FOURCC_Y210<sp/>=<sp/>VPL_MAKEFOURCC(&apos;Y&apos;,<sp/>&apos;2&apos;,<sp/>&apos;1&apos;,<sp/>&apos;0&apos;),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//VPL_FOURCC_Y410<sp/>=<sp/>VPL_MAKEFOURCC(&apos;Y&apos;,<sp/>&apos;4&apos;,<sp/>&apos;1&apos;,<sp/>&apos;0&apos;),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//VPL_FOURCC_Y216<sp/>=<sp/>VPL_MAKEFOURCC(&apos;Y&apos;,<sp/>&apos;2&apos;,<sp/>&apos;1&apos;,<sp/>&apos;6&apos;),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//VPL_FOURCC_Y416<sp/>=<sp/>VPL_MAKEFOURCC(&apos;Y&apos;,<sp/>&apos;4&apos;,<sp/>&apos;1&apos;,<sp/>&apos;6&apos;),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_FOURCC_I420<sp/>=<sp/>VPL_MAKEFOURCC(</highlight><highlight class="charliteral">&apos;I&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;4&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;2&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_FOURCC_BGRA<sp/>=<sp/>VPL_MAKEFOURCC(</highlight><highlight class="charliteral">&apos;B&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;G&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;R&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_FOURCC_I010<sp/>=<sp/>VPL_MAKEFOURCC(</highlight><highlight class="charliteral">&apos;I&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;1&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">}<sp/><ref refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64" kindref="member">VplFourCC</ref>;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178" refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eea" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Bitstream<sp/>codec<sp/>formats</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_CODEC_H264<sp/><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_CODEC_H265<sp/><sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_CODEC_MPEG2<sp/>=<sp/>2,</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_CODEC_VC1<sp/><sp/><sp/>=<sp/>3,</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_CODEC_VP9<sp/><sp/><sp/>=<sp/>4,</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_CODEC_AV1<sp/><sp/><sp/>=<sp/>5,</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_CODEC_COUNT<sp/>=<sp/>6,</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">}<sp/><ref refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eea" kindref="member">VplCodecType</ref>;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_BALANCED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_MAX_QUALITY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_HIGH_QUALITY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>2,</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_QUALITY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>3,</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_SPEED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>4,</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_HIGH_SPEED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>5,</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_MAX_SPEED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>6,</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_LOW_LATENCY_MAX_QUALITY<sp/><sp/><sp/><sp/>=<sp/>7,</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_LOW_LATENCY_MAX_SPEED<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>8,</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_LOWEST_LATENCY_MAX_QUALITY<sp/>=<sp/>9,</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_LOWEST_LATENCY_MAX_SPEED<sp/><sp/><sp/>=<sp/>10,</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>VPL_EP_COUNT<sp/>=<sp/>11,</highlight></codeline>
+<codeline lineno="202"><highlight class="normal">}<sp/>VplEncodePreset;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204" refid="struct_vpl_crop" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>crop_x;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>crop_y;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>crop_w;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>crop_h;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">}<sp/><ref refid="struct_vpl_crop" kindref="compound">VplCrop</ref>;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211" refid="struct_vpl_aspect_ratio" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>ratio_w;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>ratio_h;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal">}<sp/><ref refid="struct_vpl_aspect_ratio" kindref="compound">VplAspectRatio</ref>;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216" refid="struct_vpl_version" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>uint32_t<sp/>major;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/>uint32_t<sp/>major_update;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/>uint32_t<sp/>phase;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/>uint32_t<sp/>phase_update;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal">}<sp/><ref refid="struct_vpl_version" kindref="compound">VplVersion</ref>;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225" refid="struct_vpl_video_surface_resolution" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/>uint32_t<sp/>width;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>uint32_t<sp/>height;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal">}<sp/><ref refid="struct_vpl_video_surface_resolution" kindref="compound">VplVideoSurfaceResolution</ref>;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231" refid="struct_v_p_l_frame_info" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/>uint16_t<sp/>BitDepthLuma;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/>uint16_t<sp/>BitDepthChroma;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/>uint32_t<sp/>Shift;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/>uint32_t<sp/>FourCC;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/>uint16_t<sp/>Width;<sp/><sp/></highlight><highlight class="comment">//VPL<sp/>memory<sp/>info<sp/>aligned_width</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/>uint16_t<sp/>Height;<sp/></highlight><highlight class="comment">//VPL<sp/>memory<sp/>info<sp/>aligned_height</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/>uint16_t<sp/>CropX;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/>uint16_t<sp/>CropY;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/>uint16_t<sp/>CropW;<sp/><sp/></highlight><highlight class="comment">//VPL<sp/>memory<sp/>info<sp/>width</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/>uint16_t<sp/>CropH;<sp/><sp/></highlight><highlight class="comment">//VPL<sp/>memory<sp/>info<sp/>height</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>uint32_t<sp/>FrameRateExtN;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>uint32_t<sp/>FrameRateExtD;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/>uint16_t<sp/>AspectRatioW;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/>uint16_t<sp/>AspectRatioH;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/>uint16_t<sp/>PicStruct;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>uint16_t<sp/>ChromaFormat;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/>uint64_t<sp/>reserved[8];</highlight></codeline>
+<codeline lineno="252"><highlight class="normal">}<sp/><ref refid="struct_v_p_l_frame_info" kindref="compound">VPLFrameInfo</ref>;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>VPL_TYPES_H</highlight></codeline>
+    </programlisting>
+    <location file="include/vpl/vpl_types.h"/>
+  </compounddef>
+</doxygen>

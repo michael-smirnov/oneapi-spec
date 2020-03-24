@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="group__dnnl__api__pooling" kind="group">
+    <compoundname>dnnl_api_pooling</compoundname>
+    <title>Pooling</title>
+    <innerclass refid="structdnnl_1_1pooling__forward" prot="public">dnnl::pooling_forward</innerclass>
+    <innerclass refid="structdnnl_1_1pooling__backward" prot="public">dnnl::pooling_backward</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A primitive to perform max or average pooling. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

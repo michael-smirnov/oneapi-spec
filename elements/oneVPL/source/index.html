@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Video Processing Library (oneVPL) &mdash; oneAPI Specification 0.6.1 documentation</title>
+  <title>oneAPI Video Processing Library (oneVPL) &mdash; oneAPI Specification 0.6.1 documentation</title>
   
 
   
@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Math Kernel Library (oneMKL)" href="../../oneMKL/source/index.html" />
+    <link rel="next" title="oneAPI Math Kernel Library (oneMKL)" href="../../oneMKL/source/index.html" />
     <link rel="prev" title="tick_count class" href="../../oneTBB/source/timing/tick_count_cls.html" /> 
 </head>
 
@@ -100,13 +100,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../library-interop.html">Library Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../elements.html">oneAPI Elements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dpcpp/source/index.html">DPC++ (DPC++)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneDPL/source/index.html">DPC++ Library (oneDPL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneDNN/source/index.html">Deep Neural Network Library (oneDNN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneCCL/source/index.html">Collective Communications Library (oneCCL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../l0/source/index.html">Level Zero (Level Zero)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneDAL/source/index.html">Data Analytics Library (oneDAL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneTBB/source/nested-index.html">Threading Building Blocks (oneTBB)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Video Processing Library (oneVPL)</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../oneDPL/source/index.html">oneAPI DPC++ Library (oneDPL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneDNN/source/index.html">oneAPI Deep Neural Network Library (oneDNN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneCCL/source/index.html">oneAPI Collective Communications Library (oneCCL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../l0/source/index.html">oneAPI Level Zero (Level Zero)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneDAL/source/index.html">oneAPI Data Analytics Library (oneDAL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneTBB/source/nested-index.html">oneAPI Threading Building Blocks (oneTBB)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">oneAPI Video Processing Library (oneVPL)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#device-discovery">Device Discovery</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#device-context">Device Context</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#workstream-settings">Workstream Settings</a></li>
@@ -116,7 +116,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#dynamic-setting-control">Dynamic Setting Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#decode">Decode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#encode">Encode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#vidoe-processing">Vidoe Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#video-processing">Video Processing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#vpl-memory">VPL Memory</a><ul>
@@ -190,7 +190,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneMKL/source/index.html">Math Kernel Library (oneMKL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneMKL/source/index.html">oneAPI Math Kernel Library (oneMKL)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../versions.html">HTML and PDF Versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notices.html">Legal Notices and Disclaimers</a></li>
@@ -260,8 +260,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="vpl-full-name-onevpl">
-<span id="onevpl-section"></span><h1>Video Processing Library (oneVPL)<a class="headerlink" href="#vpl-full-name-onevpl" title="Permalink to this headline">¶</a></h1>
-<p>The Video Processing Library is a programming interface for all video/image
+<span id="onevpl-section"></span><h1>oneAPI Video Processing Library (oneVPL)<a class="headerlink" href="#vpl-full-name-onevpl" title="Permalink to this headline">¶</a></h1>
+<p>The oneAPI Video Processing Library is a programming interface for all video/image
 related usages, with focus on portable media pipeline on CPU, GPU, AI
 accelerators and FPGA, media, compute and render interoperability, to
 provide the best cross domain pipeline experience.  oneVPL libary provides
@@ -351,7 +351,7 @@ different devices. Complex pipelines can be formed from multiple workstreams.</p
 <li><p><a class="reference internal" href="#_CPPv4N3vpl6EncodeE" title="vpl::Encode"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::Encode</span></code></a>: encode raw frames to a bitstream</p></li>
 </ul>
 <p>In the <a class="reference internal" href="#_CPPv4N3vpl12VideoProcessE" title="vpl::VideoProcess"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::VideoProcess</span></code></a> subclass, a sequence of filters with single input and single output running on the same device context can be fused to the same workstream.
-Operations executing on different device contexts are seperated to different worksteams such that each workstream can be dispatched to a single device context.</p>
+Operations executing on different device contexts are separated to different worksteams such that each workstream can be dispatched to a single device context.</p>
 <div class="section" id="workstream-internals">
 <h3>Workstream Internals<a class="headerlink" href="#workstream-internals" title="Permalink to this headline">¶</a></h3>
 <p>Each <a class="reference internal" href="#_CPPv4N3vpl10WorkstreamE" title="vpl::Workstream"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::Workstream</span></code></a> contains the following information</p>
@@ -765,8 +765,8 @@ digraph  {
 </pre></div>
 </div>
 </div>
-<div class="section" id="vidoe-processing">
-<h3>Vidoe Processing<a class="headerlink" href="#vidoe-processing" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="video-processing">
+<h3>Video Processing<a class="headerlink" href="#video-processing" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="#_CPPv4N3vpl12VideoProcessE" title="vpl::VideoProcess"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::VideoProcess</span></code></a> class implements a variety of filter operations.
 Current API is limited to single input and single output.</p>
 digraph {
@@ -3266,7 +3266,7 @@ The following example summarize the key usage scenario:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../oneMKL/source/index.html" class="btn btn-neutral float-right" title="Math Kernel Library (oneMKL)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../oneMKL/source/index.html" class="btn btn-neutral float-right" title="oneAPI Math Kernel Library (oneMKL)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../../oneTBB/source/timing/tick_count_cls.html" class="btn btn-neutral float-left" title="tick_count class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

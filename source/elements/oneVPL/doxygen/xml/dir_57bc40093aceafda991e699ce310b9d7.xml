@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_57bc40093aceafda991e699ce310b9d7" kind="dir">
+    <compoundname>include/vplmemory</compoundname>
+    <innerfile refid="vplm_09_09_8h">vplm++.h</innerfile>
+    <innerfile refid="vplm_8h">vplm.h</innerfile>
+    <innerfile refid="vplm__dmabuf_09_09_8h">vplm_dmabuf++.h</innerfile>
+    <innerfile refid="vplm__dmabuf_8h">vplm_dmabuf.h</innerfile>
+    <innerfile refid="vplm__opencl_09_09_8h">vplm_opencl++.h</innerfile>
+    <innerfile refid="vplm__opencl_8h">vplm_opencl.h</innerfile>
+    <innerfile refid="vplm__sycl_8h">vplm_sycl.h</innerfile>
+    <innerfile refid="vplm__vaapi_09_09_8h">vplm_vaapi++.h</innerfile>
+    <innerfile refid="vplm__vaapi_8h">vplm_vaapi.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vplmemory/"/>
+  </compounddef>
+</doxygen>

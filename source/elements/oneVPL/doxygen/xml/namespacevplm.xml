@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacevplm" kind="namespace" language="C++">
+    <compoundname>vplm</compoundname>
+    <innerclass refid="classvplm_1_1cl__image" prot="public">vplm::cl_image</innerclass>
+    <innerclass refid="classvplm_1_1cpu__image" prot="public">vplm::cpu_image</innerclass>
+    <innerclass refid="classvplm_1_1memory" prot="public">vplm::memory</innerclass>
+    <innerclass refid="classvplm_1_1variant" prot="public">vplm::variant</innerclass>
+    <innerclass refid="classvplm_1_1wrapper" prot="public">vplm::wrapper</innerclass>
+    <innernamespace refid="namespacevplm_1_1cpu">vplm::cpu</innernamespace>
+    <innernamespace refid="namespacevplm_1_1opencl">vplm::opencl</innernamespace>
+    <innernamespace refid="namespacevplm_1_1sycl">vplm::sycl</innernamespace>
+    <innernamespace refid="namespacevplm_1_1vaapi">vplm::vaapi</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vplmemory/vplm++.h" line="32" column="1"/>
+  </compounddef>
+</doxygen>

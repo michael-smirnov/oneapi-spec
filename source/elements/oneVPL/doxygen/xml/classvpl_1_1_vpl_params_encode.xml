@@ -1,0 +1,565 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classvpl_1_1_vpl_params_encode" kind="class" language="C++" prot="public">
+    <compoundname>vpl::VplParamsEncode</compoundname>
+    <basecompoundref refid="classvpl_1_1_vpl_params" prot="public" virt="non-virtual">vpl::VplParams</basecompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classvpl_1_1_vpl_params_encode_1ae540fe9f29d63f0138cdf9f25b69ca40" prot="protected" static="no" mutable="no">
+        <type><ref refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eea" kindref="member">VplCodecType</ref></type>
+        <definition>VplCodecType vpl::VplParamsEncode::m_codec</definition>
+        <argsstring></argsstring>
+        <name>m_codec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="139" column="21" bodyfile="include/vpl/vpl_config.hpp" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classvpl_1_1_vpl_params_encode_1ab6638a8ee86fb894d1d98ca926bc34f1" prot="protected" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplParamsEncode::m_bitratekbps</definition>
+        <argsstring></argsstring>
+        <name>m_bitratekbps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="140" column="21" bodyfile="include/vpl/vpl_config.hpp" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classvpl_1_1_vpl_params_encode_1a85e6bb08facb31e9f9fe1be49e943b50" prot="protected" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplParamsEncode::m_iframeinterval</definition>
+        <argsstring></argsstring>
+        <name>m_iframeinterval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="141" column="21" bodyfile="include/vpl/vpl_config.hpp" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classvpl_1_1_vpl_params_encode_1acaaf527bef1242efe381ec463198bcae" prot="protected" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplParamsEncode::m_bframeinterval</definition>
+        <argsstring></argsstring>
+        <name>m_bframeinterval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="142" column="21" bodyfile="include/vpl/vpl_config.hpp" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classvpl_1_1_vpl_params_encode_1af0b77f56b60a8c49fe66bcace97e7205" prot="protected" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplParamsEncode::m_fr_num</definition>
+        <argsstring></argsstring>
+        <name>m_fr_num</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="143" column="21" bodyfile="include/vpl/vpl_config.hpp" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classvpl_1_1_vpl_params_encode_1a0e6236f29574db18dc62c2128e2504f0" prot="protected" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplParamsEncode::m_fr_denom</definition>
+        <argsstring></argsstring>
+        <name>m_fr_denom</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="144" column="21" bodyfile="include/vpl/vpl_config.hpp" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classvpl_1_1_vpl_params_encode_1a1195c7e09c1c0a22db583ba1f5a485a1" prot="protected" static="no" mutable="no">
+        <type>VplEncodePreset</type>
+        <definition>VplEncodePreset vpl::VplParamsEncode::m_encodepreset</definition>
+        <argsstring></argsstring>
+        <name>m_encodepreset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="145" column="21" bodyfile="include/vpl/vpl_config.hpp" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classvpl_1_1_vpl_params_encode_1a69eee5ef994357a546b4c64d47deac0c" prot="protected" static="no" mutable="no">
+        <type>VplRateControl</type>
+        <definition>VplRateControl vpl::VplParamsEncode::m_ratecontrol</definition>
+        <argsstring></argsstring>
+        <name>m_ratecontrol</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="146" column="21" bodyfile="include/vpl/vpl_config.hpp" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classvpl_1_1_vpl_params_encode_1aedb7fdb8a651b017e69f61dbb051bddb" prot="protected" static="no" mutable="no">
+        <type>VplEncodeScenario</type>
+        <definition>VplEncodeScenario vpl::VplParamsEncode::m_scenario</definition>
+        <argsstring></argsstring>
+        <name>m_scenario</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="147" column="21" bodyfile="include/vpl/vpl_config.hpp" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classvpl_1_1_vpl_params_encode_1a7de740126aec73d0cfba8434b4a6c8e6" prot="protected" static="no" mutable="no">
+        <type>VplBRC</type>
+        <definition>VplBRC vpl::VplParamsEncode::m_brc</definition>
+        <argsstring></argsstring>
+        <name>m_brc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="148" column="21" bodyfile="include/vpl/vpl_config.hpp" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1afbb5d43205a23da2cd3eee69e3675bb2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eea" kindref="member">VplCodecType</ref></type>
+        <definition>VplCodecType vpl::VplParamsEncode::GetCodecType</definition>
+        <argsstring>()</argsstring>
+        <name>GetCodecType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="109" column="16" bodyfile="include/vpl/vpl_config.hpp" bodystart="109" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1a320cda8891e40837267bc70e7d81a356" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void vpl::VplParamsEncode::SetCodecType</definition>
+        <argsstring>(VplCodecType codec)</argsstring>
+        <name>SetCodecType</name>
+        <param>
+          <type><ref refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eea" kindref="member">VplCodecType</ref></type>
+          <declname>codec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="110" column="16" bodyfile="include/vpl/vpl_config.hpp" bodystart="110" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1a0b563255158d582d31d06591684025dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplParamsEncode::GetBitRateKps</definition>
+        <argsstring>()</argsstring>
+        <name>GetBitRateKps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="112" column="12" bodyfile="include/vpl/vpl_config.hpp" bodystart="112" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1aa3b0b7a2a79ded318f2a5650baab92e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void vpl::VplParamsEncode::SetBitRateKps</definition>
+        <argsstring>(uint32_t r)</argsstring>
+        <name>SetBitRateKps</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="113" column="12" bodyfile="include/vpl/vpl_config.hpp" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1a3050dcb85fdb00c9a0cb9737bfb32fc7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplParamsEncode::GetIFrameInterval</definition>
+        <argsstring>()</argsstring>
+        <name>GetIFrameInterval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="115" column="12" bodyfile="include/vpl/vpl_config.hpp" bodystart="115" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1a069d45cd339477d2b10d67ff80078269" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void vpl::VplParamsEncode::SetIFrameInterval</definition>
+        <argsstring>(uint32_t il)</argsstring>
+        <name>SetIFrameInterval</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>il</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="116" column="12" bodyfile="include/vpl/vpl_config.hpp" bodystart="116" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1a8b689fb76ae091f7e15485e1f387bd1b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplParamsEncode::GetBFrameInterval</definition>
+        <argsstring>()</argsstring>
+        <name>GetBFrameInterval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="118" column="12" bodyfile="include/vpl/vpl_config.hpp" bodystart="118" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1a7f581e22608e82935409655e34897e0f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void vpl::VplParamsEncode::SetBFrameInterval</definition>
+        <argsstring>(uint32_t il)</argsstring>
+        <name>SetBFrameInterval</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>il</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="119" column="12" bodyfile="include/vpl/vpl_config.hpp" bodystart="119" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1a8e726ee90e974d1722e5f973efe880e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplParamsEncode::GetFrameRateNumerator</definition>
+        <argsstring>()</argsstring>
+        <name>GetFrameRateNumerator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="121" column="12" bodyfile="include/vpl/vpl_config.hpp" bodystart="121" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1a88c01d107f6c4f2d956a1389ae6faa57" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void vpl::VplParamsEncode::SetFrameRateNumerator</definition>
+        <argsstring>(uint32_t n)</argsstring>
+        <name>SetFrameRateNumerator</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="122" column="12" bodyfile="include/vpl/vpl_config.hpp" bodystart="122" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1a3d873950b63ad534fdfbe64812acb1dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t vpl::VplParamsEncode::GetFrameRateDenominator</definition>
+        <argsstring>()</argsstring>
+        <name>GetFrameRateDenominator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="124" column="12" bodyfile="include/vpl/vpl_config.hpp" bodystart="124" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1a91f160c9df29aa29c08258a162d18295" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void vpl::VplParamsEncode::SetFrameRateDenominator</definition>
+        <argsstring>(uint32_t d)</argsstring>
+        <name>SetFrameRateDenominator</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="125" column="12" bodyfile="include/vpl/vpl_config.hpp" bodystart="125" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1acd814bff3855208ffc21695b2158c3a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>VplEncodePreset</type>
+        <definition>VplEncodePreset vpl::VplParamsEncode::GetEncodePreset</definition>
+        <argsstring>()</argsstring>
+        <name>GetEncodePreset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="127" column="19" bodyfile="include/vpl/vpl_config.hpp" bodystart="127" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1a0065ea147842cd60a82859cea1cd4bf4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void vpl::VplParamsEncode::SetEncodePreset</definition>
+        <argsstring>(VplEncodePreset ps)</argsstring>
+        <name>SetEncodePreset</name>
+        <param>
+          <type>VplEncodePreset</type>
+          <declname>ps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="128" column="12" bodyfile="include/vpl/vpl_config.hpp" bodystart="128" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1a3441d7fab5d0730f2e930e9a4fa619e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>VplRateControl</type>
+        <definition>VplRateControl vpl::VplParamsEncode::GetRateControl</definition>
+        <argsstring>()</argsstring>
+        <name>GetRateControl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="130" column="18" bodyfile="include/vpl/vpl_config.hpp" bodystart="130" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1ad807d3f83969e7b4bcc641f66e813ecd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void vpl::VplParamsEncode::SetRateControl</definition>
+        <argsstring>(VplRateControl rc)</argsstring>
+        <name>SetRateControl</name>
+        <param>
+          <type>VplRateControl</type>
+          <declname>rc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="131" column="12" bodyfile="include/vpl/vpl_config.hpp" bodystart="131" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1a19f8a4ca95af278477889e4c9b2c2aaa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>VplBRC</type>
+        <definition>VplBRC vpl::VplParamsEncode::GetBRC</definition>
+        <argsstring>()</argsstring>
+        <name>GetBRC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="133" column="12" bodyfile="include/vpl/vpl_config.hpp" bodystart="133" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1a20dec1cdf5d60c74b7fac970b21f4aac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void vpl::VplParamsEncode::SetBRC</definition>
+        <argsstring>(VplBRC brc)</argsstring>
+        <name>SetBRC</name>
+        <param>
+          <type>VplBRC</type>
+          <declname>brc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="134" column="12" bodyfile="include/vpl/vpl_config.hpp" bodystart="134" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1a8909ed32c16337877ab3859508b06236" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>vpl::VplParamsEncode::VplParamsEncode</definition>
+        <argsstring>()</argsstring>
+        <name>VplParamsEncode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="135" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_vpl_params_encode_1afd79858ee47922dafb87fc1d11871220" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>vpl::VplParamsEncode::~VplParamsEncode</definition>
+        <argsstring>()</argsstring>
+        <name>~VplParamsEncode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_config.hpp" line="136" column="3" bodyfile="include/vpl/vpl_config.hpp" bodystart="136" bodyend="136"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>vpl::VplParamsEncode</label>
+        <link refid="classvpl_1_1_vpl_params_encode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>vpl::VplParams</label>
+        <link refid="classvpl_1_1_vpl_params"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>vpl::VplParamsEncode</label>
+        <link refid="classvpl_1_1_vpl_params_encode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>VplVideoSurfaceResolution</label>
+        <link refid="struct_vpl_video_surface_resolution"/>
+      </node>
+      <node id="2">
+        <label>vpl::VplParams</label>
+        <link refid="classvpl_1_1_vpl_params"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_oaspect</edgelabel>
+          <edgelabel>m_iaspect</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>m_ocrop</edgelabel>
+          <edgelabel>m_icrop</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>m_oframerate</edgelabel>
+          <edgelabel>m_iframerate</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>m_oresolution</edgelabel>
+          <edgelabel>m_iresolution</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>VplCrop</label>
+        <link refid="struct_vpl_crop"/>
+      </node>
+      <node id="3">
+        <label>VplAspectRatio</label>
+        <link refid="struct_vpl_aspect_ratio"/>
+      </node>
+      <node id="5">
+        <label>VplFrameRate</label>
+        <link refid="struct_vpl_frame_rate"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/vpl/vpl_config.hpp" line="107" column="40" bodyfile="include/vpl/vpl_config.hpp" bodystart="107" bodyend="149"/>
+    <listofallmembers>
+      <member refid="classvpl_1_1_vpl_params_encode_1a8b689fb76ae091f7e15485e1f387bd1b" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetBFrameInterval</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a0b563255158d582d31d06591684025dc" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetBitRateKps</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a19f8a4ca95af278477889e4c9b2c2aaa" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetBRC</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1afbb5d43205a23da2cd3eee69e3675bb2" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetCodecType</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1acd814bff3855208ffc21695b2158c3a8" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetEncodePreset</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a3d873950b63ad534fdfbe64812acb1dc" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetFrameRateDenominator</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a8e726ee90e974d1722e5f973efe880e2" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetFrameRateNumerator</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a3050dcb85fdb00c9a0cb9737bfb32fc7" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetIFrameInterval</name></member>
+      <member refid="classvpl_1_1_vpl_params_1ab4cf507c1ab8f68c6bbc1e212d74c431" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetInputAspectRatio</name></member>
+      <member refid="classvpl_1_1_vpl_params_1aeeff08cd349497d013950e707ee24678" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetInputCrop</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a6c273cbb1560fd9a053b7e0fb93e6b9c" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetInputFormat</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a6ae5e050e4f73e4371022640e54a0c58" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetInputFrameRate</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a37f27e10d7bd397fc75fd53cd3595579" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetInputResolution</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a290a13ef6a2fd44c36d467eda5b027e5" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetOutputAspectRatio</name></member>
+      <member refid="classvpl_1_1_vpl_params_1aed2d4208f99cd51ce846f917be7e00b6" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetOutputCrop</name></member>
+      <member refid="classvpl_1_1_vpl_params_1aae79f06d3025740d33d33ba1ffa2e150" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetOutputFormat</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a246ed125ea220c06cc3ca1ac8a6188ac" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetOutputFrameRate</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a9f05a7cb82348824fdf7ed1c9f1faeba" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetOutputResolution</name></member>
+      <member refid="classvpl_1_1_vpl_params_1aeefc9b64bf8758d5ec3168b33694f067" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetPictStruct</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a3441d7fab5d0730f2e930e9a4fa619e3" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>GetRateControl</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1acaaf527bef1242efe381ec463198bcae" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_bframeinterval</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1ab6638a8ee86fb894d1d98ca926bc34f1" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_bitratekbps</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a7de740126aec73d0cfba8434b4a6c8e6" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_brc</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1ae540fe9f29d63f0138cdf9f25b69ca40" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_codec</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a1195c7e09c1c0a22db583ba1f5a485a1" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_encodepreset</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a0e6236f29574db18dc62c2128e2504f0" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_fr_denom</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1af0b77f56b60a8c49fe66bcace97e7205" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_fr_num</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a073b6e319b53871deaf15fbc15e6d29a" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_iaspect</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a4cb9c51b41ed46be38653e6828bfa17e" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_icrop</name></member>
+      <member refid="classvpl_1_1_vpl_params_1ad095e6d85894ed35844e6ac35b7baf4e" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_iformat</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a85e6bb08facb31e9f9fe1be49e943b50" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_iframeinterval</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a46d4a7a09ecd89ebd648946ad4249afe" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_iframerate</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a895188f4c2abb3ee460e25d0a83b68ce" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_iresolution</name></member>
+      <member refid="classvpl_1_1_vpl_params_1ab5b96053b0084df8ea56826587b6eb56" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_oaspect</name></member>
+      <member refid="classvpl_1_1_vpl_params_1aaaf67a62d59b768a7c214bda43a5ff5f" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_ocrop</name></member>
+      <member refid="classvpl_1_1_vpl_params_1ae897a9cf9433a0f937d7ba841017fe86" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_oformat</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a56c703cd0bce74c1f924a44d83d131b9" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_oframerate</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a7cdb215f865f4c877dffe1eb1d050c7b" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_oresolution</name></member>
+      <member refid="classvpl_1_1_vpl_params_1ac6623ff036b8a41592a396661859883f" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_picstruct</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a69eee5ef994357a546b4c64d47deac0c" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_ratecontrol</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1aedb7fdb8a651b017e69f61dbb051bddb" prot="protected" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>m_scenario</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a7f581e22608e82935409655e34897e0f" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetBFrameInterval</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1aa3b0b7a2a79ded318f2a5650baab92e2" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetBitRateKps</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a20dec1cdf5d60c74b7fac970b21f4aac" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetBRC</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a320cda8891e40837267bc70e7d81a356" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetCodecType</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a0065ea147842cd60a82859cea1cd4bf4" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetEncodePreset</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a91f160c9df29aa29c08258a162d18295" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetFrameRateDenominator</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a88c01d107f6c4f2d956a1389ae6faa57" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetFrameRateNumerator</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a069d45cd339477d2b10d67ff80078269" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetIFrameInterval</name></member>
+      <member refid="classvpl_1_1_vpl_params_1ac50d99249822c29e55942856e2c9ebba" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetInputAspectRatio</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a13e5319387d28306b787389d60fbafaa" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetInputCrop</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a24ae885e6f24607e2af48791570ebd10" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetInputFormat</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a95bcac5f46050f2a3fd187968fbe87ce" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetInputFrameRate</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a7dd9af1c5a0246e06f017521588154e7" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetInputResolution</name></member>
+      <member refid="classvpl_1_1_vpl_params_1ac54bae398004e1f6cf63b691c077e760" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetOutputAspectRatio</name></member>
+      <member refid="classvpl_1_1_vpl_params_1ab1528986930a8710195a02b385f7bb8c" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetOutputCrop</name></member>
+      <member refid="classvpl_1_1_vpl_params_1aa1c47e6619dfce5a1b31f665a2404648" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetOutputFormat</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a50aaae7a76ffead4f3e19ebb33e9d1e2" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetOutputFrameRate</name></member>
+      <member refid="classvpl_1_1_vpl_params_1a767a7c76b9cc695770f55214cfa56671" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetOutputResolution</name></member>
+      <member refid="classvpl_1_1_vpl_params_1ac48b8b7dcd00e2e7ac471b2a5b399ddb" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetPictStruct</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1ad807d3f83969e7b4bcc641f66e813ecd" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>SetRateControl</name></member>
+      <member refid="classvpl_1_1_vpl_params_1ac117739c110926bb0737781768a859de" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>VplParams</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1a8909ed32c16337877ab3859508b06236" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>VplParamsEncode</name></member>
+      <member refid="classvpl_1_1_vpl_params_1ac38c39b58bc868d59212b9f35aa87276" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>~VplParams</name></member>
+      <member refid="classvpl_1_1_vpl_params_encode_1afd79858ee47922dafb87fc1d11871220" prot="public" virt="non-virtual"><scope>vpl::VplParamsEncode</scope><name>~VplParamsEncode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

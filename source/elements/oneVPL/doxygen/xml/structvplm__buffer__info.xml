@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structvplm__buffer__info" kind="struct" language="C++" prot="public">
+    <compoundname>vplm_buffer_info</compoundname>
+    <includes refid="vplm_8h" local="no">vplm.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structvplm__buffer__info_1ad7b9437bbf73fce5a470c9122f0def35" prot="public" static="no" mutable="no">
+        <type>vplm_data_type</type>
+        <definition>vplm_data_type vplm_buffer_info::data_type</definition>
+        <argsstring></argsstring>
+        <name>data_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="182" column="20" bodyfile="include/vplmemory/vplm.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__buffer__info_1ac9c867936356a2da3facbbcbe4f15121" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t vplm_buffer_info::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="183" column="12" bodyfile="include/vplmemory/vplm.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__buffer__info_1acd6ff8ea5e19b32b52f3d59d549765fe" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t vplm_buffer_info::reserved[32]</definition>
+        <argsstring>[32]</argsstring>
+        <name>reserved</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="184" column="14" bodyfile="include/vplmemory/vplm.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>VPL Memory Buffer description. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vplmemory/vplm.h" line="181" column="15" bodyfile="include/vplmemory/vplm.h" bodystart="181" bodyend="185"/>
+    <listofallmembers>
+      <member refid="structvplm__buffer__info_1ad7b9437bbf73fce5a470c9122f0def35" prot="public" virt="non-virtual"><scope>vplm_buffer_info</scope><name>data_type</name></member>
+      <member refid="structvplm__buffer__info_1acd6ff8ea5e19b32b52f3d59d549765fe" prot="public" virt="non-virtual"><scope>vplm_buffer_info</scope><name>reserved</name></member>
+      <member refid="structvplm__buffer__info_1ac9c867936356a2da3facbbcbe4f15121" prot="public" virt="non-virtual"><scope>vplm_buffer_info</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

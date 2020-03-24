@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="struct__vplm__vtable" kind="struct" language="C++" prot="public">
+    <compoundname>_vplm_vtable</compoundname>
+    <includes refid="vplm_8h" local="no">vplm.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__vplm__vtable_1a848f1870e86a2c6ea3aa2eaa4329ff56" prot="public" static="no" mutable="no">
+        <type>uintptr_t</type>
+        <definition>uintptr_t _vplm_vtable::priv</definition>
+        <argsstring></argsstring>
+        <name>priv</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="341" column="15" bodyfile="include/vplmemory/vplm.h" bodystart="341" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__vtable_1a5451c0aea7451884c6bb9c419e001e72" prot="public" static="no" mutable="no">
+        <type>uint32_t(*</type>
+        <definition>uint32_t(* _vplm_vtable::ref) (const vplm_mem *mem)</definition>
+        <argsstring>)(const vplm_mem *mem)</argsstring>
+        <name>ref</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="343" column="5" bodyfile="include/vplmemory/vplm.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__vtable_1a643a3c5bfd7d05e8911d549100006d15" prot="public" static="no" mutable="no">
+        <type>uint32_t(*</type>
+        <definition>uint32_t(* _vplm_vtable::unref) (const vplm_mem *mem)</definition>
+        <argsstring>)(const vplm_mem *mem)</argsstring>
+        <name>unref</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="344" column="5" bodyfile="include/vplmemory/vplm.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__vtable_1a8e9c1d66edbd29c2825e5c5160a71682" prot="public" static="no" mutable="no">
+        <type>vplm_status(*</type>
+        <definition>vplm_status(* _vplm_vtable::set_property) (const vplm_mem *mem, int32_t key, vplm_variant value)</definition>
+        <argsstring>)(const vplm_mem *mem, int32_t key, vplm_variant value)</argsstring>
+        <name>set_property</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="346" column="5" bodyfile="include/vplmemory/vplm.h" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__vtable_1af7a300b6833fb9b1bb9f445cf069a805" prot="public" static="no" mutable="no">
+        <type>vplm_status(*</type>
+        <definition>vplm_status(* _vplm_vtable::get_property) (const vplm_mem *mem, int32_t key, vplm_variant *value)</definition>
+        <argsstring>)(const vplm_mem *mem, int32_t key, vplm_variant *value)</argsstring>
+        <name>get_property</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="347" column="5" bodyfile="include/vplmemory/vplm.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__vtable_1aea2d7f148c72c4b2d67de5cab9fafc6a" prot="public" static="no" mutable="no">
+        <type>vplm_status(*</type>
+        <definition>vplm_status(* _vplm_vtable::clear_properties) (const vplm_mem *mem)</definition>
+        <argsstring>)(const vplm_mem *mem)</argsstring>
+        <name>clear_properties</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="348" column="5" bodyfile="include/vplmemory/vplm.h" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__vtable_1afbc51267dd44d2c0fdfcc538106b5e08" prot="public" static="no" mutable="no">
+        <type>vplm_status(*</type>
+        <definition>vplm_status(* _vplm_vtable::get_image_info) (const vplm_mem *mem, vplm_image_info *info)</definition>
+        <argsstring>)(const vplm_mem *mem, vplm_image_info *info)</argsstring>
+        <name>get_image_info</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="349" column="5" bodyfile="include/vplmemory/vplm.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__vtable_1a6de57c3db3bf89e8460da4a3ff712846" prot="public" static="no" mutable="no">
+        <type>vplm_status(*</type>
+        <definition>vplm_status(* _vplm_vtable::get_buffer_info) (const vplm_mem *mem, vplm_buffer_info *info)</definition>
+        <argsstring>)(const vplm_mem *mem, vplm_buffer_info *info)</argsstring>
+        <name>get_buffer_info</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="350" column="5" bodyfile="include/vplmemory/vplm.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__vtable_1a025ac23a8a322e1e04ffaff4b8e6cb6d" prot="public" static="no" mutable="no">
+        <type>vplm_status(*</type>
+        <definition>vplm_status(* _vplm_vtable::map_buffer) (const vplm_mem *mem, uint64_t flags, vplm_cpu_buffer *buffer)</definition>
+        <argsstring>)(const vplm_mem *mem, uint64_t flags, vplm_cpu_buffer *buffer)</argsstring>
+        <name>map_buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="352" column="5" bodyfile="include/vplmemory/vplm.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__vtable_1a69a9bb85a495535b52a0b0386d3b18aa" prot="public" static="no" mutable="no">
+        <type>vplm_status(*</type>
+        <definition>vplm_status(* _vplm_vtable::unmap_buffer) (vplm_cpu_buffer *buffer)</definition>
+        <argsstring>)(vplm_cpu_buffer *buffer)</argsstring>
+        <name>unmap_buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="353" column="5" bodyfile="include/vplmemory/vplm.h" bodystart="353" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__vtable_1a831777ab3aa926e66c43a5f561d259e8" prot="public" static="no" mutable="no">
+        <type>vplm_status(*</type>
+        <definition>vplm_status(* _vplm_vtable::map_image) (const vplm_mem *mem, uint64_t flags, vplm_cpu_image *image)</definition>
+        <argsstring>)(const vplm_mem *mem, uint64_t flags, vplm_cpu_image *image)</argsstring>
+        <name>map_image</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="355" column="5" bodyfile="include/vplmemory/vplm.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__vtable_1ae0b4d5d3528671e902aa46c0a6dcd36a" prot="public" static="no" mutable="no">
+        <type>vplm_status(*</type>
+        <definition>vplm_status(* _vplm_vtable::unmap_image) (vplm_cpu_image *image)</definition>
+        <argsstring>)(vplm_cpu_image *image)</argsstring>
+        <name>unmap_image</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="356" column="5" bodyfile="include/vplmemory/vplm.h" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__vtable_1ab1dd3fc2e180c3eecca584b35c53c015" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__vplm__va__vtable" kindref="compound">vplm_va_vtable</ref> *</type>
+        <definition>vplm_va_vtable* _vplm_vtable::va</definition>
+        <argsstring></argsstring>
+        <name>va</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="358" column="20" bodyfile="include/vplmemory/vplm.h" bodystart="358" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__vtable_1a2fa37deda206bcb76dc3aa0721143f0c" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__vplm__cl__vtable" kindref="compound">vplm_cl_vtable</ref> *</type>
+        <definition>vplm_cl_vtable* _vplm_vtable::cl</definition>
+        <argsstring></argsstring>
+        <name>cl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="359" column="20" bodyfile="include/vplmemory/vplm.h" bodystart="359" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__vtable_1a6db6304ad3139894b801a396a33ab8b3" prot="public" static="no" mutable="no">
+        <type>vplm_dx11_vtable *</type>
+        <definition>vplm_dx11_vtable* _vplm_vtable::dx11</definition>
+        <argsstring></argsstring>
+        <name>dx11</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="360" column="22" bodyfile="include/vplmemory/vplm.h" bodystart="360" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__vplm__vtable_1aa517c4c614245e06350e3ad68d48ad16" prot="public" static="no" mutable="no">
+        <type>vplm_dmabuf_vtable *</type>
+        <definition>vplm_dmabuf_vtable* _vplm_vtable::dmabuf</definition>
+        <argsstring></argsstring>
+        <name>dmabuf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="361" column="24" bodyfile="include/vplmemory/vplm.h" bodystart="361" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>VPL Memory object, aka vplm_mem. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>_vplm_vtable</label>
+        <link refid="struct__vplm__vtable"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>va</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>cl</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>_vplm_va_vtable</label>
+        <link refid="struct__vplm__va__vtable"/>
+      </node>
+      <node id="3">
+        <label>_vplm_cl_vtable</label>
+        <link refid="struct__vplm__cl__vtable"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/vplmemory/vplm.h" line="340" column="27" bodyfile="include/vplmemory/vplm.h" bodystart="340" bodyend="362"/>
+    <listofallmembers>
+      <member refid="struct__vplm__vtable_1a2fa37deda206bcb76dc3aa0721143f0c" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>cl</name></member>
+      <member refid="struct__vplm__vtable_1aea2d7f148c72c4b2d67de5cab9fafc6a" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>clear_properties</name></member>
+      <member refid="struct__vplm__vtable_1aa517c4c614245e06350e3ad68d48ad16" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>dmabuf</name></member>
+      <member refid="struct__vplm__vtable_1a6db6304ad3139894b801a396a33ab8b3" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>dx11</name></member>
+      <member refid="struct__vplm__vtable_1a6de57c3db3bf89e8460da4a3ff712846" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>get_buffer_info</name></member>
+      <member refid="struct__vplm__vtable_1afbc51267dd44d2c0fdfcc538106b5e08" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>get_image_info</name></member>
+      <member refid="struct__vplm__vtable_1af7a300b6833fb9b1bb9f445cf069a805" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>get_property</name></member>
+      <member refid="struct__vplm__vtable_1a025ac23a8a322e1e04ffaff4b8e6cb6d" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>map_buffer</name></member>
+      <member refid="struct__vplm__vtable_1a831777ab3aa926e66c43a5f561d259e8" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>map_image</name></member>
+      <member refid="struct__vplm__vtable_1a848f1870e86a2c6ea3aa2eaa4329ff56" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>priv</name></member>
+      <member refid="struct__vplm__vtable_1a5451c0aea7451884c6bb9c419e001e72" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>ref</name></member>
+      <member refid="struct__vplm__vtable_1a8e9c1d66edbd29c2825e5c5160a71682" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>set_property</name></member>
+      <member refid="struct__vplm__vtable_1a69a9bb85a495535b52a0b0386d3b18aa" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>unmap_buffer</name></member>
+      <member refid="struct__vplm__vtable_1ae0b4d5d3528671e902aa46c0a6dcd36a" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>unmap_image</name></member>
+      <member refid="struct__vplm__vtable_1a643a3c5bfd7d05e8911d549100006d15" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>unref</name></member>
+      <member refid="struct__vplm__vtable_1ab1dd3fc2e180c3eecca584b35c53c015" prot="public" virt="non-virtual"><scope>_vplm_vtable</scope><name>va</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

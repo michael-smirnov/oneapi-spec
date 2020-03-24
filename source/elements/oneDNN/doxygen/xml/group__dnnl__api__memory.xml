@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="group__dnnl__api__memory" kind="group">
+    <compoundname>dnnl_api_memory</compoundname>
+    <title>Memory</title>
+    <innerclass refid="structdnnl_1_1memory" prot="public">dnnl::memory</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A container that describes and stores data. Memory objects can contain data of various data types and formats. There are two levels of abstraction:</para>
+<para><orderedlist>
+<listitem><para><bold>Memory descriptor</bold> <ndash/> engine-agnostic logical description of data (number of dimensions, dimension sizes, and data type), and, optionally, the information about the physical format of data in memory. If this information is not known yet, a memory descriptor can be created with <ref refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa100b8cad7cf2a56f6df78f171f97a1ec" kindref="member">dnnl::memory::format_tag::any</ref>. This allows compute-intensive primitives to chose the most appropriate format for the computations. The user is then responsible for reordering their data into the new format if the formats do not match.</para>
+<para>A memory descriptor can be initialized either by specifying dimensions, and memory format tag or strides for each of them.</para>
+<para>User can query amount of memory required by a memory descriptor using the <ref refid="structdnnl_1_1memory_1_1desc_1ac20108bc192912382aa4a95ae27df804" kindref="member">dnnl::memory::desc::get_size()</ref> function. The size of data in general cannot be computed as the product of dimensions multiplied by the size of the data type. So users are required to use this function for better code portability.</para>
+<para>Two memory descriptors can be compared using the equality and inequality operators. The comparison is especially useful when checking whether it is necessary to reorder data from the user&apos;s data format to a primitive&apos;s format.</para>
+</listitem><listitem><para><bold>Memory object</bold> <ndash/> an engine-specific object that handles the data and its description (a memory descriptor). With USM, the data handle is simply a pointer to <computeroutput>void</computeroutput>. The data handle can be queried using <ref refid="structdnnl_1_1memory_1a8968c24c4a95255f68ab2a483769343d" kindref="member">dnnl::memory::get_data_handle()</ref> and set using <ref refid="structdnnl_1_1memory_1ab0ca87db309b17d747ec8e0d3adcdd15" kindref="member">dnnl::memory::set_data_handle()</ref>. The underlying SYCL buffer, when used, can be queried using <ref refid="structdnnl_1_1memory_1a170571437afeabe2923477fdd6eea2fd" kindref="member">dnnl::memory::get_sycl_buffer</ref> and and set using <ref refid="structdnnl_1_1memory_1aaf55a9972d3af57d6a4997520c6067e4" kindref="member">dnnl::memory::set_sycl_buffer</ref>. A memory object can also be queried for the underlying memory descriptor and for its engine using <ref refid="structdnnl_1_1memory_1ad8a1ad28ed7acf9c34c69e4b882c6e92" kindref="member">dnnl::memory::get_desc()</ref> and <ref refid="structdnnl_1_1memory_1a9074709c5af8dc9d25dd9a98c4d1dbd3" kindref="member">dnnl::memory::get_engine()</ref>.</para>
+</listitem></orderedlist>
+</para>
+<para>Along with ordinary memory descriptors with all dimensions being positive, the library supports <emphasis>zero-volume</emphasis> (or just <emphasis>zero</emphasis>) memory descriptors with one or more dimensions set to zero. This is used to support the NumPy* convention. If a zero memory is passed to a primitive, the primitive typically does not perform any computations with this memory. For example:</para>
+<para><itemizedlist>
+<listitem><para>A concatenation primitive would ignore all memory object with zeroes in the concat dimension / axis.</para>
+</listitem><listitem><para>A forward convolution with a source memory object with zero in the minibatch dimension would always produce a detination memory object with a zero in the minibatch dimension and perform no computations.</para>
+</listitem><listitem><para>However, a forward convolution with a zero in one of the weights dimensions is ill-defined considered to be an error by the library because there is no clear definition on what the output values should be. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

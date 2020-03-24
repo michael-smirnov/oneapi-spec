@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structdnnl_1_1eltwise__backward_1_1desc" kind="struct" language="C++" prot="public">
+    <compoundname>dnnl::eltwise_backward::desc</compoundname>
+    <includes refid="dnnl_8hpp" local="no">dnnl.hpp</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structdnnl_1_1eltwise__backward_1_1desc_1ad94c1c1fce3f2f6756184a40bfb6ce01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::eltwise_backward::desc::desc</definition>
+        <argsstring>(algorithm algorithm, const memory::desc &amp;diff_data_desc, const memory::desc &amp;data_desc, float alpha=0, float beta=0)</argsstring>
+        <name>desc</name>
+        <param>
+          <type><ref refid="group__dnnl__api__attributes_1ga00377dd4982333e42e8ae1d09a309640" kindref="member">algorithm</ref></type>
+          <declname>algorithm</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref> &amp;</type>
+          <declname>diff_data_desc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref> &amp;</type>
+          <declname>data_desc</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>alpha</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>beta</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a descriptor for an elementwise backward propagation primitive.</para>
+<para>Inputs:<itemizedlist>
+<listitem><para><computeroutput>src</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43" kindref="member">dnnl::primitive_desc_base::src_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem><listitem><para><computeroutput>diff_dst</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1a60f17d04c493c42e4a50ad5feff5c8ca" kindref="member">dnnl::primitive_desc_base::diff_dst_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem></itemizedlist>
+</para>
+<para>Outputs:<itemizedlist>
+<listitem><para><computeroutput>diff_src</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1a733e6ff4e78a758e69ae6232e8955871" kindref="member">dnnl::primitive_desc_base::diff_src_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>algorithm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Elementwise algorithm kind. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>diff_data_desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Diff source and destination memory descriptors. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data_desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source memory descriptor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>alpha</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The alpha parameter for the elementwise operation. Specific meaning depends on the algorithm. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>beta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The beta parameter for the elementwise operation. Specific meaning depends on the algorithm. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="3550" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Descriptor for an elementwise backward propagation primitive. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/dnnl.hpp" line="3531" column="15" bodyfile="include/dnnl.hpp" bodystart="3531" bodyend="3553"/>
+    <listofallmembers>
+      <member refid="structdnnl_1_1eltwise__backward_1_1desc_1ad94c1c1fce3f2f6756184a40bfb6ce01" prot="public" virt="non-virtual"><scope>dnnl::eltwise_backward::desc</scope><name>desc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

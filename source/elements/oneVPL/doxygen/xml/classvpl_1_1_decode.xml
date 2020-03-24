@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classvpl_1_1_decode" kind="class" language="C++" prot="public">
+    <compoundname>vpl::Decode</compoundname>
+    <basecompoundref refid="classvpl_1_1_workstream" prot="public" virt="non-virtual">vpl::Workstream</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classvpl_1_1_decode_1ac42ab42fc897d3437e448895af1eb055" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>vpl::Decode::Decode</definition>
+        <argsstring>(VplParams *config, DeviceContext *dcontext)</argsstring>
+        <name>Decode</name>
+        <param>
+          <type><ref refid="classvpl_1_1_vpl_params" kindref="compound">VplParams</ref> *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type><ref refid="classvpl_1_1_device_context" kindref="compound">DeviceContext</ref> *</type>
+          <declname>dcontext</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classvpl_1_1_decode" kindref="compound">Decode</ref> constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>decode settings </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dcontext</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>decode context </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="220" column="3" bodyfile="include/vpl/vpl.hpp" bodystart="220" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_decode_1aa799ff3a68518d1aa8af3c4e98f7f53f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>vpl::Decode::Decode</definition>
+        <argsstring>(VplParams *config, DeviceInstance &amp;dev)</argsstring>
+        <name>Decode</name>
+        <param>
+          <type><ref refid="classvpl_1_1_vpl_params" kindref="compound">VplParams</ref> *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type><ref refid="classvpl_1_1_device_instance" kindref="compound">DeviceInstance</ref> &amp;</type>
+          <declname>dev</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classvpl_1_1_workstream" kindref="compound">Workstream</ref> constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>workstream settings </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>device instance to create a context </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="228" column="3" bodyfile="include/vpl/vpl.hpp" bodystart="228" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_decode_1a69ed0009364bfe361d5d12f879e42394" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classvpl_1_1_vpl_params" kindref="compound">vpl::VplParams</ref> *</type>
+        <definition>vpl::VplParams* vpl::Decode::GetConfig</definition>
+        <argsstring>()</argsstring>
+        <name>GetConfig</name>
+        <briefdescription>
+<para>Get <ref refid="classvpl_1_1_decode" kindref="compound">Decode</ref> workstream parameter protobuf message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Retrieve the <ref refid="classvpl_1_1_decode" kindref="compound">Decode</ref> workstream setting protobuf message</para>
+<para><simplesect kind="return"><para>configuration setting protobuf message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="237" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_decode_1aa740c0d80a8c3afd288fe22a9dbf0656" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kindref="member">vplStatus</ref></type>
+        <definition>vplStatus vpl::Decode::UpdateDeviceConfig</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateDeviceConfig</name>
+        <briefdescription>
+<para>Update <ref refid="classvpl_1_1_decode" kindref="compound">Decode</ref> workstream parameter to device. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Propagate the <ref refid="classvpl_1_1_decode" kindref="compound">Decode</ref> workstream settings to the device</para>
+<para><simplesect kind="return"><para>status </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="245" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_decode_1a752fcf442c1f128beed8fab61c85ff38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref> *</type>
+        <definition>vplm_mem* vpl::Decode::DecodeFrame</definition>
+        <argsstring>(const void *pbs, size_t size)</argsstring>
+        <name>DecodeFrame</name>
+        <param>
+          <type>const void *</type>
+          <declname>pbs</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classvpl_1_1_decode" kindref="compound">Decode</ref> a video frame. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The DecodeFrame operation decodes a single frame of video when sufficient bitstream data is provided. Bitstream input does not need to be provided at frame boundaries. If a frame cannot be parsed a null frame is returned.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">*pbs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>bitstream input data </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>size of input data in bytes </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>decoded frame (can be a null pointer) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="258" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_decode_1a7470c8828405cedd89ada09cf4c255f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>vpl::Decode::~Decode</definition>
+        <argsstring>()</argsstring>
+        <name>~Decode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="260" column="3"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>vpl::Workstream</label>
+        <link refid="classvpl_1_1_workstream"/>
+      </node>
+      <node id="1">
+        <label>vpl::Decode</label>
+        <link refid="classvpl_1_1_decode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>vpl::Workstream</label>
+        <link refid="classvpl_1_1_workstream"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>m_config</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>m_context</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>vpl::Decode</label>
+        <link refid="classvpl_1_1_decode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>VplVideoSurfaceResolution</label>
+        <link refid="struct_vpl_video_surface_resolution"/>
+      </node>
+      <node id="3">
+        <label>vpl::VplParams</label>
+        <link refid="classvpl_1_1_vpl_params"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>m_oaspect</edgelabel>
+          <edgelabel>m_iaspect</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>m_ocrop</edgelabel>
+          <edgelabel>m_icrop</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>m_oframerate</edgelabel>
+          <edgelabel>m_iframerate</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>m_oresolution</edgelabel>
+          <edgelabel>m_iresolution</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>VplCrop</label>
+        <link refid="struct_vpl_crop"/>
+      </node>
+      <node id="9">
+        <label>vpl::DeviceInstance</label>
+        <link refid="classvpl_1_1_device_instance"/>
+      </node>
+      <node id="4">
+        <label>VplAspectRatio</label>
+        <link refid="struct_vpl_aspect_ratio"/>
+      </node>
+      <node id="6">
+        <label>VplFrameRate</label>
+        <link refid="struct_vpl_frame_rate"/>
+      </node>
+      <node id="8">
+        <label>vpl::DeviceContext</label>
+        <link refid="classvpl_1_1_device_context"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>m_device</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/vpl/vpl.hpp" line="209" column="32" bodyfile="include/vpl/vpl.hpp" bodystart="209" bodyend="262"/>
+    <listofallmembers>
+      <member refid="classvpl_1_1_decode_1ac42ab42fc897d3437e448895af1eb055" prot="public" virt="non-virtual"><scope>vpl::Decode</scope><name>Decode</name></member>
+      <member refid="classvpl_1_1_decode_1aa799ff3a68518d1aa8af3c4e98f7f53f" prot="public" virt="non-virtual"><scope>vpl::Decode</scope><name>Decode</name></member>
+      <member refid="classvpl_1_1_decode_1a752fcf442c1f128beed8fab61c85ff38" prot="public" virt="non-virtual"><scope>vpl::Decode</scope><name>DecodeFrame</name></member>
+      <member refid="classvpl_1_1_decode_1a69ed0009364bfe361d5d12f879e42394" prot="public" virt="non-virtual"><scope>vpl::Decode</scope><name>GetConfig</name></member>
+      <member refid="classvpl_1_1_workstream_1aa805a560209c8495fa23535187e73c54" prot="public" virt="non-virtual"><scope>vpl::Decode</scope><name>GetContext</name></member>
+      <member refid="classvpl_1_1_workstream_1a8bc16b1538d164a8a5c2b52d2082e03d" prot="public" virt="non-virtual"><scope>vpl::Decode</scope><name>GetState</name></member>
+      <member refid="classvpl_1_1_workstream_1a4bf4d662c7fd3345660820c1216fbb17" prot="protected" virt="non-virtual"><scope>vpl::Decode</scope><name>m_config</name></member>
+      <member refid="classvpl_1_1_workstream_1a9852ba2554bc5c6a9894e50c4e3d7eca" prot="protected" virt="non-virtual"><scope>vpl::Decode</scope><name>m_context</name></member>
+      <member refid="classvpl_1_1_workstream_1a50b22d58a6cc002a2b4367229d9ebb78" prot="protected" virt="non-virtual"><scope>vpl::Decode</scope><name>m_workstream</name></member>
+      <member refid="classvpl_1_1_workstream_1ab9b556541b82c656061159de2d1608ac" prot="protected" virt="non-virtual"><scope>vpl::Decode</scope><name>m_wstype</name></member>
+      <member refid="classvpl_1_1_workstream_1ae4c2592bfe326c74e22e3993cf0ad38d" prot="public" virt="non-virtual"><scope>vpl::Decode</scope><name>operator vplWorkstream</name></member>
+      <member refid="classvpl_1_1_workstream_1a5f899df7a09cb0c333335cc7a1ad48cf" prot="public" virt="non-virtual"><scope>vpl::Decode</scope><name>SetConfig</name></member>
+      <member refid="classvpl_1_1_decode_1aa740c0d80a8c3afd288fe22a9dbf0656" prot="public" virt="non-virtual"><scope>vpl::Decode</scope><name>UpdateDeviceConfig</name></member>
+      <member refid="classvpl_1_1_workstream_1ae5c54d72b3c545cf58b9a8d662a7685e" prot="public" virt="non-virtual"><scope>vpl::Decode</scope><name>Workstream</name></member>
+      <member refid="classvpl_1_1_workstream_1af77cc6f3c4c5a74f64b1eb140cf7c080" prot="public" virt="non-virtual"><scope>vpl::Decode</scope><name>Workstream</name></member>
+      <member refid="classvpl_1_1_decode_1a7470c8828405cedd89ada09cf4c255f8" prot="public" virt="non-virtual"><scope>vpl::Decode</scope><name>~Decode</name></member>
+      <member refid="classvpl_1_1_workstream_1a3d8cab127f1748285cb48d9d9f65ace2" prot="public" virt="non-virtual"><scope>vpl::Decode</scope><name>~Workstream</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

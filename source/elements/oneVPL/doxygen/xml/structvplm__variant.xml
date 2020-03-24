@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structvplm__variant" kind="struct" language="C++" prot="public">
+    <compoundname>vplm_variant</compoundname>
+    <includes refid="vplm_8h" local="no">vplm.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structvplm__variant_1af91db8c7d572f86d51041158b66976e3" prot="public" static="no" mutable="no">
+        <type>vplm_variantype</type>
+        <definition>vplm_variantype vplm_variant::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+<para>Value type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="132" column="22" bodyfile="include/vplmemory/vplm.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__variant_1a4612c8d5a0a3fbb26fd611c08cc768c1" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t vplm_variant::int32</definition>
+        <argsstring></argsstring>
+        <name>int32</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="135" column="21" bodyfile="include/vplmemory/vplm.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__variant_1ae0de0beef3114e8b36c67ae50e000501" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t vplm_variant::int64</definition>
+        <argsstring></argsstring>
+        <name>int64</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="136" column="21" bodyfile="include/vplmemory/vplm.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__variant_1a8aeb2ff7fc7a8d0ddb5be56b122f3cf4" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double vplm_variant::dbl</definition>
+        <argsstring></argsstring>
+        <name>dbl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="137" column="21" bodyfile="include/vplmemory/vplm.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__variant_1a319467d2d4f2c92553ef5c5cbd04c636" prot="public" static="no" mutable="no">
+        <type><ref refid="structvplm__size" kindref="compound">vplm_size</ref></type>
+        <definition>vplm_size vplm_variant::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="138" column="23" bodyfile="include/vplmemory/vplm.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__variant_1a24b546b56eed528f76b6c3dfa0fa5301" prot="public" static="no" mutable="no">
+        <type><ref refid="structvplm__rect" kindref="compound">vplm_rect</ref></type>
+        <definition>vplm_rect vplm_variant::rect</definition>
+        <argsstring></argsstring>
+        <name>rect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="139" column="23" bodyfile="include/vplmemory/vplm.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__variant_1a536a9a7028f2aab16cb7132c17bf8cd5" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* vplm_variant::ptr</definition>
+        <argsstring></argsstring>
+        <name>ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="140" column="20" bodyfile="include/vplmemory/vplm.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structvplm__variant_1ab8b0fe50feb2587460182d121eba1827" prot="public" static="no" mutable="no">
+        <type>union vplm_variant::@0</type>
+        <definition>union vplm_variant::@0 vplm_variant::@1</definition>
+        <argsstring></argsstring>
+        <name>@1</name>
+        <briefdescription>
+<para>Value holder. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm.h" line="141" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Generic value. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>vplm_size</label>
+        <link refid="structvplm__size"/>
+      </node>
+      <node id="1">
+        <label>vplm_variant</label>
+        <link refid="structvplm__variant"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>size</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>rect</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>vplm_rect</label>
+        <link refid="structvplm__rect"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/vplmemory/vplm.h" line="130" column="15" bodyfile="include/vplmemory/vplm.h" bodystart="130" bodyend="142"/>
+    <listofallmembers>
+      <member refid="structvplm__variant_1a8aeb2ff7fc7a8d0ddb5be56b122f3cf4" prot="public" virt="non-virtual"><scope>vplm_variant</scope><name>dbl</name></member>
+      <member refid="structvplm__variant_1a4612c8d5a0a3fbb26fd611c08cc768c1" prot="public" virt="non-virtual"><scope>vplm_variant</scope><name>int32</name></member>
+      <member refid="structvplm__variant_1ae0de0beef3114e8b36c67ae50e000501" prot="public" virt="non-virtual"><scope>vplm_variant</scope><name>int64</name></member>
+      <member refid="structvplm__variant_1a536a9a7028f2aab16cb7132c17bf8cd5" prot="public" virt="non-virtual"><scope>vplm_variant</scope><name>ptr</name></member>
+      <member refid="structvplm__variant_1a24b546b56eed528f76b6c3dfa0fa5301" prot="public" virt="non-virtual"><scope>vplm_variant</scope><name>rect</name></member>
+      <member refid="structvplm__variant_1a319467d2d4f2c92553ef5c5cbd04c636" prot="public" virt="non-virtual"><scope>vplm_variant</scope><name>size</name></member>
+      <member refid="structvplm__variant_1af91db8c7d572f86d51041158b66976e3" prot="public" virt="non-virtual"><scope>vplm_variant</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

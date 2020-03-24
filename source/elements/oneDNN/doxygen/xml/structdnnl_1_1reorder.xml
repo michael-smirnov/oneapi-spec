@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structdnnl_1_1reorder" kind="struct" language="C++" prot="public">
+    <compoundname>dnnl::reorder</compoundname>
+    <basecompoundref refid="structdnnl_1_1primitive" prot="public" virt="non-virtual">dnnl::primitive</basecompoundref>
+    <includes refid="dnnl_8hpp" local="no">dnnl.hpp</includes>
+    <innerclass refid="structdnnl_1_1reorder_1_1primitive__desc" prot="public">dnnl::reorder::primitive_desc</innerclass>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structdnnl_1_1reorder_1a52a3e3afb773f6b5c77e964c1fa37fde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::reorder::reorder</definition>
+        <argsstring>()</argsstring>
+        <name>reorder</name>
+        <briefdescription>
+<para>Default constructor. Produces an empty object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1777" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1reorder_1a8052aeb588fa278d3e56ef85490b6690" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::reorder::reorder</definition>
+        <argsstring>(const primitive_desc &amp;pd)</argsstring>
+        <name>reorder</name>
+        <param>
+          <type>const <ref refid="structdnnl_1_1reorder_1_1primitive__desc" kindref="compound">primitive_desc</ref> &amp;</type>
+          <declname>pd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a reorder primitive. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Primitive descriptor for reorder primitive. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1781" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1reorder_1af04b380a824816defecb488a724bfb37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::reorder::reorder</definition>
+        <argsstring>(const memory &amp;src, const memory &amp;dst, const primitive_attr &amp;attr=primitive_attr())</argsstring>
+        <name>reorder</name>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory" kindref="compound">memory</ref> &amp;</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory" kindref="compound">memory</ref> &amp;</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1primitive__attr" kindref="compound">primitive_attr</ref> &amp;</type>
+          <declname>attr</declname>
+          <defval><ref refid="structdnnl_1_1primitive__attr" kindref="compound">primitive_attr</ref>()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a reorder primitive that would reorder data between memory objects having the same memory descriptors as memory objects <computeroutput>src</computeroutput> and <computeroutput>dst</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source memory object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination memory object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>attr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Primitive attributes to use (optional). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1790" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1reorder_1a1332845d212dca21e45ebe08c9a77e2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dnnl::reorder::execute</definition>
+        <argsstring>(stream stream, memory &amp;src, memory &amp;dst)</argsstring>
+        <name>execute</name>
+        <param>
+          <type><ref refid="structdnnl_1_1stream" kindref="compound">stream</ref></type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type><ref refid="structdnnl_1_1memory" kindref="compound">memory</ref> &amp;</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type><ref refid="structdnnl_1_1memory" kindref="compound">memory</ref> &amp;</type>
+          <declname>dst</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes the reorder primitive.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stream object. The stream must belong to the same engine as the primitive. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source memory object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination memory object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1799" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1reorder_1a813ed1a442b89d113eeb3055026006bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>cl::sycl::event</type>
+        <definition>cl::sycl::event dnnl::reorder::execute_sycl</definition>
+        <argsstring>(stream &amp;stream, memory &amp;src, memory &amp;dst, const std::vector&lt; cl::sycl::event &gt; &amp;deps={})</argsstring>
+        <name>execute_sycl</name>
+        <param>
+          <type><ref refid="structdnnl_1_1stream" kindref="compound">stream</ref> &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type><ref refid="structdnnl_1_1memory" kindref="compound">memory</ref> &amp;</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type><ref refid="structdnnl_1_1memory" kindref="compound">memory</ref> &amp;</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; cl::sycl::event &gt; &amp;</type>
+          <declname>deps</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes the reorder primitive (SYCL-aware version)</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stream object. The stream must belong to the same engine as the primitive. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source memory object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination memory object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deps</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector of SYCL events that the execution should depend on.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>SYCL event that corresponds to the SYCL queue underlying the <computeroutput>stream</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="1811" column="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Reorder primitive. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>dnnl::reorder</label>
+        <link refid="structdnnl_1_1reorder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>dnnl::primitive</label>
+        <link refid="structdnnl_1_1primitive"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>dnnl::reorder</label>
+        <link refid="structdnnl_1_1reorder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>dnnl::primitive</label>
+        <link refid="structdnnl_1_1primitive"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/dnnl.hpp" line="1726" column="31" bodyfile="include/dnnl.hpp" bodystart="1726" bodyend="1813"/>
+    <listofallmembers>
+      <member refid="structdnnl_1_1reorder_1a1332845d212dca21e45ebe08c9a77e2f" prot="public" virt="non-virtual"><scope>dnnl::reorder</scope><name>execute</name></member>
+      <member refid="structdnnl_1_1primitive_1ae2704b0577f2eaad1043256d8d619bc5" prot="public" virt="non-virtual" ambiguityscope="dnnl::primitive::"><scope>dnnl::reorder</scope><name>execute</name></member>
+      <member refid="structdnnl_1_1reorder_1a813ed1a442b89d113eeb3055026006bf" prot="public" virt="non-virtual"><scope>dnnl::reorder</scope><name>execute_sycl</name></member>
+      <member refid="structdnnl_1_1primitive_1a5ce859d7357431fdeb50f308f9b22cf6" prot="public" virt="non-virtual" ambiguityscope="dnnl::primitive::"><scope>dnnl::reorder</scope><name>execute_sycl</name></member>
+      <member refid="structdnnl_1_1primitive_1af2fbde28f5dfa02647c1d78b02f9cab7" prot="public" virt="non-virtual"><scope>dnnl::reorder</scope><name>get_kind</name></member>
+      <member refid="structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169" prot="public" virt="non-virtual"><scope>dnnl::reorder</scope><name>kind</name></member>
+      <member refid="structdnnl_1_1primitive_1ab9f980d33289778feed22fa599700858" prot="public" virt="non-virtual"><scope>dnnl::reorder</scope><name>operator=</name></member>
+      <member refid="structdnnl_1_1primitive_1a621390063073910b5a1bf8c25e30bc18" prot="public" virt="non-virtual"><scope>dnnl::reorder</scope><name>primitive</name></member>
+      <member refid="structdnnl_1_1primitive_1a5c62a7df729fe0c22b5deb9afdbc337f" prot="public" virt="non-virtual"><scope>dnnl::reorder</scope><name>primitive</name></member>
+      <member refid="structdnnl_1_1reorder_1a52a3e3afb773f6b5c77e964c1fa37fde" prot="public" virt="non-virtual"><scope>dnnl::reorder</scope><name>reorder</name></member>
+      <member refid="structdnnl_1_1reorder_1a8052aeb588fa278d3e56ef85490b6690" prot="public" virt="non-virtual"><scope>dnnl::reorder</scope><name>reorder</name></member>
+      <member refid="structdnnl_1_1reorder_1af04b380a824816defecb488a724bfb37" prot="public" virt="non-virtual"><scope>dnnl::reorder</scope><name>reorder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

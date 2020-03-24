@@ -1,0 +1,701 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="struct__vplm__cl__vtable" kind="struct"><name>_vplm_cl_vtable</name>
+    <member refid="struct__vplm__cl__vtable_1ab98e581a008ab58bdc76578ae58bf3d6" kind="variable"><name>query_queues</name></member>
+    <member refid="struct__vplm__cl__vtable_1ad6806ce36e44028c1614162eff467b20" kind="variable"><name>get_image</name></member>
+    <member refid="struct__vplm__cl__vtable_1a69dad2fedf0f6d0c7178de022d523b04" kind="variable"><name>begin_image_access</name></member>
+    <member refid="struct__vplm__cl__vtable_1afc253ffe3f67c411517e5e885bf436bc" kind="variable"><name>end_image_access</name></member>
+  </compound>
+  <compound refid="struct__vplm__va__vtable" kind="struct"><name>_vplm_va_vtable</name>
+    <member refid="struct__vplm__va__vtable_1a27beb9910bf31e32336d10bc6f83208c" kind="variable"><name>query_displays</name></member>
+    <member refid="struct__vplm__va__vtable_1aaa541b821d2d603fb8fd0080526425db" kind="variable"><name>get_surface</name></member>
+    <member refid="struct__vplm__va__vtable_1a28e609c32809b078d7197cbacd77305e" kind="variable"><name>get_buffer</name></member>
+  </compound>
+  <compound refid="struct__vplm__vtable" kind="struct"><name>_vplm_vtable</name>
+    <member refid="struct__vplm__vtable_1a848f1870e86a2c6ea3aa2eaa4329ff56" kind="variable"><name>priv</name></member>
+    <member refid="struct__vplm__vtable_1a5451c0aea7451884c6bb9c419e001e72" kind="variable"><name>ref</name></member>
+    <member refid="struct__vplm__vtable_1a643a3c5bfd7d05e8911d549100006d15" kind="variable"><name>unref</name></member>
+    <member refid="struct__vplm__vtable_1a8e9c1d66edbd29c2825e5c5160a71682" kind="variable"><name>set_property</name></member>
+    <member refid="struct__vplm__vtable_1af7a300b6833fb9b1bb9f445cf069a805" kind="variable"><name>get_property</name></member>
+    <member refid="struct__vplm__vtable_1aea2d7f148c72c4b2d67de5cab9fafc6a" kind="variable"><name>clear_properties</name></member>
+    <member refid="struct__vplm__vtable_1afbc51267dd44d2c0fdfcc538106b5e08" kind="variable"><name>get_image_info</name></member>
+    <member refid="struct__vplm__vtable_1a6de57c3db3bf89e8460da4a3ff712846" kind="variable"><name>get_buffer_info</name></member>
+    <member refid="struct__vplm__vtable_1a025ac23a8a322e1e04ffaff4b8e6cb6d" kind="variable"><name>map_buffer</name></member>
+    <member refid="struct__vplm__vtable_1a69a9bb85a495535b52a0b0386d3b18aa" kind="variable"><name>unmap_buffer</name></member>
+    <member refid="struct__vplm__vtable_1a831777ab3aa926e66c43a5f561d259e8" kind="variable"><name>map_image</name></member>
+    <member refid="struct__vplm__vtable_1ae0b4d5d3528671e902aa46c0a6dcd36a" kind="variable"><name>unmap_image</name></member>
+    <member refid="struct__vplm__vtable_1ab1dd3fc2e180c3eecca584b35c53c015" kind="variable"><name>va</name></member>
+    <member refid="struct__vplm__vtable_1a2fa37deda206bcb76dc3aa0721143f0c" kind="variable"><name>cl</name></member>
+    <member refid="struct__vplm__vtable_1a6db6304ad3139894b801a396a33ab8b3" kind="variable"><name>dx11</name></member>
+    <member refid="struct__vplm__vtable_1aa517c4c614245e06350e3ad68d48ad16" kind="variable"><name>dmabuf</name></member>
+  </compound>
+  <compound refid="classvplm_1_1cl__image" kind="class"><name>vplm::cl_image</name>
+    <member refid="classvplm_1_1cl__image_1a187e43c158d0b24aa803d654e937b8d3" kind="function"><name>operator[]</name></member>
+    <member refid="classvplm_1_1cl__image_1aca99c023879176186a3199e73a51770c" kind="function"><name>mem</name></member>
+  </compound>
+  <compound refid="classvplm_1_1cpu__image" kind="class"><name>vplm::cpu_image</name>
+    <member refid="classvplm_1_1cpu__image_1a04df03987adc5f2612c8279314d83fff" kind="function"><name>buffer</name></member>
+    <member refid="classvplm_1_1cpu__image_1a178a412df8aaedae3c61852ed17d5a14" kind="function"><name>buffer_size</name></member>
+    <member refid="classvplm_1_1cpu__image_1a84485ee7e65df6468ab288dc76be61e2" kind="function"><name>data</name></member>
+    <member refid="classvplm_1_1cpu__image_1a487c7e5b365a12e04aaa6a42cd87c29e" kind="function"><name>data</name></member>
+    <member refid="classvplm_1_1cpu__image_1ac84fd5561f77dbe70f9e3802d143815e" kind="function"><name>stride</name></member>
+    <member refid="classvplm_1_1cpu__image_1aa910e41b82cdc28f3e835eb80a31590a" kind="function"><name>strides</name></member>
+  </compound>
+  <compound refid="classvpl_1_1_data_queue" kind="class"><name>vpl::DataQueue</name>
+    <member refid="classvpl_1_1_data_queue_1a6d6783a5c86e90782ef90967e85e954d" kind="variable"><name>m_limit</name></member>
+    <member refid="classvpl_1_1_data_queue_1a26392034078358415c009e3f3de77616" kind="variable"><name>m_blobs</name></member>
+    <member refid="classvpl_1_1_data_queue_1aaaff0d4387255affda3569c5f6090723" kind="function"><name>DataQueue</name></member>
+    <member refid="classvpl_1_1_data_queue_1abb2457fe534824d25b46df39b1c20337" kind="function"><name>~DataQueue</name></member>
+    <member refid="classvpl_1_1_data_queue_1ab70403348f6fa20c66b3eb5bb601ca24" kind="function"><name>IsFull</name></member>
+    <member refid="classvpl_1_1_data_queue_1a10e8e42e4920b47645af063177cad801" kind="function"><name>IsEmpty</name></member>
+    <member refid="classvpl_1_1_data_queue_1a982da7ca9d48792a29da34f871fc1905" kind="function"><name>GetFront</name></member>
+    <member refid="classvpl_1_1_data_queue_1a82cfac05525ede44bdf12efa0601c1dd" kind="function"><name>Push</name></member>
+    <member refid="classvpl_1_1_data_queue_1ad17294e3ed64ece1b55a577483d86bc0" kind="function"><name>Pop</name></member>
+    <member refid="classvpl_1_1_data_queue_1af6c154a597736cd43aaf0e731e50aaa5" kind="function"><name>GetLimit</name></member>
+  </compound>
+  <compound refid="classvpl_1_1_decode" kind="class"><name>vpl::Decode</name>
+    <member refid="classvpl_1_1_decode_1ac42ab42fc897d3437e448895af1eb055" kind="function"><name>Decode</name></member>
+    <member refid="classvpl_1_1_decode_1aa799ff3a68518d1aa8af3c4e98f7f53f" kind="function"><name>Decode</name></member>
+    <member refid="classvpl_1_1_decode_1a69ed0009364bfe361d5d12f879e42394" kind="function"><name>GetConfig</name></member>
+    <member refid="classvpl_1_1_decode_1aa740c0d80a8c3afd288fe22a9dbf0656" kind="function"><name>UpdateDeviceConfig</name></member>
+    <member refid="classvpl_1_1_decode_1a752fcf442c1f128beed8fab61c85ff38" kind="function"><name>DecodeFrame</name></member>
+    <member refid="classvpl_1_1_decode_1a7470c8828405cedd89ada09cf4c255f8" kind="function"><name>~Decode</name></member>
+  </compound>
+  <compound refid="classvpl_1_1_device_context" kind="class"><name>vpl::DeviceContext</name>
+    <member refid="classvpl_1_1_device_context_1a69c537982b1fe94d8dd5be30a84c92d6" kind="variable"><name>m_device</name></member>
+    <member refid="classvpl_1_1_device_context_1a2163278e9d67faab66eefda630a3ae7e" kind="variable"><name>m_workstreams</name></member>
+    <member refid="classvpl_1_1_device_context_1a07fdc715dd5e178b76930289c6c86fb5" kind="function"><name>DeviceContext</name></member>
+    <member refid="classvpl_1_1_device_context_1ab3a7cf85b2c2cdcbb781b3ff70049082" kind="function"><name>GetDevice</name></member>
+    <member refid="classvpl_1_1_device_context_1a9fa05958d176e95b908b6d7dd0d42d08" kind="function"><name>AddWorkstream</name></member>
+    <member refid="classvpl_1_1_device_context_1a572f7bea722383eac4ce5fdd97748d1e" kind="function"><name>RemoveWorkstream</name></member>
+    <member refid="classvpl_1_1_device_context_1a8a99341b174e0033e00c8f21f90842f5" kind="function"><name>~DeviceContext</name></member>
+  </compound>
+  <compound refid="classvpl_1_1_device_info" kind="class"><name>vpl::DeviceInfo</name>
+    <member refid="classvpl_1_1_device_info_1ad563b41e56d0cf539eda7f908a306418" kind="variable"><name>m_device</name></member>
+    <member refid="classvpl_1_1_device_info_1a2de5a1cdc1210ea0087d2c2cf1876786" kind="function"><name>GetDeviceCount</name></member>
+    <member refid="classvpl_1_1_device_info_1af2cd7a716601b079cd9ee5d013c768bb" kind="function"><name>GetDeviceProperty</name></member>
+    <member refid="classvpl_1_1_device_info_1a8b9c58aa85ab2aad18cb2347439aa6e7" kind="function"><name>GetPreferredDevice</name></member>
+    <member refid="classvpl_1_1_device_info_1ab1bc818c2752e7b6ad1942975166c691" kind="function"><name>GetPreset</name></member>
+    <member refid="classvpl_1_1_device_info_1a03a351ae97068e1174d5efb7beeb106e" kind="function"><name>DeviceInfo</name></member>
+    <member refid="classvpl_1_1_device_info_1a2ecda7a66a919376b72d1d53e1e24201" kind="function"><name>~DeviceInfo</name></member>
+    <member refid="classvpl_1_1_device_info_1a5629cf89ccacfa08ac181cc43d2baead" kind="function"><name>GetDeviceHandle</name></member>
+  </compound>
+  <compound refid="classvpl_1_1_device_instance" kind="class"><name>vpl::DeviceInstance</name>
+    <member refid="classvpl_1_1_device_instance_1aae01dbebdc45d17080e9152a8e379bc0" kind="variable"><name>m_dtype</name></member>
+    <member refid="classvpl_1_1_device_instance_1a5ce24dfaa682a681d090656d8ee147e0" kind="variable"><name>m_id</name></member>
+    <member refid="classvpl_1_1_device_instance_1aabcc35c86705f7c1f80559ecc16e0bd6" kind="function"><name>DeviceInstance</name></member>
+  </compound>
+  <compound refid="classvpl_1_1_encode" kind="class"><name>vpl::Encode</name>
+    <member refid="classvpl_1_1_encode_1a03293c92e8644a8c98f1db33b53f1a80" kind="function"><name>Encode</name></member>
+    <member refid="classvpl_1_1_encode_1abd9f0b5e9ed700067a226db76fc2c1b7" kind="function"><name>Encode</name></member>
+    <member refid="classvpl_1_1_encode_1aa535f140636515ce45bbc0b1bd4fa701" kind="function"><name>GetConfig</name></member>
+    <member refid="classvpl_1_1_encode_1a7a9118cfe5a0b5124496d631ecf6fbdd" kind="function"><name>UpdateDeviceConfig</name></member>
+    <member refid="classvpl_1_1_encode_1a6563bd39f4d562ffd2ead8e55ebc8d85" kind="function"><name>EncodeFrame</name></member>
+    <member refid="classvpl_1_1_encode_1a93b2655717d9f68d73d2c0cd1b819fa3" kind="function"><name>~Encode</name></member>
+  </compound>
+  <compound refid="classvplm_1_1opencl_1_1image" kind="class"><name>vplm::opencl::image</name>
+    <member refid="classvplm_1_1opencl_1_1image_1aed2f2262cc1af0bada228be1cdea7b3c" kind="variable"><name>memory_</name></member>
+    <member refid="classvplm_1_1opencl_1_1image_1aa80fb6bc276dde0177ca277ff28e9512" kind="function"><name>image</name></member>
+    <member refid="classvplm_1_1opencl_1_1image_1adfb8b4f313a9a6506dd8a2d586edd9f6" kind="function"><name>~image</name></member>
+  </compound>
+  <compound refid="classvplm_1_1vaapi_1_1image" kind="class"><name>vplm::vaapi::image</name>
+    <member refid="classvplm_1_1vaapi_1_1image_1ae98f2aed809f1644c2a1c389f29cff06" kind="variable"><name>memory_</name></member>
+    <member refid="classvplm_1_1vaapi_1_1image_1a296c7041422d8afca4acaea64f1144c9" kind="variable"><name>id_</name></member>
+    <member refid="classvplm_1_1vaapi_1_1image_1a4b99c3f6aa8dacd9089febd4dee896f8" kind="function"><name>image</name></member>
+    <member refid="classvplm_1_1vaapi_1_1image_1a6d0a91e1e64ae6a2ca8bffeb10b5db2a" kind="function"><name>id</name></member>
+  </compound>
+  <compound refid="classvplm_1_1cpu_1_1image" kind="class"><name>vplm::cpu::image</name>
+    <member refid="classvplm_1_1cpu_1_1image_1a4e8b70fbda28126cd37b1584bf8fc896" kind="variable"><name>memory_</name></member>
+    <member refid="classvplm_1_1cpu_1_1image_1aeb00031638afbadf64f6776c3a87bd9c" kind="function"><name>image</name></member>
+    <member refid="classvplm_1_1cpu_1_1image_1a6cee866311cdece4788e33574de024f4" kind="function"><name>~image</name></member>
+  </compound>
+  <compound refid="classvplm_1_1opencl_1_1memory" kind="class"><name>vplm::opencl::memory</name>
+    <member refid="classvplm_1_1opencl_1_1memory_1abd5e0d14430484eb43b6b5432ecd3377" kind="variable"><name>queue_</name></member>
+    <member refid="classvplm_1_1opencl_1_1memory_1aefeaf9e91bb77257c844f41b8a8d7ae8" kind="function"><name>memory</name></member>
+    <member refid="classvplm_1_1opencl_1_1memory_1a029871446bed6b099b486a2b9c7bf62d" kind="function"><name>memory</name></member>
+    <member refid="classvplm_1_1opencl_1_1memory_1a41a2a981338eaeba3dfdae566345b0c1" kind="function"><name>get</name></member>
+    <member refid="classvplm_1_1opencl_1_1memory_1afe3ab08bd308e0a1b8d38499accbd7fc" kind="function"><name>get</name></member>
+    <member refid="classvplm_1_1opencl_1_1memory_1a6506ab4f59b790e688815b1bd3fc99fd" kind="function"><name>begin_access</name></member>
+    <member refid="classvplm_1_1opencl_1_1memory_1a37ad4ac2f09feda6b45468c0a49d1dad" kind="function"><name>end_access</name></member>
+  </compound>
+  <compound refid="classvplm_1_1sycl_1_1memory" kind="class"><name>vplm::sycl::memory</name>
+    <member refid="classvplm_1_1sycl_1_1memory_1acbe4d6462287fb88b248acde7f7e1612" kind="variable"><name>mem_</name></member>
+    <member refid="classvplm_1_1sycl_1_1memory_1a0dc6ef6fd64d7651638e2b48752641fb" kind="variable"><name>cpu_image_</name></member>
+    <member refid="classvplm_1_1sycl_1_1memory_1a02776242579068de2da9b6f462569588" kind="variable"><name>cl_image_</name></member>
+    <member refid="classvplm_1_1sycl_1_1memory_1ab44c9e6030db4f26a6a1233ad8ae4c7f" kind="function"><name>memory</name></member>
+    <member refid="classvplm_1_1sycl_1_1memory_1af93714745e59098d30d740bf3ad28d99" kind="function"><name>memory</name></member>
+    <member refid="classvplm_1_1sycl_1_1memory_1a07470f991b6e6f4217a5c088c4801baa" kind="function"><name>acquire_image</name></member>
+    <member refid="classvplm_1_1sycl_1_1memory_1a0a193e8ae73814add972b597414dc116" kind="function"><name>release_image</name></member>
+    <member refid="classvplm_1_1sycl_1_1memory_1aa7b20c1f05c9ec9740543d3e43b23cea" kind="function"><name>~memory</name></member>
+    <member refid="classvplm_1_1sycl_1_1memory_1ac10a17276219b428737f829ca3b8fd0c" kind="function"><name>release_handle</name></member>
+    <member refid="classvplm_1_1sycl_1_1memory_1aa65cd8cce14215d4243f3a3c44ebf020" kind="function"><name>vplFormat2SYCL</name></member>
+    <member refid="classvplm_1_1sycl_1_1memory_1a584415a53952a2ed05546ff2475e1e86" kind="function"><name>access_mode_sycl2vpl</name></member>
+  </compound>
+  <compound refid="classvplm_1_1memory" kind="class"><name>vplm::memory</name>
+    <member refid="classvplm_1_1memory_1a51a1cc567ee2f0b4b61fdb547ca1013a" kind="function"><name>memory</name></member>
+    <member refid="classvplm_1_1memory_1a39c2d1dd6119cca72e714e0a55540374" kind="function"><name>memory</name></member>
+    <member refid="classvplm_1_1memory_1a4aa1655d01252df2cd5657a94efb4664" kind="function"><name>memory</name></member>
+    <member refid="classvplm_1_1memory_1a51bf9d6381db0376b81fa50fee6c5be3" kind="function"><name>~memory</name></member>
+    <member refid="classvplm_1_1memory_1af2989a4bd0570a12dd199b9ea4e3c3cb" kind="function"><name>operator=</name></member>
+    <member refid="classvplm_1_1memory_1a28734d8c51231cdddec604e00a7cd0ed" kind="function"><name>setProperty</name></member>
+    <member refid="classvplm_1_1memory_1af8af48198a2c82c8ec466b67abef48e5" kind="function"><name>getProperty</name></member>
+    <member refid="classvplm_1_1memory_1acb08cd96221e79b87bb01d80baf1178f" kind="function"><name>clearProperties</name></member>
+    <member refid="classvplm_1_1memory_1adaaaeb902992c533a2d36d05166d064f" kind="function"><name>ref</name></member>
+    <member refid="classvplm_1_1memory_1acbb66b03175265a08dbcd0c4f5e974b1" kind="function"><name>unref</name></member>
+  </compound>
+  <compound refid="classvplm_1_1cpu_1_1memory" kind="class"><name>vplm::cpu::memory</name>
+    <member refid="classvplm_1_1cpu_1_1memory_1a211c7859dc3669fe09dd510e065816f0" kind="function"><name>memory</name></member>
+    <member refid="classvplm_1_1cpu_1_1memory_1ae4b85025682ffde7a55bf90abb8857e4" kind="function"><name>memory</name></member>
+    <member refid="classvplm_1_1cpu_1_1memory_1a359b91017deb2564c0b9d2a92772393a" kind="function"><name>map</name></member>
+    <member refid="classvplm_1_1cpu_1_1memory_1ad297df4db1b2c4de9e436ad4073a5cb8" kind="function"><name>unmap</name></member>
+  </compound>
+  <compound refid="classvplm_1_1vaapi_1_1memory" kind="class"><name>vplm::vaapi::memory</name>
+    <member refid="classvplm_1_1vaapi_1_1memory_1a022f6a8f6f200c80a60ff6eb5d00517e" kind="variable"><name>dpy_</name></member>
+    <member refid="classvplm_1_1vaapi_1_1memory_1a334d57cee87876f63ecd40a8779d1135" kind="function"><name>memory</name></member>
+    <member refid="classvplm_1_1vaapi_1_1memory_1a5185eece9b480e575a0f6d4a460cc17d" kind="function"><name>memory</name></member>
+    <member refid="classvplm_1_1vaapi_1_1memory_1a5391a2679db2c88a3320d2c8307b4ca7" kind="function"><name>getBufferId</name></member>
+    <member refid="classvplm_1_1vaapi_1_1memory_1a9ae68de0fee44892a06fe7afe13cfcdf" kind="function"><name>getSurfaceId</name></member>
+    <member refid="classvplm_1_1vaapi_1_1memory_1afa0e2142d60b381bc24bcba3dc7748c6" kind="function"><name>getBufferId</name></member>
+    <member refid="classvplm_1_1vaapi_1_1memory_1aa49505da782895d80d2310e238427a2e" kind="function"><name>getSurfaceId</name></member>
+  </compound>
+  <compound refid="classvplm_1_1variant" kind="class"><name>vplm::variant</name>
+    <member refid="classvplm_1_1variant_1a9e6f9c0b959fa7d6b95e58ed921f25ea" kind="function"><name>variant</name></member>
+    <member refid="classvplm_1_1variant_1aeb46f9d960bd8aaf5389ef070e4dec08" kind="function"><name>variant</name></member>
+    <member refid="classvplm_1_1variant_1a095f1ed22a6f90939d02a7629a74fd3b" kind="function"><name>variant</name></member>
+    <member refid="classvplm_1_1variant_1ac0722792806cc7203c2077a54abd079a" kind="function"><name>variant</name></member>
+    <member refid="classvplm_1_1variant_1a416be6e06cf41e0b2e1932bf7e8dfcd2" kind="function"><name>variant</name></member>
+    <member refid="classvplm_1_1variant_1a8cb648fe14f437d7004aa3b10cb98568" kind="function"><name>variant</name></member>
+    <member refid="classvplm_1_1variant_1af442cd4da774948a7d591e97c73671d8" kind="function"><name>variant</name></member>
+    <member refid="classvplm_1_1variant_1a2653f457e95867d0c448b336e70381b1" kind="function"><name>variant</name></member>
+    <member refid="classvplm_1_1variant_1a80fc304907c101bdfab5d4ef96ed3083" kind="function"><name>operator int32_t</name></member>
+    <member refid="classvplm_1_1variant_1a6a470ebdf28ee3d84b3876d796a4b8d5" kind="function"><name>operator int64_t</name></member>
+    <member refid="classvplm_1_1variant_1a8fbedc9b0c9157432e89857f9d36ce35" kind="function"><name>operator double</name></member>
+    <member refid="classvplm_1_1variant_1ae61ff6ad06b59fe0d95dd991e5546138" kind="function"><name>operator vplm_size</name></member>
+    <member refid="classvplm_1_1variant_1a039e208a67fa1120e137edb3e97a3864" kind="function"><name>operator vplm_rect</name></member>
+    <member refid="classvplm_1_1variant_1a65c416b2782f2e7ddd0dbb95b5d9ee30" kind="function"><name>operator T*</name></member>
+    <member refid="classvplm_1_1variant_1a09d319725aed72c2efa8ff14f09df7a2" kind="function"><name>operator T</name></member>
+  </compound>
+  <compound refid="classvpl_1_1_video_process" kind="class"><name>vpl::VideoProcess</name>
+    <member refid="classvpl_1_1_video_process_1a47b2bd44ec21a107efd4011075a588d4" kind="function"><name>VideoProcess</name></member>
+    <member refid="classvpl_1_1_video_process_1ad6baf0fefdcc392c90482a8b28f77a7d" kind="function"><name>VideoProcess</name></member>
+    <member refid="classvpl_1_1_video_process_1a6f7e051b3ee640633f5a3b777629f782" kind="function"><name>GetConfig</name></member>
+    <member refid="classvpl_1_1_video_process_1ae05c6b6c45de89b3ce1d31830df5697a" kind="function"><name>UpdateDeviceConfig</name></member>
+    <member refid="classvpl_1_1_video_process_1a02ccbc332bfe95914f44a6c5defe4569" kind="function"><name>ProcessFrame</name></member>
+    <member refid="classvpl_1_1_video_process_1a3447c93ceed0d1c7fee07e9cb7e8dabd" kind="function"><name>~VideoProcess</name></member>
+  </compound>
+  <compound refid="struct_vpl_aspect_ratio" kind="struct"><name>VplAspectRatio</name>
+    <member refid="struct_vpl_aspect_ratio_1a7ec2a7796bac3f2b89040b6c253ece29" kind="variable"><name>ratio_w</name></member>
+    <member refid="struct_vpl_aspect_ratio_1a41e985f0367059f014a8bf3f998a9c94" kind="variable"><name>ratio_h</name></member>
+  </compound>
+  <compound refid="classvpl_1_1_vpl_blob" kind="class"><name>vpl::VplBlob</name>
+    <member refid="classvpl_1_1_vpl_blob_1acaff9d1272fa78fcb7e9f9d81d4fb845" kind="variable"><name>m_type</name></member>
+    <member refid="classvpl_1_1_vpl_blob_1a7054790c01d146ad1a4e8a725774d949" kind="variable"><name>m_size</name></member>
+    <member refid="classvpl_1_1_vpl_blob_1a2b88a534bee7243a1f5bf3f95b98dbd8" kind="variable"><name>m_data</name></member>
+    <member refid="classvpl_1_1_vpl_blob_1a4e5c834411ad50766be1e27a32fdf817" kind="function"><name>VplBlob</name></member>
+    <member refid="classvpl_1_1_vpl_blob_1a8a4f99c87821eeaf1fe97649cfd55845" kind="function"><name>~VplBlob</name></member>
+  </compound>
+  <compound refid="struct_vpl_crop" kind="struct"><name>VplCrop</name>
+    <member refid="struct_vpl_crop_1ac8d2f4c56023477cb391d7d7b632250b" kind="variable"><name>crop_x</name></member>
+    <member refid="struct_vpl_crop_1a927fe138018b0afeed6b84e0f139d4c8" kind="variable"><name>crop_y</name></member>
+    <member refid="struct_vpl_crop_1a844e1da62ad514bd177563c00b78383b" kind="variable"><name>crop_w</name></member>
+    <member refid="struct_vpl_crop_1a7f6fa69ef8bce1286d7173870dc013e1" kind="variable"><name>crop_h</name></member>
+  </compound>
+  <compound refid="structvpl_1_1_vpl_device_property" kind="struct"><name>vpl::VplDeviceProperty</name>
+    <member refid="structvpl_1_1_vpl_device_property_1a5e9022ffca22fb854a5fc1b80a1b3294" kind="variable"><name>type</name></member>
+    <member refid="structvpl_1_1_vpl_device_property_1ab7e25e11b212ccef69b7567f031fc63d" kind="variable"><name>vendorId</name></member>
+    <member refid="structvpl_1_1_vpl_device_property_1a6bbe43f916ab17ef8b510c352b1d76cc" kind="variable"><name>deviceId</name></member>
+    <member refid="structvpl_1_1_vpl_device_property_1a9d675498ab2dd649a41cb007d664fb83" kind="variable"><name>subdeviceId</name></member>
+    <member refid="structvpl_1_1_vpl_device_property_1a690b4d9bc3c3fbe77a6b9f39f2ab0f4c" kind="variable"><name>coreClockRate</name></member>
+    <member refid="structvpl_1_1_vpl_device_property_1a9b3940278de5b238d0b210023fe81694" kind="variable"><name>maxCmdEngines</name></member>
+    <member refid="structvpl_1_1_vpl_device_property_1abdda39fde70e43188df03ba5ef1e99a3" kind="variable"><name>unifiedMemorySupported</name></member>
+    <member refid="structvpl_1_1_vpl_device_property_1a7a7a029d69e5d9262b8d90c3527265fd" kind="variable"><name>eccMemorySupported</name></member>
+    <member refid="structvpl_1_1_vpl_device_property_1a222cdffdc84df6fc9448f0a9789712c3" kind="variable"><name>numUnits</name></member>
+    <member refid="structvpl_1_1_vpl_device_property_1affe74b1c19235f1489fc378f5334cbd3" kind="variable"><name>name</name></member>
+  </compound>
+  <compound refid="struct_v_p_l_frame_info" kind="struct"><name>VPLFrameInfo</name>
+    <member refid="struct_v_p_l_frame_info_1ac79e59867b81c9e30495a0988891923b" kind="variable"><name>BitDepthLuma</name></member>
+    <member refid="struct_v_p_l_frame_info_1a24f14b3422ffc096ee7c5bff8973df98" kind="variable"><name>BitDepthChroma</name></member>
+    <member refid="struct_v_p_l_frame_info_1a5efe1f8e97bcd3a79553affe8345d548" kind="variable"><name>Shift</name></member>
+    <member refid="struct_v_p_l_frame_info_1a97605dedd34c04ef4c9a208141186254" kind="variable"><name>FourCC</name></member>
+    <member refid="struct_v_p_l_frame_info_1a9f3e7008b01e6dafb171e55ab8599d50" kind="variable"><name>Width</name></member>
+    <member refid="struct_v_p_l_frame_info_1a80e39c20ae9651504a45ab1a370ea544" kind="variable"><name>Height</name></member>
+    <member refid="struct_v_p_l_frame_info_1a47257f7d72f6a8ceb95f399062370cfa" kind="variable"><name>CropX</name></member>
+    <member refid="struct_v_p_l_frame_info_1a460cc36452253612df40b30a56b1d49b" kind="variable"><name>CropY</name></member>
+    <member refid="struct_v_p_l_frame_info_1a6972cfdf3e664b29622deca57b5823d0" kind="variable"><name>CropW</name></member>
+    <member refid="struct_v_p_l_frame_info_1aba173cb025c822209ec8ec6389f5b269" kind="variable"><name>CropH</name></member>
+    <member refid="struct_v_p_l_frame_info_1a26975c7d6a9efb11228ef745aaa2b5ae" kind="variable"><name>FrameRateExtN</name></member>
+    <member refid="struct_v_p_l_frame_info_1a1c097f6cd30a19aca816a86d2a52a3ca" kind="variable"><name>FrameRateExtD</name></member>
+    <member refid="struct_v_p_l_frame_info_1a0917ffdff2100fb4861c0e7646c5cb0f" kind="variable"><name>AspectRatioW</name></member>
+    <member refid="struct_v_p_l_frame_info_1ada5b5d82e0b0a95a3b159a4c4bc1906f" kind="variable"><name>AspectRatioH</name></member>
+    <member refid="struct_v_p_l_frame_info_1a7927cc6c46267a8a7424b1ad9a46e3ed" kind="variable"><name>PicStruct</name></member>
+    <member refid="struct_v_p_l_frame_info_1ab4da3ca124e3481fcbf89e52a959d4ed" kind="variable"><name>ChromaFormat</name></member>
+    <member refid="struct_v_p_l_frame_info_1abc19d3ffaa67be1755e44f072b97e8d2" kind="variable"><name>reserved</name></member>
+  </compound>
+  <compound refid="struct_vpl_frame_rate" kind="struct"><name>VplFrameRate</name>
+    <member refid="struct_vpl_frame_rate_1af89088d642ace22b11c3b52b9ae3822c" kind="variable"><name>FrameRateExtN</name></member>
+    <member refid="struct_vpl_frame_rate_1aae010b3b7e72fd34e715502ead4305d0" kind="variable"><name>FrameRateExtD</name></member>
+  </compound>
+  <compound refid="structvplm__buffer__info" kind="struct"><name>vplm_buffer_info</name>
+    <member refid="structvplm__buffer__info_1ad7b9437bbf73fce5a470c9122f0def35" kind="variable"><name>data_type</name></member>
+    <member refid="structvplm__buffer__info_1ac9c867936356a2da3facbbcbe4f15121" kind="variable"><name>size</name></member>
+    <member refid="structvplm__buffer__info_1acd6ff8ea5e19b32b52f3d59d549765fe" kind="variable"><name>reserved</name></member>
+  </compound>
+  <compound refid="structvplm__cl__image" kind="struct"><name>vplm_cl_image</name>
+    <member refid="structvplm__cl__image_1acd34cecb53f16c987201b3b6e1a00e62" kind="variable"><name>priv</name></member>
+    <member refid="structvplm__cl__image_1a55201b1d63ff7157c3c1f9c2f79a4ad2" kind="variable"><name>memory</name></member>
+    <member refid="structvplm__cl__image_1a8eb2ddaeb5a7af43ab4a7a083e0bf199" kind="variable"><name>num_planes</name></member>
+    <member refid="structvplm__cl__image_1aaa20e50bcac500a71f8405d4c57cc183" kind="variable"><name>clmem</name></member>
+    <member refid="structvplm__cl__image_1a6a6c5757be2f5bf4838c7166ebc9d150" kind="variable"><name>planes</name></member>
+  </compound>
+  <compound refid="structvplm__cpu__buffer" kind="struct"><name>vplm_cpu_buffer</name>
+    <member refid="structvplm__cpu__buffer_1a0668685bb8e0c94b75e732b352190351" kind="variable"><name>priv</name></member>
+    <member refid="structvplm__cpu__buffer_1a18de131dbd043dc6bceec797eef7f398" kind="variable"><name>info</name></member>
+    <member refid="structvplm__cpu__buffer_1a6910d2a1b3d4b6efd532c22f8307fba9" kind="variable"><name>memory</name></member>
+    <member refid="structvplm__cpu__buffer_1ae9f0ace1c3dc0a03924299ef71735144" kind="variable"><name>data</name></member>
+    <member refid="structvplm__cpu__buffer_1a16a2a01da011d3f0fd291205d50d3cfd" kind="variable"><name>size</name></member>
+  </compound>
+  <compound refid="structvplm__cpu__image" kind="struct"><name>vplm_cpu_image</name>
+    <member refid="structvplm__cpu__image_1a9c9b037a5eb2c4d84762d41fb012e2fe" kind="variable"><name>priv</name></member>
+    <member refid="structvplm__cpu__image_1af43c26c204002925204db944ee4224fc" kind="variable"><name>info</name></member>
+    <member refid="structvplm__cpu__image_1a0eb8fa45e2e0c81c419496ba51fab20a" kind="variable"><name>memory</name></member>
+    <member refid="structvplm__cpu__image_1af6174f5b8b9896c8ec34e98412a2849d" kind="variable"><name>buffer</name></member>
+    <member refid="structvplm__cpu__image_1ab1cc337fac862d56d925f1c49e2bed51" kind="variable"><name>buffer_size</name></member>
+    <member refid="structvplm__cpu__image_1ac8f6a14b5e6ea454d7df6150fe28b939" kind="variable"><name>num_planes</name></member>
+    <member refid="structvplm__cpu__image_1a96fb036ad343e0e3f07f76262ad507d7" kind="variable"><name>data</name></member>
+    <member refid="structvplm__cpu__image_1a7b2f76202986c2018588bada14daed8f" kind="variable"><name>stride</name></member>
+    <member refid="structvplm__cpu__image_1a36f86f6c723b40190957c4349313e5a3" kind="variable"><name>planes</name></member>
+  </compound>
+  <compound refid="structvplm__image__info" kind="struct"><name>vplm_image_info</name>
+    <member refid="structvplm__image__info_1a193c77d624a202a8c82182e0ba921b69" kind="variable"><name>format</name></member>
+    <member refid="structvplm__image__info_1a187369fce6615bc8ecf2b7c36c581b73" kind="variable"><name>width</name></member>
+    <member refid="structvplm__image__info_1a3a66738580fa1475bd747c518194f680" kind="variable"><name>height</name></member>
+    <member refid="structvplm__image__info_1a723bc779ad627ded7f01d570606025a7" kind="variable"><name>aligned_width</name></member>
+    <member refid="structvplm__image__info_1ae8eb2f09e0b0c038b111a72c5f9fd49e" kind="variable"><name>aligned_height</name></member>
+    <member refid="structvplm__image__info_1acc0a4f0241128eaf2f555ccc9c0fcac9" kind="variable"><name>reserved</name></member>
+  </compound>
+  <compound refid="structvplm__rect" kind="struct"><name>vplm_rect</name>
+    <member refid="structvplm__rect_1a49d73afcac7782eb08d433bc14ff8093" kind="variable"><name>x</name></member>
+    <member refid="structvplm__rect_1af6cf65d8cf41c132ba9f716ab53d4c8b" kind="variable"><name>y</name></member>
+    <member refid="structvplm__rect_1ad48c8babc202bfaedeafcd9000f708db" kind="variable"><name>w</name></member>
+    <member refid="structvplm__rect_1a8162aec1de0c60c36d5954257f3ad412" kind="variable"><name>h</name></member>
+  </compound>
+  <compound refid="structvplm__size" kind="struct"><name>vplm_size</name>
+    <member refid="structvplm__size_1af89cf1a6b85b46abdca41d06b6707b0a" kind="variable"><name>w</name></member>
+    <member refid="structvplm__size_1ab771ee261afcdbdda3066eb9204f05f7" kind="variable"><name>h</name></member>
+  </compound>
+  <compound refid="structvplm__variant" kind="struct"><name>vplm_variant</name>
+    <member refid="structvplm__variant_1af91db8c7d572f86d51041158b66976e3" kind="variable"><name>type</name></member>
+    <member refid="structvplm__variant_1a4612c8d5a0a3fbb26fd611c08cc768c1" kind="variable"><name>int32</name></member>
+    <member refid="structvplm__variant_1ae0de0beef3114e8b36c67ae50e000501" kind="variable"><name>int64</name></member>
+    <member refid="structvplm__variant_1a8aeb2ff7fc7a8d0ddb5be56b122f3cf4" kind="variable"><name>dbl</name></member>
+    <member refid="structvplm__variant_1a319467d2d4f2c92553ef5c5cbd04c636" kind="variable"><name>size</name></member>
+    <member refid="structvplm__variant_1a24b546b56eed528f76b6c3dfa0fa5301" kind="variable"><name>rect</name></member>
+    <member refid="structvplm__variant_1a536a9a7028f2aab16cb7132c17bf8cd5" kind="variable"><name>ptr</name></member>
+    <member refid="structvplm__variant_1ab8b0fe50feb2587460182d121eba1827" kind="variable"><name>@1</name></member>
+  </compound>
+  <compound refid="classvpl_1_1_vpl_params" kind="class"><name>vpl::VplParams</name>
+    <member refid="classvpl_1_1_vpl_params_1ad095e6d85894ed35844e6ac35b7baf4e" kind="variable"><name>m_iformat</name></member>
+    <member refid="classvpl_1_1_vpl_params_1ae897a9cf9433a0f937d7ba841017fe86" kind="variable"><name>m_oformat</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a46d4a7a09ecd89ebd648946ad4249afe" kind="variable"><name>m_iframerate</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a56c703cd0bce74c1f924a44d83d131b9" kind="variable"><name>m_oframerate</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a895188f4c2abb3ee460e25d0a83b68ce" kind="variable"><name>m_iresolution</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a7cdb215f865f4c877dffe1eb1d050c7b" kind="variable"><name>m_oresolution</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a4cb9c51b41ed46be38653e6828bfa17e" kind="variable"><name>m_icrop</name></member>
+    <member refid="classvpl_1_1_vpl_params_1aaaf67a62d59b768a7c214bda43a5ff5f" kind="variable"><name>m_ocrop</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a073b6e319b53871deaf15fbc15e6d29a" kind="variable"><name>m_iaspect</name></member>
+    <member refid="classvpl_1_1_vpl_params_1ab5b96053b0084df8ea56826587b6eb56" kind="variable"><name>m_oaspect</name></member>
+    <member refid="classvpl_1_1_vpl_params_1ac6623ff036b8a41592a396661859883f" kind="variable"><name>m_picstruct</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a6c273cbb1560fd9a053b7e0fb93e6b9c" kind="function"><name>GetInputFormat</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a24ae885e6f24607e2af48791570ebd10" kind="function"><name>SetInputFormat</name></member>
+    <member refid="classvpl_1_1_vpl_params_1aae79f06d3025740d33d33ba1ffa2e150" kind="function"><name>GetOutputFormat</name></member>
+    <member refid="classvpl_1_1_vpl_params_1aa1c47e6619dfce5a1b31f665a2404648" kind="function"><name>SetOutputFormat</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a6ae5e050e4f73e4371022640e54a0c58" kind="function"><name>GetInputFrameRate</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a95bcac5f46050f2a3fd187968fbe87ce" kind="function"><name>SetInputFrameRate</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a246ed125ea220c06cc3ca1ac8a6188ac" kind="function"><name>GetOutputFrameRate</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a50aaae7a76ffead4f3e19ebb33e9d1e2" kind="function"><name>SetOutputFrameRate</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a37f27e10d7bd397fc75fd53cd3595579" kind="function"><name>GetInputResolution</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a7dd9af1c5a0246e06f017521588154e7" kind="function"><name>SetInputResolution</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a9f05a7cb82348824fdf7ed1c9f1faeba" kind="function"><name>GetOutputResolution</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a767a7c76b9cc695770f55214cfa56671" kind="function"><name>SetOutputResolution</name></member>
+    <member refid="classvpl_1_1_vpl_params_1aeeff08cd349497d013950e707ee24678" kind="function"><name>GetInputCrop</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a13e5319387d28306b787389d60fbafaa" kind="function"><name>SetInputCrop</name></member>
+    <member refid="classvpl_1_1_vpl_params_1aed2d4208f99cd51ce846f917be7e00b6" kind="function"><name>GetOutputCrop</name></member>
+    <member refid="classvpl_1_1_vpl_params_1ab1528986930a8710195a02b385f7bb8c" kind="function"><name>SetOutputCrop</name></member>
+    <member refid="classvpl_1_1_vpl_params_1ab4cf507c1ab8f68c6bbc1e212d74c431" kind="function"><name>GetInputAspectRatio</name></member>
+    <member refid="classvpl_1_1_vpl_params_1ac50d99249822c29e55942856e2c9ebba" kind="function"><name>SetInputAspectRatio</name></member>
+    <member refid="classvpl_1_1_vpl_params_1a290a13ef6a2fd44c36d467eda5b027e5" kind="function"><name>GetOutputAspectRatio</name></member>
+    <member refid="classvpl_1_1_vpl_params_1ac54bae398004e1f6cf63b691c077e760" kind="function"><name>SetOutputAspectRatio</name></member>
+    <member refid="classvpl_1_1_vpl_params_1aeefc9b64bf8758d5ec3168b33694f067" kind="function"><name>GetPictStruct</name></member>
+    <member refid="classvpl_1_1_vpl_params_1ac48b8b7dcd00e2e7ac471b2a5b399ddb" kind="function"><name>SetPictStruct</name></member>
+    <member refid="classvpl_1_1_vpl_params_1ac117739c110926bb0737781768a859de" kind="function"><name>VplParams</name></member>
+    <member refid="classvpl_1_1_vpl_params_1ac38c39b58bc868d59212b9f35aa87276" kind="function"><name>~VplParams</name></member>
+  </compound>
+  <compound refid="classvpl_1_1_vpl_params_decode" kind="class"><name>vpl::VplParamsDecode</name>
+    <member refid="classvpl_1_1_vpl_params_decode_1a5a16bd5f8d84439152ffa8a412f3c98a" kind="variable"><name>m_codec</name></member>
+    <member refid="classvpl_1_1_vpl_params_decode_1ad6fcb4f42e89c1d61169f4f3107af079" kind="variable"><name>m_buffersz</name></member>
+    <member refid="classvpl_1_1_vpl_params_decode_1a0e0e716f7e337287902772263703ee5a" kind="variable"><name>m_maxnumbuffers</name></member>
+    <member refid="classvpl_1_1_vpl_params_decode_1a336116678c00bc2692d0aede58424f19" kind="function"><name>GetCodecType</name></member>
+    <member refid="classvpl_1_1_vpl_params_decode_1a9eb0f68bc263fea54f1dfe05749c8619" kind="function"><name>SetCodecType</name></member>
+    <member refid="classvpl_1_1_vpl_params_decode_1aa2ce15ed15eb95b18277bf0a305b18a1" kind="function"><name>GetDecodeBufferSize</name></member>
+    <member refid="classvpl_1_1_vpl_params_decode_1a6d53a28d48176e4edc1aee1bf4b7262c" kind="function"><name>SetDecodeBufferSize</name></member>
+    <member refid="classvpl_1_1_vpl_params_decode_1a8e2d3c1b7160beec77065edb39965262" kind="function"><name>GetMaxNumBuffers</name></member>
+    <member refid="classvpl_1_1_vpl_params_decode_1a936c06161b32746fc798d4521b9b3a12" kind="function"><name>SetMaxNumBuffers</name></member>
+    <member refid="classvpl_1_1_vpl_params_decode_1a5de2f54f35e8de4e2da87ddd5278c466" kind="function"><name>VplParamsDecode</name></member>
+    <member refid="classvpl_1_1_vpl_params_decode_1ae0d88e4d01dbb098761321980ffde21f" kind="function"><name>~VplParamsDecode</name></member>
+  </compound>
+  <compound refid="classvpl_1_1_vpl_params_encode" kind="class"><name>vpl::VplParamsEncode</name>
+    <member refid="classvpl_1_1_vpl_params_encode_1ae540fe9f29d63f0138cdf9f25b69ca40" kind="variable"><name>m_codec</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1ab6638a8ee86fb894d1d98ca926bc34f1" kind="variable"><name>m_bitratekbps</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a85e6bb08facb31e9f9fe1be49e943b50" kind="variable"><name>m_iframeinterval</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1acaaf527bef1242efe381ec463198bcae" kind="variable"><name>m_bframeinterval</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1af0b77f56b60a8c49fe66bcace97e7205" kind="variable"><name>m_fr_num</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a0e6236f29574db18dc62c2128e2504f0" kind="variable"><name>m_fr_denom</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a1195c7e09c1c0a22db583ba1f5a485a1" kind="variable"><name>m_encodepreset</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a69eee5ef994357a546b4c64d47deac0c" kind="variable"><name>m_ratecontrol</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1aedb7fdb8a651b017e69f61dbb051bddb" kind="variable"><name>m_scenario</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a7de740126aec73d0cfba8434b4a6c8e6" kind="variable"><name>m_brc</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1afbb5d43205a23da2cd3eee69e3675bb2" kind="function"><name>GetCodecType</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a320cda8891e40837267bc70e7d81a356" kind="function"><name>SetCodecType</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a0b563255158d582d31d06591684025dc" kind="function"><name>GetBitRateKps</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1aa3b0b7a2a79ded318f2a5650baab92e2" kind="function"><name>SetBitRateKps</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a3050dcb85fdb00c9a0cb9737bfb32fc7" kind="function"><name>GetIFrameInterval</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a069d45cd339477d2b10d67ff80078269" kind="function"><name>SetIFrameInterval</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a8b689fb76ae091f7e15485e1f387bd1b" kind="function"><name>GetBFrameInterval</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a7f581e22608e82935409655e34897e0f" kind="function"><name>SetBFrameInterval</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a8e726ee90e974d1722e5f973efe880e2" kind="function"><name>GetFrameRateNumerator</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a88c01d107f6c4f2d956a1389ae6faa57" kind="function"><name>SetFrameRateNumerator</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a3d873950b63ad534fdfbe64812acb1dc" kind="function"><name>GetFrameRateDenominator</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a91f160c9df29aa29c08258a162d18295" kind="function"><name>SetFrameRateDenominator</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1acd814bff3855208ffc21695b2158c3a8" kind="function"><name>GetEncodePreset</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a0065ea147842cd60a82859cea1cd4bf4" kind="function"><name>SetEncodePreset</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a3441d7fab5d0730f2e930e9a4fa619e3" kind="function"><name>GetRateControl</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1ad807d3f83969e7b4bcc641f66e813ecd" kind="function"><name>SetRateControl</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a19f8a4ca95af278477889e4c9b2c2aaa" kind="function"><name>GetBRC</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a20dec1cdf5d60c74b7fac970b21f4aac" kind="function"><name>SetBRC</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1a8909ed32c16337877ab3859508b06236" kind="function"><name>VplParamsEncode</name></member>
+    <member refid="classvpl_1_1_vpl_params_encode_1afd79858ee47922dafb87fc1d11871220" kind="function"><name>~VplParamsEncode</name></member>
+  </compound>
+  <compound refid="struct_vpl_version" kind="struct"><name>VplVersion</name>
+    <member refid="struct_vpl_version_1a00eaa355d84fe6c4cbb9d445ab6b9451" kind="variable"><name>major</name></member>
+    <member refid="struct_vpl_version_1aca00b7b0800625b6dcb63584afb6d4aa" kind="variable"><name>major_update</name></member>
+    <member refid="struct_vpl_version_1acf9d0d9c5476fd85a3e45f95ed9304be" kind="variable"><name>phase</name></member>
+    <member refid="struct_vpl_version_1ae26b1758b8d2ce4118ab141edd418788" kind="variable"><name>phase_update</name></member>
+  </compound>
+  <compound refid="struct_vpl_video_surface_resolution" kind="struct"><name>VplVideoSurfaceResolution</name>
+    <member refid="struct_vpl_video_surface_resolution_1a11896af53830c38153c6c25e78d7323d" kind="variable"><name>width</name></member>
+    <member refid="struct_vpl_video_surface_resolution_1a19137b5a1761ffe56d6747b990364b01" kind="variable"><name>height</name></member>
+  </compound>
+  <compound refid="classvpl_1_1_workstream" kind="class"><name>vpl::Workstream</name>
+    <member refid="classvpl_1_1_workstream_1a9852ba2554bc5c6a9894e50c4e3d7eca" kind="variable"><name>m_context</name></member>
+    <member refid="classvpl_1_1_workstream_1a4bf4d662c7fd3345660820c1216fbb17" kind="variable"><name>m_config</name></member>
+    <member refid="classvpl_1_1_workstream_1ab9b556541b82c656061159de2d1608ac" kind="variable"><name>m_wstype</name></member>
+    <member refid="classvpl_1_1_workstream_1a50b22d58a6cc002a2b4367229d9ebb78" kind="variable"><name>m_workstream</name></member>
+    <member refid="classvpl_1_1_workstream_1ae5c54d72b3c545cf58b9a8d662a7685e" kind="function"><name>Workstream</name></member>
+    <member refid="classvpl_1_1_workstream_1af77cc6f3c4c5a74f64b1eb140cf7c080" kind="function"><name>Workstream</name></member>
+    <member refid="classvpl_1_1_workstream_1aa805a560209c8495fa23535187e73c54" kind="function"><name>GetContext</name></member>
+    <member refid="classvpl_1_1_workstream_1a8bc16b1538d164a8a5c2b52d2082e03d" kind="function"><name>GetState</name></member>
+    <member refid="classvpl_1_1_workstream_1a654df700ebcef8f9ad8ac8404b8398b1" kind="function"><name>GetConfig</name></member>
+    <member refid="classvpl_1_1_workstream_1a5f899df7a09cb0c333335cc7a1ad48cf" kind="function"><name>SetConfig</name></member>
+    <member refid="classvpl_1_1_workstream_1a237865ca7fb2b96bf91528369101749f" kind="function"><name>UpdateDeviceConfig</name></member>
+    <member refid="classvpl_1_1_workstream_1ae4c2592bfe326c74e22e3993cf0ad38d" kind="function"><name>operator vplWorkstream</name></member>
+    <member refid="classvpl_1_1_workstream_1a3d8cab127f1748285cb48d9d9f65ace2" kind="function"><name>~Workstream</name></member>
+  </compound>
+  <compound refid="classvplm_1_1wrapper" kind="class"><name>vplm::wrapper</name>
+    <member refid="classvplm_1_1wrapper_1a798603677edb68f06e196db09281a68f" kind="variable"><name>object_</name></member>
+    <member refid="classvplm_1_1wrapper_1a8ad143ad41c6f7c49ac60d61f67a39a5" kind="function"><name>wrapper</name></member>
+    <member refid="classvplm_1_1wrapper_1a3de834fb4d08f1c99f7653b38e70eb63" kind="function"><name>wrapper</name></member>
+    <member refid="classvplm_1_1wrapper_1ae9a073fb0ba546a1c00dddd84c46d48b" kind="function"><name>operator=</name></member>
+    <member refid="classvplm_1_1wrapper_1a2da9a1c3ac7046862b28e00f1f37653a" kind="function"><name>operator()</name></member>
+    <member refid="classvplm_1_1wrapper_1a6603d37b01bf19621f49803136f575fd" kind="function"><name>operator()</name></member>
+    <member refid="classvplm_1_1wrapper_1ada0f50315cdc634c0114894f0eec844b" kind="function"><name>operator&amp;</name></member>
+    <member refid="classvplm_1_1wrapper_1a7da3f4d86ddf6351e22724e7b12d31d6" kind="function"><name>operator&amp;</name></member>
+  </compound>
+  <compound refid="namespacevpl" kind="namespace"><name>vpl</name>
+    <member refid="vpl_8hpp_1a4aa6880b93090bfb68a0f5e413bc51ae" kind="enum"><name>VplBlobType</name></member>
+    <member refid="vpl_8hpp_1a4aa6880b93090bfb68a0f5e413bc51aead5d515daac5825c8ffbdc35c2a467918" kind="enumvalue"><name>VPL_BLOB_BS</name></member>
+    <member refid="vpl_8hpp_1a4aa6880b93090bfb68a0f5e413bc51aeaeba82e8e7cc408a344ea1277d5380ce2" kind="enumvalue"><name>VPL_BLOB_VPLM</name></member>
+    <member refid="vpl__utils_8hpp_1a1296bf7c1d1abd7e57b2a77912f9bd51" kind="function"><name>vplWriteImagesArray</name></member>
+  </compound>
+  <compound refid="namespacevplm" kind="namespace"><name>vplm</name>
+  </compound>
+  <compound refid="namespacevplm_1_1cpu" kind="namespace"><name>vplm::cpu</name>
+    <member refid="vplm_09_09_8h_1a990ec2c3e199a4f1010fc76e818eb30a" kind="function"><name>make_memory</name></member>
+    <member refid="vplm_09_09_8h_1a53939be4f2d7f74b7422569019dc2714" kind="function"><name>make_memory</name></member>
+    <member refid="vplm_09_09_8h_1a4d804b9c209fd1267fb688c724a2a32d" kind="function"><name>make_memory</name></member>
+  </compound>
+  <compound refid="namespacevplm_1_1opencl" kind="namespace"><name>vplm::opencl</name>
+    <member refid="vplm__opencl_09_09_8h_1af79431008211d87a04b1a487c07c20d2" kind="function"><name>make_memory</name></member>
+  </compound>
+  <compound refid="namespacevplm_1_1sycl" kind="namespace"><name>vplm::sycl</name>
+  </compound>
+  <compound refid="namespacevplm_1_1vaapi" kind="namespace"><name>vplm::vaapi</name>
+    <member refid="vplm__vaapi_09_09_8h_1a421e445979769d83d9ec98791a981959" kind="function"><name>make_surface</name></member>
+    <member refid="vplm__vaapi_09_09_8h_1ab6f2b43c7a7593687d7baf69ec5f3700" kind="function"><name>make_buffer</name></member>
+  </compound>
+  <compound refid="vpl_8hpp" kind="file"><name>vpl.hpp</name>
+  </compound>
+  <compound refid="vpl__config_8hpp" kind="file"><name>vpl_config.hpp</name>
+  </compound>
+  <compound refid="vpl__context_8hpp" kind="file"><name>vpl_context.hpp</name>
+  </compound>
+  <compound refid="vpl__device_8hpp" kind="file"><name>vpl_device.hpp</name>
+    <member refid="vpl__device_8hpp_1ac254ec96315d3511a86ddc8bb7fba13e" kind="define"><name>VPL_MAX_DEVICE_NAME</name></member>
+  </compound>
+  <compound refid="vpl__types_8h" kind="file"><name>vpl_types.h</name>
+    <member refid="vpl__types_8h_1a5c11a162e02cfd31c432bcc71b5036d3" kind="define"><name>VPL_MAKEFOURCC</name></member>
+    <member refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4e" kind="enum"><name>vplStatus</name></member>
+    <member refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4ea7d94b72694ffb22d49781e5e195ecce7" kind="enumvalue"><name>VPL_OK</name></member>
+    <member refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4eaf637884c5456dcbb7e8f880127cc3103" kind="enumvalue"><name>VPL_ERR_NOT_SUPPORTED</name></member>
+    <member refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4ea4b3444869409ce576273b23b2dc11f18" kind="enumvalue"><name>VPL_ERR_NULL_POINTER</name></member>
+    <member refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4eaedaa29869a6ff9f34f62fbd18ece6662" kind="enumvalue"><name>VPL_ERR_NOT_FOUND</name></member>
+    <member refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4ea173c5d5bb9dd497fd8970311bf418486" kind="enumvalue"><name>VPL_ERR_HW_UNAVALIBLE</name></member>
+    <member refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4ea8942d2f217e6faeba9f95128d6a04520" kind="enumvalue"><name>VPL_ERR_INVALID_FRAME</name></member>
+    <member refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4ea825597c695242e20a4766f7af45a9bae" kind="enumvalue"><name>VPL_ERR_OUT_OF_RESOURCES</name></member>
+    <member refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4eadf0fc13c1e6c21c1b2f4c6311bdcdc79" kind="enumvalue"><name>VPL_ERR_INTERNAL_ERROR</name></member>
+    <member refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4ea6fc61ed0e22da19c653742da482c256b" kind="enumvalue"><name>VPL_ERR_INVALID_SIZE</name></member>
+    <member refid="vpl__types_8h_1a5a3c6f0ffa1f41bddf03a11b44636c4ea838ec040517eb57a70658c9d0aad7b80" kind="enumvalue"><name>VPL_ERR_INVALID_PROPERTY</name></member>
+    <member refid="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925f" kind="enum"><name>vplWorkstreamState</name></member>
+    <member refid="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925fa56ac1511a1f6bc106b380c914b3683bc" kind="enumvalue"><name>VPL_STATE_READ_INPUT</name></member>
+    <member refid="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925fa0969497f4982e534db46521dc9cc9dcd" kind="enumvalue"><name>VPL_STATE_CLOSED_TO_INPUT</name></member>
+    <member refid="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925faa5c02f399e6cece94faf92915da28fa9" kind="enumvalue"><name>VPL_STATE_ERROR</name></member>
+    <member refid="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925fae30afd54950e4b94a9e0627aa4201dc1" kind="enumvalue"><name>VPL_STATE_INPUT_BUFFER_FULL</name></member>
+    <member refid="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925fa3381381725fa595c76e81da65680b7e8" kind="enumvalue"><name>VPL_STATE_INPUT_EXCEEDS_BUFFER_SIZE</name></member>
+    <member refid="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925fade41d1dffb4ea3ee371d4f13d43720c4" kind="enumvalue"><name>VPL_STATE_END_OF_OPERATION</name></member>
+    <member refid="vpl__types_8h_1ae5c9f94f7b1ef594ec842e8195a7925faa7eeab70d2fc7e5f93ebdcdc3dc0155d" kind="enumvalue"><name>VPL_STATE_OK</name></member>
+    <member refid="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2b" kind="enum"><name>VplWorkstreamType</name></member>
+    <member refid="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2ba7b01aa6e151d2349f40d258945d412a3" kind="enumvalue"><name>VPL_WORKSTREAM_DECODE</name></member>
+    <member refid="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2ba863bccc9a3d53f683ade7a33827bed73" kind="enumvalue"><name>VPL_WORKSTREAM_VIDEOPROC</name></member>
+    <member refid="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2bae2bc90c316b83a56e6aae84feb75eeed" kind="enumvalue"><name>VPL_WORKSTREAM_ENCODE</name></member>
+    <member refid="vpl__types_8h_1ab79bcef5ad77ca0d3d68228e0ed8dc2ba7cfdd44fd7540a30fe1bbd5b10d31d0c" kind="enumvalue"><name>VPL_WORKSTREAM_INFER</name></member>
+    <member refid="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90" kind="enum"><name>VplDeviceType</name></member>
+    <member refid="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90a55ec5ec2996f9efff0a48dc6742d5c17" kind="enumvalue"><name>VPL_DEVICE_CPU</name></member>
+    <member refid="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90a1a88e79904e721c6d03903458680e446" kind="enumvalue"><name>VPL_DEVICE_GEN</name></member>
+    <member refid="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90ac35aaab216058d8435cc5090512bf764" kind="enumvalue"><name>VPL_DEVICE_HDDL</name></member>
+    <member refid="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90a0d47c5c55799e9fa0f8cd477d42d83d4" kind="enumvalue"><name>VPL_DEVICE_FPGA</name></member>
+    <member refid="vpl__types_8h_1aa2b0429dfad847aa69c19f4ee4fa1d90acb68ecc30c6db7ed4da6047ec2b0b664" kind="enumvalue"><name>VPL_DEVICE_COUNT</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258" kind="enum"><name>VplWorkstreamProp</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a445fbe755ae244f5e0686ca23a93be6e" kind="enumvalue"><name>VPL_PROP_WORKSTREAM_TYPE</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a796b0aaae2e199d0e9735d8f095e56de" kind="enumvalue"><name>VPL_PROP_VERSION</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a7fd49b357dd025f5cbc1dbe9dd1ee5c2" kind="enumvalue"><name>VPL_PROP_VERSION_STRING</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258af08a50bcceee573d0b2824fafbede5cb" kind="enumvalue"><name>VPL_PROP_DECODED_BUFFER_SIZE</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a563a382963e15e067aac771e2dc0284d" kind="enumvalue"><name>VPL_MAX_NUMBER_OF_DECODED_IMAGES</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258aec965a4ae5e653319cf8851a895bcb1f" kind="enumvalue"><name>VPL_PROP_ENCODE_BITRATE</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a12dc092a8b9eb1015625e44457cced1f" kind="enumvalue"><name>VPL_PROP_ENCODE_BRC_ALGORITHM</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a57a084a43755fbdfb2e1b2361f7c1f7e" kind="enumvalue"><name>VPL_PROP_ENCODE_FRAMERATE_NUMERATOR</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a4d226f4b591f683089fe913c6117ff79" kind="enumvalue"><name>VPL_PROP_ENCODE_FRAMERATE_DENOMINATOR</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258ae044b8ac8c883384a001ebd31c6523fb" kind="enumvalue"><name>VPL_PROP_ENCODE_PERFQUALITY_PRESET</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a718ede2d8444ac6c727503a9f97c9ea5" kind="enumvalue"><name>VPL_PROP_ENCODE_SCENARIO</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a861a0acee47d3259d01b2a930b4919c0" kind="enumvalue"><name>VPL_PROP_ENCODE_IFRAME_INTERVAL</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a3bd9f08deba17121ae07fbdb9c584148" kind="enumvalue"><name>VPL_PROP_ENCODE_BFRAME_INTERVAL</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a3a96ea75daba1064098ca27bac097527" kind="enumvalue"><name>VPL_PROP_SRC_BITSTREAM_FORMAT</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a9ff78e2165590c6cb9da24e324f11459" kind="enumvalue"><name>VPL_PROP_SRC_RAW_FORMAT</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a88c0620b04931cbaffbd1e6cbbe496e6" kind="enumvalue"><name>VPL_PROP_DST_BITSTREAM_FORMAT</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a5e152562f80833189a96f67a80bc99f1" kind="enumvalue"><name>VPL_PROP_DST_RAW_FORMAT</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a880e45b29ea1127d8cc5d17d8c4a0266" kind="enumvalue"><name>VPL_PROP_INPUT_FRAMERATE</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a23e3c376c00938682eccb0894fb94e88" kind="enumvalue"><name>VPL_PROP_OUTPUT_FRAMERATE</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258ab9e6eb451b3e804888747836dbf35ada" kind="enumvalue"><name>VPL_PROP_INPUT_RESOLUTION</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a86435f2abe2746b0f7d44951dcb96cdc" kind="enumvalue"><name>VPL_PROP_OUTPUT_RESOLUTION</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a30671d16f3c3e955224ad7b8ec93d55f" kind="enumvalue"><name>VPL_PROP_INPUT_CROPS</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258ab0d4cbfc9e37e1a806701b7f052250d9" kind="enumvalue"><name>VPL_PROP_OUTPUT_CROPS</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a86bc659f531a664490975da4f54e549f" kind="enumvalue"><name>VPL_PROP_INPUT_ASPECTRATIO</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a7406341bef584172f39203106cb5ee1e" kind="enumvalue"><name>VPL_PROP_OUTPUT_ASPECTRATIO</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258ade746e10f966ff4fd86ec271b95011a3" kind="enumvalue"><name>VPL_PROP_INPUT_PICSTRUCT</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a45143eff37f6b02decba269dd7a23ced" kind="enumvalue"><name>VPL_PROP_OUTPUT_PICSTRUCT</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a04f4932736b7a57579e61531120f0864" kind="enumvalue"><name>VPL_PROP_STATUS_CALLBACK</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a54d5200722d3eeefddb9f9be5beade54" kind="enumvalue"><name>VPL_PROP_STATUS_CALLBACK_DATA</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258ab99956635833bfad083826d51d0f6378" kind="enumvalue"><name>VPL_PROP_STATUS_LOGLEVEL</name></member>
+    <member refid="vpl__types_8h_1a9dbf1492070888888bc199e37ad85258a8b99c2bd3e49efe3e76250a3fdf2b5cf" kind="enumvalue"><name>VPL_PROP_NUMPROPS</name></member>
+    <member refid="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97b" kind="enum"><name>vplLogLevel</name></member>
+    <member refid="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97ba85639df34979de4e5ff6f7b05e4de8f1" kind="enumvalue"><name>LOG_NONE</name></member>
+    <member refid="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97ba6e98ff471e3ce6c4ef2d75c37ee51837" kind="enumvalue"><name>LOG_INFO</name></member>
+    <member refid="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97ba8f6fe15bfe15104da6d1b360194a5400" kind="enumvalue"><name>LOG_WARNING</name></member>
+    <member refid="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97ba230506cce5c68c3bac5a821c42ed3473" kind="enumvalue"><name>LOG_ERROR</name></member>
+    <member refid="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97ba065aa62cc0698301fbbe7b5448990708" kind="enumvalue"><name>LOG_CRITICAL</name></member>
+    <member refid="vpl__types_8h_1a65e0e074482a9a9549548af87f71d97ba87cff070224b283d7aace436723245fc" kind="enumvalue"><name>LOG_ALL</name></member>
+    <member refid="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1" kind="enum"><name>VplEncodeScenario</name></member>
+    <member refid="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1a46419f208585a1b5963ced97feeb12ae" kind="enumvalue"><name>GAME_STREAMING</name></member>
+    <member refid="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1a00245dc03172383868f23f4b7b627b74" kind="enumvalue"><name>CLOUD_GAMING</name></member>
+    <member refid="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1a7a27ade2616f677d3714625cddca4313" kind="enumvalue"><name>VIDEO_CONFERENCING</name></member>
+    <member refid="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1ac8a51def7419d5aada39bd0d2827616f" kind="enumvalue"><name>LIVE_STREAMING</name></member>
+    <member refid="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1a8f9bfa199ad75825f0a71c5e6829e22b" kind="enumvalue"><name>LIVE_STREAMING_LD</name></member>
+    <member refid="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1a875fadf1437508cebb97bb5c3445cbdc" kind="enumvalue"><name>RECORDING</name></member>
+    <member refid="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1a731b81e25f4f3211a7c9e457efd31f38" kind="enumvalue"><name>SURVEILLANCE</name></member>
+    <member refid="vpl__types_8h_1abd217b7c96932f3aa3f0662d2b8d5fb1a59fbef761fc8c74a00c6ef3f9f7caf97" kind="enumvalue"><name>REMOTE_DISPLAY</name></member>
+    <member refid="vpl__types_8h_1aabd2983b44caa1c13f8898e618e7e42a" kind="enum"><name>VplBRC</name></member>
+    <member refid="vpl__types_8h_1aabd2983b44caa1c13f8898e618e7e42aade4f9cd8d5631790f4adf7010e8b4fd5" kind="enumvalue"><name>VPL_BRC_CBR</name></member>
+    <member refid="vpl__types_8h_1aabd2983b44caa1c13f8898e618e7e42aa165371812164f95ad9b7470889d5e9a6" kind="enumvalue"><name>VPL_BRC_VBR</name></member>
+    <member refid="vpl__types_8h_1aabd2983b44caa1c13f8898e618e7e42aa32238f8b14074f0a793bfc7811ea6bc8" kind="enumvalue"><name>VPL_BRC_CQP</name></member>
+    <member refid="vpl__types_8h_1aabd2983b44caa1c13f8898e618e7e42aa72ed302974874ea5723dca2f24a2d806" kind="enumvalue"><name>VPL_BRC_AVBR</name></member>
+    <member refid="vpl__types_8h_1aabd2983b44caa1c13f8898e618e7e42aa3c1fae2c7ecbe27e211352fc67f3db87" kind="enumvalue"><name>VPL_BRC_COUNT</name></member>
+    <member refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64" kind="enum"><name>VplFourCC</name></member>
+    <member refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64a4cc76e9e188d45c040c6e3eb55b0831a" kind="enumvalue"><name>VPL_FOURCC_H264</name></member>
+    <member refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64aaece186acd8dcbb0a30ed3738561cae2" kind="enumvalue"><name>VPL_FOURCC_H265</name></member>
+    <member refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64ae5a07927b084e836e3af351569b35b63" kind="enumvalue"><name>VPL_FOURCC_NV12</name></member>
+    <member refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64a27350551e355e6c0f659374d071562e3" kind="enumvalue"><name>VPL_FOURCC_RGB4</name></member>
+    <member refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64a4bb3eb0446f385ed5d063049e8031f68" kind="enumvalue"><name>VPL_FOURCC_I420</name></member>
+    <member refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64af2b530932a937a5148ed5d710c71dc66" kind="enumvalue"><name>VPL_FOURCC_BGRA</name></member>
+    <member refid="vpl__types_8h_1a7ff952c9342c8c9e424bd7b7a2c32f64a07613fab8881524b1755f79be90e5585" kind="enumvalue"><name>VPL_FOURCC_I010</name></member>
+    <member refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eea" kind="enum"><name>VplCodecType</name></member>
+    <member refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eeaac883b1135db2582c984bcc78f1dfa0c9" kind="enumvalue"><name>VPL_CODEC_H264</name></member>
+    <member refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eeaa74608ed3af1cf668e72ea0b78276118b" kind="enumvalue"><name>VPL_CODEC_H265</name></member>
+    <member refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eeaab3a8e6a39bdec6a8d36f5f7cdf8ccbb7" kind="enumvalue"><name>VPL_CODEC_MPEG2</name></member>
+    <member refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eeaa990d064be4b9349438818704aebfe9c2" kind="enumvalue"><name>VPL_CODEC_VC1</name></member>
+    <member refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eeaa3b780b8af3abc9329ad2757a91a74a5f" kind="enumvalue"><name>VPL_CODEC_VP9</name></member>
+    <member refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eeaa18286659c58fa8a02bd8b04b59b434dd" kind="enumvalue"><name>VPL_CODEC_AV1</name></member>
+    <member refid="vpl__types_8h_1a3b2355604355d1b232acc7b5fbf03eeaa4b10bbfeef1e75cd39b052d6125029a1" kind="enumvalue"><name>VPL_CODEC_COUNT</name></member>
+    <member refid="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971b" kind="enum"><name>VplEncodePreset</name></member>
+    <member refid="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971ba8699333456d479ccc2f06a0682f21c49" kind="enumvalue"><name>VPL_BALANCED</name></member>
+    <member refid="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971ba2f8a92e3b213bf034ee276103d308a2d" kind="enumvalue"><name>VPL_MAX_QUALITY</name></member>
+    <member refid="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971ba67b5617b142f73d57e98194898a7f3e7" kind="enumvalue"><name>VPL_HIGH_QUALITY</name></member>
+    <member refid="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971ba1ea56dc4c7641a5c27e02ad7a8966642" kind="enumvalue"><name>VPL_QUALITY</name></member>
+    <member refid="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971baf395f519ee8b48ab99501a807532c6c4" kind="enumvalue"><name>VPL_SPEED</name></member>
+    <member refid="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971baa9dd3070088a93618edd1d75ba00d9de" kind="enumvalue"><name>VPL_HIGH_SPEED</name></member>
+    <member refid="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971baeabd2f347841fdb9b84a5de372122382" kind="enumvalue"><name>VPL_MAX_SPEED</name></member>
+    <member refid="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971bad631201a8697db8a6be39741f9150a23" kind="enumvalue"><name>VPL_LOW_LATENCY_MAX_QUALITY</name></member>
+    <member refid="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971ba1f3905cb67a490ca590152eb2af5aefa" kind="enumvalue"><name>VPL_LOW_LATENCY_MAX_SPEED</name></member>
+    <member refid="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971ba2639e959fde24e35b93acefafc55625a" kind="enumvalue"><name>VPL_LOWEST_LATENCY_MAX_QUALITY</name></member>
+    <member refid="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971ba83d04c4caecce64e9e7094a2c87aff01" kind="enumvalue"><name>VPL_LOWEST_LATENCY_MAX_SPEED</name></member>
+    <member refid="vpl__types_8h_1a8a8dcea752c7d4523fda0599532b971bab525353bc9a7ccbde0c35322e6bd83a2" kind="enumvalue"><name>VPL_EP_COUNT</name></member>
+    <member refid="vpl__types_8h_1a051dcb7d9fff54645ed76541447c7a7e" kind="typedef"><name>vplWorkstream</name></member>
+    <member refid="vpl__types_8h_1a1a78f76dc5b4a7437e2956f12bc61d51" kind="typedef"><name>vplDevice</name></member>
+  </compound>
+  <compound refid="vpl__utils_8h" kind="file"><name>vpl_utils.h</name>
+    <member refid="vpl__utils_8h_1a4c42280c82a5213ffc91a116dccfb8c0" kind="typedef"><name>VplFile</name></member>
+    <member refid="vpl__utils_8h_1ad8bcb2b373cb25906764e9d5a0cd9797" kind="function"><name>vplOpenFile</name></member>
+    <member refid="vpl__utils_8h_1abb83b3a0a65510bd79b3b7870f8b288c" kind="function"><name>vplCloseFile</name></member>
+    <member refid="vpl__utils_8h_1a7d9c650b08fc1e4d4ebdff905ce97c0d" kind="function"><name>vplWriteData</name></member>
+    <member refid="vpl__utils_8h_1a97661a3556df50f0fb06b7917b506210" kind="function"><name>vplReadData</name></member>
+  </compound>
+  <compound refid="vpl__utils_8hpp" kind="file"><name>vpl_utils.hpp</name>
+  </compound>
+  <compound refid="vpl__video_8h" kind="file"><name>vpl_video.h</name>
+    <member refid="vpl__video_8h_1ac36d9c58bfb9c1ccbb0fb0b02273b782" kind="function"><name>vplCreateWorkStream</name></member>
+    <member refid="vpl__video_8h_1a5ccf0b313a6b253658c7d791ac116e1a" kind="function"><name>vplSetConfigProperty</name></member>
+    <member refid="vpl__video_8h_1a4151265ab19272ee384e5aa70a9dc3b1" kind="function"><name>vplGetConfigProperty</name></member>
+    <member refid="vpl__video_8h_1a7cddd578a95f2868cff6782a7605ff4d" kind="function"><name>vplDestroyWorkstream</name></member>
+    <member refid="vpl__video_8h_1aaee070e0f5c6c3088693aa719a7c33f6" kind="function"><name>vplGetWorkstreamPreset</name></member>
+    <member refid="vpl__video_8h_1a103fc867f21129aefba0d8c851424379" kind="function"><name>vplWorkstreamGetState</name></member>
+    <member refid="vpl__video_8h_1a1567807f5823e9b5642b0e38b9ddbce9" kind="function"><name>vplDecodeFrame</name></member>
+    <member refid="vpl__video_8h_1af63e1560d73077e4e782a8b35e7a468d" kind="function"><name>vplDecodeProcessFrame</name></member>
+    <member refid="vpl__video_8h_1a9f8c9bd96285c80309de7b87d60cc4ea" kind="function"><name>vplProcessFrame</name></member>
+    <member refid="vpl__video_8h_1a15234b6f14f71520c0f27b6791c3baf7" kind="function"><name>vplProcessEncodeFrame</name></member>
+    <member refid="vpl__video_8h_1a98a0c70abf94d8282c84d31f63605083" kind="function"><name>vplEncodeFrame</name></member>
+    <member refid="vpl__video_8h_1a3ec630ce39e6fd43b38533920c267db3" kind="function"><name>vplTranscodeFrame</name></member>
+    <member refid="vpl__video_8h_1aef438edad18c6f497b48aa914cc1ec56" kind="function"><name>vplCreateDevice</name></member>
+    <member refid="vpl__video_8h_1aa0430b313b03b67423019f5d09fca081" kind="function"><name>vplDestroyDevice</name></member>
+    <member refid="vpl__video_8h_1abaf0d1c4466cd5a87b9217f45a15da61" kind="function"><name>vplGetPreset</name></member>
+    <member refid="vpl__video_8h_1a3614b747e33f9d108ee5be2138c11fb9" kind="function"><name>vplGetDeviceProperty</name></member>
+    <member refid="vpl__video_8h_1ae41df2d01d3dc7121a201b43ba8d2f39" kind="function"><name>vplGetDeviceCount</name></member>
+    <member refid="vpl__video_8h_1ab782a665f384faf4ffabdc68b30803bf" kind="function"><name>vplSetPropertyPB</name></member>
+    <member refid="vpl__video_8h_1a4d8ca26e08536f21b271a21a0c60b856" kind="function"><name>vplGetPropertyPB</name></member>
+    <member refid="vpl__video_8h_1acc5947f0c70977afff503fd02447f162" kind="function"><name>vplPushBlob</name></member>
+  </compound>
+  <compound refid="vplm_09_09_8h" kind="file"><name>vplm++.h</name>
+  </compound>
+  <compound refid="vplm_8h" kind="file"><name>vplm.h</name>
+    <member refid="vplm_8h_1a484b32c8010a3b4d78675b56fda96b13" kind="define"><name>VPLM_API</name></member>
+    <member refid="vplm_8h_1a241f9254878cda02af885d334bb9434a" kind="define"><name>VPLM_IMAGE_MAX_PLANES</name></member>
+    <member refid="vplm_8h_1a40b01a4bf601f2308655151e04ff20af" kind="define"><name>VPLM_PROPERTY_CALLBACK_ON_DESTROY</name></member>
+    <member refid="vplm_8h_1a57edeee5b91b0a8ee1bbc1ae7ed03ebd" kind="define"><name>VPLM_PROPERTY_CUSTOM</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6c" kind="enum"><name>_vplm_status</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6ca1eb53b72feee876ae26d94d79ca76c9c" kind="enumvalue"><name>VPLM_SUCCESS</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6ca034e948f7b22c613e327300779b2f43d" kind="enumvalue"><name>VPLM_ERROR_UNSUPPORTED</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6ca135d3748ef0976947ef160be1e51558f" kind="enumvalue"><name>VPLM_ERROR_INVALID_PARAMETER</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6cadd12e5a627bbdc52ad084f4a14a9cb5d" kind="enumvalue"><name>VPLM_ERROR_INVALID_MEMORY_OBJECT</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6caf417f9104d70a413dcdf60d5ee2e6913" kind="enumvalue"><name>VPLM_ERROR_INVALID_BUFFER_DESCRIPTION</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6cac01077456ca15f3c0564ef1cb905d2e7" kind="enumvalue"><name>VPLM_ERROR_INVALID_BUFFER</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6ca686bf2cd3e2d24a1b549c6a13ed73393" kind="enumvalue"><name>VPLM_ERROR_INVALID_IMAGE_DESCRIPTION</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6caf7b2487c638567fe039a4a8bbefa8462" kind="enumvalue"><name>VPLM_ERROR_INVALID_IMAGE</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6ca45c540c704eeade1a73dfde6fd31cfe7" kind="enumvalue"><name>VPLM_ERROR_ALLOCATION_FAILED</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6caa4187a5161f6da7395aee58a238dfc4a" kind="enumvalue"><name>VPLM_ERROR_NO_PROPERTY</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6ca673f1866ca5c9a41406ac5eac05b0df7" kind="enumvalue"><name>VPLM_ERROR_UNSUPPORTED_DEVICE</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6ca2192d7fd3e0f2706155dbe74c5b30b7d" kind="enumvalue"><name>VPLM_ERROR_UNSUPPORTED_REPRESENTATION</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6ca3421f0d5c61f5a445c4a78c3fad0d8e4" kind="enumvalue"><name>VPLM_ERROR_OPERATION_FAILED</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6caea398738651b8d376b53f55db85b6bbe" kind="enumvalue"><name>VPLM_ERROR_VAAPI_OPERATION_FAILED</name></member>
+    <member refid="vplm_8h_1aa0ce86a09386dc5f907735027bcaec6caa136d91ab735700e275271762f2414af" kind="enumvalue"><name>VPLM_ERROR_OPENCL_OPERATION_FAILED</name></member>
+    <member refid="vplm_8h_1a7f04f35d7249243ad9f55c8fb65becee" kind="enum"><name>vplm_variantype</name></member>
+    <member refid="vplm_8h_1a7f04f35d7249243ad9f55c8fb65beceeada059c188376e4b1d4cddb877c3733c2" kind="enumvalue"><name>VPLM_VARIANT_TYPE_INT32</name></member>
+    <member refid="vplm_8h_1a7f04f35d7249243ad9f55c8fb65beceead9ee6df2b37dabc52c8252e0da3904cb" kind="enumvalue"><name>VPLM_VARIANT_TYPE_INT64</name></member>
+    <member refid="vplm_8h_1a7f04f35d7249243ad9f55c8fb65beceea0d2babab5c7ed08dfa05610d13550f3a" kind="enumvalue"><name>VPLM_VARIANT_TYPE_DOUBLE</name></member>
+    <member refid="vplm_8h_1a7f04f35d7249243ad9f55c8fb65beceea6b055c2c2db1f8ac01c8a4d19355bea9" kind="enumvalue"><name>VPLM_VARIANT_TYPE_SIZE</name></member>
+    <member refid="vplm_8h_1a7f04f35d7249243ad9f55c8fb65beceea089a8eec36191b51bbfd446eebdacf05" kind="enumvalue"><name>VPLM_VARIANT_TYPE_RECT</name></member>
+    <member refid="vplm_8h_1a7f04f35d7249243ad9f55c8fb65beceeae96ea401dcad2282bbb968c825345a49" kind="enumvalue"><name>VPLM_VARIANT_TYPE_POINTER</name></member>
+    <member refid="vplm_8h_1ab2aae917e0958fe715cfe96a55b8ab66" kind="enum"><name>vplm_pixel_format</name></member>
+    <member refid="vplm_8h_1ab2aae917e0958fe715cfe96a55b8ab66a459fd598c9cb67703126404e188fb181" kind="enumvalue"><name>VPLM_PIXEL_FORMAT_NV12</name></member>
+    <member refid="vplm_8h_1ab2aae917e0958fe715cfe96a55b8ab66a65fa4a8ca2cd9acd30fc75c4fe9cb839" kind="enumvalue"><name>VPLM_PIXEL_FORMAT_YV12</name></member>
+    <member refid="vplm_8h_1ab2aae917e0958fe715cfe96a55b8ab66a7c3b32ddad33f79a31dbbbc5980d590f" kind="enumvalue"><name>VPLM_PIXEL_FORMAT_I420</name></member>
+    <member refid="vplm_8h_1ab2aae917e0958fe715cfe96a55b8ab66ac5c65f024c33cbc399d9a86de48c50de" kind="enumvalue"><name>VPLM_PIXEL_FORMAT_P010</name></member>
+    <member refid="vplm_8h_1ab2aae917e0958fe715cfe96a55b8ab66ae1c93bfb8a1c4d71be15dd7ab563acea" kind="enumvalue"><name>VPLM_PIXEL_FORMAT_YUY2</name></member>
+    <member refid="vplm_8h_1ab2aae917e0958fe715cfe96a55b8ab66a6f70017dd259027bf98808c76af6e325" kind="enumvalue"><name>VPLM_PIXEL_FORMAT_UYVY</name></member>
+    <member refid="vplm_8h_1ab2aae917e0958fe715cfe96a55b8ab66a0573cc962359cbf36ad7cff984cd781d" kind="enumvalue"><name>VPLM_PIXEL_FORMAT_Y210</name></member>
+    <member refid="vplm_8h_1ab2aae917e0958fe715cfe96a55b8ab66ade017f812a990733c69b676eba438d96" kind="enumvalue"><name>VPLM_PIXEL_FORMAT_AYUV</name></member>
+    <member refid="vplm_8h_1ab2aae917e0958fe715cfe96a55b8ab66af80918dae76b95bda4ba50cee4359dc3" kind="enumvalue"><name>VPLM_PIXEL_FORMAT_Y410</name></member>
+    <member refid="vplm_8h_1ab2aae917e0958fe715cfe96a55b8ab66a7035ca06b83705af510f35816e76f7a0" kind="enumvalue"><name>VPLM_PIXEL_FORMAT_RGBP</name></member>
+    <member refid="vplm_8h_1ab2aae917e0958fe715cfe96a55b8ab66a023dbf49f65cdd4ce0b88a739f52db68" kind="enumvalue"><name>VPLM_PIXEL_FORMAT_ARGB</name></member>
+    <member refid="vplm_8h_1ab2aae917e0958fe715cfe96a55b8ab66a93ac886cefb7e9beb4be5c040131ffd6" kind="enumvalue"><name>VPLM_PIXEL_FORMAT_ABGR</name></member>
+    <member refid="vplm_8h_1ab2aae917e0958fe715cfe96a55b8ab66a398ada532acfb30754e51ff82a932d99" kind="enumvalue"><name>VPLM_PIXEL_FORMAT_RGBA</name></member>
+    <member refid="vplm_8h_1ac746a607c123dcc13430537a5a4af650" kind="enum"><name>vplm_data_type</name></member>
+    <member refid="vplm_8h_1ac746a607c123dcc13430537a5a4af650a615b2de4358e0fccb141cf662b3ba8f4" kind="enumvalue"><name>VPLM_DATA_TYPE_U8</name></member>
+    <member refid="vplm_8h_1ac746a607c123dcc13430537a5a4af650a46ac474c23248a21552cb9d12c078f60" kind="enumvalue"><name>VPLM_DATA_TYPE_VAAPI</name></member>
+    <member refid="vplm_8h_1ae180345dd7ec6118fe0b1e157da823c2" kind="enum"><name>vplm_access_flags</name></member>
+    <member refid="vplm_8h_1ae180345dd7ec6118fe0b1e157da823c2abe1468cdf3a38944b1217821889467e8" kind="enumvalue"><name>VPLM_ACCESS_MODE_READ</name></member>
+    <member refid="vplm_8h_1ae180345dd7ec6118fe0b1e157da823c2aee0dd74a2d167df9d97ba6693c352aeb" kind="enumvalue"><name>VPLM_ACCESS_MODE_WRITE</name></member>
+    <member refid="vplm_8h_1ae180345dd7ec6118fe0b1e157da823c2aa372176c945400589e4ad3e4c21dc50d" kind="enumvalue"><name>VPLM_ACCESS_MODE_READWRITE</name></member>
+    <member refid="vplm_8h_1a2d91c2b4204c507940a53d501774ac35" kind="typedef"><name>vplm_status</name></member>
+    <member refid="vplm_8h_1a878d0372f17237f152a1cd4d25884055" kind="typedef"><name>vplm_mem</name></member>
+    <member refid="vplm_8h_1ab17bc174978bb2303146b338757e1529" kind="typedef"><name>vplm_on_destroy_cb</name></member>
+    <member refid="vplm_8h_1a498c878f3c7ce224021181936840cd47" kind="typedef"><name>vplm_va_vtable</name></member>
+    <member refid="vplm_8h_1a6d75a9cac6c9846ac2f4ea74e5981db6" kind="typedef"><name>vplm_cl_vtable</name></member>
+    <member refid="vplm_8h_1a8a7bf627f432739bc3f21eb4303ac1d2" kind="typedef"><name>vplm_dx11_vtable</name></member>
+    <member refid="vplm_8h_1a9e00f9ebb371d4ec5852e9269781e6e6" kind="typedef"><name>vplm_dmabuf_vtable</name></member>
+    <member refid="vplm_8h_1a794db584d9701e58902e3a4307a138a8" kind="typedef"><name>vplm_vtable</name></member>
+    <member refid="vplm_8h_1abb02e49a0e7773befdcd3067f59d4ea6" kind="function"><name>vplm_create_cpu_buffer</name></member>
+    <member refid="vplm_8h_1a589213878ff35ba5b70992e81af22b57" kind="function"><name>vplm_create_cpu_image</name></member>
+    <member refid="vplm_8h_1a5cb7aa9a7bb4f56d439de59dd5e26dd5" kind="function"><name>vplm_create_from_cpu_buffer</name></member>
+    <member refid="vplm_8h_1a5ff10720392b908fe5939273b49f48e1" kind="function"><name>vplm_create_from_cpu_image</name></member>
+    <member refid="vplm_8h_1abdae175a7cf7b1eb118228031675e907" kind="function"><name>vplm_ref</name></member>
+    <member refid="vplm_8h_1a52ff65a788afabe71aa93e28608f5066" kind="function"><name>vplm_unref</name></member>
+    <member refid="vplm_8h_1a056cffaa355b61ad3de7cf1a5640a52e" kind="function"><name>vplm_set_property</name></member>
+    <member refid="vplm_8h_1ac67f8dddf67ebeec8f0b285a8ba71cd4" kind="function"><name>vplm_get_property</name></member>
+    <member refid="vplm_8h_1a514509372c34c2332904f8d6503e2d20" kind="function"><name>vplm_clear_properties</name></member>
+    <member refid="vplm_8h_1afe050e1c2baf1940345018ba03c0a9ca" kind="function"><name>vplm_get_buffer_info</name></member>
+    <member refid="vplm_8h_1a5dcba64a633c92e6257bd424b14f94f2" kind="function"><name>vplm_get_image_info</name></member>
+    <member refid="vplm_8h_1a50c3f47c61a8d17ae2b3d4c9c6daf59a" kind="function"><name>vplm_map_buffer</name></member>
+    <member refid="vplm_8h_1a2499ef3aa63b69af7b4965a07614e123" kind="function"><name>vplm_unmap_buffer</name></member>
+    <member refid="vplm_8h_1aeafb5a80927afe025741d4a4c96b97c1" kind="function"><name>vplm_map_image</name></member>
+    <member refid="vplm_8h_1a3ac5319eb7d660676d799c2049356e7d" kind="function"><name>vplm_unmap_image</name></member>
+  </compound>
+  <compound refid="vplm__dmabuf_09_09_8h" kind="file"><name>vplm_dmabuf++.h</name>
+  </compound>
+  <compound refid="vplm__dmabuf_8h" kind="file"><name>vplm_dmabuf.h</name>
+  </compound>
+  <compound refid="vplm__opencl_09_09_8h" kind="file"><name>vplm_opencl++.h</name>
+  </compound>
+  <compound refid="vplm__opencl_8h" kind="file"><name>vplm_opencl.h</name>
+    <member refid="vplm__opencl_8h_1a6d75a9cac6c9846ac2f4ea74e5981db6" kind="typedef"><name>vplm_cl_vtable</name></member>
+    <member refid="vplm__opencl_8h_1aebfaa8ad4036437398a47ff5abf7b327" kind="function"><name>vplm_create_cl_image</name></member>
+    <member refid="vplm__opencl_8h_1ad7f48f414647617d6d73a0cc13fb9ac8" kind="function"><name>vplm_create_from_cl_image</name></member>
+    <member refid="vplm__opencl_8h_1a54aa2eab4db130187204c0694f5f80a9" kind="function"><name>vplm_cl_query_queues</name></member>
+    <member refid="vplm__opencl_8h_1a42b3e719d671a3748a35e0a6bb0b8c9d" kind="function"><name>vplm_cl_get_image</name></member>
+    <member refid="vplm__opencl_8h_1acd66f2dbac5a9d63ff7a656710d6a9fa" kind="function"><name>vplm_cl_begin_image_access</name></member>
+    <member refid="vplm__opencl_8h_1a5e560f44f3abf4cd96a48ec81d9ce8fc" kind="function"><name>vplm_cl_end_image_access</name></member>
+  </compound>
+  <compound refid="vplm__sycl_8h" kind="file"><name>vplm_sycl.h</name>
+  </compound>
+  <compound refid="vplm__vaapi_09_09_8h" kind="file"><name>vplm_vaapi++.h</name>
+  </compound>
+  <compound refid="vplm__vaapi_8h" kind="file"><name>vplm_vaapi.h</name>
+    <member refid="vplm__vaapi_8h_1a498c878f3c7ce224021181936840cd47" kind="typedef"><name>vplm_va_vtable</name></member>
+    <member refid="vplm__vaapi_8h_1a81afa2386111ea14cb57f3aa583e6748" kind="function"><name>vplm_create_from_va_surface</name></member>
+    <member refid="vplm__vaapi_8h_1a5fb84a55e2e889105af263a291aefb92" kind="function"><name>vplm_create_from_va_buffer</name></member>
+    <member refid="vplm__vaapi_8h_1a4732ac831c4c3a39c81ab92178b02e79" kind="function"><name>vplm_va_query_displays</name></member>
+    <member refid="vplm__vaapi_8h_1a5a1d658ff92047017224de1350d49001" kind="function"><name>vplm_va_get_surface</name></member>
+    <member refid="vplm__vaapi_8h_1a13e6bc5e6909edc726e15b57dce20b86" kind="function"><name>vplm_va_get_buffer</name></member>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_c81c96be1af72b3e99c766e9a5fc51c8" kind="dir"><name>include/vpl</name>
+  </compound>
+  <compound refid="dir_57bc40093aceafda991e699ce310b9d7" kind="dir"><name>include/vplmemory</name>
+  </compound>
+</doxygenindex>

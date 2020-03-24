@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="struct_vpl_crop" kind="struct" language="C++" prot="public">
+    <compoundname>VplCrop</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_vpl_crop_1ac8d2f4c56023477cb391d7d7b632250b" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t VplCrop::crop_x</definition>
+        <argsstring></argsstring>
+        <name>crop_x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="205" column="14" bodyfile="include/vpl/vpl_types.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_vpl_crop_1a927fe138018b0afeed6b84e0f139d4c8" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t VplCrop::crop_y</definition>
+        <argsstring></argsstring>
+        <name>crop_y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="206" column="14" bodyfile="include/vpl/vpl_types.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_vpl_crop_1a844e1da62ad514bd177563c00b78383b" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t VplCrop::crop_w</definition>
+        <argsstring></argsstring>
+        <name>crop_w</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="207" column="14" bodyfile="include/vpl/vpl_types.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_vpl_crop_1a7f6fa69ef8bce1286d7173870dc013e1" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t VplCrop::crop_h</definition>
+        <argsstring></argsstring>
+        <name>crop_h</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl_types.h" line="208" column="14" bodyfile="include/vpl/vpl_types.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vpl/vpl_types.h" line="204" column="15" bodyfile="include/vpl/vpl_types.h" bodystart="204" bodyend="209"/>
+    <listofallmembers>
+      <member refid="struct_vpl_crop_1a7f6fa69ef8bce1286d7173870dc013e1" prot="public" virt="non-virtual"><scope>VplCrop</scope><name>crop_h</name></member>
+      <member refid="struct_vpl_crop_1a844e1da62ad514bd177563c00b78383b" prot="public" virt="non-virtual"><scope>VplCrop</scope><name>crop_w</name></member>
+      <member refid="struct_vpl_crop_1ac8d2f4c56023477cb391d7d7b632250b" prot="public" virt="non-virtual"><scope>VplCrop</scope><name>crop_x</name></member>
+      <member refid="struct_vpl_crop_1a927fe138018b0afeed6b84e0f139d4c8" prot="public" virt="non-virtual"><scope>VplCrop</scope><name>crop_y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

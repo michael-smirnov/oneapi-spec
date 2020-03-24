@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classvplm_1_1opencl_1_1memory" kind="class" language="C++" prot="public">
+    <compoundname>vplm::opencl::memory</compoundname>
+    <basecompoundref refid="classvplm_1_1memory" prot="public" virt="non-virtual">vplm::memory</basecompoundref>
+    <includes refid="vplm__opencl_09_09_8h" local="no">vplm_opencl++.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classvplm_1_1opencl_1_1memory_1abd5e0d14430484eb43b6b5432ecd3377" prot="private" static="no" mutable="no">
+        <type>cl_command_queue</type>
+        <definition>cl_command_queue vplm::opencl::memory::queue_</definition>
+        <argsstring></argsstring>
+        <name>queue_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl++.h" line="100" column="22" bodyfile="include/vplmemory/vplm_opencl++.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classvplm_1_1opencl_1_1memory_1aefeaf9e91bb77257c844f41b8a8d7ae8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>vplm::opencl::memory::memory</definition>
+        <argsstring>(cl_command_queue queue, const vplm_mem *mem)</argsstring>
+        <name>memory</name>
+        <param>
+          <type>cl_command_queue</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct__vplm__vtable" kindref="compound">vplm_mem</ref> *</type>
+          <declname>mem</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl++.h" line="58" column="5" bodyfile="include/vplmemory/vplm_opencl++.h" bodystart="58" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classvplm_1_1opencl_1_1memory_1a029871446bed6b099b486a2b9c7bf62d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>vplm::opencl::memory::memory</definition>
+        <argsstring>(cl_command_queue queue, const vplm::memory &amp;mem)</argsstring>
+        <name>memory</name>
+        <param>
+          <type>cl_command_queue</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classvplm_1_1memory" kindref="compound">vplm::memory</ref> &amp;</type>
+          <declname>mem</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl++.h" line="64" column="5" bodyfile="include/vplmemory/vplm_opencl++.h" bodystart="64" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classvplm_1_1opencl_1_1memory_1a41a2a981338eaeba3dfdae566345b0c1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>vplm_status</type>
+        <definition>vplm_status vplm::opencl::memory::get</definition>
+        <argsstring>(vplm::cl_image &amp;image) noexcept</argsstring>
+        <name>get</name>
+        <param>
+          <type><ref refid="classvplm_1_1cl__image" kindref="compound">vplm::cl_image</ref> &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl++.h" line="70" column="24" bodyfile="include/vplmemory/vplm_opencl++.h" bodystart="70" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classvplm_1_1opencl_1_1memory_1afe3ab08bd308e0a1b8d38499accbd7fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classvplm_1_1cl__image" kindref="compound">vplm::cl_image</ref></type>
+        <definition>vplm::cl_image vplm::opencl::memory::get</definition>
+        <argsstring>()</argsstring>
+        <name>get</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl++.h" line="74" column="27" bodyfile="include/vplmemory/vplm_opencl++.h" bodystart="74" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classvplm_1_1opencl_1_1memory_1a6506ab4f59b790e688815b1bd3fc99fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vplm_status</type>
+        <definition>vplm_status vplm::opencl::memory::begin_access</definition>
+        <argsstring>(const vplm::cl_image &amp;clmem, cl_uint num_events_in_wait_list, const cl_event *event_wait_list, cl_event *event)</argsstring>
+        <name>begin_access</name>
+        <param>
+          <type>const <ref refid="classvplm_1_1cl__image" kindref="compound">vplm::cl_image</ref> &amp;</type>
+          <declname>clmem</declname>
+        </param>
+        <param>
+          <type>cl_uint</type>
+          <declname>num_events_in_wait_list</declname>
+        </param>
+        <param>
+          <type>const cl_event *</type>
+          <declname>event_wait_list</declname>
+        </param>
+        <param>
+          <type>cl_event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl++.h" line="81" column="24" bodyfile="include/vplmemory/vplm_opencl++.h" bodystart="81" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classvplm_1_1opencl_1_1memory_1a37ad4ac2f09feda6b45468c0a49d1dad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vplm_status</type>
+        <definition>vplm_status vplm::opencl::memory::end_access</definition>
+        <argsstring>(const vplm::cl_image &amp;clmem, cl_uint num_events_in_wait_list, const cl_event *event_wait_list, cl_event *event)</argsstring>
+        <name>end_access</name>
+        <param>
+          <type>const <ref refid="classvplm_1_1cl__image" kindref="compound">vplm::cl_image</ref> &amp;</type>
+          <declname>clmem</declname>
+        </param>
+        <param>
+          <type>cl_uint</type>
+          <declname>num_events_in_wait_list</declname>
+        </param>
+        <param>
+          <type>const cl_event *</type>
+          <declname>event_wait_list</declname>
+        </param>
+        <param>
+          <type>cl_event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vplmemory/vplm_opencl++.h" line="90" column="24" bodyfile="include/vplmemory/vplm_opencl++.h" bodystart="90" bodyend="97"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>OpenCL memory accessor. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>vplm::wrapper&lt; const vplm_mem * &gt;</label>
+        <link refid="classvplm_1_1wrapper"/>
+      </node>
+      <node id="1">
+        <label>vplm::opencl::memory</label>
+        <link refid="classvplm_1_1opencl_1_1memory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>vplm::memory</label>
+        <link refid="classvplm_1_1memory"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>_vplm_vtable</label>
+        <link refid="struct__vplm__vtable"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>va</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>cl</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>vplm::wrapper&lt; const vplm_mem * &gt;</label>
+        <link refid="classvplm_1_1wrapper"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>object_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>vplm::opencl::memory</label>
+        <link refid="classvplm_1_1opencl_1_1memory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>_vplm_va_vtable</label>
+        <link refid="struct__vplm__va__vtable"/>
+      </node>
+      <node id="2">
+        <label>vplm::memory</label>
+        <link refid="classvplm_1_1memory"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>_vplm_cl_vtable</label>
+        <link refid="struct__vplm__cl__vtable"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/vplmemory/vplm_opencl++.h" line="56" column="1" bodyfile="include/vplmemory/vplm_opencl++.h" bodystart="55" bodyend="101"/>
+    <listofallmembers>
+      <member refid="classvplm_1_1opencl_1_1memory_1a6506ab4f59b790e688815b1bd3fc99fd" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>begin_access</name></member>
+      <member refid="classvplm_1_1memory_1acb08cd96221e79b87bb01d80baf1178f" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>clearProperties</name></member>
+      <member refid="classvplm_1_1opencl_1_1memory_1a37ad4ac2f09feda6b45468c0a49d1dad" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>end_access</name></member>
+      <member refid="classvplm_1_1opencl_1_1memory_1a41a2a981338eaeba3dfdae566345b0c1" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>get</name></member>
+      <member refid="classvplm_1_1opencl_1_1memory_1afe3ab08bd308e0a1b8d38499accbd7fc" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>get</name></member>
+      <member refid="classvplm_1_1memory_1af8af48198a2c82c8ec466b67abef48e5" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>getProperty</name></member>
+      <member refid="classvplm_1_1opencl_1_1memory_1aefeaf9e91bb77257c844f41b8a8d7ae8" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>memory</name></member>
+      <member refid="classvplm_1_1opencl_1_1memory_1a029871446bed6b099b486a2b9c7bf62d" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>memory</name></member>
+      <member refid="classvplm_1_1memory_1a51a1cc567ee2f0b4b61fdb547ca1013a" prot="public" virt="non-virtual" ambiguityscope="vplm::memory::"><scope>vplm::opencl::memory</scope><name>memory</name></member>
+      <member refid="classvplm_1_1memory_1a39c2d1dd6119cca72e714e0a55540374" prot="public" virt="non-virtual" ambiguityscope="vplm::memory::"><scope>vplm::opencl::memory</scope><name>memory</name></member>
+      <member refid="classvplm_1_1memory_1a4aa1655d01252df2cd5657a94efb4664" prot="public" virt="non-virtual" ambiguityscope="vplm::memory::"><scope>vplm::opencl::memory</scope><name>memory</name></member>
+      <member refid="classvplm_1_1wrapper_1a798603677edb68f06e196db09281a68f" prot="protected" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>object_</name></member>
+      <member refid="classvplm_1_1wrapper_1ada0f50315cdc634c0114894f0eec844b" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>operator&amp;</name></member>
+      <member refid="classvplm_1_1wrapper_1a7da3f4d86ddf6351e22724e7b12d31d6" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>operator&amp;</name></member>
+      <member refid="classvplm_1_1wrapper_1a2da9a1c3ac7046862b28e00f1f37653a" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>operator()</name></member>
+      <member refid="classvplm_1_1wrapper_1a6603d37b01bf19621f49803136f575fd" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>operator()</name></member>
+      <member refid="classvplm_1_1memory_1af2989a4bd0570a12dd199b9ea4e3c3cb" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>operator=</name></member>
+      <member refid="classvplm_1_1wrapper_1ae9a073fb0ba546a1c00dddd84c46d48b" prot="public" virt="non-virtual" ambiguityscope="wrapper&lt; const vplm_mem * &gt;::"><scope>vplm::opencl::memory</scope><name>operator=</name></member>
+      <member refid="classvplm_1_1opencl_1_1memory_1abd5e0d14430484eb43b6b5432ecd3377" prot="private" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>queue_</name></member>
+      <member refid="classvplm_1_1memory_1adaaaeb902992c533a2d36d05166d064f" prot="protected" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>ref</name></member>
+      <member refid="classvplm_1_1memory_1a28734d8c51231cdddec604e00a7cd0ed" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>setProperty</name></member>
+      <member refid="classvplm_1_1memory_1acbb66b03175265a08dbcd0c4f5e974b1" prot="protected" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>unref</name></member>
+      <member refid="classvplm_1_1wrapper_1a8ad143ad41c6f7c49ac60d61f67a39a5" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>wrapper</name></member>
+      <member refid="classvplm_1_1wrapper_1a3de834fb4d08f1c99f7653b38e70eb63" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>wrapper</name></member>
+      <member refid="classvplm_1_1memory_1a51bf9d6381db0376b81fa50fee6c5be3" prot="public" virt="non-virtual"><scope>vplm::opencl::memory</scope><name>~memory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

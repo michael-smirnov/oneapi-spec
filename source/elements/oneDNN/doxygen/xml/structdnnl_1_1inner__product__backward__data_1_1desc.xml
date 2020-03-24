@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structdnnl_1_1inner__product__backward__data_1_1desc" kind="struct" language="C++" prot="public">
+    <compoundname>dnnl::inner_product_backward_data::desc</compoundname>
+    <includes refid="dnnl_8hpp" local="no">dnnl.hpp</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structdnnl_1_1inner__product__backward__data_1_1desc_1acb7a59b3dee40a7f67a388bbdd1d5a22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::inner_product_backward_data::desc::desc</definition>
+        <argsstring>(const memory::desc &amp;diff_src_desc, const memory::desc &amp;weights_desc, const memory::desc &amp;diff_dst_desc)</argsstring>
+        <name>desc</name>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref> &amp;</type>
+          <declname>diff_src_desc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref> &amp;</type>
+          <declname>weights_desc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structdnnl_1_1memory_1_1desc" kindref="compound">memory::desc</ref> &amp;</type>
+          <declname>diff_dst_desc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs a descriptor for an inner product backward propagation primitive.</para>
+<para>Inputs:<itemizedlist>
+<listitem><para><computeroutput>diff_dst</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1a60f17d04c493c42e4a50ad5feff5c8ca" kindref="member">dnnl::primitive_desc_base::diff_dst_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem><listitem><para><computeroutput>weights</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1acb13d08987cca8d8f05ec4858fa61fb4" kindref="member">dnnl::primitive_desc_base::weights_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem></itemizedlist>
+</para>
+<para>Outputs:<itemizedlist>
+<listitem><para><computeroutput>diff_src</computeroutput> (<ref refid="structdnnl_1_1primitive__desc__base_1a733e6ff4e78a758e69ae6232e8955871" kindref="member">dnnl::primitive_desc_base::diff_src_desc</ref> (<computeroutput>0</computeroutput>))</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>Memory descriptors are allowed to be initialized with <ref refid="structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa100b8cad7cf2a56f6df78f171f97a1ec" kindref="member">dnnl::memory::format_tag::any</ref> value of <computeroutput>format_tag</computeroutput>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>diff_src_desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Memory descriptor for diff src. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>weights_desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Memory descriptor for weights. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>diff_dst_desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Memory descriptor for diff dst. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="4648" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Descriptor for an inner product backward propagation primitive. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/dnnl.hpp" line="4630" column="15" bodyfile="include/dnnl.hpp" bodystart="4630" bodyend="4651"/>
+    <listofallmembers>
+      <member refid="structdnnl_1_1inner__product__backward__data_1_1desc_1acb7a59b3dee40a7f67a388bbdd1d5a22" prot="public" virt="non-virtual"><scope>dnnl::inner_product_backward_data::desc</scope><name>desc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

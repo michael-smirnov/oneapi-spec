@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structdnnl_1_1engine" kind="struct" language="C++" prot="public">
+    <compoundname>dnnl::engine</compoundname>
+    <includes refid="dnnl_8hpp" local="no">dnnl.hpp</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1a" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>kind</name>
+        <enumvalue id="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1aa100b8cad7cf2a56f6df78f171f97a1ec" prot="public">
+          <name>any</name>
+          <briefdescription>
+<para>An unspecified engine. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1aad9747e2da342bdb995f6389533ad1a3d" prot="public">
+          <name>cpu</name>
+          <briefdescription>
+<para>CPU engine. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1aa0aa0be2a866411d9ff03515227454947" prot="public">
+          <name>gpu</name>
+          <briefdescription>
+<para>GPU engine. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Kinds of engines. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="953" column="20" bodyfile="include/dnnl.hpp" bodystart="953" bodyend="960"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structdnnl_1_1engine_1a789ae75053453a04b122f303d2ad177f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::engine::engine</definition>
+        <argsstring>()</argsstring>
+        <name>engine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs an empty engine. An empty engine cannot be used in any operations. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="964" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1engine_1abfbca449ff03e4103de0b45cfa39b59d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::engine::engine</definition>
+        <argsstring>(kind kind, size_t index)</argsstring>
+        <name>engine</name>
+        <param>
+          <type><ref refid="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1a" kindref="member">kind</ref></type>
+          <declname>kind</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs an engine.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The kind of engine to construct. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the engine. Must be less than the value returned by <ref refid="structdnnl_1_1engine_1a35bcbdd6fa35663ca73e24d63c2f8ff4" kindref="member">get_count()</ref> for this particular kind of engine. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="977" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1engine_1a6c0d8f0aeac1f0e1ba3edb7f9ec61d79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dnnl::engine::engine</definition>
+        <argsstring>(kind kind, const cl::sycl::device &amp;dev, const cl::sycl::context &amp;ctx)</argsstring>
+        <name>engine</name>
+        <param>
+          <type><ref refid="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1a" kindref="member">kind</ref></type>
+          <declname>kind</declname>
+        </param>
+        <param>
+          <type>const cl::sycl::device &amp;</type>
+          <declname>dev</declname>
+        </param>
+        <param>
+          <type>const cl::sycl::context &amp;</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructs an engine from SYCL device and context objects.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The kind of engine to construct. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SYCL device. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SYCL context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="984" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1engine_1afe81649a67fff16348ca2b7e15f78c3b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1a" kindref="member">kind</ref></type>
+        <definition>kind dnnl::engine::get_kind</definition>
+        <argsstring>() const</argsstring>
+        <name>get_kind</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the kind of the engine. <simplesect kind="return"><para>The kind of the engine. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="989" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1engine_1ad457436b693c5ca1b4dcdfb2fa2db25e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>cl::sycl::context</type>
+        <definition>cl::sycl::context dnnl::engine::get_sycl_context</definition>
+        <argsstring>() const</argsstring>
+        <name>get_sycl_context</name>
+        <briefdescription>
+<para>Returns the underlying SYCL context object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="992" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="structdnnl_1_1engine_1ab6639e361bdc7dbd20da2f6ff730c3db" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>cl::sycl::device</type>
+        <definition>cl::sycl::device dnnl::engine::get_sycl_device</definition>
+        <argsstring>() const</argsstring>
+        <name>get_sycl_device</name>
+        <briefdescription>
+<para>Returns the underlying SYCL device object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="995" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structdnnl_1_1engine_1a35bcbdd6fa35663ca73e24d63c2f8ff4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>static size_t dnnl::engine::get_count</definition>
+        <argsstring>(kind kind)</argsstring>
+        <name>get_count</name>
+        <param>
+          <type><ref refid="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1a" kindref="member">kind</ref></type>
+          <declname>kind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of engines of a certain kind.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The kind of engines to count. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of engines of the specified kind. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dnnl.hpp" line="970" column="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>An execution engine. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/dnnl.hpp" line="951" column="13" bodyfile="include/dnnl.hpp" bodystart="951" bodyend="996"/>
+    <listofallmembers>
+      <member refid="structdnnl_1_1engine_1a789ae75053453a04b122f303d2ad177f" prot="public" virt="non-virtual"><scope>dnnl::engine</scope><name>engine</name></member>
+      <member refid="structdnnl_1_1engine_1abfbca449ff03e4103de0b45cfa39b59d" prot="public" virt="non-virtual"><scope>dnnl::engine</scope><name>engine</name></member>
+      <member refid="structdnnl_1_1engine_1a6c0d8f0aeac1f0e1ba3edb7f9ec61d79" prot="public" virt="non-virtual"><scope>dnnl::engine</scope><name>engine</name></member>
+      <member refid="structdnnl_1_1engine_1a35bcbdd6fa35663ca73e24d63c2f8ff4" prot="public" virt="non-virtual"><scope>dnnl::engine</scope><name>get_count</name></member>
+      <member refid="structdnnl_1_1engine_1afe81649a67fff16348ca2b7e15f78c3b" prot="public" virt="non-virtual"><scope>dnnl::engine</scope><name>get_kind</name></member>
+      <member refid="structdnnl_1_1engine_1ad457436b693c5ca1b4dcdfb2fa2db25e" prot="public" virt="non-virtual"><scope>dnnl::engine</scope><name>get_sycl_context</name></member>
+      <member refid="structdnnl_1_1engine_1ab6639e361bdc7dbd20da2f6ff730c3db" prot="public" virt="non-virtual"><scope>dnnl::engine</scope><name>get_sycl_device</name></member>
+      <member refid="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1a" prot="public" virt="non-virtual"><scope>dnnl::engine</scope><name>kind</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

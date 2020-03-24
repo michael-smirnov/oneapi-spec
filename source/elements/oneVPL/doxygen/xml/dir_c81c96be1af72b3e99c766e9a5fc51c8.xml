@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_c81c96be1af72b3e99c766e9a5fc51c8" kind="dir">
+    <compoundname>include/vpl</compoundname>
+    <innerfile refid="vpl_8hpp">vpl.hpp</innerfile>
+    <innerfile refid="vpl__config_8hpp">vpl_config.hpp</innerfile>
+    <innerfile refid="vpl__context_8hpp">vpl_context.hpp</innerfile>
+    <innerfile refid="vpl__device_8hpp">vpl_device.hpp</innerfile>
+    <innerfile refid="vpl__types_8h">vpl_types.h</innerfile>
+    <innerfile refid="vpl__utils_8h">vpl_utils.h</innerfile>
+    <innerfile refid="vpl__utils_8hpp">vpl_utils.hpp</innerfile>
+    <innerfile refid="vpl__video_8h">vpl_video.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vpl/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classvpl_1_1_data_queue" kind="class" language="C++" prot="public">
+    <compoundname>vpl::DataQueue</compoundname>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classvpl_1_1_data_queue_1a6d6783a5c86e90782ef90967e85e954d" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int vpl::DataQueue::m_limit</definition>
+        <argsstring></argsstring>
+        <name>m_limit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="61" column="24" bodyfile="include/vpl/vpl.hpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classvpl_1_1_data_queue_1a26392034078358415c009e3f3de77616" prot="protected" static="no" mutable="no">
+        <type>std::queue&lt; <ref refid="classvpl_1_1_vpl_blob" kindref="compound">VplBlob</ref> * &gt;</type>
+        <definition>std::queue&lt;VplBlob*&gt; vpl::DataQueue::m_blobs</definition>
+        <argsstring></argsstring>
+        <name>m_blobs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="62" column="14" bodyfile="include/vpl/vpl.hpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classvpl_1_1_data_queue_1aaaff0d4387255affda3569c5f6090723" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>vpl::DataQueue::DataQueue</definition>
+        <argsstring>(int limit=1)</argsstring>
+        <name>DataQueue</name>
+        <param>
+          <type>int</type>
+          <declname>limit</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="50" column="3" bodyfile="include/vpl/vpl.hpp" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_data_queue_1abb2457fe534824d25b46df39b1c20337" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>vpl::DataQueue::~DataQueue</definition>
+        <argsstring>()</argsstring>
+        <name>~DataQueue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="51" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_data_queue_1ab70403348f6fa20c66b3eb5bb601ca24" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool vpl::DataQueue::IsFull</definition>
+        <argsstring>()</argsstring>
+        <name>IsFull</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="53" column="12" bodyfile="include/vpl/vpl.hpp" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_data_queue_1a10e8e42e4920b47645af063177cad801" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool vpl::DataQueue::IsEmpty</definition>
+        <argsstring>()</argsstring>
+        <name>IsEmpty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="54" column="12" bodyfile="include/vpl/vpl.hpp" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_data_queue_1a982da7ca9d48792a29da34f871fc1905" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classvpl_1_1_vpl_blob" kindref="compound">VplBlob</ref> *</type>
+        <definition>VplBlob* vpl::DataQueue::GetFront</definition>
+        <argsstring>()</argsstring>
+        <name>GetFront</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="55" column="11" bodyfile="include/vpl/vpl.hpp" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_data_queue_1a82cfac05525ede44bdf12efa0601c1dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void vpl::DataQueue::Push</definition>
+        <argsstring>(VplBlob *blob)</argsstring>
+        <name>Push</name>
+        <param>
+          <type><ref refid="classvpl_1_1_vpl_blob" kindref="compound">VplBlob</ref> *</type>
+          <declname>blob</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="56" column="12" bodyfile="include/vpl/vpl.hpp" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_data_queue_1ad17294e3ed64ece1b55a577483d86bc0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void vpl::DataQueue::Pop</definition>
+        <argsstring>()</argsstring>
+        <name>Pop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="57" column="12" bodyfile="include/vpl/vpl.hpp" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classvpl_1_1_data_queue_1af6c154a597736cd43aaf0e731e50aaa5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int vpl::DataQueue::GetLimit</definition>
+        <argsstring>()</argsstring>
+        <name>GetLimit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vpl/vpl.hpp" line="58" column="12" bodyfile="include/vpl/vpl.hpp" bodystart="58" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vpl/vpl.hpp" line="48" column="17" bodyfile="include/vpl/vpl.hpp" bodystart="48" bodyend="63"/>
+    <listofallmembers>
+      <member refid="classvpl_1_1_data_queue_1aaaff0d4387255affda3569c5f6090723" prot="public" virt="non-virtual"><scope>vpl::DataQueue</scope><name>DataQueue</name></member>
+      <member refid="classvpl_1_1_data_queue_1a982da7ca9d48792a29da34f871fc1905" prot="public" virt="non-virtual"><scope>vpl::DataQueue</scope><name>GetFront</name></member>
+      <member refid="classvpl_1_1_data_queue_1af6c154a597736cd43aaf0e731e50aaa5" prot="public" virt="non-virtual"><scope>vpl::DataQueue</scope><name>GetLimit</name></member>
+      <member refid="classvpl_1_1_data_queue_1a10e8e42e4920b47645af063177cad801" prot="public" virt="non-virtual"><scope>vpl::DataQueue</scope><name>IsEmpty</name></member>
+      <member refid="classvpl_1_1_data_queue_1ab70403348f6fa20c66b3eb5bb601ca24" prot="public" virt="non-virtual"><scope>vpl::DataQueue</scope><name>IsFull</name></member>
+      <member refid="classvpl_1_1_data_queue_1a26392034078358415c009e3f3de77616" prot="protected" virt="non-virtual"><scope>vpl::DataQueue</scope><name>m_blobs</name></member>
+      <member refid="classvpl_1_1_data_queue_1a6d6783a5c86e90782ef90967e85e954d" prot="protected" virt="non-virtual"><scope>vpl::DataQueue</scope><name>m_limit</name></member>
+      <member refid="classvpl_1_1_data_queue_1ad17294e3ed64ece1b55a577483d86bc0" prot="public" virt="non-virtual"><scope>vpl::DataQueue</scope><name>Pop</name></member>
+      <member refid="classvpl_1_1_data_queue_1a82cfac05525ede44bdf12efa0601c1dd" prot="public" virt="non-virtual"><scope>vpl::DataQueue</scope><name>Push</name></member>
+      <member refid="classvpl_1_1_data_queue_1abb2457fe534824d25b46df39b1c20337" prot="public" virt="non-virtual"><scope>vpl::DataQueue</scope><name>~DataQueue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
