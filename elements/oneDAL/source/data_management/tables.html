@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tables &mdash; oneAPI Specification 0.6.1 documentation</title>
+  <title>Tables &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7
               </div>
             
           
@@ -93,18 +93,17 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../architecture.html">Software Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../library-interop.html">Library Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../elements.html">oneAPI Elements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../dpcpp/source/index.html">DPC++ (DPC++)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../oneDPL/source/index.html">oneAPI DPC++ Library (oneDPL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../oneDNN/source/index.html">oneAPI Deep Neural Network Library (oneDNN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../oneCCL/source/index.html">oneAPI Collective Communications Library (oneCCL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../l0/source/index.html">oneAPI Level Zero (Level Zero)</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">oneAPI Data Analytics Library (oneDAL)</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../dpcpp/source/index.html">DPC++ 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneDPL/source/index.html">oneDPL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneDNN/source/index.html">oneDNN 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneCCL/source/index.html">oneCCL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../l0/source/index.html">Level Zero 0.91</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">oneDAL 0.7</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../terminology.html">Terminology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../programming_model/index.html">Programming model</a></li>
@@ -126,9 +125,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../oneTBB/source/nested-index.html">oneAPI Threading Building Blocks (oneTBB)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../oneVPL/source/index.html">oneAPI Video Processing Library (oneVPL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../oneMKL/source/index.html">oneAPI Math Kernel Library (oneMKL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneTBB/source/nested-index.html">oneTBB 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneVPL/source/index.html">oneVPL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneMKL/source/index.html">oneMKL 0.7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../contributors.html">Contributors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../versions.html">HTML and PDF Versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notices.html">Legal Notices and Disclaimers</a></li>
@@ -178,7 +177,7 @@
       <li><a href="../../../../index.html">oneAPI Specification</a> &raquo;</li>
         
           
-          <li><a href="../index.html">oneAPI Data Analytics Library (oneDAL)</a> </li>
+          <li><a href="../index.html">oneDAL 0.7</a> </li>
           
         
           
@@ -218,7 +217,7 @@ therefore, helps oneDAL to access the data efficiently
 </ul>
 <div class="section" id="table-types-in-dal-short-name">
 <h2>Table types in oneDAL<a class="headerlink" href="#table-types-in-dal-short-name" title="Permalink to this headline">¶</a></h2>
-<p>oneDAL defines a set of classes, each class implements a table contact
+<p>oneDAL defines a set of classes, each class implements a table contract
 with a specific set of metadata values (see <a class="reference internal" href="#metadata-api"><span class="std std-ref">Metadata API</span></a> for details):</p>
 <table class="docutils align-default">
 <colgroup>
@@ -266,11 +265,11 @@ with a specific set of metadata values (see <a class="reference internal" href="
 </div>
 <div class="section" id="requirements-on-table-objects">
 <h2>Requirements on table objects<a class="headerlink" href="#requirements-on-table-objects" title="Permalink to this headline">¶</a></h2>
-<p>Each table object in oneDAL follow these requirements:</p>
+<p>Each table object in oneDAL follows these requirements:</p>
 <ol class="arabic">
 <li><p>Table objects in oneDAL are <a class="reference internal" href="../terminology.html#term-immutability"><span class="xref std std-term">immutable</span></a> (it is not possible
 to change data or metadata values inside the table).</p></li>
-<li><p>To create compex table types or modify table data, <a class="reference internal" href="builders.html#builders"><span class="std std-ref">builders</span></a> should be used.</p></li>
+<li><p>To create complex table types or modify table data, <a class="reference internal" href="builders.html#builders"><span class="std std-ref">builders</span></a> should be used.</p></li>
 <li><p>Table objects in oneDAL are reference-counted. One can use an assignment operator or copy constructor
 on table objects to create another reference to it.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">onedal</span><span class="o">::</span><span class="n">table</span> <span class="n">table2</span> <span class="o">=</span> <span class="n">table1</span><span class="p">;</span>
@@ -281,8 +280,8 @@ on table objects to create another reference to it.</p>
 </pre></div>
 </div>
 </li>
-<li><p>Every table type must be inherited from the base <code class="docutils literal notranslate"><span class="pre">table</span></code> class, which represents
-a generalized table API. (see <a class="reference internal" href="#table-api"><span class="std std-ref">Table API</span></a> for details)</p></li>
+<li><p>Every table type must be inherited from the base <code class="docutils literal notranslate"><span class="pre">table</span></code> class,
+which represents a generalized <a class="reference internal" href="#table-api"><span class="std std-ref">table API</span></a>.</p></li>
 <li><p>Every table type is implemented over particular set of metadata values and must hide other
 implementation details from public API.</p></li>
 </ol>
@@ -327,7 +326,7 @@ related to tables.</p>
 <dl class="function">
 <dt id="_CPPv4N6onedal5table5tableERR9TableImpl">
 <span id="_CPPv3N6onedal5table5tableERR9TableImpl"></span><span id="_CPPv2N6onedal5table5tableERR9TableImpl"></span><span id="onedal::table::table__TableImplRR"></span><code class="sig-name descname">table</code><span class="sig-paren">(</span>TableImpl&amp;&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal5table5tableERR9TableImpl" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates a table object using the implementation passes an a parameter</p>
+<dd><p>Creates a table object using the entity passed as a parameter</p>
 <dl class="field-list simple">
 <dt class="field-odd">Template Parameters</dt>
 <dd class="field-odd"><p><strong>TableImpl</strong> – The class that contains the table’s implementation</p>
@@ -350,7 +349,7 @@ related to tables.</p>
 <dl class="function">
 <dt id="_CPPv4N6onedal5table5tableERR5table">
 <span id="_CPPv3N6onedal5table5tableERR5table"></span><span id="_CPPv2N6onedal5table5tableERR5table"></span><span id="onedal::table::table__tableRR"></span><code class="sig-name descname">table</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6onedal5table5tableEv" title="onedal::table::table">table</a>&amp;&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal5table5tableERR5table" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Moves current reference object into another one</p>
+<dd><p>Moves one table object into another</p>
 </dd></dl>
 
 <dl class="function">
@@ -472,7 +471,7 @@ for which the following is true:</p>
 <dl class="function">
 <dt id="_CPPv4N6onedal13homogen_table13homogen_tableENSt7int64_tENSt7int64_tE11data_layout">
 <span id="_CPPv3N6onedal13homogen_table13homogen_tableENSt7int64_tENSt7int64_tE11data_layout"></span><span id="_CPPv2N6onedal13homogen_table13homogen_tableENSt7int64_tENSt7int64_tE11data_layout"></span><span id="onedal::homogen_table::homogen_table__std::int64_t.std::int64_t.data_layout"></span><code class="sig-name descname">homogen_table</code><span class="sig-paren">(</span>std::int64_t <em>N</em>, std::int64_t <em>p</em>, <a class="reference internal" href="#_CPPv4N6onedal11data_layoutE" title="onedal::data_layout">data_layout</a> <em>layout</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal13homogen_table13homogen_tableENSt7int64_tENSt7int64_tE11data_layout" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates a homogeneous table with shape of <span class="math notranslate nohighlight">\((N \times p)\)</span> with
+<dd><p>Creates a homogeneous table of shape <span class="math notranslate nohighlight">\(N \times p\)</span> with
 default oneDAL allocator</p>
 </dd></dl>
 
@@ -484,7 +483,7 @@ default oneDAL allocator</p>
 <dd class="field-odd"><p><strong>T</strong> – The type of pointer to the data</p>
 </dd>
 </dl>
-<p>Creates a homogeneous table with shape of <span class="math notranslate nohighlight">\((N \times p)\)</span> with
+<p>Creates a homogeneous table of shape <span class="math notranslate nohighlight">\(N \times p\)</span> with
 the user-defined data. Uses the provided pointer to access data (no copy is performed).</p>
 </dd></dl>
 

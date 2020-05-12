@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; oneAPI Specification 0.6.1 documentation</title>
+  <title>&lt;no title&gt; &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7
               </div>
             
           
@@ -91,21 +91,20 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../architecture.html">Software Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../library-interop.html">Library Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../elements.html">oneAPI Elements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../dpcpp/source/index.html">DPC++ (DPC++)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneDPL/source/index.html">oneAPI DPC++ Library (oneDPL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneDNN/source/index.html">oneAPI Deep Neural Network Library (oneDNN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneCCL/source/index.html">oneAPI Collective Communications Library (oneCCL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../l0/source/index.html">oneAPI Level Zero (Level Zero)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneDAL/source/index.html">oneAPI Data Analytics Library (oneDAL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneTBB/source/nested-index.html">oneAPI Threading Building Blocks (oneTBB)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">oneAPI Video Processing Library (oneVPL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneMKL/source/index.html">oneAPI Math Kernel Library (oneMKL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dpcpp/source/index.html">DPC++ 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneDPL/source/index.html">oneDPL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneDNN/source/index.html">oneDNN 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneCCL/source/index.html">oneCCL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../l0/source/index.html">Level Zero 0.91</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneDAL/source/index.html">oneDAL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneTBB/source/nested-index.html">oneTBB 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">oneVPL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneMKL/source/index.html">oneMKL 0.7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../versions.html">HTML and PDF Versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notices.html">Legal Notices and Disclaimers</a></li>
@@ -174,12 +173,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p><a class="reference internal" href="index.html#_CPPv4N3vpl13DeviceContextE" title="vpl::DeviceContext"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::DeviceContext</span></code></a> represents device’s driver context and</p>
-<p>command queue for VPL operations. Depending on the operating systems and workloads, the low level
-device contexts can be VAAPI, DX, OCL, GL for media, compute and rendering operations.
-This class hides the low level contexts, while exposing
-sufficient information to enable context sharing for different <a class="reference internal" href="index.html#_CPPv4N3vpl10WorkstreamE" title="vpl::Workstream"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::Workstream</span></code></a>
-operations.</p>
+  <p><a class="reference internal" href="index.html#_CPPv4N3vpl13DeviceContextE" title="vpl::DeviceContext"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::DeviceContext</span></code></a> defines a device’s driver context and</p>
+<p>command queue for VPL operations. Depending on the underlying operating systems and workstream operations,
+the low level device contexts can be VAAPI, DX, OCL, GL for media, compute and rendering operations.
+This class hides the details of the low level contexts, while enabling context sharing among several workstreams.</p>
 <p>This class provides the following functions:</p>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="index.html#_CPPv4N3vpl13DeviceContext13DeviceContextERK14DeviceInstance" title="vpl::DeviceContext::DeviceContext"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">vpl::DeviceContext::DeviceContext()</span></code></a>: create a new device context on a device</p></li>
@@ -187,7 +184,7 @@ operations.</p>
 <li><p><a class="reference internal" href="index.html#_CPPv4N3vpl13DeviceContext16RemoveWorkstreamEP10Workstream" title="vpl::DeviceContext::RemoveWorkstream"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">vpl::DeviceContext::RemoveWorkstream()</span></code></a>: remove a workstream for the device context</p></li>
 </ol>
 <p>The device context is usually created implicitly inside the <a class="reference internal" href="index.html#_CPPv4N3vpl10WorkstreamE" title="vpl::Workstream"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::Workstream</span></code></a> constructor.
-Application programmers can also create it explicitly and pass the context to multiple workstreams.</p>
+Application programmers can also create it explicitly to share the context with multiple workstreams.</p>
 
 
            </div>

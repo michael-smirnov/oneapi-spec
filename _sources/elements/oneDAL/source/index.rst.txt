@@ -3,9 +3,9 @@
 
 .. _oneDAL-section:
 
-==========================================
-|dal_full_name| (|dal_short_name|)
-==========================================
+==============================
+|dal_short_name| |dal_version|
+==============================
 
 .. |github| replace:: oneDAL GitHub\* page
 .. _github: https://github.com/intel/daal
@@ -25,7 +25,7 @@ For general information, visit |github|_.
    :maxdepth: 3
 
    introduction.rst
-   terminology.rst
+   glossary.rst
    programming_model/index.rst
    common_interface/index.rst
    data_management/index.rst

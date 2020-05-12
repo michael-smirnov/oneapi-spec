@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>oneCCL Concepts &mdash; oneAPI Specification 0.6.1 documentation</title>
+  <title>oneCCL Concepts &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7
               </div>
             
           
@@ -93,16 +93,15 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../architecture.html">Software Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../library-interop.html">Library Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../elements.html">oneAPI Elements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../dpcpp/source/index.html">DPC++ (DPC++)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../oneDPL/source/index.html">oneAPI DPC++ Library (oneDPL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../oneDNN/source/index.html">oneAPI Deep Neural Network Library (oneDNN)</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">oneAPI Collective Communications Library (oneCCL)</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../dpcpp/source/index.html">DPC++ 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneDPL/source/index.html">oneDPL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneDNN/source/index.html">oneDNN 0.7</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">oneCCL 0.7</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../definitions.html">Definitions</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">oneCCL Concepts</a><ul>
@@ -118,11 +117,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../programming_model.html">Programming Model</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../l0/source/index.html">oneAPI Level Zero (Level Zero)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../oneDAL/source/index.html">oneAPI Data Analytics Library (oneDAL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../oneTBB/source/nested-index.html">oneAPI Threading Building Blocks (oneTBB)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../oneVPL/source/index.html">oneAPI Video Processing Library (oneVPL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../oneMKL/source/index.html">oneAPI Math Kernel Library (oneMKL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../l0/source/index.html">Level Zero 0.91</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneDAL/source/index.html">oneDAL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneTBB/source/nested-index.html">oneTBB 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneVPL/source/index.html">oneVPL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneMKL/source/index.html">oneMKL 0.7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../contributors.html">Contributors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../versions.html">HTML and PDF Versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notices.html">Legal Notices and Disclaimers</a></li>
@@ -172,7 +171,7 @@
       <li><a href="../../../../index.html">oneAPI Specification</a> &raquo;</li>
         
           
-          <li><a href="../index.html">oneAPI Collective Communications Library (oneCCL)</a> </li>
+          <li><a href="../index.html">oneCCL 0.7</a> </li>
           
         
           
@@ -207,7 +206,7 @@
 </ul>
 <div class="section" id="oneccl-environment">
 <h2>oneCCL Environment<a class="headerlink" href="#oneccl-environment" title="Permalink to this headline">¶</a></h2>
-<p>oneCCL Enviroment is a singleton object which is used as an entry
+<p>oneCCL Environment is a singleton object which is used as an entry
 point into the oneCCL library and which is defined only for C++
 version of API.  oneCCL Environment exposes a number of helper methods
 to manage other oneCCL objects, such as streams, communicators, etc.</p>
@@ -280,7 +279,7 @@ For example, for oneAPI device you should pass <code class="docutils literal not
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>When you create oneCCL Communicator, you can optionally specify attributes that control the runtime behaviour of oneCCL implementation.</p>
+<p>When you create oneCCL Communicator, you can optionally specify attributes that control the runtime behavior of oneCCL implementation.</p>
 <div class="section" id="oneccl-communicator-attributes">
 <h3>oneCCL Communicator Attributes<a class="headerlink" href="#oneccl-communicator-attributes" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">struct</span>
@@ -293,7 +292,7 @@ For example, for oneAPI device you should pass <code class="docutils literal not
 <span class="p">}</span> <span class="n">ccl_comm_attr_t</span><span class="p">;</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">ccl_comm_attr_t</span></code> (<code class="docutils literal notranslate"><span class="pre">ccl::comm_attr</span></code> in C++ version of API) is extendable structure that serves as a modificator of communicator behaviour.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ccl_comm_attr_t</span></code> (<code class="docutils literal notranslate"><span class="pre">ccl::comm_attr</span></code> in C++ version of API) is extendable structure that serves as a modifier of communicator behavior.</p>
 </div>
 </div>
 </div>

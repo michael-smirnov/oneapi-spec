@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>oneAPI DPC++ Library (oneDPL) &mdash; oneAPI Specification 0.6.1 documentation</title>
+  <title>oneDPL 0.7 &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="oneAPI Deep Neural Network Library (oneDNN)" href="../../oneDNN/source/index.html" />
-    <link rel="prev" title="DPC++ (DPC++)" href="../../dpcpp/source/index.html" /> 
+    <link rel="next" title="oneDNN 0.7" href="../../oneDNN/source/index.html" />
+    <link rel="prev" title="DPC++ 0.7" href="../../dpcpp/source/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7
               </div>
             
           
@@ -93,14 +93,13 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../architecture.html">Software Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../library-interop.html">Library Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../elements.html">oneAPI Elements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../dpcpp/source/index.html">DPC++ (DPC++)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">oneAPI DPC++ Library (oneDPL)</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dpcpp/source/index.html">DPC++ 0.7</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">oneDPL 0.7</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#namespaces">Namespaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#supported-c-standard-library-apis-and-algorithms">Supported C++ Standard Library APIs and Algorithms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#extensions-to-parallel-stl">Extensions to Parallel STL</a><ul>
@@ -111,13 +110,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#specific-api-of-onedpl">Specific API of oneDPL</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneDNN/source/index.html">oneAPI Deep Neural Network Library (oneDNN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneCCL/source/index.html">oneAPI Collective Communications Library (oneCCL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../l0/source/index.html">oneAPI Level Zero (Level Zero)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneDAL/source/index.html">oneAPI Data Analytics Library (oneDAL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneTBB/source/nested-index.html">oneAPI Threading Building Blocks (oneTBB)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneVPL/source/index.html">oneAPI Video Processing Library (oneVPL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneMKL/source/index.html">oneAPI Math Kernel Library (oneMKL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneDNN/source/index.html">oneDNN 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneCCL/source/index.html">oneCCL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../l0/source/index.html">Level Zero 0.91</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneDAL/source/index.html">oneDAL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneTBB/source/nested-index.html">oneTBB 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneVPL/source/index.html">oneVPL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneMKL/source/index.html">oneMKL 0.7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../versions.html">HTML and PDF Versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notices.html">Legal Notices and Disclaimers</a></li>
@@ -186,9 +185,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="dpl-full-name-onedpl">
-<span id="onedpl-section"></span><h1>oneAPI DPC++ Library (oneDPL)<a class="headerlink" href="#dpl-full-name-onedpl" title="Permalink to this headline">¶</a></h1>
-<p>The oneAPI Data Parallel C++ Library (oneDPL) provides the functionality
+  <div class="section" id="onedpl-dpl-version">
+<span id="onedpl-section"></span><h1>oneDPL 0.7<a class="headerlink" href="#onedpl-dpl-version" title="Permalink to this headline">¶</a></h1>
+<p>The oneAPI DPC++ Library (oneDPL) provides the functionality
 specified in the C++ standard, with extensions to support data parallelism
 and offloading to devices, and with extensions to simplify its usage for
 implementing data parallel algorithms.</p>
@@ -427,10 +426,10 @@ passed to <code class="code docutils literal notranslate"><span class="pre">dpst
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../oneDNN/source/index.html" class="btn btn-neutral float-right" title="oneAPI Deep Neural Network Library (oneDNN)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../oneDNN/source/index.html" class="btn btn-neutral float-right" title="oneDNN 0.7" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../dpcpp/source/index.html" class="btn btn-neutral float-left" title="DPC++ (DPC++)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../dpcpp/source/index.html" class="btn btn-neutral float-left" title="DPC++ 0.7" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

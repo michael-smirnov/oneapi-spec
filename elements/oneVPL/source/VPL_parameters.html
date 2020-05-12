@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; oneAPI Specification 0.6.1 documentation</title>
+  <title>&lt;no title&gt; &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7
               </div>
             
           
@@ -91,21 +91,20 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../architecture.html">Software Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../library-interop.html">Library Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../elements.html">oneAPI Elements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../dpcpp/source/index.html">DPC++ (DPC++)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneDPL/source/index.html">oneAPI DPC++ Library (oneDPL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneDNN/source/index.html">oneAPI Deep Neural Network Library (oneDNN)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneCCL/source/index.html">oneAPI Collective Communications Library (oneCCL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../l0/source/index.html">oneAPI Level Zero (Level Zero)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneDAL/source/index.html">oneAPI Data Analytics Library (oneDAL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneTBB/source/nested-index.html">oneAPI Threading Building Blocks (oneTBB)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">oneAPI Video Processing Library (oneVPL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../oneMKL/source/index.html">oneAPI Math Kernel Library (oneMKL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dpcpp/source/index.html">DPC++ 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneDPL/source/index.html">oneDPL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneDNN/source/index.html">oneDNN 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneCCL/source/index.html">oneCCL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../l0/source/index.html">Level Zero 0.91</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneDAL/source/index.html">oneDAL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneTBB/source/nested-index.html">oneTBB 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">oneVPL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../oneMKL/source/index.html">oneMKL 0.7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributors.html">Contributors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../versions.html">HTML and PDF Versions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notices.html">Legal Notices and Disclaimers</a></li>
@@ -174,24 +173,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p><a class="reference internal" href="index.html#_CPPv4N3vpl9VplParamsE" title="vpl::VplParams"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::VplParams</span></code></a> defines the parameter settings for decode, video process, encode</p>
-<p>and DL inference. It addesses two separate aspects of video processing:</p>
+  <p><a class="reference internal" href="index.html#_CPPv4N3vpl9VplParamsE" title="vpl::VplParams"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::VplParams</span></code></a> defines the parameter settings for decode, video processing, encode</p>
+<p>and DL inference. It addresses two aspects of video processing:</p>
 <ul class="simple">
 <li><p>Easy to use device independent parameter settings for VPL application developers</p></li>
-<li><p>Easy to translate into device dependent settings for hardware accelerators</p></li>
+<li><p>Easy to translate into device dependent settings for VPL hardware plugin writers</p></li>
 </ul>
-<p>This class provides common settings for video processing <a class="reference internal" href="index.html#_CPPv4N3vpl9VplParamsE" title="vpl::VplParams"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::VplParams</span></code></a> such as
+<p>This class provides common settings for video processing in <a class="reference internal" href="index.html#_CPPv4N3vpl9VplParamsE" title="vpl::VplParams"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::VplParams</span></code></a>, such as
 input/output formats, resolutions, frame rates, crop factors, aspect ratios, and operation
-specific settings <a class="reference internal" href="index.html#_CPPv4N3vpl15VplParamsDecodeE" title="vpl::VplParamsDecode"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::VplParamsDecode</span></code></a> and <a class="reference internal" href="index.html#_CPPv4N3vpl15VplParamsEncodeE" title="vpl::VplParamsEncode"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::VplParamsEncode</span></code></a>
-such as codec type, input/output buffer sizes, encoding bit rate control, and GOP
+specific settings in <a class="reference internal" href="index.html#_CPPv4N3vpl15VplParamsDecodeE" title="vpl::VplParamsDecode"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::VplParamsDecode</span></code></a> and <a class="reference internal" href="index.html#_CPPv4N3vpl15VplParamsEncodeE" title="vpl::VplParamsEncode"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::VplParamsEncode</span></code></a>,
+such as CODEC type, input/output buffer sizes, encoding bit rate control, and GOP
 structure parameters.</p>
-<p>For VPL device plugin providers that support accelerators running autonomously on different nodes,
-the parameter settings will need to be passsed across host boundaries similar to
-gRPC. <a class="reference internal" href="index.html#_CPPv4N3vpl9VplParamsE" title="vpl::VplParams"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::VplParams</span></code></a> will provide interface for serialization and deserialization
-of the parameters as messages for this purpose. We are also evaluating general message
-packages such as protobuf for future releases.</p>
+<p>In the near future, oneVPL will support target devices running autonomously on different nodes,
+where parameter settings need to be passed across host boundaries similar to
+gRPC. We will extend <a class="reference internal" href="index.html#_CPPv4N3vpl9VplParamsE" title="vpl::VplParams"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::VplParams</span></code></a> to include serialization and deserialization
+of the parameters as messages. We are also evaluating general message packages such as protobuf
+as we finalize the API.</p>
 <p>Note that vendor specific extensions can be supported by subclassing
-<a class="reference internal" href="index.html#_CPPv4N3vpl9VplParamsE" title="vpl::VplParams"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::VplParams</span></code></a> to expose them to VPL application developers.</p>
+<a class="reference internal" href="index.html#_CPPv4N3vpl9VplParamsE" title="vpl::VplParams"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">vpl::VplParams</span></code></a> to expose them to oneVPL application developers.</p>
 
 
            </div>
