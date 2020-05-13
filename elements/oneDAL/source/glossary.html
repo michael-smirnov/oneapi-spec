@@ -197,46 +197,60 @@
 <span id="id1"></span><h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="machine-learning-terms">
 <h2>Machine learning terms<a class="headerlink" href="#machine-learning-terms" title="Permalink to this headline">¶</a></h2>
-<dl class="glossary simple">
-<dt id="term-attribute">Attribute</dt><dd><p>A particular property or quality of a real object or an event.
+<dl class="glossary">
+<dt id="term-categorical-feature">Categorical feature</dt><dd><p>A <a class="reference internal" href="#term-feature"><span class="xref std std-term">feature</span></a> with a discrete set of possible values without ordering.</p>
+<p>Synonyms: nominal feature.</p>
+</dd>
+<dt id="term-classification">Classification</dt><dd><p>A <a class="reference internal" href="#term-supervised-learning"><span class="xref std std-term">supervised machine-learning problem</span></a> of assigning
+discrete <a class="reference internal" href="#term-label"><span class="xref std std-term">labels</span></a> (<a class="reference internal" href="#term-categorical-feature"><span class="xref std std-term">categorical</span></a> or <a class="reference internal" href="#term-ordinal-feature"><span class="xref std std-term">ordinal</span></a>)
+to <a class="reference internal" href="#term-feature-vector"><span class="xref std std-term">feature vectors</span></a>.</p>
+</dd>
+<dt id="term-continuous-feature">Continuous feature</dt><dd><p>A <a class="reference internal" href="#term-feature"><span class="xref std std-term">feature</span></a> with values in a domain of real numbers.</p>
+<p>Synonyms: quantitative feature.</p>
+</dd>
+<dt id="term-dataset">Dataset</dt><dd><p>A collection of <a class="reference internal" href="#term-observation"><span class="xref std std-term">observations</span></a>.</p>
+</dd>
+<dt id="term-feature">Feature</dt><dd><p>A particular property or quality of a real object or an event.
 Has a defined type and domain.</p>
+<p>Synonyms: attribute, variable</p>
 </dd>
-<dt id="term-classification">Classification</dt><dd><p>A supervised machine-learning problem to assign categorical <a class="reference internal" href="#term-label"><span class="xref std std-term">labels</span></a>
-to <a class="reference internal" href="#term-feature-vector"><span class="xref std std-term">feature vectors</span></a> describing input objects.</p>
-</dd>
-<dt id="term-dataset">Dataset</dt><dd><p>A collection of <a class="reference internal" href="#term-instance"><span class="xref std std-term">instances</span></a>.</p>
-</dd>
-<dt id="term-feature">Feature</dt><dd><p>A pair of <a class="reference internal" href="#term-attribute"><span class="xref std std-term">attribute</span></a> information and a corresponding value.</p>
+<dt id="term-feature-value">Feature value</dt><dd><p>A single point in the domain of the <a class="reference internal" href="#term-feature"><span class="xref std std-term">feature</span></a>.</p>
 </dd>
 <dt id="term-feature-vector">Feature vector</dt><dd><p>A vector that encodes information about single real object or an event.
-Contains at least one <a class="reference internal" href="#term-feature"><span class="xref std std-term">feature</span></a>.</p>
+Contains at least one <a class="reference internal" href="#term-feature-value"><span class="xref std std-term">feature value</span></a>.</p>
 </dd>
-<dt id="term-inference">Inference</dt><dd><p>A process of obtaining outputs from the <a class="reference internal" href="#term-model"><span class="xref std std-term">model</span></a> created on the <a class="reference internal" href="#term-training"><span class="xref std std-term">training</span></a> stage</p>
+<dt id="term-inference">Inference</dt><dd><p>A process of applying a <a class="reference internal" href="#term-training"><span class="xref std std-term">trained</span></a> <a class="reference internal" href="#term-model"><span class="xref std std-term">model</span></a> to the <a class="reference internal" href="#term-inference-set"><span class="xref std std-term">inference set</span></a> with a goal to
+predict <a class="reference internal" href="#term-response"><span class="xref std std-term">responses</span></a> of the <a class="reference internal" href="#term-label"><span class="xref std std-term">labels</span></a>.</p>
+<p>Synonyms: prediction.</p>
 </dd>
-<dt id="term-instance">Instance</dt><dd><p>A vector of at least one <a class="reference internal" href="#term-feature"><span class="xref std std-term">feature</span></a> value and zero or more <a class="reference internal" href="#term-label"><span class="xref std std-term">label</span></a> values.
-Each of <a class="reference internal" href="#term-label"><span class="xref std std-term">labels</span></a> and <a class="reference internal" href="#term-feature"><span class="xref std std-term">features</span></a> can encode different objects or events.</p>
+<dt id="term-inference-set">Inference set</dt><dd><p>An unlabeled <a class="reference internal" href="#term-dataset"><span class="xref std std-term">dataset</span></a> used at the <a class="reference internal" href="#term-inference"><span class="xref std std-term">inference</span></a> stage to make an outputs from the <a class="reference internal" href="#term-model"><span class="xref std std-term">model</span></a>.</p>
 </dd>
-<dt id="term-label">Label</dt><dd><p><a class="reference internal" href="#term-feature"><span class="xref std std-term">Feature</span></a> of some object or event which is present on the <a class="reference internal" href="#term-training"><span class="xref std std-term">training</span></a> stage but
-unavaliable on the <a class="reference internal" href="#term-inference"><span class="xref std std-term">inference</span></a> stage.</p>
+<dt id="term-label">Label</dt><dd><p><a class="reference internal" href="#term-feature"><span class="xref std std-term">Feature</span></a> of some object or event which is unavailable at the <a class="reference internal" href="#term-inference"><span class="xref std std-term">inference</span></a> stage
+and needs to be predicted.</p>
 </dd>
 <dt id="term-model">Model</dt><dd><p>A result of <a class="reference internal" href="#term-training"><span class="xref std std-term">training</span></a> machine-learning algorithm that stores information necessary to run
 <a class="reference internal" href="#term-inference"><span class="xref std std-term">inference</span></a> on a new <a class="reference internal" href="#term-dataset"><span class="xref std std-term">dataset</span></a>.</p>
 </dd>
-<dt id="term-observation">Observation</dt><dd><p>A synonym for <a class="reference internal" href="#term-instance"><span class="xref std std-term">instance</span></a>.</p>
+<dt id="term-observation">Observation</dt><dd><p>A vector of at least one <a class="reference internal" href="#term-feature"><span class="xref std std-term">feature</span></a> value and zero or more <a class="reference internal" href="#term-label"><span class="xref std std-term">label</span></a> values.
+Each of <a class="reference internal" href="#term-label"><span class="xref std std-term">labels</span></a> and <a class="reference internal" href="#term-feature"><span class="xref std std-term">features</span></a> can encode different objects or events.</p>
+<p>Synonyms: instance, sample.</p>
 </dd>
-<dt id="term-prediction">Prediction</dt><dd><ul class="simple">
-<li><p>A synonym for <a class="reference internal" href="#term-inference"><span class="xref std std-term">inference</span></a>.</p></li>
-<li><p>An output of the <a class="reference internal" href="#term-training"><span class="xref std std-term">trained</span></a> <a class="reference internal" href="#term-model"><span class="xref std std-term">model</span></a> when provided with an input <a class="reference internal" href="#term-instance"><span class="xref std std-term">instance</span></a>.</p></li>
-</ul>
+<dt id="term-ordinal-feature">Ordinal feature</dt><dd><p>A <a class="reference internal" href="#term-feature"><span class="xref std std-term">feature</span></a> with a discrete set of possible values and some ordering between them.</p>
+</dd>
+<dt id="term-regression">Regression</dt><dd><p>A <a class="reference internal" href="#term-supervised-learning"><span class="xref std std-term">supervised machine-learning problem</span></a> of assigning
+<a class="reference internal" href="#term-continuous-feature"><span class="xref std std-term">continuous</span></a> <a class="reference internal" href="#term-label"><span class="xref std std-term">labels</span></a> to
+<a class="reference internal" href="#term-feature-vector"><span class="xref std std-term">feature vectors</span></a>.</p>
 </dd>
 <dt id="term-response">Response</dt><dd><p>A value of a single <a class="reference internal" href="#term-label"><span class="xref std std-term">label</span></a>. For example, response may be a flag
 indicating that an observation belongs to a particular class.</p>
 </dd>
-<dt id="term-sample">Sample</dt><dd><p>A synonym for <a class="reference internal" href="#term-instance"><span class="xref std std-term">instance</span></a>.</p>
+<dt id="term-supervised-learning">Supervised learning</dt><dd><p><a class="reference internal" href="#term-training"><span class="xref std std-term">Training</span></a> process with <a class="reference internal" href="#term-label"><span class="xref std std-term">labeled</span></a> training set.</p>
 </dd>
-<dt id="term-training">Training</dt><dd><p>A search process of the best parameter values of the <a class="reference internal" href="#term-model"><span class="xref std std-term">model</span></a>.</p>
+<dt id="term-training">Training</dt><dd><p>A search process of the best <a class="reference internal" href="#term-model"><span class="xref std std-term">model</span></a>.</p>
 </dd>
-<dt id="term-variable">Variable</dt><dd><p>A synonym for an <a class="reference internal" href="#term-attribute"><span class="xref std std-term">attribute</span></a>.</p>
+<dt id="term-training-set">Training set</dt><dd><p>A <a class="reference internal" href="#term-dataset"><span class="xref std std-term">dataset</span></a> used at the <a class="reference internal" href="#term-training"><span class="xref std std-term">training</span></a> stage to create a <a class="reference internal" href="#term-model"><span class="xref std std-term">model</span></a>.</p>
+</dd>
+<dt id="term-unsupervised-learning">Unsupervised learning</dt><dd><p><a class="reference internal" href="#term-training"><span class="xref std std-term">Training</span></a> process where target <a class="reference internal" href="#term-label"><span class="xref std std-term">labels</span></a> are not present in the training set.</p>
 </dd>
 </dl>
 </div>
@@ -246,10 +260,22 @@ indicating that an observation belongs to a particular class.</p>
 <dt id="term-batch-mode">Batch Mode</dt><dd><p>The computation mode for an algorithm in oneDAL, where all the data needed for
 computation is available at the start and fits the memory of the device on which the computations are performed.</p>
 </dd>
-<dt id="term-immutability">Immutability</dt><dd><p>The object is immutable when it is not possible to change its state after it is constructed.</p>
+<dt id="term-contiguous-data">Contiguous data</dt><dd><p>A special property of the <a class="reference internal" href="#term-data-format"><span class="xref std std-term">data format</span></a>: the data are stored as one contiguous memory block.</p>
+</dd>
+<dt id="term-data-format">Data format</dt><dd><p>The representation of internal structure of the data: this information is enough to efficiently access them.</p>
+</dd>
+<dt id="term-data-type">Data type</dt><dd><p>An integral or floating-point type which is used to physically store the data.</p>
+</dd>
+<dt id="term-homogeneous-data">Homogeneous data</dt><dd><p>A special property of the <a class="reference internal" href="#term-data-format"><span class="xref std std-term">data format</span></a>: all the <a class="reference internal" href="#term-feature"><span class="xref std std-term">features</span></a> have the same type and domain.</p>
+</dd>
+<dt id="term-immutability">Immutability</dt><dd><p>The object is immutable if it is not possible to change its state after creation.</p>
 </dd>
 <dt id="term-online-mode">Online Mode</dt><dd><p>The computation mode for an algorithm in oneDAL, where the data needed for computation
 becomes available in parts over time.</p>
+</dd>
+<dt id="term-reference-counted-object">Reference-counted object</dt><dd><p>A oneDAL object which stores the number of references to the unique implementation.
+Such object has a lightweight copy constructor and assignment operator, which simply increases the number of references.
+Implementation is automatically freed when the number of references becomes equal to zero.</p>
 </dd>
 <dt id="term-workload">Workload</dt><dd><p>A task of applying a oneDAL algorithm to a dataset.</p>
 </dd>

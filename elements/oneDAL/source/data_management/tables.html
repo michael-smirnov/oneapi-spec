@@ -105,7 +105,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../l0/source/index.html">Level Zero 0.91</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">oneDAL 0.7</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../terminology.html">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../programming_model/index.html">Programming model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../common_interface/index.html">Common Interface</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Data management</a><ul class="current">
@@ -209,8 +209,8 @@ to pass the data to the library as <a class="reference internal" href="../progra
 <p>Table object is a container of two entities: data and metadata.</p>
 <ul class="simple">
 <li><p>Data is organized in a shape of <span class="math notranslate nohighlight">\((N \times p)\)</span>,
-where <span class="math notranslate nohighlight">\(N\)</span> is a number of <a class="reference internal" href="../terminology.html#term-observation"><span class="xref std std-term">observations</span></a> in a table and <span class="math notranslate nohighlight">\(p\)</span>
-is a number of <a class="reference internal" href="../terminology.html#term-feature"><span class="xref std std-term">features</span></a>.</p></li>
+where <span class="math notranslate nohighlight">\(N\)</span> is a number of <a class="reference internal" href="../glossary.html#term-observation"><span class="xref std std-term">observations</span></a> in a table and <span class="math notranslate nohighlight">\(p\)</span>
+is a number of <a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">features</span></a>.</p></li>
 <li><p>Metadata defines the detailed structure of the data and,
 therefore, helps oneDAL to access the data efficiently
 (see <a class="reference internal" href="#metadata-api"><span class="std std-ref">Metadata API</span></a> section for details).</p></li>
@@ -267,7 +267,7 @@ with a specific set of metadata values (see <a class="reference internal" href="
 <h2>Requirements on table objects<a class="headerlink" href="#requirements-on-table-objects" title="Permalink to this headline">¶</a></h2>
 <p>Each table object in oneDAL follows these requirements:</p>
 <ol class="arabic">
-<li><p>Table objects in oneDAL are <a class="reference internal" href="../terminology.html#term-immutability"><span class="xref std std-term">immutable</span></a> (it is not possible
+<li><p>Table objects in oneDAL are <a class="reference internal" href="../glossary.html#term-immutability"><span class="xref std std-term">immutable</span></a> (it is not possible
 to change data or metadata values inside the table).</p></li>
 <li><p>To create complex table types or modify table data, <a class="reference internal" href="builders.html#builders"><span class="std std-ref">builders</span></a> should be used.</p></li>
 <li><p>Table objects in oneDAL are reference-counted. One can use an assignment operator or copy constructor
@@ -361,7 +361,7 @@ related to tables.</p>
 <dl class="member">
 <dt id="_CPPv4N6onedal5table13feature_countE">
 <span id="_CPPv3N6onedal5table13feature_countE"></span><span id="_CPPv2N6onedal5table13feature_countE"></span><span id="onedal::table::feature_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">feature_count</code> = 0<a class="headerlink" href="#_CPPv4N6onedal5table13feature_countE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The number of <a class="reference internal" href="../terminology.html#term-feature"><span class="xref std std-term">features</span></a> <span class="math notranslate nohighlight">\(p\)</span> in the table.</p>
+<dd><p>The number of <a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">features</span></a> <span class="math notranslate nohighlight">\(p\)</span> in the table.</p>
 <dl>
 <dt>Getter</dt><dd><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">std::int64_t</span> <span class="pre">get_feature_count()</span> <span class="pre">const</span> <span class="pre">noexcept</span></code></div>
@@ -377,7 +377,7 @@ related to tables.</p>
 <dl class="member">
 <dt id="_CPPv4N6onedal5table17observation_countE">
 <span id="_CPPv3N6onedal5table17observation_countE"></span><span id="_CPPv2N6onedal5table17observation_countE"></span><span id="onedal::table::observation_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">observation_count</code> = 0<a class="headerlink" href="#_CPPv4N6onedal5table17observation_countE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The number of <a class="reference internal" href="../terminology.html#term-observation"><span class="xref std std-term">observations</span></a> <span class="math notranslate nohighlight">\(N\)</span> in the table.</p>
+<dd><p>The number of <a class="reference internal" href="../glossary.html#term-observation"><span class="xref std std-term">observations</span></a> <span class="math notranslate nohighlight">\(N\)</span> in the table.</p>
 <dl>
 <dt>Getter</dt><dd><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">std::int64_t</span> <span class="pre">get_observation_count()</span> <span class="pre">const</span> <span class="pre">noexcept</span></code></div>
@@ -584,7 +584,7 @@ are stored inside the table and how efficiently access them.</p>
 <dd><dl class="member">
 <dt id="_CPPv4N6onedal10table_meta13feature_countE">
 <span id="_CPPv3N6onedal10table_meta13feature_countE"></span><span id="_CPPv2N6onedal10table_meta13feature_countE"></span><span id="onedal::table_meta::feature_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">feature_count</code> = 0<a class="headerlink" href="#_CPPv4N6onedal10table_meta13feature_countE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The number of <a class="reference internal" href="../terminology.html#term-feature"><span class="xref std std-term">features</span></a> <span class="math notranslate nohighlight">\(p\)</span> in the table.</p>
+<dd><p>The number of <a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">features</span></a> <span class="math notranslate nohighlight">\(p\)</span> in the table.</p>
 <dl>
 <dt>Getter &amp; Setter</dt><dd><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">std::int64_t</span> <span class="pre">get_feature_count()</span> <span class="pre">const</span> <span class="pre">noexcept</span></code></div>
@@ -601,7 +601,7 @@ are stored inside the table and how efficiently access them.</p>
 <dl class="member">
 <dt id="_CPPv4N6onedal10table_meta7featureE">
 <span id="_CPPv3N6onedal10table_meta7featureE"></span><span id="_CPPv2N6onedal10table_meta7featureE"></span><span id="onedal::table_meta::feature__feature_info"></span><a class="reference internal" href="#_CPPv4N6onedal12feature_infoE" title="onedal::feature_info">feature_info</a> <code class="sig-name descname">feature</code><a class="headerlink" href="#_CPPv4N6onedal10table_meta7featureE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Information about a particular <a class="reference internal" href="../terminology.html#term-feature"><span class="xref std std-term">feature</span></a> in the table</p>
+<dd><p>Information about a particular <a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">feature</span></a> in the table</p>
 <dl>
 <dt>Getter &amp; Setter</dt><dd><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">feature_info&amp;</span> <span class="pre">get_feature(std::int64_t</span> <span class="pre">index)</span> <span class="pre">const</span></code></div>
@@ -705,7 +705,7 @@ the data is stored contiguously in each row.</p>
 <dl class="class">
 <dt id="_CPPv4N6onedal12feature_infoE">
 <span id="_CPPv3N6onedal12feature_infoE"></span><span id="_CPPv2N6onedal12feature_infoE"></span><span id="onedal::feature_info"></span><em class="property">class </em><code class="sig-name descname">feature_info</code><a class="headerlink" href="#_CPPv4N6onedal12feature_infoE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Structure that represents information about particular <a class="reference internal" href="../terminology.html#term-feature"><span class="xref std std-term">feature</span></a></p>
+<dd><p>Structure that represents information about particular <a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">feature</span></a></p>
 <dl>
 <dt>Invariants:</dt><dd><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">feature_type::nominal</span></code> or <code class="docutils literal notranslate"><span class="pre">feature_type::ordinal</span></code>
