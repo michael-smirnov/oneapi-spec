@@ -106,10 +106,12 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">oneDAL 0.7</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notations.html">Mathematical Notations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="programming_model/index.html">Programming model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="common_interface/index.html">Common Interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_management/index.html">Data management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/index.html">Appendix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 </li>
@@ -197,27 +199,14 @@ Data Parallel C++ (DPC++) API extensions to the traditional C++ interface.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="glossary.html#machine-learning-terms">Machine learning terms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="glossary.html#dal-short-name-library-terms">oneDAL library terms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="glossary.html#other">Other</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notations.html">Mathematical Notations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming_model/index.html">Programming model</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="programming_model/basic_usage_scenario.html">Basic usage scenario</a></li>
 <li class="toctree-l2"><a class="reference internal" href="programming_model/memory_objects.html">Memory objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="programming_model/algorithm_anatomy.html">Algorithm anatomy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="programming_model/algorithm_anatomy.html#descriptor">Descriptor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="programming_model/algorithm_anatomy.html#operations">Operations</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="programming_model/algorithm_anatomy.html">Algorithm anatomy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="programming_model/managing_execution_context.html">Managing execution context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="programming_model/computational_modes.html">Computational modes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="programming_model/computational_modes.html#batch">Batch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="programming_model/computational_modes.html#online">Online</a></li>
-<li class="toctree-l3"><a class="reference internal" href="programming_model/computational_modes.html#distributed">Distributed</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="programming_model/computational_modes.html">Computational modes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="common_interface/index.html">Common Interface</a><ul>
@@ -227,14 +216,7 @@ Data Parallel C++ (DPC++) API extensions to the traditional C++ interface.</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="data_management/index.html">Data management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="data_management/tables.html">Tables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="data_management/tables.html#table-types-in-dal-short-name">Table types in oneDAL</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data_management/tables.html#requirements-on-table-objects">Requirements on table objects</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data_management/tables.html#entities-and-their-dependencies">Entities and their dependencies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data_management/tables.html#table-api">Table API</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data_management/tables.html#metadata-api">Metadata API</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="data_management/tables.html">Tables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_management/accessors.html">Accessors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_management/builders.html">Builders</a></li>
 </ul>
@@ -245,13 +227,17 @@ Data Parallel C++ (DPC++) API extensions to the traditional C++ interface.</p>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="algorithms/nearest_neighbors/index.html">Nearest Neighbors (kNN)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="algorithms/nearest_neighbors/knn_classification.html">kNN classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithms/nearest_neighbors/knn_classification.html">k-Nearest Neighbors Classification (k-NN)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="algorithms/decomposition/index.html">Decomposition</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="algorithms/decomposition/pca.html">Principal Components Analysis (PCA)</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/index.html">Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/kd_tree.html">k-d Tree</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>

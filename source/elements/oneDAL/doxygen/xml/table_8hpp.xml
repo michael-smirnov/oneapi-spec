@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="table_8hpp" kind="file" language="C++">
+    <compoundname>table.hpp</compoundname>
+    <includedby refid="knn_8hpp" local="yes">include/onedal/knn.hpp</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>include/onedal/table.hpp</label>
+        <link refid="table_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>include/onedal/knn.hpp</label>
+        <link refid="knn_8hpp_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classonedal_1_1table" prot="public">onedal::table</innerclass>
+    <innernamespace refid="namespaceonedal">onedal</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/onedal/table.hpp"/>
+  </compounddef>
+</doxygen>

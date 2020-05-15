@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classonedal_1_1knn_1_1descriptor" kind="class" language="C++" prot="public">
+    <compoundname>onedal::knn::descriptor</compoundname>
+    <includes refid="knn_8hpp" local="no">knn.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Float</type>
+        <defval>float</defval>
+      </param>
+      <param>
+        <type>typename Method</type>
+        <defval><ref refid="structonedal_1_1knn_1_1method_1_1bruteforce" kindref="compound">method::by_default</ref></defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classonedal_1_1knn_1_1descriptor_1a9d315fc7c49bc9d41b5afbd4c940eb20" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>descriptor</definition>
+        <argsstring>(std::int64_t class_count, std::int64_t neighbor_count)</argsstring>
+        <name>descriptor</name>
+        <param>
+          <type>std::int64_t</type>
+          <declname>class_count</declname>
+        </param>
+        <param>
+          <type>std::int64_t</type>
+          <declname>neighbor_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new instance of the class with the given :literal:<computeroutput>class_count</computeroutput> and :literal:<computeroutput>neighbor_count</computeroutput> property values </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/onedal/knn.hpp" line="31" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classonedal_1_1knn_1_1descriptor_1aa71e9f4f7d270a3c90972bbac4e67158" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::int64_t</type>
+        <definition>std::int64_t get_class_count</definition>
+        <argsstring>() const</argsstring>
+        <name>get_class_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The number of classes $c$ <simplesect kind="invariant"><para>:expr:<computeroutput>class_count &gt; 1</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/onedal/knn.hpp" line="36" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classonedal_1_1knn_1_1descriptor_1ae73de6e282f1f9d8f14dc069584493e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classonedal_1_1knn_1_1descriptor" kindref="compound">descriptor</ref> &amp;</type>
+        <definition>descriptor&amp; set_class_count</definition>
+        <argsstring>(std::int64_t)</argsstring>
+        <name>set_class_count</name>
+        <param>
+          <type>std::int64_t</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/onedal/knn.hpp" line="37" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classonedal_1_1knn_1_1descriptor_1a848e3bd896ce77eb8f6773085944348a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::int64_t</type>
+        <definition>std::int64_t get_neighbor_count</definition>
+        <argsstring>() const</argsstring>
+        <name>get_neighbor_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The number of neighbors $k$ <simplesect kind="invariant"><para>:expr:<computeroutput>neighbor_count &gt; 0</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/onedal/knn.hpp" line="41" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classonedal_1_1knn_1_1descriptor_1a552e270cedd85b6291debc93a9766aa4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classonedal_1_1knn_1_1descriptor" kindref="compound">descriptor</ref> &amp;</type>
+        <definition>descriptor&amp; set_neighbor_count</definition>
+        <argsstring>(std::int64_t)</argsstring>
+        <name>set_neighbor_count</name>
+        <param>
+          <type>std::int64_t</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/onedal/knn.hpp" line="42" column="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Float</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The floating-point type that the algorithm uses for intermediate computations. Can be :expr:<computeroutput>float</computeroutput> or :expr:<computeroutput>double</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Method</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tag-type that specifies an implementation of algorithm. Can be :expr:<computeroutput><ref refid="structonedal_1_1knn_1_1method_1_1bruteforce" kindref="compound">method::bruteforce</ref></computeroutput> or :expr:<computeroutput><ref refid="structonedal_1_1knn_1_1method_1_1kd__tree" kindref="compound">method::kd_tree</ref></computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="include/onedal/knn.hpp" line="27" column="17" bodyfile="include/onedal/knn.hpp" bodystart="27" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classonedal_1_1knn_1_1descriptor_1a9d315fc7c49bc9d41b5afbd4c940eb20" prot="public" virt="non-virtual"><scope>onedal::knn::descriptor</scope><name>descriptor</name></member>
+      <member refid="classonedal_1_1knn_1_1descriptor_1aa71e9f4f7d270a3c90972bbac4e67158" prot="public" virt="non-virtual"><scope>onedal::knn::descriptor</scope><name>get_class_count</name></member>
+      <member refid="classonedal_1_1knn_1_1descriptor_1a848e3bd896ce77eb8f6773085944348a" prot="public" virt="non-virtual"><scope>onedal::knn::descriptor</scope><name>get_neighbor_count</name></member>
+      <member refid="classonedal_1_1knn_1_1descriptor_1ae73de6e282f1f9d8f14dc069584493e6" prot="public" virt="non-virtual"><scope>onedal::knn::descriptor</scope><name>set_class_count</name></member>
+      <member refid="classonedal_1_1knn_1_1descriptor_1a552e270cedd85b6291debc93a9766aa4" prot="public" virt="non-virtual"><scope>onedal::knn::descriptor</scope><name>set_neighbor_count</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

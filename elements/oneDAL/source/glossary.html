@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Programming model" href="programming_model/index.html" />
+    <link rel="next" title="Mathematical Notations" href="notations.html" />
     <link rel="prev" title="Introduction" href="introduction.html" /> 
 </head>
 
@@ -107,14 +107,16 @@
 <li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Glossary</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#machine-learning-terms">Machine learning terms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dal-short-name-library-terms">oneDAL library terms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#other">Other</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dal-short-name-terms">oneDAL terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-oneapi-terms">Common oneAPI terms</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="notations.html">Mathematical Notations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="programming_model/index.html">Programming model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="common_interface/index.html">Common Interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_management/index.html">Data management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="appendix/index.html">Appendix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 </li>
@@ -198,15 +200,19 @@
 <div class="section" id="machine-learning-terms">
 <h2>Machine learning terms<a class="headerlink" href="#machine-learning-terms" title="Permalink to this headline">¶</a></h2>
 <dl class="glossary">
-<dt id="term-categorical-feature">Categorical feature</dt><dd><p>A <a class="reference internal" href="#term-feature"><span class="xref std std-term">feature</span></a> with a discrete set of possible values without ordering.</p>
+<dt id="term-categorical-feature">Categorical feature</dt><dd><p>A <a class="reference internal" href="#term-feature"><span class="xref std std-term">feature</span></a> with a discrete domain without ordering between values.</p>
 <p>Synonyms: nominal feature.</p>
 </dd>
 <dt id="term-classification">Classification</dt><dd><p>A <a class="reference internal" href="#term-supervised-learning"><span class="xref std std-term">supervised machine-learning problem</span></a> of assigning
 discrete <a class="reference internal" href="#term-label"><span class="xref std std-term">labels</span></a> (<a class="reference internal" href="#term-categorical-feature"><span class="xref std std-term">categorical</span></a> or <a class="reference internal" href="#term-ordinal-feature"><span class="xref std std-term">ordinal</span></a>)
 to <a class="reference internal" href="#term-feature-vector"><span class="xref std std-term">feature vectors</span></a>.</p>
 </dd>
+<dt id="term-clustering">Clustering</dt><dd><p>An <a class="reference internal" href="#term-unsupervised-learning"><span class="xref std std-term">unsupervised machine-learning problem</span></a> of grouping
+<a class="reference internal" href="#term-feature-vector"><span class="xref std std-term">feature vectors</span></a> onto (usually
+<a class="reference internal" href="#term-categorical-feature"><span class="xref std std-term">categorical</span></a>) groups without prior information on them.</p>
+</dd>
 <dt id="term-continuous-feature">Continuous feature</dt><dd><p>A <a class="reference internal" href="#term-feature"><span class="xref std std-term">feature</span></a> with values in a domain of real numbers.</p>
-<p>Synonyms: quantitative feature.</p>
+<p>Synonyms: quantitative feature, numerical feature.</p>
 </dd>
 <dt id="term-dataset">Dataset</dt><dd><p>A collection of <a class="reference internal" href="#term-observation"><span class="xref std std-term">observations</span></a>.</p>
 </dd>
@@ -220,13 +226,15 @@ Has a defined type and domain.</p>
 Contains at least one <a class="reference internal" href="#term-feature-value"><span class="xref std std-term">feature value</span></a>.</p>
 </dd>
 <dt id="term-inference">Inference</dt><dd><p>A process of applying a <a class="reference internal" href="#term-training"><span class="xref std std-term">trained</span></a> <a class="reference internal" href="#term-model"><span class="xref std std-term">model</span></a> to the <a class="reference internal" href="#term-inference-set"><span class="xref std std-term">inference set</span></a> with a goal to
-predict <a class="reference internal" href="#term-response"><span class="xref std std-term">responses</span></a> of the <a class="reference internal" href="#term-label"><span class="xref std std-term">labels</span></a>.</p>
+make outputs based on input <a class="reference internal" href="#term-feature-vector"><span class="xref std std-term">feature vectors</span></a>.</p>
 <p>Synonyms: prediction.</p>
 </dd>
 <dt id="term-inference-set">Inference set</dt><dd><p>An unlabeled <a class="reference internal" href="#term-dataset"><span class="xref std std-term">dataset</span></a> used at the <a class="reference internal" href="#term-inference"><span class="xref std std-term">inference</span></a> stage to make an outputs from the <a class="reference internal" href="#term-model"><span class="xref std std-term">model</span></a>.</p>
 </dd>
-<dt id="term-label">Label</dt><dd><p><a class="reference internal" href="#term-feature"><span class="xref std std-term">Feature</span></a> of some object or event which is unavailable at the <a class="reference internal" href="#term-inference"><span class="xref std std-term">inference</span></a> stage
-and needs to be predicted.</p>
+<dt id="term-label">Label</dt><dd><p>A <a class="reference internal" href="#term-feature"><span class="xref std std-term">feature</span></a> of some object or event which value is target to be predicted in <a class="reference internal" href="#term-supervised-learning"><span class="xref std std-term">supervised learning</span></a> task.
+On the <a class="reference internal" href="#term-training"><span class="xref std std-term">training</span></a> stage, the model which finds the best dependency between input <a class="reference internal" href="#term-feature-vector"><span class="xref std std-term">feature vector</span></a> and
+<a class="reference internal" href="#term-label"><span class="xref std std-term">labels</span></a> is selected. <a class="reference internal" href="#term-label"><span class="xref std std-term">Label</span></a> is one of outputs can be made by <a class="reference internal" href="#term-model"><span class="xref std std-term">model</span></a>
+on the <a class="reference internal" href="#term-inference"><span class="xref std std-term">inference</span></a> stage.</p>
 </dd>
 <dt id="term-model">Model</dt><dd><p>A result of <a class="reference internal" href="#term-training"><span class="xref std std-term">training</span></a> machine-learning algorithm that stores information necessary to run
 <a class="reference internal" href="#term-inference"><span class="xref std std-term">inference</span></a> on a new <a class="reference internal" href="#term-dataset"><span class="xref std std-term">dataset</span></a>.</p>
@@ -244,18 +252,23 @@ Each of <a class="reference internal" href="#term-label"><span class="xref std s
 <dt id="term-response">Response</dt><dd><p>A value of a single <a class="reference internal" href="#term-label"><span class="xref std std-term">label</span></a>. For example, response may be a flag
 indicating that an observation belongs to a particular class.</p>
 </dd>
-<dt id="term-supervised-learning">Supervised learning</dt><dd><p><a class="reference internal" href="#term-training"><span class="xref std std-term">Training</span></a> process with <a class="reference internal" href="#term-label"><span class="xref std std-term">labeled</span></a> training set.</p>
+<dt id="term-supervised-learning">Supervised learning</dt><dd><p><a class="reference internal" href="#term-training"><span class="xref std std-term">Training</span></a> process with <a class="reference internal" href="#term-label"><span class="xref std std-term">labeled</span></a> <a class="reference internal" href="#term-training-set"><span class="xref std std-term">training set</span></a>.
+The best <a class="reference internal" href="#term-model"><span class="xref std std-term">model</span></a> of dependencies between input <a class="reference internal" href="#term-feature-vector"><span class="xref std std-term">feature vector</span></a>
+and <a class="reference internal" href="#term-label"><span class="xref std std-term">labels</span></a> is selected.</p>
 </dd>
-<dt id="term-training">Training</dt><dd><p>A search process of the best <a class="reference internal" href="#term-model"><span class="xref std std-term">model</span></a>.</p>
+<dt id="term-training">Training</dt><dd><p>A process of creating a best <a class="reference internal" href="#term-model"><span class="xref std std-term">model</span></a> (in terms of some quality criteria) based on
+information extracted from a <a class="reference internal" href="#term-training-set"><span class="xref std std-term">training set</span></a>.</p>
 </dd>
 <dt id="term-training-set">Training set</dt><dd><p>A <a class="reference internal" href="#term-dataset"><span class="xref std std-term">dataset</span></a> used at the <a class="reference internal" href="#term-training"><span class="xref std std-term">training</span></a> stage to create a <a class="reference internal" href="#term-model"><span class="xref std std-term">model</span></a>.</p>
 </dd>
-<dt id="term-unsupervised-learning">Unsupervised learning</dt><dd><p><a class="reference internal" href="#term-training"><span class="xref std std-term">Training</span></a> process where target <a class="reference internal" href="#term-label"><span class="xref std std-term">labels</span></a> are not present in the training set.</p>
+<dt id="term-unsupervised-learning">Unsupervised learning</dt><dd><p><a class="reference internal" href="#term-training"><span class="xref std std-term">Training</span></a> process where <a class="reference internal" href="#term-training-set"><span class="xref std std-term">training set</span></a> do not contain information
+of dependencies between <a class="reference internal" href="#term-feature-vector"><span class="xref std std-term">feature vectors</span></a> and outputs need
+to be produced by <a class="reference internal" href="#term-model"><span class="xref std std-term">model</span></a>.</p>
 </dd>
 </dl>
 </div>
-<div class="section" id="dal-short-name-library-terms">
-<h2>oneDAL library terms<a class="headerlink" href="#dal-short-name-library-terms" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dal-short-name-terms">
+<h2>oneDAL terms<a class="headerlink" href="#dal-short-name-terms" title="Permalink to this headline">¶</a></h2>
 <dl class="glossary simple">
 <dt id="term-batch-mode">Batch Mode</dt><dd><p>The computation mode for an algorithm in oneDAL, where all the data needed for
 computation is available at the start and fits the memory of the device on which the computations are performed.</p>
@@ -281,9 +294,8 @@ Implementation is automatically freed when the number of references becomes equa
 </dd>
 </dl>
 </div>
-<div class="section" id="other">
-<h2>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h2>
-<p>TODO: this section looks like a general one for the whole oneAPI spec.</p>
+<div class="section" id="common-oneapi-terms">
+<h2>Common oneAPI terms<a class="headerlink" href="#common-oneapi-terms" title="Permalink to this headline">¶</a></h2>
 <dl class="glossary simple">
 <dt id="term-api">API</dt><dd><p>Application Programming Interface</p>
 </dd>
@@ -313,7 +325,7 @@ processors to be written in a “single-source” style using completely standar
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="programming_model/index.html" class="btn btn-neutral float-right" title="Programming model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="notations.html" class="btn btn-neutral float-right" title="Mathematical Notations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

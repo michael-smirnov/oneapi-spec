@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="structonedal_1_1knn_1_1method_1_1bruteforce" kind="struct"><name>onedal::knn::method::bruteforce</name>
+  </compound>
+  <compound refid="classonedal_1_1knn_1_1descriptor" kind="class"><name>onedal::knn::descriptor</name>
+    <member refid="classonedal_1_1knn_1_1descriptor_1a9d315fc7c49bc9d41b5afbd4c940eb20" kind="function"><name>descriptor</name></member>
+    <member refid="classonedal_1_1knn_1_1descriptor_1aa71e9f4f7d270a3c90972bbac4e67158" kind="function"><name>get_class_count</name></member>
+    <member refid="classonedal_1_1knn_1_1descriptor_1ae73de6e282f1f9d8f14dc069584493e6" kind="function"><name>set_class_count</name></member>
+    <member refid="classonedal_1_1knn_1_1descriptor_1a848e3bd896ce77eb8f6773085944348a" kind="function"><name>get_neighbor_count</name></member>
+    <member refid="classonedal_1_1knn_1_1descriptor_1a552e270cedd85b6291debc93a9766aa4" kind="function"><name>set_neighbor_count</name></member>
+  </compound>
+  <compound refid="classonedal_1_1knn_1_1infer__input" kind="class"><name>onedal::knn::infer_input</name>
+    <member refid="classonedal_1_1knn_1_1infer__input_1a1c0979f9bbbfe7bc4e80e0a9998918c5" kind="function"><name>infer_input</name></member>
+    <member refid="classonedal_1_1knn_1_1infer__input_1adb8d5c6d52450f1b5863ac4125d7289a" kind="function"><name>get_model</name></member>
+    <member refid="classonedal_1_1knn_1_1infer__input_1a9646e6ce493efe229183f227edfd2083" kind="function"><name>set_model</name></member>
+    <member refid="classonedal_1_1knn_1_1infer__input_1a8084b2fd7da5fd507077b6da7fbdbe30" kind="function"><name>get_data</name></member>
+    <member refid="classonedal_1_1knn_1_1infer__input_1a2a40415ce953042cee491ef3d91f7b0b" kind="function"><name>set_data</name></member>
+  </compound>
+  <compound refid="classonedal_1_1knn_1_1infer__result" kind="class"><name>onedal::knn::infer_result</name>
+    <member refid="classonedal_1_1knn_1_1infer__result_1a9fbe9b8ec16d2a03c897292626f1742d" kind="function"><name>infer_result</name></member>
+    <member refid="classonedal_1_1knn_1_1infer__result_1adcb882323bce6ff2519d1faec189b496" kind="function"><name>get_labels</name></member>
+  </compound>
+  <compound refid="structonedal_1_1knn_1_1method_1_1kd__tree" kind="struct"><name>onedal::knn::method::kd_tree</name>
+  </compound>
+  <compound refid="classonedal_1_1knn_1_1model" kind="class"><name>onedal::knn::model</name>
+    <member refid="classonedal_1_1knn_1_1model_1af758be52317607e28c2b633561d322f6" kind="function"><name>model</name></member>
+  </compound>
+  <compound refid="classonedal_1_1table" kind="class"><name>onedal::table</name>
+  </compound>
+  <compound refid="classonedal_1_1knn_1_1train__input" kind="class"><name>onedal::knn::train_input</name>
+    <member refid="classonedal_1_1knn_1_1train__input_1a6351d17dcba34aa475b68e67ca557f72" kind="function"><name>train_input</name></member>
+    <member refid="classonedal_1_1knn_1_1train__input_1a8084b2fd7da5fd507077b6da7fbdbe30" kind="function"><name>get_data</name></member>
+    <member refid="classonedal_1_1knn_1_1train__input_1a25de6c91238297ca5fc6dcc253ed63e8" kind="function"><name>set_data</name></member>
+    <member refid="classonedal_1_1knn_1_1train__input_1adcb882323bce6ff2519d1faec189b496" kind="function"><name>get_labels</name></member>
+    <member refid="classonedal_1_1knn_1_1train__input_1a2d773f2d0d24262dd4721b7faf1b4fad" kind="function"><name>set_labels</name></member>
+  </compound>
+  <compound refid="classonedal_1_1knn_1_1train__result" kind="class"><name>onedal::knn::train_result</name>
+    <member refid="classonedal_1_1knn_1_1train__result_1a88c5cfbeed393e8157984e8f363a742e" kind="function"><name>train_result</name></member>
+    <member refid="classonedal_1_1knn_1_1train__result_1adb8d5c6d52450f1b5863ac4125d7289a" kind="function"><name>get_model</name></member>
+  </compound>
+  <compound refid="namespaceonedal" kind="namespace"><name>onedal</name>
+    <member refid="train_8hpp_1a135b5fc09347b61c6d5e317506f7192d" kind="function"><name>train</name></member>
+  </compound>
+  <compound refid="namespaceonedal_1_1knn" kind="namespace"><name>onedal::knn</name>
+    <member refid="knn_8hpp_1ae368b6d2430bd76c761162db398d7f12" kind="function"><name>train</name></member>
+    <member refid="knn_8hpp_1a8cbaa35fb7d0105363e12fa6581c6106" kind="function"><name>infer</name></member>
+  </compound>
+  <compound refid="namespaceonedal_1_1knn_1_1example" kind="namespace"><name>onedal::knn::example</name>
+    <member refid="knn_8hpp_1a7b71b52a6e9c566cdab9dffd684e9614" kind="function"><name>run_training</name></member>
+  </compound>
+  <compound refid="namespaceonedal_1_1knn_1_1method" kind="namespace"><name>onedal::knn::method</name>
+    <member refid="knn_8hpp_1a2c0434c97fcf83c718010ea34738b86f" kind="typedef"><name>by_default</name></member>
+  </compound>
+  <compound refid="kmeans_8hpp" kind="file"><name>kmeans.hpp</name>
+  </compound>
+  <compound refid="knn_8hpp" kind="file"><name>knn.hpp</name>
+  </compound>
+  <compound refid="table_8hpp" kind="file"><name>table.hpp</name>
+  </compound>
+  <compound refid="train_8hpp" kind="file"><name>train.hpp</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_ecd1dd6bca239bb51430553397bec24f" kind="dir"><name>include/onedal</name>
+  </compound>
+</doxygenindex>

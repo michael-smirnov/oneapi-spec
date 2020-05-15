@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="knn_8hpp" kind="file" language="C++">
+    <compoundname>knn.hpp</compoundname>
+    <includes local="no">cstdint</includes>
+    <includes refid="table_8hpp" local="yes">onedal/table.hpp</includes>
+    <includes refid="train_8hpp" local="yes">onedal/train.hpp</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>cstdint</label>
+      </node>
+      <node id="3">
+        <label>onedal/table.hpp</label>
+        <link refid="table_8hpp_source"/>
+      </node>
+      <node id="4">
+        <label>onedal/train.hpp</label>
+        <link refid="train_8hpp_source"/>
+      </node>
+      <node id="1">
+        <label>include/onedal/knn.hpp</label>
+        <link refid="knn_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structonedal_1_1knn_1_1method_1_1bruteforce" prot="public">onedal::knn::method::bruteforce</innerclass>
+    <innerclass refid="structonedal_1_1knn_1_1method_1_1kd__tree" prot="public">onedal::knn::method::kd_tree</innerclass>
+    <innerclass refid="classonedal_1_1knn_1_1descriptor" prot="public">onedal::knn::descriptor</innerclass>
+    <innerclass refid="classonedal_1_1knn_1_1model" prot="public">onedal::knn::model</innerclass>
+    <innerclass refid="classonedal_1_1knn_1_1train__input" prot="public">onedal::knn::train_input</innerclass>
+    <innerclass refid="classonedal_1_1knn_1_1train__result" prot="public">onedal::knn::train_result</innerclass>
+    <innerclass refid="classonedal_1_1knn_1_1infer__input" prot="public">onedal::knn::infer_input</innerclass>
+    <innerclass refid="classonedal_1_1knn_1_1infer__result" prot="public">onedal::knn::infer_result</innerclass>
+    <innernamespace refid="namespaceonedal">onedal</innernamespace>
+    <innernamespace refid="namespaceonedal_1_1knn">onedal::knn</innernamespace>
+    <innernamespace refid="namespaceonedal_1_1knn_1_1method">onedal::knn::method</innernamespace>
+    <innernamespace refid="namespaceonedal_1_1knn_1_1example">onedal::knn::example</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/onedal/knn.hpp"/>
+  </compounddef>
+</doxygen>

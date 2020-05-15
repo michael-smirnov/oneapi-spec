@@ -106,6 +106,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">oneDAL 0.7</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notations.html">Mathematical Notations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../programming_model/index.html">Programming model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../common_interface/index.html">Common Interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../data_management/index.html">Data management</a></li>
@@ -115,6 +116,7 @@
 <li class="toctree-l3"><a class="reference internal" href="decomposition/index.html">Decomposition</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 </li>
@@ -228,7 +230,40 @@ and regression algorithms, as well as association rules discovery.</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nearest_neighbors/index.html">Nearest Neighbors (kNN)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="nearest_neighbors/knn_classification.html">kNN classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nearest_neighbors/knn_classification.html">k-Nearest Neighbors Classification (k-NN)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nearest_neighbors/knn_classification.html#mathematical-formulation">Mathematical formulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nearest_neighbors/knn_classification.html#training">Training</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="nearest_neighbors/knn_classification.html#training-method-brute-force">Training method: <em>brute-force</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="nearest_neighbors/knn_classification.html#training-method-k-d-tree">Training method: <em>k-d tree</em></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="nearest_neighbors/knn_classification.html#inference">Inference</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="nearest_neighbors/knn_classification.html#inference-method-brute-force">Inference method: <em>brute-force</em></a></li>
+<li class="toctree-l5"><a class="reference internal" href="nearest_neighbors/knn_classification.html#inference-method-k-d-tree">Inference method: <em>k-d tree</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nearest_neighbors/knn_classification.html#programming-interface">Programming Interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="nearest_neighbors/knn_classification.html#descriptor">Descriptor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nearest_neighbors/knn_classification.html#computational-methods">Computational methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nearest_neighbors/knn_classification.html#model">Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nearest_neighbors/knn_classification.html#training-train">Training <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">train</span><span class="sig-paren">(</span><span class="pre">...</span><span class="sig-paren">)</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="nearest_neighbors/knn_classification.html#input">Input</a></li>
+<li class="toctree-l5"><a class="reference internal" href="nearest_neighbors/knn_classification.html#result">Result</a></li>
+<li class="toctree-l5"><a class="reference internal" href="nearest_neighbors/knn_classification.html#operation">Operation</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="nearest_neighbors/knn_classification.html#inference-infer">Inference <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">infer</span><span class="sig-paren">(</span><span class="pre">...</span><span class="sig-paren">)</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="nearest_neighbors/knn_classification.html#i-api-input">Input</a></li>
+<li class="toctree-l5"><a class="reference internal" href="nearest_neighbors/knn_classification.html#i-api-result">Result</a></li>
+<li class="toctree-l5"><a class="reference internal" href="nearest_neighbors/knn_classification.html#id3">Operation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="decomposition/index.html">Decomposition</a><ul>
