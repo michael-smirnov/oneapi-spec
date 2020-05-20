@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Engine &mdash; oneAPI Specification 0.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script src="../../../../_static/custom.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Stream" href="stream.html" />
+    <link rel="prev" title="oneDNN 0.7" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://oneapi.com" class="icon icon-home"> oneAPI Specification
+          
+
+          
+            
+            <img src="../../../../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../architecture.html">Software Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../library-interop.html">Library Interoperability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../elements.html">oneAPI Elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dpcpp/source/index.html">DPC++ 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneDPL/source/index.html">oneDPL 0.7</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">oneDNN 0.7</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#open-source-implementation">Open Source Implementation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#api">API</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stream.html">Stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="memory.html">Memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="primitives.html">Primitives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utilities.html">Utility Types and Definitions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneCCL/source/index.html">oneCCL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../l0/source/index.html">Level Zero 0.91</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneDAL/source/index.html">oneDAL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneTBB/source/nested-index.html">oneTBB 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneVPL/source/index.html">oneVPL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../oneMKL/source/index.html">oneMKL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../versions.html">HTML and PDF Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../notices.html">Legal Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">oneAPI Specification</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">oneAPI Specification</a> &raquo;</li>
+        
+          
+          <li><a href="../index.html">oneDNN 0.7</a> </li>
+          
+        
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/oneapi-spec/blob/master/source/elements/oneDNN/source/api/engine.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="engine">
+<h1>Engine<a class="headerlink" href="#engine" title="Permalink to this headline">¶</a></h1>
+<p><em>Engine</em> is abstraction of a computational device: a CPU, a specific GPU card in
+the system, etc. Most primitives are created to execute computations on one
+specific engine. The only exceptions are reorder primitives that transfer data
+between two different engines.</p>
+<dl class="class">
+<dt id="_CPPv4N4dnnl6engineE">
+<span id="_CPPv3N4dnnl6engineE"></span><span id="_CPPv2N4dnnl6engineE"></span><span id="dnnl::engine"></span><span class="target" id="structdnnl_1_1engine"></span><em class="property">struct </em><code class="sig-name descname">engine</code><a class="headerlink" href="#_CPPv4N4dnnl6engineE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An execution engine. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N4dnnl6engine4kindE">
+<span id="_CPPv3N4dnnl6engine4kindE"></span><span id="_CPPv2N4dnnl6engine4kindE"></span><span class="target" id="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1a"></span><em class="property">enum </em><code class="sig-name descname">kind</code><a class="headerlink" href="#_CPPv4N4dnnl6engine4kindE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Kinds of engines. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N4dnnl6engine3anyE">
+<span id="_CPPv3N4dnnl6engine3anyE"></span><span id="_CPPv2N4dnnl6engine3anyE"></span><span class="target" id="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1aa100b8cad7cf2a56f6df78f171f97a1ec"></span><code class="sig-name descname">any</code><a class="headerlink" href="#_CPPv4N4dnnl6engine3anyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An unspecified engine. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N4dnnl6engine3cpuE">
+<span id="_CPPv3N4dnnl6engine3cpuE"></span><span id="_CPPv2N4dnnl6engine3cpuE"></span><span class="target" id="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1aad9747e2da342bdb995f6389533ad1a3d"></span><code class="sig-name descname">cpu</code><a class="headerlink" href="#_CPPv4N4dnnl6engine3cpuE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>CPU engine. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N4dnnl6engine3gpuE">
+<span id="_CPPv3N4dnnl6engine3gpuE"></span><span id="_CPPv2N4dnnl6engine3gpuE"></span><span class="target" id="structdnnl_1_1engine_1a2635da16314dcbdb9bd9ea431316bb1aa0aa0be2a866411d9ff03515227454947"></span><code class="sig-name descname">gpu</code><a class="headerlink" href="#_CPPv4N4dnnl6engine3gpuE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>GPU engine. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N4dnnl6engine6engineEv">
+<span id="_CPPv3N4dnnl6engine6engineEv"></span><span id="_CPPv2N4dnnl6engine6engineEv"></span><span id="dnnl::engine::engine"></span><span class="target" id="structdnnl_1_1engine_1a789ae75053453a04b122f303d2ad177f"></span><code class="sig-name descname">engine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4dnnl6engine6engineEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructs an empty engine. An empty engine cannot be used in any operations. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N4dnnl6engine6engineE4kind6size_t">
+<span id="_CPPv3N4dnnl6engine6engineE4kind6size_t"></span><span id="_CPPv2N4dnnl6engine6engineE4kind6size_t"></span><span id="dnnl::engine::engine__kind.s"></span><span class="target" id="structdnnl_1_1engine_1abfbca449ff03e4103de0b45cfa39b59d"></span><code class="sig-name descname">engine</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4dnnl6engine4kindE" title="dnnl::engine::kind">kind</a> <em>kind</em>, size_t <em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4dnnl6engine6engineE4kind6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructs an engine.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kind</span></code>: The kind of engine to construct. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: The index of the engine. Must be less than the value returned by <a class="reference internal" href="#structdnnl_1_1engine_1a35bcbdd6fa35663ca73e24d63c2f8ff4"><span class="std std-ref">get_count()</span></a> for this particular kind of engine. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N4dnnl6engine6engineE4kindRKN2cl4sycl6deviceERKN2cl4sycl7contextE">
+<span id="_CPPv3N4dnnl6engine6engineE4kindRKN2cl4sycl6deviceERKN2cl4sycl7contextE"></span><span id="_CPPv2N4dnnl6engine6engineE4kindRKN2cl4sycl6deviceERKN2cl4sycl7contextE"></span><span id="dnnl::engine::engine__kind.cl::sycl::deviceCR.cl::sycl::contextCR"></span><span class="target" id="structdnnl_1_1engine_1a6c0d8f0aeac1f0e1ba3edb7f9ec61d79"></span><code class="sig-name descname">engine</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4dnnl6engine4kindE" title="dnnl::engine::kind">kind</a> <em>kind</em>, <em class="property">const</em> cl::sycl::device &amp;<em>dev</em>, <em class="property">const</em> cl::sycl::context &amp;<em>ctx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4dnnl6engine6engineE4kindRKN2cl4sycl6deviceERKN2cl4sycl7contextE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructs an engine from SYCL device and context objects.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kind</span></code>: The kind of engine to construct. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dev</span></code>: SYCL device. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ctx</span></code>: SYCL context. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK4dnnl6engine8get_kindEv">
+<span id="_CPPv3NK4dnnl6engine8get_kindEv"></span><span id="_CPPv2NK4dnnl6engine8get_kindEv"></span><span id="dnnl::engine::get_kindC"></span><span class="target" id="structdnnl_1_1engine_1afe81649a67fff16348ca2b7e15f78c3b"></span><a class="reference internal" href="#_CPPv4N4dnnl6engine4kindE" title="dnnl::engine::kind">kind</a> <code class="sig-name descname">get_kind</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4dnnl6engine8get_kindEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the kind of the engine. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The kind of the engine. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK4dnnl6engine16get_sycl_contextEv">
+<span id="_CPPv3NK4dnnl6engine16get_sycl_contextEv"></span><span id="_CPPv2NK4dnnl6engine16get_sycl_contextEv"></span><span id="dnnl::engine::get_sycl_contextC"></span><span class="target" id="structdnnl_1_1engine_1ad457436b693c5ca1b4dcdfb2fa2db25e"></span>cl::sycl::context <code class="sig-name descname">get_sycl_context</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4dnnl6engine16get_sycl_contextEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the underlying SYCL context object. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK4dnnl6engine15get_sycl_deviceEv">
+<span id="_CPPv3NK4dnnl6engine15get_sycl_deviceEv"></span><span id="_CPPv2NK4dnnl6engine15get_sycl_deviceEv"></span><span id="dnnl::engine::get_sycl_deviceC"></span><span class="target" id="structdnnl_1_1engine_1ab6639e361bdc7dbd20da2f6ff730c3db"></span>cl::sycl::device <code class="sig-name descname">get_sycl_device</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4dnnl6engine15get_sycl_deviceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the underlying SYCL device object. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N4dnnl6engine9get_countE4kind">
+<span id="_CPPv3N4dnnl6engine9get_countE4kind"></span><span id="_CPPv2N4dnnl6engine9get_countE4kind"></span><span id="dnnl::engine::get_count__kind"></span><span class="target" id="structdnnl_1_1engine_1a35bcbdd6fa35663ca73e24d63c2f8ff4"></span><em class="property">static</em> size_t <code class="sig-name descname">get_count</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4dnnl6engine9get_countE4kind" title="dnnl::engine::get_count::kind">kind</a> <em>kind</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4dnnl6engine9get_countE4kind" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the number of engines of a certain kind.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The number of engines of the specified kind. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kind</span></code>: The kind of engines to count. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stream.html" class="btn btn-neutral float-right" title="Stream" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="oneDNN 0.7" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
