@@ -332,10 +332,7 @@ Includes size in bytes, encoding principles, and available operations
 (in terms of a programming language).</p>
 <p><strong>Examples:</strong> int32_t, float, double</p>
 </dd>
-<dt id="term-heterogeneous-data">Heterogeneous data</dt><dd><p>A property of the <a class="reference internal" href="#term-data-format"><span class="xref std std-term">data format</span></a>, where <a class="reference internal" href="#term-feature"><span class="xref std std-term">features</span></a>
-have different <a class="reference internal" href="#term-data-type"><span class="xref std std-term">data types</span></a> and/or operations defined
-between values.</p>
-<p>Data which contain values either of different <a class="reference internal" href="#term-data-type"><span class="xref std std-term">data types</span></a> or different sets of operations defined on them. One of the
+<dt id="term-heterogeneous-data">Heterogeneous data</dt><dd><p>Data which contain values either of different <a class="reference internal" href="#term-data-type"><span class="xref std std-term">data types</span></a> or different sets of operations defined on them. One of the
 characteristics of a <a class="reference internal" href="#term-data-format"><span class="xref std std-term">data format</span></a>.</p>
 <p><strong>Example:</strong> A <a class="reference internal" href="#term-dataset"><span class="xref std std-term">dataset</span></a> with 100
 <a class="reference internal" href="#term-observation"><span class="xref std std-term">observations</span></a> of three <a class="reference internal" href="#term-interval-feature"><span class="xref std std-term">interval features</span></a>. The first two features are of float32 <a class="reference internal" href="#term-data-type"><span class="xref std std-term">data type</span></a>, while the
@@ -350,10 +347,10 @@ available operations defined on them. One of the characteristics of a
 <dt id="term-immutability">Immutability</dt><dd><p>The object is immutable if it is not possible to change its state after
 creation.</p>
 </dd>
-<dt id="term-metadata">Metadata</dt><dd><p>An information about logical and physical structure of an object. All
+<dt id="term-metadata">Metadata</dt><dd><p>Information about logical and physical structure of an object. All
 possible combinations of metadata values present the full set of
-possible objects of a given type. Metadata do not expose an information
-which is not a part of type definition, e.g. implementation details.</p>
+possible objects of a given type. Metadata do not expose information
+that is not a part of a type definition, e.g. implementation details.</p>
 <p><strong>Example:</strong> <a class="reference internal" href="#term-table"><span class="xref std std-term">table</span></a> object can contain three <a class="reference internal" href="#term-nominal-feature"><span class="xref std std-term">nominal features</span></a> with 100 <a class="reference internal" href="#term-observation"><span class="xref std std-term">observations</span></a> (logical
 part of metadata). This object can store data as sparse csr array and
 provides direct access to them (physical part)</p>

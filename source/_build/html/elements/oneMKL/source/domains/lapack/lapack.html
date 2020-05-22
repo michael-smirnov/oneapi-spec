@@ -1,0 +1,502 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.1.3. LAPACK Routines &mdash; oneAPI Specification 0.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/language_data.js"></script>
+        <script src="../../../../../_static/custom.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="2.1.3.1. gebrd" href="gebrd.html" />
+    <link rel="prev" title="2.1.2.4.5. trsm_batch" href="../blas/trsm_batch.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://oneapi.com" class="icon icon-home"> oneAPI Specification
+          
+
+          
+            
+            <img src="../../../../../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../architecture.html">Software Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../library-interop.html">Library Interoperability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../elements.html">oneAPI Elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dpcpp/source/index.html">DPC++ 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../oneDPL/source/index.html">oneDPL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../oneDNN/source/index.html">oneDNN 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../oneCCL/source/index.html">oneCCL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../l0/source/index.html">Level Zero 0.91</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../oneDAL/source/index.html">oneDAL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../oneTBB/source/nested-index.html">oneTBB 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../oneVPL/source/index.html">oneVPL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">oneMKL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../versions.html">HTML and PDF Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notices.html">Legal Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">oneAPI Specification</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">oneAPI Specification</a> &raquo;</li>
+        
+          
+          <li><a href="../../index.html">oneMKL 0.7</a> </li>
+          
+        
+          
+        
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/oneapi-spec/blob/master/source/elements/oneMKL/source/domains/lapack/lapack.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lapack-routines">
+<span id="onemkl-lapack"></span><h1><span class="section-number">2.1.3. </span>LAPACK Routines<a class="headerlink" href="#lapack-routines" title="Permalink to this headline">¶</a></h1>
+<div class="docutils container">
+<p>oneAPI Math Kernel Library (oneMKL) implements routines from the
+LAPACK package that are used for solving systems of linear equations,
+linear least squares problems, eigenvalue and singular value
+problems, and performing a number of related computational tasks. The
+library includes LAPACK routines for both real and complex data.
+Routines are supported for systems of equations with the following
+types of matrices:</p>
+<ul class="simple">
+<li><p>General</p></li>
+<li><p>Banded</p></li>
+<li><p>Symmetric or Hermitian positive-definite (full, packed, and
+rectangular full packed (RFP) storage)</p></li>
+<li><p>Symmetric or Hermitian positive-definite banded</p></li>
+<li><p>Symmetric or Hermitian indefinite (both full and packed storage)</p></li>
+<li><p>Symmetric or Hermitian indefinite banded</p></li>
+<li><p>Triangular (full, packed, and RFP storage)</p></li>
+<li><p>Triangular banded</p></li>
+<li><p>Tridiagonal</p></li>
+<li><p>Diagonally dominant tridiagonal.</p></li>
+</ul>
+<div class="note docutils container">
+<p class="notetiphead rubric">Note</p>
+<p>Different arrays used as parameters to oneMKL LAPACK routines must
+not overlap.</p>
+</div>
+<div class="note docutils container">
+<p class="notetiphead rubric" id="warning">Warning</p>
+<p>LAPACK routines assume that input matrices do not contain IEEE 754
+special values such as INF or NaN values. Using these special
+values may cause LAPACK to return unexpected results or become
+unstable.</p>
+</div>
+</div>
+<div class="docutils container">
+<ul>
+<li><p><a class="reference external" href="gebrd.html">gebrd</a>
+Reduces a general matrix to bidiagonal form. This routine belongs
+to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="gebrd_get_lwork.html">gebrd_get_lwork</a>
+Computes the worksize needed for the function,
+<a class="reference external" href="gebrd.html">gebrd</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="geqrf.html">geqrf</a>
+Computes the QR factorization of a general m-by-n matrix. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="geqrf_get_lwork.html">geqrf_get_lwork</a>
+Computes the worksize needed for the function geqrf. This routine
+belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="geqrf_batch.html">geqrf_batch</a>
+Computes the QR factorizations of a batch of general matrices.
+This routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="gesvd.html">gesvd</a>
+Computes the singular value decomposition of a general rectangular
+matrix. This routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="gesvd_get_lwork.html">gesvd_get_lwork</a>
+Computes the worksize needed for the function
+<a class="reference external" href="gesvd.html">gesvd</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="getrf.html">getrf</a>
+Computes the LU factorization of a general m-by-n matrix. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="getrf_batch.html">getrf_batch</a>
+Computes the LU factorizations of a batch of general matrices.
+This routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="getri.html">getri</a>
+Computes the inverse of an LU-factored general matrix determined
+by <a class="reference external" href="getrf.html">getrf</a>.This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="getri_batch.html">getri_batch</a>
+Computes the inverses of a batch of LU-factored matrices
+determined by
+<a class="reference external" href="getrf_batch.html">getrf_batch</a>.
+This routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="getri_get_lwork.html">getri_get_lwork</a>
+Computes the worksize needed for the function
+<a class="reference external" href="getri.html">getri</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="getrs.html">getrs</a>
+Solves a system of linear equations with an LU-factored square
+coefficient matrix, with multiple right-hand sides. This routine
+belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="getrs_batch.html">getrs_batch</a>
+Solves a system of linear equations with a batch of LU-factored
+square coefficient matrices, with multiple right-hand sides. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="heevd.html">heevd</a>
+Computes all eigenvalues and, optionally, all eigenvectors of a
+complex Hermitian matrix using divide and conquer algorithm. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="heevd_get_lwork.html">heevd_get_lwork</a>
+Computes the worksize needed for the function,
+<a class="reference external" href="heevd.html">heevd</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="hegvd.html">hegvd</a>
+Computes all eigenvalues and, optionally, eigenvectors of a real
+generalized symmetric definite eigenproblem using a divide and
+conquer method. This routine belongs to the
+<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="hegvd_get_lwork.html">hegvd_get_lwork</a>
+Computes the worksize needed for the function,
+<a class="reference external" href="hegvd.html">hegvd</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="hetrd.html">hetrd</a>
+Reduces a complex Hermitian matrix to tridiagonal form. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="hetrd_get_lwork.html">hetrd_get_lwork</a>
+Computes the worksize needed for the function,
+<a class="reference external" href="hetrd.html">hetrd</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="orgbr.html">orgbr</a>
+Generates the real orthogonal matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> or <code class="docutils literal notranslate"><span class="pre">P</span></code><sup>T</sup>
+determined by
+<a class="reference external" href="gebrd.html">gebrd</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="orgbr_get_lwork.html">orgbr_get_lwork</a>
+Computes the worksize needed for the function
+<a class="reference external" href="orgbr.html">orgbr</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="orgqr.html">orgqr</a>
+Generates the real orthogonal matrix Q of the QR factorization
+formed by geqrf. This routine belongs to the
+<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="orgqr_batch.html">orgqr_batch</a>
+Generates the orthogonal/unitary matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code><sub>i</sub> of the QR
+factorizations for a group of general matrices. This routine
+belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="orgqr_get_lwork.html">orgqr_get_lwork</a>
+Computes the worksize needed for the function orgqr. This routine
+belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="orgtr.html">orgtr</a>
+Generates the real orthogonal matrix Q determined by
+<a class="reference external" href="sytrd.html">?sytrd</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="orgtr_get_lwork.html">orgtr_get_lwork</a>
+Computes the worksize needed for the function,
+<a class="reference external" href="orgtr.html">orgtr</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="ormqr.html">ormqr</a>
+Multiplies a real matrix by the orthogonal matrix Q of the QR
+factorization formed by geqrf. This routine belongs to the
+<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="ormqr_get_lwork.html">ormqr_get_lwork</a>
+Computes the worksize needed for the function
+<a class="reference external" href="ormqr.html">ormqr</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="ormtr.html">ormtr</a>
+Multiplies a real matrix by the real orthogonal matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code>
+determined by
+<a class="reference external" href="sytrd.html">?sytrd</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="ormtr_get_lwork.html">ormtr_get_lwork</a>
+Computes the worksize needed for the function,
+<a class="reference external" href="ormtr.html">ormtr</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="potrf.html">potrf</a>
+Computes the Cholesky factorization of a symmetric (Hermitian)
+positive-definite matrix.This routine belongs to the
+<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="potrf-usm-version.html">potrf (USM
+Version)</a>
+Computes the Cholesky factorization of a symmetric (Hermitian)
+positive-definite matrix.This routine belongs to the
+<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="potrf_batch.html">potrf_batch</a>
+Computes the Cholesky factorizations of a batch of symmetric
+(Hermitian) positive-definite matrices. This routine belongs to
+the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="potri.html">potri</a>
+Computes the inverse of a symmetric (Hermitian) positive-definite
+matrix using the Cholesky factorization. This routine belongs to
+the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="potrs.html">potrs</a>
+Solves a system of linear equations with a Cholesky-factored
+symmetric (Hermitian) positive-definite coefficient matrix. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="potrs-usm-version.html">potrs (USM
+Version)</a>
+Solves a system of linear equations with a Cholesky-factored
+symmetric (Hermitian) positive-definite coefficient matrix. This
+routine belongs to the onemkl::lapack namespace.</p></li>
+<li><p><a class="reference external" href="potrs_batch.html">potrs_batch</a>
+Solves a system of linear equations with a batch of
+Cholesky-factored symmetric (Hermitian) positive-definite
+coefficient matrices. This routine belongs to the
+<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="syevd.html">syevd</a>
+Computes all eigenvalues and, optionally, all eigenvectors of a
+real symmetric matrix using divide and conquer algorithm. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="syevd_get_lwork.html">syevd_get_lwork</a>
+Computes the worksize needed for the function,
+<a class="reference external" href="syevd.html">syevd</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="sygvd.html">sygvd</a>
+Computes all eigenvalues and, optionally, eigenvectors of a real
+generalized symmetric definite eigenproblem using a divide and
+conquer method. This routine belongs to the
+<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="sygvd_get_lwork.html">sygvd_get_lwork</a>
+Computes the worksize needed for the function,
+<a class="reference external" href="sygvd.html">sygvd</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="sytrd.html">sytrd</a>
+Reduces a real symmetric matrix to tridiagonal form. This routine
+belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="sytrd_get_lwork.html">sytrd_get_lwork</a>
+Computes the worksize needed for the function,
+<a class="reference external" href="sytrd.html">sytrd</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="sytrf.html">sytrf</a>
+Computes the Bunch-Kaufman factorization of a symmetric matrix.
+This routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="sytrf_get_lwork.html">sytrf_get_lwork</a>
+Computes the worksize needed for the function sytrf. This routine
+belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="trtrs.html">trtrs</a>
+Solves a system of linear equations with a triangular coefficient
+matrix, with multiple right-hand sides. This routine belongs to
+the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="ungbr.html">ungbr</a>
+Generates the complex unitary matrix Q or P<sup>t</sup> determined
+by <a class="reference external" href="gebrd.html">gebrd</a>.
+This routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="ungbr_get_lwork.html">ungbr_get_lwork</a>
+Computes the worksize needed for the function,
+<a class="reference external" href="ungbr.html">ungbr</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="ungqr.html">ungqr</a>
+Generates the complex unitary matrix Q of the QR factorization
+formed by geqrf. This routine belongs to the
+<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="ungqr_get_lwork.html">ungqr_get_lwork</a>
+Computes the worksize needed for the function ungqr. This routine
+belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="ungtr.html">ungtr</a>
+Generates the complex unitary matrix Q determined by
+<a class="reference external" href="hetrd.html">hetrd</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="ungtr_get_lwork.html">ungtr_get_lwork</a>
+Computes the worksize needed for the function,
+<a class="reference external" href="ungtr.html">ungtr</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="unmqr.html">unmqr</a>
+Multiplies a complex matrix by the unitary matrix Q of the QR
+factorization formed by unmqr. This routine belongs to the
+<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="unmqr_get_lwork.html">unmqr_get_lwork</a>
+Computes the worksize needed for the function unmqr. This routine
+belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="unmtr.html">unmtr</a>
+Multiplies a complex matrix by the complex unitary matrix Q
+determined by
+<a class="reference external" href="hetrd.html">hetrd</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
+<li><p><a class="reference external" href="unmtr_get_lwork.html">unmtr_get_lwork</a>
+Computes the worksize needed for the function
+<a class="reference external" href="unmtr.html">unmtr</a>. This
+routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="../domains.html#onemkl-dense-linear-algebra"><span class="std std-ref">Dense Linear Algebra</span></a></p>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gebrd.html" class="btn btn-neutral float-right" title="2.1.3.1. gebrd" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../blas/trsm_batch.html" class="btn btn-neutral float-left" title="2.1.2.4.5. trsm_batch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
