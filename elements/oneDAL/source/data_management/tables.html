@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Accessors" href="accessors.html" />
+    <link rel="next" title="Table builders" href="table_builders.html" />
     <link rel="prev" title="Data management" href="index.html" /> 
 </head>
 
@@ -110,16 +110,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../programming_model/index.html">Programming model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../common_interface/index.html">Common Interface</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Data management</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Tables</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#table-types-in-dal-short-name">Table types in oneDAL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#requirements-on-table-objects">Requirements on table objects</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#entities-and-their-dependencies">Entities and their dependencies</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#table-api">Table API</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#metadata-api">Metadata API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#key-concepts">Key concepts</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#relations-between-concepts">Relations between concepts</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="table_builders.html">Table builders</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessors.html">Accessors</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="accessors.html">Accessors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="builders.html">Builders</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../algorithms/index.html">Algorithms</a></li>
@@ -205,7 +202,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="tables">
-<h1>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h1>
 <p>Table is a generic oneDAL concept over numerical data. It provides uniformed way
 to pass the data to the library as <a class="reference internal" href="../programming_model/algorithm_anatomy.html#input"><span class="std std-ref">inputs</span></a> or <a class="reference internal" href="../programming_model/algorithm_anatomy.html#descriptor"><span class="std std-ref">parameters</span></a> or get them as <a class="reference internal" href="../programming_model/algorithm_anatomy.html#result"><span class="std std-ref">results</span></a>.</p>
 <p>Table object is a container of two entities: data and metadata.</p>
@@ -271,7 +268,7 @@ with a specific set of metadata values (see <a class="reference internal" href="
 <ol class="arabic">
 <li><p>Table objects in oneDAL are <a class="reference internal" href="../glossary.html#term-immutability"><span class="xref std std-term">immutable</span></a> (it is not possible
 to change data or metadata values inside the table).</p></li>
-<li><p>To create complex table types or modify table data, <a class="reference internal" href="builders.html#builders"><span class="std std-ref">builders</span></a> should be used.</p></li>
+<li><p>To create complex table types or modify table data, <a class="reference internal" href="table_builders.html#table-builders"><span class="std std-ref">builders</span></a> should be used.</p></li>
 <li><p>Table objects in oneDAL are reference-counted. One can use an assignment operator or copy constructor
 on table objects to create another reference to it.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">onedal</span><span class="o">::</span><span class="n">table</span> <span class="n">table2</span> <span class="o">=</span> <span class="n">table1</span><span class="p">;</span>
@@ -295,7 +292,7 @@ related to tables.</p>
 <p>TBD</p>
 </div>
 <div class="section" id="table-api">
-<span id="id1"></span><h2>Table API<a class="headerlink" href="#table-api" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>Table API<a class="headerlink" href="#table-api" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">table</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
    <span class="n">table</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
@@ -554,7 +551,7 @@ of <cite>metadata</cite> are all equal</p>
 </div>
 </div>
 <div class="section" id="metadata-api">
-<span id="id2"></span><h2>Metadata API<a class="headerlink" href="#metadata-api" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Metadata API<a class="headerlink" href="#metadata-api" title="Permalink to this headline">¶</a></h2>
 <p>Table metadata contains structures describing how the data
 are stored inside the table and how efficiently access them.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">table_meta</span> <span class="p">{</span>
@@ -720,7 +717,7 @@ are avaliable only with integer <code class="docutils literal notranslate"><span
 
 </div>
 <div class="section" id="data-type">
-<span id="id3"></span><h3>Data type<a class="headerlink" href="#data-type" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>Data type<a class="headerlink" href="#data-type" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="k">class</span> <span class="nc">data_type</span> <span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span> <span class="p">{</span>
    <span class="n">u32</span><span class="p">,</span> <span class="n">u64</span>
    <span class="n">i32</span><span class="p">,</span> <span class="n">i64</span><span class="p">,</span>
@@ -745,7 +742,7 @@ are avaliable only with integer <code class="docutils literal notranslate"><span
 
 </div>
 <div class="section" id="feature-type">
-<span id="id4"></span><h3>Feature type<a class="headerlink" href="#feature-type" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>Feature type<a class="headerlink" href="#feature-type" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="k">class</span> <span class="nc">feature_type</span> <span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span> <span class="p">{</span>
    <span class="n">nominal</span><span class="p">,</span>
    <span class="n">ordinal</span><span class="p">,</span>
@@ -779,7 +776,7 @@ are avaliable only with integer <code class="docutils literal notranslate"><span
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="accessors.html" class="btn btn-neutral float-right" title="Accessors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="table_builders.html" class="btn btn-neutral float-right" title="Table builders" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Data management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
