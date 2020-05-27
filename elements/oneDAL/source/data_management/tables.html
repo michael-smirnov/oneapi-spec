@@ -203,75 +203,30 @@
             
   <div class="section" id="tables">
 <span id="id1"></span><h1>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h1>
-<p>Table is a generic oneDAL concept over numerical data. It provides uniformed way
-to pass the data to the library as <a class="reference internal" href="../programming_model/algorithm_anatomy.html#input"><span class="std std-ref">inputs</span></a> or <a class="reference internal" href="../programming_model/algorithm_anatomy.html#descriptor"><span class="std std-ref">parameters</span></a> or get them as <a class="reference internal" href="../programming_model/algorithm_anatomy.html#result"><span class="std std-ref">results</span></a>.</p>
-<p>Table object is a container of two entities: data and metadata.</p>
+<p>This section describes the types related to the <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a> concept.
+oneDAL defines common types of the <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a> concept and the
+<a class="reference internal" href="index.html#metadata"><span class="std std-ref">Metadata</span></a> concept associated with it:</p>
 <ul class="simple">
-<li><p>Data is organized in a shape of <span class="math notranslate nohighlight">\((N \times p)\)</span>,
-where <span class="math notranslate nohighlight">\(N\)</span> is a number of <a class="reference internal" href="../glossary.html#term-observation"><span class="xref std std-term">observations</span></a> in a table and <span class="math notranslate nohighlight">\(p\)</span>
-is a number of <a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">features</span></a>.</p></li>
-<li><p>Metadata defines the detailed structure of the data and,
-therefore, helps oneDAL to access the data efficiently
-(see <a class="reference internal" href="#metadata-api"><span class="std std-ref">Metadata API</span></a> section for details).</p></li>
+<li><p>Class <code class="code docutils literal notranslate"><span class="pre">table</span></code> is a common implementation of the <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a>
+concept and its compile-time part of <a class="reference internal" href="index.html#metadata"><span class="std std-ref">Metadata</span></a>. Every particular
+implementation of the <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a> concept shall be the sub-type of the
+<code class="code docutils literal notranslate"><span class="pre">table</span></code> class. See more details in <a class="reference internal" href="#table-api"><span class="std std-ref">Table API</span></a> section.</p></li>
+<li><p>Class <code class="code docutils literal notranslate"><span class="pre">table_metadata</span></code> defines a runtime part of <a class="reference internal" href="index.html#metadata"><span class="std std-ref">Metadata</span></a> concept
+for the <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a>. This type can be extended in <code class="code docutils literal notranslate"><span class="pre">table</span></code> sub-types.
+See more details in <a class="reference internal" href="#metadata-api"><span class="std std-ref">Metadata API</span></a> section.</p></li>
 </ul>
-<div class="section" id="table-types-in-dal-short-name">
-<h2>Table types in oneDAL<a class="headerlink" href="#table-types-in-dal-short-name" title="Permalink to this headline">¶</a></h2>
-<p>oneDAL defines a set of classes, each class implements a table contract
-with a specific set of metadata values (see <a class="reference internal" href="#metadata-api"><span class="std std-ref">Metadata API</span></a> for details):</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Table type</p></th>
-<th class="head"><p><a class="reference internal" href="#data-layout-api"><span class="std std-ref">Data layout</span></a></p></th>
-<th class="head"><p><a class="reference internal" href="#data-format-api"><span class="std std-ref">Data format</span></a></p></th>
-<th class="head"><p>Is contiguous</p></th>
-<th class="head"><p>Is homogeneous</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="#homogen-table">homogen_table</a></p></td>
-<td><p>row_major/column_major</p></td>
-<td><p>dense</p></td>
-<td><p>yes</p></td>
-<td><p>yes</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#soa-table">soa_table</a></p></td>
-<td><p>column_major</p></td>
-<td><p>dense</p></td>
-<td><p>yes</p></td>
-<td><p>yes/no</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#aos-table">aos_table</a></p></td>
-<td><p>row_major</p></td>
-<td><p>dense</p></td>
-<td><p>yes</p></td>
-<td><p>yes/no</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#csr-table">csr_table</a></p></td>
-<td><p>row_major</p></td>
-<td><p>csr</p></td>
-<td><p>yes</p></td>
-<td><p>yes</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="requirements-on-table-objects">
-<h2>Requirements on table objects<a class="headerlink" href="#requirements-on-table-objects" title="Permalink to this headline">¶</a></h2>
-<p>Each table object in oneDAL follows these requirements:</p>
+<div class="section" id="requirements-on-table-types">
+<h2>Requirements on table types<a class="headerlink" href="#requirements-on-table-types" title="Permalink to this headline">¶</a></h2>
+<p>Each type that implements <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a> concept in oneDAL shall
+follow next requirements:</p>
 <ol class="arabic">
-<li><p>Table objects in oneDAL are <a class="reference internal" href="../glossary.html#term-immutability"><span class="xref std std-term">immutable</span></a> (it is not possible
-to change data or metadata values inside the table).</p></li>
-<li><p>To create complex table types or modify table data, <span class="xref std std-ref">builders</span> should be used.</p></li>
-<li><p>Table objects in oneDAL are reference-counted. One can use an assignment operator or copy constructor
-on table objects to create another reference to it.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">onedal</span><span class="o">::</span><span class="n">table</span> <span class="n">table2</span> <span class="o">=</span> <span class="n">table1</span><span class="p">;</span>
+<li><p>Every implementation shall follow concept definision, e.g. represent
+in-memory numerical <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a>, shall be <a class="reference internal" href="../glossary.html#term-immutability"><span class="xref std std-term">immutable</span></a>, etc.</p></li>
+<li><p>Be the sub-type of a <code class="code docutils literal notranslate"><span class="pre">table</span></code> class. The behavior of this class can be
+extended in sub-types but cannot be relaxed.</p></li>
+<li><p>Every object of a <code class="code docutils literal notranslate"><span class="pre">table</span></code> sub-type shall be <a class="reference internal" href="../glossary.html#term-reference-counted-object"><span class="xref std std-term">reference-counted</span></a>. An assignment operator or copy constructor shall
+be used to create another reference to it.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">onedal</span><span class="o">::</span><span class="n">some_table</span> <span class="n">table2</span> <span class="o">=</span> <span class="n">table1</span><span class="p">;</span>
 <span class="c1">// table1 and table2 share the data (no data copy is performed)</span>
 
 <span class="n">table3</span> <span class="o">=</span> <span class="n">table2</span><span class="p">;</span>
@@ -279,17 +234,53 @@ on table objects to create another reference to it.</p>
 </pre></div>
 </div>
 </li>
-<li><p>Every table type must be inherited from the base <code class="docutils literal notranslate"><span class="pre">table</span></code> class,
-which represents a generalized <a class="reference internal" href="#table-api"><span class="std std-ref">table API</span></a>.</p></li>
-<li><p>Every table type is implemented over particular set of metadata values and must hide other
-implementation details from public API.</p></li>
+<li><p>Every implementation shall provide a runtime <a class="reference internal" href="index.html#metadata"><span class="std std-ref">Metadata</span></a> concept
+implementation as an object of <code class="code docutils literal notranslate"><span class="pre">table_metadata</span></code> or its sub-types.
+Sub-types shall be used when the implementation concretizes the <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a>
+concept.</p></li>
+<li><p>Every implementation shall not include implementation details that are not a
+part of <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a> concept definision to the metadata object.</p></li>
 </ol>
 </div>
-<div class="section" id="entities-and-their-dependencies">
-<h2>Entities and their dependencies<a class="headerlink" href="#entities-and-their-dependencies" title="Permalink to this headline">¶</a></h2>
-<p>This section describes dependencies between all the classes and structures
-related to tables.</p>
-<p>TBD</p>
+<div class="section" id="table-types-in-dal-short-name">
+<h2>Table types in oneDAL<a class="headerlink" href="#table-types-in-dal-short-name" title="Permalink to this headline">¶</a></h2>
+<p>oneDAL defines a set of classes, each implements a <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a>
+concept and concretizes it.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 88%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Table type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#table-api"><span class="std std-ref">table</span></a></p></td>
+<td><p>A common implementation of <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a> concept. Base class for other
+table types.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#homogen-table">homogen_table</a></p></td>
+<td><p>Dense table that contains <a class="reference internal" href="../glossary.html#term-contiguous-data"><span class="xref std std-term">contiguous</span></a> and
+<a class="reference internal" href="../glossary.html#term-homogeneous-data"><span class="xref std std-term">homogeneous</span></a> data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#soa-table">soa_table</a></p></td>
+<td><p>Dense <a class="reference internal" href="../glossary.html#term-heterogeneous-data"><span class="xref std std-term">heretogeneous</span></a> table which data are
+stored column-by-column in list of <a class="reference internal" href="../glossary.html#term-contiguous-data"><span class="xref std std-term">contiguous</span></a>
+arrays (structure-of-arrays format).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#aos-table">aos_table</a></p></td>
+<td><p>Dense <a class="reference internal" href="../glossary.html#term-heterogeneous-data"><span class="xref std std-term">heretogeneous</span></a> table which data are
+stored as one <a class="reference internal" href="../glossary.html#term-contiguous-data"><span class="xref std std-term">contiguous</span></a> block of memory
+(array-of-structures format).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#csr-table">csr_table</a></p></td>
+<td><p>Sparse <a class="reference internal" href="../glossary.html#term-homogeneous-data"><span class="xref std std-term">homogeneous</span></a> table which data stored in
+compressed-sparse-row format.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="table-api">
 <span id="id2"></span><h2>Table API<a class="headerlink" href="#table-api" title="Permalink to this headline">¶</a></h2>

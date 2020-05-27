@@ -213,11 +213,7 @@ The example is provided for Principal Component Analysis algorithm (PCA).</p>
 </ul>
 <ol class="arabic">
 <li><p>Include the following header file to enable the DPC++ interface for
-oneDAL:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;daal_sycl.h&quot;</span>
-</pre></div>
-</div>
-</li>
+oneDAL:</p></li>
 <li><p>Create a DPC++ queue with the desired device selector. In this case,
 GPU selector is used:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cl</span><span class="p">::</span><span class="n">sycl</span><span class="p">::</span><span class="n">queue</span> <span class="n">queue</span> <span class="p">{</span> <span class="n">cl</span><span class="p">::</span><span class="n">sycl</span><span class="p">::</span><span class="n">gpu_selector</span><span class="p">()</span> <span class="p">};</span>
