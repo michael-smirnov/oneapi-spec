@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.2.3.11. syr2k &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>2.1.2.3.7. syr2k &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.2.3.12. syr2k (USM Version)" href="syr2k-usm-version.html" />
-    <link rel="prev" title="2.1.2.3.10. symm (USM Version)" href="symm-usm-version.html" /> 
+    <link rel="next" title="2.1.2.3.8. trmm" href="trmm.html" />
+    <link rel="prev" title="2.1.2.3.6. syrk" href="syrk.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -163,6 +163,8 @@
         
           
         
+          
+        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -184,17 +186,11 @@
            <div itemprop="articleBody">
             
   <div class="section" id="syr2k">
-<h1><span class="section-number">2.1.2.3.11. </span>syr2k<a class="headerlink" href="#syr2k" title="Permalink to this headline">¶</a></h1>
+<span id="onemkl-blas-syr2k"></span><h1><span class="section-number">2.1.2.3.7. </span>syr2k<a class="headerlink" href="#syr2k" title="Permalink to this headline">¶</a></h1>
 <div class="docutils container">
 <p>Performs a symmetric rank-2k update.</p>
-<div class="section docutils container" id="guid-eed2648b-6435-4dd1-ac36-21039dfc61dd">
-<p class="sectiontitle rubric">Syntax</p>
-<dl class="function">
-<dt id="_CPPv45syr2kR5queue4uplo9transposeNSt7int64_tENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tE">
-<span id="_CPPv35syr2kR5queue4uplo9transposeNSt7int64_tENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tE"></span><span id="_CPPv25syr2kR5queue4uplo9transposeNSt7int64_tENSt7int64_tE1TR6bufferI1TX1EENSt7int64_tER6bufferI1TX1EENSt7int64_tE1TR6bufferI1TX1EENSt7int64_tE"></span><span id="syr2k__queueR.uplo.transpose.std::int64_t.std::int64_t.T.buffer:T.1:R.std::int64_t.buffer:T.1:R.std::int64_t.T.buffer:T.1:R.std::int64_t"></span>void <code class="sig-name descname">syr2k</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, uplo <em>upper_lower</em>, transpose <em>trans</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, T <em>alpha</em>, buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, buffer&lt;T, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, T <em>beta</em>, buffer&lt;T, 1&gt; &amp;<em>c</em>, std::int64_t <em>ldc</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45syr2kR5queue4uplo9transposeNSt7int64_tENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p>syr2k supports the following precisions:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">syr2k</span></code> supports the following precisions:</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 100%" />
@@ -214,11 +210,11 @@
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </div>
-</div>
-<div class="section docutils container" id="guid-1fb46b8f-1b13-4a6b-a3a5-0a5b34049068">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
-<p>The syr2k routines perform a rank-2k update of an <code class="docutils literal notranslate"><span class="pre">n</span></code> x <code class="docutils literal notranslate"><span class="pre">n</span></code>
+<p>The <code class="docutils literal notranslate"><span class="pre">syr2k</span></code> routines perform a rank-2k update of an <code class="docutils literal notranslate"><span class="pre">n</span></code> x <code class="docutils literal notranslate"><span class="pre">n</span></code>
 symmetric matrix <code class="docutils literal notranslate"><span class="pre">C</span></code> by general matrices <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code>. If
 <code class="docutils literal notranslate"><span class="pre">trans</span></code> = <code class="docutils literal notranslate"><span class="pre">transpose::nontrans</span></code>, the operation is defined as:</p>
 <blockquote>
@@ -235,15 +231,25 @@ symmetric matrix <code class="docutils literal notranslate"><span class="pre">C<
 <p><code class="docutils literal notranslate"><span class="pre">C</span></code> is a symmetric matrix and <code class="docutils literal notranslate"><span class="pre">A</span></code>,<code class="docutils literal notranslate"><span class="pre">B</span></code> are general matrices,</p>
 <p>The inner dimension of both matrix multiplications is <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p>
 </div>
-<div class="section docutils container" id="guid-3ebefbdd-93af-4376-9ba2-a7042179bf13">
+<div class="section" id="syr2k-buffer-version">
+<h2><span class="section-number">2.1.2.3.7.1. </span>syr2k (BUFFER Version)<a class="headerlink" href="#syr2k-buffer-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<dl class="function">
+<dt id="_CPPv4N6onemkl4blas5syr2kERN4sycl5queueE4uplo9transposeNSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tE">
+<span id="_CPPv3N6onemkl4blas5syr2kERN4sycl5queueE4uplo9transposeNSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tE"></span><span id="_CPPv2N6onemkl4blas5syr2kERN4sycl5queueE4uplo9transposeNSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TX1EEENSt7int64_tERN4sycl6bufferI1TX1EEENSt7int64_tE1TRN4sycl6bufferI1TX1EEENSt7int64_tE"></span><span id="onemkl::blas::syr2k__sycl::queueR.uplo.transpose.std::int64_t.std::int64_t.T.sycl::buffer:T.1:R.std::int64_t.sycl::buffer:T.1:R.std::int64_t.T.sycl::buffer:T.1:R.std::int64_t"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">syr2k</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, uplo <em>upper_lower</em>, transpose <em>trans</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, T <em>alpha</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, T <em>beta</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>c</em>, std::int64_t <em>ldc</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas5syr2kERN4sycl5queueE4uplo9transposeNSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters</p>
 <dl class="simple">
-<dt>exec_queue</dt><dd><p>The queue where the routine should be executed.</p>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
 </dd>
 <dt>upper_lower</dt><dd><p>Specifies whether <code class="docutils literal notranslate"><span class="pre">A</span></code>’s data is stored in its upper or lower
-triangle. See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
+triangle. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
 </dd>
 <dt>trans</dt><dd><p>Specifies the operation to apply, as described above. Conjugation
 is never performed, even if <code class="docutils literal notranslate"><span class="pre">trans</span></code> = <code class="docutils literal notranslate"><span class="pre">transpose::conjtrans</span></code>.</p>
@@ -291,16 +297,104 @@ more details</p>
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-5779f783-54bc-4887-9cbb-96b8ec9f00e9">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters</p>
 <dl class="simple">
-<dt>c</dt><dd><p>Output buffer, overwritten by the updated C matrix.</p>
+<dt>c</dt><dd><p>Output buffer, overwritten by the updated <code class="docutils literal notranslate"><span class="pre">C</span></code> matrix.</p>
 </dd>
 </dl>
 </div>
+</div>
+<div class="section" id="syr2k-usm-version">
+<h2><span class="section-number">2.1.2.3.7.2. </span>syr2k (USM Version)<a class="headerlink" href="#syr2k-usm-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<div class="dlsyntaxpara docutils container">
+<dl class="function">
+<dt id="_CPPv4N6onemkl4blas5syr2kERN4sycl5queueE4uplo9transposeNSt7int64_tENSt7int64_tE1TPK1TNSt7int64_tEPK1TNSt7int64_tE1TP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE">
+<span id="_CPPv3N6onemkl4blas5syr2kERN4sycl5queueE4uplo9transposeNSt7int64_tENSt7int64_tE1TPK1TNSt7int64_tEPK1TNSt7int64_tE1TP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="_CPPv2N6onemkl4blas5syr2kERN4sycl5queueE4uplo9transposeNSt7int64_tENSt7int64_tE1TPK1TNSt7int64_tEPK1TNSt7int64_tE1TP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="onemkl::blas::syr2k__sycl::queueR.uplo.transpose.std::int64_t.std::int64_t.T.TCP.std::int64_t.TCP.std::int64_t.T.TP.std::int64_t.sycl::vector_class:sycl::event:CR"></span>sycl::event <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">syr2k</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, uplo <em>upper_lower</em>, transpose <em>trans</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, T <em>alpha</em>, <em class="property">const</em> T *<em>a</em>, std::int64_t <em>lda</em>, <em class="property">const</em> T *<em>b</em>, std::int64_t <em>ldb</em>, T <em>beta</em>, T *<em>c</em>, std::int64_t <em>ldc</em>, <em class="property">const</em> sycl::vector_class&lt;sycl::event&gt; &amp;<em>dependencies</em> = {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas5syr2kERN4sycl5queueE4uplo9transposeNSt7int64_tENSt7int64_tE1TPK1TNSt7int64_tEPK1TNSt7int64_tE1TP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Input Parameters</p>
+<dl class="simple">
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
+</dd>
+<dt>upper_lower</dt><dd><p>Specifies whether <code class="docutils literal notranslate"><span class="pre">A</span></code>’s data is stored in its upper or lower
+triangle. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
+</dd>
+<dt>trans</dt><dd><p>Specifies the operation to apply, as described above.
+Conjugation is never performed, even if <code class="docutils literal notranslate"><span class="pre">trans</span></code> =
+<code class="docutils literal notranslate"><span class="pre">transpose::conjtrans</span></code>.</p>
+</dd>
+<dt>n</dt><dd><p>Number of rows and columns in <code class="docutils literal notranslate"><span class="pre">C</span></code>. The value of <code class="docutils literal notranslate"><span class="pre">n</span></code> must be
+at least zero.</p>
+</dd>
+<dt>k</dt><dd><p>Inner dimension of matrix multiplications.The value of <code class="docutils literal notranslate"><span class="pre">k</span></code>
+must be at least zero.</p>
+</dd>
+<dt>alpha</dt><dd><p>Scaling factor for the rank-2<code class="docutils literal notranslate"><span class="pre">k</span></code> update.</p>
+</dd>
+<dt>a</dt><dd><p>Pointer to input matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>. If <code class="docutils literal notranslate"><span class="pre">A</span></code> is not transposed,
+<code class="docutils literal notranslate"><span class="pre">A</span></code> is an <code class="docutils literal notranslate"><span class="pre">m</span></code>-by-<code class="docutils literal notranslate"><span class="pre">k</span></code> matrix so the array <code class="docutils literal notranslate"><span class="pre">a</span></code> must have
+size at least <code class="docutils literal notranslate"><span class="pre">lda</span></code>*<code class="docutils literal notranslate"><span class="pre">k</span></code>. If <code class="docutils literal notranslate"><span class="pre">A</span></code> is transposed, <code class="docutils literal notranslate"><span class="pre">A</span></code>
+is an <code class="docutils literal notranslate"><span class="pre">k</span></code>-by-<code class="docutils literal notranslate"><span class="pre">m</span></code> matrix so the array <code class="docutils literal notranslate"><span class="pre">a</span></code> must have size
+at least <code class="docutils literal notranslate"><span class="pre">lda</span></code>*<code class="docutils literal notranslate"><span class="pre">m</span></code>. See <a class="reference external" href="../matrix-storage.html">Matrix and Vector
+Storage</a> for
+more details.</p>
+</dd>
+<dt>lda</dt><dd><p>Leading dimension of <code class="docutils literal notranslate"><span class="pre">A</span></code>. Must be at least <code class="docutils literal notranslate"><span class="pre">n</span></code> if <code class="docutils literal notranslate"><span class="pre">trans</span></code>
+= <code class="docutils literal notranslate"><span class="pre">transpose::nontrans</span></code>, and at least <code class="docutils literal notranslate"><span class="pre">k</span></code> otherwise. Must
+be positive.</p>
+</dd>
+<dt>b</dt><dd><p>Pointer to input matrix <code class="docutils literal notranslate"><span class="pre">B</span></code>. If <code class="docutils literal notranslate"><span class="pre">trans</span></code> =
+<code class="docutils literal notranslate"><span class="pre">transpose::nontrans</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code> is an <code class="docutils literal notranslate"><span class="pre">k</span></code>-by-<code class="docutils literal notranslate"><span class="pre">n</span></code> matrix so
+the array <code class="docutils literal notranslate"><span class="pre">b</span></code> must have size at least <code class="docutils literal notranslate"><span class="pre">ldb</span></code>*<code class="docutils literal notranslate"><span class="pre">n</span></code>.
+Otherwise, <code class="docutils literal notranslate"><span class="pre">B</span></code> is an <code class="docutils literal notranslate"><span class="pre">n</span></code>-by-<code class="docutils literal notranslate"><span class="pre">k</span></code> matrix so the array <code class="docutils literal notranslate"><span class="pre">b</span></code>
+must have size at least <code class="docutils literal notranslate"><span class="pre">ldb</span></code>*<code class="docutils literal notranslate"><span class="pre">k</span></code>. See <a class="reference external" href="../matrix-storage.html">Matrix and
+Vector
+Storage</a> for
+more details.</p>
+</dd>
+<dt>ldb</dt><dd><p>Leading dimension of <code class="docutils literal notranslate"><span class="pre">B</span></code>. Must be at least <code class="docutils literal notranslate"><span class="pre">k</span></code> if <code class="docutils literal notranslate"><span class="pre">trans</span></code>
+= <code class="docutils literal notranslate"><span class="pre">transpose::nontrans</span></code>, and at least <code class="docutils literal notranslate"><span class="pre">n</span></code> otherwise. Must
+be positive.</p>
+</dd>
+<dt>beta</dt><dd><p>Scaling factor for matrix <code class="docutils literal notranslate"><span class="pre">C</span></code>.</p>
+</dd>
+<dt>c</dt><dd><p>Pointer to input/output matrix <code class="docutils literal notranslate"><span class="pre">C</span></code>. Must have size at least
+<code class="docutils literal notranslate"><span class="pre">ldc</span></code>*<code class="docutils literal notranslate"><span class="pre">n</span></code>. See <a class="reference external" href="../matrix-storage.html">Matrix and Vector
+Storage</a> for
+more details</p>
+</dd>
+<dt>ldc</dt><dd><p>Leading dimension of <code class="docutils literal notranslate"><span class="pre">C</span></code>. Must be positive and at least
+<code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+</dd>
+<dt>dependencies</dt><dd><p>List of events to wait for before starting computation, if any.
+If omitted, defaults to no dependencies.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Output Parameters</p>
+<dl class="simple">
+<dt>c</dt><dd><p>Pointer to the output matrix, overwritten by the updated <code class="docutils literal notranslate"><span class="pre">C</span></code>
+matrix.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Return Values</p>
+<p>Output event to wait on to ensure computation is complete.</p>
+</div>
+</div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">
-<p><strong>Parent topic:</strong> <a class="reference internal" href="blas.html#blas-level-3-routines"><span class="std std-ref">BLAS Level 3 Routines</span></a></p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="blas-level-3-routines.html#blas-level-3-routines"><span class="std std-ref">BLAS Level 3 Routines</span></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -313,10 +407,10 @@ more details</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="syr2k-usm-version.html" class="btn btn-neutral float-right" title="2.1.2.3.12. syr2k (USM Version)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="trmm.html" class="btn btn-neutral float-right" title="2.1.2.3.8. trmm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="symm-usm-version.html" class="btn btn-neutral float-left" title="2.1.2.3.10. symm (USM Version)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="syrk.html" class="btn btn-neutral float-left" title="2.1.2.3.6. syrk" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

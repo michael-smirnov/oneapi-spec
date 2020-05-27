@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="combinable Template Class" href="thread_local_storage/combinable_cls.html" />
-    <link rel="prev" title="Iterators" href="containers/concurrent_vector/iterators_vector.html" /> 
+    <link rel="next" title="combinable" href="thread_local_storage/combinable_cls.html" />
+    <link rel="prev" title="Node handles" href="containers/auxiliary/node_handles_cls.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -113,12 +113,11 @@
 <li class="toctree-l3"><a class="reference internal" href="task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="containers.html">Containers</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Thread Local Storage</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="thread_local_storage/combinable_cls.html">combinable Template Class</a></li>
-<li class="toctree-l4"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls.html">enumerable_thread_specific Template Class</a></li>
-<li class="toctree-l4"><a class="reference internal" href="thread_local_storage/flattened2d_cls.html">flattened2d Template Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="thread_local_storage/combinable_cls.html">combinable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls.html">enumerable_thread_specific</a></li>
+<li class="toctree-l4"><a class="reference internal" href="thread_local_storage/flattened2d_cls.html">flattened2d</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -202,63 +201,20 @@
             
   <div class="section" id="thread-local-storage">
 <h1>Thread Local Storage<a class="headerlink" href="#thread-local-storage" title="Permalink to this headline">¶</a></h1>
-<p>oneAPI Threading Building Blocks
-provides two template classes for thread local storage. Both provide a
-thread-local element per thread. Both lazily create the elements on demand.
-They differ in their intended use models:</p>
-<p><code class="docutils literal notranslate"><span class="pre">combinable</span></code> provides thread-local
-storage for holding per-thread subcomputations that will later be reduced to a
-single result. It is PPL compatible.</p>
-<p><code class="docutils literal notranslate"><span class="pre">enumerable_thread_specific</span></code>
-provides thread-local storage that acts like an STL container with one element
-per thread. The container permits iterating over the elements using the usual
-STL iteration idioms.</p>
-<p>This section also describes template class
-<code class="docutils literal notranslate"><span class="pre">flatten2d</span></code>, which assists a common idiom where an
-<code class="docutils literal notranslate"><span class="pre">enumerable_thread_specific</span></code> represents a container
-partitioner across threads.</p>
+<p><strong>[thread_local_storage]</strong></p>
+<p>oneAPI Threading Building Blocks provides class templates for thread local storage.
+Each provides a thread-local element per thread and lazily creates elements on demand.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="thread_local_storage/combinable_cls.html">combinable Template Class</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/combinable_cls.html#summary">Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/combinable_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/combinable_cls.html#header">Header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/combinable_cls.html#description">Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/combinable_cls.html#members">Members</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thread_local_storage/combinable_cls.html">combinable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls.html">enumerable_thread_specific</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls.html">enumerable_thread_specific Template Class</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls.html#summary">Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls.html#header">Header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls.html#description">Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls.html#example">Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls.html#example-with-lambda-expressions">Example with Lambda Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls.html#members">Members</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls/whole_container_operations_specific_cls.html">Whole Container Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls/concurrent_operations1.html">Concurrent Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls/combining.html">Combining</a></li>
-<li class="toctree-l3"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls/parallel_literation_specific_cls.html">Parallel Iteration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls/iterators_specific_cls.html">Iterators</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="thread_local_storage/flattened2d_cls.html">flattened2d Template Class</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/flattened2d_cls.html#summary">Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/flattened2d_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/flattened2d_cls.html#header">Header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/flattened2d_cls.html#description">Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/flattened2d_cls.html#example">Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/flattened2d_cls.html#members">Members</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="thread_local_storage/flattened2d_cls/whole_container_operations_2d_cls.html">Whole Container Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="thread_local_storage/flattened2d_cls/concurrent_operations.html">Concurrent Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="thread_local_storage/flattened2d_cls/iterators_2d_cls.html">Iterators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="thread_local_storage/flattened2d_cls/utility_funcs.html">Utility Functions</a></li>
-</ul>
-</li>
-</ul>
-</li>
+</div>
+<p>This section also describes class template <code class="docutils literal notranslate"><span class="pre">flatten2d</span></code>, which assists a common idiom
+here an <code class="docutils literal notranslate"><span class="pre">enumerable_thread_specific</span></code> represents a container partitioner across threads.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="thread_local_storage/flattened2d_cls.html">flattened2d</a></li>
 </ul>
 </div>
 </div>
@@ -271,10 +227,10 @@ partitioner across threads.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="thread_local_storage/combinable_cls.html" class="btn btn-neutral float-right" title="combinable Template Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="thread_local_storage/combinable_cls.html" class="btn btn-neutral float-right" title="combinable" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="containers/concurrent_vector/iterators_vector.html" class="btn btn-neutral float-left" title="Iterators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="containers/auxiliary/node_handles_cls.html" class="btn btn-neutral float-left" title="Node handles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

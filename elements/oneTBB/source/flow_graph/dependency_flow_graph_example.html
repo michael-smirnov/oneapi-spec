@@ -42,7 +42,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Message Flow Graph Example" href="message_flow_graph_example.html" />
-    <link rel="prev" title="Overview" href="overview.html" /> 
+    <link rel="prev" title="tagged_msg" href="tagged_msg_cls.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,20 +110,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../configuration.html">Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../algorithms.html">Algorithms</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../flow_graph.html">Flow Graph</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="graph_cls.html">graph Class</a></li>
-<li class="toctree-l4"><a class="reference internal" href="abstract_interfaces.html">Abstract Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="special_message_types.html">Special Message Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="functional_nodes.html">Functional Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="buffering_nodes.html">Buffering Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="service_nodes.html">Service Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ports_and_edges.html">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#graph-class">Graph Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#nodes">Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#ports-and-edges">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#special-messages-types">Special Messages Types</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../flow_graph.html#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../containers.html">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../thread_local_storage.html">Thread Local Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -187,8 +183,6 @@
         
           
         
-          
-        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -215,13 +209,6 @@
 partial ordering shown below in “A simple dependency graph.”. For each edge in
 the flow graph, the node at the tail of the edge must complete its execution
 before the node at the head may begin.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is a simple syntactic example only. Since each node in a flow
-graph may execute as an independent task, the granularity of each node should
-follow the general guidelines for tasks as described in Section 3.2.3 of the
-oneAPI Threading Building Blocks Tutorial.</p>
-</div>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../../../../_images/dep_graph.jpg"><img alt="../../../../_images/dep_graph.jpg" src="../../../../_images/dep_graph.jpg" style="width: 249px; height: 409px;" /></a>
 <p class="caption"><span class="caption-text">A simple dependency graph.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
@@ -266,54 +253,29 @@ oneAPI Threading Building Blocks Tutorial.</p>
 </pre></div>
 </div>
 <p>In this example, nodes A-E print out their names. All of these nodes are
-therefore able to use
-<code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">body</span></code> to construct their body objects.</p>
-<p>In function
-<code class="docutils literal notranslate"><span class="pre">main</span></code>, the flow graph is set up once and then run three
-times. All of the nodes in this example pass around
-<code class="docutils literal notranslate"><span class="pre">continue_msg</span></code> objects. This type is used to communicate
-that a node has completed its execution.</p>
-<p>The first line in function
-<code class="docutils literal notranslate"><span class="pre">main</span></code> instantiates a
-<code class="docutils literal notranslate"><span class="pre">graph</span></code> object,
-<code class="docutils literal notranslate"><span class="pre">g</span></code>. On the next line, a
-<code class="docutils literal notranslate"><span class="pre">broadcast_node</span></code> named
-<code class="docutils literal notranslate"><span class="pre">start</span></code> is created. Anything passed to this node will be
-broadcast to all of its successors. The node
-<code class="docutils literal notranslate"><span class="pre">start</span></code> is used in the
-<code class="docutils literal notranslate"><span class="pre">for</span></code> loop at the bottom of
-<code class="docutils literal notranslate"><span class="pre">main</span></code> to launch the execution of the rest of the flow
-graph.</p>
-<p>In the example, five
-<code class="docutils literal notranslate"><span class="pre">continue_node</span></code> objects are created, named a - e. Each
-node is constructed with a reference to
-<code class="docutils literal notranslate"><span class="pre">graph````g</span></code> and the function object to invoke when it runs. The
-successor / predecessor relationships are set up by the
-<code class="docutils literal notranslate"><span class="pre">make_edge</span></code> calls that follow the declaration of the
-nodes.</p>
-<p>After the nodes and edges are set up, the
-<code class="docutils literal notranslate"><span class="pre">try_put</span></code> in each iteration of the
-<code class="docutils literal notranslate"><span class="pre">for</span></code> loop results in a broadcast of a
-<code class="docutils literal notranslate"><span class="pre">continue_msg</span></code> to both
-<code class="docutils literal notranslate"><span class="pre">a</span></code> and
-<code class="docutils literal notranslate"><span class="pre">b</span></code>. Both
-<code class="docutils literal notranslate"><span class="pre">a</span></code> and
-<code class="docutils literal notranslate"><span class="pre">b</span></code> are waiting for a single
-<code class="docutils literal notranslate"><span class="pre">continue_msg</span></code>, since they both have only a single
-predecessor,
-<code class="docutils literal notranslate"><span class="pre">start</span></code>.</p>
-<p>When they receive the message from
-<code class="docutils literal notranslate"><span class="pre">start</span></code>, they execute their body objects. When complete,
-they each forward a
-<code class="docutils literal notranslate"><span class="pre">continue_msg</span></code> to their successors, and so on. The graph
+therefore able to use <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">body</span></code> to construct their body objects.</p>
+<p>In function <code class="docutils literal notranslate"><span class="pre">main</span></code>, the flow graph is set up once and then run three times. All of the nodes in
+this example pass around <code class="docutils literal notranslate"><span class="pre">continue_msg</span></code> objects. This type is used to communicate that a node has
+completed its execution.</p>
+<p>The first line in function <code class="docutils literal notranslate"><span class="pre">main</span></code> instantiates a <code class="docutils literal notranslate"><span class="pre">graph</span></code> object, <code class="docutils literal notranslate"><span class="pre">g</span></code>. On the next line, a
+<code class="docutils literal notranslate"><span class="pre">broadcast_node</span></code> named <code class="docutils literal notranslate"><span class="pre">start</span></code> is created. Anything passed to this node will be
+broadcast to all of its successors. The node <code class="docutils literal notranslate"><span class="pre">start</span></code> is used in the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop at the bottom of
+<code class="docutils literal notranslate"><span class="pre">main</span></code> to launch the execution of the rest of the flow graph.</p>
+<p>In the example, five <code class="docutils literal notranslate"><span class="pre">continue_node</span></code> objects are created, named a - e. Each node is constructed
+with a reference to <code class="docutils literal notranslate"><span class="pre">graph</span></code> <code class="docutils literal notranslate"><span class="pre">g</span></code> and the function object to invoke when it runs. The
+successor / predecessor relationships are set up by the <code class="docutils literal notranslate"><span class="pre">make_edge</span></code> calls that follow the
+declaration of the nodes.</p>
+<p>After the nodes and edges are set up, the <code class="docutils literal notranslate"><span class="pre">try_put</span></code> in each iteration of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop results
+in a broadcast of a <code class="docutils literal notranslate"><span class="pre">continue_msg</span></code> to both <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>. Both <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are waiting for a
+single <code class="docutils literal notranslate"><span class="pre">continue_msg</span></code>, since they both have only a single predecessor, <code class="docutils literal notranslate"><span class="pre">start</span></code>.</p>
+<p>When they receive the message from <code class="docutils literal notranslate"><span class="pre">start</span></code>, they execute their body objects. When complete,
+they each forward a <code class="docutils literal notranslate"><span class="pre">continue_msg</span></code> to their successors, and so on. The graph
 uses tasks to execute the node bodies as well as to forward messages between
 the nodes, allowing computation to execute concurrently when possible.</p>
-<p>The classes and functions used in this example are described in detail
-in topics linked from the Flow Graph parent topic.</p>
 <p>See also:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="continue_msg_cls.html"><span class="doc">continue_msg Class</span></a></p></li>
-<li><p><a class="reference internal" href="continue_node_cls.html"><span class="doc">continue_node Class</span></a></p></li>
+<li><p><a class="reference internal" href="continue_msg_cls.html"><span class="doc">continue_msg class</span></a></p></li>
+<li><p><a class="reference internal" href="continue_node_cls.html"><span class="doc">continue_node class</span></a></p></li>
 </ul>
 </div>
 
@@ -328,7 +290,7 @@ in topics linked from the Flow Graph parent topic.</p>
         <a href="message_flow_graph_example.html" class="btn btn-neutral float-right" title="Message Flow Graph Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tagged_msg_cls.html" class="btn btn-neutral float-left" title="tagged_msg" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

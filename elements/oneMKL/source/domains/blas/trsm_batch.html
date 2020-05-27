@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.2.4.5. trsm_batch &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>2.1.2.4.3. trsm_batch &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.3. LAPACK Routines" href="../lapack/lapack.html" />
-    <link rel="prev" title="2.1.2.4.4. gemmt (USM Version)" href="gemmt-usm-version.html" /> 
+    <link rel="next" title="2.1.2.4.4. gemmt" href="gemmt.html" />
+    <link rel="prev" title="2.1.2.4.2. gemm_batch" href="gemm_batch.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -163,6 +163,8 @@
         
           
         
+          
+        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -184,21 +186,23 @@
            <div itemprop="articleBody">
             
   <div class="section" id="trsm-batch">
-<h1><span class="section-number">2.1.2.4.5. </span>trsm_batch<a class="headerlink" href="#trsm-batch" title="Permalink to this headline">¶</a></h1>
+<span id="onemkl-blas-trsm-batch"></span><h1><span class="section-number">2.1.2.4.3. </span>trsm_batch<a class="headerlink" href="#trsm-batch" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="trsm-batch-buffer-version">
+<h2><span class="section-number">2.1.2.4.3.1. </span>trsm_batch (BUFFER Version)<a class="headerlink" href="#trsm-batch-buffer-version" title="Permalink to this headline">¶</a></h2>
 <div class="docutils container">
 <p>Computes groups of matrix-matrix product with general matrices.</p>
-<div class="section docutils container" id="guid-6f8e0e22-b30a-4825-b508-cede0cac8b90">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Syntax</p>
 <p><strong>Group API</strong></p>
 <dl class="function">
-<dt id="_CPPv410trsm_batchR5queueR6bufferI4sideXL1EEER6bufferI4uploXL1EEER6bufferI9transposeXL1EEER6bufferI4diagXL1EEER6bufferINSt7int64_tEXL1EEER6bufferINSt7int64_tEXL1EEER6bufferI1TXL1EEER6bufferI1TXL1EEER6bufferINSt7int64_tEXL1EEER6bufferI1TXL1EEE6bufferINSt7int64_tEXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEE">
-<span id="_CPPv310trsm_batchR5queueR6bufferI4sideXL1EEER6bufferI4uploXL1EEER6bufferI9transposeXL1EEER6bufferI4diagXL1EEER6bufferINSt7int64_tEXL1EEER6bufferINSt7int64_tEXL1EEER6bufferI1TXL1EEER6bufferI1TXL1EEER6bufferINSt7int64_tEXL1EEER6bufferI1TXL1EEE6bufferINSt7int64_tEXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEE"></span><span id="_CPPv210trsm_batchR5queueR6bufferI4sideX1EER6bufferI4uploX1EER6bufferI9transposeX1EER6bufferI4diagX1EER6bufferINSt7int64_tEX1EER6bufferINSt7int64_tEX1EER6bufferI1TX1EER6bufferI1TX1EER6bufferINSt7int64_tEX1EER6bufferI1TX1EE6bufferINSt7int64_tEX1EENSt7int64_tER6bufferINSt7int64_tEX1EE"></span><span id="trsm_batch__queueR.buffer:side.1:R.buffer:uplo.1:R.buffer:transpose.1:R.buffer:diag.1:R.buffer:std::int64_t.1:R.buffer:std::int64_t.1:R.buffer:T.1:R.buffer:T.1:R.buffer:std::int64_t.1:R.buffer:T.1:R.buffer:std::int64_t.1:.std::int64_t.buffer:std::int64_t.1:R"></span>void <code class="sig-name descname">trsm_batch</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, buffer&lt;side, 1&gt; &amp;<em>left_right_array</em>, buffer&lt;uplo, 1&gt; &amp;<em>upper_lower_array</em>, buffer&lt;transpose, 1&gt; &amp;<em>trans_array</em>, buffer&lt;diag, 1&gt; &amp;<em>unit_diag_array</em>, buffer&lt;std::int64_t, 1&gt; &amp;<em>m_array</em>, buffer&lt;std::int64_t, 1&gt; &amp;<em>n_array</em>, buffer&lt;T, 1&gt; &amp;<em>alpha_array</em>, buffer&lt;T, 1&gt; &amp;<em>a_array</em>, buffer&lt;std::int64_t, 1&gt; &amp;<em>lda_array</em>, buffer&lt;T, 1&gt; &amp;<em>b_array</em>, buffer&lt;std::int64_t, 1&gt; <em>ldb_array</em>, std::int64_t <em>group_count</em>, buffer&lt;std::int64_t, 1&gt; &amp;<em>group_size_array</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410trsm_batchR5queueR6bufferI4sideXL1EEER6bufferI4uploXL1EEER6bufferI9transposeXL1EEER6bufferI4diagXL1EEER6bufferINSt7int64_tEXL1EEER6bufferINSt7int64_tEXL1EEER6bufferI1TXL1EEER6bufferI1TXL1EEER6bufferINSt7int64_tEXL1EEER6bufferI1TXL1EEE6bufferINSt7int64_tEXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4N6onemkl4blas10trsm_batchERN4sycl5queueERN4sycl6bufferI4sideXL1EEEERN4sycl6bufferI4uploXL1EEEERN4sycl6bufferI9transposeXL1EEEERN4sycl6bufferI4diagXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEEN4sycl6bufferINSt7int64_tEXL1EEEENSt7int64_tERN4sycl6bufferINSt7int64_tEXL1EEEE">
+<span id="_CPPv3N6onemkl4blas10trsm_batchERN4sycl5queueERN4sycl6bufferI4sideXL1EEEERN4sycl6bufferI4uploXL1EEEERN4sycl6bufferI9transposeXL1EEEERN4sycl6bufferI4diagXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEEN4sycl6bufferINSt7int64_tEXL1EEEENSt7int64_tERN4sycl6bufferINSt7int64_tEXL1EEEE"></span><span id="_CPPv2N6onemkl4blas10trsm_batchERN4sycl5queueERN4sycl6bufferI4sideX1EEERN4sycl6bufferI4uploX1EEERN4sycl6bufferI9transposeX1EEERN4sycl6bufferI4diagX1EEERN4sycl6bufferINSt7int64_tEX1EEERN4sycl6bufferINSt7int64_tEX1EEERN4sycl6bufferI1TX1EEERN4sycl6bufferI1TX1EEERN4sycl6bufferINSt7int64_tEX1EEERN4sycl6bufferI1TX1EEEN4sycl6bufferINSt7int64_tEX1EEENSt7int64_tERN4sycl6bufferINSt7int64_tEX1EEE"></span><span id="onemkl::blas::trsm_batch__sycl::queueR.sycl::buffer:side.1:R.sycl::buffer:uplo.1:R.sycl::buffer:transpose.1:R.sycl::buffer:diag.1:R.sycl::buffer:std::int64_t.1:R.sycl::buffer:std::int64_t.1:R.sycl::buffer:T.1:R.sycl::buffer:T.1:R.sycl::buffer:std::int64_t.1:R.sycl::buffer:T.1:R.sycl::buffer:std::int64_t.1:.std::int64_t.sycl::buffer:std::int64_t.1:R"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">trsm_batch</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, sycl::buffer&lt;side, 1&gt; &amp;<em>left_right_array</em>, sycl::buffer&lt;uplo, 1&gt; &amp;<em>upper_lower_array</em>, sycl::buffer&lt;transpose, 1&gt; &amp;<em>trans_array</em>, sycl::buffer&lt;diag, 1&gt; &amp;<em>unit_diag_array</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>m_array</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>n_array</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>alpha_array</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>a_array</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>lda_array</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>b_array</em>, sycl::buffer&lt;std::int64_t, 1&gt; <em>ldb_array</em>, std::int64_t <em>group_count</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>group_size_array</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas10trsm_batchERN4sycl5queueERN4sycl6bufferI4sideXL1EEEERN4sycl6bufferI4uploXL1EEEERN4sycl6bufferI9transposeXL1EEEERN4sycl6bufferI4diagXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEEN4sycl6bufferINSt7int64_tEXL1EEEENSt7int64_tERN4sycl6bufferINSt7int64_tEXL1EEEE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <p><strong>Strided API</strong></p>
 <dl class="function">
-<dt id="_CPPv410trsm_batchR5queue4side4uplo9transpose4diagNSt7int64_tENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tENSt7int64_tENSt7int64_tE">
-<span id="_CPPv310trsm_batchR5queue4side4uplo9transpose4diagNSt7int64_tENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tENSt7int64_tENSt7int64_tE"></span><span id="_CPPv210trsm_batchR5queue4side4uplo9transpose4diagNSt7int64_tENSt7int64_tE1TR6bufferI1TX1EENSt7int64_tENSt7int64_tER6bufferI1TX1EENSt7int64_tENSt7int64_tENSt7int64_tE"></span><span id="trsm_batch__queueR.side.uplo.transpose.diag.std::int64_t.std::int64_t.T.buffer:T.1:R.std::int64_t.std::int64_t.buffer:T.1:R.std::int64_t.std::int64_t.std::int64_t"></span>void <code class="sig-name descname">trsm_batch</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, side <em>left_right</em>, uplo <em>upper_lower</em>, transpose <em>trans</em>, diag <em>unit_diag</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, T <em>alpha</em>, buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, std::int64_t <em>stridea</em>, buffer&lt;T, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, std::int64_t <em>strideb</em>, std::int64_t <em>batch_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410trsm_batchR5queue4side4uplo9transpose4diagNSt7int64_tENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tENSt7int64_tENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4N6onemkl4blas10trsm_batchERN4sycl5queueE4side4uplo9transpose4diagNSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tENSt7int64_tE">
+<span id="_CPPv3N6onemkl4blas10trsm_batchERN4sycl5queueE4side4uplo9transpose4diagNSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tENSt7int64_tE"></span><span id="_CPPv2N6onemkl4blas10trsm_batchERN4sycl5queueE4side4uplo9transpose4diagNSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TX1EEENSt7int64_tENSt7int64_tERN4sycl6bufferI1TX1EEENSt7int64_tENSt7int64_tENSt7int64_tE"></span><span id="onemkl::blas::trsm_batch__sycl::queueR.side.uplo.transpose.diag.std::int64_t.std::int64_t.T.sycl::buffer:T.1:R.std::int64_t.std::int64_t.sycl::buffer:T.1:R.std::int64_t.std::int64_t.std::int64_t"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">trsm_batch</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, side <em>left_right</em>, uplo <em>upper_lower</em>, transpose <em>trans</em>, diag <em>unit_diag</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, T <em>alpha</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, std::int64_t <em>stridea</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, std::int64_t <em>strideb</em>, std::int64_t <em>batch_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas10trsm_batchERN4sycl5queueE4side4uplo9transpose4diagNSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <p><code class="docutils literal notranslate"><span class="pre">trsm_batch</span></code> supports the following precisions.</p>
@@ -223,9 +227,9 @@
 </table>
 </div>
 </div>
-<div class="section docutils container" id="guid-ae6cfef4-4058-49c3-babc-2b05d6594555">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
-<p>The trsm_batch routines solve a series of equations of the form op(A)
+<p>The <code class="docutils literal notranslate"><span class="pre">trsm_batch</span></code> routines solve a series of equations of the form op(A)
 * X = alpha * B or X * op(A) = alpha * B. They are similar to the
 trsm routine counterparts, but the trsm_batch routines solve linear
 equations with groups of matrices. The groups contain matrices with
@@ -281,37 +285,29 @@ API.</p>
 it multiplies <code class="docutils literal notranslate"><span class="pre">X</span></code> on the left or right. On return, the matrix <code class="docutils literal notranslate"><span class="pre">B</span></code>
 is overwritten by the solution matrix <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
 </div>
-<div class="section docutils container" id="guid-863264a0-4ce9-495f-a617-102e46d7a41a">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters - Group API</p>
 <dl>
 <dt>left_right_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span> <span class="pre">onemkl::side</span></code> value.</p>
 <p>For the group <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">left_right</span></code> is the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in
 the left_right_array buffer and specifies whether <code class="docutils literal notranslate"><span class="pre">A</span></code> multiplies
 <code class="docutils literal notranslate"><span class="pre">X</span></code> on the left (<code class="docutils literal notranslate"><span class="pre">side::left</span></code>) or on the right
-(<code class="docutils literal notranslate"><span class="pre">side::right</span></code>). See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
+(<code class="docutils literal notranslate"><span class="pre">side::right</span></code>). See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
 </dd>
 <dt>uplo_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span> <span class="pre">onemkl::uplo</span></code> value.</p>
 <p>For the group <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">uplo</span></code> is the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the
 uplo_array buffer and specifies whether <code class="docutils literal notranslate"><span class="pre">A</span></code> is upper or lower
-triangular. See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
+triangular. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
 </dd>
 <dt>trans_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span> <span class="pre">onemkl::transpose</span></code> value.</p>
 <p>For the group <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">trans</span></code> is the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the
 trans_array buffer and specifies the form of <code class="docutils literal notranslate"><span class="pre">op</span></code>(<code class="docutils literal notranslate"><span class="pre">A</span></code>) used
-in the matrix multiplication. See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
+in the matrix multiplication. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
 </dd>
 <dt>unit_diag__array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span> <span class="pre">onemkl::diag</span></code> value.</p>
 <p>For the group <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">unit_diag</span></code> is the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the
 unit_diag_array buffer and specifies whether <code class="docutils literal notranslate"><span class="pre">A</span></code> is assumed to
-be unit triangular (all diagonal elements are 1). See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
+be unit triangular (all diagonal elements are 1). See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
 </dd>
 <dt>m_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span></code> integer. For the group <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">m</span></code>
 is the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the m_array buffer and specifies the
@@ -364,7 +360,7 @@ group<code class="docutils literal notranslate"><span class="pre">i</span></code
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-1e4953e6-f7b1-4fee-ba5a-8c4bd51dc700">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters - Group API</p>
 <dl class="simple">
 <dt>b</dt><dd><p>Output buffer, overwritten by the <code class="docutils literal notranslate"><span class="pre">total_batch_count</span></code> solution
@@ -372,28 +368,20 @@ matrices <code class="docutils literal notranslate"><span class="pre">X</span></
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-d067773a-45a3-4d24-b10a-46e27834947e">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters - Strided API</p>
 <dl>
 <dt>left_right</dt><dd><p>Specifies whether the matrices <code class="docutils literal notranslate"><span class="pre">A</span></code> multiply <code class="docutils literal notranslate"><span class="pre">X</span></code> on the left
-(<code class="docutils literal notranslate"><span class="pre">side::left</span></code>) or on the right (<code class="docutils literal notranslate"><span class="pre">side::right</span></code>). See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
+(<code class="docutils literal notranslate"><span class="pre">side::left</span></code>) or on the right (<code class="docutils literal notranslate"><span class="pre">side::right</span></code>). See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
 </dd>
 <dt>uplo</dt><dd><p>Specifies whether the matrices <code class="docutils literal notranslate"><span class="pre">A</span></code> are upper or lower
-triangular. See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
+triangular. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
 </dd>
 <dt>trans</dt><dd><p>Specifies <code class="docutils literal notranslate"><span class="pre">op(A)</span></code>, the transposition operation applied to the
-matrices <code class="docutils literal notranslate"><span class="pre">A</span></code>. See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
+matrices <code class="docutils literal notranslate"><span class="pre">A</span></code>. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
 </dd>
 <dt>unit_diag</dt><dd><p>Specifies whether the matrices <code class="docutils literal notranslate"><span class="pre">A</span></code> are assumed to be unit
-triangular (all diagonal elements are 1.). See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
+triangular (all diagonal elements are 1.). See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
 </dd>
 <dt>m</dt><dd><p>Number of rows of the <code class="docutils literal notranslate"><span class="pre">B</span></code> matrices. Must be at least zero.</p>
 </dd>
@@ -437,7 +425,7 @@ least <code class="docutils literal notranslate"><span class="pre">stridec*batch
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-98c3de17-4f5f-41a1-b431-48148153abba">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters - Strided API</p>
 <dl class="simple">
 <dt>b</dt><dd><p>Output buffer, overwritten by <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> solution matrices
@@ -445,14 +433,15 @@ least <code class="docutils literal notranslate"><span class="pre">stridec*batch
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-ac72653a-4ac8-4b9d-b7a9-13a725aa19bf">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Notes</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">alpha</span></code> = 0, matrix <code class="docutils literal notranslate"><span class="pre">B</span></code> is set to zero, and the matrices <code class="docutils literal notranslate"><span class="pre">A</span></code>
-and <code class="docutils literal notranslate"><span class="pre">B</span></code> do not need to be initialized before calling trsm_batch.</p>
+and <code class="docutils literal notranslate"><span class="pre">B</span></code> do not need to be initialized before calling <code class="docutils literal notranslate"><span class="pre">trsm_batch</span></code>.</p>
 </div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">
-<p><strong>Parent topic:</strong> <a class="reference internal" href="blas.html#blas-like-extensions"><span class="std std-ref">BLAS-like Extensions</span></a></p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="blas-like-extensions.html#blas-like-extensions"><span class="std std-ref">BLAS-like Extensions</span></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -465,10 +454,10 @@ and <code class="docutils literal notranslate"><span class="pre">B</span></code>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../lapack/lapack.html" class="btn btn-neutral float-right" title="2.1.3. LAPACK Routines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gemmt.html" class="btn btn-neutral float-right" title="2.1.2.4.4. gemmt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gemmt-usm-version.html" class="btn btn-neutral float-left" title="2.1.2.4.4. gemmt (USM Version)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="gemm_batch.html" class="btn btn-neutral float-left" title="2.1.2.4.2. gemm_batch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

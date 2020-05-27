@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.2.4.1. gemm_batch &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>2.1.2.4.2. gemm_batch &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.2.4.2. gemm_ext" href="gemm_ext.html" />
-    <link rel="prev" title="2.1.2.3.18. trsm (USM Version)" href="trsm-usm-version.html" /> 
+    <link rel="next" title="2.1.2.4.3. trsm_batch" href="trsm_batch.html" />
+    <link rel="prev" title="2.1.2.4.1. axpy_batch" href="axpy_batch.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -163,6 +163,8 @@
         
           
         
+          
+        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -184,21 +186,23 @@
            <div itemprop="articleBody">
             
   <div class="section" id="gemm-batch">
-<h1><span class="section-number">2.1.2.4.1. </span>gemm_batch<a class="headerlink" href="#gemm-batch" title="Permalink to this headline">¶</a></h1>
+<span id="onemkl-blas-gemm-batch"></span><h1><span class="section-number">2.1.2.4.2. </span>gemm_batch<a class="headerlink" href="#gemm-batch" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="gemm-batch-buffer-version">
+<h2><span class="section-number">2.1.2.4.2.1. </span>gemm_batch (BUFFER Version)<a class="headerlink" href="#gemm-batch-buffer-version" title="Permalink to this headline">¶</a></h2>
 <div class="docutils container">
 <p>Computes groups of matrix-matrix product with general matrices.</p>
-<div class="section docutils container" id="guid-7885d940-fac1-4f37-9e1c-a022ded99ebd">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Syntax</p>
 <p><strong>Group API</strong></p>
 <dl class="function">
-<dt id="_CPPv410gemm_batchR5queueR6bufferI9transposeXL1EEER6bufferI9transposeXL1EEER6bufferINSt7int64_tEXL1EEER6bufferINSt7int64_tEXL1EEER6bufferINSt7int64_tEXL1EEE6bufferI1TXL1EEER6bufferI1TXL1EEER6bufferINSt7int64_tEXL1EEER6bufferI1TXL1EEE6bufferINSt7int64_tEXL1EEER6bufferI1TXL1EEER6bufferI1TXL1EEER6bufferINSt7int64_tEXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEE">
-<span id="_CPPv310gemm_batchR5queueR6bufferI9transposeXL1EEER6bufferI9transposeXL1EEER6bufferINSt7int64_tEXL1EEER6bufferINSt7int64_tEXL1EEER6bufferINSt7int64_tEXL1EEE6bufferI1TXL1EEER6bufferI1TXL1EEER6bufferINSt7int64_tEXL1EEER6bufferI1TXL1EEE6bufferINSt7int64_tEXL1EEER6bufferI1TXL1EEER6bufferI1TXL1EEER6bufferINSt7int64_tEXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEE"></span><span id="_CPPv210gemm_batchR5queueR6bufferI9transposeX1EER6bufferI9transposeX1EER6bufferINSt7int64_tEX1EER6bufferINSt7int64_tEX1EER6bufferINSt7int64_tEX1EE6bufferI1TX1EER6bufferI1TX1EER6bufferINSt7int64_tEX1EER6bufferI1TX1EE6bufferINSt7int64_tEX1EER6bufferI1TX1EER6bufferI1TX1EER6bufferINSt7int64_tEX1EENSt7int64_tER6bufferINSt7int64_tEX1EE"></span><span id="gemm_batch__queueR.buffer:transpose.1:R.buffer:transpose.1:R.buffer:std::int64_t.1:R.buffer:std::int64_t.1:R.buffer:std::int64_t.1:R.buffer:T.1:.buffer:T.1:R.buffer:std::int64_t.1:R.buffer:T.1:R.buffer:std::int64_t.1:.buffer:T.1:R.buffer:T.1:R.buffer:std::int64_t.1:R.std::int64_t.buffer:std::int64_t.1:R"></span>void <code class="sig-name descname">gemm_batch</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, buffer&lt;transpose, 1&gt; &amp;<em>transa_array</em>, buffer&lt;transpose, 1&gt; &amp;<em>transb_array</em>, buffer&lt;std::int64_t, 1&gt; &amp;<em>m_array</em>, buffer&lt;std::int64_t, 1&gt; &amp;<em>n_array</em>, buffer&lt;std::int64_t, 1&gt; &amp;<em>k_array</em>, buffer&lt;T, 1&gt; <em>alpha_array</em>, buffer&lt;T, 1&gt; &amp;<em>a_array</em>, buffer&lt;std::int64_t, 1&gt; &amp;<em>lda_array</em>, buffer&lt;T, 1&gt; &amp;<em>b_array</em>, buffer&lt;std::int64_t, 1&gt; <em>ldb_array</em>, buffer&lt;T, 1&gt; &amp;<em>beta_array</em>, buffer&lt;T, 1&gt; &amp;<em>c</em>, buffer&lt;std::int64_t, 1&gt; &amp;<em>ldc_array</em>, std::int64_t <em>group_count</em>, buffer&lt;std::int64_t, 1&gt; &amp;<em>group_size_array</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410gemm_batchR5queueR6bufferI9transposeXL1EEER6bufferI9transposeXL1EEER6bufferINSt7int64_tEXL1EEER6bufferINSt7int64_tEXL1EEER6bufferINSt7int64_tEXL1EEE6bufferI1TXL1EEER6bufferI1TXL1EEER6bufferINSt7int64_tEXL1EEER6bufferI1TXL1EEE6bufferINSt7int64_tEXL1EEER6bufferI1TXL1EEER6bufferI1TXL1EEER6bufferINSt7int64_tEXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4N6onemkl4blas10gemm_batchERN4sycl5queueERN4sycl6bufferI9transposeXL1EEEERN4sycl6bufferI9transposeXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEEN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEEN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEENSt7int64_tERN4sycl6bufferINSt7int64_tEXL1EEEE">
+<span id="_CPPv3N6onemkl4blas10gemm_batchERN4sycl5queueERN4sycl6bufferI9transposeXL1EEEERN4sycl6bufferI9transposeXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEEN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEEN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEENSt7int64_tERN4sycl6bufferINSt7int64_tEXL1EEEE"></span><span id="_CPPv2N6onemkl4blas10gemm_batchERN4sycl5queueERN4sycl6bufferI9transposeX1EEERN4sycl6bufferI9transposeX1EEERN4sycl6bufferINSt7int64_tEX1EEERN4sycl6bufferINSt7int64_tEX1EEERN4sycl6bufferINSt7int64_tEX1EEEN4sycl6bufferI1TX1EEERN4sycl6bufferI1TX1EEERN4sycl6bufferINSt7int64_tEX1EEERN4sycl6bufferI1TX1EEEN4sycl6bufferINSt7int64_tEX1EEERN4sycl6bufferI1TX1EEERN4sycl6bufferI1TX1EEERN4sycl6bufferINSt7int64_tEX1EEENSt7int64_tERN4sycl6bufferINSt7int64_tEX1EEE"></span><span id="onemkl::blas::gemm_batch__sycl::queueR.sycl::buffer:transpose.1:R.sycl::buffer:transpose.1:R.sycl::buffer:std::int64_t.1:R.sycl::buffer:std::int64_t.1:R.sycl::buffer:std::int64_t.1:R.sycl::buffer:T.1:.sycl::buffer:T.1:R.sycl::buffer:std::int64_t.1:R.sycl::buffer:T.1:R.sycl::buffer:std::int64_t.1:.sycl::buffer:T.1:R.sycl::buffer:T.1:R.sycl::buffer:std::int64_t.1:R.std::int64_t.sycl::buffer:std::int64_t.1:R"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">gemm_batch</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, sycl::buffer&lt;transpose, 1&gt; &amp;<em>transa_array</em>, sycl::buffer&lt;transpose, 1&gt; &amp;<em>transb_array</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>m_array</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>n_array</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>k_array</em>, sycl::buffer&lt;T, 1&gt; <em>alpha_array</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>a_array</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>lda_array</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>b_array</em>, sycl::buffer&lt;std::int64_t, 1&gt; <em>ldb_array</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>beta_array</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>c</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>ldc_array</em>, std::int64_t <em>group_count</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>group_size_array</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas10gemm_batchERN4sycl5queueERN4sycl6bufferI9transposeXL1EEEERN4sycl6bufferI9transposeXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEEN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEEN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEENSt7int64_tERN4sycl6bufferINSt7int64_tEXL1EEEE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <p><strong>Strided API</strong></p>
 <dl class="function">
-<dt id="_CPPv410gemm_batchR5queue9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE1TR6bufferI1TXL1EEERNSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tENSt7int64_tENSt7int64_tE">
-<span id="_CPPv310gemm_batchR5queue9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE1TR6bufferI1TXL1EEERNSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tENSt7int64_tENSt7int64_tE"></span><span id="_CPPv210gemm_batchR5queue9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE1TR6bufferI1TX1EERNSt7int64_tENSt7int64_tER6bufferI1TX1EENSt7int64_tENSt7int64_tE1TR6bufferI1TX1EENSt7int64_tENSt7int64_tENSt7int64_tE"></span><span id="gemm_batch__queueR.transpose.transpose.std::int64_t.std::int64_t.std::int64_t.T.buffer:T.1:R.std::int64_tR.std::int64_t.buffer:T.1:R.std::int64_t.std::int64_t.T.buffer:T.1:R.std::int64_t.std::int64_t.std::int64_t"></span>void <code class="sig-name descname">gemm_batch</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, transpose <em>transa</em>, transpose <em>transb</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, T <em>alpha</em>, buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t &amp;<em>lda</em>, std::int64_t <em>stridea</em>, buffer&lt;T, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, std::int64_t <em>strideb</em>, T <em>beta</em>, buffer&lt;T, 1&gt; &amp;<em>c</em>, std::int64_t <em>ldc</em>, std::int64_t <em>stridec</em>, std::int64_t <em>batch_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410gemm_batchR5queue9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE1TR6bufferI1TXL1EEERNSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tENSt7int64_tENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4N6onemkl4blas10gemm_batchERN4sycl5queueE9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEERNSt7int64_tENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tENSt7int64_tE">
+<span id="_CPPv3N6onemkl4blas10gemm_batchERN4sycl5queueE9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEERNSt7int64_tENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tENSt7int64_tE"></span><span id="_CPPv2N6onemkl4blas10gemm_batchERN4sycl5queueE9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TX1EEERNSt7int64_tENSt7int64_tERN4sycl6bufferI1TX1EEENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TX1EEENSt7int64_tENSt7int64_tENSt7int64_tE"></span><span id="onemkl::blas::gemm_batch__sycl::queueR.transpose.transpose.std::int64_t.std::int64_t.std::int64_t.T.sycl::buffer:T.1:R.std::int64_tR.std::int64_t.sycl::buffer:T.1:R.std::int64_t.std::int64_t.T.sycl::buffer:T.1:R.std::int64_t.std::int64_t.std::int64_t"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">gemm_batch</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, transpose <em>transa</em>, transpose <em>transb</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, T <em>alpha</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t &amp;<em>lda</em>, std::int64_t <em>stridea</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, std::int64_t <em>strideb</em>, T <em>beta</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>c</em>, std::int64_t <em>ldc</em>, std::int64_t <em>stridec</em>, std::int64_t <em>batch_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas10gemm_batchERN4sycl5queueE9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEERNSt7int64_tENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <p><code class="docutils literal notranslate"><span class="pre">gemm_batch</span></code> supports the following precisions.</p>
@@ -223,11 +227,11 @@
 </table>
 </div>
 </div>
-<div class="section docutils container" id="guid-14237c95-6322-47a4-bc11-d3cdd2118c42">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
-<p>The gemm_batch routines perform a series of matrix-matrix operations
+<p>The <code class="docutils literal notranslate"><span class="pre">gemm_batch</span></code> routines perform a series of matrix-matrix operations
 with general matrices. They are similar to the gemm routine
-counterparts, but the gemm_batch routines perform matrix-matrix
+counterparts, but the <code class="docutils literal notranslate"><span class="pre">gemm_batch</span></code> routines perform matrix-matrix
 operations with groups of matrices. The groups contain matrices with
 the same parameters.</p>
 <p>For the group API, the operation is defined as</p>
@@ -270,7 +274,7 @@ group API or by the <code class="docutils literal notranslate"><span class="pre"
 <p>Here, op(<code class="docutils literal notranslate"><span class="pre">A</span></code>) is <code class="docutils literal notranslate"><span class="pre">m</span></code><code class="docutils literal notranslate"><span class="pre">x</span></code><code class="docutils literal notranslate"><span class="pre">k</span></code>, op(<code class="docutils literal notranslate"><span class="pre">B</span></code>) is
 <code class="docutils literal notranslate"><span class="pre">k</span></code><code class="docutils literal notranslate"><span class="pre">x</span></code><code class="docutils literal notranslate"><span class="pre">n</span></code>, and <code class="docutils literal notranslate"><span class="pre">C</span></code> is <code class="docutils literal notranslate"><span class="pre">m</span></code><code class="docutils literal notranslate"><span class="pre">x</span></code><code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 </div>
-<div class="section docutils container" id="guid-863264a0-4ce9-495f-a617-102e46d7a41a">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters - Group API</p>
 <dl>
 <dt>transa_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span> <span class="pre">onemkl::transpose</span></code> value.</p>
@@ -363,7 +367,7 @@ in <code class="docutils literal notranslate"><span class="pre">group_size_array
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-1e4953e6-f7b1-4fee-ba5a-8c4bd51dc700">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters - Group API</p>
 <dl class="simple">
 <dt>c</dt><dd><p>Overwritten by the <code class="docutils literal notranslate"><span class="pre">m</span></code><sub>i</sub>-by-<code class="docutils literal notranslate"><span class="pre">n</span></code><sub>i</sub> matrix
@@ -371,7 +375,7 @@ in <code class="docutils literal notranslate"><span class="pre">group_size_array
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-d067773a-45a3-4d24-b10a-46e27834947e">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters - Strided API</p>
 <dl>
 <dt>transa</dt><dd><p>Specifies <code class="docutils literal notranslate"><span class="pre">op(A)</span></code> the transposition operation applied to the
@@ -433,7 +437,7 @@ least <code class="docutils literal notranslate"><span class="pre">stridec*batch
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-98c3de17-4f5f-41a1-b431-48148153abba">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters - Strided API</p>
 <dl class="simple">
 <dt>c</dt><dd><p>Output buffer, overwritten by <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> matrix multiply
@@ -441,14 +445,15 @@ operations of the form<code class="docutils literal notranslate"><span class="pr
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-ac72653a-4ac8-4b9d-b7a9-13a725aa19bf">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Notes</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">beta</span></code> = 0, matrix <code class="docutils literal notranslate"><span class="pre">C</span></code> does not need to be initialized before
-calling gemm_batch.</p>
+calling <code class="docutils literal notranslate"><span class="pre">gemm_batch</span></code>.</p>
 </div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">
-<p><strong>Parent topic:</strong> <a class="reference internal" href="blas.html#blas-like-extensions"><span class="std std-ref">BLAS-like Extensions</span></a></p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="blas-like-extensions.html#blas-like-extensions"><span class="std std-ref">BLAS-like Extensions</span></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -461,10 +466,10 @@ calling gemm_batch.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gemm_ext.html" class="btn btn-neutral float-right" title="2.1.2.4.2. gemm_ext" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="trsm_batch.html" class="btn btn-neutral float-right" title="2.1.2.4.3. trsm_batch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="trsm-usm-version.html" class="btn btn-neutral float-left" title="2.1.2.3.18. trsm (USM Version)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="axpy_batch.html" class="btn btn-neutral float-left" title="2.1.2.4.1. axpy_batch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

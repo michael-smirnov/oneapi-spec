@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.2.1.21. rotg &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>2.1.2.1.10. rotg &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.2.1.22. rotg (USM Version)" href="rotg-usm-version.html" />
-    <link rel="prev" title="2.1.2.1.20. rot (USM Version)" href="rot-usm-version.html" /> 
+    <link rel="next" title="2.1.2.1.11. rotm" href="rotm.html" />
+    <link rel="prev" title="2.1.2.1.9. rot" href="rot.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -163,6 +163,8 @@
         
           
         
+          
+        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -184,17 +186,11 @@
            <div itemprop="articleBody">
             
   <div class="section" id="rotg">
-<h1><span class="section-number">2.1.2.1.21. </span>rotg<a class="headerlink" href="#rotg" title="Permalink to this headline">¶</a></h1>
+<span id="onemkl-blas-rotg"></span><h1><span class="section-number">2.1.2.1.10. </span>rotg<a class="headerlink" href="#rotg" title="Permalink to this headline">¶</a></h1>
 <div class="docutils container">
 <p>Computes the parameters for a Givens rotation.</p>
-<div class="section docutils container" id="guid-e4b6e693-ac8c-4bb3-a197-3eb9e905b925">
-<p class="sectiontitle rubric">Syntax</p>
-<dl class="function">
-<dt id="_CPPv44rotgR5queueR6bufferI1TXL1EEER6bufferI1TXL1EEER6bufferI6T_realXL1EEER6bufferI1TXL1EEE">
-<span id="_CPPv34rotgR5queueR6bufferI1TXL1EEER6bufferI1TXL1EEER6bufferI6T_realXL1EEER6bufferI1TXL1EEE"></span><span id="_CPPv24rotgR5queueR6bufferI1TX1EER6bufferI1TX1EER6bufferI6T_realX1EER6bufferI1TX1EE"></span><span id="rotg__queueR.buffer:T.1:R.buffer:T.1:R.buffer:T_real.1:R.buffer:T.1:R"></span>void <code class="sig-name descname">rotg</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, buffer&lt;T, 1&gt; &amp;<em>a</em>, buffer&lt;T, 1&gt; &amp;<em>b</em>, buffer&lt;T_real, 1&gt; &amp;<em>c</em>, buffer&lt;T, 1&gt; &amp;<em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv44rotgR5queueR6bufferI1TXL1EEER6bufferI1TXL1EEER6bufferI6T_realXL1EEER6bufferI1TXL1EEE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p><code class="docutils literal notranslate"><span class="pre">rotg</span></code> supports the following precisions.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">rotg</span></code> supports the following precisions.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -220,11 +216,11 @@
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </div>
-</div>
-<div class="section docutils container" id="guid-5614b81d-c736-4714-88ab-29b38f9b3589">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
-<p>Given the Cartesian coordinates <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">b)</span></code> of a point, the rotg
+<p>Given the Cartesian coordinates <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">b)</span></code> of a point, the <code class="docutils literal notranslate"><span class="pre">rotg</span></code>
 routines return the parameters <code class="docutils literal notranslate"><span class="pre">c</span></code>, <code class="docutils literal notranslate"><span class="pre">s</span></code>, <code class="docutils literal notranslate"><span class="pre">r</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code>
 associated with the Givens rotation. The parameters <code class="docutils literal notranslate"><span class="pre">c</span></code> and <code class="docutils literal notranslate"><span class="pre">s</span></code>
 define a unitary matrix such that:</p>
@@ -232,10 +228,22 @@ define a unitary matrix such that:</p>
 |<code class="docutils literal notranslate"><span class="pre">b</span></code>|, <code class="docutils literal notranslate"><span class="pre">z</span></code> is <code class="docutils literal notranslate"><span class="pre">s</span></code>; otherwise if <code class="docutils literal notranslate"><span class="pre">c</span></code> is not 0 <code class="docutils literal notranslate"><span class="pre">z</span></code> is
 1/<code class="docutils literal notranslate"><span class="pre">c</span></code>; otherwise <code class="docutils literal notranslate"><span class="pre">z</span></code> is 1.</p>
 </div>
-<div class="section docutils container" id="guid-c2003328-15aa-4df0-a417-40becca7dea3">
+<div class="section" id="rotg-buffer-version">
+<h2><span class="section-number">2.1.2.1.10.1. </span>rotg (BUFFER Version)<a class="headerlink" href="#rotg-buffer-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<dl class="function">
+<dt id="_CPPv4N6onemkl4blas4rotgERN4sycl5queueERN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferI6T_realXL1EEEERN4sycl6bufferI1TXL1EEEE">
+<span id="_CPPv3N6onemkl4blas4rotgERN4sycl5queueERN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferI6T_realXL1EEEERN4sycl6bufferI1TXL1EEEE"></span><span id="_CPPv2N6onemkl4blas4rotgERN4sycl5queueERN4sycl6bufferI1TX1EEERN4sycl6bufferI1TX1EEERN4sycl6bufferI6T_realX1EEERN4sycl6bufferI1TX1EEE"></span><span id="onemkl::blas::rotg__sycl::queueR.sycl::buffer:T.1:R.sycl::buffer:T.1:R.sycl::buffer:T_real.1:R.sycl::buffer:T.1:R"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">rotg</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>a</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>b</em>, sycl::buffer&lt;T_real, 1&gt; &amp;<em>c</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas4rotgERN4sycl5queueERN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferI6T_realXL1EEEERN4sycl6bufferI1TXL1EEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters</p>
 <dl class="simple">
-<dt>exec_queue</dt><dd><p>The queue where the routine should be executed</p>
+<dt>queue</dt><dd><p>The queue where the routine should be executed</p>
 </dd>
 <dt>a</dt><dd><p>Buffer holding the <code class="docutils literal notranslate"><span class="pre">x</span></code>-coordinate of the point.</p>
 </dd>
@@ -243,7 +251,7 @@ define a unitary matrix such that:</p>
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-3b7937e3-2df7-49a3-8f1e-2c9406bb4e88">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters</p>
 <dl class="simple">
 <dt>a</dt><dd><p>Buffer holding the parameter <code class="docutils literal notranslate"><span class="pre">r</span></code> associated with the Givens
@@ -260,9 +268,60 @@ rotation.</p>
 </dd>
 </dl>
 </div>
+</div>
+<div class="section" id="rotg-usm-version">
+<h2><span class="section-number">2.1.2.1.10.2. </span>rotg (USM Version)<a class="headerlink" href="#rotg-usm-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<div class="dlsyntaxpara docutils container">
+<dl class="function">
+<dt id="_CPPv4N6onemkl4blas4rotgERN4sycl5queueEP1TP1TP6T_realP1TRKN4sycl12vector_classIN4sycl5eventEEE">
+<span id="_CPPv3N6onemkl4blas4rotgERN4sycl5queueEP1TP1TP6T_realP1TRKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="_CPPv2N6onemkl4blas4rotgERN4sycl5queueEP1TP1TP6T_realP1TRKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="onemkl::blas::rotg__sycl::queueR.TP.TP.T_realP.TP.sycl::vector_class:sycl::event:CR"></span>sycl::event <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">rotg</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, T *<em>a</em>, T *<em>b</em>, T_real *<em>c</em>, T *<em>s</em>, <em class="property">const</em> sycl::vector_class&lt;sycl::event&gt; &amp;<em>dependencies</em> = {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas4rotgERN4sycl5queueEP1TP1TP6T_realP1TRKN4sycl12vector_classIN4sycl5eventEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Input Parameters</p>
+<dl class="simple">
+<dt>queue</dt><dd><p>The queue where the routine should be executed</p>
+</dd>
+<dt>a</dt><dd><p>Pointer to the <code class="docutils literal notranslate"><span class="pre">x</span></code>-coordinate of the point.</p>
+</dd>
+<dt>b</dt><dd><p>Pointer to the <code class="docutils literal notranslate"><span class="pre">y</span></code>-coordinate of the point.</p>
+</dd>
+<dt>dependencies</dt><dd><p>List of events to wait for before starting computation, if any.
+If omitted, defaults to no dependencies.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Output Parameters</p>
+<dl class="simple">
+<dt>a</dt><dd><p>Pointer to the parameter <code class="docutils literal notranslate"><span class="pre">r</span></code> associated with the Givens
+rotation.</p>
+</dd>
+<dt>b</dt><dd><p>Pointer to the parameter <code class="docutils literal notranslate"><span class="pre">z</span></code> associated with the Givens
+rotation.</p>
+</dd>
+<dt>c</dt><dd><p>Pointer to the parameter <code class="docutils literal notranslate"><span class="pre">c</span></code> associated with the Givens
+rotation.</p>
+</dd>
+<dt>s</dt><dd><p>Pointer to the parameter <code class="docutils literal notranslate"><span class="pre">s</span></code> associated with the Givens
+rotation.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Return Values</p>
+<p>Output event to wait on to ensure computation is complete.</p>
+</div>
+</div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">
-<p><strong>Parent topic:</strong> <a class="reference internal" href="blas.html#blas-level-1-routines"><span class="std std-ref">BLAS Level 1 Routines</span></a></p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="blas-level-1-routines.html#blas-level-1-routines"><span class="std std-ref">BLAS Level 1 Routines</span></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -275,10 +334,10 @@ rotation.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="rotg-usm-version.html" class="btn btn-neutral float-right" title="2.1.2.1.22. rotg (USM Version)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="rotm.html" class="btn btn-neutral float-right" title="2.1.2.1.11. rotm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="rot-usm-version.html" class="btn btn-neutral float-left" title="2.1.2.1.20. rot (USM Version)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rot.html" class="btn btn-neutral float-left" title="2.1.2.1.9. rot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

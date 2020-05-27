@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>join_node Template Class &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>join_node &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="split_node Template Class" href="split_node_cls.html" />
-    <link rel="prev" title="broadcast_node Template Class" href="broadcast_node_cls.html" /> 
+    <link rel="next" title="join_node Policies" href="join_node_policies.html" />
+    <link rel="prev" title="broadcast_node" href="broadcast_node_cls.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,20 +110,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../configuration.html">Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../algorithms.html">Algorithms</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../flow_graph.html">Flow Graph</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="graph_cls.html">graph Class</a></li>
-<li class="toctree-l4"><a class="reference internal" href="abstract_interfaces.html">Abstract Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="special_message_types.html">Special Message Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="functional_nodes.html">Functional Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="buffering_nodes.html">Buffering Nodes</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="service_nodes.html">Service Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ports_and_edges.html">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#graph-class">Graph Class</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../flow_graph.html#nodes">Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#ports-and-edges">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#special-messages-types">Special Messages Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../containers.html">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../thread_local_storage.html">Thread Local Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -187,8 +183,6 @@
         
           
         
-          
-        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -209,390 +203,173 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="join-node-template-class">
-<h1>join_node Template Class<a class="headerlink" href="#join-node-template-class" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>A node that creates a tuple&lt;T0,T1, … &gt; from a set of messages
-received at its input ports and broadcasts the tuple to all of its successors.
-The
-<code class="docutils literal notranslate"><span class="pre">class````join_node</span></code> supports three buffering policies at its
-input ports:
-<code class="docutils literal notranslate"><span class="pre">reserving</span></code>,
-<code class="docutils literal notranslate"><span class="pre">queueing</span></code> and
-<code class="docutils literal notranslate"><span class="pre">key_matching</span></code>. By default,
-<code class="docutils literal notranslate"><span class="pre">join_node</span></code> input ports use the
-<code class="docutils literal notranslate"><span class="pre">queueing</span></code> policy.</p>
-</div>
-<div class="section" id="syntax">
-<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">queueing</span><span class="p">;</span>
-<span class="k">struct</span> <span class="n">reserving</span><span class="p">;</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">K</span><span class="p">,</span> <span class="k">typename</span> <span class="n">KHash</span><span class="o">=</span><span class="n">tbb_hash_compare</span><span class="o">&lt;</span><span class="n">K</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="k">struct</span> <span class="n">key_matching</span><span class="p">;</span>
-<span class="k">typedef</span> <span class="n">key_matching</span><span class="o">&lt;</span><span class="n">tag_value</span><span class="o">&gt;</span> <span class="n">tag_matching</span><span class="p">;</span>
+  <div class="section" id="join-node">
+<h1>join_node<a class="headerlink" href="#join-node" title="Permalink to this headline">¶</a></h1>
+<p><strong>[flow_graph.join_node]</strong></p>
+<p>A node that creates a tuple from a set of messages received at its input ports and broadcasts the
+tuple to all of its successors.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Defined in header &lt;tbb/flow_graph.h&gt;</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">OutputTuple</span><span class="p">,</span> <span class="k">class</span> <span class="nc">JP</span> <span class="o">=</span> <span class="n">queueing</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">join_node</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="header">
-<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;tbb/flow_graph.h&quot;</span><span class="cp"></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>A join_node is a
-<code class="docutils literal notranslate"><span class="pre">graph_node</span></code> and a
-<code class="docutils literal notranslate"><span class="pre">sender&lt;</span> <span class="pre">flow::tuple&lt;</span> <span class="pre">T0,</span> <span class="pre">T1,</span> <span class="pre">...</span> <span class="pre">&gt;</span> <span class="pre">&gt;</span></code>. It
-contains a tuple of input ports, each of which is a
-<code class="docutils literal notranslate"><span class="pre">receiver&lt;Ti&gt;</span></code> for each of the
-<code class="docutils literal notranslate"><span class="pre">T0</span></code> ..
-<code class="docutils literal notranslate"><span class="pre">TN</span></code> in
-<code class="docutils literal notranslate"><span class="pre">OutputTuple</span></code>. It supports multiple input receivers
-with distinct types and broadcasts a tuple of received messages to all of its
-successors. All input ports of a
-<code class="docutils literal notranslate"><span class="pre">join_node</span></code> must use the same buffering policy. The
-behavior of a
-<code class="docutils literal notranslate"><span class="pre">join_node</span></code> based on its buffering policy is shown in
-the table below.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 1%" />
-<col style="width: 99%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head" colspan="2"><p>Behavior of a join_node based on the buffering policy of its input ports.: Buffering Policy, Behavior</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td colspan="2"><dl class="simple">
-<dt>queueing</dt><dd><p>As each input port is put to, the incoming message is added to
-an unbounded first-in first-out queue in the port. When there is at least one
-message at each input port, the
-<code class="docutils literal notranslate"><span class="pre">join_node</span></code> broadcasts a tuple containing the
-head of each queue to all successors. If at least one successor accepts the
-tuple, the head of each input port’s queue is removed; otherwise, the messages
-remain in their respective input port queues.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl class="simple">
-<dt>reserving</dt><dd><p>As each input port is put to, the
-<code class="docutils literal notranslate"><span class="pre">join_node</span></code> marks that an input may be
-available at that port and returns
-<code class="docutils literal notranslate"><span class="pre">false</span></code>. When all ports have been marked as
-possibly available, the
-<code class="docutils literal notranslate"><span class="pre">join_node</span></code> will try to reserve a message at
-each port from their known predecessors. If it is unable to reserve a message
-at a port, it unmarks that port, and releases all previously acquired
-reservations. If it is able to reserve a message at all ports, it broadcasts a
-tuple containing these messages to all successors. If at least one successor
-accepts the tuple, the reservations are consumed; otherwise, they are released.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl>
-<dt>key_matching&lt;typename K, class KHash=tbb_hash_compare&lt;K&gt; &gt;</dt><dd><p>As each input port is put to, a user-provided function object
-is applied to the message to obtain its key. The message is then added to a
-hash table of the input port. When there is a message
-at each input port for a given key, the <code class="docutils literal notranslate"><span class="pre">join_node</span></code>
-removes all matching messages from the input ports,
-constructs a tuple containing the matching messages
-and attempts to broadcast it to all successors.
-If no successor accepts the tuple, it is saved and will be
-forwarded on a subsequent try_get.</p>
-<p>If K is a reference type (such as int&amp;) then the function
-objects provided to the constructor should have the type signature:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">K</span><span class="s1">&#39; &amp;(const Ti&amp;)</span>
-</pre></div>
-</div>
-<p>(where K == K’&amp;) for each type Ti of the tuple.  If
-K is not a reference type, the type signature of the function objects
-provided to the constructor are</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="p">(</span><span class="k">const</span> <span class="n">Ti</span><span class="o">&amp;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>for each type Ti of the tuple.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl class="simple">
-<dt>tag_matching</dt><dd><p>A specialization of key_matching that accepts keys of type tag_value.
-Otherwise the behavior is the same as key_matching.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>Rejection of messages by successors of the
-<code class="docutils literal notranslate"><span class="pre">join_node</span></code> and failed gets from predecessors of the
-input ports are handled using the protocol described in the Message Passing Protocol.</p>
-<p>The function template
-<code class="docutils literal notranslate"><span class="pre">input_port</span></code> simplifies the syntax for getting a
-reference to a specific input port.</p>
-<p><code class="docutils literal notranslate"><span class="pre">OutputTuple</span></code> must be a
-<code class="docutils literal notranslate"><span class="pre">flow::tuple&lt;T0,T1,</span> <span class="pre">...</span> <span class="pre">&gt;</span></code> where each element is
-copy-constructible and assignable.</p>
-</div>
-<div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;tbb/flow_graph.h&quot;</span><span class="cp"></span>
-
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">tbb</span><span class="o">::</span><span class="n">flow</span><span class="p">;</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-   <span class="n">graph</span> <span class="n">g</span><span class="p">;</span>
-   <span class="n">function_node</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span>
-       <span class="n">f1</span><span class="p">(</span> <span class="n">g</span><span class="p">,</span> <span class="n">unlimited</span><span class="p">,</span> <span class="p">[](</span><span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">;</span> <span class="p">}</span> <span class="p">);</span>
-   <span class="n">function_node</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span><span class="kt">float</span><span class="o">&gt;</span>
-       <span class="n">f2</span><span class="p">(</span> <span class="n">g</span><span class="p">,</span> <span class="n">unlimited</span><span class="p">,</span> <span class="p">[](</span><span class="k">const</span> <span class="kt">float</span> <span class="o">&amp;</span><span class="n">f</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">f</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span> <span class="p">}</span> <span class="p">);</span>
-
-   <span class="n">join_node</span><span class="o">&lt;</span> <span class="n">tbb</span><span class="o">::</span><span class="n">flow</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">float</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">j</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>
-
-   <span class="n">function_node</span><span class="o">&lt;</span> <span class="n">flow</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">float</span><span class="o">&gt;</span> <span class="o">&gt;</span>
-       <span class="n">f3</span><span class="p">(</span> <span class="n">g</span><span class="p">,</span> <span class="n">unlimited</span><span class="p">,</span>
-           <span class="p">[](</span> <span class="k">const</span> <span class="n">flow</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">float</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">t</span> <span class="p">)</span> <span class="p">{</span>
-               <span class="n">printf</span><span class="p">(</span> <span class="s">&quot;Result is %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
-                       <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
-           <span class="p">}</span> <span class="p">);</span>
-
-   <span class="n">make_edge</span><span class="p">(</span> <span class="n">f1</span><span class="p">,</span> <span class="n">input_port</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span> <span class="n">j</span> <span class="p">)</span> <span class="p">);</span>
-   <span class="n">make_edge</span><span class="p">(</span> <span class="n">f2</span><span class="p">,</span> <span class="n">input_port</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span> <span class="n">j</span> <span class="p">)</span> <span class="p">);</span>
-   <span class="n">make_edge</span><span class="p">(</span> <span class="n">j</span><span class="p">,</span> <span class="n">f3</span> <span class="p">);</span>
-
-   <span class="n">f1</span><span class="p">.</span><span class="n">try_put</span><span class="p">(</span> <span class="mi">3</span> <span class="p">);</span>
-   <span class="n">f2</span><span class="p">.</span><span class="n">try_put</span><span class="p">(</span> <span class="mi">3</span> <span class="p">);</span>
-   <span class="n">g</span><span class="p">.</span><span class="n">wait_for_all</span><span class="p">(</span> <span class="p">);</span>
-   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>In the example above, three
-<code class="docutils literal notranslate"><span class="pre">function_node</span></code> objects are created:
-<code class="docutils literal notranslate"><span class="pre">f1</span></code> multiplies an
-<code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">i</span></code> by 2,
-<code class="docutils literal notranslate"><span class="pre">f2</span></code> divides a
-<code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">f</span></code> by 2, and
-<code class="docutils literal notranslate"><span class="pre">f3</span></code> receives a
-<code class="docutils literal notranslate"><span class="pre">flow::tuple&lt;int,float&gt;</span> <span class="pre">t</span></code>, adds its elements
-together and prints the result. The
-<code class="docutils literal notranslate"><span class="pre">join_node</span> <span class="pre">j</span></code> combines the output of
-<code class="docutils literal notranslate"><span class="pre">f1</span></code> and
-<code class="docutils literal notranslate"><span class="pre">f2</span></code>, and then forwards the resulting tuple to
-<code class="docutils literal notranslate"><span class="pre">f3</span></code>. This example is purely a syntactic demonstration
-since there is very little work in the nodes.</p>
-</div>
-<div class="section" id="members">
-<h2>Members<a class="headerlink" href="#members" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">tbb</span> <span class="p">{</span>
+<span class="k">namespace</span> <span class="n">tbb</span> <span class="p">{</span>
 <span class="k">namespace</span> <span class="n">flow</span> <span class="p">{</span>
+    <span class="k">using</span> <span class="n">tag_value</span> <span class="o">=</span> <span class="cm">/*implementation-specific*/</span><span class="p">;</span>
 
-<span class="k">struct</span> <span class="n">reserving</span><span class="p">;</span>
-<span class="k">struct</span> <span class="n">queueing</span><span class="p">;</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">K</span><span class="p">,</span> <span class="k">class</span> <span class="nc">KHash</span><span class="o">=</span><span class="n">tbb_hash_compare</span><span class="o">&lt;</span><span class="n">K</span><span class="o">&gt;</span> <span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">key_matching</span><span class="p">;</span>
-<span class="k">typedef</span> <span class="n">key_matching</span><span class="o">&lt;</span><span class="n">tag_value</span><span class="o">&gt;</span> <span class="n">tag_matching</span><span class="p">;</span>
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">OutputTuple</span><span class="p">,</span> <span class="k">class</span> <span class="nc">JoinPolicy</span> <span class="o">=</span> <span class="cm">/*implementation-defined*/</span><span class="o">&gt;</span>
+    <span class="k">class</span> <span class="nc">join_node</span> <span class="o">:</span> <span class="k">public</span> <span class="n">graph_node</span><span class="p">,</span> <span class="k">public</span> <span class="n">sender</span><span class="o">&lt;</span> <span class="n">OutputTuple</span> <span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="k">using</span> <span class="n">input_ports_type</span> <span class="o">=</span> <span class="cm">/*implementation-defined*/</span><span class="p">;</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">OutputTuple</span><span class="p">,</span> <span class="k">class</span> <span class="nc">JP</span> <span class="o">=</span> <span class="n">queueing</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">join_node</span> <span class="o">:</span>
-    <span class="k">public</span> <span class="n">graph_node</span><span class="p">,</span> <span class="k">public</span> <span class="n">sender</span><span class="o">&lt;</span> <span class="n">OutputTuple</span> <span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">explicit</span> <span class="nf">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span> <span class="p">);</span>
+        <span class="n">join_node</span><span class="p">(</span> <span class="k">const</span> <span class="n">join_node</span> <span class="o">&amp;</span><span class="n">src</span> <span class="p">);</span>
 
-<span class="k">public</span><span class="o">:</span>
-    <span class="k">typedef</span> <span class="n">OutputTuple</span> <span class="n">output_type</span><span class="p">;</span>
-    <span class="k">typedef</span> <span class="n">receiver</span><span class="o">&lt;</span><span class="n">output_type</span><span class="o">&gt;</span> <span class="n">successor_type</span><span class="p">;</span>
-    <span class="k">typedef</span> <span class="n">implementation</span><span class="o">-</span><span class="n">dependent</span><span class="o">-</span><span class="n">tuple</span> <span class="n">input_ports_type</span><span class="p">;</span>
+        <span class="n">input_ports_type</span> <span class="o">&amp;</span><span class="n">input_ports</span><span class="p">(</span> <span class="p">);</span>
 
-    <span class="k">explicit</span> <span class="nf">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span> <span class="p">);</span>
-    <span class="n">join_node</span><span class="p">(</span> <span class="k">const</span> <span class="n">join_node</span> <span class="o">&amp;</span><span class="n">src</span> <span class="p">);</span>
-    <span class="n">input_ports_type</span> <span class="o">&amp;</span><span class="n">input_ports</span><span class="p">(</span> <span class="p">);</span>
-    <span class="kt">bool</span> <span class="nf">register_successor</span><span class="p">(</span> <span class="n">successor_type</span> <span class="o">&amp;</span><span class="n">r</span> <span class="p">);</span>
-    <span class="kt">bool</span> <span class="nf">remove_successor</span><span class="p">(</span> <span class="n">successor_type</span> <span class="o">&amp;</span><span class="n">r</span> <span class="p">);</span>
-    <span class="kt">bool</span> <span class="nf">try_get</span><span class="p">(</span> <span class="n">output_type</span> <span class="o">&amp;</span><span class="n">v</span> <span class="p">);</span>
-    <span class="kt">bool</span> <span class="nf">try_reserve</span><span class="p">(</span> <span class="n">output_type</span> <span class="o">&amp;</span><span class="n">v</span> <span class="p">);</span>
-    <span class="kt">bool</span> <span class="nf">try_release</span><span class="p">(</span> <span class="p">);</span>
-    <span class="kt">bool</span> <span class="nf">try_consume</span><span class="p">(</span> <span class="p">);</span>
+        <span class="kt">bool</span> <span class="nf">try_get</span><span class="p">(</span> <span class="n">OutputTuple</span> <span class="o">&amp;</span><span class="n">v</span> <span class="p">);</span>
+    <span class="p">};</span>
 
-<span class="p">};</span>
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">OutputTuple</span><span class="p">,</span> <span class="k">typename</span> <span class="n">K</span><span class="p">,</span> <span class="k">class</span> <span class="nc">KHash</span><span class="o">=</span><span class="n">tbb_hash_compare</span><span class="o">&lt;</span><span class="n">K</span><span class="o">&gt;</span> <span class="o">&gt;</span>
+    <span class="k">class</span> <span class="nc">join_node</span><span class="o">&lt;</span> <span class="n">OutputTuple</span><span class="p">,</span> <span class="n">key_matching</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">KHash</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">:</span> <span class="k">public</span> <span class="n">graph_node</span><span class="p">,</span> <span class="k">public</span> <span class="n">sender</span><span class="o">&lt;</span> <span class="n">OutputTuple</span> <span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="k">using</span> <span class="n">input_ports_type</span> <span class="o">=</span> <span class="cm">/*implementation-defined*/</span><span class="p">;</span>
 
-<span class="c1">//</span>
-<span class="c1">// Specialization for key_matching</span>
-<span class="c1">//</span>
+        <span class="k">explicit</span> <span class="nf">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span> <span class="p">);</span>
+        <span class="n">join_node</span><span class="p">(</span> <span class="k">const</span> <span class="n">join_node</span> <span class="o">&amp;</span><span class="n">src</span> <span class="p">);</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">OutputTuple</span><span class="p">,</span> <span class="k">typename</span> <span class="n">K</span><span class="p">,</span> <span class="k">class</span> <span class="nc">KHash</span><span class="o">=</span><span class="n">tbb_hash_compare</span><span class="o">&lt;</span><span class="n">K</span><span class="o">&gt;</span> <span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">join_node</span><span class="o">&lt;</span><span class="n">OutputTuple</span><span class="p">,</span> <span class="n">key_matching</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">KHash</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">:</span>
-    <span class="k">public</span> <span class="n">graph_node</span><span class="p">,</span> <span class="k">public</span> <span class="n">sender</span><span class="o">&lt;</span> <span class="n">OutputTuple</span> <span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="o">&gt;</span>
+        <span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span> <span class="p">);</span>
+        <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="o">&gt;</span>
+        <span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span> <span class="p">);</span>
+        <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="o">&gt;</span>
+        <span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span> <span class="p">);</span>
+        <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B4</span><span class="o">&gt;</span>
+        <span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span><span class="p">,</span> <span class="n">B4</span> <span class="n">b4</span> <span class="p">);</span>
+        <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B5</span><span class="o">&gt;</span>
+        <span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span><span class="p">,</span> <span class="n">B4</span> <span class="n">b4</span><span class="p">,</span> <span class="n">B5</span> <span class="n">b5</span> <span class="p">);</span>
+        <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B5</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B6</span><span class="o">&gt;</span>
+        <span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span><span class="p">,</span> <span class="n">B4</span> <span class="n">b4</span><span class="p">,</span> <span class="n">B5</span> <span class="n">b5</span><span class="p">,</span> <span class="n">B6</span> <span class="n">b6</span> <span class="p">);</span>
+        <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B5</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B6</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B6</span><span class="o">&gt;</span>
+        <span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span><span class="p">,</span> <span class="n">B4</span> <span class="n">b4</span><span class="p">,</span> <span class="n">B5</span> <span class="n">b5</span><span class="p">,</span> <span class="n">B6</span> <span class="n">b6</span><span class="p">,</span> <span class="n">B7</span> <span class="n">b7</span> <span class="p">);</span>
+        <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B5</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B6</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B7</span><span class="o">&gt;</span>
+        <span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span><span class="p">,</span> <span class="n">B4</span> <span class="n">b4</span><span class="p">,</span> <span class="n">B5</span> <span class="n">b5</span><span class="p">,</span> <span class="n">B6</span> <span class="n">b6</span><span class="p">,</span> <span class="n">B7</span> <span class="n">b7</span> <span class="p">);</span>
+        <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B5</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B6</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B7</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B8</span><span class="o">&gt;</span>
+        <span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span><span class="p">,</span> <span class="n">B4</span> <span class="n">b4</span><span class="p">,</span> <span class="n">B5</span> <span class="n">b5</span><span class="p">,</span> <span class="n">B6</span> <span class="n">b6</span><span class="p">,</span> <span class="n">B7</span> <span class="n">b7</span><span class="p">,</span> <span class="n">B8</span> <span class="n">b8</span> <span class="p">);</span>
+        <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B5</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B6</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B7</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B8</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B9</span><span class="o">&gt;</span>
+        <span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span><span class="p">,</span> <span class="n">B4</span> <span class="n">b4</span><span class="p">,</span> <span class="n">B5</span> <span class="n">b5</span><span class="p">,</span> <span class="n">B6</span> <span class="n">b6</span><span class="p">,</span> <span class="n">B7</span> <span class="n">b7</span><span class="p">,</span> <span class="n">B8</span> <span class="n">b8</span><span class="p">,</span> <span class="n">B9</span> <span class="n">b9</span> <span class="p">);</span>
 
-<span class="k">public</span><span class="o">:</span>
+        <span class="n">input_ports_type</span> <span class="o">&amp;</span><span class="n">input_ports</span><span class="p">(</span> <span class="p">);</span>
 
-    <span class="c1">// Has the same methods as previous join_node,</span>
-    <span class="c1">// but has constructors to specify the key_matching</span>
-    <span class="c1">// function objects</span>
+        <span class="kt">bool</span> <span class="nf">try_get</span><span class="p">(</span> <span class="n">OutputTuple</span> <span class="o">&amp;</span><span class="n">v</span> <span class="p">);</span>
+    <span class="p">};</span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="o">&gt;</span>
-    <span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span> <span class="p">);</span>
-
-    <span class="c1">// Constructors are defined similarly for</span>
-    <span class="c1">// 3 through 10 elements ...</span>
-<span class="p">};</span>
-
-<span class="p">}</span>
-<span class="p">}</span>
+<span class="p">}</span> <span class="c1">// namespace flow</span>
+<span class="p">}</span> <span class="c1">// namespace tbb</span>
 </pre></div>
 </div>
-<p>The following table provides additional information on the
-members of this template class.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 1%" />
-<col style="width: 99%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head" colspan="2"><p>Member, Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">explicit</span> <span class="pre">join_node(</span> <span class="pre">graph</span> <span class="pre">&amp;g</span> <span class="pre">)</span></code></dt><dd><p>Constructs a
-<code class="docutils literal notranslate"><span class="pre">join_node</span></code> that will spawn tasks using the
-root task in
-<code class="docutils literal notranslate"><span class="pre">g</span></code>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">template</span> <span class="pre">&lt;</span> <span class="pre">typename</span> <span class="pre">B0,</span> <span class="pre">typename</span> <span class="pre">B1,</span> <span class="pre">...</span> <span class="pre">&gt;</span> <span class="pre">join_node(</span> <span class="pre">graph</span> <span class="pre">&amp;g,</span> <span class="pre">B0</span> <span class="pre">b0,</span> <span class="pre">B1</span> <span class="pre">b1,</span> <span class="pre">...</span> <span class="pre">)</span></code></dt><dd><p>A constructor only available in the
-<code class="docutils literal notranslate"><span class="pre">key_matching</span></code> specialization of
-<code class="docutils literal notranslate"><span class="pre">join_node</span></code>.</p>
-<p>Creates a
-<code class="docutils literal notranslate"><span class="pre">join_node</span></code> that uses the function objects
-<code class="docutils literal notranslate"><span class="pre">b0</span></code>,
-<code class="docutils literal notranslate"><span class="pre">b1</span></code>, … ,
-<code class="docutils literal notranslate"><span class="pre">bN</span></code> to determine that tags for the input
-ports 0 through N. It will spawn tasks using the root task in
-<code class="docutils literal notranslate"><span class="pre">g</span></code>.</p>
+<p>Requirements:</p>
+<ul class="simple">
+<li><p>The type <code class="docutils literal notranslate"><span class="pre">OutputTuple</span></code> must be an instantiation of <code class="docutils literal notranslate"><span class="pre">std::tuple</span></code>. Each type that the tuple stores
+shall meet the <cite>CopyConstructible</cite> requirements from [copyconstructible] and <cite>CopyAssignable</cite>
+requirements from [copyassignable] ISO C++ Standard sections.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">JoinPolicy</span></code> type should be specified as one of <a class="reference internal" href="join_node_policies.html"><span class="doc">buffering policies</span></a> for <code class="docutils literal notranslate"><span class="pre">join_node</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">KHash</span></code> type shall meet the <a class="reference internal" href="../named_requirements/containers/hash_compare.html"><span class="doc">HashCompare requirements</span></a>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Bi</span></code> types shall meet the <a class="reference internal" href="../named_requirements/flow_graph/join_node_func_obj.html"><span class="doc">JoinNodeFunctionObject requirements</span></a>.</p></li>
+</ul>
+<p>A <code class="docutils literal notranslate"><span class="pre">join_node</span></code> is a <code class="docutils literal notranslate"><span class="pre">graph_node</span></code> and a <code class="docutils literal notranslate"><span class="pre">sender&lt;OutputTuple&gt;</span></code>.
+It contains a tuple of input ports, each of which is a <code class="docutils literal notranslate"><span class="pre">receiver&lt;Type&gt;</span></code> for each <cite>Type</cite> in
+<code class="docutils literal notranslate"><span class="pre">OutputTuple</span></code>. It supports multiple input receivers with distinct types and broadcasts a tuple
+of received messages to all of its successors. All input ports of a <code class="docutils literal notranslate"><span class="pre">join_node</span></code> must use the same
+buffering policy.</p>
+<p>The behavior of a <code class="docutils literal notranslate"><span class="pre">join_node</span></code> is based on its buffering policy.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="join_node_policies.html">join_node Policies</a></li>
+</ul>
+</div>
+<p>The function template <a class="reference internal" href="input_port_func.html"><span class="doc">input_port</span></a> simplifies the syntax for getting a
+reference to a specific input port.</p>
+<p><code class="docutils literal notranslate"><span class="pre">join_node</span></code> has a <cite>buffering</cite> and <cite>broadcast-push</cite> <a class="reference internal" href="forwarding_and_buffering.html"><span class="doc">properties</span></a>.</p>
+<div class="section" id="member-types">
+<h2>Member types<a class="headerlink" href="#member-types" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">input_ports_type</span></code> is an alias to a tuple of input ports.</p>
+</div>
+<div class="section" id="member-functions">
+<h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">explicit</span> <span class="nf">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>Constructs an empty <code class="docutils literal notranslate"><span class="pre">join_node</span></code> that belongs to the graph <code class="docutils literal notranslate"><span class="pre">g</span></code>.</p>
+<hr class="docutils" />
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="o">&gt;</span>
+<span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span> <span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="o">&gt;</span>
+<span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span> <span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="o">&gt;</span>
+<span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span> <span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B4</span><span class="o">&gt;</span>
+<span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span><span class="p">,</span> <span class="n">B4</span> <span class="n">b4</span> <span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B5</span><span class="o">&gt;</span>
+<span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span><span class="p">,</span> <span class="n">B4</span> <span class="n">b4</span><span class="p">,</span> <span class="n">B5</span> <span class="n">b5</span> <span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B5</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B6</span><span class="o">&gt;</span>
+<span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span><span class="p">,</span> <span class="n">B4</span> <span class="n">b4</span><span class="p">,</span> <span class="n">B5</span> <span class="n">b5</span><span class="p">,</span> <span class="n">B6</span> <span class="n">b6</span> <span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B5</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B6</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B6</span><span class="o">&gt;</span>
+<span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span><span class="p">,</span> <span class="n">B4</span> <span class="n">b4</span><span class="p">,</span> <span class="n">B5</span> <span class="n">b5</span><span class="p">,</span> <span class="n">B6</span> <span class="n">b6</span><span class="p">,</span> <span class="n">B7</span> <span class="n">b7</span> <span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B5</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B6</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B7</span><span class="o">&gt;</span>
+<span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span><span class="p">,</span> <span class="n">B4</span> <span class="n">b4</span><span class="p">,</span> <span class="n">B5</span> <span class="n">b5</span><span class="p">,</span> <span class="n">B6</span> <span class="n">b6</span><span class="p">,</span> <span class="n">B7</span> <span class="n">b7</span> <span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B5</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B6</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B7</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B8</span><span class="o">&gt;</span>
+<span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span><span class="p">,</span> <span class="n">B4</span> <span class="n">b4</span><span class="p">,</span> <span class="n">B5</span> <span class="n">b5</span><span class="p">,</span> <span class="n">B6</span> <span class="n">b6</span><span class="p">,</span> <span class="n">B7</span> <span class="n">b7</span><span class="p">,</span> <span class="n">B8</span> <span class="n">b8</span> <span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">B0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B1</span><span class="p">,</span> <span class="p">,</span> <span class="k">typename</span> <span class="n">B2</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B3</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B5</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B6</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B7</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B8</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B9</span><span class="o">&gt;</span>
+<span class="n">join_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span><span class="p">,</span> <span class="n">B0</span> <span class="n">b0</span><span class="p">,</span> <span class="n">B1</span> <span class="n">b1</span><span class="p">,</span> <span class="n">B2</span> <span class="n">b2</span><span class="p">,</span> <span class="n">B3</span> <span class="n">b3</span><span class="p">,</span> <span class="n">B4</span> <span class="n">b4</span><span class="p">,</span> <span class="n">B5</span> <span class="n">b5</span><span class="p">,</span> <span class="n">B6</span> <span class="n">b6</span><span class="p">,</span> <span class="n">B7</span> <span class="n">b7</span><span class="p">,</span> <span class="n">B8</span> <span class="n">b8</span><span class="p">,</span> <span class="n">B9</span> <span class="n">b9</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>A constructor only available in the <code class="docutils literal notranslate"><span class="pre">key_matching</span></code> specialization of <code class="docutils literal notranslate"><span class="pre">join_node</span></code>.</p>
+<p>Creates a <code class="docutils literal notranslate"><span class="pre">join_node</span></code> that uses the function objects <code class="docutils literal notranslate"><span class="pre">b0</span></code>, <code class="docutils literal notranslate"><span class="pre">b1</span></code>, … , <code class="docutils literal notranslate"><span class="pre">bN</span></code> to determine
+that tags for the input ports <code class="docutils literal notranslate"><span class="pre">0</span></code> through <code class="docutils literal notranslate"><span class="pre">N</span></code>.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>Function objects passed to the join_node constructor must not
 throw. They are called in parallel, and should be pure, take minimal
 time and be non-blocking.</p>
 </div>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">join_node(</span> <span class="pre">const</span> <span class="pre">join_node</span> <span class="pre">&amp;src</span> <span class="pre">)</span></code></dt><dd><p>Creates a
-<code class="docutils literal notranslate"><span class="pre">join_node</span></code> that has the same initial state
-that
-<code class="docutils literal notranslate"><span class="pre">src</span></code> had at its construction. The list of
-predecessors, messages in the input ports, and successors are NOT copied.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">input_ports_type</span> <span class="pre">&amp;input_ports(</span> <span class="pre">)</span></code></dt><dd><p><strong>Returns</strong>: a
-<code class="docutils literal notranslate"><span class="pre">flow::tuple</span></code> of receivers. Each element
-inherits from
-<code class="docutils literal notranslate"><span class="pre">tbb::receiver&lt;T&gt;</span></code> where
-<code class="docutils literal notranslate"><span class="pre">T</span></code> is the type of message expected at that
-input. Each tuple element can be used like any other
-<code class="docutils literal notranslate"><span class="pre">flow::receiver&lt;T&gt;</span></code>. The behavior of
-the ports based on the selected
-<code class="docutils literal notranslate"><span class="pre">join_node</span></code> policy is shown in the table
-above.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">register_successor(</span> <span class="pre">successor_type</span> <span class="pre">&amp;r</span> <span class="pre">)</span></code></dt><dd><p>Adds
-<code class="docutils literal notranslate"><span class="pre">r</span></code> to the set of successors.</p>
-<p><strong>Returns</strong>:
-<code class="docutils literal notranslate"><span class="pre">true</span></code></p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">remove_successor(</span> <span class="pre">successor_type</span> <span class="pre">&amp;r</span> <span class="pre">)</span></code></dt><dd><p>Removes
-<code class="docutils literal notranslate"><span class="pre">r</span></code> from the set of successors.</p>
-<p><strong>Returns</strong>:
-<code class="docutils literal notranslate"><span class="pre">true</span></code></p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">try_get(</span> <span class="pre">output_type</span> <span class="pre">&amp;v</span> <span class="pre">)</span></code></dt><dd><p>Attempts to generate a tuple based on the buffering policy
-of the
-<code class="docutils literal notranslate"><span class="pre">join_node</span></code>.</p>
-<p><strong>Returns</strong>: If it can successfully generate a tuple, it
-copies it to
-<code class="docutils literal notranslate"><span class="pre">v</span></code> and returns
-<code class="docutils literal notranslate"><span class="pre">true</span></code>. Otherwise it returns
-<code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">try_reserve(</span> <span class="pre">output_type</span> <span class="pre">&amp;v</span> <span class="pre">)</span></code></dt><dd><p>Does not support reservations.</p>
-<p><strong>Returns</strong>:
-<code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">try_release(</span> <span class="pre">)</span></code></dt><dd><p>Does not support reservations.</p>
-<p><strong>Returns</strong>:
-<code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">try_consume(</span> <span class="pre">)</span></code></dt><dd><p>Does not support reservations.</p>
-<p><strong>Returns</strong>:
-<code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">template&lt;size_t</span> <span class="pre">N,</span> <span class="pre">typename</span> <span class="pre">JNT&gt;</span> <span class="pre">typename</span> <span class="pre">flow::tuple_element&lt;N,</span> <span class="pre">typename</span> <span class="pre">JNT::input_ports_type&gt;::type</span> <span class="pre">&amp;input_port(</span> <span class="pre">JNT</span> <span class="pre">&amp;jn</span> <span class="pre">)</span></code></dt><dd><p>Calling
-<code class="docutils literal notranslate"><span class="pre">input_port</span> <span class="pre">&lt;N&gt;(</span> <span class="pre">jn</span> <span class="pre">)</span></code> is equivalent
-to calling
-<code class="docutils literal notranslate"><span class="pre">std::get&lt;N&gt;(</span> <span class="pre">jn.input_ports()</span> <span class="pre">)</span></code></p>
-<p><strong>Returns</strong>: the N<sup>th</sup> input port for
-<code class="docutils literal notranslate"><span class="pre">join_node</span> <span class="pre">jn</span></code>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>See also:</p>
+<hr class="docutils" />
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">join_node</span><span class="p">(</span> <span class="k">const</span> <span class="n">join_node</span> <span class="o">&amp;</span><span class="n">src</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Creates a <code class="docutils literal notranslate"><span class="pre">join_node</span></code> that has the same initial state that
+<code class="docutils literal notranslate"><span class="pre">src</span></code> had at its construction. The list of predecessors,
+messages in the input ports, and successors are not copied.</p>
+<hr class="docutils" />
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">input_ports_type</span> <span class="o">&amp;</span><span class="n">input_ports</span><span class="p">(</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Returns</strong>: a <code class="docutils literal notranslate"><span class="pre">std::tuple</span></code> of receivers. Each element inherits from <code class="docutils literal notranslate"><span class="pre">receiver&lt;T&gt;</span></code> where
+<code class="docutils literal notranslate"><span class="pre">T</span></code> is the type of message expected at that input. Each tuple element can be used like any
+other <code class="docutils literal notranslate"><span class="pre">receiver&lt;T&gt;</span></code>. The behavior of the ports based on the selected <code class="docutils literal notranslate"><span class="pre">join_node</span></code> policy.</p>
+<hr class="docutils" />
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="n">try_get</span><span class="p">(</span> <span class="n">output_type</span> <span class="o">&amp;</span><span class="n">v</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Attempts to generate a tuple based on the buffering policy of the <code class="docutils literal notranslate"><span class="pre">join_node</span></code>.</p>
+<p>If it can successfully generate a tuple, it copies it to <code class="docutils literal notranslate"><span class="pre">v</span></code> and returns <code class="docutils literal notranslate"><span class="pre">true</span></code>.
+Otherwise it returns <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+</div>
+<div class="section" id="non-member-types">
+<h2>Non-Member Types<a class="headerlink" href="#non-member-types" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">tag_value</span> <span class="o">=</span> <span class="cm">/*implementation-specific*/</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">tag_value</span></code> is an unsigned integral type for defining <code class="docutils literal notranslate"><span class="pre">tag_matching</span></code> policy.</p>
+</div>
+<div class="section" id="deduction-guides">
+<h2>Deduction Guides<a class="headerlink" href="#deduction-guides" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Body</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Bodies</span><span class="o">&gt;</span>
+<span class="n">join_node</span><span class="p">(</span><span class="n">graph</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">Body</span><span class="p">,</span> <span class="n">Bodies</span><span class="p">...)</span>
+    <span class="o">-&gt;</span><span class="n">join_node</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">input_t</span><span class="o">&lt;</span><span class="n">Body</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">input_t</span><span class="o">&lt;</span><span class="n">Bodies</span><span class="o">&gt;&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">key_matching</span><span class="o">&lt;</span><span class="n">output_t</span><span class="o">&lt;</span><span class="n">Body</span><span class="o">&gt;&gt;&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Where:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="input_port_func.html"><span class="doc">input_port Template Function</span></a></p></li>
-<li><p><a class="reference internal" href="message_passing_protocol.html"><span class="doc">Message Passing Protocol</span></a></p></li>
-<li><p><a class="reference internal" href="sender_and_buffer_policy.html"><span class="doc">Sender and Buffer Policy</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">input_t</span></code> is an alias to the input argument type of the passed function object.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_t</span></code> is an alias to the return type of the passed function object.</p></li>
 </ul>
 </div>
 </div>
@@ -605,10 +382,10 @@ to calling
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="split_node_cls.html" class="btn btn-neutral float-right" title="split_node Template Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="join_node_policies.html" class="btn btn-neutral float-right" title="join_node Policies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="broadcast_node_cls.html" class="btn btn-neutral float-left" title="broadcast_node Template Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="broadcast_node_cls.html" class="btn btn-neutral float-left" title="broadcast_node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

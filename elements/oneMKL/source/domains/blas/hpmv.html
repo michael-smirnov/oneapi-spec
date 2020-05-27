@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.2.2.19. hpmv &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>2.1.2.2.10. hpmv &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.2.2.20. hpmv (USM Version)" href="hpmv-usm-version.html" />
-    <link rel="prev" title="2.1.2.2.18. her2 (USM Version)" href="her2-usm-version.html" /> 
+    <link rel="next" title="2.1.2.2.11. hpr" href="hpr.html" />
+    <link rel="prev" title="2.1.2.2.9. her2" href="her2.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -163,6 +163,8 @@
         
           
         
+          
+        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -184,17 +186,11 @@
            <div itemprop="articleBody">
             
   <div class="section" id="hpmv">
-<h1><span class="section-number">2.1.2.2.19. </span>hpmv<a class="headerlink" href="#hpmv" title="Permalink to this headline">¶</a></h1>
+<span id="onemkl-blas-hpmv"></span><h1><span class="section-number">2.1.2.2.10. </span>hpmv<a class="headerlink" href="#hpmv" title="Permalink to this headline">¶</a></h1>
 <div class="docutils container">
 <p>Computes a matrix-vector product using a Hermitian packed matrix.</p>
-<div class="section docutils container" id="guid-c6e4a4a7-5cbe-46ed-a021-8feaabaa2e93">
-<p class="sectiontitle rubric">Syntax</p>
-<dl class="function">
-<dt id="_CPPv44hpmvR5queue4uploNSt7int64_tE1TR6bufferI1TXL1EEER6bufferI1TXL1EEENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tE">
-<span id="_CPPv34hpmvR5queue4uploNSt7int64_tE1TR6bufferI1TXL1EEER6bufferI1TXL1EEENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tE"></span><span id="_CPPv24hpmvR5queue4uploNSt7int64_tE1TR6bufferI1TX1EER6bufferI1TX1EENSt7int64_tE1TR6bufferI1TX1EENSt7int64_tE"></span><span id="hpmv__queueR.uplo.std::int64_t.T.buffer:T.1:R.buffer:T.1:R.std::int64_t.T.buffer:T.1:R.std::int64_t"></span>void <code class="sig-name descname">hpmv</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, uplo <em>upper_lower</em>, std::int64_t <em>n</em>, T <em>alpha</em>, buffer&lt;T, 1&gt; &amp;<em>a</em>, buffer&lt;T, 1&gt; &amp;<em>x</em>, std::int64_t <em>incx</em>, T <em>beta</em>, buffer&lt;T, 1&gt; &amp;<em>y</em>, std::int64_t <em>incy</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv44hpmvR5queue4uploNSt7int64_tE1TR6bufferI1TXL1EEER6bufferI1TXL1EEENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p><code class="docutils literal notranslate"><span class="pre">hpmv</span></code> supports the following precisions.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">hpmv</span></code> supports the following precisions.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 100%" />
@@ -210,11 +206,11 @@
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </div>
-</div>
-<div class="section docutils container" id="guid-a95c32c5-0371-429b-847c-4ee29fd9c480">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
-<p>The hpmv routines compute a scalar-matrix-vector product and add the
+<p>The <code class="docutils literal notranslate"><span class="pre">hpmv</span></code> routines compute a scalar-matrix-vector product and add the
 result to a scalar-vector product, with a Hermitian packed matrix.
 The operation is defined as</p>
 <blockquote>
@@ -225,14 +221,24 @@ The operation is defined as</p>
 <p><code class="docutils literal notranslate"><span class="pre">A</span></code> is an <code class="docutils literal notranslate"><span class="pre">n</span></code>-by-<code class="docutils literal notranslate"><span class="pre">n</span></code> Hermitian matrix supplied in packed form,</p>
 <p><code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are vectors of length <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 </div>
-<div class="section docutils container" id="guid-e1436726-01fe-4206-871e-b905f59a96b4">
+<div class="section" id="hpmv-buffer-version">
+<h2><span class="section-number">2.1.2.2.10.1. </span>hpmv (BUFFER Version)<a class="headerlink" href="#hpmv-buffer-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<dl class="function">
+<dt id="_CPPv4N6onemkl4blas4hpmvERN4sycl5queueE4uploNSt7int64_tE1TRN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tE">
+<span id="_CPPv3N6onemkl4blas4hpmvERN4sycl5queueE4uploNSt7int64_tE1TRN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tE"></span><span id="_CPPv2N6onemkl4blas4hpmvERN4sycl5queueE4uploNSt7int64_tE1TRN4sycl6bufferI1TX1EEERN4sycl6bufferI1TX1EEENSt7int64_tE1TRN4sycl6bufferI1TX1EEENSt7int64_tE"></span><span id="onemkl::blas::hpmv__sycl::queueR.uplo.std::int64_t.T.sycl::buffer:T.1:R.sycl::buffer:T.1:R.std::int64_t.T.sycl::buffer:T.1:R.std::int64_t"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">hpmv</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, uplo <em>upper_lower</em>, std::int64_t <em>n</em>, T <em>alpha</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>a</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>x</em>, std::int64_t <em>incx</em>, T <em>beta</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>y</em>, std::int64_t <em>incy</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas4hpmvERN4sycl5queueE4uploNSt7int64_tE1TRN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters</p>
 <dl>
-<dt>exec_queue</dt><dd><p>The queue where the routine should be executed.</p>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
 </dd>
-<dt>upper_lower</dt><dd><p>Specifies whether <em>A</em> is upper or lower triangular. See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
+<dt>upper_lower</dt><dd><p>Specifies whether <code class="docutils literal notranslate"><span class="pre">A</span></code> is upper or lower triangular. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
 </dd>
 <dt>n</dt><dd><p>Number of rows and columns of <code class="docutils literal notranslate"><span class="pre">A</span></code>. Must be at least zero.</p>
 </dd>
@@ -263,16 +269,85 @@ for more details.</p>
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-416b82cd-c5b8-472a-8347-04997ea6d6e6">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters</p>
 <dl class="simple">
 <dt>y</dt><dd><p>Buffer holding the updated vector <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 </dd>
 </dl>
 </div>
+</div>
+<div class="section" id="hpmv-usm-version">
+<h2><span class="section-number">2.1.2.2.10.2. </span>hpmv (USM Version)<a class="headerlink" href="#hpmv-usm-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<div class="dlsyntaxpara docutils container">
+<dl class="function">
+<dt id="_CPPv4N6onemkl4blas4hpmvERN4sycl5queueE4uploNSt7int64_tE1TPK1TPK1TNSt7int64_tE1TP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE">
+<span id="_CPPv3N6onemkl4blas4hpmvERN4sycl5queueE4uploNSt7int64_tE1TPK1TPK1TNSt7int64_tE1TP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="_CPPv2N6onemkl4blas4hpmvERN4sycl5queueE4uploNSt7int64_tE1TPK1TPK1TNSt7int64_tE1TP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="onemkl::blas::hpmv__sycl::queueR.uplo.std::int64_t.T.TCP.TCP.std::int64_t.T.TP.std::int64_t.sycl::vector_class:sycl::event:CR"></span>sycl::event <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">hpmv</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, uplo <em>upper_lower</em>, std::int64_t <em>n</em>, T <em>alpha</em>, <em class="property">const</em> T *<em>a</em>, <em class="property">const</em> T *<em>x</em>, std::int64_t <em>incx</em>, T <em>beta</em>, T *<em>y</em>, std::int64_t <em>incy</em>, <em class="property">const</em> sycl::vector_class&lt;sycl::event&gt; &amp;<em>dependencies</em> = {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas4hpmvERN4sycl5queueE4uploNSt7int64_tE1TPK1TPK1TNSt7int64_tE1TP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Input Parameters</p>
+<dl>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
+</dd>
+<dt>upper_lower</dt><dd><p>Specifies whether <code class="docutils literal notranslate"><span class="pre">A</span></code> is upper or lower triangular. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
+</dd>
+<dt>n</dt><dd><p>Number of rows and columns of <code class="docutils literal notranslate"><span class="pre">A</span></code>. Must be at least zero.</p>
+</dd>
+<dt>alpha</dt><dd><p>Scaling factor for the matrix-vector product.</p>
+</dd>
+<dt>a</dt><dd><p>Pointer to input matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>. The array holding input matrix
+<code class="docutils literal notranslate"><span class="pre">A</span></code> must have size at least (<code class="docutils literal notranslate"><span class="pre">n</span></code>*(<code class="docutils literal notranslate"><span class="pre">n</span></code>+1))/2. See
+<a class="reference external" href="../matrix-storage.html">Matrix and Vector
+Storage</a> for
+more details.</p>
+<p>The imaginary parts of the diagonal elements need not be set
+and are assumed to be zero.</p>
+</dd>
+<dt>x</dt><dd><p>Pointer to input vector <code class="docutils literal notranslate"><span class="pre">x</span></code>. The array holding input vector
+<code class="docutils literal notranslate"><span class="pre">x</span></code> must be of size at least (1 + (<code class="docutils literal notranslate"><span class="pre">n</span></code> - 1)*abs(<code class="docutils literal notranslate"><span class="pre">incx</span></code>)).
+See <a class="reference external" href="../matrix-storage.html">Matrix and Vector
+Storage</a> for
+more details.</p>
+</dd>
+<dt>incx</dt><dd><p>Stride of vector <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd>
+<dt>beta</dt><dd><p>Scaling factor for vector <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</dd>
+<dt>y</dt><dd><p>Pointer to input/output vector <code class="docutils literal notranslate"><span class="pre">y</span></code>. The array holding
+input/output vector <code class="docutils literal notranslate"><span class="pre">y</span></code> must be of size at least (1 + (<code class="docutils literal notranslate"><span class="pre">n</span></code>
+- 1)*abs(<code class="docutils literal notranslate"><span class="pre">incy</span></code>)). See <a class="reference external" href="../matrix-storage.html">Matrix and Vector
+Storage</a> for
+more details.</p>
+</dd>
+<dt>incy</dt><dd><p>Stride of vector <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</dd>
+<dt>dependencies</dt><dd><p>List of events to wait for before starting computation, if any.
+If omitted, defaults to no dependencies.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Output Parameters</p>
+<dl class="simple">
+<dt>y</dt><dd><p>Pointer to the updated vector <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Return Values</p>
+<p>Output event to wait on to ensure computation is complete.</p>
+</div>
+</div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">
-<p><strong>Parent topic:</strong> <a class="reference internal" href="blas.html#blas-level-2-routines"><span class="std std-ref">BLAS Level 2 Routines</span></a></p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="blas-level-2-routines.html#blas-level-2-routines"><span class="std std-ref">BLAS Level 2 Routines</span></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -285,10 +360,10 @@ for more details.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="hpmv-usm-version.html" class="btn btn-neutral float-right" title="2.1.2.2.20. hpmv (USM Version)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="hpr.html" class="btn btn-neutral float-right" title="2.1.2.2.11. hpr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="her2-usm-version.html" class="btn btn-neutral float-left" title="2.1.2.2.18. her2 (USM Version)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="her2.html" class="btn btn-neutral float-left" title="2.1.2.2.9. her2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

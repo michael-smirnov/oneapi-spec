@@ -119,7 +119,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../containers.html">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../thread_local_storage.html">Thread Local Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -205,67 +204,18 @@
             
   <div class="section" id="namespaces">
 <h1>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">¶</a></h1>
+<p><strong>[configuration.namespaces]</strong></p>
 <p>This section describes the oneAPI Threading Building Blocks namespace conventions.</p>
 <div class="section" id="tbb-namespace">
 <h2>tbb Namespace<a class="headerlink" href="#tbb-namespace" title="Permalink to this headline">¶</a></h2>
-<p>Namespace
-<code class="docutils literal notranslate"><span class="pre">tbb</span></code> contains public identifiers defined by the library
+<p>Namespace <code class="docutils literal notranslate"><span class="pre">tbb</span></code> contains public identifiers defined by the library
 that you can reference in your program.</p>
 </div>
 <div class="section" id="tbb-flow-namespace">
 <h2>tbb::flow Namespace<a class="headerlink" href="#tbb-flow-namespace" title="Permalink to this headline">¶</a></h2>
-<p>Namespace
-<code class="docutils literal notranslate"><span class="pre">tbb::flow</span></code> contains public identifiers defined by the
+<p>Namespace <code class="docutils literal notranslate"><span class="pre">tbb::flow</span></code> contains public identifiers defined by the
 library that you can reference in your program related to the flow graph feature. See
-<a class="reference internal" href="../flow_graph.html"><span class="doc">Flow Graph</span></a> for more information .</p>
-</div>
-<div class="section" id="tbb-interfacex-namespace">
-<h2>tbb::interfacex Namespace<a class="headerlink" href="#tbb-interfacex-namespace" title="Permalink to this headline">¶</a></h2>
-<p>Namespaces of the form
-<code class="docutils literal notranslate"><span class="pre">tbb::interfacex</span></code> define public identifiers that
-the library injects into namespace
-<code class="docutils literal notranslate"><span class="pre">tbb</span></code>. The numeral
-<code class="docutils literal notranslate"><span class="pre">x</span></code> corresponds to an internal version number
-that serves to prevent accidental linkage of incompatible definitions. Your
-code should never directly reference namespaces prefixed with
-<code class="docutils literal notranslate"><span class="pre">tbb::interfacex</span></code>. Instead, reference names via
-namespace
-<code class="docutils literal notranslate"><span class="pre">tbb</span></code>.</p>
-<p>For example the header
-<code class="docutils literal notranslate"><span class="pre">tbb/concurrent_hash_map.h</span></code> defines the template
-<code class="docutils literal notranslate"><span class="pre">concurrent_hashmap&lt;Key,T&gt;</span></code> as
-<code class="docutils literal notranslate"><span class="pre">tbb::version4::concurrent_hashmap&lt;Key,T&gt;</span></code> and
-employs a
-<code class="docutils literal notranslate"><span class="pre">using</span></code> directive to inject it into namespace
-<code class="docutils literal notranslate"><span class="pre">tbb</span></code>. Your source code should reference it as
-<code class="docutils literal notranslate"><span class="pre">tbb::concurrent_hashmap&lt;Key,T&gt;</span></code>.</p>
-</div>
-<div class="section" id="tbb-internal-namespace">
-<h2>tbb::internal Namespace<a class="headerlink" href="#tbb-internal-namespace" title="Permalink to this headline">¶</a></h2>
-<p>Namespace
-<code class="docutils literal notranslate"><span class="pre">tbb::internal</span></code> serves a role similar to
-<code class="docutils literal notranslate"><span class="pre">tbb::interfacex</span></code>. It is retained for backwards
-compatibility with older versions of the library. Your code should never
-directly reference namespace
-<code class="docutils literal notranslate"><span class="pre">tbb::internal</span></code>. Indirect reference via a public
-<code class="docutils literal notranslate"><span class="pre">typedef</span></code> provided by the header files is permitted.</p>
-</div>
-<div class="section" id="tbb-deprecated-namespace">
-<h2>tbb::deprecated Namespace<a class="headerlink" href="#tbb-deprecated-namespace" title="Permalink to this headline">¶</a></h2>
-<p>The library uses the namespace
-<code class="docutils literal notranslate"><span class="pre">tbb::deprecated</span></code> for deprecated identifiers that have
-different default meanings in namespace
-<code class="docutils literal notranslate"><span class="pre">tbb</span></code>. Compiling with
-<code class="docutils literal notranslate"><span class="pre">TBB_DEPRECATED=1</span></code> causes such identifiers to replace
-their counterpart in namespace tbb.</p>
-</div>
-<div class="section" id="tbb-strict-ppl-namespace">
-<h2>tbb::strict_ppl Namespace<a class="headerlink" href="#tbb-strict-ppl-namespace" title="Permalink to this headline">¶</a></h2>
-<p>The library uses the namespace
-<code class="docutils literal notranslate"><span class="pre">tbb::strict_ppl</span></code> for identifiers that are put in
-namespace
-<code class="docutils literal notranslate"><span class="pre">Concurrency</span></code> when <code class="docutils literal notranslate"><span class="pre">tbb/compat/ppl.h</span></code> is
-included.</p>
+<a class="reference internal" href="../flow_graph.html"><span class="doc">Flow Graph</span></a> for more information.</p>
 </div>
 </div>
 

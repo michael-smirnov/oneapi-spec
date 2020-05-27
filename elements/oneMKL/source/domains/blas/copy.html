@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.2.1.5. copy &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>2.1.2.1.3. copy &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.2.1.6. copy (USM Version)" href="copy-usm-version.html" />
-    <link rel="prev" title="2.1.2.1.4. axpy (USM Version)" href="axpy-usm-version.html" /> 
+    <link rel="next" title="2.1.2.1.4. dot" href="dot.html" />
+    <link rel="prev" title="2.1.2.1.2. axpy" href="axpy.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -163,6 +163,8 @@
         
           
         
+          
+        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -184,17 +186,11 @@
            <div itemprop="articleBody">
             
   <div class="section" id="copy">
-<h1><span class="section-number">2.1.2.1.5. </span>copy<a class="headerlink" href="#copy" title="Permalink to this headline">¶</a></h1>
+<span id="onemkl-blas-copy"></span><h1><span class="section-number">2.1.2.1.3. </span>copy<a class="headerlink" href="#copy" title="Permalink to this headline">¶</a></h1>
 <div class="docutils container">
 <p>Copies a vector to another vector.</p>
-<div class="section docutils container" id="guid-d6b6c72e-9516-40c9-b034-9f344c41aaf3">
-<p class="sectiontitle rubric">Syntax</p>
-<dl class="function">
-<dt id="_CPPv44copyR5queueNSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEENSt7int64_tE">
-<span id="_CPPv34copyR5queueNSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEENSt7int64_tE"></span><span id="_CPPv24copyR5queueNSt7int64_tER6bufferI1TX1EENSt7int64_tER6bufferI1TX1EENSt7int64_tE"></span><span id="copy__queueR.std::int64_t.buffer:T.1:R.std::int64_t.buffer:T.1:R.std::int64_t"></span>void <code class="sig-name descname">copy</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, std::int64_t <em>n</em>, buffer&lt;T, 1&gt; &amp;<em>x</em>, std::int64_t <em>incx</em>, buffer&lt;T, 1&gt; &amp;<em>y</em>, std::int64_t <em>incy</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv44copyR5queueNSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p><code class="docutils literal notranslate"><span class="pre">copy</span></code> supports the following precisions.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">copy</span></code> supports the following precisions.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 100%" />
@@ -214,44 +210,105 @@
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </div>
-</div>
-<div class="section docutils container" id="guid-5e0a9c5f-bdd5-41e6-97cd-4316fd58c347">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
 <p>The copy routines copy one vector to another:</p>
 <blockquote>
 <div><p>y ←x</p>
 </div></blockquote>
-<p>where x and y are vectors of n elements.</p>
+<p>where <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are vectors of n elements.</p>
 </div>
-<div class="section docutils container" id="guid-6f86ef6a-8ffe-4c6a-8b71-23b95c1f1365">
+<div class="section" id="copy-buffer-version">
+<h2><span class="section-number">2.1.2.1.3.1. </span>copy (BUFFER Version)<a class="headerlink" href="#copy-buffer-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<dl class="function">
+<dt id="_CPPv4N6onemkl4blas4copyERN4sycl5queueENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tE">
+<span id="_CPPv3N6onemkl4blas4copyERN4sycl5queueENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tE"></span><span id="_CPPv2N6onemkl4blas4copyERN4sycl5queueENSt7int64_tERN4sycl6bufferI1TX1EEENSt7int64_tERN4sycl6bufferI1TX1EEENSt7int64_tE"></span><span id="onemkl::blas::copy__sycl::queueR.std::int64_t.sycl::buffer:T.1:R.std::int64_t.sycl::buffer:T.1:R.std::int64_t"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">copy</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, std::int64_t <em>n</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>x</em>, std::int64_t <em>incx</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>y</em>, std::int64_t <em>incy</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas4copyERN4sycl5queueENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters</p>
 <dl class="simple">
-<dt>exec_queue</dt><dd><p>The queue where the routine should be executed.</p>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
 </dd>
-<dt>n</dt><dd><p>Number of elements in vector x.</p>
+<dt>n</dt><dd><p>Number of elements in vector <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </dd>
-<dt>x</dt><dd><p>Buffer holding input vector x. The buffer must be of size at least
+<dt>x</dt><dd><p>Buffer holding input vector <code class="docutils literal notranslate"><span class="pre">x</span></code>. The buffer must be of size at least
 <code class="docutils literal notranslate"><span class="pre">(1</span> <span class="pre">+</span> <span class="pre">(n</span> <span class="pre">–</span> <span class="pre">1)*abs(incx))</span></code>. See <a class="reference external" href="../matrix-storage.html">Matrix and Vector
 Storage</a> for
 more details.</p>
 </dd>
-<dt>incx</dt><dd><p>Stride of vector x.</p>
+<dt>incx</dt><dd><p>Stride of vector <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </dd>
-<dt>incy</dt><dd><p>Stride of vector y.</p>
+<dt>incy</dt><dd><p>Stride of vector <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-4abb603b-835c-428b-b880-2f088bab5456">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters</p>
 <dl class="simple">
-<dt>y</dt><dd><p>Buffer holding the updated vector y.</p>
+<dt>y</dt><dd><p>Buffer holding the updated vector <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 </dd>
 </dl>
+</div>
+</div>
+<div class="section" id="copy-usm-version">
+<h2><span class="section-number">2.1.2.1.3.2. </span>copy (USM Version)<a class="headerlink" href="#copy-usm-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<div class="dlsyntaxpara docutils container">
+<dl class="function">
+<dt id="_CPPv4N6onemkl4blas4copyERN4sycl5queueENSt7int64_tEPK1TNSt7int64_tEP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE">
+<span id="_CPPv3N6onemkl4blas4copyERN4sycl5queueENSt7int64_tEPK1TNSt7int64_tEP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="_CPPv2N6onemkl4blas4copyERN4sycl5queueENSt7int64_tEPK1TNSt7int64_tEP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="onemkl::blas::copy__sycl::queueR.std::int64_t.TCP.std::int64_t.TP.std::int64_t.sycl::vector_class:sycl::event:CR"></span>sycl::event <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">copy</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, std::int64_t <em>n</em>, <em class="property">const</em> T *<em>x</em>, std::int64_t <em>incx</em>, T *<em>y</em>, std::int64_t <em>incy</em>, <em class="property">const</em> sycl::vector_class&lt;sycl::event&gt; &amp;<em>dependencies</em> = {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas4copyERN4sycl5queueENSt7int64_tEPK1TNSt7int64_tEP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Input Parameters</p>
+<dl class="simple">
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
+</dd>
+<dt>n</dt><dd><p>Number of elements in vector <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd>
+<dt>x</dt><dd><p>Pointer to the input vector <code class="docutils literal notranslate"><span class="pre">x</span></code>. The array holding the vector
+<code class="docutils literal notranslate"><span class="pre">x</span></code> must be of size at least <code class="docutils literal notranslate"><span class="pre">(1</span> <span class="pre">+</span> <span class="pre">(n</span> <span class="pre">–</span> <span class="pre">1)*abs(incx))</span></code>. See
+<a class="reference external" href="../matrix-storage.html">Matrix and Vector
+Storage</a> for
+more details.</p>
+</dd>
+<dt>incx</dt><dd><p>Stride of vector <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd>
+<dt>incy</dt><dd><p>Stride of vector <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</dd>
+<dt>dependencies</dt><dd><p>List of events to wait for before starting computation, if any.
+If omitted, defaults to no dependencies.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Output Parameters</p>
+<dl class="simple">
+<dt>y</dt><dd><p>Pointer to the updated vector <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Return Values</p>
+<p>Output event to wait on to ensure computation is complete.</p>
+</div>
 </div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">
-<p><strong>Parent topic:</strong> <a class="reference internal" href="blas.html#blas-level-1-routines"><span class="std std-ref">BLAS Level 1 Routines</span></a></p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="blas-level-1-routines.html#blas-level-1-routines"><span class="std std-ref">BLAS Level 1 Routines</span></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -264,10 +321,10 @@ more details.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="copy-usm-version.html" class="btn btn-neutral float-right" title="2.1.2.1.6. copy (USM Version)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dot.html" class="btn btn-neutral float-right" title="2.1.2.1.4. dot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="axpy-usm-version.html" class="btn btn-neutral float-left" title="2.1.2.1.4. axpy (USM Version)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="axpy.html" class="btn btn-neutral float-left" title="2.1.2.1.2. axpy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

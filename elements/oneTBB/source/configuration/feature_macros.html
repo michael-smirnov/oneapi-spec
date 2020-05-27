@@ -119,7 +119,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../containers.html">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../thread_local_storage.html">Thread Local Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -205,44 +204,22 @@
             
   <div class="section" id="feature-macros">
 <h1>Feature Macros<a class="headerlink" href="#feature-macros" title="Permalink to this headline">¶</a></h1>
-<p>Macros in this section control optional features in
-the library.</p>
-<div class="section" id="tbb-deprecated-macros">
-<h2>TBB_DEPRECATED_* macros<a class="headerlink" href="#tbb-deprecated-macros" title="Permalink to this headline">¶</a></h2>
-<p>The macros starting with
-<code class="docutils literal notranslate"><span class="pre">TBB_DEPRECATED</span></code> control deprecated features that would
-otherwise conflict with non-deprecated use. Define it to be 1
-to keep using an earlier version of API or behavior.</p>
-</div>
+<p><strong>[configuration.feature_macros]</strong></p>
+<p>Macros in this section control optional features in the library.</p>
 <div class="section" id="tbb-use-exceptions-macro">
 <h2>TBB_USE_EXCEPTIONS macro<a class="headerlink" href="#tbb-use-exceptions-macro" title="Permalink to this headline">¶</a></h2>
-<p>The macro
-<code class="docutils literal notranslate"><span class="pre">TBB_USE_EXCEPTIONS</span></code> controls whether the library
-headers use exception-handling constructs such as
-<code class="docutils literal notranslate"><span class="pre">try</span></code>,
-<code class="docutils literal notranslate"><span class="pre">catch</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">throw</span></code>. The headers do not use these constructs when
+<p>The macro <code class="docutils literal notranslate"><span class="pre">TBB_USE_EXCEPTIONS</span></code> controls whether the library headers use exception-handling
+constructs such as <code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">catch</span></code>, and <code class="docutils literal notranslate"><span class="pre">throw</span></code>. The headers do not use these constructs when
 <code class="docutils literal notranslate"><span class="pre">TBB_USE_EXCEPTIONS=0</span></code>.</p>
-<p>For the Microsoft Windows*, Linux*, and macOS*
-operating systems, the default value is 1 if exception handling constructs are
-enabled in the compiler, and 0 otherwise.</p>
+<p>For the Microsoft Windows*, Linux*, and macOS* operating systems, the default value is 1 if
+exception handling constructs are enabled in the compiler, and 0 otherwise.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>The runtime library may still throw an exception
-when
-<code class="docutils literal notranslate"><span class="pre">TBB_USE_EXCEPTIONS=0</span></code>.</p>
+<p>The runtime library may still throw an exception when <code class="docutils literal notranslate"><span class="pre">TBB_USE_EXCEPTIONS=0</span></code>.</p>
 </div>
 </div>
-<div class="section" id="c-11-support">
-<h2>C++11 Support<a class="headerlink" href="#c-11-support" title="Permalink to this headline">¶</a></h2>
-<p>To enable functionality that requires C++11, you need to use a compiler that
-supports C++11 mode, and compile your code with this mode set. C++11
-support is off by default in the compiler.</p>
-<p>In some cases TBB headers cannot correctly detect availability of
-necessary C++11 features in a C++ standard library. For example, when
-GNU libstdc++ library is used with a compiler that does not set GCC version
-macros (__GNUC__ etc.) or, like Clang, sets them to a version that does not
-match the version of libstdc++.</p>
+<div class="section" id="tbb-use-glibcxx-version-macro">
+<h2>TBB_USE_GLIBCXX_VERSION macro<a class="headerlink" href="#tbb-use-glibcxx-version-macro" title="Permalink to this headline">¶</a></h2>
 <p>The macro <code class="docutils literal notranslate"><span class="pre">TBB_USE_GLIBCXX_VERSION</span></code> can be used to specify
 the proper version of GNU libstdc++ if the detection fails. Define the value
 of the macro equal to <code class="docutils literal notranslate"><span class="pre">Major*10000</span> <span class="pre">+</span> <span class="pre">Minor*100</span> <span class="pre">+</span> <span class="pre">Patch</span></code>,
@@ -250,10 +227,6 @@ where Major.Minor.Patch is the actual GCC/libstdc++ version (if unknown,
 it can be obtained with <code class="docutils literal notranslate"><span class="pre">'gcc</span> <span class="pre">-dumpversion'</span></code> command).
 For example, if you use libstdc++ from GCC 4.9.2, define
 <code class="docutils literal notranslate"><span class="pre">TBB_USE_GLIBCXX_VERSION=40902</span></code>.</p>
-<p>See also:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="../exceptions.html"><span class="doc">Exceptions</span></a></p></li>
-</ul>
 </div>
 </div>
 

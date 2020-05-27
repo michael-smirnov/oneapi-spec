@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Overview" href="flow_graph/overview.html" />
-    <link rel="prev" title="parallel_sort Template Function" href="algorithms/parallel_sort_func.html" /> 
+    <link rel="next" title="graph" href="flow_graph/graph_cls.html" />
+    <link rel="prev" title="split" href="algorithms/split_tags/split_cls.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,20 +110,16 @@
 <li class="toctree-l3"><a class="reference internal" href="configuration.html">Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="algorithms.html">Algorithms</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Flow Graph</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="flow_graph/overview.html">Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="flow_graph/graph_cls.html">graph Class</a></li>
-<li class="toctree-l4"><a class="reference internal" href="flow_graph/abstract_interfaces.html">Abstract Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="flow_graph/special_message_types.html">Special Message Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="flow_graph/functional_nodes.html">Functional Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="flow_graph/buffering_nodes.html">Buffering Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="flow_graph/service_nodes.html">Service Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="flow_graph/ports_and_edges.html">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graph-class">Graph Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nodes">Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ports-and-edges">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#special-messages-types">Special Messages Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="containers.html">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="thread_local_storage.html">Thread Local Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -207,268 +203,146 @@
             
   <div class="section" id="flow-graph">
 <h1>Flow Graph<a class="headerlink" href="#flow-graph" title="Permalink to this headline">¶</a></h1>
-<p>There are some applications that best express dependencies as messages
-passed between nodes in a flow graph. These messages may contain data or simply
-act as signals that a predecessor has completed. The <code class="docutils literal notranslate"><span class="pre">graph</span></code> class and its
-associated node classes can be used to express such applications. All
-graph-related classes and functions are in the <code class="docutils literal notranslate"><span class="pre">tbb::flow</span></code> namespace.</p>
+<p><strong>[flow_graph]</strong></p>
+<p>In addition to loop parallelism, the oneAPI Threading Building Blocks library also supports graph
+parallelism. It’s possible to create graphs that are highly scalable, but it is also possible to
+create graphs that are completely sequential.</p>
+<p>There are 3 types of components used to implement a graph:</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">graph</span></code> class instance</p></li>
+<li><p>Nodes</p></li>
+<li><p>Ports and edges</p></li>
+</ul>
+<div class="section" id="graph-class">
+<h2>Graph Class<a class="headerlink" href="#graph-class" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">graph</span></code> class instance is the owner of the tasks created on behalf of the flow graph. Users can wait
+on the <code class="docutils literal notranslate"><span class="pre">graph</span></code> if they need to wait for the completion of all of the tasks related to the flow
+graph execution. One can also register external interactions with the <code class="docutils literal notranslate"><span class="pre">graph</span></code> and run tasks under
+the ownership of the flow graph.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="flow_graph/overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/dependency_flow_graph_example.html">Dependency Flow Graph Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/message_flow_graph_example.html">Message Flow Graph Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/body_objects.html">Body Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/message_passing_protocol.html">Message Passing Protocol</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/sender_and_buffer_policy.html">Forwarding, Buffering and Reception Policy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/lightweight_policy.html">Lightweight policy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/lightweight_policy.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/lightweight_policy.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/lightweight_policy.html#example">Example</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/node_priorities.html">Specifying Priorities for Functional Nodes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/node_priorities.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/node_priorities.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/node_priorities.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/node_priorities.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/node_priorities.html#example">Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/graph_cls.html">graph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flow_graph/reset_flags_enum.html">reset_flags Enumeration</a></li>
 </ul>
 </li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="flow_graph/graph_cls.html">graph Class</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/graph_cls.html#summary">Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/graph_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/graph_cls.html#header">Header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/graph_cls.html#description">Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/graph_cls.html#members">Members</a></li>
+</div>
+</div>
+<div class="section" id="nodes">
+<h2>Nodes<a class="headerlink" href="#nodes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="abstract-interfaces">
+<h3>Abstract Interfaces<a class="headerlink" href="#abstract-interfaces" title="Permalink to this headline">¶</a></h3>
+<p>In order to be used as a graph node type, a class needs to inherit certain abstract types and implement the
+corresponding interfaces. <code class="docutils literal notranslate"><span class="pre">graph_node</span></code> is the base class for any other node type; its interfaces
+always have to be implemented. If a node sends messages to other nodes, it has to implement the <code class="docutils literal notranslate"><span class="pre">sender</span></code>
+interface, while with <code class="docutils literal notranslate"><span class="pre">receiver</span></code> interface the node may accept messages. For nodes that have multiple
+inputs and/or outputs, each input port is a <code class="docutils literal notranslate"><span class="pre">receiver</span></code> and each output port is a <code class="docutils literal notranslate"><span class="pre">sender</span></code>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/graph_node_cls.html">graph_node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/sender.html">sender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/receiver.html">receiver</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="properties">
+<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
+<p>Every node in flow graph has its own properties.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/forwarding_and_buffering.html">Forwarding and Buffering</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="functional-nodes">
+<h3>Functional Nodes<a class="headerlink" href="#functional-nodes" title="Permalink to this headline">¶</a></h3>
+<p>Functional nodes do computations in response to input messages (if any), and send the result or a
+signal to their successors.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/continue_node_cls.html">continue_node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/func_node_cls.html">function_node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/input_node_cls.html">input_node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/multifunc_node_cls.html">multifunction_node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/async_node_cls.html">async_node</a></li>
+</ul>
+</div>
+<p><strong>Auxiliary</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/functional_node_policies.html">Function Nodes Policies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/node_priorities.html">Nodes Priorities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/predefined_concurrency_limits.html">Predefined Concurrency Limits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/copy_body_func.html">copy_body</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="buffering-nodes">
+<h3>Buffering Nodes<a class="headerlink" href="#buffering-nodes" title="Permalink to this headline">¶</a></h3>
+<p>Buffering nodes are designed to accumulate input messages and pass them to successors in a predefined order, depending on the node type.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/overwrite_node_cls.html">overwrite_node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/write_once_node_cls.html">write_once_node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/buffer_node_cls.html">buffer_node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/queue_node_cls.html">queue_node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/priority_queue_node_cls.html">priority_queue_node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/sequencer_node_cls.html">sequencer_node</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="service-nodes">
+<h3>Service Nodes<a class="headerlink" href="#service-nodes" title="Permalink to this headline">¶</a></h3>
+<p>These nodes are designed for advanced control of the message flow, such as combining
+messages from different paths in a graph or limiting the number of simultaneously processed
+messages, as well as for creating reusable custom nodes.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/limiter_node_cls.html">limiter_node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/broadcast_node_cls.html">broadcast_node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/join_node_cls.html">join_node</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flow_graph/join_node_policies.html">join_node Policies</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="flow_graph/abstract_interfaces.html">Abstract Interfaces</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/graph_node_cls.html">graph_node Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/graph_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/graph_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/graph_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/graph_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/graph_node_cls.html#members">Members</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/split_node_cls.html">split_node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/indexer_node_cls.html">indexer_node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/composite_node_cls.html">composite_node</a></li>
 </ul>
-</li>
+</div>
+</div>
+</div>
+<div class="section" id="ports-and-edges">
+<h2>Ports and Edges<a class="headerlink" href="#ports-and-edges" title="Permalink to this headline">¶</a></h2>
+<p>Flow Graph provides an API to manage connections between the nodes.
+For nodes that have more than one input or output port (ex. <code class="docutils literal notranslate"><span class="pre">join_node</span></code>),
+making a connection requires to specify a certain port by using special helper functions.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/input_port_func.html">input_port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/output_port_func.html">output_port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/make_edge_func.html">make_edge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/remove_edge_func.html">remove_edge</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="flow_graph/special_message_types.html">Special Message Types</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/continue_msg_cls.html">continue_msg Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/continue_msg_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/continue_msg_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/continue_msg_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/continue_msg_cls.html#members">Members</a></li>
+</div>
+</div>
+<div class="section" id="special-messages-types">
+<h2>Special Messages Types<a class="headerlink" href="#special-messages-types" title="Permalink to this headline">¶</a></h2>
+<p>Flow Graph supports a set of specific message types.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/continue_msg_cls.html">continue_msg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/tagged_msg_cls.html">tagged_msg</a></li>
 </ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/tagged_msg_cls.html">tagged_msg Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/tagged_msg_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/tagged_msg_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/tagged_msg_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/tagged_msg_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/tagged_msg_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/tagged_msg_cls.html#members">Members</a></li>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/dependency_flow_graph_example.html">Dependency Flow Graph Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow_graph/message_flow_graph_example.html">Message Flow Graph Example</a></li>
 </ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="flow_graph/functional_nodes.html">Functional Nodes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/continue_node_cls.html">continue_node Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/continue_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/continue_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/continue_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/continue_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/continue_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/continue_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/func_node_cls.html">function_node Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/func_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/func_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/func_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/func_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/func_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/func_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/source_node_cls.html">source_node Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/source_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/source_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/source_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/source_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/source_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/source_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/multifunc_node_cls.html">multifunction_node Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/multifunc_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/multifunc_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/multifunc_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/multifunc_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/multifunc_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/multifunc_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/async_node_cls.html">async_node Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/async_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/async_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/async_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/async_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/async_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/async_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/copy_body_func.html">copy_body Template Function</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/copy_body_func.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/copy_body_func.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/copy_body_func.html#header">Header</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="flow_graph/buffering_nodes.html">Buffering Nodes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/overwrite_node_cls.html">overwrite_node Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/overwrite_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/overwrite_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/overwrite_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/overwrite_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/overwrite_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/overwrite_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/write_once_node_cls.html">write_once_node Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/write_once_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/write_once_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/write_once_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/write_once_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/write_once_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/write_once_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/buffer_node_cls.html">buffer_node Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/buffer_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/buffer_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/buffer_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/buffer_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/buffer_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/buffer_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/queue_node_cls.html">queue_node Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/queue_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/queue_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/queue_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/queue_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/queue_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/queue_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/priority_queue_node_cls.html">priority_queue_node Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/priority_queue_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/priority_queue_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/priority_queue_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/priority_queue_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/priority_queue_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/priority_queue_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/sequencer_node_cls.html">sequencer_node Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/sequencer_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/sequencer_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/sequencer_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/sequencer_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/sequencer_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/sequencer_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="flow_graph/service_nodes.html">Service Nodes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/limiter_node_cls.html">limiter_node Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/limiter_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/limiter_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/limiter_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/limiter_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/limiter_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/limiter_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/broadcast_node_cls.html">broadcast_node Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/broadcast_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/broadcast_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/broadcast_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/broadcast_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/broadcast_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/join_node_cls.html">join_node Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/join_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/join_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/join_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/join_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/join_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/join_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/split_node_cls.html">split_node Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/split_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/split_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/split_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/split_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/split_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/split_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/indexer_node_cls.html">indexer_node Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/indexer_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/indexer_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/indexer_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/indexer_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/indexer_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/indexer_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/composite_node_cls.html">composite_node Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/composite_node_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/composite_node_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/composite_node_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/composite_node_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/composite_node_cls.html#example">Example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/composite_node_cls.html#members">Members</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="flow_graph/ports_and_edges.html">Ports and Edges</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/input_port_func.html">input_port Template Function</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/input_port_func.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/input_port_func.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/input_port_func.html#header">Header</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/output_port_func.html">output_port Template Function</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/output_port_func.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/output_port_func.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/output_port_func.html#header">Header</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/make_edge_func.html">make_edge Template Function</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/make_edge_func.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/make_edge_func.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/make_edge_func.html#header">Header</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/remove_edge_func.html">remove_edge Template Function</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/remove_edge_func.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/remove_edge_func.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow_graph/remove_edge_func.html#header">Header</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+</div>
 </div>
 </div>
 
@@ -480,10 +354,10 @@ graph-related classes and functions are in the <code class="docutils literal not
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="flow_graph/overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="flow_graph/graph_cls.html" class="btn btn-neutral float-right" title="graph" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="algorithms/parallel_sort_func.html" class="btn btn-neutral float-left" title="parallel_sort Template Function" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="algorithms/split_tags/split_cls.html" class="btn btn-neutral float-left" title="split" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

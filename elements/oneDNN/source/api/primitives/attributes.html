@@ -112,6 +112,7 @@
 <li class="toctree-l4"><a class="reference internal" href="convolution.html">Convolution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="deconvolution.html">Deconvolution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="inner_product.html">Inner Product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="matmul.html">Matrix Multiplication</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rnn.html">RNN</a></li>
 <li class="toctree-l4"><a class="reference internal" href="batch_normalization.html">Batch Normalization</a></li>
 <li class="toctree-l4"><a class="reference internal" href="binary.html">Binary</a></li>
@@ -235,7 +236,7 @@ the primitive.</p>
 <dl class="enumerator">
 <dt id="_CPPv4N4dnnl4userE">
 <span id="_CPPv3N4dnnl4userE"></span><span id="_CPPv2N4dnnl4userE"></span><span class="target" id="group__dnnl__api__attributes_1ggac24d40ceea0256c7d6cc3a383a0fa07faee11cbb19052e40b07aac0ca060c23ee"></span><code class="sig-name descname">user</code><a class="headerlink" href="#_CPPv4N4dnnl4userE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>User manages the scratchpad allocation. They shall query and provide the scratchpad memory to primitives This mode is thread-safe as long as the scratchpad buffers are not used concurrently by two primitive executions. </p>
+<dd><p>The user manages the scratchpad allocation by querying and providing the scratchpad memory to primitives. This mode is thread-safe as long as the scratchpad buffers are not used concurrently by two primitive executions. </p>
 </dd></dl>
 
 </dd></dl>
@@ -254,13 +255,13 @@ the primitive.</p>
 <dl class="enumerator">
 <dt id="_CPPv4N4dnnl16forward_trainingE">
 <span id="_CPPv3N4dnnl16forward_trainingE"></span><span id="_CPPv2N4dnnl16forward_trainingE"></span><span class="target" id="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa24775787fab8f13aa4809e1ce8f82aeb"></span><code class="sig-name descname">forward_training</code><a class="headerlink" href="#_CPPv4N4dnnl16forward_trainingE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Forward data propagation (training mode). In this mode primitives perform computations necessary for subsequent backward propagation. </p>
+<dd><p>Forward data propagation (training mode). In this mode, primitives perform computations necessary for subsequent backward propagation. </p>
 </dd></dl>
 
 <dl class="enumerator">
 <dt id="_CPPv4N4dnnl17forward_inferenceE">
 <span id="_CPPv3N4dnnl17forward_inferenceE"></span><span id="_CPPv2N4dnnl17forward_inferenceE"></span><span class="target" id="group__dnnl__api__attributes_1ggac7db48f6583aa9903e54c2a39d65438fa3b9fad4f80d45368f856b5403198ac4c"></span><code class="sig-name descname">forward_inference</code><a class="headerlink" href="#_CPPv4N4dnnl17forward_inferenceE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Forward data propagation (inference mode). In this mode primitives perform only computations that are necessary for inference and omit computations that are necessary only for backward propagation. </p>
+<dd><p>Forward data propagation (inference mode). In this mode, primitives perform only computations that are necessary for inference and omit computations that are necessary only for backward propagation. </p>
 </dd></dl>
 
 <dl class="enumerator">
@@ -315,7 +316,7 @@ the primitive.</p>
 <dl class="enumerator">
 <dt id="_CPPv4N4dnnl16convolution_autoE">
 <span id="_CPPv3N4dnnl16convolution_autoE"></span><span id="_CPPv2N4dnnl16convolution_autoE"></span><span class="target" id="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640acfdececd63a8bc0cfe1021ad614e2ded"></span><code class="sig-name descname">convolution_auto</code><a class="headerlink" href="#_CPPv4N4dnnl16convolution_autoE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Convolution algorithm (either direct or Winograd) to be chosen just in time. </p>
+<dd><p>Convolution algorithm that is chosen to be either direct or Winograd automatically </p>
 </dd></dl>
 
 <dl class="enumerator">
@@ -357,7 +358,7 @@ the primitive.</p>
 <dl class="enumerator">
 <dt id="_CPPv4N4dnnl11eltwise_eluE">
 <span id="_CPPv3N4dnnl11eltwise_eluE"></span><span id="_CPPv2N4dnnl11eltwise_eluE"></span><span class="target" id="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a690376cad4a7f001e967a6a40d04da3a"></span><code class="sig-name descname">eltwise_elu</code><a class="headerlink" href="#_CPPv4N4dnnl11eltwise_eluE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Elementwise: parametric exponential linear unit (ELU) </p>
+<dd><p>Elementwise: exponential linear unit (ELU) </p>
 </dd></dl>
 
 <dl class="enumerator">
@@ -417,7 +418,19 @@ the primitive.</p>
 <dl class="enumerator">
 <dt id="_CPPv4N4dnnl12eltwise_geluE">
 <span id="_CPPv3N4dnnl12eltwise_geluE"></span><span id="_CPPv2N4dnnl12eltwise_geluE"></span><span class="target" id="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a8320b34de5fed32c795cd92a7fbf4749"></span><code class="sig-name descname">eltwise_gelu</code><a class="headerlink" href="#_CPPv4N4dnnl12eltwise_geluE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Elementwise: gelu. </p>
+<dd><p>Elementwise: gelu alias for <a class="reference internal" href="#group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640abab46bda36dbfea612e68c5345351194"><span class="std std-ref">dnnl::algorithm::eltwise_gelu_tanh</span></a> </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N4dnnl17eltwise_gelu_tanhE">
+<span id="_CPPv3N4dnnl17eltwise_gelu_tanhE"></span><span id="_CPPv2N4dnnl17eltwise_gelu_tanhE"></span><span class="target" id="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640abab46bda36dbfea612e68c5345351194"></span><code class="sig-name descname">eltwise_gelu_tanh</code><a class="headerlink" href="#_CPPv4N4dnnl17eltwise_gelu_tanhE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Elementwise: tanh-based gelu. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N4dnnl16eltwise_gelu_erfE">
+<span id="_CPPv3N4dnnl16eltwise_gelu_erfE"></span><span id="_CPPv2N4dnnl16eltwise_gelu_erfE"></span><span class="target" id="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640a8fd73f441d3ef70416c010f6aea56d5b"></span><code class="sig-name descname">eltwise_gelu_erf</code><a class="headerlink" href="#_CPPv4N4dnnl16eltwise_gelu_erfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Elementwise: erf-based gelu. </p>
 </dd></dl>
 
 <dl class="enumerator">
@@ -441,7 +454,7 @@ the primitive.</p>
 <dl class="enumerator">
 <dt id="_CPPv4N4dnnl28eltwise_relu_use_dst_for_bwdE">
 <span id="_CPPv3N4dnnl28eltwise_relu_use_dst_for_bwdE"></span><span id="_CPPv2N4dnnl28eltwise_relu_use_dst_for_bwdE"></span><span class="target" id="group__dnnl__api__attributes_1gga00377dd4982333e42e8ae1d09a309640ac227b99192be41d4060b700d1e788fd6"></span><code class="sig-name descname">eltwise_relu_use_dst_for_bwd</code><a class="headerlink" href="#_CPPv4N4dnnl28eltwise_relu_use_dst_for_bwdE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Elementwise: rectified linear unit (ReLU) (dst for backward) </p>
+<dd><p>Elementwise: rectified linar unit (ReLU) (dst for backward) </p>
 </dd></dl>
 
 <dl class="enumerator">
@@ -751,7 +764,7 @@ the primitive.</p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">mask</span></code>: Defines the correspondence between the output tensor dimensions and the <code class="docutils literal notranslate"><span class="pre">scales</span></code> vector. The set i-th bit indicates that a dedicated scaling factor is used for each index along that dimension. Set the mask to 0 to use a common output scaling factor for the whole output tensor. </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">scales</span></code>: Constant vector of output scaling factors. If the scaling factors are known at the time of this call, the following equality must hold: <span class="math notranslate nohighlight">\(scales.size() = \prod\limits_{d \in mask} output.dims[d].\)</span> Violations can only be detected when the attributes are used to create a primitive descriptor. If the scaling factors are not known at the time of the call, this vector must contain a single <a class="reference internal" href="common.html#group__dnnl__api__primitives__common_1gab16365c11b4dc88fbb453edb51f1979f"><span class="std std-ref">DNNL_RUNTIME_F32_VAL</span></a> value and the output scaling factors must be passed at execution time as an argument with index <a class="reference internal" href="common.html#group__dnnl__api__primitives__common_1ga0afb48b0c2b8f3ee30609aaa47aa29db"><span class="std std-ref">DNNL_ARG_ATTR_OUTPUT_SCALES</span></a>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scales</span></code>: Constant vector of output scaling factors. If the scaling factors are known at the time of this call, the following equality must hold: <span class="math notranslate nohighlight">\(scales.size() = \prod\limits_{d \in mask} output.dims[d].\)</span> Violations can only be detected when the attributes are used to create a primitive descriptor. If the scaling factors are not known at the time of the call, this vector must contain a single <a class="reference internal" href="common.html#dnnl__types_8h_1ab16365c11b4dc88fbb453edb51f1979f"><span class="std std-ref">DNNL_RUNTIME_F32_VAL</span></a> value and the output scaling factors must be passed at execution time as an argument with index <a class="reference internal" href="common.html#dnnl__types_8h_1a0afb48b0c2b8f3ee30609aaa47aa29db"><span class="std std-ref">DNNL_ARG_ATTR_OUTPUT_SCALES</span></a>. </p></li>
 </ul>
 </dd>
 </dl>
@@ -764,7 +777,7 @@ the primitive.</p>
 <dd><p>Returns scaling factors correspondence mask and values for a given memory argument.</p>
 <p><dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">arg</span></code>: Parameter argument index as passed to the <a class="reference internal" href="common.html#structdnnl_1_1primitive_1ae2704b0577f2eaad1043256d8d619bc5"><span class="std std-ref">primitive::execute()</span></a> call. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arg</span></code>: Parameter argument index as passed to the <a class="reference internal" href="common.html#structdnnl_1_1primitive_1ac3c158d15405ac269c8acd5d6087ba93"><span class="std std-ref">primitive::execute()</span></a> call. </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">mask</span></code>: Scaling factors correspondence mask that defines the correspondence between the output tensor dimensions and the <code class="docutils literal notranslate"><span class="pre">scales</span></code> vector. The set i-th bit indicates that a dedicated scaling factor is used for each index along that dimension. Set the mask to 0 to use a common scaling factor for the whole output tensor. </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">scales</span></code>: Output vector of scaling factors. </p></li>
 </ul>
@@ -781,7 +794,7 @@ the primitive.</p>
 <dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#structdnnl_1_1primitive__attr_1a4b81acc8e48886313154f75c1708ae02"><span class="std std-ref">dnnl::primitive_attr::set_output_scales</span></a></p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">arg</span></code>: Parameter argument index as passed to the <a class="reference internal" href="common.html#structdnnl_1_1primitive_1ae2704b0577f2eaad1043256d8d619bc5"><span class="std std-ref">primitive::execute()</span></a> call. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arg</span></code>: Parameter argument index as passed to the <a class="reference internal" href="common.html#structdnnl_1_1primitive_1ac3c158d15405ac269c8acd5d6087ba93"><span class="std std-ref">primitive::execute()</span></a> call. </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">mask</span></code>: Scaling factors correspondence mask that defines the correspondence between the tensor dimensions and the <code class="docutils literal notranslate"><span class="pre">scales</span></code> vector. The set i-th bit indicates that a dedicated scaling factor is used for each index along that dimension. Set the mask to 0 to use a common scaling factor for the whole output tensor. </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">scales</span></code>: Constant vector of scaling factors. The following equality must hold: <span class="math notranslate nohighlight">\(scales.size() = \prod\limits_{d \in mask} argument.dims[d].\)</span> </p></li>
 </ul>
@@ -796,7 +809,7 @@ the primitive.</p>
 <dd><p>Returns zero points correspondence mask and values.</p>
 <p><dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">arg</span></code>: Parameter argument index as passed to the <a class="reference internal" href="common.html#structdnnl_1_1primitive_1ae2704b0577f2eaad1043256d8d619bc5"><span class="std std-ref">primitive::execute()</span></a> call. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arg</span></code>: Parameter argument index as passed to the <a class="reference internal" href="common.html#structdnnl_1_1primitive_1ac3c158d15405ac269c8acd5d6087ba93"><span class="std std-ref">primitive::execute()</span></a> call. </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">mask</span></code>: Zero points correspondence mask that defines the correspondence between the output tensor dimensions and the <code class="docutils literal notranslate"><span class="pre">zero_points</span></code> vector. The set i-th bit indicates that a dedicated zero point is used for each index along that dimension. Set the mask to 0 to use a common zero point for the whole output tensor. </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zero_points</span></code>: Output vector of zero points. </p></li>
 </ul>
@@ -813,9 +826,9 @@ the primitive.</p>
 <dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#structdnnl_1_1primitive__attr_1a4b81acc8e48886313154f75c1708ae02"><span class="std std-ref">dnnl::primitive_attr::set_output_scales</span></a></p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">arg</span></code>: Parameter argument index as passed to the <a class="reference internal" href="common.html#structdnnl_1_1primitive_1ae2704b0577f2eaad1043256d8d619bc5"><span class="std std-ref">primitive::execute()</span></a> call. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arg</span></code>: Parameter argument index as passed to the <a class="reference internal" href="common.html#structdnnl_1_1primitive_1ac3c158d15405ac269c8acd5d6087ba93"><span class="std std-ref">primitive::execute()</span></a> call. </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">mask</span></code>: Zero point correspondence mask that defines the correspondence between the tensor dimensions and the <code class="docutils literal notranslate"><span class="pre">zero_points</span></code> vector. The set i-th bit indicates that a dedicated zero point is used for each index along that dimension. Set the mask to 0 to use a common zero point for the whole output tensor. </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">zero_points</span></code>: Constant vector of zero points. If the zero points are known at the time of this call, the following equality must hold: <span class="math notranslate nohighlight">\(zero\_points.size() = \prod\limits_{d \in mask} argument.dims[d].\)</span> If the zero points are not known at the time of the call, this vector must contain a single <a class="reference internal" href="common.html#group__dnnl__api__primitives__common_1gab16365c11b4dc88fbb453edb51f1979f"><span class="std std-ref">DNNL_RUNTIME_F32_VAL</span></a> value and the zero points must be passed at execution time as an argument with index <a class="reference internal" href="common.html#group__dnnl__api__primitives__common_1gaf8d879adfe2baa2f9f2a5143a0f274b6"><span class="std std-ref">DNNL_ARG_ATTR_ZERO_POINTS</span></a>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zero_points</span></code>: Constant vector of zero points. If the zero points are known at the time of this call, the following equality must hold: <span class="math notranslate nohighlight">\(zero\_points.size() = \prod\limits_{d \in mask} argument.dims[d].\)</span> If the zero points are not known at the time of the call, this vector must contain a single <a class="reference internal" href="common.html#dnnl__types_8h_1ab16365c11b4dc88fbb453edb51f1979f"><span class="std std-ref">DNNL_RUNTIME_F32_VAL</span></a> value and the zero points must be passed at execution time as an argument with index <a class="reference internal" href="common.html#dnnl__types_8h_1af8d879adfe2baa2f9f2a5143a0f274b6"><span class="std std-ref">DNNL_ARG_ATTR_ZERO_POINTS</span></a>. </p></li>
 </ul>
 </dd>
 </dl>

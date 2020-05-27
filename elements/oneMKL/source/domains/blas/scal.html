@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.2.1.27. scal &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>2.1.2.1.13. scal &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.2.1.28. scal (USM Version)" href="scal-usm-version.html" />
-    <link rel="prev" title="2.1.2.1.26. rotmg (USM Version)" href="rotmg-usm-version.html" /> 
+    <link rel="next" title="2.1.2.1.14. swap" href="swap.html" />
+    <link rel="prev" title="2.1.2.1.12. rotmg" href="rotmg.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -163,6 +163,8 @@
         
           
         
+          
+        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -184,17 +186,11 @@
            <div itemprop="articleBody">
             
   <div class="section" id="scal">
-<h1><span class="section-number">2.1.2.1.27. </span>scal<a class="headerlink" href="#scal" title="Permalink to this headline">¶</a></h1>
+<span id="onemkl-blas-scal"></span><h1><span class="section-number">2.1.2.1.13. </span>scal<a class="headerlink" href="#scal" title="Permalink to this headline">¶</a></h1>
 <div class="docutils container">
 <p>Computes the product of a vector by a scalar.</p>
-<div class="section docutils container" id="guid-178a4c6a-3ba5-40f7-a3d6-4b6590b75eb4">
-<p class="sectiontitle rubric">Syntax</p>
-<dl class="function">
-<dt id="_CPPv44scalR5queueNSt7int64_tE8T_scalarR6bufferI1TXL1EEENSt7int64_tE">
-<span id="_CPPv34scalR5queueNSt7int64_tE8T_scalarR6bufferI1TXL1EEENSt7int64_tE"></span><span id="_CPPv24scalR5queueNSt7int64_tE8T_scalarR6bufferI1TX1EENSt7int64_tE"></span><span id="scal__queueR.std::int64_t.T_scalar.buffer:T.1:R.std::int64_t"></span>void <code class="sig-name descname">scal</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, std::int64_t <em>n</em>, T_scalar <em>alpha</em>, buffer&lt;T, 1&gt; &amp;<em>x</em>, std::int64_t <em>incx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv44scalR5queueNSt7int64_tE8T_scalarR6bufferI1TXL1EEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p><code class="docutils literal notranslate"><span class="pre">scal</span></code> supports the following precisions.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">scal</span></code> supports the following precisions.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -226,11 +222,11 @@
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </div>
-</div>
-<div class="section docutils container" id="guid-8ddca613-2750-43d0-a89b-13866f2dde8c">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
-<p>The scal routines computes a scalar-vector product:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">scal</span></code> routines computes a scalar-vector product:</p>
 <blockquote>
 <div><p>x &lt;- alpha*x</p>
 </div></blockquote>
@@ -238,10 +234,22 @@
 <p><code class="docutils literal notranslate"><span class="pre">x</span></code> is a vector of <code class="docutils literal notranslate"><span class="pre">n</span></code> elements,</p>
 <p><code class="docutils literal notranslate"><span class="pre">alpha</span></code> is a scalar.</p>
 </div>
-<div class="section docutils container" id="guid-a615800d-734e-4997-bb91-1c76aeee9ec2">
+<div class="section" id="scal-buffer-version">
+<h2><span class="section-number">2.1.2.1.13.1. </span>scal (BUFFER Version)<a class="headerlink" href="#scal-buffer-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<dl class="function">
+<dt id="_CPPv4N6onemkl4blas4scalERN4sycl5queueENSt7int64_tE8T_scalarRN4sycl6bufferI1TXL1EEEENSt7int64_tE">
+<span id="_CPPv3N6onemkl4blas4scalERN4sycl5queueENSt7int64_tE8T_scalarRN4sycl6bufferI1TXL1EEEENSt7int64_tE"></span><span id="_CPPv2N6onemkl4blas4scalERN4sycl5queueENSt7int64_tE8T_scalarRN4sycl6bufferI1TX1EEENSt7int64_tE"></span><span id="onemkl::blas::scal__sycl::queueR.std::int64_t.T_scalar.sycl::buffer:T.1:R.std::int64_t"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">scal</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, std::int64_t <em>n</em>, T_scalar <em>alpha</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>x</em>, std::int64_t <em>incx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas4scalERN4sycl5queueENSt7int64_tE8T_scalarRN4sycl6bufferI1TXL1EEEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters</p>
 <dl class="simple">
-<dt>exec_queue</dt><dd><p>The queue where the routine should be executed.</p>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
 </dd>
 <dt>n</dt><dd><p>Number of elements in vector <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </dd>
@@ -252,20 +260,65 @@ least (1 + (<code class="docutils literal notranslate"><span class="pre">n</span
 Storage</a> for
 more details.</p>
 </dd>
-<dt>incx</dt><dd><p>Stride of vector x.</p>
+<dt>incx</dt><dd><p>Stride of vector <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-b36ebb3e-c79b-49f8-9f47-7b19bd6be105">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters</p>
 <dl class="simple">
 <dt>x</dt><dd><p>Buffer holding updated buffer <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </dd>
 </dl>
 </div>
+</div>
+<div class="section" id="scal-usm-version">
+<h2><span class="section-number">2.1.2.1.13.2. </span>scal (USM Version)<a class="headerlink" href="#scal-usm-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<div class="dlsyntaxpara docutils container">
+<dl class="function">
+<dt id="_CPPv4N6onemkl4blas4scalERN4sycl5queueENSt7int64_tE8T_scalarP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE">
+<span id="_CPPv3N6onemkl4blas4scalERN4sycl5queueENSt7int64_tE8T_scalarP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="_CPPv2N6onemkl4blas4scalERN4sycl5queueENSt7int64_tE8T_scalarP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="onemkl::blas::scal__sycl::queueR.std::int64_t.T_scalar.TP.std::int64_t.sycl::vector_class:sycl::event:CR"></span>sycl::event <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">scal</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, std::int64_t <em>n</em>, T_scalar <em>alpha</em>, T *<em>x</em>, std::int64_t <em>incx</em>, <em class="property">const</em> sycl::vector_class&lt;sycl::event&gt; &amp;<em>dependencies</em> = {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas4scalERN4sycl5queueENSt7int64_tE8T_scalarP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Input Parameters</p>
+<dl class="simple">
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
+</dd>
+<dt>n</dt><dd><p>Number of elements in vector <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd>
+<dt>alpha</dt><dd><p>Specifies the scalar <code class="docutils literal notranslate"><span class="pre">alpha</span></code>.</p>
+</dd>
+<dt>x</dt><dd><p>Pointer to the input vector <code class="docutils literal notranslate"><span class="pre">x</span></code>. The array must be of size at
+least (1 + (<code class="docutils literal notranslate"><span class="pre">n</span></code> - 1)*abs(<code class="docutils literal notranslate"><span class="pre">incx</span></code>)). See <a class="reference external" href="../matrix-storage.html">Matrix and Vector
+Storage</a> for
+more details.</p>
+</dd>
+<dt>incx</dt><dd><p>Stride of vector <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Output Parameters</p>
+<dl class="simple">
+<dt>x</dt><dd><p>Pointer to the updated array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Return Values</p>
+<p>Output event to wait on to ensure computation is complete.</p>
+</div>
+</div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">
-<p><strong>Parent topic:</strong> <a class="reference internal" href="blas.html#blas-level-1-routines"><span class="std std-ref">BLAS Level 1 Routines</span></a></p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="blas-level-1-routines.html#blas-level-1-routines"><span class="std std-ref">BLAS Level 1 Routines</span></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -278,10 +331,10 @@ more details.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="scal-usm-version.html" class="btn btn-neutral float-right" title="2.1.2.1.28. scal (USM Version)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="swap.html" class="btn btn-neutral float-right" title="2.1.2.1.14. swap" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="rotmg-usm-version.html" class="btn btn-neutral float-left" title="2.1.2.1.26. rotmg (USM Version)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rotmg.html" class="btn btn-neutral float-left" title="2.1.2.1.12. rotmg" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

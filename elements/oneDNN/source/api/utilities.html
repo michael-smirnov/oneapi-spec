@@ -226,7 +226,7 @@
 <dt id="_CPPv4NK4dnnl19primitive_desc_base13impl_info_strEv">
 <span id="_CPPv3NK4dnnl19primitive_desc_base13impl_info_strEv"></span><span id="_CPPv2NK4dnnl19primitive_desc_base13impl_info_strEv"></span><span id="dnnl::primitive_desc_base::impl_info_strC"></span><span class="target" id="structdnnl_1_1primitive__desc__base_1ae680492d4e4b16a938cfc051e5c906be"></span><em class="property">const</em> char *<code class="sig-name descname">impl_info_str</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4dnnl19primitive_desc_base13impl_info_strEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns implementation name. <dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>the implementation name. </p>
+<dt><strong>Return</strong></dt><dd><p>The implementation name. </p>
 </dd>
 </dl>
 </p>
@@ -251,7 +251,7 @@
 <span id="_CPPv3NK4dnnl19primitive_desc_base8query_mdE5queryi"></span><span id="_CPPv2NK4dnnl19primitive_desc_base8query_mdE5queryi"></span><span id="dnnl::primitive_desc_base::query_md__query.iC"></span><span class="target" id="structdnnl_1_1primitive__desc__base_1a35d24b553ba6aa807516e9470fdd7d16"></span><a class="reference internal" href="memory.html#_CPPv4N4dnnl6memoryE" title="dnnl::memory">memory</a>::<a class="reference internal" href="memory.html#_CPPv4N4dnnl6memory4descE" title="dnnl::memory::desc">desc</a> <code class="sig-name descname">query_md</code><span class="sig-paren">(</span>query <em>what</em>, int <em>idx</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4dnnl19primitive_desc_base8query_mdE5queryi" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns a memory descriptor.</p>
 <p><dl class="simple">
-<dt><strong>Note</strong></dt><dd><p>There are convenience methods <a class="reference internal" href="#structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43"><span class="std std-ref">dnnl::primitive_desc_base::src_desc()</span></a>, <a class="reference internal" href="#structdnnl_1_1primitive__desc__base_1a495ee7c8e1ec3eab35f6329fdcd352bb"><span class="std std-ref">dnnl::primitive_desc_base::dst_desc()</span></a>, and others.</p>
+<dt><strong>Note</strong></dt><dd><p>There are also convenience methods <a class="reference internal" href="#structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43"><span class="std std-ref">dnnl::primitive_desc_base::src_desc()</span></a>, <a class="reference internal" href="#structdnnl_1_1primitive__desc__base_1a495ee7c8e1ec3eab35f6329fdcd352bb"><span class="std std-ref">dnnl::primitive_desc_base::dst_desc()</span></a>, and others.</p>
 </dd>
 <dt><strong>Return</strong></dt><dd><p>The requested memory descriptor. </p>
 </dd>
@@ -473,6 +473,16 @@
 <span id="_CPPv3NK4dnnl19primitive_desc_base18get_primitive_attrEv"></span><span id="_CPPv2NK4dnnl19primitive_desc_base18get_primitive_attrEv"></span><span id="dnnl::primitive_desc_base::get_primitive_attrC"></span><span class="target" id="structdnnl_1_1primitive__desc__base_1a0ef600ea3666f0fd93c9c5d112aaf05c"></span><a class="reference internal" href="primitives/attributes.html#_CPPv4N4dnnl14primitive_attrE" title="dnnl::primitive_attr">primitive_attr</a> <code class="sig-name descname">get_primitive_attr</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4dnnl19primitive_desc_base18get_primitive_attrEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns the primitive attributes. <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>The primitive attributes. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK4dnnl19primitive_desc_base8get_kindEv">
+<span id="_CPPv3NK4dnnl19primitive_desc_base8get_kindEv"></span><span id="_CPPv2NK4dnnl19primitive_desc_base8get_kindEv"></span><span id="dnnl::primitive_desc_base::get_kindC"></span><span class="target" id="structdnnl_1_1primitive__desc__base_1a663f3511855bfc2625476019321c909d"></span>dnnl::<a class="reference internal" href="primitives/common.html#_CPPv4N4dnnl9primitiveE" title="dnnl::primitive">primitive</a>::<a class="reference internal" href="primitives/common.html#_CPPv4N4dnnl9primitive4kindE" title="dnnl::primitive::kind">kind</a> <code class="sig-name descname">get_kind</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4dnnl19primitive_desc_base8get_kindEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the kind of the primitive descriptor. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The kind of the primitive descriptor. </p>
 </dd>
 </dl>
 </p>

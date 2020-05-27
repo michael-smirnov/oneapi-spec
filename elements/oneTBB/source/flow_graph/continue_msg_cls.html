@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>continue_msg Class &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>continue_msg &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="tagged_msg Template Class" href="tagged_msg_cls.html" />
-    <link rel="prev" title="Special Message Types" href="special_message_types.html" /> 
+    <link rel="next" title="tagged_msg" href="tagged_msg_cls.html" />
+    <link rel="prev" title="remove_edge" href="remove_edge_func.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,20 +110,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../configuration.html">Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../algorithms.html">Algorithms</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../flow_graph.html">Flow Graph</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="graph_cls.html">graph Class</a></li>
-<li class="toctree-l4"><a class="reference internal" href="abstract_interfaces.html">Abstract Interfaces</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="special_message_types.html">Special Message Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="functional_nodes.html">Functional Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="buffering_nodes.html">Buffering Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="service_nodes.html">Service Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ports_and_edges.html">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#graph-class">Graph Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#nodes">Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#ports-and-edges">Ports and Edges</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../flow_graph.html#special-messages-types">Special Messages Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../containers.html">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../thread_local_storage.html">Thread Local Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -187,8 +183,6 @@
         
           
         
-          
-        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -209,30 +203,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="continue-msg-class">
-<h1>continue_msg Class<a class="headerlink" href="#continue-msg-class" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>An empty class that represent a continue message. An object of this
-class is used to indicate that the sender has completed.</p>
-</div>
-<div class="section" id="syntax">
-<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">continue_msg</span><span class="p">;</span>
+  <div class="section" id="continue-msg">
+<h1>continue_msg<a class="headerlink" href="#continue-msg" title="Permalink to this headline">¶</a></h1>
+<p><strong>[flow_graph.continue_msg]</strong></p>
+<p>An empty class that represent a continue message. An object of this class is used to indicate that
+the sender has completed.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Defined in header &lt;tbb/flow_graph.h&gt;</span>
+
+<span class="k">namespace</span> <span class="n">tbb</span> <span class="p">{</span>
+<span class="k">namespace</span> <span class="n">flow</span> <span class="p">{</span>
+
+    <span class="k">class</span> <span class="nc">continue_msg</span> <span class="p">{};</span>
+
+<span class="p">}</span> <span class="c1">// namespace flow</span>
+<span class="p">}</span> <span class="c1">// namespace tbb</span>
 </pre></div>
-</div>
-</div>
-<div class="section" id="header">
-<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;tbb/flow_graph.h&quot;</span><span class="cp"></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="members">
-<h2>Members<a class="headerlink" href="#members" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">tbb</span> <span class="p">{</span> <span class="k">namespace</span> <span class="n">flow</span> <span class="p">{</span> <span class="k">class</span> <span class="nc">continue_msg</span> <span class="p">{};</span> <span class="p">}</span> <span class="p">}</span>
-</pre></div>
-</div>
 </div>
 </div>
 
@@ -244,10 +229,10 @@ class is used to indicate that the sender has completed.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tagged_msg_cls.html" class="btn btn-neutral float-right" title="tagged_msg Template Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tagged_msg_cls.html" class="btn btn-neutral float-right" title="tagged_msg" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="special_message_types.html" class="btn btn-neutral float-left" title="Special Message Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="remove_edge_func.html" class="btn btn-neutral float-left" title="remove_edge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -119,7 +119,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../containers.html">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../thread_local_storage.html">Thread Local Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -205,131 +204,62 @@
             
   <div class="section" id="version-information">
 <h1>Version Information<a class="headerlink" href="#version-information" title="Permalink to this headline">¶</a></h1>
-<p>oneAPI Threading Building Blocks has
-macros, an environment variable, and a function that reveal version and
-run-time information.</p>
-<div class="section" id="version-macros">
-<h2>Version Macros<a class="headerlink" href="#version-macros" title="Permalink to this headline">¶</a></h2>
-<p>The header
-<code class="docutils literal notranslate"><span class="pre">tbb/tbb_stddef.h</span></code> defines macros related to versioning,
-as described below. You should not redefine these macros.</p>
-<table class="docutils align-default" id="id1">
-<caption><span class="caption-text">Version Macros</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 44%" />
-<col style="width: 56%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>Macro</strong></p></th>
-<th class="head"><p><strong>Description of Value</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TBB_INTERFACE_VERSION</span></code></p></td>
-<td><p>Current interface version. The value is a
-decimal numeral of the form
-<code class="docutils literal notranslate"><span class="pre">xyyy</span></code> where
-<code class="docutils literal notranslate"><span class="pre">x</span></code> is the major version number and
-<code class="docutils literal notranslate"><span class="pre">y</span></code> is the minor version number.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TBB_INTERFACE_VERSION_MAJOR</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">TBB_INTERFACE_VERSION/1000;</span></code> that is, the
-major version number.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TBB_COMPATIBLE_INTERFACE_VERSION</span></code></p></td>
-<td><p>Oldest major interface version still
-supported.</p></td>
-</tr>
-</tbody>
-</table>
+<p><strong>[configuration.version_information]</strong></p>
+<p>oneAPI Threading Building Blocks has macros, an environment variable, and a function that reveal
+version and run-time information.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Defined in header &lt;tbb/version.h&gt;</span>
+
+<span class="cp">#define TBB_VERSION_MAJOR  </span><span class="cm">/*implementation-defined*/</span><span class="cp"></span>
+<span class="cp">#define TBB_VERSION_MINOR  </span><span class="cm">/*implementation-defined*/</span><span class="cp"></span>
+<span class="cp">#define TBB_VERSION_STRING </span><span class="cm">/*implementation-defined*/</span><span class="cp"></span>
+
+<span class="cp">#define TBB_INTERFACE_VERSION_MAJOR </span><span class="cm">/*implementation-defined*/</span><span class="cp"></span>
+<span class="cp">#define TBB_INTERFACE_VERSION_MINOR </span><span class="cm">/*implementation-defined*/</span><span class="cp"></span>
+<span class="cp">#define TBB_INTERFACE_VERSION       </span><span class="cm">/*implementation-defined*/</span><span class="cp"></span>
+
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="nf">TBB_runtime_version</span><span class="p">();</span>
+<span class="kt">int</span> <span class="nf">TBB_runtime_interface_version</span><span class="p">();</span>
+</pre></div>
+</div>
+<p><strong>Version Macros</strong></p>
+<p>oneTBB defines macros related to versioning, as described below.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">TBB_VERSION_MAJOR</span></code> macro defined to integral value that represents major library version.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TBB_VERSION_MINOR</span></code> macro defined to integral value that represents minor library version.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TBB_VERSION_STRING</span></code> macro defined to the string representation of the full library version.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TBB_INTERFACE_VERSION</span></code> macro defined to current interface version. The value is a decimal
+numeral of the form <code class="docutils literal notranslate"><span class="pre">xyyz</span></code> where <code class="docutils literal notranslate"><span class="pre">x</span></code> is the major interface version number and <code class="docutils literal notranslate"><span class="pre">y</span></code> is the
+minor interface version number. This macro is increased in each release.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TBB_INTERFACE_VERSION_MAJOR</span></code> macro defined to <code class="docutils literal notranslate"><span class="pre">TBB_INTERFACE_VERSION/1000</span></code> that is, the
+major interface version number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TBB_INTERFACE_VERSION_MINOR</span></code> macro defined to <code class="docutils literal notranslate"><span class="pre">TBB_INTERFACE_VERSION%1000/10</span></code> that is, the
+minor interface version number.</p></li>
+</ul>
+<div class="section" id="tbb-runtime-interface-version-function">
+<h2>TBB_runtime_interface_version Function<a class="headerlink" href="#tbb-runtime-interface-version-function" title="Permalink to this headline">¶</a></h2>
+<p>Function that returns the interface version of the oneTBB library that was loaded at runtime.</p>
+<p>The value returned by <code class="docutils literal notranslate"><span class="pre">TBB_runtime_interface_version()</span></code> may differ from the value of
+<code class="docutils literal notranslate"><span class="pre">TBB_INTERFACE_VERSION</span></code> obtained at compile time. This can be used to identify whether an
+application was compiled against a compatible version of the TBB headers.</p>
+<p>In general, the run-time value <code class="docutils literal notranslate"><span class="pre">TBB_runtime_interface_version()</span></code> must be greater than
+or equal to the compile-time value of <code class="docutils literal notranslate"><span class="pre">TBB_INTERFACE_VERSION</span></code>. Otherwise the application may fail to
+resolve all symbols at run time.</p>
+</div>
+<div class="section" id="tbb-runtime-version-function">
+<h2>TBB_runtime_version Function<a class="headerlink" href="#tbb-runtime-version-function" title="Permalink to this headline">¶</a></h2>
+<p>Function that returns the version string of the oneTBB library that was loaded at runtime.</p>
+<p>The value returned by <code class="docutils literal notranslate"><span class="pre">TBB_runtime_version()</span></code> may differ from the value of
+<code class="docutils literal notranslate"><span class="pre">TBB_VERSION_STRING</span></code> obtained at compile time.</p>
 </div>
 <div class="section" id="tbb-version-environment-variable">
 <h2>TBB_VERSION Environment Variable<a class="headerlink" href="#tbb-version-environment-variable" title="Permalink to this headline">¶</a></h2>
-<p>Set the environment variable
-<code class="docutils literal notranslate"><span class="pre">TBB_VERSION</span></code> to
-<code class="docutils literal notranslate"><span class="pre">1</span></code> to cause the library to print information on
-<code class="docutils literal notranslate"><span class="pre">stderr</span></code>. Each line is of the form
-<code class="docutils literal notranslate"><span class="pre">“TBB:</span> <span class="pre">tag</span> <span class="pre">value”</span></code>, where
-<em>tag</em> and
-<em>value</em> are described below.</p>
-<table class="docutils align-default" id="id2">
-<caption><span class="caption-text">Output from TBB_VERSION</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 32%" />
-<col style="width: 68%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>Tag</strong></p></th>
-<th class="head"><p><strong>Description of Value</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">VERSION</span></code></p></td>
-<td><p>TBB product version number.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">INTERFACE_VERSION</span></code></p></td>
-<td><p>Value of macro
-<code class="docutils literal notranslate"><span class="pre">TBB_INTERFACE_VERSION</span></code> when library was
-compiled.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BUILD_</span></code>…</p></td>
-<td><p>Various information about the machine
-configuration on which the library was built.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TBB_USE_ASSERT</span></code></p></td>
-<td><p>Setting of macro
-<code class="docutils literal notranslate"><span class="pre">TBB_USE_ASSERT</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ALLOCATOR</span></code></p></td>
-<td><p>Underlying allocator for
-<code class="docutils literal notranslate"><span class="pre">tbb::tbb_allocator</span></code>. It is
-<code class="docutils literal notranslate"><span class="pre">scalable_malloc</span></code> if the TBB malloc
-library was successfully loaded;
-<code class="docutils literal notranslate"><span class="pre">malloc</span></code> otherwise.</p></td>
-</tr>
-</tbody>
-</table>
+<p>Set the environment variable <code class="docutils literal notranslate"><span class="pre">TBB_VERSION</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code> to cause the library to print information on
+<code class="docutils literal notranslate"><span class="pre">stderr</span></code>. Each line is of the form <code class="docutils literal notranslate"><span class="pre">“TBB:</span> <span class="pre">tag</span> <span class="pre">value”</span></code>, where <em>tag</em> and <em>value</em> provides additional
+library information below.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>This output is implementation specific and may
-change at any time.</p>
+<p>This output is implementation specific and may change at any time.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For Microsoft Windows Store* applications, setting TBB_VERSION variable
-to 1 will have no effect due to platform limitations.</p>
-</div>
-</div>
-<div class="section" id="tbb-runtime-interface-version-function">
-<h2>TBB_runtime_interface_version Function<a class="headerlink" href="#tbb-runtime-interface-version-function" title="Permalink to this headline">¶</a></h2>
-<p><strong>Summary</strong></p>
-<p>Function that returns the interface version of the
-TBB library that was loaded at runtime.</p>
-</div>
-<div class="section" id="syntax">
-<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="kt">int</span> <span class="n">TBB_runtime_interface_version</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="header">
-<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;tbb/tbb_stddef.h&quot;</span><span class="cp"></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The value returned by
-<code class="docutils literal notranslate"><span class="pre">TBB_runtime_interface_version()</span></code> may differ from the
-value of
-<code class="docutils literal notranslate"><span class="pre">TBB_INTERFACE_VERSION</span></code> obtained at compile time. This
-can be used to identify whether an application was compiled against a
-compatible version of the TBB headers.</p>
-<p>In general, the run-time value
-<code class="docutils literal notranslate"><span class="pre">TBB_runtime_interface_version()</span></code> must be greater than
-or equal to the compile-time value of TBB_INTERFACE_VERSION. Otherwise the
-application may fail to resolve all symbols at run time.</p>
 </div>
 </div>
 

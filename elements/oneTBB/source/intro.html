@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="General Information" href="general.html" />
+    <link rel="next" title="Notational Conventions" href="notation.html" />
     <link rel="prev" title="General Information" href="nested-gen-info.html" /> 
 </head>
 
@@ -107,7 +107,10 @@
 <li class="toctree-l1 current"><a class="reference internal" href="nested-index.html">oneTBB 0.7</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="nested-gen-info.html">General Information</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general.html">General Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notation.html">Notational Conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="identifiers.html">Identifiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="named_requirements.html">Named Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="thread_safety.html">Thread Safety</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nested-interfaces.html">oneTBB Interfaces</a></li>
@@ -204,6 +207,18 @@ onto execution threads.</p>
 with most of its interfaces defined by requirements on types and not
 specific types. Generic programming makes oneTBB flexible yet efficient,
 through customizing APIs to specific needs of an application.</p>
+<p>C++11 is the minimal version of the C++ standard required by oneTBB.
+An implementation of oneTBB shall not require newer versions of the standard
+except where explicitly specified; also it shall not require any non-standard
+language extensions.</p>
+<p>An implementation may use platform-specific APIs if those are compatible
+with the C++ execution and memory models. For example, a platform-specific
+implementation of threads may be used if that implementation provides
+the same execution guarantees as C++ threads.</p>
+<p>An implementation of oneTBB shall support execution on single core and multi-core CPUs,
+including those that provide simultaneous multithreading capabilities.</p>
+<p>On CPU, an implementation shall support nested parallelism, so that one
+can build larger parallel components from smaller parallel components.</p>
 </div>
 
 
@@ -214,7 +229,7 @@ through customizing APIs to specific needs of an application.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="general.html" class="btn btn-neutral float-right" title="General Information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="notation.html" class="btn btn-neutral float-right" title="Notational Conventions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="nested-gen-info.html" class="btn btn-neutral float-left" title="General Information" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

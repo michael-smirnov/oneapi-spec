@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.2.2.41. tbsv &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>2.1.2.2.21. tbsv &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.2.2.42. tbsv (USM Version)" href="tbsv-usm-version.html" />
-    <link rel="prev" title="2.1.2.2.40. tbmv (USM Version)" href="tbmv-usm-version.html" /> 
+    <link rel="next" title="2.1.2.2.22. tpmv" href="tpmv.html" />
+    <link rel="prev" title="2.1.2.2.20. tbmv" href="tbmv.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -163,6 +163,8 @@
         
           
         
+          
+        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -184,18 +186,12 @@
            <div itemprop="articleBody">
             
   <div class="section" id="tbsv">
-<h1><span class="section-number">2.1.2.2.41. </span>tbsv<a class="headerlink" href="#tbsv" title="Permalink to this headline">¶</a></h1>
+<span id="onemkl-blas-tbsv"></span><h1><span class="section-number">2.1.2.2.21. </span>tbsv<a class="headerlink" href="#tbsv" title="Permalink to this headline">¶</a></h1>
 <div class="docutils container">
 <p>Solves a system of linear equations whose coefficients are in a
 triangular band matrix.</p>
-<div class="section docutils container" id="guid-4ac7186f-2d61-44c2-95bc-5981e750a021">
-<p class="sectiontitle rubric">Syntax</p>
-<dl class="function">
-<dt id="_CPPv44tbsvR5queue4uplo9transpose4diagNSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEENSt7int64_tE">
-<span id="_CPPv34tbsvR5queue4uplo9transpose4diagNSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEENSt7int64_tE"></span><span id="_CPPv24tbsvR5queue4uplo9transpose4diagNSt7int64_tENSt7int64_tER6bufferI1TX1EENSt7int64_tER6bufferI1TX1EENSt7int64_tE"></span><span id="tbsv__queueR.uplo.transpose.diag.std::int64_t.std::int64_t.buffer:T.1:R.std::int64_t.buffer:T.1:R.std::int64_t"></span>void <code class="sig-name descname">tbsv</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, uplo <em>upper_lower</em>, transpose <em>trans</em>, diag <em>unit_nonunit</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, buffer&lt;T, 1&gt; &amp;<em>x</em>, std::int64_t <em>incx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv44tbsvR5queue4uplo9transpose4diagNSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p><code class="docutils literal notranslate"><span class="pre">tbsv</span></code> supports the following precisions.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">tbsv</span></code> supports the following precisions.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 100%" />
@@ -215,11 +211,11 @@ triangular band matrix.</p>
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </div>
-</div>
-<div class="section docutils container" id="guid-5af4221c-ab14-4f9b-97a8-caa78df05e36">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
-<p>The tbsv routines solve a system of linear equations whose
+<p>The <code class="docutils literal notranslate"><span class="pre">tbsv</span></code> routines solve a system of linear equations whose
 coefficients are in a triangular band matrix. The operation is
 defined as</p>
 <blockquote>
@@ -232,23 +228,28 @@ defined as</p>
 triangular band matrix, with (<code class="docutils literal notranslate"><span class="pre">k</span></code> + 1) diagonals,</p>
 <p><code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> are vectors of length <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 </div>
-<div class="section docutils container" id="guid-e1436726-01fe-4206-871e-b905f59a96b4">
+<div class="section" id="tbsv-buffer-version">
+<h2><span class="section-number">2.1.2.2.21.1. </span>tbsv (BUFFER Version)<a class="headerlink" href="#tbsv-buffer-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<dl class="function">
+<dt id="_CPPv4N6onemkl4blas4tbsvERN4sycl5queueE4uplo9transpose4diagNSt7int64_tENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tE">
+<span id="_CPPv3N6onemkl4blas4tbsvERN4sycl5queueE4uplo9transpose4diagNSt7int64_tENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tE"></span><span id="_CPPv2N6onemkl4blas4tbsvERN4sycl5queueE4uplo9transpose4diagNSt7int64_tENSt7int64_tERN4sycl6bufferI1TX1EEENSt7int64_tERN4sycl6bufferI1TX1EEENSt7int64_tE"></span><span id="onemkl::blas::tbsv__sycl::queueR.uplo.transpose.diag.std::int64_t.std::int64_t.sycl::buffer:T.1:R.std::int64_t.sycl::buffer:T.1:R.std::int64_t"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">tbsv</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, uplo <em>upper_lower</em>, transpose <em>trans</em>, diag <em>unit_nonunit</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>x</em>, std::int64_t <em>incx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas4tbsvERN4sycl5queueE4uplo9transpose4diagNSt7int64_tENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters</p>
 <dl class="simple">
-<dt>exec_queue</dt><dd><p>The queue where the routine should be executed.</p>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
 </dd>
-<dt>upper_lower</dt><dd><p>Specifies whether <code class="docutils literal notranslate"><span class="pre">A</span></code> is upper or lower triangular. See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
+<dt>upper_lower</dt><dd><p>Specifies whether <code class="docutils literal notranslate"><span class="pre">A</span></code> is upper or lower triangular. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
 </dd>
-<dt>trans</dt><dd><p>Specifies op(<code class="docutils literal notranslate"><span class="pre">A</span></code>), the transposition operation applied to <code class="docutils literal notranslate"><span class="pre">A</span></code>.
-See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
+<dt>trans</dt><dd><p>Specifies op(<code class="docutils literal notranslate"><span class="pre">A</span></code>), the transposition operation applied to <code class="docutils literal notranslate"><span class="pre">A</span></code>. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
 </dd>
-<dt>unit_nonunit</dt><dd><p>Specifies whether the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> is unit triangular or not. See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a>
-for more details.</p>
+<dt>unit_nonunit</dt><dd><p>Specifies whether the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> is unit triangular or not. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
 </dd>
 <dt>n</dt><dd><p>Number of rows and columns of <code class="docutils literal notranslate"><span class="pre">A</span></code>. Must be at least zero.</p>
 </dd>
@@ -272,16 +273,82 @@ more details.</p>
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-24b3c6b8-7fbd-4b24-84f2-242635b3026e">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters</p>
 <dl class="simple">
 <dt>x</dt><dd><p>Buffer holding the solution vector <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </dd>
 </dl>
 </div>
+</div>
+<div class="section" id="tbsv-usm-version">
+<h2><span class="section-number">2.1.2.2.21.2. </span>tbsv (USM Version)<a class="headerlink" href="#tbsv-usm-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<div class="dlsyntaxpara docutils container">
+<dl class="function">
+<dt id="_CPPv4N6onemkl4blas4tbsvERN4sycl5queueE4uplo9transpose4diagNSt7int64_tENSt7int64_tEPK1TNSt7int64_tEP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE">
+<span id="_CPPv3N6onemkl4blas4tbsvERN4sycl5queueE4uplo9transpose4diagNSt7int64_tENSt7int64_tEPK1TNSt7int64_tEP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="_CPPv2N6onemkl4blas4tbsvERN4sycl5queueE4uplo9transpose4diagNSt7int64_tENSt7int64_tEPK1TNSt7int64_tEP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="onemkl::blas::tbsv__sycl::queueR.uplo.transpose.diag.std::int64_t.std::int64_t.TCP.std::int64_t.TP.std::int64_t.sycl::vector_class:sycl::event:CR"></span>sycl::event <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">tbsv</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, uplo <em>upper_lower</em>, transpose <em>trans</em>, diag <em>unit_nonunit</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, <em class="property">const</em> T *<em>a</em>, std::int64_t <em>lda</em>, T *<em>x</em>, std::int64_t <em>incx</em>, <em class="property">const</em> sycl::vector_class&lt;sycl::event&gt; &amp;<em>dependencies</em> = {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas4tbsvERN4sycl5queueE4uplo9transpose4diagNSt7int64_tENSt7int64_tEPK1TNSt7int64_tEP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Input Parameters</p>
+<dl class="simple">
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
+</dd>
+<dt>upper_lower</dt><dd><p>Specifies whether <code class="docutils literal notranslate"><span class="pre">A</span></code> is upper or lower triangular. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
+</dd>
+<dt>trans</dt><dd><p>Specifies op(<code class="docutils literal notranslate"><span class="pre">A</span></code>), the transposition operation applied to
+<code class="docutils literal notranslate"><span class="pre">A</span></code>. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
+</dd>
+<dt>unit_nonunit</dt><dd><p>Specifies whether the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> is unit triangular or not. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
+</dd>
+<dt>n</dt><dd><p>Number of rows and columns of <code class="docutils literal notranslate"><span class="pre">A</span></code>. Must be at least zero.</p>
+</dd>
+<dt>k</dt><dd><p>Number of sub/super-diagonals of the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>. Must be at
+least zero.</p>
+</dd>
+<dt>a</dt><dd><p>Pointer to input matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>. The array holding input matrix
+<code class="docutils literal notranslate"><span class="pre">A</span></code> must have size at least <code class="docutils literal notranslate"><span class="pre">lda</span></code>*<code class="docutils literal notranslate"><span class="pre">n</span></code>. See <a class="reference external" href="../matrix-storage.html">Matrix
+and Vector
+Storage</a> for
+more details.</p>
+</dd>
+<dt>lda</dt><dd><p>Leading dimension of matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>. Must be at least (<code class="docutils literal notranslate"><span class="pre">k</span></code> +
+1), and positive.</p>
+</dd>
+<dt>x</dt><dd><p>Pointer to input vector <code class="docutils literal notranslate"><span class="pre">x</span></code>. The array holding input vector
+<code class="docutils literal notranslate"><span class="pre">x</span></code> must be of size at least (1 + (<code class="docutils literal notranslate"><span class="pre">n</span></code> - 1)*abs(<code class="docutils literal notranslate"><span class="pre">incx</span></code>)).
+See <a class="reference external" href="../matrix-storage.html">Matrix and Vector
+Storage</a> for
+more details.</p>
+</dd>
+<dt>incx</dt><dd><p>Stride of vector <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd>
+<dt>dependencies</dt><dd><p>List of events to wait for before starting computation, if any.
+If omitted, defaults to no dependencies.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Output Parameters</p>
+<dl class="simple">
+<dt>x</dt><dd><p>Pointer to the solution vector <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Return Values</p>
+<p>Output event to wait on to ensure computation is complete.</p>
+</div>
+</div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">
-<p><strong>Parent topic:</strong> <a class="reference internal" href="blas.html#blas-level-2-routines"><span class="std std-ref">BLAS Level 2 Routines</span></a></p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="blas-level-2-routines.html#blas-level-2-routines"><span class="std std-ref">BLAS Level 2 Routines</span></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -294,10 +361,10 @@ more details.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tbsv-usm-version.html" class="btn btn-neutral float-right" title="2.1.2.2.42. tbsv (USM Version)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tpmv.html" class="btn btn-neutral float-right" title="2.1.2.2.22. tpmv" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="tbmv-usm-version.html" class="btn btn-neutral float-left" title="2.1.2.2.40. tbmv (USM Version)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tbmv.html" class="btn btn-neutral float-left" title="2.1.2.2.20. tbmv" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

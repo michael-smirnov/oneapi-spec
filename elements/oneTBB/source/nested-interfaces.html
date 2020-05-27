@@ -42,7 +42,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Configuration" href="configuration.html" />
-    <link rel="prev" title="Thread Safety" href="general/thread_safety.html" /> 
+    <link rel="prev" title="Thread Safety" href="thread_safety.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -113,7 +113,6 @@
 <li class="toctree-l3"><a class="reference internal" href="task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="containers.html">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="thread_local_storage.html">Thread Local Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -205,64 +204,38 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/splittable_concept.html">Splittable Concept</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/range_concept.html">Range Concept</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/partitioners.html">Partitioners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/parallel_for_func.html">parallel_for Template Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/parallel_reduce_func.html">parallel_reduce Template Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/parallel_deterministic_reduce_func.html">parallel_deterministic_reduce Template Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/parallel_scan_func.html">parallel_scan Template Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/parallel_do_func.html">parallel_do Template Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/parallel_for_each_func.html">parallel_for_each Template Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/parallel_invoke_func.html">parallel_invoke Template Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/variadic_parallel_invoke_func.html">parallel_invoke Variadic Template Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/parallel_pipeline_func.html">parallel_pipeline Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithms/parallel_sort_func.html">parallel_sort Template Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms.html#parallel-functions">Parallel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms.html#blocked-ranges">Blocked Ranges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms.html#partitioners">Partitioners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithms.html#split-tags">Split Tags</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="flow_graph.html">Flow Graph</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/overview.html">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/graph_cls.html">graph Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/abstract_interfaces.html">Abstract Interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/special_message_types.html">Special Message Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/functional_nodes.html">Functional Nodes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/buffering_nodes.html">Buffering Nodes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/service_nodes.html">Service Nodes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="flow_graph/ports_and_edges.html">Ports and Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flow_graph.html#graph-class">Graph Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flow_graph.html#nodes">Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flow_graph.html#ports-and-edges">Ports and Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flow_graph.html#special-messages-types">Special Messages Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flow_graph.html#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="task_scheduler.html">Task Scheduler</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="task_scheduler/fpu_settings.html">Floating-point Settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_scheduler/task_group_context.html">task_group_context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_scheduler/task_arena_cls.html">task_arena Class and this_task_arena Namespace</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_scheduler/task_scheduler_observer.html">task_scheduler_observer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_scheduler/task_groups.html">Task Groups</a></li>
-<li class="toctree-l2"><a class="reference internal" href="task_scheduler/tbb_global_control.html">global_control Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_scheduler.html#scheduling-controls">Scheduling controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_scheduler.html#task-group">Task Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="task_scheduler.html#task-arena">Task Arena</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="containers.html">Containers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="containers/container_range_concept.html">Container Range Concepts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="containers/tbb_hash_compare_cls.html">tbb_hash_compare Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="containers/node_handles_cls.html">Node Handles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="containers/concurrent_map_cls.html">concurrent_map and concurrent_multimap Template Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="containers/concurrent_set_cls.html">concurrent_set and concurrent_multiset Template Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="containers/concurrent_unordered_map_cls.html">concurrent_unordered_map and concurrent_unordered_multimap Template Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="containers/concurrent_unordered_set_cls.html">concurrent_unordered_set and concurrent_unordered_multiset Template Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="containers/concurrent_hash_map_cls.html">concurrent_hash_map Template Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="containers/concurrent_queue_cls.html">concurrent_queue Template Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="containers/concurrent_bounded_queue_cls.html">concurrent_bounded_queue Template Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="containers/concurrent_priority_queue_cls.html">concurrent_priority_queue Template Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="containers/concurrent_vector.html">concurrent_vector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers.html#sequences">Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers.html#queues">Queues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers.html#unordered-associative-containers">Unordered associative containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers.html#ordered-associative-containers">Ordered associative containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers.html#auxiliary-classes">Auxiliary classes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="thread_local_storage.html">Thread Local Storage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/combinable_cls.html">combinable Template Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls.html">enumerable_thread_specific Template Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/flattened2d_cls.html">flattened2d Template Class</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="exceptions/specific_exceptions.html">Specific Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/combinable_cls.html">combinable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/enumerable_thread_specific_cls.html">enumerable_thread_specific</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread_local_storage/flattened2d_cls.html">flattened2d</a></li>
 </ul>
 </li>
 </ul>
@@ -280,7 +253,7 @@
         <a href="configuration.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="general/thread_safety.html" class="btn btn-neutral float-left" title="Thread Safety" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="thread_safety.html" class="btn btn-neutral float-left" title="Thread Safety" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

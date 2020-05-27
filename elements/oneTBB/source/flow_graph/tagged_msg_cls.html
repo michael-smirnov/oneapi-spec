@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tagged_msg Template Class &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>tagged_msg &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Functional Nodes" href="functional_nodes.html" />
-    <link rel="prev" title="continue_msg Class" href="continue_msg_cls.html" /> 
+    <link rel="next" title="Dependency Flow Graph Example" href="dependency_flow_graph_example.html" />
+    <link rel="prev" title="continue_msg" href="continue_msg_cls.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,20 +110,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../configuration.html">Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../algorithms.html">Algorithms</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../flow_graph.html">Flow Graph</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="graph_cls.html">graph Class</a></li>
-<li class="toctree-l4"><a class="reference internal" href="abstract_interfaces.html">Abstract Interfaces</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="special_message_types.html">Special Message Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="functional_nodes.html">Functional Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="buffering_nodes.html">Buffering Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="service_nodes.html">Service Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ports_and_edges.html">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#graph-class">Graph Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#nodes">Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#ports-and-edges">Ports and Edges</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../flow_graph.html#special-messages-types">Special Messages Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../containers.html">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../thread_local_storage.html">Thread Local Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -187,8 +183,6 @@
         
           
         
-          
-        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -209,89 +203,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="tagged-msg-template-class">
-<h1>tagged_msg Template Class<a class="headerlink" href="#tagged-msg-template-class" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>A template class composed of a tag and a message. The message is a value that can be one of several defined types.</p>
-</div>
-<div class="section" id="syntax">
-<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">TagType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T1</span><span class="p">...</span><span class="k">typename</span> <span class="n">TN</span><span class="o">&gt;</span>
- <span class="k">class</span> <span class="nc">tagged_msg</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="header">
-<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;tbb/flow_graph.h&quot;</span><span class="cp"></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code> template class is intended
-for messages whose type is determined at run time. A message of one of the types
-<code class="docutils literal notranslate"><span class="pre">T0,</span> <span class="pre">T1</span> <span class="pre">...TN</span></code>  is tagged with a tag of type
-<code class="docutils literal notranslate"><span class="pre">TagType</span></code>. The tag then may serve to identify the message.
-In the flow graph <code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code> is used as the output of
-<code class="docutils literal notranslate"><span class="pre">indexer_node</span></code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code> employs
-tuples in its implementation so a limitation on how many types a tuple can hold, will apply to
-<code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code> as well.</p>
-</div>
-</div>
-<div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;tbb/flow_graph.h&quot;</span><span class="cp"></span>
+  <div class="section" id="tagged-msg">
+<h1>tagged_msg<a class="headerlink" href="#tagged-msg" title="Permalink to this headline">¶</a></h1>
+<p><strong>[flow_graph.tagged_msg]</strong></p>
+<p>A class template composed of a tag and a message. The message is a
+value that can be one of several defined types.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Defined in header &lt;tbb/flow_graph.h&gt;</span>
 
-<span class="k">typedef</span> <span class="n">tbb</span><span class="o">::</span><span class="n">flow</span><span class="o">::</span><span class="n">tagged_msg</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">tagged_msg_type</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="nf">print_type_and_value</span><span class="p">(</span><span class="k">const</span> <span class="n">tagged_msg_type</span> <span class="o">&amp;</span><span class="n">tm</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">tm</span><span class="p">.</span><span class="n">tag</span><span class="p">()</span><span class="o">==</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">tm</span><span class="p">.</span><span class="n">is_a</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">())</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Type is an int, value is : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">tm</span><span class="p">.</span><span class="n">cast_to</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">tm</span><span class="p">.</span><span class="n">tag</span><span class="p">()</span><span class="o">==</span><span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">tbb</span><span class="o">::</span><span class="n">flow</span><span class="o">::</span><span class="n">is_a</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tm</span><span class="p">))</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Type is a char, value is : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">tbb</span><span class="o">::</span><span class="n">flow</span><span class="o">::</span><span class="n">cast_to</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tm</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">tm</span><span class="p">.</span><span class="n">tag</span><span class="p">()</span><span class="o">==</span><span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n">tm</span><span class="p">.</span><span class="n">is_a</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">())</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Type is a double, value is : &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">tm</span><span class="p">.</span><span class="n">cast_to</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="k">else</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Invalid tag or type&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">print_type_and_value</span><span class="p">(</span><span class="n">tagged_msg_type</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">));</span>
-    <span class="n">print_type_and_value</span><span class="p">(</span><span class="n">tagged_msg_type</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="sc">&#39;c&#39;</span><span class="p">));</span>
-    <span class="n">print_type_and_value</span><span class="p">(</span><span class="n">tagged_msg_type</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">23.78</span><span class="p">));</span>
-    <span class="n">print_type_and_value</span><span class="p">(</span><span class="n">tagged_msg_type</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">));</span>
-
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>In this example the function <code class="docutils literal notranslate"><span class="pre">print_type_and_value</span></code> takes a
-<code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code> with tag type
-<code class="docutils literal notranslate"><span class="pre">size_t</span></code> capable of holding a value of either an
-<code class="docutils literal notranslate"><span class="pre">int</span></code>,
-a <code class="docutils literal notranslate"><span class="pre">char</span></code> or a <code class="docutils literal notranslate"><span class="pre">double</span></code>
-and prints the type and the value stored. <code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code> objects with different
-tags and value types are passed to the function, where the tag is used to identify and retrieve the value.
-Retrieval of a value is done using either the template method
-<code class="docutils literal notranslate"><span class="pre">tagged_msg::cast_to</span></code> or the <code class="docutils literal notranslate"><span class="pre">tbb::flow::cast_to</span></code> template function.</p>
-<p>The following output is generated when the example is run:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span> <span class="n">is</span> <span class="n">an</span> <span class="kt">int</span><span class="p">,</span> <span class="n">value</span> <span class="nl">is</span> <span class="p">:</span> <span class="mi">8</span>
-<span class="n">Type</span> <span class="n">is</span> <span class="n">a</span> <span class="kt">char</span><span class="p">,</span> <span class="n">value</span> <span class="nl">is</span> <span class="p">:</span> <span class="n">c</span>
-<span class="n">Type</span> <span class="n">is</span> <span class="n">a</span> <span class="kt">double</span><span class="p">,</span> <span class="n">value</span> <span class="nl">is</span> <span class="p">:</span> <span class="mf">23.78</span>
-<span class="n">Invalid</span> <span class="n">tag</span> <span class="n">or</span> <span class="n">type</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="members">
-<h2>Members<a class="headerlink" href="#members" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">tbb</span> <span class="p">{</span>
+<span class="k">namespace</span> <span class="n">tbb</span> <span class="p">{</span>
 <span class="k">namespace</span> <span class="n">flow</span> <span class="p">{</span>
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">TagType</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T0</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T1</span><span class="p">...</span><span class="k">typename</span> <span class="n">TN</span><span class="o">&gt;</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">TagType</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">TN</span><span class="o">&gt;</span>
     <span class="k">class</span> <span class="nc">tagged_msg</span> <span class="p">{</span>
     <span class="k">public</span><span class="o">:</span>
         <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">R</span><span class="o">&gt;</span>
@@ -307,70 +229,83 @@ Retrieval of a value is done using either the template method
 
     <span class="p">};</span>
 
-    <span class="c1">//The following functions simplify the use of tagged_msg in template contexts</span>
-
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">V</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-    <span class="k">const</span> <span class="n">V</span><span class="o">&amp;</span> <span class="n">cast_to</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
-
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">V</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-    <span class="kt">bool</span> <span class="n">is_a</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="p">}</span>
+<span class="p">}</span> <span class="c1">// namespace flow</span>
+<span class="p">}</span> <span class="c1">// namespace tbb</span>
 </pre></div>
 </div>
-<p>The following table provides additional information on the  members of this template class.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 1%" />
-<col style="width: 99%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head" colspan="2"><p>Member, Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">template&lt;typename</span> <span class="pre">T,</span> <span class="pre">typename</span> <span class="pre">R&gt;</span> <span class="pre">tagged_msg(T</span> <span class="pre">const</span> <span class="pre">&amp;index,</span> <span class="pre">R</span> <span class="pre">const</span> <span class="pre">&amp;value)</span></code></dt><dd><p>Constructs a
-<code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code> with tag
-<code class="docutils literal notranslate"><span class="pre">index</span></code> and value
-<code class="docutils literal notranslate"><span class="pre">val</span></code>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">TagType</span> <span class="pre">tag()</span> <span class="pre">const</span></code></dt><dd><p>Returns the current tag.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">template&lt;typename</span> <span class="pre">V&gt;</span> <span class="pre">const</span> <span class="pre">V&amp;</span> <span class="pre">cast_to()</span> <span class="pre">const</span></code></dt><dd><p>Returns the value stored in the <code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code>. If the value is not of type
-<code class="docutils literal notranslate"><span class="pre">V</span></code> an std::runtime_error exception is thrown.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">template&lt;typename</span> <span class="pre">V&gt;</span> <span class="pre">bool</span> <span class="pre">is_a()</span> <span class="pre">const</span></code></dt><dd><p>Returns true if
-<code class="docutils literal notranslate"><span class="pre">V</span></code>
-is the type of the value held by the <code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code>.
-Returns false otherwise.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>The free-standing template functions <code class="docutils literal notranslate"><span class="pre">cast_to</span></code> and
-<code class="docutils literal notranslate"><span class="pre">is_a</span></code> applied to a <code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code>
-object are equivalent to the calls of the corresponding methods of that object.</p>
+<p>Requirements:</p>
+<ul class="simple">
+<li><p>All types in <code class="docutils literal notranslate"><span class="pre">TN</span></code> template parameter pack shall meet the
+<cite>CopyConstructible</cite> requirements from [copyconstructible] ISO C++ Standard
+section.</p></li>
+<li><p>The type <cite>TagType</cite> shall be an integral unsigned type.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code> class template is intended for messages whose type is determined at run time.
+A message of one of the types <code class="docutils literal notranslate"><span class="pre">TN</span></code> is tagged with a tag of type <code class="docutils literal notranslate"><span class="pre">TagType</span></code>. The tag then may
+serve to identify the message. In the flow graph <code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code> is used as the output of
+<a class="reference internal" href="indexer_node_cls.html"><span class="doc">indexer_node</span></a>.</p>
+<div class="section" id="member-functions">
+<h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="_CPPv4I00E10tagged_msgRK1TRK1R">
+<span id="_CPPv3I00E10tagged_msgRK1TRK1R"></span><span id="_CPPv2I00E10tagged_msgRK1TRK1R"></span>template&lt;typename <code class="sig-name descname">T</code>, typename <code class="sig-name descname">R</code>&gt;<br /><code class="sig-name descname">tagged_msg</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00E10tagged_msgRK1TRK1R" title="tagged_msg::T">T</a> <em class="property">const</em> &amp;<em>index</em>, <a class="reference internal" href="#_CPPv4I00E10tagged_msgRK1TRK1R" title="tagged_msg::R">R</a> <em class="property">const</em> &amp;<em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I00E10tagged_msgRK1TRK1R" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Requirements:</p>
+<ul class="simple">
+<li><p>The type <cite>R</cite> shall be the same as one of the <code class="docutils literal notranslate"><span class="pre">TN</span></code> types.</p></li>
+<li><p>The type <cite>T</cite> shall be acceptable as a <code class="docutils literal notranslate"><span class="pre">TagType</span></code> constructor parameter.</p></li>
+</ul>
+<p>Constructs a <code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code> with tag <code class="docutils literal notranslate"><span class="pre">index</span></code> and value <code class="docutils literal notranslate"><span class="pre">val</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3tagEv">
+<span id="_CPPv3NK3tagEv"></span><span id="_CPPv2NK3tagEv"></span><span id="tagC"></span>TagType <code class="sig-name descname">tag</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3tagEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the current tag.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0ENK7cast_toERK1Vv">
+<span id="_CPPv3I0ENK7cast_toEv"></span><span id="_CPPv2I0ENK7cast_toEv"></span>template&lt;typename <code class="sig-name descname">V</code>&gt;<br /><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0ENK7cast_toERK1Vv" title="cast_to::V">V</a> &amp;<code class="sig-name descname">cast_to</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4I0ENK7cast_toERK1Vv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Requirements:</p>
+<ul class="simple">
+<li><p>The type <code class="docutils literal notranslate"><span class="pre">V</span></code> shall be the same as one of the <code class="docutils literal notranslate"><span class="pre">TN</span></code> types.</p></li>
+</ul>
+<p>Returns the value stored in the <code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code>. If the value is not of type <code class="docutils literal notranslate"><span class="pre">V</span></code> an
+<code class="docutils literal notranslate"><span class="pre">std::runtime_error</span></code> exception is thrown.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0ENK4is_aEbv">
+<span id="_CPPv3I0ENK4is_aEv"></span><span id="_CPPv2I0ENK4is_aEv"></span>template&lt;typename <code class="sig-name descname">V</code>&gt;<br />bool <code class="sig-name descname">is_a</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4I0ENK4is_aEbv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Requirements:</p>
+<ul class="simple">
+<li><p>The type <code class="docutils literal notranslate"><span class="pre">V</span></code> shall be the same as one of the <code class="docutils literal notranslate"><span class="pre">TN</span></code> types.</p></li>
+</ul>
+<p>Returns true if <code class="docutils literal notranslate"><span class="pre">V</span></code> is the type of the value held by the <code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code>.  Returns false otherwise.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="non-member-functions">
+<h2>Non-member functions<a class="headerlink" href="#non-member-functions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">V</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">const</span> <span class="n">V</span><span class="o">&amp;</span> <span class="n">cast_to</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">t</span><span class="p">.</span><span class="n">cast_to</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">V</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="n">is_a</span><span class="p">(</span><span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Requirements:</p>
+<ul class="simple">
+<li><p>The type <code class="docutils literal notranslate"><span class="pre">T</span></code> shall be an instantiated <code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code> class template.</p></li>
+<li><p>The type <code class="docutils literal notranslate"><span class="pre">V</span></code> shall be the same as one of the corresponding template arguments for <code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code>.</p></li>
+</ul>
+<p>The free-standing template functions <code class="docutils literal notranslate"><span class="pre">cast_to</span></code> and  <code class="docutils literal notranslate"><span class="pre">is_a</span></code> applied to a <code class="docutils literal notranslate"><span class="pre">tagged_msg</span></code> object
+are equivalent to the calls of the corresponding methods of that object.</p>
 <p>See also:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="indexer_node_cls.html"><span class="doc">indexer_node Template Class</span></a></p></li>
+<li><p><a class="reference internal" href="indexer_node_cls.html"><span class="doc">indexer_node class template</span></a></p></li>
 </ul>
 </div>
 </div>
@@ -383,10 +318,10 @@ object are equivalent to the calls of the corresponding methods of that object.<
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="functional_nodes.html" class="btn btn-neutral float-right" title="Functional Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dependency_flow_graph_example.html" class="btn btn-neutral float-right" title="Dependency Flow Graph Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="continue_msg_cls.html" class="btn btn-neutral float-left" title="continue_msg Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="continue_msg_cls.html" class="btn btn-neutral float-left" title="continue_msg" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

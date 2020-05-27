@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>make_edge Template Function &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>make_edge &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="remove_edge Template Function" href="remove_edge_func.html" />
-    <link rel="prev" title="output_port Template Function" href="output_port_func.html" /> 
+    <link rel="next" title="remove_edge" href="remove_edge_func.html" />
+    <link rel="prev" title="output_port" href="output_port_func.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,20 +110,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../configuration.html">Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../algorithms.html">Algorithms</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../flow_graph.html">Flow Graph</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="graph_cls.html">graph Class</a></li>
-<li class="toctree-l4"><a class="reference internal" href="abstract_interfaces.html">Abstract Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="special_message_types.html">Special Message Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="functional_nodes.html">Functional Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="buffering_nodes.html">Buffering Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="service_nodes.html">Service Nodes</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="ports_and_edges.html">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#graph-class">Graph Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#nodes">Nodes</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../flow_graph.html#ports-and-edges">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#special-messages-types">Special Messages Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../containers.html">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../thread_local_storage.html">Thread Local Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -187,8 +183,6 @@
         
           
         
-          
-        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -209,43 +203,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="make-edge-template-function">
-<h1>make_edge Template Function<a class="headerlink" href="#make-edge-template-function" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>A template function that adds an edge between a <code class="docutils literal notranslate"><span class="pre">sender&lt;T&gt;</span></code> and a <code class="docutils literal notranslate"><span class="pre">receiver&lt;T&gt;.</span></code></p>
-</div>
-<div class="section" id="syntax">
-<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span> <span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="kt">void</span> <span class="n">make_edge</span><span class="p">(</span> <span class="n">sender</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">,</span> <span class="n">receiver</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">s</span> <span class="p">);</span>
+  <div class="section" id="make-edge">
+<h1>make_edge<a class="headerlink" href="#make-edge" title="Permalink to this headline">¶</a></h1>
+<p><strong>[flow_graph.make_edge]</strong></p>
+<p>A function template for building edges between nodes.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Defined in header &lt;tbb/flow_graph.h&gt;</span>
 
-<span class="c1">//Overloads</span>
+<span class="k">namespace</span> <span class="n">tbb</span> <span class="p">{</span>
+<span class="k">namespace</span> <span class="n">flow</span> <span class="p">{</span>
 
-<span class="c1">//Makes an edge from port 0 of a multi-output predecessor to port 0 of a multi-input successor</span>
-<span class="k">template</span><span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">V</span> <span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="kt">void</span> <span class="n">make_edge</span><span class="p">(</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">output</span><span class="p">,</span> <span class="n">V</span><span class="o">&amp;</span> <span class="n">input</span><span class="p">)</span>
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Message</span><span class="o">&gt;</span>
+    <span class="kr">inline</span> <span class="kt">void</span> <span class="n">make_edge</span><span class="p">(</span> <span class="n">sender</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">,</span> <span class="n">receiver</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">s</span> <span class="p">);</span>
 
-<span class="c1">//Makes an edge from port 0 of a multi-output predecessor to a receiver.</span>
-<span class="k">template</span><span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">R</span> <span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="kt">void</span> <span class="n">make_edge</span><span class="p">(</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">output</span><span class="p">,</span> <span class="n">receiver</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="n">input</span><span class="p">)</span>
+    <span class="k">template</span><span class="o">&lt;</span> <span class="k">typename</span> <span class="n">MultiOutputNode</span><span class="p">,</span> <span class="k">typename</span> <span class="n">MultiInputNode</span> <span class="o">&gt;</span>
+    <span class="kr">inline</span> <span class="kt">void</span> <span class="n">make_edge</span><span class="p">(</span> <span class="n">MultiOutputNode</span><span class="o">&amp;</span> <span class="n">output</span><span class="p">,</span> <span class="n">MultiInputNode</span><span class="o">&amp;</span> <span class="n">input</span> <span class="p">);</span>
 
-<span class="c1">//Makes an edge from a sender to port 0 of a multi-input successor.</span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">S</span><span class="p">,</span>  <span class="k">typename</span> <span class="n">V</span><span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="kt">void</span> <span class="n">make_edge</span><span class="p">(</span> <span class="n">sender</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;</span> <span class="n">output</span><span class="p">,</span> <span class="n">V</span><span class="o">&amp;</span> <span class="n">input</span><span class="p">)</span>
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">MultiOutputNode</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Message</span><span class="o">&gt;</span>
+    <span class="kr">inline</span> <span class="kt">void</span> <span class="n">make_edge</span><span class="p">(</span> <span class="n">MultiOutputNode</span><span class="o">&amp;</span> <span class="n">output</span><span class="p">,</span> <span class="n">receiver</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span> <span class="n">input</span> <span class="p">);</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Message</span><span class="p">,</span> <span class="k">typename</span> <span class="n">MultiInputNode</span><span class="o">&gt;</span>
+    <span class="kr">inline</span> <span class="kt">void</span> <span class="n">make_edge</span><span class="p">(</span> <span class="n">sender</span><span class="o">&lt;</span><span class="n">Message</span><span class="o">&gt;</span> <span class="n">output</span><span class="p">,</span> <span class="n">MultiInputNode</span><span class="o">&amp;</span> <span class="n">input</span> <span class="p">);</span>
+
+<span class="p">}</span> <span class="c1">// namespace flow</span>
+<span class="p">}</span> <span class="c1">// namespace tbb</span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The overloads require C++11 support.</p>
-</div>
-</div>
-<div class="section" id="header">
-<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;tbb/flow_graph.h&quot;</span><span class="cp"></span>
-</pre></div>
-</div>
-</div>
+<p>Requirements:</p>
+<ul class="simple">
+<li><p>The <cite>MultiOutputNode</cite> type shall have a valid <code class="docutils literal notranslate"><span class="pre">MultiOutputNode::output_ports_type</span></code> qualified-id
+that denotes a type.</p></li>
+<li><p>The <cite>MultiInputNode</cite> type shall have a valid <code class="docutils literal notranslate"><span class="pre">MultiInputNode::input_ports_type</span></code> qualified-id
+that denotes a type.</p></li>
+</ul>
+<p>The common form of <code class="docutils literal notranslate"><span class="pre">make_edge(sender,</span> <span class="pre">receiver)</span></code> creates an edge between provided <code class="docutils literal notranslate"><span class="pre">sender</span></code>
+and <code class="docutils literal notranslate"><span class="pre">receiver</span></code> instances.</p>
+<p>Overloads that accepts a <cite>MultiOutputNode</cite> type instance makes an edge from port <code class="docutils literal notranslate"><span class="pre">0</span></code> of a
+multi-output predecessor.</p>
+<p>Overloads that accepts a <cite>MultiInputNode</cite> type instance makes an edge to port <code class="docutils literal notranslate"><span class="pre">0</span></code> of a multi-input
+successor.</p>
 </div>
 
 
@@ -256,10 +251,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="remove_edge_func.html" class="btn btn-neutral float-right" title="remove_edge Template Function" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="remove_edge_func.html" class="btn btn-neutral float-right" title="remove_edge" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="output_port_func.html" class="btn btn-neutral float-left" title="output_port Template Function" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="output_port_func.html" class="btn btn-neutral float-left" title="output_port" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

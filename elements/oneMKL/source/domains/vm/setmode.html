@@ -213,6 +213,46 @@ treated as zeros (DAZ = denormals-are-zero) and denormalized
 results are flushed to zero (FTZ = flush-to-zero). Accuracy loss
 may occur if input and/or output values are close to denormal
 range.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Value of mode</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Accuracy Control</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mode::ha</span></code></p></td>
+<td><p>High accuracy versions of VM functions.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mode::la</span></code></p></td>
+<td><p>Low accuracy versions of VM functions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mode::ep</span></code></p></td>
+<td><p>Enhanced performance accuracy versions of VM functions.</p></td>
+</tr>
+<tr class="row-even"><td><p>Denormalized Numbers Handling Control</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mode::ftzdazon</span></code></p></td>
+<td><p>Faster processing of denormalized inputs is enabled.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mode::ftzdazoff</span></code></p></td>
+<td><p>Faster processing of denormalized inputs is disabled.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Other</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mode::not_defined</span></code></p></td>
+<td><p>VM status not defined.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>The default value of the mode parameter is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mode</span><span class="p">::</span><span class="n">ha</span> <span class="o">|</span> <span class="n">mode</span><span class="p">::</span><span class="n">ftdazoff</span>

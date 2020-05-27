@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="C Interface to Scalable Allocator" href="memory_allocation/c_interface_to_scalable_allocator.html" />
+    <link rel="next" title="tbb_allocator" href="memory_allocation/tbb_allocator_cls.html" />
     <link rel="prev" title="oneTBB Auxiliary Interfaces" href="nested-aux-interfaces.html" /> 
 </head>
 
@@ -109,13 +109,12 @@
 <li class="toctree-l2"><a class="reference internal" href="nested-interfaces.html">oneTBB Interfaces</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Memory Allocation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="memory_allocation/c_interface_to_scalable_allocator.html">C Interface to Scalable Allocator</a></li>
-<li class="toctree-l4"><a class="reference internal" href="memory_allocation/allocator_concept.html">Allocator Concept</a></li>
-<li class="toctree-l4"><a class="reference internal" href="memory_allocation/memory_resource_interface.html">Memory Resource Interface</a></li>
-<li class="toctree-l4"><a class="reference internal" href="memory_allocation/TBB_malloc_replacement_log_func.html">TBB_malloc_replacement_log Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allocators">Allocators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#memory-resources">Memory Resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#library-functions">Library Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="synchronization.html">Synchronization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mutual_exclusion.html">Mutual Exclusion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="timing.html">Timing</a></li>
 </ul>
 </li>
@@ -199,80 +198,41 @@
             
   <div class="section" id="memory-allocation">
 <h1>Memory Allocation<a class="headerlink" href="#memory-allocation" title="Permalink to this headline">¶</a></h1>
-<p>This section describes classes related to memory allocation.</p>
+<p><strong>[memory_allocation]</strong></p>
+<p>This section describes classes and functions related to memory allocation.</p>
+<div class="section" id="allocators">
+<h2>Allocators<a class="headerlink" href="#allocators" title="Permalink to this headline">¶</a></h2>
+<p>oneAPI Threading Building Blocks implements several classes that meet the allocator requirements
+from the [allocator.requirements] ISO C++ Standard section.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="memory_allocation/c_interface_to_scalable_allocator.html">C Interface to Scalable Allocator</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/c_interface_to_scalable_allocator.html#summary">Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/c_interface_to_scalable_allocator.html#syntax">Syntax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/c_interface_to_scalable_allocator.html#header">Header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/c_interface_to_scalable_allocator.html#description">Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/c_interface_to_scalable_allocator.html#size-t-scalable-msize-void-ptr">size_t scalable_msize( void* ptr )</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/c_interface_to_scalable_allocator.html#int-scalable-allocation-mode-int-mode-intptr-t-value">int scalable_allocation_mode(int mode, intptr_t value)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/c_interface_to_scalable_allocator.html#int-scalable-allocation-command-int-cmd-void-reserved">int scalable_allocation_command(int cmd, void* reserved)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="memory_allocation/tbb_allocator_cls.html">tbb_allocator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="memory_allocation/scalable_allocator_cls.html">scalable_allocator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="memory_allocation/cache_aligned_allocator_cls.html">cache_aligned_allocator</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="memory_allocation/allocator_concept.html">Allocator Concept</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/tbb_allocator_cls.html">tbb_allocator Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/tbb_allocator_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/tbb_allocator_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/tbb_allocator_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/tbb_allocator_cls.html#description">Description</a></li>
+</div>
+</div>
+<div class="section" id="memory-resources">
+<h2>Memory Resources<a class="headerlink" href="#memory-resources" title="Permalink to this headline">¶</a></h2>
+<p>Starting from C++17, the standard library provides a <code class="docutils literal notranslate"><span class="pre">std::pmr::polymorphic_allocator</span></code> class
+that allocates memory from a supplied memory resource (see the [mem.poly.allocator.class] ISO/IEC 14882:2017 section).
+Class <code class="docutils literal notranslate"><span class="pre">std::pmr::memory_resource</span></code> is an abstract interface for user-side implementation of different allocation strategies.
+For details, see [mem.res.class] ISO/IEC 14882:2017 standard section.</p>
+<p>oneAPI Threading Building Blocks provides a set of <code class="docutils literal notranslate"><span class="pre">std::pmr::memory_resource</span></code> implementations.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="memory_allocation/cache_aligned_resource_cls.html">cache_aligned_resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="memory_allocation/scalable_memory_resource_func.html">scalable_memory_resource</a></li>
 </ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/scalable_allocator_cls.html">scalable allocator Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/scalable_allocator_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/scalable_allocator_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/scalable_allocator_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/scalable_allocator_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/scalable_allocator_cls.html#members">Members</a></li>
+</div>
+</div>
+<div class="section" id="library-functions">
+<h2>Library Functions<a class="headerlink" href="#library-functions" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="memory_allocation/c_interface_to_scalable_allocator.html">C Interface to Scalable Allocator</a></li>
 </ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/cache_aligned_allocator_cls.html">cache_aligned_allocator Template Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/cache_aligned_allocator_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/cache_aligned_allocator_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/cache_aligned_allocator_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/cache_aligned_allocator_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/cache_aligned_allocator_cls.html#members">Members</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/zero_allocator.html">zero_allocator</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/zero_allocator.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/zero_allocator.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/zero_allocator.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/zero_allocator.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/zero_allocator.html#members">Members</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="memory_allocation/memory_resource_interface.html">Memory Resource Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/scalable_memory_resource_func.html">scalable_memory_resource Function</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/scalable_memory_resource_func.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/scalable_memory_resource_func.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/scalable_memory_resource_func.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/scalable_memory_resource_func.html#description">Description</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/cache_aligned_resource_cls.html">cache_aligned_resource Class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/cache_aligned_resource_cls.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/cache_aligned_resource_cls.html#syntax">Syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/cache_aligned_resource_cls.html#header">Header</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/cache_aligned_resource_cls.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory_allocation/cache_aligned_resource_cls.html#members">Members</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="memory_allocation/TBB_malloc_replacement_log_func.html">TBB_malloc_replacement_log Function</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/TBB_malloc_replacement_log_func.html#summary">Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/TBB_malloc_replacement_log_func.html#syntax">Syntax</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/TBB_malloc_replacement_log_func.html#header">Header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/TBB_malloc_replacement_log_func.html#description">Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_allocation/TBB_malloc_replacement_log_func.html#usage-example">Usage example</a></li>
-</ul>
-</li>
-</ul>
+</div>
 </div>
 </div>
 
@@ -284,7 +244,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="memory_allocation/c_interface_to_scalable_allocator.html" class="btn btn-neutral float-right" title="C Interface to Scalable Allocator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="memory_allocation/tbb_allocator_cls.html" class="btn btn-neutral float-right" title="tbb_allocator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="nested-aux-interfaces.html" class="btn btn-neutral float-left" title="oneTBB Auxiliary Interfaces" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

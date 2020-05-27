@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>combinable Template Class &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>combinable &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="enumerable_thread_specific Template Class" href="enumerable_thread_specific_cls.html" />
+    <link rel="next" title="enumerable_thread_specific" href="enumerable_thread_specific_cls.html" />
     <link rel="prev" title="Thread Local Storage" href="../thread_local_storage.html" /> 
 </head>
 
@@ -113,12 +113,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../containers.html">Containers</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../thread_local_storage.html">Thread Local Storage</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">combinable Template Class</a></li>
-<li class="toctree-l4"><a class="reference internal" href="enumerable_thread_specific_cls.html">enumerable_thread_specific Template Class</a></li>
-<li class="toctree-l4"><a class="reference internal" href="flattened2d_cls.html">flattened2d Template Class</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">combinable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enumerable_thread_specific_cls.html">enumerable_thread_specific</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flattened2d_cls.html">flattened2d</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -202,50 +201,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="combinable-template-class">
-<h1>combinable Template Class<a class="headerlink" href="#combinable-template-class" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>Template class for holding thread-local values
-during a parallel computation that will be merged into a final value.</p>
-</div>
-<div class="section" id="syntax">
-<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">combinable</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="header">
-<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;tbb/combinable.h&quot;</span><span class="cp"></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>A
-<code class="docutils literal notranslate"><span class="pre">combinable&lt;T&gt;</span></code> provides each thread with its own
-instance of type <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
-</div>
-<div class="section" id="members">
-<h2>Members<a class="headerlink" href="#members" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">tbb</span> <span class="p">{</span>
+  <div class="section" id="combinable">
+<h1>combinable<a class="headerlink" href="#combinable" title="Permalink to this headline">¶</a></h1>
+<p><strong>[tls.combinable]</strong></p>
+<p>A class template for holding thread-local values during a parallel computation
+that will be merged into a final value.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">combinable</span></code> provides each thread with its own instance of type <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Defined in header &lt;tbb/combinable.h&gt;</span>
+
+<span class="k">namespace</span> <span class="n">tbb</span> <span class="p">{</span>
     <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
     <span class="k">class</span> <span class="nc">combinable</span> <span class="p">{</span>
     <span class="k">public</span><span class="o">:</span>
         <span class="n">combinable</span><span class="p">();</span>
 
+        <span class="n">combinable</span><span class="p">(</span><span class="k">const</span> <span class="n">combinable</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">);</span>
+        <span class="n">combinable</span><span class="p">(</span><span class="n">combinable</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">);</span>
+
         <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">FInit</span><span class="o">&gt;</span>
         <span class="k">explicit</span> <span class="n">combinable</span><span class="p">(</span><span class="n">FInit</span> <span class="n">finit</span><span class="p">);</span>
-
-        <span class="n">combinable</span><span class="p">(</span><span class="k">const</span> <span class="n">combinable</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">);</span>
-        <span class="c1">// Supported since C++11</span>
-        <span class="n">combinable</span><span class="p">(</span><span class="n">combinable</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">);</span>
 
         <span class="o">~</span><span class="n">combinable</span><span class="p">();</span>
 
         <span class="n">combinable</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span> <span class="k">const</span> <span class="n">combinable</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">);</span>
-        <span class="c1">// Supported since C++11</span>
         <span class="n">combinable</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span> <span class="n">combinable</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">);</span>
 
         <span class="kt">void</span> <span class="nf">clear</span><span class="p">();</span>
@@ -259,139 +237,105 @@ instance of type <code class="docutils literal notranslate"><span class="pre">T<
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The following table provides additional information on the
-members of this template class.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 1%" />
-<col style="width: 99%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head" colspan="2"><p>Member, Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">combinable()</span></code></dt><dd><p>Constructs
-<code class="docutils literal notranslate"><span class="pre">combinable</span></code> such that thread-local
-instances of
-<code class="docutils literal notranslate"><span class="pre">T</span></code> will be default-constructed.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">template&lt;typename</span> <span class="pre">FInit&gt;</span> <span class="pre">explicit</span> <span class="pre">combinable(FInit</span> <span class="pre">finit)</span></code></dt><dd><p>Constructs
-<code class="docutils literal notranslate"><span class="pre">combinable</span></code> such that thread-local
-elements will be created by copying the result of
-<em>finit()</em>.</p>
+<div class="section" id="member-functions">
+<h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="_CPPv410combinablev">
+<span id="_CPPv310combinablev"></span><span id="_CPPv210combinablev"></span><code class="sig-name descname">combinable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410combinablev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructs <code class="docutils literal notranslate"><span class="pre">combinable</span></code> such that thread-local instances of <code class="docutils literal notranslate"><span class="pre">T</span></code> will be default-constructed.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0E10combinable5FInit">
+<span id="_CPPv3I0E10combinable5FInit"></span><span id="_CPPv2I0E10combinable5FInit"></span>template&lt;typename <code class="sig-name descname">FInit</code>&gt;<br /><em class="property">explicit</em> <code class="sig-name descname">combinable</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0E10combinable5FInit" title="combinable::FInit">FInit</a> <em>finit</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0E10combinable5FInit" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructs <code class="docutils literal notranslate"><span class="pre">combinable</span></code> such that thread-local elements will be created by copying the result of <em>finit()</em>.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>The expression <em>finit()</em> must be safe to evaluate
-concurrently by multiple threads. It is evaluated each time
-a new thread-local element is created.</p>
+<p>The expression <em>finit()</em> must be safe to evaluate concurrently by multiple threads.
+It is evaluated each time a new thread-local element is created.</p>
 </div>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">combinable(</span> <span class="pre">const</span> <span class="pre">combinable&amp;</span> <span class="pre">other</span> <span class="pre">);</span></code></dt><dd><p>Constructs a copy of
-<em>other</em>, so that it has copies of each element in
-<em>other</em> with the same thread mapping.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">combinable(</span> <span class="pre">combinable&amp;&amp;</span> <span class="pre">other</span> <span class="pre">);</span></code></dt><dd><p>Supported since C++11. Constructs <code class="docutils literal notranslate"><span class="pre">combinable</span></code> by moving
-the content of <em>other</em> intact. <em>other</em> is left
-in an unspecified state but can be safely destroyed.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">~combinable()</span></code></dt><dd><p>Destroys all elements in <code class="docutils literal notranslate"><span class="pre">*this</span></code>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">combinable&amp;</span> <span class="pre">operator=(</span> <span class="pre">const</span> <span class="pre">combinable&amp;</span> <span class="pre">other</span> <span class="pre">)</span></code></dt><dd><p>Sets <code class="docutils literal notranslate"><span class="pre">*this</span></code> to be a copy of
-<em>other</em>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">combinable&amp;</span> <span class="pre">operator=(</span> <span class="pre">combinable&amp;&amp;</span> <span class="pre">other</span> <span class="pre">)</span></code></dt><dd><p>Supported since C++11. Moves the content of <em>other</em> to
-<code class="docutils literal notranslate"><span class="pre">*this</span></code> intact. <em>other</em> is left
-in an unspecified state but can be safely destroyed.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">clear()</span></code></dt><dd><p>Removes all elements from <code class="docutils literal notranslate"><span class="pre">*this</span></code>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">T&amp;</span> <span class="pre">local()</span></code></dt><dd><p>If an element does not exist for the current thread, creates it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv410combinableRK10combinable">
+<span id="_CPPv310combinableRK10combinable"></span><span id="_CPPv210combinableRK10combinable"></span><span id="combinable__combinableCR"></span><code class="sig-name descname">combinable</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410combinablev" title="combinable">combinable</a> &amp;<em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410combinableRK10combinable" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructs a copy of <em>other</em>, so that it has copies of each element in <em>other</em> with the same thread mapping.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv410combinableRR10combinable">
+<span id="_CPPv310combinableRR10combinable"></span><span id="_CPPv210combinableRR10combinable"></span><span id="combinable__combinableRR"></span><code class="sig-name descname">combinable</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410combinablev" title="combinable">combinable</a> &amp;&amp;<em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410combinableRR10combinable" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructs <code class="docutils literal notranslate"><span class="pre">combinable</span></code> by moving the content of <em>other</em> intact.
+<em>other</em> is left in an unspecified state but can be safely destroyed.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4D0v">
+<span id="_CPPv3D0v"></span><span id="_CPPv2D0v"></span><span id="~combinable"></span><code class="sig-name descname">~combinable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4D0v" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destroys all elements in <code class="docutils literal notranslate"><span class="pre">*this</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4aSRK10combinable">
+<span id="_CPPv3aSRK10combinable"></span><span id="_CPPv2aSRK10combinable"></span><span id="assign-operator__combinableCR"></span><a class="reference internal" href="#_CPPv410combinablev" title="combinable">combinable</a> &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410combinablev" title="combinable">combinable</a> &amp;<em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4aSRK10combinable" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets <code class="docutils literal notranslate"><span class="pre">*this</span></code> to be a copy of <em>other</em>.
+Returns a refernce to <code class="docutils literal notranslate"><span class="pre">*this</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4aSRR10combinable">
+<span id="_CPPv3aSRR10combinable"></span><span id="_CPPv2aSRR10combinable"></span><span id="assign-operator__combinableRR"></span><a class="reference internal" href="#_CPPv410combinablev" title="combinable">combinable</a> &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410combinablev" title="combinable">combinable</a> &amp;&amp;<em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4aSRR10combinable" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Moves the content of <em>other</em> to <code class="docutils literal notranslate"><span class="pre">*this</span></code> intact.
+<em>other</em> is left in an unspecified state but can be safely destroyed.
+Returns a reference to <code class="docutils literal notranslate"><span class="pre">*this</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv45clearv">
+<span id="_CPPv35clearv"></span><span id="_CPPv25clearv"></span><span id="clear"></span>void <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Removes all elements from <code class="docutils literal notranslate"><span class="pre">*this</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv45localv">
+<span id="_CPPv35localv"></span><span id="_CPPv25localv"></span><span id="local"></span>T &amp;<code class="sig-name descname">local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45localv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If an element does not exist for the current thread, creates it.</p>
 <p><strong>Returns</strong>: Reference to thread-local element.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">T&amp;</span> <span class="pre">local(</span> <span class="pre">bool&amp;</span> <span class="pre">exists</span> <span class="pre">)</span></code></dt><dd><p>Similar to
-<code class="docutils literal notranslate"><span class="pre">local()</span></code>, except that
-<em>exists</em> is set to true if an element was already
-present for the current thread; false otherwise.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv45localRb">
+<span id="_CPPv35localRb"></span><span id="_CPPv25localRb"></span><span id="local__bR"></span>T &amp;<code class="sig-name descname">local</code><span class="sig-paren">(</span>bool &amp;<em>exists</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45localRb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Similar to <code class="docutils literal notranslate"><span class="pre">local()</span></code>, except that <em>exists</em> is set to true
+if an element was already present for the current thread; false otherwise.</p>
 <p><strong>Returns</strong>: Reference to thread-local element.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">template&lt;typename</span> <span class="pre">BinaryFunc&gt;T</span> <span class="pre">combine(BinaryFunc</span> <span class="pre">f)</span></code></dt><dd><p><strong>Requires</strong>: Parameter
-<em>f</em> should be an associative
-binary functor with the signature <code class="docutils literal notranslate"><span class="pre">T(T,T)</span></code>
-or <code class="docutils literal notranslate"><span class="pre">T(const</span> <span class="pre">T&amp;,const</span> <span class="pre">T&amp;)</span></code>.</p>
-<p><strong>Effects</strong>: Computes a reduction over
-all elements using binary functor <em>f</em>. All evaluations
-of <em>f</em> are done sequentially in the calling thread.
-If there are no elements, creates the result
-using the same rules as for creating a new element.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0E7combine1T10BinaryFunc">
+<span id="_CPPv3I0E7combine10BinaryFunc"></span><span id="_CPPv2I0E7combine10BinaryFunc"></span>template&lt;typename <code class="sig-name descname">BinaryFunc</code>&gt;<br />T <code class="sig-name descname">combine</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0E7combine1T10BinaryFunc" title="combine::BinaryFunc">BinaryFunc</a> <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0E7combine1T10BinaryFunc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong>Requires</strong>: A <code class="docutils literal notranslate"><span class="pre">BinaryFunc</span></code> shall meet the <cite>Function Objects</cite> requirements from [function.objects] ISO C++ Standard section.
+Specifically, the type should be an associative binary functor with the signature <code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">BinaryFunc(T,T)</span></code> or <code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">BinaryFunc(const</span> <span class="pre">T&amp;,const</span> <span class="pre">T&amp;)</span></code>.
+A <code class="docutils literal notranslate"><span class="pre">T</span></code> type must be the same as a corresponding template parameter for <code class="docutils literal notranslate"><span class="pre">combinable</span></code> object.</p>
+<p><strong>Effects</strong>: Computes a reduction over all elements using binary functor <em>f</em>.
+All evaluations of <em>f</em> are done sequentially in the calling thread.
+If there are no elements, creates the result using the same rules as for creating a new element.</p>
 <p><strong>Returns</strong>: Result of the reduction.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">template&lt;typename</span> <span class="pre">UnaryFunc&gt;</span> <span class="pre">void</span> <span class="pre">combine_each(UnaryFunc</span> <span class="pre">f)</span></code></dt><dd><p><strong>Requires</strong>: Parameter
-<em>f</em> should be a unary functor with the signature
-<code class="docutils literal notranslate"><span class="pre">void(T)</span></code> or <code class="docutils literal notranslate"><span class="pre">void(T&amp;)</span></code> or
-<code class="docutils literal notranslate"><span class="pre">void(const</span> <span class="pre">T&amp;)</span></code>.</p>
-<p><strong>Effects</strong>: Evaluates
-<em>f(x)</em> for each thread-local element
-<em>x</em> in <code class="docutils literal notranslate"><span class="pre">*this</span></code>. All evaluations
-are done sequentially in the calling thread.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0E12combine_eachv9UnaryFunc">
+<span id="_CPPv3I0E12combine_each9UnaryFunc"></span><span id="_CPPv2I0E12combine_each9UnaryFunc"></span>template&lt;typename <code class="sig-name descname">UnaryFunc</code>&gt;<br />void <code class="sig-name descname">combine_each</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0E12combine_eachv9UnaryFunc" title="combine_each::UnaryFunc">UnaryFunc</a> <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0E12combine_eachv9UnaryFunc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong>Requires</strong>: An <code class="docutils literal notranslate"><span class="pre">UnaryFunc</span></code> shall meet the <cite>Function Objects</cite> requirements from [function.objects] ISO C++ Standard section.
+Specifically, the type should be an unary functor with the signature <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">UnaryFunc(T)</span></code> or <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">UnaryFunc(T&amp;)</span></code> or <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">UnaryFunc(const</span> <span class="pre">T&amp;)</span></code>
+A <code class="docutils literal notranslate"><span class="pre">T</span></code> type must be the same as a corresponding template parameter for <code class="docutils literal notranslate"><span class="pre">enumerable_thread_specific</span></code> object.</p>
+<p><strong>Effects</strong>: Evaluates <em>f(x)</em> for each thread-local element <em>x</em> in <code class="docutils literal notranslate"><span class="pre">*this</span></code>.
+All evaluations are done sequentially in the calling thread.</p>
+</dd></dl>
+
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Methods of <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">combinable</span></code> are not thread-safe,
-except for <code class="docutils literal notranslate"><span class="pre">local</span></code>.</p>
+<p>Methods of <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">combinable</span></code> are not thread-safe, except for <code class="docutils literal notranslate"><span class="pre">local</span></code>.</p>
 </div>
 </div>
 </div>
@@ -404,7 +348,7 @@ except for <code class="docutils literal notranslate"><span class="pre">local</s
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="enumerable_thread_specific_cls.html" class="btn btn-neutral float-right" title="enumerable_thread_specific Template Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="enumerable_thread_specific_cls.html" class="btn btn-neutral float-right" title="enumerable_thread_specific" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../thread_local_storage.html" class="btn btn-neutral float-left" title="Thread Local Storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

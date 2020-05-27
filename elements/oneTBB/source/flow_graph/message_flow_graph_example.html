@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Body Objects" href="body_objects.html" />
+    <link rel="next" title="Task Scheduler" href="../task_scheduler.html" />
     <link rel="prev" title="Dependency Flow Graph Example" href="dependency_flow_graph_example.html" /> 
 </head>
 
@@ -110,20 +110,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../configuration.html">Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../algorithms.html">Algorithms</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../flow_graph.html">Flow Graph</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="graph_cls.html">graph Class</a></li>
-<li class="toctree-l4"><a class="reference internal" href="abstract_interfaces.html">Abstract Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="special_message_types.html">Special Message Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="functional_nodes.html">Functional Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="buffering_nodes.html">Buffering Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="service_nodes.html">Service Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ports_and_edges.html">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#graph-class">Graph Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#nodes">Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#ports-and-edges">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#special-messages-types">Special Messages Types</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../flow_graph.html#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../containers.html">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../thread_local_storage.html">Thread Local Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -187,8 +183,6 @@
         
           
         
-          
-        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -211,33 +205,19 @@
             
   <div class="section" id="message-flow-graph-example">
 <h1>Message Flow Graph Example<a class="headerlink" href="#message-flow-graph-example" title="Permalink to this headline">¶</a></h1>
-<p>This example calculates the sum
-<code class="docutils literal notranslate"><span class="pre">x*x</span> <span class="pre">+</span> <span class="pre">x*x*x</span></code> for all
-<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">to</span> <span class="pre">10</span></code>. The layout of this example is shown in
+<p>This example calculates the sum <code class="docutils literal notranslate"><span class="pre">x*x</span> <span class="pre">+</span> <span class="pre">x*x*x</span></code> for all <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">to</span> <span class="pre">10</span></code>. The layout of this example is shown in
 the figure below.</p>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../../../../_images/message_flow_graph.jpg"><img alt="../../../../_images/message_flow_graph.jpg" src="../../../../_images/message_flow_graph.jpg" style="width: 454px; height: 252px;" /></a>
 <p class="caption"><span class="caption-text">A simple message flow graph.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<p>Each value enters through the
-<code class="docutils literal notranslate"><span class="pre">input_node&lt;int&gt;````input</span></code>. This node broadcasts the value to both
-<code class="docutils literal notranslate"><span class="pre">squarer</span></code> and
-<code class="docutils literal notranslate"><span class="pre">cuber</span></code>, which calculate
-<code class="docutils literal notranslate"><span class="pre">x*x</span></code> and
-<code class="docutils literal notranslate"><span class="pre">x*x*x</span></code> respectively. The output of each of these nodes
-is put to one of
-<code class="docutils literal notranslate"><span class="pre">join</span></code>’s ports. A tuple containing both values is
-created by
-<code class="docutils literal notranslate"><span class="pre">join_node&lt;</span> <span class="pre">tuple&lt;int,int&gt;</span> <span class="pre">&gt;</span> <span class="pre">join</span></code> and
-forwarded to
-<code class="docutils literal notranslate"><span class="pre">summer</span></code>, which adds both values to the running total.
-Both
-<code class="docutils literal notranslate"><span class="pre">squarer</span></code> and
-<code class="docutils literal notranslate"><span class="pre">cuber</span></code> allow unlimited concurrency, that is they each
-may process multiple values simultaneously. The final
-<code class="docutils literal notranslate"><span class="pre">summer</span></code>, which updates a shared total, is only allowed
-to process a single incoming tuple at a time, eliminating the need for a lock
-around the shared value.</p>
+<p>Each value enters through the <code class="docutils literal notranslate"><span class="pre">broadcast_node&lt;int&gt;</span></code> <code class="docutils literal notranslate"><span class="pre">input</span></code>. This node broadcasts the value to both
+<code class="docutils literal notranslate"><span class="pre">squarer</span></code> and <code class="docutils literal notranslate"><span class="pre">cuber</span></code>, which calculate <code class="docutils literal notranslate"><span class="pre">x*x</span></code> and <code class="docutils literal notranslate"><span class="pre">x*x*x</span></code> respectively. The output of each
+of these nodes is put to one of <code class="docutils literal notranslate"><span class="pre">join</span></code>’s ports. A tuple containing both values is
+created by <code class="docutils literal notranslate"><span class="pre">join_node&lt;</span> <span class="pre">tuple&lt;int,int&gt;</span> <span class="pre">&gt;</span> <span class="pre">join</span></code> and forwarded to <code class="docutils literal notranslate"><span class="pre">summer</span></code>, which adds both
+values to the running total. Both <code class="docutils literal notranslate"><span class="pre">squarer</span></code> and <code class="docutils literal notranslate"><span class="pre">cuber</span></code> allow unlimited concurrency, that is they each
+may process multiple values simultaneously. The final <code class="docutils literal notranslate"><span class="pre">summer</span></code>, which updates a shared total, is only allowed
+to process a single incoming tuple at a time, eliminating the need for a lock around the shared value.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;tbb/flow_graph.h&quot;</span><span class="cp"></span>
 
@@ -287,35 +267,12 @@ around the shared value.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>In the example code above, the classes
-<code class="docutils literal notranslate"><span class="pre">square</span></code>,
-<code class="docutils literal notranslate"><span class="pre">cube</span></code> and
-<code class="docutils literal notranslate"><span class="pre">sum</span></code> define the three user-defined operations. Each
-class is used to create a
-<code class="docutils literal notranslate"><span class="pre">function_node</span></code>.</p>
-<p>In function
-<code class="docutils literal notranslate"><span class="pre">main</span></code>, the flow graph is set up and then the values
-1-10 are put into the node
-<code class="docutils literal notranslate"><span class="pre">input</span></code>. All the nodes in this example pass around
-values of type
-<code class="docutils literal notranslate"><span class="pre">int</span></code>. The nodes used in this example are all class
-templates and therefore can be used with any type that supports copy
+<p>In the example code above, the classes <code class="docutils literal notranslate"><span class="pre">square</span></code>, <code class="docutils literal notranslate"><span class="pre">cube</span></code> and <code class="docutils literal notranslate"><span class="pre">sum</span></code> define the three
+user-defined operations. Each class is used to create a <code class="docutils literal notranslate"><span class="pre">function_node</span></code>.</p>
+<p>In function <code class="docutils literal notranslate"><span class="pre">main</span></code>, the flow graph is set up and then the values 1-10 are put into the node
+<code class="docutils literal notranslate"><span class="pre">input</span></code>. All the nodes in this example pass around values of type <code class="docutils literal notranslate"><span class="pre">int</span></code>. The nodes used in
+this example are all class templates and therefore can be used with any type that supports copy
 construction, including pointers and objects.</p>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>Values are copied as they pass between nodes and therefore passing
-around large objects should be avoided. To avoid large copy overheads, pointers
-to large objects can be passed instead.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is a simple syntactic example only. Since each node in a flow
-graph may execute as an independent task, the granularity of each node should
-follow the general guidelines for tasks as described in Section 3.2.3 of the
-oneAPI Threading Building Blocks Tutorial.</p>
-</div>
-<p>The classes and functions used in this example are described in detail
-in topics linked from the Flow Graph parent topic.</p>
 </div>
 
 
@@ -326,7 +283,7 @@ in topics linked from the Flow Graph parent topic.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="body_objects.html" class="btn btn-neutral float-right" title="Body Objects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../task_scheduler.html" class="btn btn-neutral float-right" title="Task Scheduler" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="dependency_flow_graph_example.html" class="btn btn-neutral float-left" title="Dependency Flow Graph Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

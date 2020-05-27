@@ -42,7 +42,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Engine" href="api/engine.html" />
-    <link rel="prev" title="oneDPL 0.7" href="../../oneDPL/source/index.html" /> 
+    <link rel="prev" title="Specific API of oneDPL" href="../../oneDPL/source/extensions.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -189,13 +189,11 @@
             
   <div class="section" id="onednn-dnn-version">
 <span id="onednn-section"></span><h1>oneDNN 0.7<a class="headerlink" href="#onednn-dnn-version" title="Permalink to this headline">¶</a></h1>
-<p>oneAPI Deep Neural Network Library (oneDNN) is an open-source performance library for
-deep learning applications.  The library includes building blocks for
-deep learning applications and frameworks.</p>
-<p>oneDNN supports:</p>
+<p>oneAPI Deep Neural Network Library (oneDNN) is a performance library containind building blocks
+for for deep learning applications and frameworks. oneDNN supports:</p>
 <ul class="simple">
 <li><p>CNN primitives (Convolutions, Inner product, Pooling, etc.)</p></li>
-<li><p>RNN primitives (LSTM, Vanilla, RNN, GTU)</p></li>
+<li><p>RNN primitives (LSTM, Vanilla, RNN, GRU)</p></li>
 <li><p>Normalizations (LRN, Batch, Layer)</p></li>
 <li><p>Elementwise operations (ReLU, Tanh, ELU, Abs, etc.)</p></li>
 <li><p>Softmax, Sum, Concat, Shuffle</p></li>
@@ -205,8 +203,8 @@ deep learning applications and frameworks.</p>
 <p>The oneDNN API is based on four main abstractions:</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 17%" />
-<col style="width: 83%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Abstraction</p></th>
@@ -214,72 +212,56 @@ deep learning applications and frameworks.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Primitive</p></td>
-<td><p>A compute or a data transformation operation</p></td>
+<tr class="row-even"><td><p><strong>Engine</strong></p></td>
+<td><p>A hardware processing unit. An Engine encapsulates a
+user-provided DPC++ device and context.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Engine</p></td>
-<td><div class="line-block">
-<div class="line">A hardware processing unit.  An engine encapsulates</div>
-<div class="line">a user-provided DPC++ device and context.</div>
-</div>
-</td>
+<tr class="row-odd"><td><p><strong>Stream</strong></p></td>
+<td><p>A queue of operations on an Engine.</p></td>
 </tr>
-<tr class="row-even"><td><p>Memory</p></td>
-<td><div class="line-block">
-<div class="line">A memory object allocated on a particular Engine,</div>
-<div class="line">constructed from a buffer or from a unified shared</div>
-<div class="line">memory (USM) pointer.</div>
-</div>
-</td>
+<tr class="row-even"><td><p><strong>Primitive</strong></p></td>
+<td><p>A compute or a data transformation operation.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Stream</p></td>
-<td><p>A queue of primitives’ operations on an Engine</p></td>
+<tr class="row-odd"><td><p><strong>Memory</strong></p></td>
+<td><p>A multi-dimensional array (not necessarily contiguous) with
+elements of certain type allocated on a particular Engine,
+constructed from a buffer or from a unified shared memory
+(USM) pointer.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// User-defined DPCPP objects</span>
-<span class="n">sycl</span><span class="o">::</span><span class="n">device</span> <span class="n">dev</span><span class="p">;</span>
-<span class="n">sycl</span><span class="o">::</span><span class="n">context</span> <span class="n">ctx</span><span class="p">;</span>
-<span class="n">sycl</span><span class="o">::</span><span class="n">queue</span> <span class="n">queue</span><span class="p">;</span>
-
-<span class="c1">// This engine will operate on the specified device in the specified context</span>
-<span class="n">dnnl</span><span class="o">::</span><span class="n">engine</span> <span class="n">engine</span><span class="p">{</span><span class="n">dnnl</span><span class="o">::</span><span class="n">engine</span><span class="o">::</span><span class="n">kind</span><span class="o">::</span><span class="n">gpu</span><span class="p">,</span> <span class="n">dev</span><span class="p">,</span> <span class="n">ctx</span><span class="p">};</span>
-
-<span class="c1">// This Stream will use the specified DPC++ queue</span>
-<span class="n">dnnl</span><span class="o">::</span><span class="n">stream</span> <span class="n">stream</span><span class="p">{</span><span class="n">engine</span><span class="p">,</span> <span class="n">queue</span><span class="p">};</span>
-
-<span class="c1">// Tensor dimensions</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Tensor dimensions</span>
 <span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">;</span>
 
-<span class="c1">// Allocate DPC++ buffers for input and output memory objects</span>
-<span class="n">sycl</span><span class="o">::</span><span class="n">buffer</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="n">buf_in</span><span class="p">{</span><span class="n">sycl</span><span class="o">::</span><span class="n">range</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">{</span><span class="n">N</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">H</span> <span class="o">*</span> <span class="n">W</span><span class="p">}};</span>
-<span class="n">sycl</span><span class="o">::</span><span class="n">buffer</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="n">buf_out</span><span class="p">{</span><span class="n">sycl</span><span class="o">::</span><span class="n">range</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">{</span><span class="n">N</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">H</span> <span class="o">*</span> <span class="n">W</span><span class="p">}};</span>
+<span class="c1">// User-owned DPC++ objects</span>
+<span class="n">sycl</span><span class="o">::</span><span class="n">device</span> <span class="n">dev</span><span class="p">;</span> <span class="c1">// Device</span>
+<span class="n">sycl</span><span class="o">::</span><span class="n">context</span> <span class="n">ctx</span><span class="p">;</span> <span class="c1">// Context</span>
+<span class="n">sycl</span><span class="o">::</span><span class="n">queue</span> <span class="n">queue</span><span class="p">;</span> <span class="c1">// Queue</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">sycl</span><span class="o">::</span><span class="n">event</span><span class="o">&gt;</span> <span class="n">dependencies</span><span class="p">;</span> <span class="c1">// Input dependencies</span>
+<span class="n">sycl</span><span class="o">::</span><span class="n">buffer</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="n">buf_src</span> <span class="p">{</span><span class="n">sycl</span><span class="o">::</span><span class="n">range</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="p">{</span><span class="n">N</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">H</span> <span class="o">*</span> <span class="n">W</span><span class="p">}};</span> <span class="c1">// Buffer with source data</span>
+<span class="n">sycl</span><span class="o">::</span><span class="n">buffer</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="n">buf_dst</span> <span class="p">{</span><span class="n">sycl</span><span class="o">::</span><span class="n">range</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="p">{</span><span class="n">N</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">H</span> <span class="o">*</span> <span class="n">W</span><span class="p">}};</span> <span class="c1">// Buffer for result data</span>
 
-<span class="c1">// These memory objects will use buf_in and buf_out DPC++ buffers as the</span>
-<span class="c1">// underlying storage</span>
-<span class="n">dnnl</span><span class="o">::</span><span class="n">memory</span> <span class="n">mem_in</span><span class="p">{{</span><span class="n">N</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">},</span> <span class="n">dnnl</span><span class="o">::</span><span class="n">memory</span><span class="o">::</span><span class="n">data_type</span><span class="o">::</span><span class="n">f32</span><span class="p">,</span>
-            <span class="n">dnnl</span><span class="o">::</span><span class="n">memory</span><span class="o">::</span><span class="n">format_tag</span><span class="o">::</span><span class="n">nwhc</span><span class="p">},</span> <span class="n">engine</span><span class="p">,</span> <span class="n">buf_in</span><span class="p">};</span>
-<span class="n">dnnl</span><span class="o">::</span><span class="n">memory</span> <span class="n">mem_out</span><span class="p">{{</span><span class="n">N</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">},</span> <span class="n">dnnl</span><span class="o">::</span><span class="n">memory</span><span class="o">::</span><span class="n">data_type</span><span class="o">::</span><span class="n">f32</span><span class="p">,</span>
-            <span class="n">dnnl</span><span class="o">::</span><span class="n">memory</span><span class="o">::</span><span class="n">format_tag</span><span class="o">::</span><span class="n">nwhc</span><span class="p">},</span> <span class="n">engine</span><span class="p">,</span> <span class="n">buf_out</span><span class="p">};</span>
-
-<span class="c1">// Create a ReLU operation using elementwise primitive</span>
-<span class="n">dnnl</span><span class="o">::</span><span class="n">eltwise_forward</span> <span class="n">relu</span><span class="p">{{{</span><span class="n">dnnl</span><span class="o">::</span><span class="n">prop_kind</span><span class="o">::</span><span class="n">forward_inference</span><span class="p">,</span>
-            <span class="n">dnnl</span><span class="o">::</span><span class="n">algorithm</span><span class="o">::</span><span class="n">eltwise_relu</span><span class="p">,</span> <span class="n">mem_in</span><span class="p">.</span><span class="n">get_desc</span><span class="p">(),</span> <span class="mf">0.f</span><span class="p">,</span> <span class="mf">0.f</span><span class="p">},</span>
-            <span class="n">engine</span><span class="p">}};</span>
-
-<span class="c1">// User-defined input dependency events</span>
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">sycl</span><span class="o">::</span><span class="n">event</span><span class="o">&gt;</span> <span class="n">dependencies</span><span class="p">;</span>
-
-<span class="c1">// Execute ReLU in the stream (i.e. in the queue) passing input dependencies</span>
-<span class="c1">// and retrieving the output dependency</span>
-<span class="n">sycl</span><span class="o">::</span><span class="n">event</span> <span class="n">event</span> <span class="o">=</span> <span class="n">relu</span><span class="p">.</span><span class="n">execute_sycl</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span>
-            <span class="p">{{</span><span class="n">DNNL_ARG_SRC</span><span class="p">,</span> <span class="n">mem_in</span><span class="p">},</span> <span class="p">{</span><span class="n">DNNL_ARG_DST</span><span class="p">,</span> <span class="n">mem_out</span><span class="p">}},</span>
-            <span class="n">dependencies</span><span class="p">);</span>
+<span class="c1">// Create a GPU engine encapsulating users&#39; DPC++ GPU device and context</span>
+<span class="n">dnnl</span><span class="o">::</span><span class="n">engine</span> <span class="n">engine</span> <span class="p">{</span><span class="n">dnnl</span><span class="o">::</span><span class="n">engine</span><span class="o">::</span><span class="n">kind</span><span class="o">::</span><span class="n">gpu</span><span class="p">,</span> <span class="n">dev</span><span class="p">,</span> <span class="n">ctx</span><span class="p">};</span>
+<span class="c1">// Create a GPU stream encapsulating users&#39; DPC++ GPU queue</span>
+<span class="n">dnnl</span><span class="o">::</span><span class="n">stream</span> <span class="n">stream</span> <span class="p">{</span><span class="n">engine</span><span class="p">,</span> <span class="n">queue</span><span class="p">};</span>
+<span class="c1">// Create oneDNN memory objects that use buf_src and buf_dst as the underlying storage</span>
+<span class="n">dnnl</span><span class="o">::</span><span class="n">memory</span> <span class="n">mem_src</span> <span class="p">{{{</span><span class="n">N</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">},</span> <span class="n">dnnl</span><span class="o">::</span><span class="n">memory</span><span class="o">::</span><span class="n">data_type</span><span class="o">::</span><span class="n">f32</span><span class="p">,</span> <span class="n">dnnl</span><span class="o">::</span><span class="n">memory</span><span class="o">::</span><span class="n">format_tag</span><span class="o">::</span><span class="n">nhwc</span><span class="p">},</span>
+        <span class="n">engine</span><span class="p">,</span> <span class="n">buf_src</span><span class="p">};</span>
+<span class="n">dnnl</span><span class="o">::</span><span class="n">memory</span> <span class="n">mem_dst</span> <span class="p">{{{</span><span class="n">N</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">},</span> <span class="n">dnnl</span><span class="o">::</span><span class="n">memory</span><span class="o">::</span><span class="n">data_type</span><span class="o">::</span><span class="n">f32</span><span class="p">,</span> <span class="n">dnnl</span><span class="o">::</span><span class="n">memory</span><span class="o">::</span><span class="n">format_tag</span><span class="o">::</span><span class="n">nhwc</span><span class="p">},</span>
+        <span class="n">engine</span><span class="p">,</span> <span class="n">buf_dst</span><span class="p">};</span>
+<span class="c1">// Create a ReLU elementwise primitive</span>
+<span class="n">dnnl</span><span class="o">::</span><span class="n">eltwise_forward</span> <span class="n">relu</span> <span class="p">{{{</span><span class="n">dnnl</span><span class="o">::</span><span class="n">prop_kind</span><span class="o">::</span><span class="n">forward_inference</span><span class="p">,</span> <span class="n">dnnl</span><span class="o">::</span><span class="n">algorithm</span><span class="o">::</span><span class="n">eltwise_relu</span><span class="p">,</span>
+                                     <span class="n">mem_src</span><span class="p">.</span><span class="n">get_desc</span><span class="p">(),</span> <span class="mf">0.f</span><span class="p">,</span> <span class="mf">0.f</span><span class="p">},</span>
+        <span class="n">engine</span><span class="p">}};</span>
+<span class="c1">// Execute the ReLU primitive in the stream passing input events and retrieving the output event</span>
+<span class="n">sycl</span><span class="o">::</span><span class="n">event</span> <span class="n">event</span> <span class="o">=</span> <span class="n">relu</span><span class="p">.</span><span class="n">execute_sycl</span><span class="p">(</span>
+        <span class="n">stream</span><span class="p">,</span> <span class="p">{{</span><span class="n">DNNL_ARG_SRC</span><span class="p">,</span> <span class="n">mem_src</span><span class="p">},</span> <span class="p">{</span><span class="n">DNNL_ARG_DST</span><span class="p">,</span> <span class="n">mem_dst</span><span class="p">}},</span> <span class="n">dependencies</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="section" id="open-source-implementation">
 <h2>Open Source Implementation<a class="headerlink" href="#open-source-implementation" title="Permalink to this headline">¶</a></h2>
-<p>Intel has published an <a class="reference external" href="https://github.com/intel/mkl-dnn">open source implementation</a> with the Apache
+<p>Intel has published an <a class="reference external" href="https://github.com/oneapi-src/oneDNN/tree/dev-v2">open source implementation</a> with the Apache
 license.</p>
 </div>
 <div class="section" id="api">
@@ -295,6 +277,7 @@ license.</p>
 <li class="toctree-l2"><a class="reference internal" href="api/primitives/convolution.html">Convolution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/primitives/deconvolution.html">Deconvolution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/primitives/inner_product.html">Inner Product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/primitives/matmul.html">Matrix Multiplication</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/primitives/rnn.html">RNN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/primitives/batch_normalization.html">Batch Normalization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/primitives/binary.html">Binary</a></li>
@@ -319,8 +302,8 @@ license.</p>
 <h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
 <p>Intel’s binary distribution of oneDNN contains example code that you
 can be used to test library functionality.</p>
-<p>The <a class="reference external" href="https://github.com/intel/mkl-dnn">open source implementation</a> includes a comprehensive test suite.
-Consult the <a class="reference external" href="https://github.com/intel/mkl-dnn/blob/master/README.md">README</a> for directions.</p>
+<p>The <a class="reference external" href="https://github.com/oneapi-src/oneDNN/tree/dev-v2">open source implementation</a> includes a comprehensive test suite.
+Consult the <a class="reference external" href="https://github.com/oneapi-src/oneDNN/blob/dev-v2/README.md">README</a> for directions.</p>
 </div>
 </div>
 
@@ -335,7 +318,7 @@ Consult the <a class="reference external" href="https://github.com/intel/mkl-dnn
         <a href="api/engine.html" class="btn btn-neutral float-right" title="Engine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../oneDPL/source/index.html" class="btn btn-neutral float-left" title="oneDPL 0.7" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../oneDPL/source/extensions.html" class="btn btn-neutral float-left" title="Specific API of oneDPL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

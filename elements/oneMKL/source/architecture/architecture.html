@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="2. oneMKL Domain Interfaces" href="../domains/domains.html" />
+    <link rel="next" title="2. oneMKL Domains" href="../domains/domains.html" />
     <link rel="prev" title="oneMKL 0.7" href="../index.html" /> 
 </head>
 
@@ -116,8 +116,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#memory-model">1.2. Memory Model</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#the-buffer-memory-model">1.2.1. The buffer memory model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#unified-shared-memory-model">1.2.2. Unified Shared Memory model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-buffer-memory-model">1.2.1. The Buffer Memory Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unified-shared-memory-model">1.2.2. Unified Shared Memory Model</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#api-design-in-onemkl">1.3. API design in oneMKL</a><ul>
@@ -135,7 +135,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../domains/domains.html">2. oneMKL Domain Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../domains/domains.html">2. oneMKL Domains</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../contributors.html">Contributors</a></li>
@@ -269,14 +269,15 @@ The execution requirements for computational routines from the previous section 
 <span id="onemkl-memory-model"></span><h2><span class="section-number">1.2. </span>Memory Model<a class="headerlink" href="#memory-model" title="Permalink to this headline">¶</a></h2>
 <p>The oneMKL memory model shall follow directly from the oneAPI memory model.  Mainly, oneMKL shall support two modes of encapsulating data for consumption on the device: the buffer memory abstraction model and the pointer-based memory model using Unified Shared Memory (USM).  These two paradigms shall also support both synchronous and asynchronous execution models as described in <a class="reference internal" href="#onemkl-asynchronous-synchronous-execution"><span class="std std-ref">Asynchronous Execution</span></a>.</p>
 <div class="section" id="the-buffer-memory-model">
-<span id="onemkl-buffers"></span><h3><span class="section-number">1.2.1. </span>The buffer memory model<a class="headerlink" href="#the-buffer-memory-model" title="Permalink to this headline">¶</a></h3>
+<span id="onemkl-buffers"></span><h3><span class="section-number">1.2.1. </span>The Buffer Memory Model<a class="headerlink" href="#the-buffer-memory-model" title="Permalink to this headline">¶</a></h3>
 <p>The SYCL 1.2.1 specification defines the buffer container templated on the provided data type which encapsulates the data in a SYCL application across both host and devices.  It provides the concept of accessors as the mechanism to access the buffer data with different modes to read and or write into that data. These accessors allow SYCL to create and manage the data dependencies in the SYCL graph that order the kernel executions.  With the buffer model, all data movement is handled by the SYCL runtime supporting both synchronous and asynchronous execution.</p>
 <p>oneMKL provides APIs where buffers (in particular 1D buffers, <code class="docutils literal notranslate"><span class="pre">sycl::buffer&lt;T,1&gt;</span></code>) contain the memory for all non scalar input and output data arguments. See <a class="reference internal" href="#onemkl-synchronization-with-buffers"><span class="std std-ref">Synchronization When Using Buffers</span></a> for details on how oneMKL routines manage any data dependencies with buffer arguments.  Any higher dimensional buffer must be converted to a 1D buffer prior to use in oneMKL APIs, e.g., via <code class="docutils literal notranslate"><span class="pre">buffer::reinterpret</span></code>.</p>
 </div>
 <div class="section" id="unified-shared-memory-model">
-<span id="onemkl-usm"></span><h3><span class="section-number">1.2.2. </span>Unified Shared Memory model<a class="headerlink" href="#unified-shared-memory-model" title="Permalink to this headline">¶</a></h3>
-<p>While the buffer model is powerful and elegantly expresses the data dependencies, it can be a burden for programmers to replace all pointers and arrays by buffers in their C++ applications.  A pointer-based model called Unified Shared Memory (USM) has also been provided in the DPC++ language. This alternative approach allows the programmer to use standard C++ pointers that have been allocated using one of the DPC++ provided memory allocation routines (e.g., <code class="docutils literal notranslate"><span class="pre">malloc_shared()</span></code>). The USM pointers, however, do not manage data dependencies between enqueued actions on the USM data, so DPC++ language provides <code class="docutils literal notranslate"><span class="pre">sycl::event</span></code> objects associated with each enqueued submission which can be used to explicitly manage the dependencies.</p>
-<p>oneMKL provides APIs where USM pointers contain the memory for all non scalar input and output data arguments. Additionally, oneMKL APIs with USM pointers shall provide means to pass <code class="docutils literal notranslate"><span class="pre">sycl::events</span></code> to manage the data dependencies.  See <a class="reference internal" href="#onemkl-synchronization-with-usm"><span class="std std-ref">Synchronization When Using USM APIs</span></a> for the details.</p>
+<span id="onemkl-usm"></span><h3><span class="section-number">1.2.2. </span>Unified Shared Memory Model<a class="headerlink" href="#unified-shared-memory-model" title="Permalink to this headline">¶</a></h3>
+<p>While the buffer model is powerful and elegantly expresses data dependencies, it can be a burden for programmers to replace all pointers and arrays by buffers in their C++ applications. DPC++ also provides pointer-based addressing for device-accessible data, using the Unified Shared Memory (USM) model. Correspondingly, oneMKL provides USM APIs in which non-scalar input and output data arguments are passed by USM pointer.</p>
+<p>USM devices and system configurations vary in their ability to share data between devices and between a device and the host. oneMKL implementations may only assume that user-provided USM pointers are accessible by the device associated with the user-provided queue. In particular, an implementation must not assume that USM pointers can be accessed by any other device, or by the host, without querying the DPC++ runtime. An implementation must accept any device-accessible USM pointer regardless of how it was created (<cite>sycl::malloc_device</cite>, <cite>sycl::malloc_shared</cite>, etc.).</p>
+<p>Unlike buffers, USM pointers cannot automatically manage data dependencies between kernels. Users may use in-order queues to ensure ordered execution, or explicitly manage dependencies with <code class="docutils literal notranslate"><span class="pre">sycl::event</span></code> objects. To support the second use case, oneMKL USM APIs accept input events (prerequisites before computation can begin) and return an output event (indicating computation is complete). See <a class="reference internal" href="#onemkl-synchronization-with-usm"><span class="std std-ref">Synchronization When Using USM APIs</span></a> for details.</p>
 </div>
 </div>
 <div class="section" id="api-design-in-onemkl">
@@ -322,27 +323,23 @@ The execution requirements for computational routines from the previous section 
 </div>
 <div class="section" id="standard-c-datatype-usage">
 <span id="onemkl-cpp-datatypes"></span><h3><span class="section-number">1.3.2. </span>Standard C++ datatype usage<a class="headerlink" href="#standard-c-datatype-usage" title="Permalink to this headline">¶</a></h3>
-<dl class="simple">
-<dt>oneMKL uses C++ STL data types for scalars where applicable:</dt><dd><ul class="simple">
+<p>oneMKL uses C++ STL data types for scalars where applicable:</p>
+<ul class="simple">
 <li><p>Integer scalars are C++ fixed-size integer types (<code class="docutils literal notranslate"><span class="pre">std::intN_t</span></code>, <code class="docutils literal notranslate"><span class="pre">std::uintN_t</span></code>).</p></li>
 <li><p>Complex numbers are represented by C++ <code class="docutils literal notranslate"><span class="pre">std::complex</span></code> types.</p></li>
 </ul>
-</dd>
-</dl>
 <p>In general, scalar integer arguments to oneMKL routines are 64 bit integers (<code class="docutils literal notranslate"><span class="pre">std::int64_t</span></code> or <code class="docutils literal notranslate"><span class="pre">std::uint64_t</span></code>). Integer vectors and matrices may have varying bit widths, defined on a per-routine basis.</p>
 </div>
 <div class="section" id="dpc-datatype-usage">
 <span id="onemkl-dpcpp-datatypes"></span><h3><span class="section-number">1.3.3. </span>DPC++ datatype usage<a class="headerlink" href="#dpc-datatype-usage" title="Permalink to this headline">¶</a></h3>
-<dl class="simple">
-<dt>oneMKL uses following SYCL Language data types and DPC++ Language Extensions data types:</dt><dd><ul class="simple">
+<p>oneMKL uses following SYCL Language data types and DPC++ Language Extensions data types:</p>
+<ul class="simple">
 <li><p>SYCL queue <code class="docutils literal notranslate"><span class="pre">sycl::queue</span></code> for scheduling kernels on a SYCL device. See <a class="reference internal" href="#onemkl-queues"><span class="std std-ref">Queues</span></a> for more details.</p></li>
-<li><p>SYCL buffer <code class="docutils literal notranslate"><span class="pre">sycl::buffer</span></code> for buffer based memory access. See <a class="reference internal" href="#onemkl-buffers"><span class="std std-ref">The buffer memory model</span></a> for more details.</p></li>
-<li><p>DPC++ Extension Unified Shared Memory (USM) for pointer based memory access. See <a class="reference internal" href="#onemkl-usm"><span class="std std-ref">Unified Shared Memory model</span></a> for more details.</p></li>
+<li><p>SYCL buffer <code class="docutils literal notranslate"><span class="pre">sycl::buffer</span></code> for buffer based memory access. See <a class="reference internal" href="#onemkl-buffers"><span class="std std-ref">The Buffer Memory Model</span></a> for more details.</p></li>
+<li><p>DPC++ Extension Unified Shared Memory (USM) for pointer based memory access. See <a class="reference internal" href="#onemkl-usm"><span class="std std-ref">Unified Shared Memory Model</span></a> for more details.</p></li>
 <li><p>SYCL event <code class="docutils literal notranslate"><span class="pre">sycl::event</span></code> for output event synchronization in oneMKL routines with USM pointers. See <a class="reference internal" href="#onemkl-synchronization-with-usm"><span class="std std-ref">Synchronization When Using USM APIs</span></a> for more details.</p></li>
 <li><p>Vector of SYCL events <code class="docutils literal notranslate"><span class="pre">sycl::vector_class&lt;sycl::event&gt;</span></code> for input events synchronization in oneMKL routines with USM pointers. See <a class="reference internal" href="#onemkl-synchronization-with-usm"><span class="std std-ref">Synchronization When Using USM APIs</span></a> for more details.</p></li>
 </ul>
-</dd>
-</dl>
 </div>
 <div class="section" id="onemkl-defined-datatypes">
 <span id="onemkl-datatypes"></span><h3><span class="section-number">1.3.4. </span>oneMKL defined datatypes<a class="headerlink" href="#onemkl-defined-datatypes" title="Permalink to this headline">¶</a></h3>
@@ -531,7 +528,7 @@ take the following values</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../domains/domains.html" class="btn btn-neutral float-right" title="2. oneMKL Domain Interfaces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../domains/domains.html" class="btn btn-neutral float-right" title="2. oneMKL Domains" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral float-left" title="oneMKL 0.7" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

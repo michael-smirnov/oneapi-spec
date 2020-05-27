@@ -119,7 +119,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../containers.html">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../thread_local_storage.html">Thread Local Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -205,7 +204,8 @@
             
   <div class="section" id="enabling-debugging-features">
 <h1>Enabling Debugging Features<a class="headerlink" href="#enabling-debugging-features" title="Permalink to this headline">¶</a></h1>
-<p>Four macros control certain debugging features. In general, it is useful to compile with
+<p><strong>[configuration.debug_features]</strong></p>
+<p>The following macros control certain debugging features. In general, it is useful to compile with
 these features on for development code, and off for production code, because the features
 may decrease performance. The table below summarizes the macros and their default values. A
 value of 1 enables the corresponding feature; a value of 0 disables the feature.</p>
@@ -236,47 +236,27 @@ value of 1 enables the corresponding feature; a value of 0 disables the feature.
 <td><p><code class="docutils literal notranslate"><span class="pre">TBB_USE_DEBUG</span></code></p></td>
 <td><p>Enable internal assertion checking. Can significantly slow performance.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TBB_USE_THREADING_TOOLS</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TBB_USE_PROFILING_TOOLS</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">TBB_USE_DEBUG</span></code></p></td>
 <td><p>Enable full support for analysis tools.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TBB_USE_PERFORMANCE_WARNINGS</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">TBB_USE_DEBUG</span></code></p></td>
-<td><p>Enable warnings about performance issues.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="tbb-use-assert-macro">
 <h2>TBB_USE_ASSERT Macro<a class="headerlink" href="#tbb-use-assert-macro" title="Permalink to this headline">¶</a></h2>
 <p>The macro <code class="docutils literal notranslate"><span class="pre">TBB_USE_ASSERT</span></code> controls whether error checking is enabled in the
-header files. Define <code class="docutils literal notranslate"><span class="pre">TBB_USE_ASSERT</span></code> as <code class="docutils literal notranslate"><span class="pre">1</span></code> to enable error
-checking.</p>
+header files. Define <code class="docutils literal notranslate"><span class="pre">TBB_USE_ASSERT</span></code> as <code class="docutils literal notranslate"><span class="pre">1</span></code> to enable error checking.</p>
 <p>If an error is detected, the library prints an error message on <code class="docutils literal notranslate"><span class="pre">stderr</span></code> and
 calls the standard C routine <code class="docutils literal notranslate"><span class="pre">abort</span></code>. To stop a program when internal error
 checking detects a failure, place a breakpoint on <code class="docutils literal notranslate"><span class="pre">tbb::assertion_failure</span></code>.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>On Microsoft Windows* operating systems, debug builds implicitly set
-<code class="docutils literal notranslate"><span class="pre">TBB_USE_ASSERT</span></code> to 1 by default</p>
 </div>
-</div>
-<div class="section" id="tbb-use-threading-tools-macro">
-<h2>TBB_USE_THREADING_TOOLS Macro<a class="headerlink" href="#tbb-use-threading-tools-macro" title="Permalink to this headline">¶</a></h2>
-<p>The macro <code class="docutils literal notranslate"><span class="pre">TBB_USE_THREADING_TOOLS</span></code> controls support for Intel®
+<div class="section" id="tbb-use-profiling-tools-macro">
+<h2>TBB_USE_PROFILING_TOOLS Macro<a class="headerlink" href="#tbb-use-profiling-tools-macro" title="Permalink to this headline">¶</a></h2>
+<p>The macro <code class="docutils literal notranslate"><span class="pre">TBB_USE_PROFILING_TOOLS</span></code> controls support for Intel®
 Inspector XE, Intel® VTune™ Amplifier XE and Intel® Advisor.</p>
-<p>Define <code class="docutils literal notranslate"><span class="pre">TBB_USE_THREADING_TOOLS</span></code> as <code class="docutils literal notranslate"><span class="pre">1</span></code> to enable full support
-for these tools. Leave <code class="docutils literal notranslate"><span class="pre">TBB_USE_THREADING_TOOLS</span></code> undefined or zero to enable
+<p>Define <code class="docutils literal notranslate"><span class="pre">TBB_USE_PROFILING_TOOLS</span></code> as <code class="docutils literal notranslate"><span class="pre">1</span></code> to enable full support
+for these tools. Leave <code class="docutils literal notranslate"><span class="pre">TBB_USE_PROFILING_TOOLS</span></code> undefined or zero to enable
 top performance in release builds, at the expense of turning off some support for tools.</p>
-</div>
-<div class="section" id="tbb-use-performance-warnings-macro">
-<h2>TBB_USE_PERFORMANCE_WARNINGS Macro<a class="headerlink" href="#tbb-use-performance-warnings-macro" title="Permalink to this headline">¶</a></h2>
-<p>The macro <code class="docutils literal notranslate"><span class="pre">TBB_USE_PERFORMANCE_WARNINGS</span></code> controls performance
-warnings. Define it to be 1 to enable the warnings. Currently, the warnings affected are:</p>
-<ul class="simple">
-<li><p>Some that report poor hash functions for <code class="docutils literal notranslate"><span class="pre">concurrent_hash_map</span></code>. Enabling
-the warnings may impact performance.</p></li>
-<li><p>Slow misaligned 8-byte atomic stores in 32-bit programs for Intel® processors.</p></li>
-</ul>
 </div>
 </div>
 

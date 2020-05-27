@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>cache_aligned_allocator Template Class &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>cache_aligned_allocator &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="zero_allocator" href="zero_allocator.html" />
-    <link rel="prev" title="scalable allocator Template Class" href="scalable_allocator_cls.html" /> 
+    <link rel="next" title="cache_aligned_resource" href="cache_aligned_resource_cls.html" />
+    <link rel="prev" title="scalable_allocator" href="scalable_allocator_cls.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -109,13 +109,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../nested-interfaces.html">oneTBB Interfaces</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../memory_allocation.html">Memory Allocation</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="c_interface_to_scalable_allocator.html">C Interface to Scalable Allocator</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="allocator_concept.html">Allocator Concept</a></li>
-<li class="toctree-l4"><a class="reference internal" href="memory_resource_interface.html">Memory Resource Interface</a></li>
-<li class="toctree-l4"><a class="reference internal" href="TBB_malloc_replacement_log_func.html">TBB_malloc_replacement_log Function</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../memory_allocation.html#allocators">Allocators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../memory_allocation.html#memory-resources">Memory Resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../memory_allocation.html#library-functions">Library Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../synchronization.html">Synchronization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutual_exclusion.html">Mutual Exclusion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../timing.html">Timing</a></li>
 </ul>
 </li>
@@ -179,8 +178,6 @@
         
           
         
-          
-        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -201,162 +198,89 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="cache-aligned-allocator-template-class">
-<h1>cache_aligned_allocator Template Class<a class="headerlink" href="#cache-aligned-allocator-template-class" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>Template class for allocating memory in a way that
-avoids false sharing.</p>
-</div>
-<div class="section" id="syntax">
-<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">cache_aligned_allocator</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="header">
-<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;tbb/cache_aligned_allocator.h&quot;</span><span class="cp"></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>A
-<code class="docutils literal notranslate"><span class="pre">cache_aligned_allocator</span></code> allocates memory on cache line
-boundaries, in order to avoid false sharing. False sharing is when logically
-distinct items occupy the same cache line, which can hurt performance if
-multiple threads attempt to access the different items simultaneously. Even
-though the items are logically separate, the processor hardware may have to
-transfer the cache line between the processors as if they were sharing a
-location. The net result can be much more memory traffic than if the logically
-distinct items were on different cache lines.</p>
-<p>A
-<code class="docutils literal notranslate"><span class="pre">cache_aligned_allocator</span></code> models the Allocator Concept.
-It can be used to replace a
-<code class="docutils literal notranslate"><span class="pre">std::allocator</span></code>. Used judiciously,
-<code class="docutils literal notranslate"><span class="pre">cache_aligned_allocator</span></code> can improve performance by
-reducing false sharing. However, it is sometimes an inappropriate replacement,
-because the benefit of allocating on a cache line comes at the price that
-<code class="docutils literal notranslate"><span class="pre">cache_aligned_allocator</span></code> implicitly adds pad memory.
-The padding is typically 128 bytes. Hence allocating many small objects with
-<code class="docutils literal notranslate"><span class="pre">cache_aligned_allocator</span></code> may increase memory usage.</p>
-</div>
-<div class="section" id="members">
-<h2>Members<a class="headerlink" href="#members" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">tbb</span> <span class="p">{</span>
+  <div class="section" id="cache-aligned-allocator">
+<h1>cache_aligned_allocator<a class="headerlink" href="#cache-aligned-allocator" title="Permalink to this headline">¶</a></h1>
+<p><strong>[memory_allocation.cache_aligned_allocator]</strong></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">cache_aligned_allocator</span></code> is a class template that models the allocator requirements from the [allocator.requirements] ISO C++ section.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">cache_aligned_allocator</span></code> allocates memory on cache line boundaries, in order to avoid false sharing and potentially improve performance.
+False sharing is a situation when logically distinct items occupy the same cache line,
+which can hurt performance if multiple threads attempt to access the different items simultaneously.
+Even though the items are logically separate, the processor hardware may have to transfer the cache line between the processors
+as if they were sharing a location. The net result can be much more memory traffic than if the logically distinct items were on different cache lines.</p>
+<p>However, this class is sometimes an inappropriate replacement for default allocator, because the benefit of allocating on a cache line comes at the price
+that <code class="docutils literal notranslate"><span class="pre">cache_aligned_allocator</span></code> implicitly adds pad memory. Hence allocating many small objects with <code class="docutils literal notranslate"><span class="pre">cache_aligned_allocator</span></code> may increase memory usage.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Defined in header &lt;tbb/cache_aligned_allocator.h&gt;</span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-    <span class="k">class</span> <span class="nc">cache_aligned_allocator</span> <span class="p">{</span>
+<span class="k">namespace</span> <span class="n">tbb</span> <span class="p">{</span>
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">cache_aligned_allocator</span> <span class="p">{</span>
     <span class="k">public</span><span class="o">:</span>
-        <span class="k">typedef</span> <span class="n">T</span><span class="o">*</span> <span class="n">pointer</span><span class="p">;</span>
-        <span class="k">typedef</span> <span class="k">const</span> <span class="n">T</span><span class="o">*</span> <span class="n">const_pointer</span><span class="p">;</span>
-        <span class="k">typedef</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">reference</span><span class="p">;</span>
-        <span class="k">typedef</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">const_reference</span><span class="p">;</span>
-        <span class="k">typedef</span> <span class="n">T</span> <span class="n">value_type</span><span class="p">;</span>
-        <span class="k">typedef</span> <span class="kt">size_t</span> <span class="n">size_type</span><span class="p">;</span>
-        <span class="k">typedef</span> <span class="kt">ptrdiff_t</span> <span class="n">difference_type</span><span class="p">;</span>
-        <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">rebind</span> <span class="p">{</span>
-            <span class="k">typedef</span> <span class="n">cache_aligned_allocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">other</span><span class="p">;</span>
-        <span class="p">};</span>
+        <span class="k">using</span> <span class="n">value_type</span> <span class="o">=</span> <span class="n">T</span><span class="p">;</span>
+        <span class="k">using</span> <span class="n">size_type</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">;</span>
+        <span class="k">using</span> <span class="n">propagate_on_container_move_assignment</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">true_type</span><span class="p">;</span>
+        <span class="k">using</span> <span class="n">is_always_equal</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">true_type</span><span class="p">;</span>
 
-    <span class="cp">#if _WIN64</span>
-        <span class="kt">char</span><span class="o">*</span> <span class="nf">_Charalloc</span><span class="p">(</span> <span class="n">size_type</span> <span class="n">size</span> <span class="p">);</span>
-    <span class="cp">#endif </span><span class="cm">/* _WIN64 */</span><span class="cp"></span>
-
-        <span class="n">cache_aligned_allocator</span><span class="p">()</span> <span class="k">throw</span><span class="p">();</span>
-        <span class="n">cache_aligned_allocator</span><span class="p">(</span> <span class="k">const</span> <span class="n">cache_aligned_allocator</span><span class="o">&amp;</span> <span class="p">)</span> <span class="k">throw</span><span class="p">();</span>
+        <span class="n">cache_aligned_allocator</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
         <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
-        <span class="n">cache_aligned_allocator</span><span class="p">(</span> <span class="k">const</span> <span class="n">cache_aligned_allocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="p">)</span> <span class="k">throw</span><span class="p">();</span>
-        <span class="o">~</span><span class="n">cache_aligned_allocator</span><span class="p">();</span>
+        <span class="n">cache_aligned_allocator</span><span class="p">(</span><span class="k">const</span> <span class="n">cache_aligned_allocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
 
-        <span class="n">pointer</span> <span class="nf">address</span><span class="p">(</span><span class="n">reference</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-        <span class="n">const_pointer</span> <span class="nf">address</span><span class="p">(</span><span class="n">const_reference</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
-
-        <span class="n">pointer</span> <span class="nf">allocate</span><span class="p">(</span> <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">hint</span><span class="o">=</span><span class="mi">0</span> <span class="p">);</span>
-        <span class="kt">void</span> <span class="nf">deallocate</span><span class="p">(</span> <span class="n">pointer</span> <span class="n">p</span><span class="p">,</span> <span class="n">size_type</span> <span class="p">);</span>
-        <span class="n">size_type</span> <span class="nf">max_size</span><span class="p">()</span> <span class="k">const</span> <span class="k">throw</span><span class="p">();</span>
-
-        <span class="kt">void</span> <span class="nf">construct</span><span class="p">(</span> <span class="n">pointer</span> <span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span> <span class="p">);</span>
-        <span class="kt">void</span> <span class="nf">destroy</span><span class="p">(</span> <span class="n">pointer</span> <span class="n">p</span> <span class="p">);</span>
+        <span class="n">T</span><span class="o">*</span> <span class="nf">allocate</span><span class="p">(</span><span class="n">size_type</span><span class="p">);</span>
+        <span class="kt">void</span> <span class="nf">deallocate</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="p">,</span> <span class="n">size_type</span><span class="p">);</span>
+        <span class="n">size_type</span> <span class="nf">max_size</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>
     <span class="p">};</span>
-
-    <span class="k">template</span><span class="o">&lt;&gt;</span>
-    <span class="k">class</span> <span class="nc">cache_aligned_allocator</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="k">public</span><span class="o">:</span>
-        <span class="k">typedef</span> <span class="kt">void</span><span class="o">*</span> <span class="n">pointer</span><span class="p">;</span>
-        <span class="k">typedef</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">const_pointer</span><span class="p">;</span>
-        <span class="k">typedef</span> <span class="kt">void</span> <span class="n">value_type</span><span class="p">;</span>
-        <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">rebind</span> <span class="p">{</span>
-            <span class="k">typedef</span> <span class="n">cache_aligned_allocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">other</span><span class="p">;</span>
-        <span class="p">};</span>
-    <span class="p">};</span>
-
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
-    <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span> <span class="k">const</span> <span class="n">cache_aligned_allocator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="p">,</span>
-                     <span class="k">const</span> <span class="n">cache_aligned_allocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="p">);</span>
-
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
-    <span class="kt">bool</span> <span class="k">operator</span><span class="o">!=</span><span class="p">(</span> <span class="k">const</span> <span class="n">cache_aligned_allocator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="p">,</span>
-                     <span class="k">const</span> <span class="n">cache_aligned_allocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="p">);</span>
-
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>For sake of brevity, the following table describes
-only those methods that differ significantly from the corresponding methods of
-<code class="docutils literal notranslate"><span class="pre">std::allocator</span></code>.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 1%" />
-<col style="width: 99%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head" colspan="2"><p>Member, Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">pointer</span> <span class="pre">allocate(</span> <span class="pre">size_type</span> <span class="pre">n,</span> <span class="pre">const</span> <span class="pre">void*</span> <span class="pre">hint=0</span> <span class="pre">)</span></code></dt><dd><p>Allocates
-<em>n</em> bytes of memory on a cache-line boundary. The
-allocation may include extra hidden padding.</p>
-<p><strong>Returns</strong>: Pointer to the allocated memory.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">deallocate(</span> <span class="pre">pointer</span> <span class="pre">p,</span> <span class="pre">size_type</span> <span class="pre">n</span> <span class="pre">)</span></code></dt><dd><p><strong>Requirements</strong>: Pointer
-<code class="docutils literal notranslate"><span class="pre">p</span></code> must be the result of method
-<code class="docutils literal notranslate"><span class="pre">allocate(n)</span></code>. The memory must not have been
-already deallocated.</p>
-<p><strong>Effects</strong>: Deallocates memory pointed to by
-<code class="docutils literal notranslate"><span class="pre">p</span></code>. The deallocation also deallocates any
-extra hidden padding.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">char*</span> <span class="pre">_Charalloc(</span> <span class="pre">size_type</span> <span class="pre">size</span> <span class="pre">)</span></code></dt><dd><dl>
-<dt></dt><dd><div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This method is provided only on 64-bit Windows* OS
-platforms. It is a non-ISO method that exists for backwards compatibility with
-versions of Window’s containers that seem to require it. Please do not use it
-directly.</p>
+<div class="section" id="member-functions">
+<h2>Member Functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="_CPPv48allocate9size_type">
+<span id="_CPPv38allocate9size_type"></span><span id="_CPPv28allocate9size_type"></span><span id="allocate__size_type"></span>T *<code class="sig-name descname">allocate</code><span class="sig-paren">(</span><a class="reference internal" href="../algorithms/blocked_ranges/blocked_range_cls.html#_CPPv49size_type" title="size_type">size_type</a> <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48allocate9size_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns a pointer to the allocated <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">*</span> <span class="pre">sizeof(T)</span></code> bytes of memory, aligned on a cache-line boundary.
+The allocation may include extra hidden padding.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv410deallocateP1T9size_type">
+<span id="_CPPv310deallocateP1T9size_type"></span><span id="_CPPv210deallocateP1T9size_type"></span><span id="deallocate__TP.size_type"></span>void <code class="sig-name descname">deallocate</code><span class="sig-paren">(</span>T *<em>p</em>, <a class="reference internal" href="../algorithms/blocked_ranges/blocked_range_cls.html#_CPPv49size_type" title="size_type">size_type</a> <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410deallocateP1T9size_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Deallocates memory pointed to by <code class="docutils literal notranslate"><span class="pre">p</span></code>. The deallocation also deallocates any extra hidden padding.
+The behavior is undefined if the pointer <code class="docutils literal notranslate"><span class="pre">p</span></code> is not the result of the <code class="docutils literal notranslate"><span class="pre">allocate(n)</span></code> method.
+The behavior is undefined if the memory has been already deallocated.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK8max_sizeEv">
+<span id="_CPPv3NK8max_sizeEv"></span><span id="_CPPv2NK8max_sizeEv"></span><span id="max_sizeC"></span><a class="reference internal" href="../algorithms/blocked_ranges/blocked_range_cls.html#_CPPv49size_type" title="size_type">size_type</a> <code class="sig-name descname">max_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4NK8max_sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the largest value <code class="docutils literal notranslate"><span class="pre">n</span></code> for which the call <code class="docutils literal notranslate"><span class="pre">allocate(n)</span></code> might succeed with cache alignment constraints.</p>
+</dd></dl>
+
 </div>
-</dd>
-</dl>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<div class="section" id="non-member-functions">
+<h2>Non-member Functions<a class="headerlink" href="#non-member-functions" title="Permalink to this headline">¶</a></h2>
+<p>These functions provide comparison operations between two <code class="docutils literal notranslate"><span class="pre">cache_aligned_allocator</span></code> instances.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">cache_aligned_allocator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">cache_aligned_allocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="k">const</span> <span class="n">cache_aligned_allocator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">cache_aligned_allocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The namespace where these functions are defined is unspecified, as long as they may be used in respective binary operation expressions on <code class="docutils literal notranslate"><span class="pre">cache_aligned_allocator</span></code> objects.
+For example, an implementation may define the classes and functions in the same unspecified internal namespace,
+and define <code class="docutils literal notranslate"><span class="pre">tbb::cache_aligned_allocator</span></code> as a type alias for which the non-member functions are reachable only via argument dependent lookup.</p>
+<dl class="function">
+<dt id="_CPPv4I00EeqbRK23cache_aligned_allocatorI1TERK23cache_aligned_allocatorI1UE">
+<span id="_CPPv3I00EeqRK23cache_aligned_allocatorI1TERK23cache_aligned_allocatorI1UE"></span><span id="_CPPv2I00EeqRK23cache_aligned_allocatorI1TERK23cache_aligned_allocatorI1UE"></span>template&lt;typename <code class="sig-name descname">T</code>, typename <code class="sig-name descname">U</code>&gt;<br />bool <code class="sig-name descname">operator==</code><span class="sig-paren">(</span><em class="property">const</em> cache_aligned_allocator&lt;<a class="reference internal" href="#_CPPv4I00EeqbRK23cache_aligned_allocatorI1TERK23cache_aligned_allocatorI1UE" title="operator==::T">T</a>&gt;&amp;, <em class="property">const</em> cache_aligned_allocator&lt;<a class="reference internal" href="#_CPPv4I00EeqbRK23cache_aligned_allocatorI1TERK23cache_aligned_allocatorI1UE" title="operator==::U">U</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4I00EeqbRK23cache_aligned_allocatorI1TERK23cache_aligned_allocatorI1UE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns <strong>true</strong>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I00EnebRK23cache_aligned_allocatorI1TERK23cache_aligned_allocatorI1UE">
+<span id="_CPPv3I00EneRK23cache_aligned_allocatorI1TERK23cache_aligned_allocatorI1UE"></span><span id="_CPPv2I00EneRK23cache_aligned_allocatorI1TERK23cache_aligned_allocatorI1UE"></span>template&lt;typename <code class="sig-name descname">T</code>, typename <code class="sig-name descname">U</code>&gt;<br />bool <code class="sig-name descname">operator!=</code><span class="sig-paren">(</span><em class="property">const</em> cache_aligned_allocator&lt;<a class="reference internal" href="#_CPPv4I00EnebRK23cache_aligned_allocatorI1TERK23cache_aligned_allocatorI1UE" title="operator!=::T">T</a>&gt;&amp;, <em class="property">const</em> cache_aligned_allocator&lt;<a class="reference internal" href="#_CPPv4I00EnebRK23cache_aligned_allocatorI1TERK23cache_aligned_allocatorI1UE" title="operator!=::U">U</a>&gt;&amp;<span class="sig-paren">)</span> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4I00EnebRK23cache_aligned_allocatorI1TERK23cache_aligned_allocatorI1UE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns <strong>false</strong>.</p>
+</dd></dl>
+
 </div>
 </div>
 
@@ -368,10 +292,10 @@ directly.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="zero_allocator.html" class="btn btn-neutral float-right" title="zero_allocator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cache_aligned_resource_cls.html" class="btn btn-neutral float-right" title="cache_aligned_resource" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="scalable_allocator_cls.html" class="btn btn-neutral float-left" title="scalable allocator Template Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="scalable_allocator_cls.html" class="btn btn-neutral float-left" title="scalable_allocator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

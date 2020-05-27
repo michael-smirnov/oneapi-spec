@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.2.4.3. gemmt &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>2.1.2.4.4. gemmt &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.2.4.4. gemmt (USM Version)" href="gemmt-usm-version.html" />
-    <link rel="prev" title="2.1.2.4.2. gemm_ext" href="gemm_ext.html" /> 
+    <link rel="next" title="2.1.2.4.5. gemm_ext" href="gemm_ext.html" />
+    <link rel="prev" title="2.1.2.4.3. trsm_batch" href="trsm_batch.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -163,6 +163,8 @@
         
           
         
+          
+        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -184,19 +186,12 @@
            <div itemprop="articleBody">
             
   <div class="section" id="gemmt">
-<h1><span class="section-number">2.1.2.4.3. </span>gemmt<a class="headerlink" href="#gemmt" title="Permalink to this headline">¶</a></h1>
+<span id="onemkl-blas-gemmt"></span><h1><span class="section-number">2.1.2.4.4. </span>gemmt<a class="headerlink" href="#gemmt" title="Permalink to this headline">¶</a></h1>
 <div class="docutils container">
 <p>Computes a matrix-matrix product with general matrices, but updates
 only the upper or lower triangular part of the result matrix.</p>
-<div class="section docutils container" id="guid-7885d940-fac1-4f37-9e1c-a022ded99ebd">
-<p class="sectiontitle rubric">Syntax</p>
-<div class="dlsyntaxpara docutils container">
-<dl class="function">
-<dt id="_CPPv45gemmtR5queue4uplo9transpose9transposeNSt7int64_tENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tE">
-<span id="_CPPv35gemmtR5queue4uplo9transpose9transposeNSt7int64_tENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tE"></span><span id="_CPPv25gemmtR5queue4uplo9transpose9transposeNSt7int64_tENSt7int64_tE1TR6bufferI1TX1EENSt7int64_tER6bufferI1TX1EENSt7int64_tE1TR6bufferI1TX1EENSt7int64_tE"></span><span id="gemmt__queueR.uplo.transpose.transpose.std::int64_t.std::int64_t.T.buffer:T.1:R.std::int64_t.buffer:T.1:R.std::int64_t.T.buffer:T.1:R.std::int64_t"></span>void <code class="sig-name descname">gemmt</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, uplo <em>upper_lower</em>, transpose <em>transa</em>, transpose <em>transb</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, T <em>alpha</em>, buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, buffer&lt;T, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, T <em>beta</em>, buffer&lt;T, 1&gt; &amp;<em>c</em>, std::int64_t <em>ldc</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45gemmtR5queue4uplo9transpose9transposeNSt7int64_tENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEENSt7int64_tE1TR6bufferI1TXL1EEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p><code class="docutils literal notranslate"><span class="pre">gemmt</span></code> supports the following precisions.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">gemmt</span></code> supports the following precisions.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 100%" />
@@ -216,9 +211,8 @@ only the upper or lower triangular part of the result matrix.</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section docutils container" id="guid-14237c95-6322-47a4-bc11-d3cdd2118c42">
+</div></blockquote>
+<div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
 <p>The gemmt routines compute a scalar-matrix-matrix product and add
 the result to the upper or lower part of a scalar-matrix product,
@@ -236,10 +230,24 @@ X<sup>H</sup></p></li>
 <p>Here, op(<code class="docutils literal notranslate"><span class="pre">A</span></code>) is <code class="docutils literal notranslate"><span class="pre">n</span></code> x <code class="docutils literal notranslate"><span class="pre">k</span></code>, op(<code class="docutils literal notranslate"><span class="pre">B</span></code>) is <code class="docutils literal notranslate"><span class="pre">k</span></code> x <code class="docutils literal notranslate"><span class="pre">n</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">C</span></code> is <code class="docutils literal notranslate"><span class="pre">n</span></code> x <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 </div>
-<div class="section docutils container" id="guid-863264a0-4ce9-495f-a617-102e46d7a41a">
+</div>
+<div class="section" id="gemmt-buffer-version">
+<h2><span class="section-number">2.1.2.4.4.1. </span>gemmt (BUFFER Version)<a class="headerlink" href="#gemmt-buffer-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<div class="dlsyntaxpara docutils container">
+<dl class="function">
+<dt id="_CPPv4N6onemkl4blas5gemmtERN4sycl5queueE4uplo9transpose9transposeNSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tE">
+<span id="_CPPv3N6onemkl4blas5gemmtERN4sycl5queueE4uplo9transpose9transposeNSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tE"></span><span id="_CPPv2N6onemkl4blas5gemmtERN4sycl5queueE4uplo9transpose9transposeNSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TX1EEENSt7int64_tERN4sycl6bufferI1TX1EEENSt7int64_tE1TRN4sycl6bufferI1TX1EEENSt7int64_tE"></span><span id="onemkl::blas::gemmt__sycl::queueR.uplo.transpose.transpose.std::int64_t.std::int64_t.T.sycl::buffer:T.1:R.std::int64_t.sycl::buffer:T.1:R.std::int64_t.T.sycl::buffer:T.1:R.std::int64_t"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">gemmt</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, uplo <em>upper_lower</em>, transpose <em>transa</em>, transpose <em>transb</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, T <em>alpha</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, T <em>beta</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>c</em>, std::int64_t <em>ldc</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas5gemmtERN4sycl5queueE4uplo9transpose9transposeNSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters</p>
 <dl>
-<dt>exec_queue</dt><dd><p>The queue where the routine should be executed.</p>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
 </dd>
 <dt>upper_lower</dt><dd><p>Specifies whether <code class="docutils literal notranslate"><span class="pre">C</span></code>’s data is stored in its upper or
 lower triangle. See
@@ -302,7 +310,7 @@ more details.</p>
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-1e4953e6-f7b1-4fee-ba5a-8c4bd51dc700">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters</p>
 <dl class="simple">
 <dt>c</dt><dd><p>Output buffer, overwritten by the upper or lower triangular
@@ -310,15 +318,117 @@ part of alpha*op(<code class="docutils literal notranslate"><span class="pre">A<
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-ac72653a-4ac8-4b9d-b7a9-13a725aa19bf">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Notes</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">beta</span></code> = 0, matrix <code class="docutils literal notranslate"><span class="pre">C</span></code> does not need to be initialized
 before calling gemmt.</p>
 </div>
 </div>
+</div>
+<div class="section" id="gemmt-usm-version">
+<h2><span class="section-number">2.1.2.4.4.2. </span>gemmt (USM Version)<a class="headerlink" href="#gemmt-usm-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<div class="dlsyntaxpara docutils container">
+<dl class="function">
+<dt id="_CPPv4N6onemkl4blas5gemmtERN4sycl5queueE4uplo9transpose9transposeNSt7int64_tENSt7int64_tE1TPK1TNSt7int64_tEPK1TNSt7int64_tE1TP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE">
+<span id="_CPPv3N6onemkl4blas5gemmtERN4sycl5queueE4uplo9transpose9transposeNSt7int64_tENSt7int64_tE1TPK1TNSt7int64_tEPK1TNSt7int64_tE1TP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="_CPPv2N6onemkl4blas5gemmtERN4sycl5queueE4uplo9transpose9transposeNSt7int64_tENSt7int64_tE1TPK1TNSt7int64_tEPK1TNSt7int64_tE1TP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="onemkl::blas::gemmt__sycl::queueR.uplo.transpose.transpose.std::int64_t.std::int64_t.T.TCP.std::int64_t.TCP.std::int64_t.T.TP.std::int64_t.sycl::vector_class:sycl::event:CR"></span>sycl::event <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">gemmt</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, uplo <em>upper_lower</em>, transpose <em>transa</em>, transpose <em>transb</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, T <em>alpha</em>, <em class="property">const</em> T *<em>a</em>, std::int64_t <em>lda</em>, <em class="property">const</em> T *<em>b</em>, std::int64_t <em>ldb</em>, T <em>beta</em>, T *<em>c</em>, std::int64_t <em>ldc</em>, <em class="property">const</em> sycl::vector_class&lt;sycl::event&gt; &amp;<em>dependencies</em> = {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas5gemmtERN4sycl5queueE4uplo9transpose9transposeNSt7int64_tENSt7int64_tE1TPK1TNSt7int64_tEPK1TNSt7int64_tE1TP1TNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Input Parameters</p>
+<dl>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
+</dd>
+<dt>upper_lower</dt><dd><p>Specifies whether <code class="docutils literal notranslate"><span class="pre">C</span></code>’s data is stored in its upper or
+lower triangle. See
+<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for
+more details.</p>
+</dd>
+<dt>transa</dt><dd><p>Specifies op(<code class="docutils literal notranslate"><span class="pre">A</span></code>), the transposition operation applied to
+<code class="docutils literal notranslate"><span class="pre">A</span></code>. See
+<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for
+more details.</p>
+</dd>
+<dt>transb</dt><dd><p>Specifies op(<code class="docutils literal notranslate"><span class="pre">B</span></code>), the transposition operation applied to
+<code class="docutils literal notranslate"><span class="pre">B</span></code>. See
+<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for
+more details.</p>
+</dd>
+<dt>n</dt><dd><p>Number of columns of op(<code class="docutils literal notranslate"><span class="pre">A</span></code>), columns of op(<code class="docutils literal notranslate"><span class="pre">B</span></code>), and
+columns of<code class="docutils literal notranslate"><span class="pre">C</span></code>. Must be at least zero.</p>
+</dd>
+<dt>k</dt><dd><p>Number of columns of op(<code class="docutils literal notranslate"><span class="pre">A</span></code>) and rows of op(<code class="docutils literal notranslate"><span class="pre">B</span></code>). Must be
+at least zero.</p>
+</dd>
+<dt>alpha</dt><dd><p>Scaling factor for the matrix-matrix product.</p>
+</dd>
+<dt>a</dt><dd><p>Pointer to input matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">A</span></code> is not transposed, <code class="docutils literal notranslate"><span class="pre">A</span></code> is an <code class="docutils literal notranslate"><span class="pre">n</span></code>-by-<code class="docutils literal notranslate"><span class="pre">k</span></code> matrix
+so the array <code class="docutils literal notranslate"><span class="pre">a</span></code> must have size at least <code class="docutils literal notranslate"><span class="pre">lda</span></code>*<code class="docutils literal notranslate"><span class="pre">k</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">A</span></code> is transposed, <code class="docutils literal notranslate"><span class="pre">A</span></code> is a <code class="docutils literal notranslate"><span class="pre">k</span></code>-by-<code class="docutils literal notranslate"><span class="pre">n</span></code> matrix so the
+array <code class="docutils literal notranslate"><span class="pre">a</span></code> must have size at least <code class="docutils literal notranslate"><span class="pre">lda</span></code>*<code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p>See <a class="reference external" href="../matrix-storage.html">Matrix
+Storage</a> for
+more details.</p>
+</dd>
+<dt>lda</dt><dd><p>Leading dimension of <code class="docutils literal notranslate"><span class="pre">A</span></code>. Must be at least <code class="docutils literal notranslate"><span class="pre">n</span></code> if <code class="docutils literal notranslate"><span class="pre">A</span></code> is
+not transposed, and at least <code class="docutils literal notranslate"><span class="pre">k</span></code> if <code class="docutils literal notranslate"><span class="pre">A</span></code> is transposed. Must
+be positive.</p>
+</dd>
+<dt>b</dt><dd><p>Pointer to input matrix <code class="docutils literal notranslate"><span class="pre">B</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">B</span></code> is not transposed, <code class="docutils literal notranslate"><span class="pre">B</span></code> is a <code class="docutils literal notranslate"><span class="pre">k</span></code>-by-<code class="docutils literal notranslate"><span class="pre">n</span></code> matrix so
+the array <code class="docutils literal notranslate"><span class="pre">b</span></code> must have size at least <code class="docutils literal notranslate"><span class="pre">ldb</span></code>*<code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">B</span></code> is transposed, <code class="docutils literal notranslate"><span class="pre">B</span></code> is an <code class="docutils literal notranslate"><span class="pre">n</span></code>-by-<code class="docutils literal notranslate"><span class="pre">k</span></code> matrix so
+the array <code class="docutils literal notranslate"><span class="pre">b</span></code> must have size at least <code class="docutils literal notranslate"><span class="pre">ldb</span></code>*<code class="docutils literal notranslate"><span class="pre">k</span></code>.</p>
+<p>See <a class="reference external" href="../matrix-storage.html">Matrix
+Storage</a> for
+more details.</p>
+</dd>
+<dt>ldb</dt><dd><p>Leading dimension of <code class="docutils literal notranslate"><span class="pre">B</span></code>. Must be at least <code class="docutils literal notranslate"><span class="pre">k</span></code> if <code class="docutils literal notranslate"><span class="pre">B</span></code> is
+not transposed, and at least <code class="docutils literal notranslate"><span class="pre">n</span></code> if <code class="docutils literal notranslate"><span class="pre">B</span></code> is transposed. Must
+be positive.</p>
+</dd>
+<dt>beta</dt><dd><p>Scaling factor for matrix <code class="docutils literal notranslate"><span class="pre">C</span></code>.</p>
+</dd>
+<dt>c</dt><dd><p>Pointer to input/output matrix <code class="docutils literal notranslate"><span class="pre">C</span></code>. Must have size at least
+<code class="docutils literal notranslate"><span class="pre">ldc</span></code> * <code class="docutils literal notranslate"><span class="pre">n</span></code>. See <a class="reference external" href="../matrix-storage.html">Matrix
+Storage</a> for
+more details.</p>
+</dd>
+<dt>ldc</dt><dd><p>Leading dimension of <code class="docutils literal notranslate"><span class="pre">C</span></code>. Must be positive and at least
+<code class="docutils literal notranslate"><span class="pre">m</span></code>.</p>
+</dd>
+<dt>dependencies</dt><dd><p>List of events to wait for before starting computation, if any.
+If omitted, defaults to no dependencies.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Output Parameters</p>
+<dl class="simple">
+<dt>c</dt><dd><p>Pointer to the output matrix, overwritten by the upper or lower
+triangular part of alpha*op(<code class="docutils literal notranslate"><span class="pre">A</span></code>)*op(<code class="docutils literal notranslate"><span class="pre">B</span></code>) + beta*<code class="docutils literal notranslate"><span class="pre">C</span></code>.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Notes</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">beta</span></code> = 0, matrix <code class="docutils literal notranslate"><span class="pre">C</span></code> does not need to be initialized
+before calling gemmt.</p>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Return Values</p>
+<p>Output event to wait on to ensure computation is complete.</p>
+</div>
+</div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">
-<p><strong>Parent topic:</strong> <a class="reference internal" href="blas.html#blas-like-extensions"><span class="std std-ref">BLAS-like Extensions</span></a></p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="blas-like-extensions.html#blas-like-extensions"><span class="std std-ref">BLAS-like Extensions</span></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -331,10 +441,10 @@ before calling gemmt.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gemmt-usm-version.html" class="btn btn-neutral float-right" title="2.1.2.4.4. gemmt (USM Version)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gemm_ext.html" class="btn btn-neutral float-right" title="2.1.2.4.5. gemm_ext" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gemm_ext.html" class="btn btn-neutral float-left" title="2.1.2.4.2. gemm_ext" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="trsm_batch.html" class="btn btn-neutral float-left" title="2.1.2.4.3. trsm_batch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

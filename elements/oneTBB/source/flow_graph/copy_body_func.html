@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>copy_body Template Function &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>copy_body &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Buffering Nodes" href="buffering_nodes.html" />
-    <link rel="prev" title="async_node Template Class" href="async_node_cls.html" /> 
+    <link rel="next" title="overwrite_node" href="overwrite_node_cls.html" />
+    <link rel="prev" title="Predefined Concurrency Limits" href="predefined_concurrency_limits.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,20 +110,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../configuration.html">Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../algorithms.html">Algorithms</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../flow_graph.html">Flow Graph</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="graph_cls.html">graph Class</a></li>
-<li class="toctree-l4"><a class="reference internal" href="abstract_interfaces.html">Abstract Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="special_message_types.html">Special Message Types</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="functional_nodes.html">Functional Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="buffering_nodes.html">Buffering Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="service_nodes.html">Service Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ports_and_edges.html">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#graph-class">Graph Class</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../flow_graph.html#nodes">Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#ports-and-edges">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#special-messages-types">Special Messages Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../containers.html">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../thread_local_storage.html">Thread Local Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -187,8 +183,6 @@
         
           
         
-          
-        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -209,37 +203,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="copy-body-template-function">
-<h1>copy_body Template Function<a class="headerlink" href="#copy-body-template-function" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>A template function that returns a copy of the body function object
-from a
-<code class="docutils literal notranslate"><span class="pre">continue_node</span></code>,
-<code class="docutils literal notranslate"><span class="pre">function_node</span></code>,
-<code class="docutils literal notranslate"><span class="pre">multifunction_node</span></code>,
-or
-<code class="docutils literal notranslate"><span class="pre">source_node</span></code>.</p>
-</div>
-<div class="section" id="syntax">
-<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span> <span class="k">typename</span> <span class="n">Body</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Node</span> <span class="o">&gt;</span>
-<span class="n">Body</span> <span class="n">copy_body</span><span class="p">(</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">n</span> <span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="header">
-<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;tbb/flow_graph.h&quot;</span><span class="cp"></span>
-</pre></div>
-</div>
-<p>See also:</p>
+  <div class="section" id="copy-body">
+<h1>copy_body<a class="headerlink" href="#copy-body" title="Permalink to this headline">¶</a></h1>
+<p><strong>[flow_graph.copy_body]</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">copy_body</span></code> is a function template that returns a copy of the body function object from the following
+nodes:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="continue_node_cls.html"><span class="doc">continue_node Template Class</span></a></p></li>
-<li><p><a class="reference internal" href="func_node_cls.html"><span class="doc">function_node Template Class</span></a></p></li>
-<li><p><a class="reference internal" href="multifunc_node_cls.html"><span class="doc">multifunction_node Template Class</span></a></p></li>
-<li><p><a class="reference internal" href="source_node_cls.html"><span class="doc">source_node Template Class</span></a></p></li>
+<li><p><a class="reference internal" href="continue_node_cls.html"><span class="doc">continue_node</span></a></p></li>
+<li><p><a class="reference internal" href="func_node_cls.html"><span class="doc">function_node</span></a></p></li>
+<li><p><a class="reference internal" href="multifunc_node_cls.html"><span class="doc">multifunction_node</span></a></p></li>
+<li><p><a class="reference internal" href="input_node_cls.html"><span class="doc">input_node</span></a></p></li>
 </ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">tbb</span> <span class="p">{</span>
+<span class="k">namespace</span> <span class="n">flow</span> <span class="p">{</span>
+
+    <span class="c1">// Defined in header &lt;tbb/flow_graph.h&gt;</span>
+
+    <span class="k">template</span><span class="o">&lt;</span> <span class="k">typename</span> <span class="n">Body</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Node</span> <span class="o">&gt;</span>
+    <span class="n">Body</span> <span class="n">copy_body</span><span class="p">(</span> <span class="n">Node</span> <span class="o">&amp;</span><span class="n">n</span> <span class="p">);</span>
+
+<span class="p">}</span> <span class="c1">// namespace flow</span>
+<span class="p">}</span> <span class="c1">// namespace tbb</span>
+</pre></div>
 </div>
 </div>
 
@@ -251,10 +236,10 @@ or
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="buffering_nodes.html" class="btn btn-neutral float-right" title="Buffering Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="overwrite_node_cls.html" class="btn btn-neutral float-right" title="overwrite_node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="async_node_cls.html" class="btn btn-neutral float-left" title="async_node Template Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="predefined_concurrency_limits.html" class="btn btn-neutral float-left" title="Predefined Concurrency Limits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

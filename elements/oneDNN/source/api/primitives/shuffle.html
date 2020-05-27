@@ -112,6 +112,7 @@
 <li class="toctree-l4"><a class="reference internal" href="convolution.html">Convolution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="deconvolution.html">Deconvolution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="inner_product.html">Inner Product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="matmul.html">Matrix Multiplication</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rnn.html">RNN</a></li>
 <li class="toctree-l4"><a class="reference internal" href="batch_normalization.html">Batch Normalization</a></li>
 <li class="toctree-l4"><a class="reference internal" href="binary.html">Binary</a></li>
@@ -255,11 +256,11 @@
 <span id="_CPPv3N4dnnl15shuffle_forward4desc4descE9prop_kindRKN6memory4descEii"></span><span id="_CPPv2N4dnnl15shuffle_forward4desc4descE9prop_kindRKN6memory4descEii"></span><span id="dnnl::shuffle_forward::desc::desc__prop_kind.memory::descCR.i.i"></span><span class="target" id="structdnnl_1_1shuffle__forward_1_1desc_1a04aa3bcc3729b177a4b8aaeba66e2f60"></span><code class="sig-name descname">desc</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4dnnl15shuffle_forward4desc4descE9prop_kindRKN6memory4descEii" title="dnnl::shuffle_forward::desc::desc::prop_kind">prop_kind</a> <em>prop_kind</em>, <em class="property">const</em> <a class="reference internal" href="../memory.html#_CPPv4N4dnnl6memoryE" title="dnnl::memory">memory</a>::<a class="reference internal" href="../memory.html#_CPPv4N4dnnl6memory4descE" title="dnnl::memory::desc">desc</a> &amp;<em>data_desc</em>, int <em>axis</em>, int <em>group_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4dnnl15shuffle_forward4desc4descE9prop_kindRKN6memory4descEii" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs a descriptor for a shuffle forward propagation primitive.</p>
 <p>Inputs:<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">src</span></code> (<a class="reference internal" href="../utilities.html#structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43"><span class="std std-ref">dnnl::primitive_desc_base::src_desc</span></a> (<code class="docutils literal notranslate"><span class="pre">0</span></code>))</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src</span></code> (<a class="reference internal" href="../utilities.html#structdnnl_1_1primitive__desc__base_1af42e791f493e636c086e13c6d4c06b43"><span class="std std-ref">dnnl::primitive_desc_base::src_desc</span></a>(<code class="docutils literal notranslate"><span class="pre">0</span></code>))</p></li>
 </ul>
 </p>
 <p>Outputs:<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">dst</span></code> (<a class="reference internal" href="../utilities.html#structdnnl_1_1primitive__desc__base_1a495ee7c8e1ec3eab35f6329fdcd352bb"><span class="std std-ref">dnnl::primitive_desc_base::dst_desc</span></a> (<code class="docutils literal notranslate"><span class="pre">0</span></code>))</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dst</span></code> (<a class="reference internal" href="../utilities.html#structdnnl_1_1primitive__desc__base_1a495ee7c8e1ec3eab35f6329fdcd352bb"><span class="std std-ref">dnnl::primitive_desc_base::dst_desc</span></a>(<code class="docutils literal notranslate"><span class="pre">0</span></code>))</p></li>
 </ul>
 </p>
 <p><dl class="simple">
@@ -370,11 +371,11 @@
 <span id="_CPPv3N4dnnl16shuffle_backward4desc4descERKN6memory4descEii"></span><span id="_CPPv2N4dnnl16shuffle_backward4desc4descERKN6memory4descEii"></span><span id="dnnl::shuffle_backward::desc::desc__memory::descCR.i.i"></span><span class="target" id="structdnnl_1_1shuffle__backward_1_1desc_1a62ed7c449986d9cb474a3570ba665966"></span><code class="sig-name descname">desc</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="../memory.html#_CPPv4N4dnnl6memoryE" title="dnnl::memory">memory</a>::<a class="reference internal" href="../memory.html#_CPPv4N4dnnl6memory4descE" title="dnnl::memory::desc">desc</a> &amp;<em>diff_data_desc</em>, int <em>axis</em>, int <em>group_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4dnnl16shuffle_backward4desc4descERKN6memory4descEii" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs a descriptor for a shuffle backward propagation primitive.</p>
 <p>Inputs:<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">diff_dst</span></code> (<a class="reference internal" href="../utilities.html#structdnnl_1_1primitive__desc__base_1a60f17d04c493c42e4a50ad5feff5c8ca"><span class="std std-ref">dnnl::primitive_desc_base::diff_dst_desc</span></a> (<code class="docutils literal notranslate"><span class="pre">0</span></code>))</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">diff_dst</span></code> (<a class="reference internal" href="../utilities.html#structdnnl_1_1primitive__desc__base_1a60f17d04c493c42e4a50ad5feff5c8ca"><span class="std std-ref">dnnl::primitive_desc_base::diff_dst_desc</span></a>(<code class="docutils literal notranslate"><span class="pre">0</span></code>))</p></li>
 </ul>
 </p>
 <p>Outputs:<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">diff_src</span></code> (<a class="reference internal" href="../utilities.html#structdnnl_1_1primitive__desc__base_1a733e6ff4e78a758e69ae6232e8955871"><span class="std std-ref">dnnl::primitive_desc_base::diff_src_desc</span></a> (<code class="docutils literal notranslate"><span class="pre">0</span></code>))</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">diff_src</span></code> (<a class="reference internal" href="../utilities.html#structdnnl_1_1primitive__desc__base_1a733e6ff4e78a758e69ae6232e8955871"><span class="std std-ref">dnnl::primitive_desc_base::diff_src_desc</span></a>(<code class="docutils literal notranslate"><span class="pre">0</span></code>))</p></li>
 </ul>
 </p>
 <p><dl class="simple">

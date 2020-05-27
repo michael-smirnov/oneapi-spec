@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>graph Class &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>graph &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Abstract Interfaces" href="abstract_interfaces.html" />
-    <link rel="prev" title="Specifying Priorities for Functional Nodes" href="node_priorities.html" /> 
+    <link rel="next" title="reset_flags Enumeration" href="reset_flags_enum.html" />
+    <link rel="prev" title="Flow Graph" href="../flow_graph.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,20 +110,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../configuration.html">Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../algorithms.html">Algorithms</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../flow_graph.html">Flow Graph</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">graph Class</a></li>
-<li class="toctree-l4"><a class="reference internal" href="abstract_interfaces.html">Abstract Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="special_message_types.html">Special Message Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="functional_nodes.html">Functional Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="buffering_nodes.html">Buffering Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="service_nodes.html">Service Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ports_and_edges.html">Ports and Edges</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../flow_graph.html#graph-class">Graph Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#nodes">Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#ports-and-edges">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#special-messages-types">Special Messages Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../containers.html">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../thread_local_storage.html">Thread Local Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -207,286 +203,83 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="graph-class">
-<h1>graph Class<a class="headerlink" href="#graph-class" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="graph">
+<h1>graph<a class="headerlink" href="#graph" title="Permalink to this headline">¶</a></h1>
+<p><strong>[flow_graph.graph]</strong></p>
 <p>Class that serves as a handle to a flow graph of nodes and edges.</p>
-</div>
-<div class="section" id="syntax">
-<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">graph</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="header">
-<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;tbb/flow_graph.h&quot;</span><span class="cp"></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>A
-<code class="docutils literal notranslate"><span class="pre">graph</span></code> object contains a root task that is the parent
-of all tasks created on behalf of the flow graph and its nodes. It provides
-methods that can be used to access the root task, to wait for the children of
-the root task to complete, to explicitly increment or decrement the root task’s
-reference count, and to run a task as a child of the root task.</p>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>Destruction of flow graph nodes before calling
-<code class="docutils literal notranslate"><span class="pre">wait_for_all</span></code> on their associated
-<code class="docutils literal notranslate"><span class="pre">graph</span></code> object has undefined behavior and can lead
-to program failure.</p>
-</div>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>The flow graph now uses spawned tasks instead of enqueued tasks.  In some limited
-cases, when no worker threads are available, progress will not be made on
-graph-related tasks until a call is made to <code class="docutils literal notranslate"><span class="pre">wait_for_all</span></code>.
-To avoid the need for explicit calls to <code class="docutils literal notranslate"><span class="pre">wait_for_all</span></code>, the
-task enqueuing implementation of the flow graph can still be used.  However,
-the task enqueuing implementation of the flow graph has been deprecated and
-its use is discouraged.</p>
-</div>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>If a
-<code class="docutils literal notranslate"><span class="pre">graph</span></code> is cancelled or if an exception is thrown
-during its execution, the graph objects may be in an inconsistent state after
-the
-<code class="docutils literal notranslate"><span class="pre">wait_for_all()</span></code>. If the user wishes to execute the
-<code class="docutils literal notranslate"><span class="pre">graph</span></code> again, the
-<code class="docutils literal notranslate"><span class="pre">reset()</span></code> method must be called to reset the graph edges to their
-initial state.</p>
-</div>
-</div>
-<div class="section" id="members">
-<h2>Members<a class="headerlink" href="#members" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">tbb</span> <span class="p">{</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Defined in header &lt;tbb/flow_graph.h&gt;</span>
+
+<span class="k">namespace</span> <span class="n">tbb</span> <span class="p">{</span>
 <span class="k">namespace</span> <span class="n">flow</span> <span class="p">{</span>
 
-<span class="c1">// optional flags to reset() method</span>
-<span class="k">enum</span> <span class="n">reset_flags</span> <span class="p">{</span>
-    <span class="n">rf_reset_protocol</span><span class="p">,</span>
-    <span class="n">rf_reset_bodies</span><span class="p">,</span>  <span class="c1">// delete the current node body, reset to a copy of the initial node body.</span>
-    <span class="n">rf_clear_edges</span>     <span class="c1">// delete all the edges so the user can recreate the graph</span>
-<span class="p">};</span>
+    <span class="k">class</span> <span class="nc">graph</span> <span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">graph</span><span class="p">();</span>
+        <span class="n">graph</span><span class="p">(</span><span class="n">task_group_context</span><span class="o">&amp;</span> <span class="n">context</span><span class="p">);</span>
+        <span class="o">~</span><span class="n">graph</span><span class="p">();</span>
 
-<span class="k">class</span> <span class="nc">graph</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
+        <span class="kt">void</span> <span class="nf">wait_for_all</span><span class="p">();</span>
 
-    <span class="n">graph</span><span class="p">();</span>
-    <span class="n">graph</span><span class="p">(</span><span class="n">task_group_context</span><span class="o">&amp;</span> <span class="n">context</span><span class="p">);</span>
-    <span class="o">~</span><span class="n">graph</span><span class="p">();</span>
+        <span class="kt">bool</span> <span class="nf">is_cancelled</span><span class="p">();</span>
+        <span class="kt">bool</span> <span class="nf">exception_thrown</span><span class="p">();</span>
+        <span class="kt">void</span> <span class="nf">reset</span><span class="p">(</span><span class="n">reset_flags</span> <span class="n">f</span> <span class="o">=</span> <span class="n">rf_reset_protocol</span><span class="p">);</span>
+    <span class="p">};</span>
 
-    <span class="kt">void</span> <span class="nf">increment_wait_count</span><span class="p">();</span>
-    <span class="kt">void</span> <span class="nf">decrement_wait_count</span><span class="p">();</span>
-
-    <span class="k">template</span><span class="o">&lt;</span> <span class="k">typename</span> <span class="n">Receiver</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Body</span> <span class="o">&gt;</span>
-    <span class="kt">void</span> <span class="n">run</span><span class="p">(</span> <span class="n">Receiver</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">,</span> <span class="n">Body</span> <span class="n">body</span> <span class="p">);</span>
-    <span class="k">template</span><span class="o">&lt;</span> <span class="k">typename</span> <span class="n">Body</span> <span class="o">&gt;</span>
-    <span class="kt">void</span> <span class="n">run</span><span class="p">(</span> <span class="n">Body</span> <span class="n">body</span> <span class="p">);</span>
-    <span class="kt">void</span> <span class="nf">wait_for_all</span><span class="p">();</span>
-    <span class="n">task</span> <span class="o">*</span><span class="nf">root_task</span><span class="p">();</span>
-
-    <span class="kt">bool</span> <span class="nf">is_cancelled</span><span class="p">();</span>
-    <span class="kt">bool</span> <span class="nf">exception_thrown</span><span class="p">();</span>
-    <span class="kt">void</span> <span class="nf">reset</span><span class="p">(</span><span class="n">reset_flags</span> <span class="n">f</span> <span class="o">=</span> <span class="n">rf_reset_protocol</span><span class="p">);</span>
-<span class="p">};</span>
-
-<span class="p">}</span>
-<span class="p">}</span>
+<span class="p">}</span> <span class="c1">// namespace flow</span>
+<span class="p">}</span> <span class="c1">// namespace tbb</span>
 </pre></div>
 </div>
-<p>The following table provides additional information on the
-members of this class.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 1%" />
-<col style="width: 99%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head" colspan="2"><p>Member, Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">graph([task_group_context&amp;</span> <span class="pre">group]</span> <span class="pre">)</span></code></dt><dd><p>Constructs a graph with no nodes. If
-<code class="docutils literal notranslate"><span class="pre">group</span></code> is specified the graph tasks are
-executed in this group. By default the graph is executed in a bound context of
-its own. Instantiates a root task of class
-<code class="docutils literal notranslate"><span class="pre">empty_task</span></code> to serve as a parent for all of
-the tasks generated during runs of the graph. Sets
-<code class="docutils literal notranslate"><span class="pre">ref_count</span></code> of the root task to 1.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">~graph()</span></code></dt><dd><p>Calls
-<code class="docutils literal notranslate"><span class="pre">wait_for_all</span></code> on the graph, then destroys
-the root task.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">increment_wait_count()</span></code></dt><dd><p>Used to register that an external entity may still interact
-with the graph.</p>
-<p>Increments the
-<code class="docutils literal notranslate"><span class="pre">ref_count</span></code> of the root task.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">decrement_wait_count()</span></code></dt><dd><p>Used to unregister an external entity that may have
-interacted with the graph.</p>
-<p>Decrements the
-<code class="docutils literal notranslate"><span class="pre">ref_count</span></code> of the root task.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">template&lt;</span> <span class="pre">typename</span> <span class="pre">Receiver,</span> <span class="pre">typename</span> <span class="pre">Body</span> <span class="pre">&gt;</span> <span class="pre">void</span> <span class="pre">run(</span> <span class="pre">Receiver</span> <span class="pre">&amp;r,</span> <span class="pre">Body</span> <span class="pre">body</span> <span class="pre">)</span></code></dt><dd><p>Use this method to spawn a task that runs a body and puts
-its output to a specific receiver. The task is created as a child of the
-graph’s root task and therefore
-<code class="docutils literal notranslate"><span class="pre">wait_for_all</span></code> will not return until this
-task completes.</p>
-<p>Enqueues a task that invokes
-<code class="docutils literal notranslate"><span class="pre">r.try_````put(````body()</span> <span class="pre">)</span></code>. It does not wait for the task to
-complete. The spawned task is a child of the root task.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">template&lt;</span> <span class="pre">typename</span> <span class="pre">Body</span> <span class="pre">&gt;</span> <span class="pre">void</span> <span class="pre">run(</span> <span class="pre">Body</span> <span class="pre">body</span> <span class="pre">)</span></code></dt><dd><p>This method spawns a task that runs as a child of the
-graph’s root task. Calls to
-<code class="docutils literal notranslate"><span class="pre">wait_for_all</span></code> will not return until this
-spawned task completes.</p>
-<p>Enqueues a task that invokes
-<code class="docutils literal notranslate"><span class="pre">body(``</span></code>)``. It does not
-wait for the task to complete.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">wait_for_all()</span></code></dt><dd><p>Blocks until all tasks associated with the root task have
-completed and the number of
-<code class="docutils literal notranslate"><span class="pre">decrement_wait_count</span></code> calls equals the
-number of
-<code class="docutils literal notranslate"><span class="pre">increment_wait_count</span></code> calls. Because it
-calls
-<code class="docutils literal notranslate"><span class="pre">wait_for_all</span></code> on the root graph task, the
-calling thread may participate in work-stealing while it is blocked.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">task</span> <span class="pre">*root_task()</span></code></dt><dd><p><strong>Returns</strong>: a pointer to the root task of the flow
-graph.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">is_cancelled()</span></code></dt><dd><p><strong>Returns</strong>:
-<code class="docutils literal notranslate"><span class="pre">true</span></code> if the graph was cancelled during the
-last call to
-<code class="docutils literal notranslate"><span class="pre">wait_for_all``(),</span>
-<span class="pre">``false</span></code> otherwise.</p>
-<p>See
-<code class="docutils literal notranslate"><span class="pre">task_group_context</span></code> for a description of
-cancellation.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">exception_thrown()</span></code></dt><dd><p><strong>Returns</strong>:
-<code class="docutils literal notranslate"><span class="pre">true</span></code> if during the last call to
-<code class="docutils literal notranslate"><span class="pre">wait_for_all``()</span> <span class="pre">an</span> <span class="pre">exception</span> <span class="pre">was</span> <span class="pre">thrown,</span>
-<span class="pre">``false</span></code> otherwise.</p>
-<p>See Section “Exceptions” for information on exception
-handling.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">reset(reset_flags</span> <span class="pre">f</span> <span class="pre">=</span> <span class="pre">rf_reset_protocol)</span></code></dt><dd><p>Flags to <code class="docutils literal notranslate"><span class="pre">reset()</span></code> can be combined with
-bitwise-<code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
-<p>See
-<code class="docutils literal notranslate"><span class="pre">task_group_context</span></code> for a description of
-cancellation. See Section “Exceptions” for information on exception handling.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>Optional flags for reset()</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 1%" />
-<col style="width: 99%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head" colspan="2"><p>Flag, Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">rf_reset_protocol</span></code></dt><dd><p>All edges are switched to push state, all buffers
-are emptied, internal state of nodes reinitialized.
-All calls to <code class="docutils literal notranslate"><span class="pre">reset()</span></code> perform
-these actions.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">rf_reset_bodies</span></code></dt><dd><p>When nodes with bodies are created, the body specified in the constructor
-is copied and preserved.  When
-<code class="docutils literal notranslate"><span class="pre">rf_reset_bodies</span></code>
-is specified, the current body of the node is deleted and replaced
-with a copy of the body saved during construction.</p>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>If the body contains state which has an external component (such
-as a file descriptor) then the node may not behave the same on
-re-execution of the graph after body replacement.  In this case
-the node should be re-created.</p>
-</div>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">rf_clear_edges</span></code></dt><dd><p>All edges are removed from the graph.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>See also:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="../task_scheduler/task_group_context.html"><span class="doc">task_group_context</span></a></p></li>
-<li><p><a class="reference internal" href="../exceptions.html"><span class="doc">Exceptions</span></a></p></li>
+<div class="section" id="reset-flags-enumeration">
+<h2>reset_flags enumeration<a class="headerlink" href="#reset-flags-enumeration" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reset_flags_enum.html">reset_flags Enumeration</a></li>
 </ul>
+</div>
+</div>
+<div class="section" id="member-functions">
+<h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="_CPPv45graphR18task_group_context">
+<span id="_CPPv35graphR18task_group_context"></span><span id="_CPPv25graphR18task_group_context"></span><span id="graph__task_group_contextR"></span><code class="sig-name descname">graph</code><span class="sig-paren">(</span><a class="reference internal" href="../task_scheduler/scheduling_controls/task_group_context_cls.html#_CPPv418task_group_context6kind_t9uintptr_t" title="task_group_context">task_group_context</a> &amp;<em>group</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45graphR18task_group_context" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructs a graph with no nodes. If <code class="docutils literal notranslate"><span class="pre">group</span></code> is specified the
+graph tasks are executed in this group. By default the graph is
+executed in a bound context of its own.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4D0v">
+<span id="_CPPv3D0v"></span><span id="_CPPv2D0v"></span><span id="~graph"></span><code class="sig-name descname">~graph</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4D0v" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calls <code class="docutils literal notranslate"><span class="pre">wait_for_all</span></code> on the graph, then destroys the graph.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv412wait_for_allv">
+<span id="_CPPv312wait_for_allv"></span><span id="_CPPv212wait_for_allv"></span><span id="wait_for_all"></span>void <code class="sig-name descname">wait_for_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412wait_for_allv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Blocks until all tasks associated with the graph have completed.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv45reset11reset_flags">
+<span id="_CPPv35reset11reset_flags"></span><span id="_CPPv25reset11reset_flags"></span><span id="reset__reset_flags"></span>void <code class="sig-name descname">reset</code><span class="sig-paren">(</span>reset_flags <em>f</em> = rf_reset_protocol<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45reset11reset_flags" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reset the graph regards to specified flags.
+Flags to <code class="docutils literal notranslate"><span class="pre">reset()</span></code> can be combined with bitwise-<code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv412is_cancelledv">
+<span id="_CPPv312is_cancelledv"></span><span id="_CPPv212is_cancelledv"></span><span id="is_cancelled"></span>bool <code class="sig-name descname">is_cancelled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412is_cancelledv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns: <code class="docutils literal notranslate"><span class="pre">true</span></code> if the graph was cancelled during the last call to
+<code class="docutils literal notranslate"><span class="pre">wait_for_all()</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv416exception_thrownv">
+<span id="_CPPv316exception_thrownv"></span><span id="_CPPv216exception_thrownv"></span><span id="exception_thrown"></span>bool <code class="sig-name descname">exception_thrown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416exception_thrownv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns: <code class="docutils literal notranslate"><span class="pre">true</span></code> if during the last call to <code class="docutils literal notranslate"><span class="pre">wait_for_all()</span></code> an
+exception was thrown, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</p>
+</dd></dl>
+
 </div>
 </div>
 
@@ -498,10 +291,10 @@ the node should be re-created.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="abstract_interfaces.html" class="btn btn-neutral float-right" title="Abstract Interfaces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="reset_flags_enum.html" class="btn btn-neutral float-right" title="reset_flags Enumeration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="node_priorities.html" class="btn btn-neutral float-left" title="Specifying Priorities for Functional Nodes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../flow_graph.html" class="btn btn-neutral float-left" title="Flow Graph" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

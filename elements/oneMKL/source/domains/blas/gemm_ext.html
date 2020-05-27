@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.2.4.2. gemm_ext &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>2.1.2.4.5. gemm_ext &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.2.4.3. gemmt" href="gemmt.html" />
-    <link rel="prev" title="2.1.2.4.1. gemm_batch" href="gemm_batch.html" /> 
+    <link rel="next" title="2.1.3. LAPACK Routines" href="../lapack/lapack.html" />
+    <link rel="prev" title="2.1.2.4.4. gemmt" href="gemmt.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -163,6 +163,8 @@
         
           
         
+          
+        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -184,16 +186,18 @@
            <div itemprop="articleBody">
             
   <div class="section" id="gemm-ext">
-<h1><span class="section-number">2.1.2.4.2. </span>gemm_ext<a class="headerlink" href="#gemm-ext" title="Permalink to this headline">¶</a></h1>
+<span id="onemkl-blas-gemm-ext"></span><h1><span class="section-number">2.1.2.4.5. </span>gemm_ext<a class="headerlink" href="#gemm-ext" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="gemm-ext-buffer-version">
+<h2><span class="section-number">2.1.2.4.5.1. </span>gemm_ext (BUFFER Version)<a class="headerlink" href="#gemm-ext-buffer-version" title="Permalink to this headline">¶</a></h2>
 <div class="docutils container">
 <p>Computes a matrix-matrix product with general matrices.</p>
-<div class="section docutils container" id="guid-7885d940-fac1-4f37-9e1c-a022ded99ebd">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Syntax</p>
 <p><strong>Standard API</strong></p>
 <div class="dlsyntaxpara docutils container">
 <dl class="function">
-<dt id="_CPPv48gemm_extR5queue9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE2TsR6bufferI2TaXL1EEENSt7int64_tER6bufferI2TbXL1EEENSt7int64_tE2TsR6bufferI2TcXL1EEENSt7int64_tE">
-<span id="_CPPv38gemm_extR5queue9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE2TsR6bufferI2TaXL1EEENSt7int64_tER6bufferI2TbXL1EEENSt7int64_tE2TsR6bufferI2TcXL1EEENSt7int64_tE"></span><span id="_CPPv28gemm_extR5queue9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE2TsR6bufferI2TaX1EENSt7int64_tER6bufferI2TbX1EENSt7int64_tE2TsR6bufferI2TcX1EENSt7int64_tE"></span><span id="gemm_ext__queueR.transpose.transpose.std::int64_t.std::int64_t.std::int64_t.Ts.buffer:Ta.1:R.std::int64_t.buffer:Tb.1:R.std::int64_t.Ts.buffer:Tc.1:R.std::int64_t"></span>void <code class="sig-name descname">gemm_ext</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, transpose <em>transa</em>, transpose <em>transb</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, Ts <em>alpha</em>, buffer&lt;Ta, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, buffer&lt;Tb, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, Ts <em>beta</em>, buffer&lt;Tc, 1&gt; &amp;<em>c</em>, std::int64_t <em>ldc</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48gemm_extR5queue9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE2TsR6bufferI2TaXL1EEENSt7int64_tER6bufferI2TbXL1EEENSt7int64_tE2TsR6bufferI2TcXL1EEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4N6onemkl4blas8gemm_extERN4sycl5queueE9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE2TsRN4sycl6bufferI2TaXL1EEEENSt7int64_tERN4sycl6bufferI2TbXL1EEEENSt7int64_tE2TsRN4sycl6bufferI2TcXL1EEEENSt7int64_tE">
+<span id="_CPPv3N6onemkl4blas8gemm_extERN4sycl5queueE9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE2TsRN4sycl6bufferI2TaXL1EEEENSt7int64_tERN4sycl6bufferI2TbXL1EEEENSt7int64_tE2TsRN4sycl6bufferI2TcXL1EEEENSt7int64_tE"></span><span id="_CPPv2N6onemkl4blas8gemm_extERN4sycl5queueE9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE2TsRN4sycl6bufferI2TaX1EEENSt7int64_tERN4sycl6bufferI2TbX1EEENSt7int64_tE2TsRN4sycl6bufferI2TcX1EEENSt7int64_tE"></span><span id="onemkl::blas::gemm_ext__sycl::queueR.transpose.transpose.std::int64_t.std::int64_t.std::int64_t.Ts.sycl::buffer:Ta.1:R.std::int64_t.sycl::buffer:Tb.1:R.std::int64_t.Ts.sycl::buffer:Tc.1:R.std::int64_t"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">gemm_ext</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, transpose <em>transa</em>, transpose <em>transb</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, Ts <em>alpha</em>, sycl::buffer&lt;Ta, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, sycl::buffer&lt;Tb, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, Ts <em>beta</em>, sycl::buffer&lt;Tc, 1&gt; &amp;<em>c</em>, std::int64_t <em>ldc</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas8gemm_extERN4sycl5queueE9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE2TsRN4sycl6bufferI2TaXL1EEEENSt7int64_tERN4sycl6bufferI2TbXL1EEEENSt7int64_tE2TsRN4sycl6bufferI2TcXL1EEEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <p><code class="docutils literal notranslate"><span class="pre">gemm_ext</span></code> supports the following precisions and devices.</p>
@@ -248,8 +252,8 @@
 <p><strong>Offset API</strong></p>
 <div class="dlsyntaxpara docutils container">
 <dl class="function">
-<dt id="_CPPv48gemm_extR5queue9transpose9transpose6offsetNSt7int64_tENSt7int64_tENSt7int64_tE2TsR6bufferI2TaXL1EEENSt7int64_tE2TaR6bufferI2TbXL1EEENSt7int64_tE2Tb2TsR6bufferI2TcXL1EEENSt7int64_tER6bufferI2TcXL1EEE">
-<span id="_CPPv38gemm_extR5queue9transpose9transpose6offsetNSt7int64_tENSt7int64_tENSt7int64_tE2TsR6bufferI2TaXL1EEENSt7int64_tE2TaR6bufferI2TbXL1EEENSt7int64_tE2Tb2TsR6bufferI2TcXL1EEENSt7int64_tER6bufferI2TcXL1EEE"></span><span id="_CPPv28gemm_extR5queue9transpose9transpose6offsetNSt7int64_tENSt7int64_tENSt7int64_tE2TsR6bufferI2TaX1EENSt7int64_tE2TaR6bufferI2TbX1EENSt7int64_tE2Tb2TsR6bufferI2TcX1EENSt7int64_tER6bufferI2TcX1EE"></span><span id="gemm_ext__queueR.transpose.transpose.offset.std::int64_t.std::int64_t.std::int64_t.Ts.buffer:Ta.1:R.std::int64_t.Ta.buffer:Tb.1:R.std::int64_t.Tb.Ts.buffer:Tc.1:R.std::int64_t.buffer:Tc.1:R"></span>void <code class="sig-name descname">gemm_ext</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, transpose <em>transa</em>, transpose <em>transb</em>, offset <em>offset_type</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, Ts <em>alpha</em>, buffer&lt;Ta, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, Ta <em>ao</em>, buffer&lt;Tb, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, Tb <em>bo</em>, Ts <em>beta</em>, buffer&lt;Tc, 1&gt; &amp;<em>c</em>, std::int64_t <em>ldc</em>, buffer&lt;Tc, 1&gt; &amp;<em>co</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48gemm_extR5queue9transpose9transpose6offsetNSt7int64_tENSt7int64_tENSt7int64_tE2TsR6bufferI2TaXL1EEENSt7int64_tE2TaR6bufferI2TbXL1EEENSt7int64_tE2Tb2TsR6bufferI2TcXL1EEENSt7int64_tER6bufferI2TcXL1EEE" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4N6onemkl4blas8gemm_extERN4sycl5queueE9transpose9transpose6offsetNSt7int64_tENSt7int64_tENSt7int64_tE2TsRN4sycl6bufferI2TaXL1EEEENSt7int64_tE2TaRN4sycl6bufferI2TbXL1EEEENSt7int64_tE2Tb2TsRN4sycl6bufferI2TcXL1EEEENSt7int64_tERN4sycl6bufferI2TcXL1EEEE">
+<span id="_CPPv3N6onemkl4blas8gemm_extERN4sycl5queueE9transpose9transpose6offsetNSt7int64_tENSt7int64_tENSt7int64_tE2TsRN4sycl6bufferI2TaXL1EEEENSt7int64_tE2TaRN4sycl6bufferI2TbXL1EEEENSt7int64_tE2Tb2TsRN4sycl6bufferI2TcXL1EEEENSt7int64_tERN4sycl6bufferI2TcXL1EEEE"></span><span id="_CPPv2N6onemkl4blas8gemm_extERN4sycl5queueE9transpose9transpose6offsetNSt7int64_tENSt7int64_tENSt7int64_tE2TsRN4sycl6bufferI2TaX1EEENSt7int64_tE2TaRN4sycl6bufferI2TbX1EEENSt7int64_tE2Tb2TsRN4sycl6bufferI2TcX1EEENSt7int64_tERN4sycl6bufferI2TcX1EEE"></span><span id="onemkl::blas::gemm_ext__sycl::queueR.transpose.transpose.offset.std::int64_t.std::int64_t.std::int64_t.Ts.sycl::buffer:Ta.1:R.std::int64_t.Ta.sycl::buffer:Tb.1:R.std::int64_t.Tb.Ts.sycl::buffer:Tc.1:R.std::int64_t.sycl::buffer:Tc.1:R"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">gemm_ext</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, transpose <em>transa</em>, transpose <em>transb</em>, offset <em>offset_type</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, Ts <em>alpha</em>, sycl::buffer&lt;Ta, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, Ta <em>ao</em>, sycl::buffer&lt;Tb, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, Tb <em>bo</em>, Ts <em>beta</em>, sycl::buffer&lt;Tc, 1&gt; &amp;<em>c</em>, std::int64_t <em>ldc</em>, sycl::buffer&lt;Tc, 1&gt; &amp;<em>co</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas8gemm_extERN4sycl5queueE9transpose9transpose6offsetNSt7int64_tENSt7int64_tENSt7int64_tE2TsRN4sycl6bufferI2TaXL1EEEENSt7int64_tE2TaRN4sycl6bufferI2TbXL1EEEENSt7int64_tE2Tb2TsRN4sycl6bufferI2TcXL1EEEENSt7int64_tERN4sycl6bufferI2TcXL1EEEE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <p><code class="docutils literal notranslate"><span class="pre">gemm_ext</span></code> supports the following precisions.</p>
@@ -277,7 +281,7 @@
 </table>
 </div>
 </div>
-<div class="section docutils container" id="guid-14237c95-6322-47a4-bc11-d3cdd2118c42">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
 <p>The gemm_ext routines compute a scalar-matrix-matrix product and
 add the result to a scalar-matrix product, with general matrices.
@@ -307,10 +311,10 @@ buffer as described in
 <p>Here, op(<code class="docutils literal notranslate"><span class="pre">A</span></code>) is <code class="docutils literal notranslate"><span class="pre">m</span></code> x <code class="docutils literal notranslate"><span class="pre">k</span></code>, op(<code class="docutils literal notranslate"><span class="pre">B</span></code>) is <code class="docutils literal notranslate"><span class="pre">k</span></code> x <code class="docutils literal notranslate"><span class="pre">n</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">C</span></code> is <code class="docutils literal notranslate"><span class="pre">m</span></code> x <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 </div>
-<div class="section docutils container" id="guid-863264a0-4ce9-495f-a617-102e46d7a41a">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters</p>
 <dl>
-<dt>exec_queue</dt><dd><p>The queue where the routine should be executed.</p>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
 </dd>
 <dt>transa</dt><dd><p>Specifies op(<code class="docutils literal notranslate"><span class="pre">A</span></code>), the transposition operation applied to
 <code class="docutils literal notranslate"><span class="pre">A</span></code>. See
@@ -383,14 +387,13 @@ size at least 1.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">offset_type</span> <span class="pre">=</span> <span class="pre">offset::col</span></code>, the <code class="docutils literal notranslate"><span class="pre">co</span></code> array must have
 size at least <code class="docutils literal notranslate"><span class="pre">max(1,m)</span></code>.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">offset_type</span> <span class="pre">=</span> <span class="pre">offset::row</span></code>, the <code class="docutils literal notranslate"><span class="pre">co</span></code> array must have
-size at least <code class="docutils literal notranslate"><span class="pre">max(1,n)</span></code>.</p>
-<p>See
+size at least <code class="docutils literal notranslate"><span class="pre">max(1,n)</span></code>. See
 <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for
 more details.</p>
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-1e4953e6-f7b1-4fee-ba5a-8c4bd51dc700">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters</p>
 <dl class="simple">
 <dt>c</dt><dd><p>Output buffer, overwritten by alpha*op(<code class="docutils literal notranslate"><span class="pre">A</span></code>)*op(<code class="docutils literal notranslate"><span class="pre">B</span></code>) +
@@ -400,7 +403,7 @@ beta*<code class="docutils literal notranslate"><span class="pre">C</span></code
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-ac72653a-4ac8-4b9d-b7a9-13a725aa19bf">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Notes</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">beta</span></code> = 0, matrix <code class="docutils literal notranslate"><span class="pre">C</span></code> does not need to be initialized
 before calling gemm_ext.</p>
@@ -408,7 +411,8 @@ before calling gemm_ext.</p>
 </div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">
-<p><strong>Parent topic:</strong> <a class="reference internal" href="blas.html#blas-like-extensions"><span class="std std-ref">BLAS-like Extensions</span></a></p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="blas-like-extensions.html#blas-like-extensions"><span class="std std-ref">BLAS-like Extensions</span></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -421,10 +425,10 @@ before calling gemm_ext.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gemmt.html" class="btn btn-neutral float-right" title="2.1.2.4.3. gemmt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../lapack/lapack.html" class="btn btn-neutral float-right" title="2.1.3. LAPACK Routines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gemm_batch.html" class="btn btn-neutral float-left" title="2.1.2.4.1. gemm_batch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="gemmt.html" class="btn btn-neutral float-left" title="2.1.2.4.4. gemmt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

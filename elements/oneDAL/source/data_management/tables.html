@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../common_interface/index.html">Common Interface</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Data management</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="index.html#key-concepts">Key concepts</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="index.html#relations-between-concepts">Relations between concepts</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#details">Details</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Tables</a></li>
 <li class="toctree-l4"><a class="reference internal" href="table_builders.html">Table builders</a></li>
 <li class="toctree-l4"><a class="reference internal" href="accessors.html">Accessors</a></li>
@@ -268,7 +268,7 @@ with a specific set of metadata values (see <a class="reference internal" href="
 <ol class="arabic">
 <li><p>Table objects in oneDAL are <a class="reference internal" href="../glossary.html#term-immutability"><span class="xref std std-term">immutable</span></a> (it is not possible
 to change data or metadata values inside the table).</p></li>
-<li><p>To create complex table types or modify table data, <a class="reference internal" href="table_builders.html#table-builders"><span class="std std-ref">builders</span></a> should be used.</p></li>
+<li><p>To create complex table types or modify table data, <span class="xref std std-ref">builders</span> should be used.</p></li>
 <li><p>Table objects in oneDAL are reference-counted. One can use an assignment operator or copy constructor
 on table objects to create another reference to it.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">onedal</span><span class="o">::</span><span class="n">table</span> <span class="n">table2</span> <span class="o">=</span> <span class="n">table1</span><span class="p">;</span>

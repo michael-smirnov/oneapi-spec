@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Allocator Concept" href="allocator_concept.html" />
-    <link rel="prev" title="Memory Allocation" href="../memory_allocation.html" /> 
+    <link rel="next" title="Mutual Exclusion" href="../mutual_exclusion.html" />
+    <link rel="prev" title="scalable_memory_resource" href="scalable_memory_resource_func.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -109,13 +109,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../nested-interfaces.html">oneTBB Interfaces</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../memory_allocation.html">Memory Allocation</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">C Interface to Scalable Allocator</a></li>
-<li class="toctree-l4"><a class="reference internal" href="allocator_concept.html">Allocator Concept</a></li>
-<li class="toctree-l4"><a class="reference internal" href="memory_resource_interface.html">Memory Resource Interface</a></li>
-<li class="toctree-l4"><a class="reference internal" href="TBB_malloc_replacement_log_func.html">TBB_malloc_replacement_log Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../memory_allocation.html#allocators">Allocators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../memory_allocation.html#memory-resources">Memory Resources</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../memory_allocation.html#library-functions">Library Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../synchronization.html">Synchronization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutual_exclusion.html">Mutual Exclusion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../timing.html">Timing</a></li>
 </ul>
 </li>
@@ -201,13 +200,11 @@
             
   <div class="section" id="c-interface-to-scalable-allocator">
 <h1>C Interface to Scalable Allocator<a class="headerlink" href="#c-interface-to-scalable-allocator" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p><strong>[memory_allocation.scalable_alloc_c_interface]</strong></p>
 <p>Low level interface for scalable memory allocation.</p>
-</div>
-<div class="section" id="syntax">
-<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="p">{</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Defined in header &lt;tbb/scalable_allocator.h&gt;</span>
+
+<span class="k">extern</span> <span class="s">&quot;C&quot;</span> <span class="p">{</span>
     <span class="c1">// Scalable analogs of C memory allocator</span>
     <span class="kt">void</span><span class="o">*</span> <span class="n">scalable_malloc</span><span class="p">(</span> <span class="kt">size_t</span> <span class="n">size</span> <span class="p">);</span>
     <span class="kt">void</span>  <span class="nf">scalable_free</span><span class="p">(</span> <span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span> <span class="p">);</span>
@@ -260,26 +257,13 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="header">
-<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;tbb/scalable_allocator.h&quot;</span><span class="cp"></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>These functions provide a C level interface to the
-scalable allocator. With the exception of scalable_allocation_mode and
-scalable_allocation_command, each routine scalable_``x``
-behaves analogously to library function
-<code class="docutils literal notranslate"><span class="pre">x</span></code>. The routines form the two families shown in
-the table below, “C Interface to Scalable Allocator” . Storage allocated by a
-scalable_``x`` function in one family must be freed or
-resized by a scalable_``x`` function in the same family,
-not by a C standard library function. Likewise storage allocated by a C
-standard library function should not be freed or resized by a
-scalable_``x`` function.</p>
+<p>These functions provide a C level interface to the scalable allocator.
+With the exception of <code class="docutils literal notranslate"><span class="pre">scalable_allocation_mode</span></code> and <code class="docutils literal notranslate"><span class="pre">scalable_allocation_command</span></code>, each routine <code class="docutils literal notranslate"><span class="pre">scalable_x</span></code>
+behaves analogously to library function <code class="docutils literal notranslate"><span class="pre">x</span></code>. The routines form the two families shown in
+the table below, “C Interface to Scalable Allocator”.
+Storage allocated by a <code class="docutils literal notranslate"><span class="pre">scalable_x</span></code> function in one family must be freed or
+resized by a <code class="docutils literal notranslate"><span class="pre">scalable_x</span></code> function in the same family, not by a C standard library function. Likewise storage allocated by a C
+standard library function should not be freed or resized by a <code class="docutils literal notranslate"><span class="pre">scalable_x</span></code> function.</p>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">C Interface to Scalable Allocator</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -315,132 +299,92 @@ scalable_``x`` function.</p>
 </table>
 <p>The following functions do not allocate or free memory but allow
 to obtain useful information or to influence behavior of the memory allocator.</p>
-</div>
-<div class="section" id="size-t-scalable-msize-void-ptr">
-<h2>size_t scalable_msize( void* ptr )<a class="headerlink" href="#size-t-scalable-msize-void-ptr" title="Permalink to this headline">¶</a></h2>
-<p><strong>Returns:</strong> The usable size of the memory block
+<dl class="function">
+<dt id="_CPPv414scalable_msizePv">
+<span id="_CPPv314scalable_msizePv"></span><span id="_CPPv214scalable_msizePv"></span><span id="scalable_msize__voidP"></span>size_t <code class="sig-name descname">scalable_msize</code><span class="sig-paren">(</span>void *<em>ptr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414scalable_msizePv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong>Returns:</strong> The usable size of the memory block
 pointed to by <em>ptr</em> if it was allocated by the scalable allocator.
 Returns zero if <em>ptr</em> does not point to such a block.</p>
-</div>
-<div class="section" id="int-scalable-allocation-mode-int-mode-intptr-t-value">
-<h2>int scalable_allocation_mode(int mode, intptr_t value)<a class="headerlink" href="#int-scalable-allocation-mode-int-mode-intptr-t-value" title="Permalink to this headline">¶</a></h2>
-<p>This function may be used to adjust behavior of the scalable memory allocator.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv424scalable_allocation_modei8intptr_t">
+<span id="_CPPv324scalable_allocation_modei8intptr_t"></span><span id="_CPPv224scalable_allocation_modei8intptr_t"></span><span id="scalable_allocation_mode__i.intptr_t"></span>int <code class="sig-name descname">scalable_allocation_mode</code><span class="sig-paren">(</span>int <em>mode</em>, intptr_t <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424scalable_allocation_modei8intptr_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This function may be used to adjust behavior of the scalable memory allocator.</p>
 <p><strong>Returns</strong>: TBBMALLOC_OK if the operation succeeded, TBBMALLOC_INVALID_PARAM if
 <code class="docutils literal notranslate"><span class="pre">mode</span></code> is not one of the described below, or if <code class="docutils literal notranslate"><span class="pre">value</span></code>
 is not valid for the given mode. Other return values are possible, as described below.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 1%" />
-<col style="width: 99%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head" colspan="2"><p>Parameter, Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">TBBMALLOC_USE_HUGE_PAGES</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">scalable_allocation_mode(TBBMALLOC_USE_HUGE_PAGES,</span> <span class="pre">1)</span></code>
+</dd></dl>
+
+<hr class="docutils" />
+<p><strong>scalable_allocation_mode Parameters: Parameter, Description</strong></p>
+<dl class="macro">
+<dt id="c.TBBMALLOC_USE_HUGE_PAGES">
+<code class="sig-name descname">TBBMALLOC_USE_HUGE_PAGES</code><a class="headerlink" href="#c.TBBMALLOC_USE_HUGE_PAGES" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">scalable_allocation_mode(TBBMALLOC_USE_HUGE_PAGES,</span> <span class="pre">1)</span></code>
 tells the allocator to use huge pages if enabled by the operating system.
-<code class="docutils literal notranslate"><span class="pre">scalable_allocation_mode(TBBMALLOC_USE_HUGE_PAGES,</span> <span class="pre">0)</span></code>
-disables it. Setting <code class="docutils literal notranslate"><span class="pre">TBB_MALLOC_USE_HUGE_PAGES</span></code>
-environment variable to 1 has the same effect as
+<code class="docutils literal notranslate"><span class="pre">scalable_allocation_mode(TBBMALLOC_USE_HUGE_PAGES,</span> <span class="pre">0)</span></code> disables it.
+Setting <code class="docutils literal notranslate"><span class="pre">TBB_MALLOC_USE_HUGE_PAGES</span></code> environment variable to 1 has the same effect as
 <code class="docutils literal notranslate"><span class="pre">scalable_allocation_mode(TBBMALLOC_USE_HUGE_PAGES,</span> <span class="pre">1)</span></code>.
-The mode set with <code class="docutils literal notranslate"><span class="pre">scalable_allocation_mode()</span></code> takes
-priority over the environment variable.</p>
-<p><strong>May return</strong>: TBBMALLOC_NO_EFFECT if huge pages are not supported
-on the platform.</p>
-<p>For now, this allocation mode is only supported for Linux* OS.
-It works with both explicitly configured and transparent huge pages.
-For information about enabling and configuring huge pages, refer to OS
-documentation or ask your system administrator.</p>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>In this mode, it is not recommended to round up memory request size
-or alignment to a multiple of the huge page size, as it may result in
-inefficient use of huge pages and loss of performance.</p>
-</div>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">TBBMALLOC_SET_SOFT_HEAP_LIMIT</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">scalable_allocation_mode(TBBMALLOC_SET_SOFT_HEAP_LIMIT,</span> <span class="pre">size)</span></code>
-sets a threshold of <code class="docutils literal notranslate"><span class="pre">size</span></code> bytes on the amount
-of memory the allocator takes from OS. Exceeding the threshold
-will urge the allocator to release memory from its internal buffers;
+The mode set with <code class="docutils literal notranslate"><span class="pre">scalable_allocation_mode()</span></code> takes priority over the environment variable.</p>
+<p><strong>May return</strong>: <code class="docutils literal notranslate"><span class="pre">TBBMALLOC_NO_EFFECT</span></code> if huge pages are not supported on the platform.</p>
+<p>For now, this allocation mode is only supported for Linux* OS. It works with both explicitly configured and transparent huge pages.
+For information about enabling and configuring huge pages, refer to OS documentation or ask your system administrator.</p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.TBBMALLOC_SET_SOFT_HEAP_LIMIT">
+<code class="sig-name descname">TBBMALLOC_SET_SOFT_HEAP_LIMIT</code><a class="headerlink" href="#c.TBBMALLOC_SET_SOFT_HEAP_LIMIT" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">scalable_allocation_mode(TBBMALLOC_SET_SOFT_HEAP_LIMIT,</span> <span class="pre">size)</span></code> sets a threshold of <code class="docutils literal notranslate"><span class="pre">size</span></code> bytes on the amount
+of memory the allocator takes from OS. Exceeding the threshold will urge the allocator to release memory from its internal buffers;
 however it does not prevent from requesting more memory if needed.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">TBBMALLOC_SET_HUGE_SIZE_THRESHOLD</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">scalable_allocation_mode(TBBMALLOC_SET_HUGE_SIZE_THRESHOLD,</span> <span class="pre">size)</span></code>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.TBBMALLOC_SET_HUGE_SIZE_THRESHOLD">
+<code class="sig-name descname">TBBMALLOC_SET_HUGE_SIZE_THRESHOLD</code><a class="headerlink" href="#c.TBBMALLOC_SET_HUGE_SIZE_THRESHOLD" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">scalable_allocation_mode(TBBMALLOC_SET_HUGE_SIZE_THRESHOLD,</span> <span class="pre">size)</span></code>
 sets a lower bound threshold (with no upper limit) of <code class="docutils literal notranslate"><span class="pre">size</span></code> bytes.
-Any object that is bigger than this threshold becomes huge and doesn’t participate
-in internal periodic cleanup logic. However, it doesn’t affect the logic of
-<code class="docutils literal notranslate"><span class="pre">TBBMALLOC_SET_SOFT_HEAP_LIMIT</span></code> mode as well as <code class="docutils literal notranslate"><span class="pre">TBBMALLOC_CLEAN_ALL_BUFFERS</span></code> operation.</p>
-<p>Setting <code class="docutils literal notranslate"><span class="pre">TBB_MALLOC_SET_HUGE_SIZE_THRESHOLD</span></code> environment variable
-to the size value has the same effect, but is limited to the <code class="docutils literal notranslate"><span class="pre">LONG_MAX</span></code> value.
+Any object that is bigger than this threshold becomes huge and doesn’t participate in internal periodic cleanup logic.
+However, it doesn’t affect the logic of <code class="docutils literal notranslate"><span class="pre">TBBMALLOC_SET_SOFT_HEAP_LIMIT</span></code> mode as well as <code class="docutils literal notranslate"><span class="pre">TBBMALLOC_CLEAN_ALL_BUFFERS</span></code> operation.</p>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">TBB_MALLOC_SET_HUGE_SIZE_THRESHOLD</span></code> environment variable to the size value has the same effect, but is limited to the <code class="docutils literal notranslate"><span class="pre">LONG_MAX</span></code> value.
 The mode set with <code class="docutils literal notranslate"><span class="pre">scalable_allocation_mode</span></code> takes priority over the environment variable.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="int-scalable-allocation-command-int-cmd-void-reserved">
-<h2>int scalable_allocation_command(int cmd, void* reserved)<a class="headerlink" href="#int-scalable-allocation-command-int-cmd-void-reserved" title="Permalink to this headline">¶</a></h2>
-<p>This function may be used to command the scalable memory allocator to perform an
-action specified by the first parameter. The second parameter is reserved and
-must be set to 0.</p>
-<p><strong>Returns</strong>: TBBMALLOC_OK if the operation succeeded, TBBMALLOC_INVALID_PARAM if
-<code class="docutils literal notranslate"><span class="pre">cmd</span></code> is not one of the described below, or if <code class="docutils literal notranslate"><span class="pre">reserved</span></code>
-is not equal to 0.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 1%" />
-<col style="width: 99%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head" colspan="2"><p>Parameter, Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">TBBMALLOC_CLEAN_ALL_BUFFERS</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">scalable_allocation_command(TBBMALLOC_CLEAN_ALL_BUFFERS,</span> <span class="pre">0)</span></code>
-cleans internal memory buffers of the allocator, and possibly reduces memory
-footprint. It may result in increased time for subsequent memory allocation
-requests. The command is not designed for frequent use, and careful
-evaluation of the performance impact is recommended.</p>
-<p><strong>May return</strong>: TBBMALLOC_NO_EFFECT if no buffers were released.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="c.scalable_allocation_command">
+int <code class="sig-name descname">scalable_allocation_command</code><span class="sig-paren">(</span>int<em> cmd</em>, void*<em> reserved</em><span class="sig-paren">)</span><a class="headerlink" href="#c.scalable_allocation_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function may be used to command the scalable memory allocator to perform an
+action specified by the first parameter. The second parameter is reserved and must be set to 0.</p>
+<p><strong>Returns</strong>: <code class="docutils literal notranslate"><span class="pre">TBBMALLOC_OK</span></code> if the operation succeeded, <code class="docutils literal notranslate"><span class="pre">TBBMALLOC_INVALID_PARAM</span></code> if
+<code class="docutils literal notranslate"><span class="pre">cmd</span></code> is not one of the described below, or if <code class="docutils literal notranslate"><span class="pre">reserved</span></code> is not equal to 0.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<p><strong>scalable_allocation_command Parameters: Parameter, Description</strong></p>
+<dl class="macro">
+<dt id="c.TBBMALLOC_CLEAN_ALL_BUFFERS">
+<code class="sig-name descname">TBBMALLOC_CLEAN_ALL_BUFFERS</code><a class="headerlink" href="#c.TBBMALLOC_CLEAN_ALL_BUFFERS" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">scalable_allocation_command(TBBMALLOC_CLEAN_ALL_BUFFERS,</span> <span class="pre">0)</span></code>
+cleans internal memory buffers of the allocator, and possibly reduces memory footprint.
+It may result in increased time for subsequent memory allocation requests.
+The command is not designed for frequent use, and careful evaluation of the performance impact is recommended.</p>
+<p><strong>May return</strong>: <code class="docutils literal notranslate"><span class="pre">TBBMALLOC_NO_EFFECT</span></code> if no buffers were released.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It is not guaranteed that the call will release all unused memory.</p>
 </div>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><td colspan="2"><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">TBBMALLOC_CLEAN_THREAD_BUFFERS</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">scalable_allocation_command(TBBMALLOC_CLEAN_THREAD_BUFFERS,</span> <span class="pre">0)</span></code>
-cleans internal memory buffers but only for the calling thread. It may result
-in increased time for subsequent memory allocation requests; careful evaluation
-of the performance impact is recommended.</p>
-<p><strong>May return</strong>: TBBMALLOC_NO_EFFECT if no buffers were released.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.TBBMALLOC_CLEAN_THREAD_BUFFERS">
+<code class="sig-name descname">TBBMALLOC_CLEAN_THREAD_BUFFERS</code><a class="headerlink" href="#c.TBBMALLOC_CLEAN_THREAD_BUFFERS" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">scalable_allocation_command(TBBMALLOC_CLEAN_THREAD_BUFFERS,</span> <span class="pre">0)</span></code>
+cleans internal memory buffers but only for the calling thread.</p>
+<p><strong>May return</strong>: <code class="docutils literal notranslate"><span class="pre">TBBMALLOC_NO_EFFECT</span></code> if no buffers were released.</p>
+</dd></dl>
+
 </div>
 
 
@@ -451,10 +395,10 @@ of the performance impact is recommended.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="allocator_concept.html" class="btn btn-neutral float-right" title="Allocator Concept" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../mutual_exclusion.html" class="btn btn-neutral float-right" title="Mutual Exclusion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../memory_allocation.html" class="btn btn-neutral float-left" title="Memory Allocation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="scalable_memory_resource_func.html" class="btn btn-neutral float-left" title="scalable_memory_resource" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

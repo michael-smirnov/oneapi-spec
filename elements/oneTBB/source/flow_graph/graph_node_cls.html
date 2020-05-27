@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>graph_node Class &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>graph_node &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Special Message Types" href="special_message_types.html" />
-    <link rel="prev" title="Abstract Interfaces" href="abstract_interfaces.html" /> 
+    <link rel="next" title="sender" href="sender.html" />
+    <link rel="prev" title="reset_flags Enumeration" href="reset_flags_enum.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,20 +110,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../configuration.html">Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../algorithms.html">Algorithms</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../flow_graph.html">Flow Graph</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="graph_cls.html">graph Class</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="abstract_interfaces.html">Abstract Interfaces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="special_message_types.html">Special Message Types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="functional_nodes.html">Functional Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="buffering_nodes.html">Buffering Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="service_nodes.html">Service Nodes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ports_and_edges.html">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#graph-class">Graph Class</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../flow_graph.html#nodes">Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#ports-and-edges">Ports and Edges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#special-messages-types">Special Messages Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../flow_graph.html#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../task_scheduler.html">Task Scheduler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../containers.html">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../thread_local_storage.html">Thread Local Storage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a></li>
@@ -187,8 +183,6 @@
         
           
         
-          
-        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -209,44 +203,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="graph-node-class">
-<h1>graph_node Class<a class="headerlink" href="#graph-node-class" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="graph-node">
+<h1>graph_node<a class="headerlink" href="#graph-node" title="Permalink to this headline">¶</a></h1>
+<p><strong>[flow_graph.graph_node]</strong></p>
 <p>A base class for all graph nodes.</p>
-</div>
-<div class="section" id="syntax">
-<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">graph_node</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="header">
-<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;tbb/flow_graph.h&quot;</span><span class="cp"></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The class <code class="docutils literal notranslate"><span class="pre">graph_node</span></code> is a base class for all flow graph nodes.  The virtual destructor allows flow graph nodes to be destroyed through pointers to <code class="docutils literal notranslate"><span class="pre">graph_node</span></code>.  For example, a <code class="docutils literal notranslate"><span class="pre">vector&lt;</span> <span class="pre">graph_node</span> <span class="pre">*</span> <span class="pre">&gt;</span></code> could be used to hold the addresses of flow graph nodes that will later need to be destroyed.</p>
-</div>
-<div class="section" id="members">
-<h2>Members<a class="headerlink" href="#members" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">tbb</span> <span class="p">{</span>
 <span class="k">namespace</span> <span class="n">flow</span> <span class="p">{</span>
 
-<span class="k">class</span> <span class="nc">graph_node</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-    <span class="k">explicit</span> <span class="n">graph_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span> <span class="p">);</span>
-    <span class="k">virtual</span> <span class="o">~</span><span class="n">graph_node</span><span class="p">()</span> <span class="p">{}</span>
-<span class="p">};</span>
+    <span class="k">class</span> <span class="nc">graph_node</span> <span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="k">explicit</span> <span class="n">graph_node</span><span class="p">(</span> <span class="n">graph</span> <span class="o">&amp;</span><span class="n">g</span> <span class="p">);</span>
+        <span class="k">virtual</span> <span class="o">~</span><span class="n">graph_node</span><span class="p">();</span>
+    <span class="p">};</span>
 
-<span class="p">}</span>
-<span class="p">}</span>
+<span class="p">}</span> <span class="c1">// namespace flow</span>
+<span class="p">}</span> <span class="c1">// namespace tbb</span>
 </pre></div>
 </div>
-</div>
+<p>The class <code class="docutils literal notranslate"><span class="pre">graph_node</span></code> is a base class for all flow graph nodes.
+The virtual destructor allows flow graph nodes to be destroyed through pointers to <code class="docutils literal notranslate"><span class="pre">graph_node</span></code>.
+For example, a <code class="docutils literal notranslate"><span class="pre">vector&lt;</span> <span class="pre">graph_node</span> <span class="pre">*</span> <span class="pre">&gt;</span></code> could be used to hold the addresses of flow graph nodes
+that will later need to be destroyed.</p>
 </div>
 
 
@@ -257,10 +234,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="special_message_types.html" class="btn btn-neutral float-right" title="Special Message Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sender.html" class="btn btn-neutral float-right" title="sender" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="abstract_interfaces.html" class="btn btn-neutral float-left" title="Abstract Interfaces" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="reset_flags_enum.html" class="btn btn-neutral float-left" title="reset_flags Enumeration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

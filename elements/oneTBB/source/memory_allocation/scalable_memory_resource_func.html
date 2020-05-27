@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>scalable_memory_resource Function &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>scalable_memory_resource &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="cache_aligned_resource Class" href="cache_aligned_resource_cls.html" />
-    <link rel="prev" title="Memory Resource Interface" href="memory_resource_interface.html" /> 
+    <link rel="next" title="C Interface to Scalable Allocator" href="c_interface_to_scalable_allocator.html" />
+    <link rel="prev" title="cache_aligned_resource" href="cache_aligned_resource_cls.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -109,13 +109,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../nested-interfaces.html">oneTBB Interfaces</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../nested-aux-interfaces.html">oneTBB Auxiliary Interfaces</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../memory_allocation.html">Memory Allocation</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="c_interface_to_scalable_allocator.html">C Interface to Scalable Allocator</a></li>
-<li class="toctree-l4"><a class="reference internal" href="allocator_concept.html">Allocator Concept</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="memory_resource_interface.html">Memory Resource Interface</a></li>
-<li class="toctree-l4"><a class="reference internal" href="TBB_malloc_replacement_log_func.html">TBB_malloc_replacement_log Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../memory_allocation.html#allocators">Allocators</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../memory_allocation.html#memory-resources">Memory Resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../memory_allocation.html#library-functions">Library Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../synchronization.html">Synchronization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutual_exclusion.html">Mutual Exclusion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../timing.html">Timing</a></li>
 </ul>
 </li>
@@ -179,8 +178,6 @@
         
           
         
-          
-        
     
     
       <li class="wy-breadcrumbs-aside">
@@ -201,36 +198,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="scalable-memory-resource-function">
-<h1>scalable_memory_resource Function<a class="headerlink" href="#scalable-memory-resource-function" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>Function that returns a memory resource for scalable memory allocation.</p>
-</div>
-<div class="section" id="syntax">
-<h2>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n">memory_resource</span><span class="o">*</span> <span class="n">scalable_memory_resource</span><span class="p">();</span>
+  <div class="section" id="scalable-memory-resource">
+<h1>scalable_memory_resource<a class="headerlink" href="#scalable-memory-resource" title="Permalink to this headline">¶</a></h1>
+<p><strong>[memory_allocation.scalable_memory_resource]</strong></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">tbb::scalable_memory_resource()</span></code> is a function that returns a memory resource for scalable memory allocation.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">scalable_memory_resource()</span></code> function returns the pointer to the memory resource managed by the TBB scalable memory allocator.
+In particular, its <code class="docutils literal notranslate"><span class="pre">allocate</span></code> method uses <code class="docutils literal notranslate"><span class="pre">scalable_aligned_malloc()</span></code>, and <code class="docutils literal notranslate"><span class="pre">deallocate</span></code> uses <code class="docutils literal notranslate"><span class="pre">scalable_free()</span></code>.
+The memory resources returned by this function compare equal.</p>
+<p><code class="docutils literal notranslate"><span class="pre">std::pmr::polymorphic_allocator</span></code> instantiated with <code class="docutils literal notranslate"><span class="pre">tbb::scalable_memory_resource()</span></code> behaves like <code class="docutils literal notranslate"><span class="pre">tbb::scalable_allocator</span></code>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Defined in header &lt;tbb/scalable_allocator.h&gt;</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n">memory_resource</span><span class="o">*</span> <span class="n">scalable_memory_resource</span><span class="p">();</span>
 </pre></div>
-</div>
-</div>
-<div class="section" id="header">
-<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;tbb/scalable_allocator.h&quot;</span><span class="cp"></span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">scalable_memory_resource()</span></code> function returns the pointer to the memory resource managed by
-the TBB scalable memory allocator. In particular, its <code class="docutils literal notranslate"><span class="pre">allocate</span></code> method uses <code class="docutils literal notranslate"><span class="pre">scalable_aligned_malloc()</span></code>,
-and <code class="docutils literal notranslate"><span class="pre">deallocate</span></code> uses <code class="docutils literal notranslate"><span class="pre">scalable_free()</span></code>. The memory resources returned by this function compare equal.</p>
-<p><code class="docutils literal notranslate"><span class="pre">std::pmr::polymorphic_allocator</span></code> instantiated with
-<code class="docutils literal notranslate"><span class="pre">tbb::scalable_memory_resource()</span></code> behaves like <code class="docutils literal notranslate"><span class="pre">tbb::scalable_allocator</span></code>.</p>
-<p>See also:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="scalable_allocator_cls.html"><span class="doc">scalable_allocator Template Class</span></a></p></li>
-<li><p><a class="reference internal" href="c_interface_to_scalable_allocator.html"><span class="doc">C Interface to Scalable Allocator</span></a></p></li>
-</ul>
 </div>
 </div>
 
@@ -242,10 +221,10 @@ and <code class="docutils literal notranslate"><span class="pre">deallocate</spa
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cache_aligned_resource_cls.html" class="btn btn-neutral float-right" title="cache_aligned_resource Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="c_interface_to_scalable_allocator.html" class="btn btn-neutral float-right" title="C Interface to Scalable Allocator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="memory_resource_interface.html" class="btn btn-neutral float-left" title="Memory Resource Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cache_aligned_resource_cls.html" class="btn btn-neutral float-left" title="cache_aligned_resource" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
