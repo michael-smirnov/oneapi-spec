@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Tables" href="tables.html" />
+    <link rel="next" title="Data sources" href="data_sources.html" />
     <link rel="prev" title="Error handling" href="../common_interface/error_handling.html" /> 
 </head>
 
@@ -121,6 +121,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#details">Details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="data_sources.html">Data sources</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tables.html">Tables</a></li>
 <li class="toctree-l4"><a class="reference internal" href="table_builders.html">Table builders</a></li>
 <li class="toctree-l4"><a class="reference internal" href="accessors.html">Accessors</a></li>
@@ -291,6 +292,7 @@ automatically transform non-numeric <a class="reference internal" href="../gloss
 and <a class="reference internal" href="../glossary.html#term-continuous-feature"><span class="xref std std-term">continuous</span></a> values of data into one of numeric
 <a class="reference internal" href="../glossary.html#term-data-format"><span class="xref std std-term">data formats</span></a>.</p></li>
 </ul>
+<p>For details, see <a class="reference internal" href="data_sources.html#data-sources"><span class="std std-ref">Data sources</span></a> section.</p>
 </div>
 <div class="section" id="table">
 <span id="id4"></span><h3>Table<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h3>
@@ -381,10 +383,6 @@ algorithm for <a class="reference internal" href="../programming_model/algorithm
 memory allocators need to be used, or even particular implementation of a
 table.</p></li>
 </ul>
-<p>Table builder shall be a stateful object which state is updated every call of
-operation which updates data or <a class="reference internal" href="#metadata"><span class="std std-ref">Metadata</span></a> of <a class="reference internal" href="#dataset"><span class="std std-ref">Dataset</span></a> under
-construction. It shall have <cite>build()</cite> member function which takes current
-snapshot of builder state and creates a <a class="reference internal" href="#table"><span class="std std-ref">Table</span></a> object upon it.</p>
 <p>For details, see <a class="reference internal" href="table_builders.html#table-builders"><span class="std std-ref">Table builders</span></a> section.</p>
 </div>
 <div class="section" id="accessor">
@@ -444,6 +442,7 @@ object might know how to get data from different kind of objects.</p>
 <h2>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tables.html">Tables</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tables.html#requirements-on-table-types">Requirements on table types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tables.html#table-types-in-dal-short-name">Table types in oneDAL</a></li>
@@ -464,7 +463,13 @@ object might know how to get data from different kind of objects.</p>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="table_builders.html">Table builders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="table_builders.html">Table builders</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="table_builders.html#requirements-on-table-builder-types">Requirements on table builder types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_builders.html#table-builder-types-in-dal-short-name">Table builder types in oneDAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_builders.html#simple-homogenenous-table-builder">Simple homogenenous table builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_builders.html#simple-soa-table-builder">Simple soa table builder</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="accessors.html">Accessors</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="accessors.html#requirements-on-accessor-types">Requirements on accessor types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accessors.html#accessor-types-in-dal-short-name">Accessor types in oneDAL</a></li>
@@ -485,7 +490,7 @@ object might know how to get data from different kind of objects.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tables.html" class="btn btn-neutral float-right" title="Tables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="data_sources.html" class="btn btn-neutral float-right" title="Data sources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../common_interface/error_handling.html" class="btn btn-neutral float-left" title="Error handling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
