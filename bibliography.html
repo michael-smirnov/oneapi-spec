@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; oneDAL  documentation</title>
+  <title>Bibliography &mdash; oneDAL  documentation</title>
   
 
   
@@ -40,8 +40,7 @@
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Glossary" href="glossary.html" />
-    <link rel="prev" title="oneDAL 0.7" href="index.html" /> 
+    <link rel="prev" title="k-d Tree" href="appendix/kd_tree.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,7 +88,7 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notations.html">Mathematical Notations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming_model/index.html">Programming model</a></li>
@@ -97,7 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="data_management/index.html">Data management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="algorithms/index.html">Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="appendix/index.html">Appendix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bibliography</a></li>
 </ul>
 
             
@@ -148,7 +147,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/bibliography.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -161,47 +160,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p id="data-analytics-pipeline">oneAPI Data Analytics Library (oneDAL) is a library that provides building blocks covering all stages of data analytics: data acquisition
-from a data source, preprocessing, transformation, data mining, modeling, validation, and decision making.</p>
-<a class="reference internal image-reference" href="_images/data_analytics_stages.png"><img alt="Data analytis stages" src="_images/data_analytics_stages.png" style="width: 800px;" /></a>
-<p>oneDAL supports the concept of the end-to-end analytics when some of data analytics stages are performed on the
-edge devices (close to where the data is generated and where it is finally consumed). Specifically,
-oneDAL Application Programming Interfaces (APIs) are agnostic about a particular cross-device
-communication technology and, therefore, can be used within different end-to-end analytics frameworks.</p>
-<a class="reference internal image-reference" href="_images/e2eframeworks.png"><img alt="End to End Analytics Frameworks" src="_images/e2eframeworks.png" style="width: 800px;" /></a>
-<p>oneDAL consists of the following major components:</p>
-<blockquote>
-<div><ul>
-<li><p>The <a class="reference internal" href="data_management/index.html#data-management"><span class="std std-ref">Data Management</span></a> component includes classes and utilities for data acquisition, initial preprocessing and normalization,
-for data conversion into numeric formats (performed by one of supported Data Sources), and for model representation.</p></li>
-<li><p>The <a class="reference internal" href="algorithms/index.html#algorithms"><span class="std std-ref">Algorithms</span></a> component consists of classes that implement algorithms for data analysis (data mining) and data modeling
-(training and prediction). These algorithms include clustering, classification, regression, and recommendation algorithms.
-Algorithms support the following computation modes:</p>
-<ul>
-<li><p><a class="reference internal" href="programming_model/computational_modes.html#batch"><span class="std std-ref">Batch processing</span></a>: algorithms work with the entire data set to produce the final result</p></li>
-<li><p><a class="reference internal" href="programming_model/computational_modes.html#online"><span class="std std-ref">Online processing</span></a>: algorithms process a data set in blocks streamed into the device’s memory</p></li>
-<li><p><a class="reference internal" href="programming_model/computational_modes.html#distributed"><span class="std std-ref">Distributed processing</span></a>: algorithms operate on a data set distributed across several devices
-(compute nodes)</p>
-<p>Distributed algorithms in oneDAL are abstracted from underlying cross-device communication technology,
-which enables use of the library in a variety of multi-device computing and data transfer scenarios.</p>
-</li>
-</ul>
-<p>Depending on the usage, algorithms operate both on actual data (data set) and data models:</p>
-<ul class="simple">
-<li><p>Analysis algorithms typically operate on data sets.</p></li>
-<li><p>Training algorithms typically operate on a data set to train an appropriate data model.</p></li>
-<li><p>Prediction algorithms typically work with the trained data model and with a working data set.</p></li>
-</ul>
-</li>
-<li><p>The <strong>Services</strong> component includes classes and utilities used across Data Management and Algorithms components.
-These classes enable memory allocation, error handling.</p></li>
-</ul>
-</div></blockquote>
-<p>Classes in Data Management, Algorithms, and Services components cover the most important usage scenarios and allow
-seamless implementation of complex data analytics workflows through direct API calls. At the same time, the library
-is an object-oriented framework that helps customize the API by redefining particular classes and methods of the library.</p>
+  <div class="section" id="bibliography">
+<span id="id1"></span><h1>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h1>
+<p>For more information about algorithms implemented in oneAPI Data Analytics Library
+(oneDAL), refer to the following publications:</p>
+<dl class="citation">
+<dt class="label" id="openclspec"><span class="brackets">OpenCLSpec</span></dt>
+<dd><p>Khronos OpenCL Working Group, The OpenCL Specification
+Version:2.1 Document Revision:24
+Available from <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/opencl-2.1.pdf">opencl-2.1.pdf</a></p>
+</dd>
+<dt class="label" id="syclspec"><span class="brackets">SYCLSpec</span></dt>
+<dd><p>Khronos®OpenCL™ Working Group — SYCL™ subgroup, SYCL™ Specification SYCL™
+integrates OpenCL™ devices with modern C++, Version 1.2.1 Available from
+<a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-1.2.1.pdf">sycl-1.2.1.pdf</a></p>
+</dd>
+<dt class="label" id="lloyd82"><span class="brackets">Lloyd82</span></dt>
+<dd><p>Stuart P Lloyd. <em>Least squares quantization in PCM</em>. IEEE Transactions on
+Information Theory 1982, 28 (2): 1982pp: 129–137.</p>
+</dd>
+<dt class="label" id="bro07"><span class="brackets">Bro07</span></dt>
+<dd><p>Bro, R.; Acar, E.; Kolda, T.. <em>Resolving the sign ambiguity in the singular
+value decomposition</em>. SANDIA Report, SAND2007-6422, Unlimited Release,
+October, 2007.</p>
+</dd>
+<dt class="label" id="bentley80"><span class="brackets">Bentley80</span></dt>
+<dd><p>J. L. Bentley. Multidimensional Divide and Conquer. Communications of the
+ACM, 23(4):214–229, 1980.</p>
+</dd>
+</dl>
 </div>
 
 
@@ -212,10 +199,8 @@ is an object-oriented framework that helps customize the API by redefining parti
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="glossary.html" class="btn btn-neutral float-right" title="Glossary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="index.html" class="btn btn-neutral float-left" title="oneDAL 0.7" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="appendix/kd_tree.html" class="btn btn-neutral float-left" title="k-d Tree" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
