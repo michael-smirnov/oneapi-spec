@@ -254,7 +254,7 @@ must be inspected from outside of the node, the <a class="reference internal" hr
 used to obtain an updated copy.</p>
 <div class="section" id="member-functions">
 <h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I0E10input_nodeR5graph4Body">
 <span id="_CPPv3I0E10input_nodeR5graph4Body"></span><span id="_CPPv2I0E10input_nodeR5graph4Body"></span>template&lt;typename <code class="sig-name descname">Body</code>&gt;<br /><code class="sig-name descname">input_node</code><span class="sig-paren">(</span><a class="reference internal" href="graph_cls.html#_CPPv45graphR18task_group_context" title="graph">graph</a> &amp;<em>g</em>, <a class="reference internal" href="#_CPPv4I0E10input_nodeR5graph4Body" title="input_node::Body">Body</a> <em>body</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0E10input_nodeR5graph4Body" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs an <code class="docutils literal notranslate"><span class="pre">input_node</span></code> that will invoke <code class="docutils literal notranslate"><span class="pre">body</span></code>. By default
@@ -262,7 +262,7 @@ the node is created in an inactive state, that is, messages will
 not be generated until a call to <code class="docutils literal notranslate"><span class="pre">activate</span></code> is made.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv410input_nodeRK10input_node">
 <span id="_CPPv310input_nodeRK10input_node"></span><span id="_CPPv210input_nodeRK10input_node"></span><span id="input_node__input_nodeCR"></span><code class="sig-name descname">input_node</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410input_nodeRK10input_node" title="input_node">input_node</a> &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410input_nodeRK10input_node" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs an <code class="docutils literal notranslate"><span class="pre">input_node</span></code> that has the same initial state that
@@ -277,14 +277,14 @@ made to member variables in <code class="docutils literal notranslate"><span cla
 of <code class="docutils literal notranslate"><span class="pre">src</span></code> will not affect the body of the new <code class="docutils literal notranslate"><span class="pre">input_node.</span></code></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv48activatev">
 <span id="_CPPv38activatev"></span><span id="_CPPv28activatev"></span><span id="activate"></span>void <code class="sig-name descname">activate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48activatev" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Sets the <code class="docutils literal notranslate"><span class="pre">input_node</span></code> to the active state, allowing it to begin
 generating messages.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv47try_getR6Output">
 <span id="_CPPv37try_getR6Output"></span><span id="_CPPv27try_getR6Output"></span><span id="try_get__OutputR"></span>bool <code class="sig-name descname">try_get</code><span class="sig-paren">(</span>Output &amp;<em>v</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv47try_getR6Output" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Will copy the buffered message into <code class="docutils literal notranslate"><span class="pre">v</span></code> if available or will

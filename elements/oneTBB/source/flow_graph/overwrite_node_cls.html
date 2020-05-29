@@ -242,47 +242,47 @@ non-destructive.</p>
 <p><code class="docutils literal notranslate"><span class="pre">overwrite_node</span></code> allows overwriting its single item buffer.</p>
 <div class="section" id="member-functions">
 <h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv414overwrite_nodeR5graph">
 <span id="_CPPv314overwrite_nodeR5graph"></span><span id="_CPPv214overwrite_nodeR5graph"></span><span id="overwrite_node__graphR"></span><em class="property">explicit</em> <code class="sig-name descname">overwrite_node</code><span class="sig-paren">(</span><a class="reference internal" href="graph_cls.html#_CPPv45graphR18task_group_context" title="graph">graph</a> &amp;<em>g</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414overwrite_nodeR5graph" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs an object of type <code class="docutils literal notranslate"><span class="pre">overwrite_node</span></code> that belongs to the graph <code class="docutils literal notranslate"><span class="pre">g</span></code> with an invalid
 internal buffer item.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv414overwrite_nodeRK14overwrite_node">
-<span id="_CPPv314overwrite_nodeRK14overwrite_node"></span><span id="_CPPv214overwrite_nodeRK14overwrite_node"></span><span id="overwrite_node__overwrite_nodeCR"></span><code class="sig-name descname">overwrite_node</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv414overwrite_nodeR5graph" title="overwrite_node">overwrite_node</a> &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414overwrite_nodeRK14overwrite_node" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv314overwrite_nodeRK14overwrite_node"></span><span id="_CPPv214overwrite_nodeRK14overwrite_node"></span><span id="overwrite_node__overwrite_nodeCR"></span><code class="sig-name descname">overwrite_node</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv414overwrite_nodeRK14overwrite_node" title="overwrite_node">overwrite_node</a> &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414overwrite_nodeRK14overwrite_node" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs an object of type <code class="docutils literal notranslate"><span class="pre">overwrite_node</span></code> that belongs to the graph <code class="docutils literal notranslate"><span class="pre">g</span></code> with an invalid
 internal buffer item. The buffered value and list of successors are not copied from <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4D0v">
 <span id="_CPPv3D0v"></span><span id="_CPPv2D0v"></span><span id="~overwrite_node"></span><code class="sig-name descname">~overwrite_node</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4D0v" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Destroys the overwrite_node.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv47try_putRK1T">
 <span id="_CPPv37try_putRK1T"></span><span id="_CPPv27try_putRK1T"></span><span id="try_put__TCR"></span>bool <code class="sig-name descname">try_put</code><span class="sig-paren">(</span><em class="property">const</em> T &amp;<em>v</em><span class="sig-paren">)</span><br /></dt>
 <dd><p>Stores <code class="docutils literal notranslate"><span class="pre">v</span></code> in the internal single item buffer and calls <code class="docutils literal notranslate"><span class="pre">try_put(v)</span></code> on all successors.</p>
 <p><strong>Returns</strong>: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv47try_getR1T">
 <span id="_CPPv37try_getR1T"></span><span id="_CPPv27try_getR1T"></span><span id="try_get__TR"></span>bool <code class="sig-name descname">try_get</code><span class="sig-paren">(</span>T &amp;<em>v</em><span class="sig-paren">)</span><br /></dt>
 <dd><p>If the internal buffer is valid, assigns the value to <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
 <p><strong>Returns</strong>:<code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">v</span></code> is assigned to. <code class="docutils literal notranslate"><span class="pre">false</span></code> if <code class="docutils literal notranslate"><span class="pre">v</span></code> is not assigned to.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv48is_validv">
 <span id="_CPPv38is_validv"></span><span id="_CPPv28is_validv"></span><span id="is_valid"></span>bool <code class="sig-name descname">is_valid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48is_validv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><strong>Returns</strong>: <code class="docutils literal notranslate"><span class="pre">true</span></code> if the buffer holds a valid value, otherwise returns <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv45clearv">
 <span id="_CPPv35clearv"></span><span id="_CPPv25clearv"></span><span id="clear"></span>void <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Invalidates the value held in the buffer.</p>

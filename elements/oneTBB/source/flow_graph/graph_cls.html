@@ -239,7 +239,7 @@
 </div>
 <div class="section" id="member-functions">
 <h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv45graphR18task_group_context">
 <span id="_CPPv35graphR18task_group_context"></span><span id="_CPPv25graphR18task_group_context"></span><span id="graph__task_group_contextR"></span><code class="sig-name descname">graph</code><span class="sig-paren">(</span><a class="reference internal" href="../task_scheduler/scheduling_controls/task_group_context_cls.html#_CPPv418task_group_context6kind_t9uintptr_t" title="task_group_context">task_group_context</a> &amp;<em>group</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45graphR18task_group_context" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs a graph with no nodes. If <code class="docutils literal notranslate"><span class="pre">group</span></code> is specified the
@@ -247,33 +247,33 @@ graph tasks are executed in this group. By default the graph is
 executed in a bound context of its own.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4D0v">
 <span id="_CPPv3D0v"></span><span id="_CPPv2D0v"></span><span id="~graph"></span><code class="sig-name descname">~graph</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4D0v" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Calls <code class="docutils literal notranslate"><span class="pre">wait_for_all</span></code> on the graph, then destroys the graph.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv412wait_for_allv">
 <span id="_CPPv312wait_for_allv"></span><span id="_CPPv212wait_for_allv"></span><span id="wait_for_all"></span>void <code class="sig-name descname">wait_for_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412wait_for_allv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Blocks until all tasks associated with the graph have completed.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv45reset11reset_flags">
 <span id="_CPPv35reset11reset_flags"></span><span id="_CPPv25reset11reset_flags"></span><span id="reset__reset_flags"></span>void <code class="sig-name descname">reset</code><span class="sig-paren">(</span>reset_flags <em>f</em> = rf_reset_protocol<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45reset11reset_flags" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Reset the graph regards to specified flags.
 Flags to <code class="docutils literal notranslate"><span class="pre">reset()</span></code> can be combined with bitwise-<code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv412is_cancelledv">
 <span id="_CPPv312is_cancelledv"></span><span id="_CPPv212is_cancelledv"></span><span id="is_cancelled"></span>bool <code class="sig-name descname">is_cancelled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412is_cancelledv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns: <code class="docutils literal notranslate"><span class="pre">true</span></code> if the graph was cancelled during the last call to
 <code class="docutils literal notranslate"><span class="pre">wait_for_all()</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv416exception_thrownv">
 <span id="_CPPv316exception_thrownv"></span><span id="_CPPv216exception_thrownv"></span><span id="exception_thrown"></span>bool <code class="sig-name descname">exception_thrown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416exception_thrownv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns: <code class="docutils literal notranslate"><span class="pre">true</span></code> if during the last call to <code class="docutils literal notranslate"><span class="pre">wait_for_all()</span></code> an

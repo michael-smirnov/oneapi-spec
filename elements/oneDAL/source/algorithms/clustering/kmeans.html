@@ -293,13 +293,13 @@ by the user.</p>
 <span class="p">}</span> <span class="c1">// namespace method</span>
 </pre></div>
 </div>
-<dl class="struct">
+<dl class="cpp struct">
 <dt id="_CPPv4N6onedal6kmeans6method5lloydE">
 <span id="_CPPv3N6onedal6kmeans6method5lloydE"></span><span id="_CPPv2N6onedal6kmeans6method5lloydE"></span><span id="onedal::kmeans::method::lloyd"></span><em class="property">struct </em><code class="sig-name descname">lloyd</code><a class="headerlink" href="#_CPPv4N6onedal6kmeans6method5lloydE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Tag-type that denotes <a class="reference internal" href="#lloyd-s-method">Lloyd’s method</a>.</p>
 </dd></dl>
 
-<dl class="type">
+<dl class="cpp type">
 <dt id="_CPPv4N6onedal6kmeans6method10by_defaultE">
 <span id="_CPPv3N6onedal6kmeans6method10by_defaultE"></span><span id="_CPPv2N6onedal6kmeans6method10by_defaultE"></span><em class="property">using </em><code class="sig-name descname">by_default</code> = <a class="reference internal" href="#_CPPv4N6onedal6kmeans6method5lloydE" title="onedal::kmeans::method::lloyd">lloyd</a><a class="headerlink" href="#_CPPv4N6onedal6kmeans6method10by_defaultE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Alias tag-type for the <a class="reference internal" href="#lloyd-s-method">Lloyd’s method</a>.</p>
@@ -324,7 +324,7 @@ by the user.</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4I00EN6onedal6kmeans4descE">
 <span id="_CPPv3I00EN6onedal6kmeans4descE"></span><span id="_CPPv2I00EN6onedal6kmeans4descE"></span>template&lt;typename <code class="sig-name descname">Float</code> = float, typename <code class="sig-name descname">Method</code> = method::<a class="reference internal" href="#_CPPv4N6onedal6kmeans6method10by_defaultE" title="onedal::kmeans::method::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">desc</code><a class="headerlink" href="#_CPPv4I00EN6onedal6kmeans4descE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><dl class="field-list simple">
@@ -338,13 +338,13 @@ algorithm. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><
 </ul>
 </dd>
 </dl>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N6onedal6kmeans4desc4descEv">
 <span id="_CPPv3N6onedal6kmeans4desc4descEv"></span><span id="_CPPv2N6onedal6kmeans4desc4descEv"></span><span id="onedal::kmeans::desc::desc"></span><code class="sig-name descname">desc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans4desc4descEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates new instance of descriptor with the default attribute values.</p>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal6kmeans4desc13cluster_countE">
 <span id="_CPPv3N6onedal6kmeans4desc13cluster_countE"></span><span id="_CPPv2N6onedal6kmeans4desc13cluster_countE"></span><span id="onedal::kmeans::desc::cluster_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">cluster_count</code> = 2<a class="headerlink" href="#_CPPv4N6onedal6kmeans4desc13cluster_countE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>The number of clusters <span class="math notranslate nohighlight">\(k\)</span>.</p>
@@ -361,7 +361,7 @@ algorithm. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal6kmeans4desc19max_iteration_countE">
 <span id="_CPPv3N6onedal6kmeans4desc19max_iteration_countE"></span><span id="_CPPv2N6onedal6kmeans4desc19max_iteration_countE"></span><span id="onedal::kmeans::desc::max_iteration_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">max_iteration_count</code> = 100<a class="headerlink" href="#_CPPv4N6onedal6kmeans4desc19max_iteration_countE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>The maximum number of iterations <span class="math notranslate nohighlight">\(T\)</span>.</p>
@@ -378,7 +378,7 @@ algorithm. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal6kmeans4desc18accuracy_thresholdE">
 <span id="_CPPv3N6onedal6kmeans4desc18accuracy_thresholdE"></span><span id="_CPPv2N6onedal6kmeans4desc18accuracy_thresholdE"></span><span id="onedal::kmeans::desc::accuracy_threshold__double"></span>double <code class="sig-name descname">accuracy_threshold</code> = 0.0<a class="headerlink" href="#_CPPv4N6onedal6kmeans4desc18accuracy_thresholdE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>The threshold <span class="math notranslate nohighlight">\(\varepsilon\)</span> for the stop condition.</p>
@@ -409,16 +409,16 @@ algorithm. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4N6onedal6kmeans5modelE">
 <span id="_CPPv3N6onedal6kmeans5modelE"></span><span id="_CPPv2N6onedal6kmeans5modelE"></span><span id="onedal::kmeans::model"></span><em class="property">class </em><code class="sig-name descname">model</code><a class="headerlink" href="#_CPPv4N6onedal6kmeans5modelE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
+<dd><dl class="cpp function">
 <dt id="_CPPv4N6onedal6kmeans5model5modelEv">
 <span id="_CPPv3N6onedal6kmeans5model5modelEv"></span><span id="_CPPv2N6onedal6kmeans5model5modelEv"></span><span id="onedal::kmeans::model::model"></span><code class="sig-name descname">model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans5model5modelEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates a model with the default attribute values.</p>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal6kmeans5model9centroidsE">
 <span id="_CPPv3N6onedal6kmeans5model9centroidsE"></span><span id="_CPPv2N6onedal6kmeans5model9centroidsE"></span><span id="onedal::kmeans::model::centroids__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">centroids</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans5model9centroidsE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(k \times p\)</span> table with the cluster centroids. Each row of the table
@@ -431,7 +431,7 @@ stores one centroid.</p>
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal6kmeans5model13cluster_countE">
 <span id="_CPPv3N6onedal6kmeans5model13cluster_countE"></span><span id="_CPPv2N6onedal6kmeans5model13cluster_countE"></span><span id="onedal::kmeans::model::cluster_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">cluster_count</code> = 0<a class="headerlink" href="#_CPPv4N6onedal6kmeans5model13cluster_countE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Number of clusters <span class="math notranslate nohighlight">\(k\)</span> in the trained model.</p>
@@ -468,31 +468,31 @@ stores one centroid.</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4N6onedal6kmeans11train_inputE">
 <span id="_CPPv3N6onedal6kmeans11train_inputE"></span><span id="_CPPv2N6onedal6kmeans11train_inputE"></span><span id="onedal::kmeans::train_input"></span><em class="property">class </em><code class="sig-name descname">train_input</code><a class="headerlink" href="#_CPPv4N6onedal6kmeans11train_inputE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
+<dd><dl class="cpp function">
 <dt id="_CPPv4N6onedal6kmeans11train_input11train_inputEv">
 <span id="_CPPv3N6onedal6kmeans11train_input11train_inputEv"></span><span id="_CPPv2N6onedal6kmeans11train_input11train_inputEv"></span><span id="onedal::kmeans::train_input::train_input"></span><code class="sig-name descname">train_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans11train_input11train_inputEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates input for the training operation with the default attribute
 values.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N6onedal6kmeans11train_input11train_inputERK5table">
 <span id="_CPPv3N6onedal6kmeans11train_input11train_inputERK5table"></span><span id="_CPPv2N6onedal6kmeans11train_input11train_inputERK5table"></span><span id="onedal::kmeans::train_input::train_input__tableCR"></span><code class="sig-name descname">train_input</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> &amp;<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans11train_input11train_inputERK5table" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates input for the training operation with the given <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11train_input4dataE" title="onedal::kmeans::train_input::data"><span class="pre">data</span></a></code>, the
+<dd><p>Creates input for the training operation with the given <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11train_input11train_inputERK5table" title="onedal::kmeans::train_input::train_input::data"><span class="pre">data</span></a></code>, the
 other attributes get default values.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N6onedal6kmeans11train_input11train_inputERK5tableRK5table">
 <span id="_CPPv3N6onedal6kmeans11train_input11train_inputERK5tableRK5table"></span><span id="_CPPv2N6onedal6kmeans11train_input11train_inputERK5tableRK5table"></span><span id="onedal::kmeans::train_input::train_input__tableCR.tableCR"></span><code class="sig-name descname">train_input</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> &amp;<em>data</em>, <em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> &amp;<em>initial_centroids</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans11train_input11train_inputERK5tableRK5table" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates input for the training operation with the given data and
-<code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11train_input17initial_centroidsE" title="onedal::kmeans::train_input::initial_centroids"><span class="pre">initial_centroids</span></a></code>.</p>
+<code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11train_input11train_inputERK5tableRK5table" title="onedal::kmeans::train_input::train_input::initial_centroids"><span class="pre">initial_centroids</span></a></code>.</p>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal6kmeans11train_input4dataE">
 <span id="_CPPv3N6onedal6kmeans11train_input4dataE"></span><span id="_CPPv2N6onedal6kmeans11train_input4dataE"></span><span id="onedal::kmeans::train_input::data__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">data</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans11train_input4dataE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(n \times p\)</span> table with the data to be clustered, where each row
@@ -506,7 +506,7 @@ stores one feature vector.</p>
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal6kmeans11train_input17initial_centroidsE">
 <span id="_CPPv3N6onedal6kmeans11train_input17initial_centroidsE"></span><span id="_CPPv2N6onedal6kmeans11train_input17initial_centroidsE"></span><span id="onedal::kmeans::train_input::initial_centroids__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">initial_centroids</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans11train_input17initial_centroidsE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(k \times p\)</span> table with the initial centroids, where each row
@@ -536,17 +536,17 @@ stores one centroid.</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4N6onedal6kmeans12train_resultE">
 <span id="_CPPv3N6onedal6kmeans12train_resultE"></span><span id="_CPPv2N6onedal6kmeans12train_resultE"></span><span id="onedal::kmeans::train_result"></span><em class="property">class </em><code class="sig-name descname">train_result</code><a class="headerlink" href="#_CPPv4N6onedal6kmeans12train_resultE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
+<dd><dl class="cpp function">
 <dt id="_CPPv4N6onedal6kmeans12train_result12train_resultEv">
 <span id="_CPPv3N6onedal6kmeans12train_result12train_resultEv"></span><span id="_CPPv2N6onedal6kmeans12train_result12train_resultEv"></span><span id="onedal::kmeans::train_result::train_result"></span><code class="sig-name descname">train_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans12train_result12train_resultEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates result of the training operation with the default attribute
 values.</p>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal6kmeans12train_result5modelE">
 <span id="_CPPv3N6onedal6kmeans12train_result5modelE"></span><span id="_CPPv2N6onedal6kmeans12train_result5modelE"></span><span id="onedal::kmeans::train_result::model__kmeans::model"></span>kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans5modelE" title="onedal::kmeans::model">model</a> <code class="sig-name descname">model</code> = kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans5modelE" title="onedal::kmeans::model">model</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans12train_result5modelE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>The trained K-means model.</p>
@@ -558,7 +558,7 @@ values.</p>
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal6kmeans12train_result6labelsE">
 <span id="_CPPv3N6onedal6kmeans12train_result6labelsE"></span><span id="_CPPv2N6onedal6kmeans12train_result6labelsE"></span><span id="onedal::kmeans::train_result::labels__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">labels</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans12train_result6labelsE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(n \times 1\)</span> table with the labels <span class="math notranslate nohighlight">\(y_i\)</span> assigned to the
@@ -571,7 +571,7 @@ samples <span class="math notranslate nohighlight">\(x_i\)</span> in the input d
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal6kmeans12train_result15iteration_countE">
 <span id="_CPPv3N6onedal6kmeans12train_result15iteration_countE"></span><span id="_CPPv2N6onedal6kmeans12train_result15iteration_countE"></span><span id="onedal::kmeans::train_result::iteration_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">iteration_count</code> = 0<a class="headerlink" href="#_CPPv4N6onedal6kmeans12train_result15iteration_countE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>The number of iterations performed by the algorithm.</p>
@@ -583,7 +583,7 @@ samples <span class="math notranslate nohighlight">\(x_i\)</span> in the input d
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal6kmeans12train_result24objective_function_valueE">
 <span id="_CPPv3N6onedal6kmeans12train_result24objective_function_valueE"></span><span id="_CPPv2N6onedal6kmeans12train_result24objective_function_valueE"></span><span id="onedal::kmeans::train_result::objective_function_value__double"></span>double <code class="sig-name descname">objective_function_value</code> = 0.0<a class="headerlink" href="#_CPPv4N6onedal6kmeans12train_result24objective_function_valueE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>The value of the objective function <span class="math notranslate nohighlight">\(\Phi_X(C)\)</span>, where <span class="math notranslate nohighlight">\(C\)</span> is
@@ -601,7 +601,7 @@ samples <span class="math notranslate nohighlight">\(x_i\)</span> in the input d
 </div>
 <div class="section" id="operation-semantics">
 <h4>Operation semantics<a class="headerlink" href="#operation-semantics" title="Permalink to this headline">¶</a></h4>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE">
 <span id="_CPPv3I0EN6onedal5trainERK10DescriptorRKN6kmeans11train_inputE"></span><span id="_CPPv2I0EN6onedal5trainERK10DescriptorRKN6kmeans11train_inputE"></span>template&lt;typename <code class="sig-name descname">Descriptor</code>&gt;<br />kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans12train_resultE" title="onedal::kmeans::train_result">train_result</a> <code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::Descriptor">Descriptor</a> &amp;<em>desc</em>, <em class="property">const</em> kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans11train_inputE" title="onedal::kmeans::train_input">train_input</a> &amp;<em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><dl class="field-list simple">
@@ -649,31 +649,31 @@ samples <span class="math notranslate nohighlight">\(x_i\)</span> in the input d
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4N6onedal6kmeans11infer_inputE">
 <span id="_CPPv3N6onedal6kmeans11infer_inputE"></span><span id="_CPPv2N6onedal6kmeans11infer_inputE"></span><span id="onedal::kmeans::infer_input"></span><em class="property">class </em><code class="sig-name descname">infer_input</code><a class="headerlink" href="#_CPPv4N6onedal6kmeans11infer_inputE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
+<dd><dl class="cpp function">
 <dt id="_CPPv4N6onedal6kmeans11infer_input11infer_inputEv">
 <span id="_CPPv3N6onedal6kmeans11infer_input11infer_inputEv"></span><span id="_CPPv2N6onedal6kmeans11infer_input11infer_inputEv"></span><span id="onedal::kmeans::infer_input::infer_input"></span><code class="sig-name descname">infer_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans11infer_input11infer_inputEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates input for the inference operation with the default attribute
 values.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelE">
 <span id="_CPPv3N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelE"></span><span id="_CPPv2N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelE"></span><span id="onedal::kmeans::infer_input::infer_input__kmeans::modelCR"></span><code class="sig-name descname">infer_input</code><span class="sig-paren">(</span><em class="property">const</em> kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans5modelE" title="onedal::kmeans::model">model</a> &amp;<em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates input for the inference operation with the given <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11infer_input5modelE" title="onedal::kmeans::infer_input::model"><span class="pre">model</span></a></code>, the
+<dd><p>Creates input for the inference operation with the given <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelE" title="onedal::kmeans::infer_input::infer_input::model"><span class="pre">model</span></a></code>, the
 other attributes get default values.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelERK5table">
 <span id="_CPPv3N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelERK5table"></span><span id="_CPPv2N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelERK5table"></span><span id="onedal::kmeans::infer_input::infer_input__kmeans::modelCR.tableCR"></span><code class="sig-name descname">infer_input</code><span class="sig-paren">(</span><em class="property">const</em> kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans5modelE" title="onedal::kmeans::model">model</a> &amp;<em>model</em>, <em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> &amp;<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelERK5table" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates input for the inference operation with the given <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11infer_input5modelE" title="onedal::kmeans::infer_input::model"><span class="pre">model</span></a></code> and
-<code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11infer_input4dataE" title="onedal::kmeans::infer_input::data"><span class="pre">data</span></a></code>.</p>
+<dd><p>Creates input for the inference operation with the given <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelERK5table" title="onedal::kmeans::infer_input::infer_input::model"><span class="pre">model</span></a></code> and
+<code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelERK5table" title="onedal::kmeans::infer_input::infer_input::data"><span class="pre">data</span></a></code>.</p>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal6kmeans11infer_input4dataE">
 <span id="_CPPv3N6onedal6kmeans11infer_input4dataE"></span><span id="_CPPv2N6onedal6kmeans11infer_input4dataE"></span><span id="onedal::kmeans::infer_input::data__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">data</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans11infer_input4dataE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(n \times p\)</span> table with the data to be assigned to the clusters,
@@ -687,7 +687,7 @@ where each row stores one feature vector.</p>
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal6kmeans11infer_input5modelE">
 <span id="_CPPv3N6onedal6kmeans11infer_input5modelE"></span><span id="_CPPv2N6onedal6kmeans11infer_input5modelE"></span><span id="onedal::kmeans::infer_input::model__kmeans::model"></span>kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans5modelE" title="onedal::kmeans::model">model</a> <code class="sig-name descname">model</code> = kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans5modelE" title="onedal::kmeans::model">model</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans11infer_input5modelE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>The trained K-Means model (see <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">kmeans</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6onedal6kmeans5modelE" title="onedal::kmeans::model"><span class="pre">model</span></a></code>).</p>
@@ -714,17 +714,17 @@ where each row stores one feature vector.</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4N6onedal6kmeans12infer_resultE">
 <span id="_CPPv3N6onedal6kmeans12infer_resultE"></span><span id="_CPPv2N6onedal6kmeans12infer_resultE"></span><span id="onedal::kmeans::infer_result"></span><em class="property">class </em><code class="sig-name descname">infer_result</code><a class="headerlink" href="#_CPPv4N6onedal6kmeans12infer_resultE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
+<dd><dl class="cpp function">
 <dt id="_CPPv4N6onedal6kmeans12infer_result12infer_resultEv">
 <span id="_CPPv3N6onedal6kmeans12infer_result12infer_resultEv"></span><span id="_CPPv2N6onedal6kmeans12infer_result12infer_resultEv"></span><span id="onedal::kmeans::infer_result::infer_result"></span><code class="sig-name descname">infer_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans12infer_result12infer_resultEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates result of the inference operation with the default attribute
 values.</p>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal6kmeans12infer_result6labelsE">
 <span id="_CPPv3N6onedal6kmeans12infer_result6labelsE"></span><span id="_CPPv2N6onedal6kmeans12infer_result6labelsE"></span><span id="onedal::kmeans::infer_result::labels__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">labels</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans12infer_result6labelsE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(n \times 1\)</span> table with assignments labels to feature vectors in the
@@ -737,7 +737,7 @@ input data.</p>
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal6kmeans12infer_result24objective_function_valueE">
 <span id="_CPPv3N6onedal6kmeans12infer_result24objective_function_valueE"></span><span id="_CPPv2N6onedal6kmeans12infer_result24objective_function_valueE"></span><span id="onedal::kmeans::infer_result::objective_function_value__double"></span>double <code class="sig-name descname">objective_function_value</code> = 0.0<a class="headerlink" href="#_CPPv4N6onedal6kmeans12infer_result24objective_function_valueE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>The value of the objective function <span class="math notranslate nohighlight">\(\Phi_X(C)\)</span>, where <span class="math notranslate nohighlight">\(C\)</span> is
@@ -755,7 +755,7 @@ defined by the corresponding <code class="xref cpp cpp-expr docutils literal not
 </div>
 <div class="section" id="id4">
 <h4>Operation semantics<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE">
 <span id="_CPPv3I0EN6onedal5inferERK10DescriptorRKN6kmeans11infer_inputE"></span><span id="_CPPv2I0EN6onedal5inferERK10DescriptorRKN6kmeans11infer_inputE"></span>template&lt;typename <code class="sig-name descname">Descriptor</code>&gt;<br />kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans12infer_resultE" title="onedal::kmeans::infer_result">infer_result</a> <code class="sig-name descname">infer</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::Descriptor">Descriptor</a> &amp;<em>desc</em>, <em class="property">const</em> kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans11infer_inputE" title="onedal::kmeans::infer_input">infer_input</a> &amp;<em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><dl class="field-list simple">

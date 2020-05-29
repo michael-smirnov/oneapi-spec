@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.3.50. ungqr &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>2.1.3.1.23. onemkl::lapack::ungqr &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.3.51. ungqr_get_lwork" href="ungqr_get_lwork.html" />
-    <link rel="prev" title="2.1.3.49. ungbr_get_lwork" href="ungbr_get_lwork.html" /> 
+    <link rel="next" title="2.1.3.1.24. onemkl::lapack::ungqr_scratchpad_size" href="ungqr_scratchpad_size.html" />
+    <link rel="prev" title="2.1.3.1.22. onemkl::lapack::trtrs_scratchpad_size" href="trtrs_scratchpad_size.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -183,19 +183,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="ungqr">
-<h1><span class="section-number">2.1.3.50. </span>ungqr<a class="headerlink" href="#ungqr" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="onemkl-lapack-ungqr">
+<span id="id1"></span><h1><span class="section-number">2.1.3.1.23. </span>onemkl::lapack::ungqr<a class="headerlink" href="#onemkl-lapack-ungqr" title="Permalink to this headline">¶</a></h1>
 <div class="docutils container">
 <p>Generates the complex unitary matrix Q of the QR factorization formed
-by geqrf. This routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code>namespace.</p>
-<div class="section docutils container" id="guid-9fbc1610-9eb2-4f98-97cf-b74e301df4ad">
-<p class="sectiontitle rubric">Syntax</p>
-<dl class="function">
-<dt id="_CPPv45ungqrR5queueNSt7int64_tENSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEER6bufferI1TXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEE">
-<span id="_CPPv35ungqrR5queueNSt7int64_tENSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEER6bufferI1TXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEE"></span><span id="_CPPv25ungqrR5queueNSt7int64_tENSt7int64_tENSt7int64_tER6bufferI1TX1EENSt7int64_tER6bufferI1TX1EER6bufferI1TX1EENSt7int64_tER6bufferINSt7int64_tEX1EE"></span><span id="ungqr__queueR.std::int64_t.std::int64_t.std::int64_t.buffer:T.1:R.std::int64_t.buffer:T.1:R.buffer:T.1:R.std::int64_t.buffer:std::int64_t.1:R"></span>void <code class="sig-name descname">ungqr</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, buffer&lt;T, 1&gt; &amp;<em>tau</em>, buffer&lt;T, 1&gt; &amp;<em>work</em>, std::int64_t <em>lwork</em>, buffer&lt;std::int64_t, 1&gt; &amp;<em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45ungqrR5queueNSt7int64_tENSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEER6bufferI1TXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p><code class="docutils literal notranslate"><span class="pre">ungqr</span></code> supports the following precisions.</p>
+by geqrf.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">ungqr</span></code> supports the following precisions.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 100%" />
@@ -211,40 +205,52 @@ by geqrf. This routine belongs to the <code class="docutils literal notranslate"
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </div>
-</div>
-<div class="section docutils container" id="guid-6e26ae63-e2aa-4d9f-b690-7fa8a0882b6f">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
 <p>The routine generates the whole or part of <code class="docutils literal notranslate"><span class="pre">m</span></code>-by-<code class="docutils literal notranslate"><span class="pre">m</span></code> unitary
 matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> of the <code class="docutils literal notranslate"><span class="pre">QR</span></code> factorization formed by the routines
-<a class="reference external" href="geqrf.html">?geqrf</a>.</p>
+<a class="reference internal" href="geqrf.html#onemkl-lapack-geqrf"><span class="std std-ref">onemkl::lapack::geqrf</span></a>.</p>
 <p>Usually <code class="docutils literal notranslate"><span class="pre">Q</span></code> is determined from the <code class="docutils literal notranslate"><span class="pre">QR</span></code> factorization of an <code class="docutils literal notranslate"><span class="pre">m</span></code>
 by <code class="docutils literal notranslate"><span class="pre">p</span></code> matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> with <code class="docutils literal notranslate"><span class="pre">m≥p</span></code>. To compute the whole matrix
 <code class="docutils literal notranslate"><span class="pre">Q</span></code>, use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">onemkl</span><span class="p">::</span><span class="n">ungqr</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">lda</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">work</span><span class="p">,</span> <span class="n">lwork</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">onemkl</span><span class="p">::</span><span class="n">ungqr</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">lda</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">scratchpad</span><span class="p">,</span> <span class="n">scratchpad_size</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To compute the leading <code class="docutils literal notranslate"><span class="pre">p</span></code> columns of <code class="docutils literal notranslate"><span class="pre">Q</span></code> (which form an
 orthonormal basis in the space spanned by the columns of <code class="docutils literal notranslate"><span class="pre">A</span></code>):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">onemkl</span><span class="p">::</span><span class="n">ungqr</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">lda</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">work</span><span class="p">,</span> <span class="n">lwork</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">onemkl</span><span class="p">::</span><span class="n">ungqr</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">lda</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">scratchpad</span><span class="p">,</span> <span class="n">scratchpad_size</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To compute the matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code><sup>k</sup> of the <code class="docutils literal notranslate"><span class="pre">QR</span></code> factorization of
 the leading <code class="docutils literal notranslate"><span class="pre">k</span></code> columns of the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">onemkl</span><span class="p">::</span><span class="n">ungqr</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">lda</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">work</span><span class="p">,</span> <span class="n">lwork</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">onemkl</span><span class="p">::</span><span class="n">ungqr</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">lda</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">scratchpad</span><span class="p">,</span> <span class="n">scratchpad_size</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To compute the leading <code class="docutils literal notranslate"><span class="pre">k</span></code> columns of <code class="docutils literal notranslate"><span class="pre">Q</span></code><sup>k</sup> (which form
 an orthonormal basis in the space spanned by the leading <code class="docutils literal notranslate"><span class="pre">k</span></code>
 columns of the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">onemkl</span><span class="p">::</span><span class="n">ungqr</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">lda</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">work</span><span class="p">,</span> <span class="n">lwork</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">onemkl</span><span class="p">::</span><span class="n">ungqr</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">lda</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">scratchpad</span><span class="p">,</span> <span class="n">scratchpad_size</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="section docutils container" id="guid-f841ba63-d4ee-4c75-9831-bb804cea8622">
+<div class="section" id="onemkl-lapack-ungqr-buffer-version">
+<h2><span class="section-number">2.1.3.1.23.1. </span>onemkl::lapack::ungqr (BUFFER Version)<a class="headerlink" href="#onemkl-lapack-ungqr-buffer-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<dl class="cpp function">
+<dt id="_CPPv4N6onemkl6lapack5ungqrERN2cl4sycl5queueENSt7int64_tENSt7int64_tENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tE">
+<span id="_CPPv3N6onemkl6lapack5ungqrERN2cl4sycl5queueENSt7int64_tENSt7int64_tENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tE"></span><span id="_CPPv2N6onemkl6lapack5ungqrERN2cl4sycl5queueENSt7int64_tENSt7int64_tENSt7int64_tERN2cl4sycl6bufferI1TX1EEENSt7int64_tERN2cl4sycl6bufferI1TX1EEERN2cl4sycl6bufferI1TX1EEENSt7int64_tE"></span><span id="onemkl::lapack::ungqr__cl::sycl::queueR.std::int64_t.std::int64_t.std::int64_t.cl::sycl::buffer:T.1:R.std::int64_t.cl::sycl::buffer:T.1:R.cl::sycl::buffer:T.1:R.std::int64_t"></span>void <code class="sig-prename descclassname">onemkl::lapack<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">ungqr</code><span class="sig-paren">(</span>cl::sycl::queue &amp;<em>queue</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, cl::sycl::buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, cl::sycl::buffer&lt;T, 1&gt; &amp;<em>tau</em>, cl::sycl::buffer&lt;T, 1&gt; &amp;<em>scratchpad</em>, std::int64_t <em>scratchpad_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl6lapack5ungqrERN2cl4sycl5queueENSt7int64_tENSt7int64_tENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters</p>
 <dl class="simple">
-<dt>exec_queue</dt><dd><p>The queue where the routine should be executed.</p>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
 </dd>
 <dt>m</dt><dd><p>The number of rows in the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> (<code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">≤0</span></code>).</p>
 </dd>
@@ -253,45 +259,105 @@ columns of the matrix <code class="docutils literal notranslate"><span class="pr
 <dt>k</dt><dd><p>The number of elementary reflectors whose product defines the
 matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> (<code class="docutils literal notranslate"><span class="pre">0≤k≤n</span></code>).</p>
 </dd>
-<dt>a</dt><dd><p>The buffer a returned by
-<a class="reference external" href="geqrf.html">geqrf</a>.</p>
+<dt>a</dt><dd><p>The buffer <code class="docutils literal notranslate"><span class="pre">a</span></code> as returned by
+<a class="reference internal" href="geqrf.html#onemkl-lapack-geqrf"><span class="std std-ref">onemkl::lapack::geqrf</span></a>.</p>
 </dd>
 <dt>lda</dt><dd><p>The leading dimension of a (<code class="docutils literal notranslate"><span class="pre">lda</span> <span class="pre">≤m</span></code>).</p>
 </dd>
-<dt>tau</dt><dd><p>The buffer tau returned by
-<a class="reference external" href="geqrf.html">geqrf</a>.</p>
+<dt>tau</dt><dd><p>The buffer <code class="docutils literal notranslate"><span class="pre">tau</span></code> as returned by
+<a class="reference internal" href="geqrf.html#onemkl-lapack-geqrf"><span class="std std-ref">onemkl::lapack::geqrf</span></a>.</p>
 </dd>
-<dt>lwork</dt><dd><p>The size of the work array (<code class="docutils literal notranslate"><span class="pre">lwork</span>&#160; <span class="pre">≥n</span></code>). Must be computed by
-<a class="reference external" href="ungqr_get_lwork.html">ungqr_get_lwork</a>.</p>
+<dt>scratchpad_size</dt><dd><p>Size of scratchpad memory as a number of floating point elements of type T.
+Size should not be less than the value returned by <a class="reference internal" href="ungqr_scratchpad_size.html#onemkl-lapack-ungqr-scratchpad-size"><span class="std std-ref">onemkl::lapack::ungqr_scratchpad_size</span></a> function.</p>
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-f0c3d97d-e883-4070-a1c2-4fe43cc37d12">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters</p>
-<dl>
+<dl class="simple">
 <dt>a</dt><dd><p>Overwritten by <code class="docutils literal notranslate"><span class="pre">n</span></code> leading columns of the <code class="docutils literal notranslate"><span class="pre">m</span></code>-by-<code class="docutils literal notranslate"><span class="pre">m</span></code>
 orthogonal matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code>.</p>
 </dd>
-<dt>work</dt><dd><p>Workspace for internal computations.</p>
+<dt>scratchpad</dt><dd><p>Buffer holding scratchpad memory to be used by routine for storing intermediate results.</p>
 </dd>
-<dt>info</dt><dd><p>Buffer containing error information.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">info=0</span></code>, the execution is successful.</p>
+</dl>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Throws</p>
+<dl>
+<dt>onemkl::lapack::exception</dt><dd><p>Exception is thrown in case of problems happened during calculations. The <code class="docutils literal notranslate"><span class="pre">info</span></code> code of the problem can be obtained by <cite>get_info()</cite> method of exception object:</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">info=-i</span></code>, the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th parameter had an illegal value.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info</span></code> equals to value passed as scratchpad size, and <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> returns non zero, then passed scratchpad is of insufficient size, and required size should not be less than value return by <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> method of exception object.</p>
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-c97bf68f-b566-4164-95e0-a7adc290dde2">
-<p class="sectiontitle rubric">Example</p>
-<p>An example of how to use <code class="docutils literal notranslate"><span class="pre">ungqr</span></code>can be found in the oneMKL
-installation directory, under:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">examples</span><span class="o">/</span><span class="n">sycl</span><span class="o">/</span><span class="n">lapack</span><span class="o">/</span><span class="n">ungqr</span><span class="o">.</span><span class="n">cpp</span>
-</pre></div>
+</div>
+</div>
+<div class="section" id="onemkl-lapack-ungqr-usm-version">
+<h2><span class="section-number">2.1.3.1.23.2. </span>onemkl::lapack::ungqr (USM Version)<a class="headerlink" href="#onemkl-lapack-ungqr-usm-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<dl class="cpp function">
+<dt id="_CPPv4N6onemkl6lapack5ungqrERN2cl4sycl5queueENSt7int64_tENSt7int64_tENSt7int64_tEP1TNSt7int64_tEP1TP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE">
+<span id="_CPPv3N6onemkl6lapack5ungqrERN2cl4sycl5queueENSt7int64_tENSt7int64_tENSt7int64_tEP1TNSt7int64_tEP1TP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE"></span><span id="_CPPv2N6onemkl6lapack5ungqrERN2cl4sycl5queueENSt7int64_tENSt7int64_tENSt7int64_tEP1TNSt7int64_tEP1TP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE"></span><span id="onemkl::lapack::ungqr__cl::sycl::queueR.std::int64_t.std::int64_t.std::int64_t.TP.std::int64_t.TP.TP.std::int64_t.cl::sycl::vector_class:cl::sycl::event:CR"></span>cl::sycl::event <code class="sig-prename descclassname">onemkl::lapack<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">ungqr</code><span class="sig-paren">(</span>cl::sycl::queue &amp;<em>queue</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, T *<em>a</em>, std::int64_t <em>lda</em>, T *<em>tau</em>, T *<em>scratchpad</em>, std::int64_t <em>scratchpad_size</em>, <em class="property">const</em> cl::sycl::vector_class&lt;cl::sycl::event&gt; &amp;<em>events</em> = {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl6lapack5ungqrERN2cl4sycl5queueENSt7int64_tENSt7int64_tENSt7int64_tEP1TNSt7int64_tEP1TP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Input Parameters</p>
+<dl class="simple">
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
+</dd>
+<dt>m</dt><dd><p>The number of rows in the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> (<code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">≤0</span></code>).</p>
+</dd>
+<dt>n</dt><dd><p>The number of columns in the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> (<code class="docutils literal notranslate"><span class="pre">0≤n</span></code>).</p>
+</dd>
+<dt>k</dt><dd><p>The number of elementary reflectors whose product defines the
+matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> (<code class="docutils literal notranslate"><span class="pre">0≤k≤n</span></code>).</p>
+</dd>
+<dt>a</dt><dd><p>The pointer to <code class="docutils literal notranslate"><span class="pre">a</span></code> as returned by
+<a class="reference internal" href="geqrf.html#onemkl-lapack-geqrf"><span class="std std-ref">onemkl::lapack::geqrf</span></a>.</p>
+</dd>
+<dt>lda</dt><dd><p>The leading dimension of a (<code class="docutils literal notranslate"><span class="pre">lda</span> <span class="pre">≤m</span></code>).</p>
+</dd>
+<dt>tau</dt><dd><p>The pointer to <code class="docutils literal notranslate"><span class="pre">tau</span></code> as returned by
+<a class="reference internal" href="geqrf.html#onemkl-lapack-geqrf"><span class="std std-ref">onemkl::lapack::geqrf</span></a>.</p>
+</dd>
+<dt>scratchpad_size</dt><dd><p>Size of scratchpad memory as a number of floating point elements of type T.
+Size should not be less than the value returned by <a class="reference internal" href="ungqr_scratchpad_size.html#onemkl-lapack-ungqr-scratchpad-size"><span class="std std-ref">onemkl::lapack::ungqr_scratchpad_size</span></a> function.</p>
+</dd>
+<dt>events</dt><dd><p>List of events to wait for before starting computation. Defaults to empty list.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Output Parameters</p>
+<dl class="simple">
+<dt>a</dt><dd><p>Overwritten by <code class="docutils literal notranslate"><span class="pre">n</span></code> leading columns of the <code class="docutils literal notranslate"><span class="pre">m</span></code>-by-<code class="docutils literal notranslate"><span class="pre">m</span></code>
+orthogonal matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code>.</p>
+</dd>
+<dt>scratchpad</dt><dd><p>Pointer to scratchpad memory to be used by routine for storing intermediate results.</p>
+</dd>
+</dl>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Throws</p>
+<dl>
+<dt>onemkl::lapack::exception</dt><dd><p>Exception is thrown in case of problems happened during calculations. The <code class="docutils literal notranslate"><span class="pre">info</span></code> code of the problem can be obtained by <cite>get_info()</cite> method of exception object:</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info=-i</span></code>, the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th parameter had an illegal value.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info</span></code> equals to value passed as scratchpad size, and <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> returns non zero, then passed scratchpad is of insufficient size, and required size should not be less than value return by <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> method of exception object.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Return Values</p>
+<p>Output event to wait on to ensure computation is complete.</p>
 </div>
 </div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">
-<p><strong>Parent topic:</strong> <a class="reference external" href="lapack.html">LAPACK
-Routines</a></p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="lapack.html#onemkl-lapack-linear-equation-routines"><span class="std std-ref">LAPACK Linear Equation Routines</span></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -304,10 +370,10 @@ Routines</a></p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ungqr_get_lwork.html" class="btn btn-neutral float-right" title="2.1.3.51. ungqr_get_lwork" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ungqr_scratchpad_size.html" class="btn btn-neutral float-right" title="2.1.3.1.24. onemkl::lapack::ungqr_scratchpad_size" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ungbr_get_lwork.html" class="btn btn-neutral float-left" title="2.1.3.49. ungbr_get_lwork" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="trtrs_scratchpad_size.html" class="btn btn-neutral float-left" title="2.1.3.1.22. onemkl::lapack::trtrs_scratchpad_size" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

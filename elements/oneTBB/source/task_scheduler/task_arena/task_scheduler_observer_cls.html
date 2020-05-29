@@ -234,7 +234,7 @@ Remember to call <code class="docutils literal notranslate"><span class="pre">ob
 <p>Exceptions thrown and not caught in the overridden methods of <code class="docutils literal notranslate"><span class="pre">task_scheduler_observer</span></code> result in undefined behavior.</p>
 <div class="section" id="member-functions">
 <h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv423task_scheduler_observerv">
 <span id="_CPPv323task_scheduler_observerv"></span><span id="_CPPv223task_scheduler_observerv"></span><span id="task_scheduler_observer"></span><code class="sig-name descname">task_scheduler_observer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423task_scheduler_observerv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs a <code class="docutils literal notranslate"><span class="pre">task_scheduler_observer</span></code> object in the inactive state (observation is disabled).
@@ -244,7 +244,7 @@ already in the arena when the observer is activated, the entry notification is
 called before it executes the first stolen task.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv423task_scheduler_observerR10task_arena">
 <span id="_CPPv323task_scheduler_observerR10task_arena"></span><span id="_CPPv223task_scheduler_observerR10task_arena"></span><span id="task_scheduler_observer__task_arenaR"></span><em class="property">explicit</em> <code class="sig-name descname">task_scheduler_observer</code><span class="sig-paren">(</span><a class="reference internal" href="task_arena_cls.html#_CPPv410task_arenaij" title="task_arena">task_arena</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423task_scheduler_observerR10task_arena" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Construct <code class="docutils literal notranslate"><span class="pre">task_scheduler_observer</span></code> object for a given arena in inactive state (observation is disabled).
@@ -255,26 +255,26 @@ is called before it executes the first stolen task.</p>
 which receives notifications from threads entering and exiting the specified <code class="docutils literal notranslate"><span class="pre">task_arena</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4D0v">
 <span id="_CPPv3D0v"></span><span id="_CPPv2D0v"></span><span id="~task_scheduler_observer"></span><code class="sig-name descname">~task_scheduler_observer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4D0v" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Disables observing and destroys the observer instance.
 Waits for extant invocations of <code class="docutils literal notranslate"><span class="pre">on_scheduler_entry</span></code> and <code class="docutils literal notranslate"><span class="pre">on_scheduler_exit</span></code> to complete.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv47observeb">
 <span id="_CPPv37observeb"></span><span id="_CPPv27observeb"></span><span id="observe__b"></span>void <code class="sig-name descname">observe</code><span class="sig-paren">(</span>bool <em>state</em> = true<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv47observeb" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Enables observing if <code class="docutils literal notranslate"><span class="pre">state</span></code> is true; disables observing if <code class="docutils literal notranslate"><span class="pre">state</span></code> is false.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4NK12is_observingEv">
 <span id="_CPPv3NK12is_observingEv"></span><span id="_CPPv2NK12is_observingEv"></span><span id="is_observingC"></span>bool <code class="sig-name descname">is_observing</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12is_observingEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><strong>Returns</strong>: True if observing is enabled; false otherwise.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv418on_scheduler_entryb">
 <span id="_CPPv318on_scheduler_entryb"></span><span id="_CPPv218on_scheduler_entryb"></span><span id="on_scheduler_entry__b"></span><em class="property">virtual</em> void <code class="sig-name descname">on_scheduler_entry</code><span class="sig-paren">(</span>bool <em>is_worker</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418on_scheduler_entryb" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>The task scheduler invokes this method for each thread that starts participating
@@ -287,7 +287,7 @@ as well as all the tasks it creates, will be executed by threads which have invo
 <p><strong>Effects</strong>: The default behavior does nothing.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv417on_scheduler_exitb">
 <span id="_CPPv317on_scheduler_exitb"></span><span id="_CPPv217on_scheduler_exitb"></span><span id="on_scheduler_exit__b"></span><em class="property">virtual</em> void <code class="sig-name descname">on_scheduler_exit</code><span class="sig-paren">(</span>bool <em>is_worker</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417on_scheduler_exitb" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>The task scheduler invokes this method when

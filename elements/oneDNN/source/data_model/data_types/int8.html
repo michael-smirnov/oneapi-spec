@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Int8 &mdash; oneAPI Specification 0.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/language_data.js"></script>
+        <script src="../../../../../_static/custom.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="Memory" href="../memory/index.html" />
+    <link rel="prev" title="Bfloat16" href="bfloat16.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://oneapi.com" class="icon icon-home"> oneAPI Specification
+          
+
+          
+            
+            <img src="../../../../../_static/oneAPI-rgb-rev-100.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../architecture.html">Software Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../library-interop.html">Library Interoperability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../elements.html">oneAPI Elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dpcpp/source/index.html">DPC++ 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../oneDPL/source/index.html">oneDPL 0.7</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">oneDNN 0.7</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../execution_model/index.html">Execution Model</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Data model</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Data types</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="bfloat16.html">Bfloat16</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Int8</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../memory/index.html">Memory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../primitives/index.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#id1">Open Source Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#implementation-notes">Implementation Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../oneCCL/source/index.html">oneCCL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../l0/source/index.html">Level Zero 0.91</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../oneDAL/source/index.html">oneDAL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../oneTBB/source/nested-index.html">oneTBB 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../oneVPL/source/index.html">oneVPL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../oneMKL/source/index.html">oneMKL 0.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../versions.html">HTML and PDF Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notices.html">Legal Notices and Disclaimers</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">oneAPI Specification</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">oneAPI Specification</a> &raquo;</li>
+        
+          
+          <li><a href="../../index.html">oneDNN 0.7</a> </li>
+          
+        
+          
+        
+          
+        
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/oneapi-src/oneapi-spec/blob/master/source/elements/oneDNN/source/data_model/data_types/int8.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="int8">
+<h1>Int8<a class="headerlink" href="#int8" title="Permalink to this headline">¶</a></h1>
+<p>To push higher performance during inference computations, recent work
+has focused on computing at a lower precision (that is, shrinking the
+size of data for activations and weights) to achieve higher throughput.
+Eight-bit computations (referred to as int8) offer improved performance
+over higher-precision types because they enable packing more data into a
+single instruction, at the cost of reduced (but acceptable) accuracy.</p>
+<div class="section" id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<p>There are different ways to use lower precision to perform inference. Please
+go through the <a class="reference internal" href="../../primitives/attributes/quantization.html#attributes-quantization-label"><span class="std std-ref">Quantization</span></a> page to get the initial
+understanding of what kind of quantization model oneDNN supports.</p>
+<div class="section" id="quantization">
+<h3>Quantization<a class="headerlink" href="#quantization" title="Permalink to this headline">¶</a></h3>
+<p>To operate with int8 data types from a higher-precision format (for
+example, 32-bit floating point), data must first be <em>quantized</em>. The
+quantization process converts a given input into a lower-precision
+format. The precision and accuracy factors are determined by the scaling
+factors.</p>
+</div>
+<div class="section" id="scale">
+<h3>Scale<a class="headerlink" href="#scale" title="Permalink to this headline">¶</a></h3>
+<p>The scale is usually obtained from sampling the dataset of previous executions
+in the original format (for example, the activations and weights from training
+in f32) and is formulated as:</p>
+<div class="math notranslate nohighlight">
+\[R_{\{\alpha,w\}} = max(abs(T_{\{\alpha,w\}})),\]</div>
+<p>where <span class="math notranslate nohighlight">\(T_{\{\alpha,w\}}\)</span> is a tensor corresponding to either the weights
+<span class="math notranslate nohighlight">\(w\)</span> or the activations <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<p>The purpose is to establish the range of values used in the computation,
+where selecting a proper scaling factor prevents over- or underflows
+during computation of the lower-precision results.</p>
+</div>
+<div class="section" id="quantization-factor">
+<h3>Quantization Factor<a class="headerlink" href="#quantization-factor" title="Permalink to this headline">¶</a></h3>
+<p>The next step is to calculate the <strong>quantization factor</strong> for converting
+the values into the corresponding int8 range. This is also known as the
+<strong>scale</strong> or <strong>scaling factor</strong> applied to the original high-precision
+values and is calculated as:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Q_{\alpha} = \frac{255}{R_{\alpha}}\)</span> is the quantization factor
+for activations with non-negative values,</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_{w} = \frac{127}{R_{w}}\)</span> is the quantization factor for weights.</p></li>
+</ul>
+<p>The low-precision values, known as the <strong>quantized</strong> activation, weights, and
+bias values, are calculated as:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha_{u8} = \lceil Q_{\alpha} \alpha_{f32} \rceil \in [0,255]\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(W_{s8} = \lceil Q_{w} W_{f32} \rceil \in [-127,127]\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(b_{s32} = \lceil Q_{\alpha} Q_{w} b_{f32} \rceil \in [-2^{31},2^{31}-1]\)</span>.</p></li>
+</ul>
+<p>where the <span class="math notranslate nohighlight">\(\lceil \cdot \rceil\)</span> operator rounds according to a hardware
+rounding mode.</p>
+<p>When the destination value (for example, from a convolution) is stored as a
+signed 32-bit integer, the result is bound to the same quantization <em>scaling</em>
+factors:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X_{s32} = W_{s8} \times \alpha{u8} + b_{s32} \approx Q_{\alpha} Q_{\omega} X_{f32}\)</span>,</p></li>
+<li><p>where <span class="math notranslate nohighlight">\(X_{f32} = W_{f32} \times \alpha_{f32} + b_{f32}\)</span>,</p></li>
+</ul>
+<p>where the approximated value is due to the rounded values. Inversely, the
+dequantized value is calculated as:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X_{f32} \approx \frac{1}{Q_{\alpha} Q_{\omega}} X_{s32}\)</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="quantization-example">
+<h3>Quantization Example<a class="headerlink" href="#quantization-example" title="Permalink to this headline">¶</a></h3>
+<p>To show how the int8 parameters are obtained, suppose we first start off
+with a set of arbitrary high-precision input and output values. These
+values come from sampling a previously executed training run and are in
+their original 32-bit floating point format as:</p>
+<ul class="simple">
+<li><p>activations: <span class="math notranslate nohighlight">\(T_{\alpha} = [15, 14, 15 \ldots, 8, 11 ]\)</span>,
+where <span class="math notranslate nohighlight">\(max(abs(T_{\alpha})) = 15\)</span>;</p></li>
+<li><p>weights: <span class="math notranslate nohighlight">\(T_{\omega} = [-5.1 , 6.8, \ldots, -1.2, 9.8 ]\)</span>,
+where <span class="math notranslate nohighlight">\(max(abs(T_{\omega})) = 9.8\)</span>;</p></li>
+<li><p>bias: <span class="math notranslate nohighlight">\(T_{\alpha} = [ 2.4, -5.2 \ldots, -8 ]\)</span> where
+<span class="math notranslate nohighlight">\(max(abs(T_{\alpha})) = 8\)</span>.</p></li>
+</ul>
+<p>The scaling factors are:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Q_{\alpha} = \frac{255}{R_{\alpha}} = \frac{255}{15} = 17\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_{w} = \frac{127}{R_{w}} = \frac{127}{9.8} = 12.96\)</span>.</p></li>
+</ul>
+<p>Finally, the quantized input values for the 8-bit operation are calculated as:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha_{u8} = \lceil Q_{\alpha} \alpha_{f32} \rceil = \lceil 17 \times [15, 14, \ldots, 11]\rceil = [255, 238, \ldots, 187]\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(W_{s8} = \lceil Q_{w} W_{f32} \rceil
+= \lceil 12.96 \times [-5.1 , 6.8, ... -1.2, 9.8] \rceil
+= [-66, 88, \dots, -15, 127]\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(b_{s32} = \lceil Q_{\alpha} Q_{w} b_{f32} \rceil  = \lceil 17 \times 12.96 \times [ 2.4, -5.2 ... -8 ] \rceil  = [528, -1145, \ldots, -1762]\)</span>.</p></li>
+</ul>
+<p>These arrays are the new inputs for the int8 net.</p>
+</div>
+</div>
+<div class="section" id="support">
+<h2>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h2>
+<p>oneDNN supports low-precision computations for inference through the int8
+primitives. Int8 primitives are ordinary oneDNN primitives that have their
+input memory objects store 8-bit integer data.</p>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<p>oneDNN primitive behavior may be extended for additional functionalities
+involving output data transformation. These additional features are configured
+via <strong>primitive attributes</strong>. The primitive attributes are used for passing
+extra parameters to a primitive descriptor. The parameters include scaling
+factors and fused post-ops. All operation primitives support the attributes
+structure; however, some configurations are not implemented and result in
+<em>failed primitive creation</em>.</p>
+<p>The <strong>scaling factor</strong>, as previously described, is known prior to the
+inference operation where the values are calculated from a set of
+formulas. In oneDNN, the scaling factor is applied to the output of a
+primitive. Moreover, to perform input transformations (for example,
+source, bias, and weights), oneDNN performs quantizing and dequantizing
+of data for int8 through the <strong>Reorder Primitive</strong>.</p>
+<p>oneDNN has two formats for defining the output scaling factor. Depending
+on the configuration set by the scaling mask, either the output is
+scaled uniformly across all the dimensions (<em>mask = 0</em>) or a set of
+scaling values is applied to specific dimensions, as explained below:</p>
+<ul class="simple">
+<li><p>A <em>single floating point value</em> shared across the tensor:</p></li>
+</ul>
+<img alt="Single-value scaling format" src="../../../../../_images/img_singlescalar.png" />
+<ul class="simple">
+<li><p>An array of floating point values each corresponding to a specific
+output channel:</p></li>
+</ul>
+<img alt="Multi-value scaling format" src="../../../../../_images/img_multiscalar.png" />
+<p>The <strong>mask</strong> parameter determines the dimension to which the scales array is
+applied. The <span class="math notranslate nohighlight">\(i\)</span>-th bit of the mask selects the dimension <span class="math notranslate nohighlight">\(D_i\)</span> of
+an <span class="math notranslate nohighlight">\(n\)</span>-dimensional tensor <span class="math notranslate nohighlight">\(T[D_0, \ldots, D_{n-1}]\)</span>. For example:</p>
+<ul class="simple">
+<li><p>The single-scale format always has mask = 0.</p></li>
+<li><p>For a 5-dimensional tensor <span class="math notranslate nohighlight">\(T[G_0, O_1, I_2, H_3, W_4]\)</span> where the
+indices correspond to the positions of bits in the mask:</p>
+<ul>
+<li><p>A <span class="math notranslate nohighlight">\(mask = 2 = 2^1\)</span> selects the output channel for scaling.</p></li>
+<li><p>A <span class="math notranslate nohighlight">\(mask = 3 = 2^1 | 2^0\)</span> selects the group and output channels.</p></li>
+</ul>
+</li>
+</ul>
+<p>The mask is always applied to the logical dimensions and thus is independent
+of the memory format that the primitive might select.</p>
+<p>Fused <a class="reference internal" href="../../primitives/attributes/post-ops.html#post-ops-label"><span class="std std-ref">post-ops</span></a> allow chaining computations. Note that
+the resulting output value from post-ops is always affected by the scaling
+factor.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../memory/index.html" class="btn btn-neutral float-right" title="Memory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bfloat16.html" class="btn btn-neutral float-left" title="Bfloat16" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -206,7 +206,7 @@
   <div class="section" id="concurrently-safe-modifiers">
 <h1>Concurrently safe modifiers<a class="headerlink" href="#concurrently-safe-modifiers" title="Permalink to this headline">¶</a></h1>
 <p>All member functions in this section can be performed concurrently with each other.</p>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv45localv">
 <span id="_CPPv35localv"></span><span id="_CPPv25localv"></span><span id="local"></span>reference <code class="sig-name descname">local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
 <dd><p>If there is no current element corresponding to the current thread, then this method constructs a new element.
@@ -215,7 +215,7 @@ A new element is copy-constructed if an exemplar was provided to the constructor
 <p><strong>Returns</strong>: A reference to the element of <code class="docutils literal notranslate"><span class="pre">*this</span></code> that corresponds to the current thread.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv45localRb">
 <span id="_CPPv35localRb"></span><span id="_CPPv25localRb"></span><span id="local__bR"></span>reference <code class="sig-name descname">local</code><span class="sig-paren">(</span>bool &amp;<em>exists</em><span class="sig-paren">)</span><br /></dt>
 <dd><p>Similar to <code class="docutils literal notranslate"><span class="pre">local()</span></code>, except that <code class="docutils literal notranslate"><span class="pre">exists</span></code> is set to true if an element

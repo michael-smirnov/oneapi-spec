@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.3.38. potrs_batch &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>2.1.3.3.7. onemkl::lapack::potrs_batch &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.3.39. syevd" href="syevd.html" />
-    <link rel="prev" title="2.1.3.37. potrs (USM Version)" href="potrs-usm-version.html" /> 
+    <link rel="next" title="2.2.1. Sparse BLAS Routines" href="../spblas/spblas.html" />
+    <link rel="prev" title="2.1.3.3.6. onemkl::lapack::potrf_batch" href="potrf_batch.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -183,21 +183,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="potrs-batch">
-<h1><span class="section-number">2.1.3.38. </span>potrs_batch<a class="headerlink" href="#potrs-batch" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="onemkl-lapack-potrs-batch">
+<span id="id1"></span><h1><span class="section-number">2.1.3.3.7. </span>onemkl::lapack::potrs_batch<a class="headerlink" href="#onemkl-lapack-potrs-batch" title="Permalink to this headline">¶</a></h1>
 <div class="docutils container">
 <p>Solves a system of linear equations with a batch of Cholesky-factored
-symmetric (Hermitian) positive-definite coefficient matrices. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code>namespace.</p>
-<div class="section docutils container" id="guid-814d7756-f1e2-4417-a0ea-b4294b8303d4">
-<p class="sectiontitle rubric">Syntax</p>
-<div class="dlsyntaxpara docutils container">
-<dl class="function">
-<dt id="_CPPv411potrs_batchR5queueRKNSt6vectorIN6onemkl4uploEEERKNSt6vectorINSt7int64_tEEERKNSt6vectorINSt7int64_tEEERNSt6vectorI6bufferI1TXL1EEEEERKNSt6vectorINSt7int64_tEEERNSt6vectorI6bufferI1TXL1EEEEERKNSt6vectorINSt7int64_tEEERNSt6vectorI6bufferINSt7int64_tEXL1EEEEE">
-<span id="_CPPv311potrs_batchR5queueRKNSt6vectorIN6onemkl4uploEEERKNSt6vectorINSt7int64_tEEERKNSt6vectorINSt7int64_tEEERNSt6vectorI6bufferI1TXL1EEEEERKNSt6vectorINSt7int64_tEEERNSt6vectorI6bufferI1TXL1EEEEERKNSt6vectorINSt7int64_tEEERNSt6vectorI6bufferINSt7int64_tEXL1EEEEE"></span><span id="_CPPv211potrs_batchR5queueRKNSt6vectorIN6onemkl4uploEEERKNSt6vectorINSt7int64_tEEERKNSt6vectorINSt7int64_tEEERNSt6vectorI6bufferI1TX1EEEERKNSt6vectorINSt7int64_tEEERNSt6vectorI6bufferI1TX1EEEERKNSt6vectorINSt7int64_tEEERNSt6vectorI6bufferINSt7int64_tEX1EEEE"></span><span id="potrs_batch__queueR.std::vector:onemkl::uplo:CR.std::vector:std::int64_t:CR.std::vector:std::int64_t:CR.std::vector:buffer:T.1::R.std::vector:std::int64_t:CR.std::vector:buffer:T.1::R.std::vector:std::int64_t:CR.std::vector:buffer:std::int64_t.1::R"></span>void <code class="sig-name descname">potrs_batch</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, std::vector&lt;onemkl::uplo&gt; <em class="property">const</em> &amp;<em>uplo</em>, std::vector&lt;std::int64_t&gt; <em class="property">const</em> &amp;<em>n</em>, std::vector&lt;std::int64_t&gt; <em class="property">const</em> &amp;<em>nrhs</em>, std::vector&lt;buffer&lt;T, 1&gt;&gt; &amp;<em>a</em>, std::vector&lt;std::int64_t&gt; <em class="property">const</em> &amp;<em>lda</em>, std::vector&lt;buffer&lt;T, 1&gt;&gt; &amp;<em>b</em>, std::vector&lt;std::int64_t&gt; <em class="property">const</em> &amp;<em>ldb</em>, std::vector&lt;buffer&lt;std::int64_t, 1&gt;&gt; &amp;<em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411potrs_batchR5queueRKNSt6vectorIN6onemkl4uploEEERKNSt6vectorINSt7int64_tEEERKNSt6vectorINSt7int64_tEEERNSt6vectorI6bufferI1TXL1EEEEERKNSt6vectorINSt7int64_tEEERNSt6vectorI6bufferI1TXL1EEEEERKNSt6vectorINSt7int64_tEEERNSt6vectorI6bufferINSt7int64_tEXL1EEEEE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p><code class="docutils literal notranslate"><span class="pre">potrs_batch</span></code> supports the following precisions.</p>
+symmetric (Hermitian) positive-definite coefficient matrices.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">potrs_batch</span></code> supports the following precisions.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 100%" />
@@ -217,9 +209,8 @@ routine belongs to the <code class="docutils literal notranslate"><span class="p
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section docutils container" id="guid-a3a0248f-23b3-4e74-bda2-bb8d23f19a50">
+</div></blockquote>
+<div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
 <p>The routine solves for <code class="docutils literal notranslate"><span class="pre">X</span></code><sub>i</sub> , in batch fashion, the
 system of linear equations <code class="docutils literal notranslate"><span class="pre">A</span></code><sub>i</sub>*<code class="docutils literal notranslate"><span class="pre">X</span></code><sub>i</sub> =
@@ -237,10 +228,24 @@ complex data.</p>
 <p>Where <code class="docutils literal notranslate"><span class="pre">L</span></code><sub>i</sub> is a lower triangular matrix and
 <code class="docutils literal notranslate"><span class="pre">U</span></code><sub>i</sub> is an upper triangular matrix.</p>
 </div>
-<div class="section docutils container" id="guid-f841ba63-d4ee-4c75-9831-bb804cea8622">
+</div>
+<div class="section" id="onemkl-lapack-potrs-batch-buffer-version">
+<h2><span class="section-number">2.1.3.3.7.1. </span>onemkl::lapack::potrs_batch (BUFFER Version)<a class="headerlink" href="#onemkl-lapack-potrs-batch-buffer-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<div class="dlsyntaxpara docutils container">
+<dl class="cpp function">
+<dt id="_CPPv4N6onemkl6lapack11potrs_batchERN2cl4sycl5queueERKNSt6vectorIN6onemkl4uploEEERKNSt6vectorINSt7int64_tEEERKNSt6vectorINSt7int64_tEEERNSt6vectorIN2cl4sycl6bufferI1TXL1EEEEEERKNSt6vectorINSt7int64_tEEERNSt6vectorIN2cl4sycl6bufferI1TXL1EEEEEERKNSt6vectorINSt7int64_tEEERNSt6vectorIN2cl4sycl6bufferINSt7int64_tEXL1EEEEEE">
+<span id="_CPPv3N6onemkl6lapack11potrs_batchERN2cl4sycl5queueERKNSt6vectorIN6onemkl4uploEEERKNSt6vectorINSt7int64_tEEERKNSt6vectorINSt7int64_tEEERNSt6vectorIN2cl4sycl6bufferI1TXL1EEEEEERKNSt6vectorINSt7int64_tEEERNSt6vectorIN2cl4sycl6bufferI1TXL1EEEEEERKNSt6vectorINSt7int64_tEEERNSt6vectorIN2cl4sycl6bufferINSt7int64_tEXL1EEEEEE"></span><span id="_CPPv2N6onemkl6lapack11potrs_batchERN2cl4sycl5queueERKNSt6vectorIN6onemkl4uploEEERKNSt6vectorINSt7int64_tEEERKNSt6vectorINSt7int64_tEEERNSt6vectorIN2cl4sycl6bufferI1TX1EEEEERKNSt6vectorINSt7int64_tEEERNSt6vectorIN2cl4sycl6bufferI1TX1EEEEERKNSt6vectorINSt7int64_tEEERNSt6vectorIN2cl4sycl6bufferINSt7int64_tEX1EEEEE"></span><span id="onemkl::lapack::potrs_batch__cl::sycl::queueR.std::vector:onemkl::uplo:CR.std::vector:std::int64_t:CR.std::vector:std::int64_t:CR.std::vector:cl::sycl::buffer:T.1::R.std::vector:std::int64_t:CR.std::vector:cl::sycl::buffer:T.1::R.std::vector:std::int64_t:CR.std::vector:cl::sycl::buffer:std::int64_t.1::R"></span>void <code class="sig-prename descclassname">onemkl::lapack<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">potrs_batch</code><span class="sig-paren">(</span>cl::sycl::queue &amp;<em>queue</em>, std::vector&lt;onemkl::uplo&gt; <em class="property">const</em> &amp;<em>uplo</em>, std::vector&lt;std::int64_t&gt; <em class="property">const</em> &amp;<em>n</em>, std::vector&lt;std::int64_t&gt; <em class="property">const</em> &amp;<em>nrhs</em>, std::vector&lt;cl::sycl::buffer&lt;T, 1&gt;&gt; &amp;<em>a</em>, std::vector&lt;std::int64_t&gt; <em class="property">const</em> &amp;<em>lda</em>, std::vector&lt;cl::sycl::buffer&lt;T, 1&gt;&gt; &amp;<em>b</em>, std::vector&lt;std::int64_t&gt; <em class="property">const</em> &amp;<em>ldb</em>, std::vector&lt;cl::sycl::buffer&lt;std::int64_t, 1&gt;&gt; &amp;<em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl6lapack11potrs_batchERN2cl4sycl5queueERKNSt6vectorIN6onemkl4uploEEERKNSt6vectorINSt7int64_tEEERKNSt6vectorINSt7int64_tEEERNSt6vectorIN2cl4sycl6bufferI1TXL1EEEEEERKNSt6vectorINSt7int64_tEEERNSt6vectorIN2cl4sycl6bufferI1TXL1EEEEEERKNSt6vectorINSt7int64_tEEERNSt6vectorIN2cl4sycl6bufferINSt7int64_tEXL1EEEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters</p>
 <dl>
-<dt>exec_queue</dt><dd><p>The queue where the routine should be executed.</p>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
 </dd>
 <dt>uplo</dt><dd><p>A vector, <code class="docutils literal notranslate"><span class="pre">uplo[i]</span></code> indicates whether the upper or lower
 triangular part of the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code><sub>i</sub> is stored and how
@@ -259,7 +264,7 @@ triangular part of the matrix is not referenced.</p>
 <code class="docutils literal notranslate"><span class="pre">(0≤nrhs)</span></code>.</p>
 </dd>
 <dt>a</dt><dd><p>A vector of buffers returned by
-<a class="reference external" href="potrf_batch.html">potrf_batch</a>.
+<a class="reference internal" href="potrf_batch.html#onemkl-lapack-potrf-batch"><span class="std std-ref">onemkl::lapack::potrf_batch</span></a>.
 <code class="docutils literal notranslate"><span class="pre">a[i]</span></code> must be of size at least <code class="docutils literal notranslate"><span class="pre">lda[i]*max(1,</span> <span class="pre">n[i])</span></code>.</p>
 </dd>
 <dt>lda</dt><dd><p>A vector, <code class="docutils literal notranslate"><span class="pre">lda[i]</span></code> is the leading dimension of
@@ -274,7 +279,7 @@ at least <code class="docutils literal notranslate"><span class="pre">max(1,nrhs
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-f0c3d97d-e883-4070-a1c2-4fe43cc37d12">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters</p>
 <dl>
 <dt>b</dt><dd><p><code class="docutils literal notranslate"><span class="pre">b[i]</span></code> is overwritten by the solution matrix <code class="docutils literal notranslate"><span class="pre">X[i]</span></code>.</p>
@@ -287,19 +292,11 @@ factor is zero and the solve could not be completed.</p>
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-c97bf68f-b566-4164-95e0-a7adc290dde2">
-<p class="sectiontitle rubric">Example</p>
-<p>An example of how to use potrs_batch can be found in the oneMKL
-installation directory, under:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">examples</span><span class="o">/</span><span class="n">sycl</span><span class="o">/</span><span class="n">lapack</span><span class="o">/</span><span class="n">CHOLESKY_batch</span><span class="o">.</span><span class="n">cpp</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">
-<p><strong>Parent topic:</strong> <a class="reference external" href="lapack.html">LAPACK
-Routines</a></p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="lapack.html#onemkl-lapack-like-extensions-routines"><span class="std std-ref">LAPACK-like Extensions Routines</span></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -312,10 +309,10 @@ Routines</a></p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="syevd.html" class="btn btn-neutral float-right" title="2.1.3.39. syevd" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../spblas/spblas.html" class="btn btn-neutral float-right" title="2.2.1. Sparse BLAS Routines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="potrs-usm-version.html" class="btn btn-neutral float-left" title="2.1.3.37. potrs (USM Version)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="potrf_batch.html" class="btn btn-neutral float-left" title="2.1.3.3.6. onemkl::lapack::potrf_batch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

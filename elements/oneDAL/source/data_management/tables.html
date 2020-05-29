@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Table builders" href="table_builders.html" />
-    <link rel="prev" title="Data sources" href="data_sources.html" /> 
+    <link rel="next" title="Table Builders" href="table_builders.html" />
+    <link rel="prev" title="Data Sources" href="data_sources.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -112,9 +112,9 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Data management</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="index.html#key-concepts">Key concepts</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html#details">Details</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="data_sources.html">Data sources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Tables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="table_builders.html">Table builders</a></li>
+<li class="toctree-l4"><a class="reference internal" href="table_builders.html">Table Builders</a></li>
 <li class="toctree-l4"><a class="reference internal" href="accessors.html">Accessors</a></li>
 </ul>
 </li>
@@ -204,49 +204,43 @@
             
   <div class="section" id="tables">
 <span id="id1"></span><h1>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h1>
-<p>This section describes the types related to the <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a> concept.
-oneDAL defines common types of the <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a> concept and the
-<a class="reference internal" href="index.html#metadata"><span class="std std-ref">Metadata</span></a> concept associated with it:</p>
+<p>This section describes the types related to the <a class="reference internal" href="index.html#table"><span class="std std-ref">table</span></a> and
+<a class="reference internal" href="index.html#metadata"><span class="std std-ref">metadata</span></a> concepts. oneDAL defines the following
+types that implement these concepts:</p>
 <ul class="simple">
-<li><p>Class <code class="code docutils literal notranslate"><span class="pre">table</span></code> is a common implementation of the <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a>
-concept and its compile-time part of <a class="reference internal" href="index.html#metadata"><span class="std std-ref">Metadata</span></a>. Every particular
-implementation of the <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a> concept shall be the sub-type of the
-<code class="code docutils literal notranslate"><span class="pre">table</span></code> class. See more details in <a class="reference internal" href="#table-api"><span class="std std-ref">Table API</span></a> section.</p></li>
-<li><p>Class <code class="code docutils literal notranslate"><span class="pre">table_metadata</span></code> defines a runtime part of <a class="reference internal" href="index.html#metadata"><span class="std std-ref">Metadata</span></a> concept
-for the <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a>. This type can be extended in <code class="code docutils literal notranslate"><span class="pre">table</span></code> sub-types.
-See more details in <a class="reference internal" href="#metadata-api"><span class="std std-ref">Metadata API</span></a> section.</p></li>
+<li><p>The <code class="code docutils literal notranslate"><span class="pre">table</span></code> is a base class that implements the table concept and
+provides capability to get a metadata. Each implementation of the <a class="reference internal" href="index.html#table"><span class="std std-ref">table</span></a> concept shall be derived from the <code class="code docutils literal notranslate"><span class="pre">table</span></code> class (for more
+details, see <a class="reference internal" href="#table-api"><span class="std std-ref">Table API</span></a>).</p></li>
+<li><p>The <code class="code docutils literal notranslate"><span class="pre">table_meta</span></code> class implements the metadata concept for the
+table. Each derived table type may provide its own implementation of the
+<code class="code docutils literal notranslate"><span class="pre">table_meta</span></code> that extends the metadata concept (for more details, see
+<a class="reference internal" href="#metadata-api"><span class="std std-ref">Metadata API</span></a>).</p></li>
 </ul>
-<div class="section" id="requirements-on-table-types">
-<h2>Requirements on table types<a class="headerlink" href="#requirements-on-table-types" title="Permalink to this headline">¶</a></h2>
-<p>Each type that implements <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a> concept in oneDAL shall
-follow next requirements:</p>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>Each implementation of <a class="reference internal" href="index.html#table"><span class="std std-ref">table</span></a> concept shall:</p>
 <ol class="arabic">
-<li><p>Every implementation shall follow concept definision, e.g. represent
-in-memory numerical <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a>, shall be <a class="reference internal" href="../glossary.html#term-immutability"><span class="xref std std-term">immutable</span></a>, etc.</p></li>
-<li><p>Be the sub-type of a <code class="code docutils literal notranslate"><span class="pre">table</span></code> class. The behavior of this class can be
-extended in sub-types but cannot be relaxed.</p></li>
-<li><p>Every object of a <code class="code docutils literal notranslate"><span class="pre">table</span></code> sub-type shall be <a class="reference internal" href="../glossary.html#term-reference-counted-object"><span class="xref std std-term">reference-counted</span></a>. An assignment operator or copy constructor shall
-be used to create another reference to it.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">onedal</span><span class="o">::</span><span class="n">some_table</span> <span class="n">table2</span> <span class="o">=</span> <span class="n">table1</span><span class="p">;</span>
-<span class="c1">// table1 and table2 share the data (no data copy is performed)</span>
+<li><p>Follow definition of the table concept.</p></li>
+<li><p>Be derived from the <code class="code docutils literal notranslate"><span class="pre">table</span></code> class. The behavior of this class can be
+extended, but cannot be weaken.</p></li>
+<li><p>Provide an implementation of the <a class="reference internal" href="index.html#metadata"><span class="std std-ref">metadata</span></a> concept derived
+from the <code class="code docutils literal notranslate"><span class="pre">table_meta</span></code> class.</p></li>
+<li><p>Be <a class="reference internal" href="../glossary.html#term-Reference-counted-object"><span class="xref std std-term">reference-counted</span></a>. An assignment
+operator or copy constructor shall be used to create another reference to the
+same data.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">onedal</span><span class="o">::</span><span class="n">table</span> <span class="n">table2</span> <span class="o">=</span> <span class="n">table1</span><span class="p">;</span>
+<span class="c1">// table1 and table2 share the same data (no data copy is performed)</span>
 
-<span class="n">table3</span> <span class="o">=</span> <span class="n">table2</span><span class="p">;</span>
+<span class="n">onedal</span><span class="o">::</span><span class="n">table</span> <span class="n">table3</span> <span class="o">=</span> <span class="n">table2</span><span class="p">;</span>
 <span class="c1">// table1, table2 and table3 share the same data</span>
 </pre></div>
 </div>
 </li>
-<li><p>Every implementation shall provide a runtime <a class="reference internal" href="index.html#metadata"><span class="std std-ref">Metadata</span></a> concept
-implementation as an object of <code class="code docutils literal notranslate"><span class="pre">table_metadata</span></code> or its sub-types.
-Sub-types shall be used when the implementation concretizes the <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a>
-concept.</p></li>
-<li><p>Every implementation shall not include implementation details that are not a
-part of <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a> concept definision to the metadata object.</p></li>
 </ol>
 </div>
-<div class="section" id="table-types-in-dal-short-name">
-<h2>Table types in oneDAL<a class="headerlink" href="#table-types-in-dal-short-name" title="Permalink to this headline">¶</a></h2>
-<p>oneDAL defines a set of classes, each implements a <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a>
-concept and concretizes it.</p>
+<div class="section" id="table-types">
+<h2>Table Types<a class="headerlink" href="#table-types" title="Permalink to this headline">¶</a></h2>
+<p>oneDAL defines a set of classes. Each class implements the <a class="reference internal" href="index.html#table"><span class="std std-ref">table</span></a> concept and represents a specific data format.</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 13%" />
@@ -259,26 +253,24 @@ concept and concretizes it.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="#table-api"><span class="std std-ref">table</span></a></p></td>
-<td><p>A common implementation of <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a> concept. Base class for other
-table types.</p></td>
+<td><p>A common implementation of the table concept. Base class for
+other table types.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#homogen-table">homogen_table</a></p></td>
-<td><p>Dense table that contains <a class="reference internal" href="../glossary.html#term-contiguous-data"><span class="xref std std-term">contiguous</span></a> and
-<a class="reference internal" href="../glossary.html#term-homogeneous-data"><span class="xref std std-term">homogeneous</span></a> data.</p></td>
+<td><p>Dense table that contains <a class="reference internal" href="../glossary.html#term-Contiguous-data"><span class="xref std std-term">contiguous</span></a>
+<a class="reference internal" href="../glossary.html#term-Homogeneous-data"><span class="xref std std-term">homogeneous</span></a> data.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#soa-table">soa_table</a></p></td>
-<td><p>Dense <a class="reference internal" href="../glossary.html#term-heterogeneous-data"><span class="xref std std-term">heretogeneous</span></a> table which data are
-stored column-by-column in list of <a class="reference internal" href="../glossary.html#term-contiguous-data"><span class="xref std std-term">contiguous</span></a>
-arrays (structure-of-arrays format).</p></td>
+<td><p>Dense heterogeneous table which data are stored column-by-column in a
+list of contiguous arrays (structure-of-arrays format).</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#aos-table">aos_table</a></p></td>
-<td><p>Dense <a class="reference internal" href="../glossary.html#term-heterogeneous-data"><span class="xref std std-term">heretogeneous</span></a> table which data are
-stored as one <a class="reference internal" href="../glossary.html#term-contiguous-data"><span class="xref std std-term">contiguous</span></a> block of memory
-(array-of-structures format).</p></td>
+<td><p>Dense heterogeneous table which data are stored as one contiguous block
+of memory (array-of-structures format).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#csr-table">csr_table</a></p></td>
-<td><p>Sparse <a class="reference internal" href="../glossary.html#term-homogeneous-data"><span class="xref std std-term">homogeneous</span></a> table which data stored in
-compressed-sparse-row format.</p></td>
+<td><p>Sparse homogeneous table which data are stored in compressed sparse row
+(CSR) format.</p></td>
 </tr>
 </tbody>
 </table>
@@ -305,16 +297,16 @@ compressed-sparse-row format.</p></td>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4N6onedal5tableE">
 <span id="_CPPv3N6onedal5tableE"></span><span id="_CPPv2N6onedal5tableE"></span><span id="onedal::table"></span><em class="property">class </em><code class="sig-name descname">table</code><a class="headerlink" href="#_CPPv4N6onedal5tableE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
+<dd><dl class="cpp function">
 <dt id="_CPPv4N6onedal5table5tableEv">
 <span id="_CPPv3N6onedal5table5tableEv"></span><span id="_CPPv2N6onedal5table5tableEv"></span><span id="onedal::table::table"></span><code class="sig-name descname">table</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal5table5tableEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates an empty table with no data and <code class="docutils literal notranslate"><span class="pre">table_meta</span></code> constructed by default</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N6onedal5table5tableERR9TableImpl">
 <span id="_CPPv3N6onedal5table5tableERR9TableImpl"></span><span id="_CPPv2N6onedal5table5tableERR9TableImpl"></span><span id="onedal::table::table__TableImplRR"></span><code class="sig-name descname">table</code><span class="sig-paren">(</span>TableImpl&amp;&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal5table5tableERR9TableImpl" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates a table object using the entity passed as a parameter</p>
@@ -331,28 +323,28 @@ compressed-sparse-row format.</p></td>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N6onedal5table5tableERK5table">
-<span id="_CPPv3N6onedal5table5tableERK5table"></span><span id="_CPPv2N6onedal5table5tableERK5table"></span><span id="onedal::table::table__tableCR"></span><code class="sig-name descname">table</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N6onedal5table5tableEv" title="onedal::table::table">table</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal5table5tableERK5table" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N6onedal5table5tableERK5table"></span><span id="_CPPv2N6onedal5table5tableERK5table"></span><span id="onedal::table::table__tableCR"></span><code class="sig-name descname">table</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N6onedal5table5tableERK5table" title="onedal::table::table">table</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal5table5tableERK5table" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates new reference object on the table data</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N6onedal5table5tableERR5table">
-<span id="_CPPv3N6onedal5table5tableERR5table"></span><span id="_CPPv2N6onedal5table5tableERR5table"></span><span id="onedal::table::table__tableRR"></span><code class="sig-name descname">table</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6onedal5table5tableEv" title="onedal::table::table">table</a>&amp;&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal5table5tableERR5table" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N6onedal5table5tableERR5table"></span><span id="_CPPv2N6onedal5table5tableERR5table"></span><span id="onedal::table::table__tableRR"></span><code class="sig-name descname">table</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6onedal5table5tableERR5table" title="onedal::table::table">table</a>&amp;&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal5table5tableERR5table" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Moves one table object into another</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N6onedal5tableaSERK5table">
 <span id="_CPPv3N6onedal5tableaSERK5table"></span><span id="_CPPv2N6onedal5tableaSERK5table"></span><span id="onedal::table::assign-operator__tableCR"></span><a class="reference internal" href="#_CPPv4N6onedal5tableE" title="onedal::table">table</a> &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N6onedal5tableE" title="onedal::table">table</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal5tableaSERK5table" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Sets the current object reference to point to another one</p>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal5table13feature_countE">
 <span id="_CPPv3N6onedal5table13feature_countE"></span><span id="_CPPv2N6onedal5table13feature_countE"></span><span id="onedal::table::feature_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">feature_count</code> = 0<a class="headerlink" href="#_CPPv4N6onedal5table13feature_countE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The number of <a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">features</span></a> <span class="math notranslate nohighlight">\(p\)</span> in the table.</p>
+<dd><p>The number of <a class="reference internal" href="../glossary.html#term-Feature"><span class="xref std std-term">features</span></a> <span class="math notranslate nohighlight">\(p\)</span> in the table.</p>
 <dl>
 <dt>Getter</dt><dd><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">std::int64_t</span> <span class="pre">get_feature_count()</span> <span class="pre">const</span> <span class="pre">noexcept</span></code></div>
@@ -365,10 +357,10 @@ compressed-sparse-row format.</p></td>
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal5table17observation_countE">
 <span id="_CPPv3N6onedal5table17observation_countE"></span><span id="_CPPv2N6onedal5table17observation_countE"></span><span id="onedal::table::observation_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">observation_count</code> = 0<a class="headerlink" href="#_CPPv4N6onedal5table17observation_countE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The number of <a class="reference internal" href="../glossary.html#term-observation"><span class="xref std std-term">observations</span></a> <span class="math notranslate nohighlight">\(N\)</span> in the table.</p>
+<dd><p>The number of <a class="reference internal" href="../glossary.html#term-Observation"><span class="xref std std-term">observations</span></a> <span class="math notranslate nohighlight">\(N\)</span> in the table.</p>
 <dl>
 <dt>Getter</dt><dd><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">std::int64_t</span> <span class="pre">get_observation_count()</span> <span class="pre">const</span> <span class="pre">noexcept</span></code></div>
@@ -381,7 +373,7 @@ compressed-sparse-row format.</p></td>
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal5table8is_emptyE">
 <span id="_CPPv3N6onedal5table8is_emptyE"></span><span id="_CPPv2N6onedal5table8is_emptyE"></span><span id="onedal::table::is_empty__b"></span>bool <code class="sig-name descname">is_empty</code> = true<a class="headerlink" href="#_CPPv4N6onedal5table8is_emptyE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>If <code class="docutils literal notranslate"><span class="pre">feature_count</span></code> or <code class="docutils literal notranslate"><span class="pre">observation_count</span></code> are zero, the
@@ -394,7 +386,7 @@ table is empty.</p>
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal5table8metadataE">
 <span id="_CPPv3N6onedal5table8metadataE"></span><span id="_CPPv2N6onedal5table8metadataE"></span><span id="onedal::table::metadata__table_meta"></span><a class="reference internal" href="#_CPPv4N6onedal10table_metaE" title="onedal::table_meta">table_meta</a> <code class="sig-name descname">metadata</code> = <a class="reference internal" href="#_CPPv4N6onedal10table_metaE" title="onedal::table_meta">table_meta</a>()<a class="headerlink" href="#_CPPv4N6onedal5table8metadataE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>The object that represents data structure inside the table</p>
@@ -444,29 +436,29 @@ for which the following is true:</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4N6onedal13homogen_tableE">
 <span id="_CPPv3N6onedal13homogen_tableE"></span><span id="_CPPv2N6onedal13homogen_tableE"></span><span id="onedal::homogen_table"></span><em class="property">class </em><code class="sig-name descname">homogen_table</code><a class="headerlink" href="#_CPPv4N6onedal13homogen_tableE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
+<dd><dl class="cpp function">
 <dt id="_CPPv4N6onedal13homogen_table13homogen_tableERK13homogen_table">
 <span id="_CPPv3N6onedal13homogen_table13homogen_tableERK13homogen_table"></span><span id="_CPPv2N6onedal13homogen_table13homogen_tableERK13homogen_table"></span><span id="onedal::homogen_table::homogen_table__homogen_tableCR"></span><code class="sig-name descname">homogen_table</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N6onedal13homogen_table13homogen_tableERK13homogen_table" title="onedal::homogen_table::homogen_table">homogen_table</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal13homogen_table13homogen_tableERK13homogen_table" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates new reference object on the table data</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N6onedal13homogen_table13homogen_tableERR13homogen_table">
-<span id="_CPPv3N6onedal13homogen_table13homogen_tableERR13homogen_table"></span><span id="_CPPv2N6onedal13homogen_table13homogen_tableERR13homogen_table"></span><span id="onedal::homogen_table::homogen_table__homogen_tableRR"></span><code class="sig-name descname">homogen_table</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6onedal13homogen_table13homogen_tableERK13homogen_table" title="onedal::homogen_table::homogen_table">homogen_table</a>&amp;&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal13homogen_table13homogen_tableERR13homogen_table" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N6onedal13homogen_table13homogen_tableERR13homogen_table"></span><span id="_CPPv2N6onedal13homogen_table13homogen_tableERR13homogen_table"></span><span id="onedal::homogen_table::homogen_table__homogen_tableRR"></span><code class="sig-name descname">homogen_table</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6onedal13homogen_table13homogen_tableERR13homogen_table" title="onedal::homogen_table::homogen_table">homogen_table</a>&amp;&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal13homogen_table13homogen_tableERR13homogen_table" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Moves current reference object into another one</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N6onedal13homogen_table13homogen_tableENSt7int64_tENSt7int64_tE11data_layout">
 <span id="_CPPv3N6onedal13homogen_table13homogen_tableENSt7int64_tENSt7int64_tE11data_layout"></span><span id="_CPPv2N6onedal13homogen_table13homogen_tableENSt7int64_tENSt7int64_tE11data_layout"></span><span id="onedal::homogen_table::homogen_table__std::int64_t.std::int64_t.data_layout"></span><code class="sig-name descname">homogen_table</code><span class="sig-paren">(</span>std::int64_t <em>N</em>, std::int64_t <em>p</em>, <a class="reference internal" href="#_CPPv4N6onedal11data_layoutE" title="onedal::data_layout">data_layout</a> <em>layout</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal13homogen_table13homogen_tableENSt7int64_tENSt7int64_tE11data_layout" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates a homogeneous table of shape <span class="math notranslate nohighlight">\(N \times p\)</span> with
 default oneDAL allocator</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N6onedal13homogen_table13homogen_tableEPCK1TNSt7int64_tENSt7int64_tE11data_layout">
 <span id="_CPPv3N6onedal13homogen_table13homogen_tableEPCK1TNSt7int64_tENSt7int64_tE11data_layout"></span><span id="_CPPv2N6onedal13homogen_table13homogen_tableEPCK1TNSt7int64_tENSt7int64_tE11data_layout"></span><span id="onedal::homogen_table::homogen_table__TCPC.std::int64_t.std::int64_t.data_layout"></span><code class="sig-name descname">homogen_table</code><span class="sig-paren">(</span><em class="property">const</em> T *<em class="property">const</em> <em>data_pointer</em>, std::int64_t <em>N</em>, std::int64_t <em>p</em>, <a class="reference internal" href="#_CPPv4N6onedal11data_layoutE" title="onedal::data_layout">data_layout</a> <em>layout</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal13homogen_table13homogen_tableEPCK1TNSt7int64_tENSt7int64_tE11data_layout" title="Permalink to this definition">¶</a><br /></dt>
 <dd><dl class="field-list simple">
@@ -478,13 +470,13 @@ default oneDAL allocator</p>
 the user-defined data. Uses the provided pointer to access data (no copy is performed).</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N6onedal13homogen_tableaSERK13homogen_table">
 <span id="_CPPv3N6onedal13homogen_tableaSERK13homogen_table"></span><span id="_CPPv2N6onedal13homogen_tableaSERK13homogen_table"></span><span id="onedal::homogen_table::assign-operator__homogen_tableCR"></span><a class="reference internal" href="#_CPPv4N6onedal13homogen_tableE" title="onedal::homogen_table">homogen_table</a> &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N6onedal13homogen_tableE" title="onedal::homogen_table">homogen_table</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal13homogen_tableaSERK13homogen_table" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Sets the current object reference to point to another</p>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal13homogen_table9data_typeE">
 <span id="_CPPv3N6onedal13homogen_table9data_typeE"></span><span id="_CPPv2N6onedal13homogen_table9data_typeE"></span><span id="onedal::homogen_table::data_type__onedal::data_type"></span>onedal::<a class="reference internal" href="#_CPPv4N6onedal9data_typeE" title="onedal::data_type">data_type</a> <code class="sig-name descname">data_type</code><a class="headerlink" href="#_CPPv4N6onedal13homogen_table9data_typeE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>The type of underlying data</p>
@@ -496,7 +488,7 @@ the user-defined data. Uses the provided pointer to access data (no copy is perf
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal13homogen_table19feature_types_equalE">
 <span id="_CPPv3N6onedal13homogen_table19feature_types_equalE"></span><span id="_CPPv2N6onedal13homogen_table19feature_types_equalE"></span><span id="onedal::homogen_table::feature_types_equal__b"></span>bool <code class="sig-name descname">feature_types_equal</code><a class="headerlink" href="#_CPPv4N6onedal13homogen_table19feature_types_equalE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Flag that indicates whether or not the <cite>feature_type</cite> fields
@@ -509,7 +501,7 @@ of <cite>metadata</cite> are all equal</p>
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal13homogen_table12data_pointerE">
 <span id="_CPPv3N6onedal13homogen_table12data_pointerE"></span><span id="_CPPv2N6onedal13homogen_table12data_pointerE"></span><span id="onedal::homogen_table::data_pointer__TCP"></span><em class="property">const</em> T *<code class="sig-name descname">data_pointer</code><a class="headerlink" href="#_CPPv4N6onedal13homogen_table12data_pointerE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><dl class="field-list simple">
@@ -569,13 +561,13 @@ are stored inside the table and how efficiently access them.</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4N6onedal10table_metaE">
 <span id="_CPPv3N6onedal10table_metaE"></span><span id="_CPPv2N6onedal10table_metaE"></span><span id="onedal::table_meta"></span><em class="property">class </em><code class="sig-name descname">table_meta</code><a class="headerlink" href="#_CPPv4N6onedal10table_metaE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="member">
+<dd><dl class="cpp member">
 <dt id="_CPPv4N6onedal10table_meta13feature_countE">
 <span id="_CPPv3N6onedal10table_meta13feature_countE"></span><span id="_CPPv2N6onedal10table_meta13feature_countE"></span><span id="onedal::table_meta::feature_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">feature_count</code> = 0<a class="headerlink" href="#_CPPv4N6onedal10table_meta13feature_countE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The number of <a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">features</span></a> <span class="math notranslate nohighlight">\(p\)</span> in the table.</p>
+<dd><p>The number of <a class="reference internal" href="../glossary.html#term-Feature"><span class="xref std std-term">features</span></a> <span class="math notranslate nohighlight">\(p\)</span> in the table.</p>
 <dl>
 <dt>Getter &amp; Setter</dt><dd><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">std::int64_t</span> <span class="pre">get_feature_count()</span> <span class="pre">const</span> <span class="pre">noexcept</span></code></div>
@@ -589,10 +581,10 @@ are stored inside the table and how efficiently access them.</p>
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal10table_meta7featureE">
 <span id="_CPPv3N6onedal10table_meta7featureE"></span><span id="_CPPv2N6onedal10table_meta7featureE"></span><span id="onedal::table_meta::feature__feature_info"></span><a class="reference internal" href="#_CPPv4N6onedal12feature_infoE" title="onedal::feature_info">feature_info</a> <code class="sig-name descname">feature</code><a class="headerlink" href="#_CPPv4N6onedal10table_meta7featureE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Information about a particular <a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">feature</span></a> in the table</p>
+<dd><p>Information about a particular <a class="reference internal" href="../glossary.html#term-Feature"><span class="xref std std-term">feature</span></a> in the table</p>
 <dl>
 <dt>Getter &amp; Setter</dt><dd><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">feature_info&amp;</span> <span class="pre">get_feature(std::int64_t</span> <span class="pre">index)</span> <span class="pre">const</span></code></div>
@@ -602,7 +594,7 @@ are stored inside the table and how efficiently access them.</p>
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal10table_meta6layoutE">
 <span id="_CPPv3N6onedal10table_meta6layoutE"></span><span id="_CPPv2N6onedal10table_meta6layoutE"></span><span id="onedal::table_meta::layout__data_layout"></span><a class="reference internal" href="#_CPPv4N6onedal11data_layoutE" title="onedal::data_layout">data_layout</a> <code class="sig-name descname">layout</code> = <a class="reference internal" href="#_CPPv4N6onedal11data_layoutE" title="onedal::data_layout">data_layout</a>::row_major<a class="headerlink" href="#_CPPv4N6onedal10table_meta6layoutE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Flag that indicates whether the data is in a row-major or column-major format.</p>
@@ -615,7 +607,7 @@ are stored inside the table and how efficiently access them.</p>
 </dl>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal10table_meta13is_contiguousE">
 <span id="_CPPv3N6onedal10table_meta13is_contiguousE"></span><span id="_CPPv2N6onedal10table_meta13is_contiguousE"></span><span id="onedal::table_meta::is_contiguous__b"></span>bool <code class="sig-name descname">is_contiguous</code> = true<a class="headerlink" href="#_CPPv4N6onedal10table_meta13is_contiguousE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Flag that indicates whether the data is stored in contiguous blocks of memory by
@@ -631,13 +623,13 @@ the data is stored contiguously in each row.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4NK6onedal10table_meta14is_homogeneousEv">
 <span id="_CPPv3NK6onedal10table_meta14is_homogeneousEv"></span><span id="_CPPv2NK6onedal10table_meta14is_homogeneousEv"></span><span id="onedal::table_meta::is_homogeneousC"></span>bool <code class="sig-name descname">is_homogeneous</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em> <em class="property">noexcept</em><a class="headerlink" href="#_CPPv4NK6onedal10table_meta14is_homogeneousEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns true if all features have the same <code class="docutils literal notranslate"><span class="pre">data_type</span></code></p>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv4N6onedal10table_meta6formatE">
 <span id="_CPPv3N6onedal10table_meta6formatE"></span><span id="_CPPv2N6onedal10table_meta6formatE"></span><span id="onedal::table_meta::format__data_format"></span><a class="reference internal" href="#_CPPv4N6onedal11data_formatE" title="onedal::data_format">data_format</a> <code class="sig-name descname">format</code> = <a class="reference internal" href="#_CPPv4N6onedal11data_formatE" title="onedal::data_format">data_format</a>::dense<a class="headerlink" href="#_CPPv4N6onedal10table_meta6formatE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Description of the format used for data representation inside the table</p>
@@ -660,7 +652,7 @@ the data is stored contiguously in each row.</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4N6onedal11data_layoutE">
 <span id="_CPPv3N6onedal11data_layoutE"></span><span id="_CPPv2N6onedal11data_layoutE"></span><span id="onedal::data_layout"></span><em class="property">class </em><code class="sig-name descname">data_layout</code><a class="headerlink" href="#_CPPv4N6onedal11data_layoutE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Structure that represents underlying data layout</p>
@@ -675,7 +667,7 @@ the data is stored contiguously in each row.</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4N6onedal11data_formatE">
 <span id="_CPPv3N6onedal11data_formatE"></span><span id="_CPPv2N6onedal11data_formatE"></span><span id="onedal::data_format"></span><em class="property">class </em><code class="sig-name descname">data_format</code><a class="headerlink" href="#_CPPv4N6onedal11data_formatE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Structure that represents underlying format of the data</p>
@@ -693,15 +685,15 @@ the data is stored contiguously in each row.</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4N6onedal12feature_infoE">
 <span id="_CPPv3N6onedal12feature_infoE"></span><span id="_CPPv2N6onedal12feature_infoE"></span><span id="onedal::feature_info"></span><em class="property">class </em><code class="sig-name descname">feature_info</code><a class="headerlink" href="#_CPPv4N6onedal12feature_infoE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Structure that represents information about particular <a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">feature</span></a></p>
+<dd><p>Structure that represents information about particular <a class="reference internal" href="../glossary.html#term-Feature"><span class="xref std std-term">feature</span></a></p>
 <dl>
 <dt>Invariants:</dt><dd><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">feature_type::nominal</span></code> or <code class="docutils literal notranslate"><span class="pre">feature_type::ordinal</span></code>
-are avaliable only with integer <code class="docutils literal notranslate"><span class="pre">data_type</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">feature_type::contiguous</span></code> avaliable only with floating-point <code class="docutils literal notranslate"><span class="pre">data_type</span></code></div>
+are available only with integer <code class="docutils literal notranslate"><span class="pre">data_type</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">feature_type::contiguous</span></code> available only with floating-point <code class="docutils literal notranslate"><span class="pre">data_type</span></code></div>
 </div>
 </dd>
 </dl>
@@ -717,7 +709,7 @@ are avaliable only with integer <code class="docutils literal notranslate"><span
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4N6onedal9data_typeE">
 <span id="_CPPv3N6onedal9data_typeE"></span><span id="_CPPv2N6onedal9data_typeE"></span><span id="onedal::data_type"></span><em class="property">class </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#_CPPv4N6onedal9data_typeE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Structure that represents runtime information about feature data type.</p>
@@ -742,7 +734,7 @@ are avaliable only with integer <code class="docutils literal notranslate"><span
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4N6onedal12feature_typeE">
 <span id="_CPPv3N6onedal12feature_typeE"></span><span id="_CPPv2N6onedal12feature_typeE"></span><span id="onedal::feature_type"></span><em class="property">class </em><code class="sig-name descname">feature_type</code><a class="headerlink" href="#_CPPv4N6onedal12feature_typeE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Structure that represents runtime information about feature logical type.</p>
@@ -768,10 +760,10 @@ are avaliable only with integer <code class="docutils literal notranslate"><span
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="table_builders.html" class="btn btn-neutral float-right" title="Table builders" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="table_builders.html" class="btn btn-neutral float-right" title="Table Builders" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="data_sources.html" class="btn btn-neutral float-left" title="Data sources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="data_sources.html" class="btn btn-neutral float-left" title="Data Sources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

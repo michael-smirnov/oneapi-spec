@@ -233,13 +233,13 @@ Tasks may be dynamically added to the group as it is executing.</p>
 </div>
 <div class="section" id="member-functions">
 <h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv410task_groupv">
 <span id="_CPPv310task_groupv"></span><span id="_CPPv210task_groupv"></span><span id="task_group"></span><code class="sig-name descname">task_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410task_groupv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs an empty <code class="docutils literal notranslate"><span class="pre">task_group</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4D0v">
 <span id="_CPPv3D0v"></span><span id="_CPPv2D0v"></span><span id="~task_group"></span><code class="sig-name descname">~task_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4D0v" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Destroys the <code class="docutils literal notranslate"><span class="pre">task_group</span></code>.</p>
@@ -247,14 +247,14 @@ Tasks may be dynamically added to the group as it is executing.</p>
 otherwise the destructor throws an exception.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I0E3runvRR4Func">
 <span id="_CPPv3I0E3runRR4Func"></span><span id="_CPPv2I0E3runRR4Func"></span>template&lt;typename <code class="sig-name descname">Func</code>&gt;<br />void <code class="sig-name descname">run</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0E3runvRR4Func" title="run::Func">Func</a> &amp;&amp;<em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0E3runvRR4Func" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Adds a task to compute <code class="docutils literal notranslate"><span class="pre">f()</span></code> and returns immediately.
 The <code class="docutils literal notranslate"><span class="pre">Func</span></code> type shall meet the <cite>Function Objects</cite> requirements from [function.objects] ISO C++ Standard section.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I0E12run_and_wait17task_group_statusRK4Func">
 <span id="_CPPv3I0E12run_and_waitRK4Func"></span><span id="_CPPv2I0E12run_and_waitRK4Func"></span>template&lt;typename <code class="sig-name descname">Func</code>&gt;<br />task_group_status <code class="sig-name descname">run_and_wait</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0E12run_and_wait17task_group_statusRK4Func" title="run_and_wait::Func">Func</a> &amp;<em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0E12run_and_wait17task_group_statusRK4Func" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">{run(f);</span> <span class="pre">return</span> <span class="pre">wait();}</span></code>, but guarantees that <code class="docutils literal notranslate"><span class="pre">f()</span></code> runs on the current thread.
@@ -262,20 +262,20 @@ The <code class="docutils literal notranslate"><span class="pre">Func</span></co
 <p><strong>Returns</strong>: The status of <code class="docutils literal notranslate"><span class="pre">task_group</span></code>. See <a class="reference internal" href="task_group_status_enum.html"><span class="doc">task_group_status</span></a>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv44waitv">
 <span id="_CPPv34waitv"></span><span id="_CPPv24waitv"></span><span id="wait"></span>task_group_status <code class="sig-name descname">wait</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv44waitv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Waits for all tasks in the group to complete or be cancelled.</p>
 <p><strong>Returns</strong>: The status of <code class="docutils literal notranslate"><span class="pre">task_group</span></code>. See <a class="reference internal" href="task_group_status_enum.html"><span class="doc">task_group_status</span></a>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv412is_cancelingv">
 <span id="_CPPv312is_cancelingv"></span><span id="_CPPv212is_cancelingv"></span><span id="is_canceling"></span>bool <code class="sig-name descname">is_canceling</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412is_cancelingv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><strong>Returns</strong>: True if this task group is cancelling its tasks.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv46cancelv">
 <span id="_CPPv36cancelv"></span><span id="_CPPv26cancelv"></span><span id="cancel"></span>void <code class="sig-name descname">cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv46cancelv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Cancels all tasks in this <code class="docutils literal notranslate"><span class="pre">task_group</span></code>.</p>
@@ -284,7 +284,7 @@ The <code class="docutils literal notranslate"><span class="pre">Func</span></co
 </div>
 <div class="section" id="non-member-functions">
 <h2>Non-member functions<a class="headerlink" href="#non-member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv431is_current_task_group_cancelingv">
 <span id="_CPPv331is_current_task_group_cancelingv"></span><span id="_CPPv231is_current_task_group_cancelingv"></span><span id="is_current_task_group_canceling"></span>bool <code class="sig-name descname">is_current_task_group_canceling</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv431is_current_task_group_cancelingv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns true if an innermost <code class="docutils literal notranslate"><span class="pre">task_group</span></code> executing on this thread is cancelling its tasks.</p>

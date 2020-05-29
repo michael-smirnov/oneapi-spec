@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Header files and namespaces &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>Header files &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -109,7 +109,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../notations.html">Mathematical Notations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../programming_model/index.html">Programming model</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Common Interface</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Header files and namespaces</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Header files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#namespaces">Namespaces</a></li>
 <li class="toctree-l3"><a class="reference internal" href="managing_object_lifetimes.html">Managing object lifetimes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="error_handling.html">Error handling</a></li>
 </ul>
@@ -197,8 +198,80 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="header-files-and-namespaces">
-<h1>Header files and namespaces<a class="headerlink" href="#header-files-and-namespaces" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="header-files">
+<h1>Header files<a class="headerlink" href="#header-files" title="Permalink to this headline">¶</a></h1>
+<p>oneDAL public identifiers are represented in the following header files:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header file</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">onedal/onedal.hpp</span></code></p></td>
+<td><p>The main header file of oneDAL library.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">onedal/algo/%ALGO%/%ALGO%.hpp</span></code></p></td>
+<td><p>A header file for a particular algorithm.</p>
+<p>The string %ALGO% should be substituted with the name of the algorithm, for example, <code class="docutils literal notranslate"><span class="pre">kmeans</span></code> or <code class="docutils literal notranslate"><span class="pre">knn</span></code>.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">onedal/algo/misc/%FUNC%/%FUNC%.hpp</span></code></p></td>
+<td><p>A header file for miscellaneous data types and functionality that is intended to be used by oneDAL algorithms and applications
+of the analytical pipeline.</p>
+<p>The string %FUNC% should be substituted with the functionality name, for example, <code class="docutils literal notranslate"><span class="pre">mt19937</span></code> or <code class="docutils literal notranslate"><span class="pre">cross_enthropy_loss</span></code>.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">onedal/util/%UTIL%.hpp`</span></code></p></td>
+<td><p>A header file for auxiliary functionality, such as memory allocators or type traits, that is intended to be used for the design of classes and implementation of various methods.</p>
+<p>The string %UTIL% should be substituted with the auxiliary functionality name, for example, <code class="docutils literal notranslate"><span class="pre">usm_allocator</span></code> or <code class="docutils literal notranslate"><span class="pre">type_traits</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="namespaces">
+<span id="common-namespaces"></span><h1>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">¶</a></h1>
+<p>oneDAL functionality is represented with a system of C++ namespaces described below:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Namespace</p></th>
+<th class="head"><p>oneDAL content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">onedal</span></code></p></td>
+<td><p>The namespace of the library that contains externally exposable data types, processing and service functionality of oneDAL.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">onedal::%ALGORITHM%</span></code></p></td>
+<td><p>The namespace of the algorithm.
+All classes and structures related to that algorithm shall be defined within a particular namespace.</p>
+<p>To define a specific algorithm, the string %ALGORITHM% should be substituted with its name,
+for example, <code class="docutils literal notranslate"><span class="pre">onedal::kmeans</span></code> or <code class="docutils literal notranslate"><span class="pre">onedal::knn</span></code>.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">onedal::misc</span></code></p></td>
+<td><p>The namespace that contains miscellaneous data types and functionality intended to be used by oneDAL algorithms
+and applications for algorithm customization and optimization on various stages of the analytical pipeline.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%PARENT%::detail</span></code></p></td>
+<td><p>The namespace that contains implementation details of the data types and functionality for the parent namespace.
+The namespace can be on any level in the namespace hierarchy.</p>
+<p>To define a specific namespace, the string %PARENT% should be substituted with the namespace for which the details are provided,
+for example, <code class="docutils literal notranslate"><span class="pre">onedal::detail</span></code> or <code class="docutils literal notranslate"><span class="pre">onedal::kmeans::detail</span></code>.</p>
+<p>The application shall not use any data types nor call any functionality located in the <code class="docutils literal notranslate"><span class="pre">detail</span></code> namespaces.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 

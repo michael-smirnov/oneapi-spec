@@ -208,25 +208,25 @@
 <p>A type <cite>Body</cite> satisfies the <cite>ParallelReduceBody</cite> if it meets the following requirements:</p>
 <hr class="docutils" />
 <p><strong>ParallelReduceBody Requirements: Pseudo-Signature, Semantics</strong></p>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N4Body4BodyER4Body5split">
-<span id="_CPPv3N4Body4BodyER4Body5split"></span><span id="_CPPv2N4Body4BodyER4Body5split"></span><span id="Body::Body__BodyR.split"></span><code class="sig-prename descclassname"><a class="reference internal" href="par_for_body.html#_CPPv4N4Body4BodyERK4Body" title="Body::Body">Body</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">Body</code><span class="sig-paren">(</span><a class="reference internal" href="par_for_body.html#_CPPv4N4Body4BodyERK4Body" title="Body::Body">Body</a>&amp;, split<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4Body4BodyER4Body5split" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4Body4BodyER4Body5split"></span><span id="_CPPv2N4Body4BodyER4Body5split"></span><span id="Body::Body__BodyR.split"></span><code class="sig-prename descclassname"><a class="reference internal" href="#_CPPv4N4Body4BodyER4Body5split" title="Body::Body">Body</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">Body</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4Body4BodyER4Body5split" title="Body::Body">Body</a>&amp;, split<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4Body4BodyER4Body5split" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Splitting constructor. Must be able to run concurrently with <code class="docutils literal notranslate"><span class="pre">operator()</span></code> and method <code class="docutils literal notranslate"><span class="pre">join</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N4BodyD0Ev">
 <span id="_CPPv3N4BodyD0Ev"></span><span id="_CPPv2N4BodyD0Ev"></span><span id="Body::~Body"></span><code class="sig-prename descclassname">Body<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">~Body</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Destructor.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N4BodyclERK5Range">
 <span id="_CPPv3N4BodyclERK5Range"></span><span id="_CPPv2N4BodyclERK5Range"></span><span id="Body::call-operator__RangeCR"></span>void <code class="sig-prename descclassname">Body<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> Range &amp;<em>range</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4BodyclERK5Range" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Accumulate result for subrange. <code class="docutils literal notranslate"><span class="pre">Range</span></code> type shall meet the <a class="reference internal" href="range.html"><span class="doc">Range requirements</span></a>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N4Body4joinER4Body">
 <span id="_CPPv3N4Body4joinER4Body"></span><span id="_CPPv2N4Body4joinER4Body"></span><span id="Body::join__BodyR"></span>void <code class="sig-prename descclassname">Body<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">join</code><span class="sig-paren">(</span>Body &amp;<em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4Body4joinER4Body" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Join results. The result in rhs should be merged into the result of <code class="docutils literal notranslate"><span class="pre">this</span></code>.</p>

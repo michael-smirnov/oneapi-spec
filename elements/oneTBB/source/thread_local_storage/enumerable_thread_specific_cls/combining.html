@@ -206,7 +206,7 @@
   <div class="section" id="combining">
 <h1>Combining<a class="headerlink" href="#combining" title="Permalink to this headline">¶</a></h1>
 <p>The member functions in this section iterate across the entire container sequentially in the calling thread.</p>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I0E7combine1T10BinaryFunc">
 <span id="_CPPv3I0E7combine10BinaryFunc"></span><span id="_CPPv2I0E7combine10BinaryFunc"></span>template&lt;typename <code class="sig-name descname">BinaryFunc</code>&gt;<br />T <code class="sig-name descname">combine</code><span class="sig-paren">(</span><a class="reference internal" href="../combinable_cls.html#_CPPv4I0E7combine1T10BinaryFunc" title="combine::BinaryFunc">BinaryFunc</a> <em>f</em><span class="sig-paren">)</span><br /></dt>
 <dd><p><strong>Requires</strong>: A <code class="docutils literal notranslate"><span class="pre">BinaryFunc</span></code> shall meet the <cite>Function Objects</cite> requirements from [function.objects] ISO C++ Standard section.
@@ -217,7 +217,7 @@ If there are no elements, creates the result using the same rules as for creatin
 <p><strong>Returns</strong>: Result of the reduction.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I0E12combine_eachv9UnaryFunc">
 <span id="_CPPv3I0E12combine_each9UnaryFunc"></span><span id="_CPPv2I0E12combine_each9UnaryFunc"></span>template&lt;typename <code class="sig-name descname">UnaryFunc</code>&gt;<br />void <code class="sig-name descname">combine_each</code><span class="sig-paren">(</span><a class="reference internal" href="../combinable_cls.html#_CPPv4I0E12combine_eachv9UnaryFunc" title="combine_each::UnaryFunc">UnaryFunc</a> <em>f</em><span class="sig-paren">)</span><br /></dt>
 <dd><p><strong>Requires</strong>: An <code class="docutils literal notranslate"><span class="pre">UnaryFunc</span></code> shall meet the <cite>Function Objects</cite> requirements from [function.objects] ISO C++ Standard section.

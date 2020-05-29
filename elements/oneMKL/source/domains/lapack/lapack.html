@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.3.1. gebrd" href="gebrd.html" />
+    <link rel="next" title="2.1.3.1.1. onemkl::lapack::geqrf" href="geqrf.html" />
     <link rel="prev" title="2.1.2.4.5. gemm_ext" href="../blas/gemm_ext.html" /> 
 </head>
 
@@ -183,27 +183,218 @@
             
   <div class="section" id="lapack-routines">
 <span id="onemkl-lapack"></span><h1><span class="section-number">2.1.3. </span>LAPACK Routines<a class="headerlink" href="#lapack-routines" title="Permalink to this headline">¶</a></h1>
+<p>oneMKL provides a DPC++ interface to select routines from the Linear Algebra PACKage (LAPACK), as well as several LAPACK-like extension routines.</p>
+<div class="section" id="lapack-linear-equation-routines">
+<span id="onemkl-lapack-linear-equation-routines"></span><h2><span class="section-number">2.1.3.1. </span>LAPACK Linear Equation Routines<a class="headerlink" href="#lapack-linear-equation-routines" title="Permalink to this headline">¶</a></h2>
 <div class="docutils container">
-<p>oneAPI Math Kernel Library (oneMKL) implements routines from the
-LAPACK package that are used for solving systems of linear equations,
-linear least squares problems, eigenvalue and singular value
-problems, and performing a number of related computational tasks. The
-library includes LAPACK routines for both real and complex data.
-Routines are supported for systems of equations with the following
-types of matrices:</p>
-<ul class="simple">
-<li><p>General</p></li>
-<li><p>Banded</p></li>
-<li><p>Symmetric or Hermitian positive-definite (full, packed, and
-rectangular full packed (RFP) storage)</p></li>
-<li><p>Symmetric or Hermitian positive-definite banded</p></li>
-<li><p>Symmetric or Hermitian indefinite (both full and packed storage)</p></li>
-<li><p>Symmetric or Hermitian indefinite banded</p></li>
-<li><p>Triangular (full, packed, and RFP storage)</p></li>
-<li><p>Triangular banded</p></li>
-<li><p>Tridiagonal</p></li>
-<li><p>Diagonally dominant tridiagonal.</p></li>
-</ul>
+<p>LAPACK Linear Equation routines are used for factoring a matrix,
+solving a system of linear equations, solving linear least squares problems,
+and inverting a matrix. The following table lists the LAPACK Linear Equation
+routine groups.</p>
+<div class="tablenoborder docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Routines</p></th>
+<th class="head"><p>Scratchpad Size Routines</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="geqrf.html#onemkl-lapack-geqrf"><span class="std std-ref">onemkl::lapack::geqrf</span></a></p></td>
+<td><p><a class="reference internal" href="geqrf_scratchpad_size.html#onemkl-lapack-geqrf-scratchpad-size"><span class="std std-ref">onemkl::lapack::geqrf_scratchpad_size</span></a></p></td>
+<td><p>Computes the QR factorization of a general m-by-n matrix.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="getrf.html#onemkl-lapack-getrf"><span class="std std-ref">onemkl::lapack::getrf</span></a></p></td>
+<td><p><a class="reference internal" href="getrf_scratchpad_size.html#onemkl-lapack-getrf-scratchpad-size"><span class="std std-ref">onemkl::lapack::getrf_scratchpad_size</span></a></p></td>
+<td><p>Computes the LU factorization of a general m-by-n matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="getri.html#onemkl-lapack-getri"><span class="std std-ref">onemkl::lapack::getri</span></a></p></td>
+<td><p><a class="reference internal" href="getri_scratchpad_size.html#onemkl-lapack-getri-scratchpad-size"><span class="std std-ref">onemkl::lapack::getri_scratchpad_size</span></a></p></td>
+<td><p>Computes the inverse of an LU-factored general matrix.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="getrs.html#onemkl-lapack-getrs"><span class="std std-ref">onemkl::lapack::getrs</span></a></p></td>
+<td><p><a class="reference internal" href="getrs_scratchpad_size.html#onemkl-lapack-getrs-scratchpad-size"><span class="std std-ref">onemkl::lapack::getrs_scratchpad_size</span></a></p></td>
+<td><p>Solves a system of linear equations with an LU-factored square coefficient matrix, with multiple right-hand sides.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="orgqr.html#onemkl-lapack-orgqr"><span class="std std-ref">onemkl::lapack::orgqr</span></a></p></td>
+<td><p><a class="reference internal" href="orgqr_scratchpad_size.html#onemkl-lapack-orgqr-scratchpad-size"><span class="std std-ref">onemkl::lapack::orgqr_scratchpad_size</span></a></p></td>
+<td><p>Generates the real orthogonal matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> of the QR factorization formed by geqrf.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ormqr.html#onemkl-lapack-ormqr"><span class="std std-ref">onemkl::lapack::ormqr</span></a></p></td>
+<td><p><a class="reference internal" href="ormqr_scratchpad_size.html#onemkl-lapack-ormqr-scratchpad-size"><span class="std std-ref">onemkl::lapack::ormqr_scratchpad_size</span></a></p></td>
+<td><p>Multiplies a real matrix by the orthogonal matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> of the QR factorization formed by geqrf.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="potrf.html#onemkl-lapack-potrf"><span class="std std-ref">onemkl::lapack::potrf</span></a></p></td>
+<td><p><a class="reference internal" href="potrf_scratchpad_size.html#onemkl-lapack-potrf-scratchpad-size"><span class="std std-ref">onemkl::lapack::potrf_scratchpad_size</span></a></p></td>
+<td><p>Computes the Cholesky factorization of a symmetric (Hermitian) positive-definite matrix.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="potri.html#onemkl-lapack-potri"><span class="std std-ref">onemkl::lapack::potri</span></a></p></td>
+<td><p><a class="reference internal" href="potri_scratchpad_size.html#onemkl-lapack-potri-scratchpad-size"><span class="std std-ref">onemkl::lapack::potri_scratchpad_size</span></a></p></td>
+<td><p>Computes the inverse of a Cholesky-factored symmetric (Hermitian) positive-definite matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="potrs.html#onemkl-lapack-potrs"><span class="std std-ref">onemkl::lapack::potrs</span></a></p></td>
+<td><p><a class="reference internal" href="potrs_scratchpad_size.html#onemkl-lapack-potrs-scratchpad-size"><span class="std std-ref">onemkl::lapack::potrs_scratchpad_size</span></a></p></td>
+<td><p>Solves a system of linear equations with a Cholesky-factored symmetric (Hermitian) positive-definite coefficient matrix, with multiple right-hand sides.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="sytrf.html#onemkl-lapack-sytrf"><span class="std std-ref">onemkl::lapack::sytrf</span></a></p></td>
+<td><p><a class="reference internal" href="sytrf_scratchpad_size.html#onemkl-lapack-sytrf-scratchpad-size"><span class="std std-ref">onemkl::lapack::sytrf_scratchpad_size</span></a></p></td>
+<td><p>Computes the Bunch-Kaufman factorization of a symmetric matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="trtrs.html#onemkl-lapack-trtrs"><span class="std std-ref">onemkl::lapack::trtrs</span></a></p></td>
+<td><p><a class="reference internal" href="trtrs_scratchpad_size.html#onemkl-lapack-trtrs-scratchpad-size"><span class="std std-ref">onemkl::lapack::trtrs_scratchpad_size</span></a></p></td>
+<td><p>Solves a system of linear equations with a triangular coefficient matrix, with multiple right-hand sides.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ungqr.html#onemkl-lapack-ungqr"><span class="std std-ref">onemkl::lapack::ungqr</span></a></p></td>
+<td><p><a class="reference internal" href="ungqr_scratchpad_size.html#onemkl-lapack-ungqr-scratchpad-size"><span class="std std-ref">onemkl::lapack::ungqr_scratchpad_size</span></a></p></td>
+<td><p>Generates the complex unitary matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> of the QR factorization formed by geqrf.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="unmqr.html#onemkl-lapack-unmqr"><span class="std std-ref">onemkl::lapack::unmqr</span></a></p></td>
+<td><p><a class="reference internal" href="unmqr_scratchpad_size.html#onemkl-lapack-unmqr-scratchpad-size"><span class="std std-ref">onemkl::lapack::unmqr_scratchpad_size</span></a></p></td>
+<td><p>Multiplies a complex matrix by the unitary matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> of the QR factorization formed by geqrf.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="lapack-singular-value-and-eigenvalue-problem-routines">
+<span id="onemkl-lapack-singular-value-eigenvalue-routines"></span><h2><span class="section-number">2.1.3.2. </span>LAPACK Singular Value and Eigenvalue Problem Routines<a class="headerlink" href="#lapack-singular-value-and-eigenvalue-problem-routines" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<p>LAPACK Singular Value and Eigenvalue Problem routines are used for
+singular value and eigenvalue problems, and for performing a number of related
+computational tasks. The following table lists the LAPACK Singular Value and
+Eigenvalue Problem routine groups.</p>
+<div class="tablenoborder docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Routines</p></th>
+<th class="head"><p>Scratchpad Size Routines</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="gebrd.html#onemkl-lapack-gebrd"><span class="std std-ref">onemkl::lapack::gebrd</span></a></p></td>
+<td><p><a class="reference internal" href="gebrd_scratchpad_size.html#onemkl-lapack-gebrd-scratchpad-size"><span class="std std-ref">onemkl::lapack::gebrd_scratchpad_size</span></a></p></td>
+<td><p>Reduces a general matrix to bidiagonal form.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="gesvd.html#onemkl-lapack-gesvd"><span class="std std-ref">onemkl::lapack::gesvd</span></a></p></td>
+<td><p><a class="reference internal" href="gesvd_scratchpad_size.html#onemkl-lapack-gesvd-scratchpad-size"><span class="std std-ref">onemkl::lapack::gesvd_scratchpad_size</span></a></p></td>
+<td><p>Computes the singular value decomposition of a general rectangular matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="heevd.html#onemkl-lapack-heevd"><span class="std std-ref">onemkl::lapack::heevd</span></a></p></td>
+<td><p><a class="reference internal" href="heevd_scratchpad_size.html#onemkl-lapack-heevd-scratchpad-size"><span class="std std-ref">onemkl::lapack::heevd_scratchpad_size</span></a></p></td>
+<td><p>Computes all eigenvalues and, optionally, all eigenvectors of a complex Hermitian matrix using divide and conquer algorithm.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="hegvd.html#onemkl-lapack-hegvd"><span class="std std-ref">onemkl::lapack::hegvd</span></a></p></td>
+<td><p><a class="reference internal" href="hegvd_scratchpad_size.html#onemkl-lapack-hegvd-scratchpad-size"><span class="std std-ref">onemkl::lapack::hegvd_scratchpad_size</span></a></p></td>
+<td><p>Computes all eigenvalues and, optionally, all eigenvectors of a complex generalized Hermitian definite eigenproblem using divide and conquer algorithm.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="hetrd.html#onemkl-lapack-hetrd"><span class="std std-ref">onemkl::lapack::hetrd</span></a></p></td>
+<td><p><a class="reference internal" href="hetrd_scratchpad_size.html#onemkl-lapack-hetrd-scratchpad-size"><span class="std std-ref">onemkl::lapack::hetrd_scratchpad_size</span></a></p></td>
+<td><p>Reduces a complex Hermitian matrix to tridiagonal form.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="orgbr.html#onemkl-lapack-orgbr"><span class="std std-ref">onemkl::lapack::orgbr</span></a></p></td>
+<td><p><a class="reference internal" href="orgbr_scratchpad_size.html#onemkl-lapack-orgbr-scratchpad-size"><span class="std std-ref">onemkl::lapack::orgbr_scratchpad_size</span></a></p></td>
+<td><p>Generates the real orthogonal matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> or <code class="docutils literal notranslate"><span class="pre">P</span></code><sup>T</sup> determined by gebrd.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="orgtr.html#onemkl-lapack-orgtr"><span class="std std-ref">onemkl::lapack::orgtr</span></a></p></td>
+<td><p><a class="reference internal" href="orgtr_scratchpad_size.html#onemkl-lapack-orgtr-scratchpad-size"><span class="std std-ref">onemkl::lapack::orgtr_scratchpad_size</span></a></p></td>
+<td><p>Generates the real orthogonal matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> determined by sytrd.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ormtr.html#onemkl-lapack-ormtr"><span class="std std-ref">onemkl::lapack::ormtr</span></a></p></td>
+<td><p><a class="reference internal" href="ormtr_scratchpad_size.html#onemkl-lapack-ormtr-scratchpad-size"><span class="std std-ref">onemkl::lapack::ormtr_scratchpad_size</span></a></p></td>
+<td><p>Multiplies a real matrix by the orthogonal matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> determined by sytrd.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="syevd.html#onemkl-lapack-syevd"><span class="std std-ref">onemkl::lapack::syevd</span></a></p></td>
+<td><p><a class="reference internal" href="syevd_scratchpad_size.html#onemkl-lapack-syevd-scratchpad-size"><span class="std std-ref">onemkl::lapack::syevd_scratchpad_size</span></a></p></td>
+<td><p>Computes all eigenvalues and, optionally, all eigenvectors of a real symmetric matrix using divide and conquer algorithm.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="sygvd.html#onemkl-lapack-sygvd"><span class="std std-ref">onemkl::lapack::sygvd</span></a></p></td>
+<td><p><a class="reference internal" href="sygvd_scratchpad_size.html#onemkl-lapack-sygvd-scratchpad-size"><span class="std std-ref">onemkl::lapack::sygvd_scratchpad_size</span></a></p></td>
+<td><p>Computes all eigenvalues and, optionally, all eigenvectors of a real generalized symmetric definite eigenproblem using divide and conquer algorithm.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="sytrd.html#onemkl-lapack-sytrd"><span class="std std-ref">onemkl::lapack::sytrd</span></a></p></td>
+<td><p><a class="reference internal" href="sytrd_scratchpad_size.html#onemkl-lapack-sytrd-scratchpad-size"><span class="std std-ref">onemkl::lapack::sytrd_scratchpad_size</span></a></p></td>
+<td><p>Reduces a real symmetric matrix to tridiagonal form.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ungbr.html#onemkl-lapack-ungbr"><span class="std std-ref">onemkl::lapack::ungbr</span></a></p></td>
+<td><p><a class="reference internal" href="ungbr_scratchpad_size.html#onemkl-lapack-ungbr-scratchpad-size"><span class="std std-ref">onemkl::lapack::ungbr_scratchpad_size</span></a></p></td>
+<td><p>Generates the complex unitary matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> or <code class="docutils literal notranslate"><span class="pre">P</span></code><sup>T</sup> determined by gebrd.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ungtr.html#onemkl-lapack-ungtr"><span class="std std-ref">onemkl::lapack::ungtr</span></a></p></td>
+<td><p><a class="reference internal" href="ungtr_scratchpad_size.html#onemkl-lapack-ungtr-scratchpad-size"><span class="std std-ref">onemkl::lapack::ungtr_scratchpad_size</span></a></p></td>
+<td><p>Generates the complex unitary matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> determined by hetrd.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="unmtr.html#onemkl-lapack-unmtr"><span class="std std-ref">onemkl::lapack::unmtr</span></a></p></td>
+<td><p><a class="reference internal" href="unmtr_scratchpad_size.html#onemkl-lapack-unmtr-scratchpad-size"><span class="std std-ref">onemkl::lapack::unmtr_scratchpad_size</span></a></p></td>
+<td><p>Multiplies a complex matrix by the unitary matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> determined by hetrd.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="lapack-like-extensions-routines">
+<span id="onemkl-lapack-like-extensions-routines"></span><h2><span class="section-number">2.1.3.3. </span>LAPACK-like Extensions Routines<a class="headerlink" href="#lapack-like-extensions-routines" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<p>oneAPI Math Kernel Library DPC++ provides additional routines to
+extend the functionality of the LAPACK routines. These include routines
+to compute many independent factorizations, linear equation solutions, and similar.
+The following table lists the LAPACK-like Extensions routine groups.</p>
+<div class="tablenoborder docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Routines</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="geqrf_batch.html#onemkl-lapack-geqrf-batch"><span class="std std-ref">onemkl::lapack::geqrf_batch</span></a></p></td>
+<td><p>Computes the QR factorizations of a batch of general matrices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="getrf_batch.html#onemkl-lapack-getrf-batch"><span class="std std-ref">onemkl::lapack::getrf_batch</span></a></p></td>
+<td><p>Computes the LU factorizations of a batch of general matrices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="getri_batch.html#onemkl-lapack-getri-batch"><span class="std std-ref">onemkl::lapack::getri_batch</span></a></p></td>
+<td><p>Computes the inverses of a batch of LU-factored general matrices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="getrs_batch.html#onemkl-lapack-getrs-batch"><span class="std std-ref">onemkl::lapack::getrs_batch</span></a></p></td>
+<td><p>Solves systems of linear equations with a batch of LU-factored square coefficient matrices, with multiple right-hand sides.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="orgqr_batch.html#onemkl-lapack-orgqr-batch"><span class="std std-ref">onemkl::lapack::orgqr_batch</span></a></p></td>
+<td><p>Generates the real orthogonal/complex unitary matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code><sub>i</sub> of the QR factorization formed by geqrf_batch.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="potrf_batch.html#onemkl-lapack-potrf-batch"><span class="std std-ref">onemkl::lapack::potrf_batch</span></a></p></td>
+<td><p>Computes the Cholesky factorization of a batch of symmetric (Hermitian) positive-definite matrices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="potrs_batch.html#onemkl-lapack-potrs-batch"><span class="std std-ref">onemkl::lapack::potrs_batch</span></a></p></td>
+<td><p>Solves systems of linear equations with a batch of Cholesky-factored symmetric (Hermitian) positive-definite coefficient matrices, with multiple right-hand sides.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="docutils container">
 <div class="note docutils container">
 <p class="notetiphead rubric">Note</p>
 <p>Different arrays used as parameters to oneMKL LAPACK routines must
@@ -217,236 +408,7 @@ values may cause LAPACK to return unexpected results or become
 unstable.</p>
 </div>
 </div>
-<div class="docutils container">
-<ul>
-<li><p><a class="reference external" href="gebrd.html">gebrd</a>
-Reduces a general matrix to bidiagonal form. This routine belongs
-to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="gebrd_get_lwork.html">gebrd_get_lwork</a>
-Computes the worksize needed for the function,
-<a class="reference external" href="gebrd.html">gebrd</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="geqrf.html">geqrf</a>
-Computes the QR factorization of a general m-by-n matrix. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="geqrf_get_lwork.html">geqrf_get_lwork</a>
-Computes the worksize needed for the function geqrf. This routine
-belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="geqrf_batch.html">geqrf_batch</a>
-Computes the QR factorizations of a batch of general matrices.
-This routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="gesvd.html">gesvd</a>
-Computes the singular value decomposition of a general rectangular
-matrix. This routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="gesvd_get_lwork.html">gesvd_get_lwork</a>
-Computes the worksize needed for the function
-<a class="reference external" href="gesvd.html">gesvd</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="getrf.html">getrf</a>
-Computes the LU factorization of a general m-by-n matrix. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="getrf_batch.html">getrf_batch</a>
-Computes the LU factorizations of a batch of general matrices.
-This routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="getri.html">getri</a>
-Computes the inverse of an LU-factored general matrix determined
-by <a class="reference external" href="getrf.html">getrf</a>.This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="getri_batch.html">getri_batch</a>
-Computes the inverses of a batch of LU-factored matrices
-determined by
-<a class="reference external" href="getrf_batch.html">getrf_batch</a>.
-This routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="getri_get_lwork.html">getri_get_lwork</a>
-Computes the worksize needed for the function
-<a class="reference external" href="getri.html">getri</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="getrs.html">getrs</a>
-Solves a system of linear equations with an LU-factored square
-coefficient matrix, with multiple right-hand sides. This routine
-belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="getrs_batch.html">getrs_batch</a>
-Solves a system of linear equations with a batch of LU-factored
-square coefficient matrices, with multiple right-hand sides. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="heevd.html">heevd</a>
-Computes all eigenvalues and, optionally, all eigenvectors of a
-complex Hermitian matrix using divide and conquer algorithm. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="heevd_get_lwork.html">heevd_get_lwork</a>
-Computes the worksize needed for the function,
-<a class="reference external" href="heevd.html">heevd</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="hegvd.html">hegvd</a>
-Computes all eigenvalues and, optionally, eigenvectors of a real
-generalized symmetric definite eigenproblem using a divide and
-conquer method. This routine belongs to the
-<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="hegvd_get_lwork.html">hegvd_get_lwork</a>
-Computes the worksize needed for the function,
-<a class="reference external" href="hegvd.html">hegvd</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="hetrd.html">hetrd</a>
-Reduces a complex Hermitian matrix to tridiagonal form. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="hetrd_get_lwork.html">hetrd_get_lwork</a>
-Computes the worksize needed for the function,
-<a class="reference external" href="hetrd.html">hetrd</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="orgbr.html">orgbr</a>
-Generates the real orthogonal matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code> or <code class="docutils literal notranslate"><span class="pre">P</span></code><sup>T</sup>
-determined by
-<a class="reference external" href="gebrd.html">gebrd</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="orgbr_get_lwork.html">orgbr_get_lwork</a>
-Computes the worksize needed for the function
-<a class="reference external" href="orgbr.html">orgbr</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="orgqr.html">orgqr</a>
-Generates the real orthogonal matrix Q of the QR factorization
-formed by geqrf. This routine belongs to the
-<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="orgqr_batch.html">orgqr_batch</a>
-Generates the orthogonal/unitary matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code><sub>i</sub> of the QR
-factorizations for a group of general matrices. This routine
-belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="orgqr_get_lwork.html">orgqr_get_lwork</a>
-Computes the worksize needed for the function orgqr. This routine
-belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="orgtr.html">orgtr</a>
-Generates the real orthogonal matrix Q determined by
-<a class="reference external" href="sytrd.html">?sytrd</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="orgtr_get_lwork.html">orgtr_get_lwork</a>
-Computes the worksize needed for the function,
-<a class="reference external" href="orgtr.html">orgtr</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="ormqr.html">ormqr</a>
-Multiplies a real matrix by the orthogonal matrix Q of the QR
-factorization formed by geqrf. This routine belongs to the
-<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="ormqr_get_lwork.html">ormqr_get_lwork</a>
-Computes the worksize needed for the function
-<a class="reference external" href="ormqr.html">ormqr</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="ormtr.html">ormtr</a>
-Multiplies a real matrix by the real orthogonal matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code>
-determined by
-<a class="reference external" href="sytrd.html">?sytrd</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="ormtr_get_lwork.html">ormtr_get_lwork</a>
-Computes the worksize needed for the function,
-<a class="reference external" href="ormtr.html">ormtr</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="potrf.html">potrf</a>
-Computes the Cholesky factorization of a symmetric (Hermitian)
-positive-definite matrix.This routine belongs to the
-<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="potrf-usm-version.html">potrf (USM
-Version)</a>
-Computes the Cholesky factorization of a symmetric (Hermitian)
-positive-definite matrix.This routine belongs to the
-<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="potrf_batch.html">potrf_batch</a>
-Computes the Cholesky factorizations of a batch of symmetric
-(Hermitian) positive-definite matrices. This routine belongs to
-the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="potri.html">potri</a>
-Computes the inverse of a symmetric (Hermitian) positive-definite
-matrix using the Cholesky factorization. This routine belongs to
-the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="potrs.html">potrs</a>
-Solves a system of linear equations with a Cholesky-factored
-symmetric (Hermitian) positive-definite coefficient matrix. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="potrs-usm-version.html">potrs (USM
-Version)</a>
-Solves a system of linear equations with a Cholesky-factored
-symmetric (Hermitian) positive-definite coefficient matrix. This
-routine belongs to the onemkl::lapack namespace.</p></li>
-<li><p><a class="reference external" href="potrs_batch.html">potrs_batch</a>
-Solves a system of linear equations with a batch of
-Cholesky-factored symmetric (Hermitian) positive-definite
-coefficient matrices. This routine belongs to the
-<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="syevd.html">syevd</a>
-Computes all eigenvalues and, optionally, all eigenvectors of a
-real symmetric matrix using divide and conquer algorithm. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="syevd_get_lwork.html">syevd_get_lwork</a>
-Computes the worksize needed for the function,
-<a class="reference external" href="syevd.html">syevd</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="sygvd.html">sygvd</a>
-Computes all eigenvalues and, optionally, eigenvectors of a real
-generalized symmetric definite eigenproblem using a divide and
-conquer method. This routine belongs to the
-<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="sygvd_get_lwork.html">sygvd_get_lwork</a>
-Computes the worksize needed for the function,
-<a class="reference external" href="sygvd.html">sygvd</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="sytrd.html">sytrd</a>
-Reduces a real symmetric matrix to tridiagonal form. This routine
-belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="sytrd_get_lwork.html">sytrd_get_lwork</a>
-Computes the worksize needed for the function,
-<a class="reference external" href="sytrd.html">sytrd</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="sytrf.html">sytrf</a>
-Computes the Bunch-Kaufman factorization of a symmetric matrix.
-This routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="sytrf_get_lwork.html">sytrf_get_lwork</a>
-Computes the worksize needed for the function sytrf. This routine
-belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="trtrs.html">trtrs</a>
-Solves a system of linear equations with a triangular coefficient
-matrix, with multiple right-hand sides. This routine belongs to
-the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="ungbr.html">ungbr</a>
-Generates the complex unitary matrix Q or P<sup>t</sup> determined
-by <a class="reference external" href="gebrd.html">gebrd</a>.
-This routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="ungbr_get_lwork.html">ungbr_get_lwork</a>
-Computes the worksize needed for the function,
-<a class="reference external" href="ungbr.html">ungbr</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="ungqr.html">ungqr</a>
-Generates the complex unitary matrix Q of the QR factorization
-formed by geqrf. This routine belongs to the
-<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="ungqr_get_lwork.html">ungqr_get_lwork</a>
-Computes the worksize needed for the function ungqr. This routine
-belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="ungtr.html">ungtr</a>
-Generates the complex unitary matrix Q determined by
-<a class="reference external" href="hetrd.html">hetrd</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="ungtr_get_lwork.html">ungtr_get_lwork</a>
-Computes the worksize needed for the function,
-<a class="reference external" href="ungtr.html">ungtr</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="unmqr.html">unmqr</a>
-Multiplies a complex matrix by the unitary matrix Q of the QR
-factorization formed by unmqr. This routine belongs to the
-<code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="unmqr_get_lwork.html">unmqr_get_lwork</a>
-Computes the worksize needed for the function unmqr. This routine
-belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="unmtr.html">unmtr</a>
-Multiplies a complex matrix by the complex unitary matrix Q
-determined by
-<a class="reference external" href="hetrd.html">hetrd</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p></li>
-<li><p><a class="reference external" href="unmtr_get_lwork.html">unmtr_get_lwork</a>
-Computes the worksize needed for the function
-<a class="reference external" href="unmtr.html">unmtr</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code> namespace.</p>
 <p><strong>Parent topic:</strong> <a class="reference internal" href="../domains.html#onemkl-dense-linear-algebra"><span class="std std-ref">Dense Linear Algebra</span></a></p>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -458,7 +420,7 @@ routine belongs to the <code class="docutils literal notranslate"><span class="p
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gebrd.html" class="btn btn-neutral float-right" title="2.1.3.1. gebrd" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="geqrf.html" class="btn btn-neutral float-right" title="2.1.3.1.1. onemkl::lapack::geqrf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../blas/gemm_ext.html" class="btn btn-neutral float-left" title="2.1.2.4.5. gemm_ext" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

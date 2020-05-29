@@ -228,7 +228,7 @@ The <code class="docutils literal notranslate"><span class="pre">spin_mutex</spa
 </div>
 <div class="section" id="member-classes">
 <h2>Member classes<a class="headerlink" href="#member-classes" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv411scoped_lock">
 <span id="_CPPv311scoped_lock"></span><span id="_CPPv211scoped_lock"></span><span id="scoped_lock"></span><em class="property">class </em><code class="sig-name descname">scoped_lock</code><br /></dt>
 <dd><p>Corresponding <code class="docutils literal notranslate"><span class="pre">scoped_lock</span></code> class. See the <a class="reference internal" href="../named_requirements/mutexes/mutex.html"><span class="doc">Mutex requirement</span></a>.</p>
@@ -237,31 +237,31 @@ The <code class="docutils literal notranslate"><span class="pre">spin_mutex</spa
 </div>
 <div class="section" id="member-functions">
 <h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv410spin_mutexv">
 <span id="_CPPv310spin_mutexv"></span><span id="_CPPv210spin_mutexv"></span><span id="spin_mutex"></span><code class="sig-name descname">spin_mutex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410spin_mutexv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs <code class="docutils literal notranslate"><span class="pre">spin_mutex</span></code> with unlocked state.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4D0v">
 <span id="_CPPv3D0v"></span><span id="_CPPv2D0v"></span><span id="~spin_mutex"></span><code class="sig-name descname">~spin_mutex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4D0v" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Destroys an unlocked <code class="docutils literal notranslate"><span class="pre">spin_mutex</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv44lockv">
 <span id="_CPPv34lockv"></span><span id="_CPPv24lockv"></span><span id="lock"></span>void <code class="sig-name descname">lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Acquires a lock. Spins if the lock is taken.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv48try_lockv">
 <span id="_CPPv38try_lockv"></span><span id="_CPPv28try_lockv"></span><span id="try_lock"></span>bool <code class="sig-name descname">try_lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Attempts to acquire a lock (non-blocking). Returns <strong>true</strong> if lock is acquired; <strong>false</strong> otherwise.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv46unlockv">
 <span id="_CPPv36unlockv"></span><span id="_CPPv26unlockv"></span><span id="unlock"></span>void <code class="sig-name descname">unlock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Releases a lock, held by a current thread.</p>

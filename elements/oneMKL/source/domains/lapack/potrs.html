@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.3.36. potrs &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>2.1.3.1.17. onemkl::lapack::potrs &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.3.37. potrs (USM Version)" href="potrs-usm-version.html" />
-    <link rel="prev" title="2.1.3.35. potri" href="potri.html" /> 
+    <link rel="next" title="2.1.3.1.18. onemkl::lapack::potrs_scratchpad_size" href="potrs_scratchpad_size.html" />
+    <link rel="prev" title="2.1.3.1.16. onemkl::lapack::potri_scratchpad_size" href="potri_scratchpad_size.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -183,20 +183,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="potrs">
-<h1><span class="section-number">2.1.3.36. </span>potrs<a class="headerlink" href="#potrs" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="onemkl-lapack-potrs">
+<span id="id1"></span><h1><span class="section-number">2.1.3.1.17. </span>onemkl::lapack::potrs<a class="headerlink" href="#onemkl-lapack-potrs" title="Permalink to this headline">¶</a></h1>
 <div class="docutils container">
 <p>Solves a system of linear equations with a Cholesky-factored
-symmetric (Hermitian) positive-definite coefficient matrix. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code>namespace.</p>
-<div class="section docutils container" id="guid-19ec4349-151e-4907-b0fc-4800475db3ba">
-<p class="sectiontitle rubric">Syntax</p>
-<dl class="function">
-<dt id="_CPPv45potrsR5queue4uploNSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEE">
-<span id="_CPPv35potrsR5queue4uploNSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEE"></span><span id="_CPPv25potrsR5queue4uploNSt7int64_tENSt7int64_tER6bufferI1TX1EENSt7int64_tER6bufferI1TX1EENSt7int64_tER6bufferINSt7int64_tEX1EE"></span><span id="potrs__queueR.uplo.std::int64_t.std::int64_t.buffer:T.1:R.std::int64_t.buffer:T.1:R.std::int64_t.buffer:std::int64_t.1:R"></span>void <code class="sig-name descname">potrs</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, uplo <em>upper_lower</em>, std::int64_t <em>n</em>, std::int64_t <em>nrhs</em>, buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, buffer&lt;T, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, buffer&lt;std::int64_t, 1&gt; &amp;<em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45potrsR5queue4uploNSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p>potrs supports the following precisions.</p>
+symmetric (Hermitian) positive-definite coefficient matrix.</p>
+<blockquote>
+<div><p>potrs supports the following precisions.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 100%" />
@@ -216,9 +209,9 @@ routine belongs to the <code class="docutils literal notranslate"><span class="p
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </div>
-</div>
-<div class="section docutils container" id="guid-676ef153-39bb-4321-98d5-2250576203d7">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
 <p>The routine solves for <code class="docutils literal notranslate"><span class="pre">X</span></code> the system of linear equations
 <code class="docutils literal notranslate"><span class="pre">A*X</span> <span class="pre">=</span> <span class="pre">B</span></code> with a symmetric positive-definite or, for complex data,
@@ -231,12 +224,12 @@ factorization of <code class="docutils literal notranslate"><span class="pre">A<
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">UT*U</span></code> for real data, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">UH*U</span></code> for complex data</p></th>
-<th class="head"><p>if <code class="docutils literal notranslate"><span class="pre">uplo=onemkl::uplo::upper</span></code></p></th>
+<th class="head"><p>if <code class="docutils literal notranslate"><span class="pre">upper_lower=onemkl::uplo::upper</span></code></p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">L*LT</span></code> for real data, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">L*LH</span></code> for complex data</p></td>
-<td><p>if <code class="docutils literal notranslate"><span class="pre">uplo=onemkl::uplo::lower</span></code></p></td>
+<td><p>if <code class="docutils literal notranslate"><span class="pre">upper_lower=onemkl::uplo::lower</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -244,83 +237,134 @@ factorization of <code class="docutils literal notranslate"><span class="pre">A<
 triangular. The system is solved with multiple right-hand sides
 stored in the columns of the matrix <code class="docutils literal notranslate"><span class="pre">B</span></code>.</p>
 <p>Before calling this routine, you must call
-<a class="reference external" href="potrf.html">potrf</a> to compute
+<a class="reference internal" href="potrf.html#onemkl-lapack-potrf"><span class="std std-ref">onemkl::lapack::potrf</span></a> to compute
 the Cholesky factorization of <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
 </div>
-<div class="section docutils container" id="guid-01ebc633-d795-4cd8-a614-9fa0d45ea8f6">
+<div class="section" id="onemkl-lapack-potrs-buffer-version">
+<h2><span class="section-number">2.1.3.1.17.1. </span>onemkl::lapack::potrs (BUFFER Version)<a class="headerlink" href="#onemkl-lapack-potrs-buffer-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<dl class="cpp function">
+<dt id="_CPPv4N6onemkl6lapack5potrsERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tE">
+<span id="_CPPv3N6onemkl6lapack5potrsERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tE"></span><span id="_CPPv2N6onemkl6lapack5potrsERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tENSt7int64_tERN2cl4sycl6bufferI1TX1EEENSt7int64_tERN2cl4sycl6bufferI1TX1EEENSt7int64_tERN2cl4sycl6bufferI1TX1EEENSt7int64_tE"></span><span id="onemkl::lapack::potrs__cl::sycl::queueR.onemkl::uplo.std::int64_t.std::int64_t.cl::sycl::buffer:T.1:R.std::int64_t.cl::sycl::buffer:T.1:R.std::int64_t.cl::sycl::buffer:T.1:R.std::int64_t"></span>void <code class="sig-prename descclassname">onemkl::lapack<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">potrs</code><span class="sig-paren">(</span>cl::sycl::queue &amp;<em>queue</em>, onemkl::uplo <em>upper_lower</em>, std::int64_t <em>n</em>, std::int64_t <em>nrhs</em>, cl::sycl::buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, cl::sycl::buffer&lt;T, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, cl::sycl::buffer&lt;T, 1&gt; &amp;<em>scratchpad</em>, std::int64_t <em>scratchpad_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl6lapack5potrsERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>exec_queue</p></th>
-<th class="head"><p>The queue where the routine should be executed.</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>uplo</p></td>
-<td><p>Indicates how the input matrix has been factored:          If <code class="docutils literal notranslate"><span class="pre">uplo</span> <span class="pre">=</span> <span class="pre">onemkl::uplo::upper</span></code>, the upper triangle   <code class="docutils literal notranslate"><span class="pre">U</span></code> of <code class="docutils literal notranslate"><span class="pre">A</span></code> is stored, where <code class="docutils literal notranslate"><span class="pre">A</span></code> = <code class="docutils literal notranslate"><span class="pre">U</span></code><sup>T</sup>*<code class="docutils literal notranslate"><span class="pre">U</span></code>   for real data, <code class="docutils literal notranslate"><span class="pre">A</span></code> = <code class="docutils literal notranslate"><span class="pre">U</span></code><sup>H</sup>*<code class="docutils literal notranslate"><span class="pre">U</span></code> for complex data.         If <code class="docutils literal notranslate"><span class="pre">uplo</span> <span class="pre">=</span> <span class="pre">onemkl::uplo::lower</span></code>, the lower triangle   <code class="docutils literal notranslate"><span class="pre">L</span></code> of <code class="docutils literal notranslate"><span class="pre">A</span></code> is stored, where <code class="docutils literal notranslate"><span class="pre">A</span></code> = <code class="docutils literal notranslate"><span class="pre">L</span></code>*<code class="docutils literal notranslate"><span class="pre">L</span></code><sup>T</sup>   for real data, <code class="docutils literal notranslate"><span class="pre">A</span></code> = <code class="docutils literal notranslate"><span class="pre">L</span></code>*<code class="docutils literal notranslate"><span class="pre">L</span></code><sup>H</sup> for complex   data.</p></td>
-</tr>
-<tr class="row-odd"><td><p>n</p></td>
-<td><p>The order of matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> (<code class="docutils literal notranslate"><span class="pre">0≤n</span></code>).</p></td>
-</tr>
-<tr class="row-even"><td><p>nrhs</p></td>
-<td><p>The number of right-hand sides (<code class="docutils literal notranslate"><span class="pre">0≤nrhs</span></code>).</p></td>
-</tr>
-<tr class="row-odd"><td><p>a</p></td>
-<td><p>Buffer containing the factorization of the matrix A, as    returned by   <a class="reference external" href="potrf.html">potrf</a>.   The second dimension of <code class="docutils literal notranslate"><span class="pre">a</span></code> must be at least <code class="docutils literal notranslate"><span class="pre">max(1,</span> <span class="pre">n)</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td><p>lda</p></td>
-<td><p>The leading dimension of <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>b</p></td>
-<td><p>The array <code class="docutils literal notranslate"><span class="pre">b</span></code> contains the matrix <code class="docutils literal notranslate"><span class="pre">B</span></code> whose columns    are the right-hand sides for the systems of equations. The second   dimension of <code class="docutils literal notranslate"><span class="pre">b</span></code> must be at least <code class="docutils literal notranslate"><span class="pre">max(1,nrhs)</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td><p>ldb</p></td>
-<td><p>The leading dimension of <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p></td>
-</tr>
-</tbody>
-</table>
+<dl>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
+</dd>
+<dt>upper_lower</dt><dd><p>Indicates how the input matrix has been factored:</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">upper_lower</span> <span class="pre">=</span> <span class="pre">onemkl::uplo::upper</span></code>, the upper triangle   <code class="docutils literal notranslate"><span class="pre">U</span></code> of <code class="docutils literal notranslate"><span class="pre">A</span></code> is stored, where <code class="docutils literal notranslate"><span class="pre">A</span></code> = <code class="docutils literal notranslate"><span class="pre">U</span></code><sup>T</sup>*<code class="docutils literal notranslate"><span class="pre">U</span></code>   for real data, <code class="docutils literal notranslate"><span class="pre">A</span></code> = <code class="docutils literal notranslate"><span class="pre">U</span></code><sup>H</sup>*<code class="docutils literal notranslate"><span class="pre">U</span></code> for complex data.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">upper_lower</span> <span class="pre">=</span> <span class="pre">onemkl::uplo::lower</span></code>, the lower triangle   <code class="docutils literal notranslate"><span class="pre">L</span></code> of <code class="docutils literal notranslate"><span class="pre">A</span></code> is stored, where <code class="docutils literal notranslate"><span class="pre">A</span></code> = <code class="docutils literal notranslate"><span class="pre">L</span></code>*<code class="docutils literal notranslate"><span class="pre">L</span></code><sup>T</sup>   for real data, <code class="docutils literal notranslate"><span class="pre">A</span></code> = <code class="docutils literal notranslate"><span class="pre">L</span></code>*<code class="docutils literal notranslate"><span class="pre">L</span></code><sup>H</sup> for complex   data.</p>
+</dd>
+<dt>n</dt><dd><p>The order of matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> (<code class="docutils literal notranslate"><span class="pre">0≤n</span></code>).</p>
+</dd>
+<dt>nrhs</dt><dd><p>The number of right-hand sides (<code class="docutils literal notranslate"><span class="pre">0≤nrhs</span></code>).</p>
+</dd>
+<dt>a</dt><dd><p>Buffer containing the factorization of the matrix A, as    returned by   <a class="reference internal" href="potrf.html#onemkl-lapack-potrf"><span class="std std-ref">onemkl::lapack::potrf</span></a>.   The second dimension of <code class="docutils literal notranslate"><span class="pre">a</span></code> must be at least <code class="docutils literal notranslate"><span class="pre">max(1,</span> <span class="pre">n)</span></code>.</p>
+</dd>
+<dt>lda</dt><dd><p>The leading dimension of <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+</dd>
+<dt>b</dt><dd><p>The array <code class="docutils literal notranslate"><span class="pre">b</span></code> contains the matrix <code class="docutils literal notranslate"><span class="pre">B</span></code> whose columns    are the right-hand sides for the systems of equations. The second   dimension of <code class="docutils literal notranslate"><span class="pre">b</span></code> must be at least <code class="docutils literal notranslate"><span class="pre">max(1,nrhs)</span></code>.</p>
+</dd>
+<dt>ldb</dt><dd><p>The leading dimension of <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+</dd>
+<dt>scratchpad_size</dt><dd><p>Size of scratchpad memory as a number of floating point elements of type T.
+Size should not be less than the value returned by <a class="reference internal" href="potrs_scratchpad_size.html#onemkl-lapack-potrs-scratchpad-size"><span class="std std-ref">onemkl::lapack::potrs_scratchpad_size</span></a> function.</p>
+</dd>
+</dl>
 </div>
-<div class="section docutils container" id="guid-81f0ecbe-0bdc-452c-9ffc-d467a44518a5">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>b</p></th>
-<th class="head"><p>Overwritten by the solution matrix <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>info</p></td>
-<td><p>Buffer containing error information.      If    <code class="docutils literal notranslate"><span class="pre">info</span> <span class="pre">=</span> <span class="pre">0</span></code>, the execution is successful.       If   <code class="docutils literal notranslate"><span class="pre">info</span></code> = <code class="docutils literal notranslate"><span class="pre">i</span></code>, the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th parameter had an illegal   value.      If <code class="docutils literal notranslate"><span class="pre">info</span></code> = <code class="docutils literal notranslate"><span class="pre">i</span></code>, the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th diagonal   element of the Cholesky factor is zero , and the solve could not be   completed.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section docutils container" id="example-5ef48b8a07d849ea84a74fe22f0d5b24">
-<p class="sectiontitle rubric">Example</p>
-<p>An example of how to use <code class="docutils literal notranslate"><span class="pre">potrs</span></code>can be found in the oneMKL
-installation directory, under:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">examples</span><span class="o">/</span><span class="n">sycl</span><span class="o">/</span><span class="n">lapack</span><span class="o">/</span><span class="n">potrs</span><span class="o">.</span><span class="n">cpp</span>
-</pre></div>
+<dl class="simple">
+<dt>b</dt><dd><p>Overwritten by the solution matrix <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
+</dd>
+<dt>scratchpad</dt><dd><p>Buffer holding scratchpad memory to be used by routine for storing intermediate results.</p>
+</dd>
+</dl>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Throws</p>
+<dl>
+<dt>onemkl::lapack::exception</dt><dd><p>Exception is thrown in case of problems happened during calculations. The <code class="docutils literal notranslate"><span class="pre">info</span></code> code of the problem can be obtained by <cite>get_info()</cite> method of exception object:</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info=-i</span></code>, the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th parameter had an illegal value.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info=i</span></code>, the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th diagonal element of the Cholesky factor is zero, and the solve could not be completed.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info</span></code> equals to value passed as scratchpad size, and <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> returns non zero, then passed scratchpad is of insufficient size, and required size should not be less than value return by <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> method of exception object.</p>
+</dd>
+</dl>
 </div>
 </div>
-<div class="section docutils container" id="guid-3b00b441-c7c0-4d8a-a819-41037f1e5862">
-<p class="sectiontitle rubric">Known Limitations</p>
-<p>GPU support is for only real precisions.</p>
-<p>GPU support for this function does not include error reporting through
-the info parameter.</p>
+</div>
+<div class="section" id="onemkl-lapack-potrs-usm-version">
+<h2><span class="section-number">2.1.3.1.17.2. </span>onemkl::lapack::potrs (USM Version)<a class="headerlink" href="#onemkl-lapack-potrs-usm-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<dl class="cpp function">
+<dt id="_CPPv4N6onemkl6lapack5potrsERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tENSt7int64_tEP1TNSt7int64_tEP1TNSt7int64_tEP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE">
+<span id="_CPPv3N6onemkl6lapack5potrsERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tENSt7int64_tEP1TNSt7int64_tEP1TNSt7int64_tEP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE"></span><span id="_CPPv2N6onemkl6lapack5potrsERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tENSt7int64_tEP1TNSt7int64_tEP1TNSt7int64_tEP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE"></span><span id="onemkl::lapack::potrs__cl::sycl::queueR.onemkl::uplo.std::int64_t.std::int64_t.TP.std::int64_t.TP.std::int64_t.TP.std::int64_t.cl::sycl::vector_class:cl::sycl::event:CR"></span>cl::sycl::event <code class="sig-prename descclassname">onemkl::lapack<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">potrs</code><span class="sig-paren">(</span>cl::sycl::queue &amp;<em>queue</em>, onemkl::uplo <em>upper_lower</em>, std::int64_t <em>n</em>, std::int64_t <em>nrhs</em>, T *<em>a</em>, std::int64_t <em>lda</em>, T *<em>b</em>, std::int64_t <em>ldb</em>, T *<em>scratchpad</em>, std::int64_t <em>scratchpad_size</em>, <em class="property">const</em> cl::sycl::vector_class&lt;cl::sycl::event&gt; &amp;<em>events</em> = {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl6lapack5potrsERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tENSt7int64_tEP1TNSt7int64_tEP1TNSt7int64_tEP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Input Parameters</p>
+<dl>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
+</dd>
+<dt>upper_lower</dt><dd><p>Indicates how the input matrix has been factored:</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">upper_lower</span> <span class="pre">=</span> <span class="pre">onemkl::uplo::upper</span></code>, the upper triangle   <code class="docutils literal notranslate"><span class="pre">U</span></code> of <code class="docutils literal notranslate"><span class="pre">A</span></code> is stored, where <code class="docutils literal notranslate"><span class="pre">A</span></code> = <code class="docutils literal notranslate"><span class="pre">U</span></code><sup>T</sup>*<code class="docutils literal notranslate"><span class="pre">U</span></code>   for real data, <code class="docutils literal notranslate"><span class="pre">A</span></code> = <code class="docutils literal notranslate"><span class="pre">U</span></code><sup>H</sup>*<code class="docutils literal notranslate"><span class="pre">U</span></code> for complex data.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">upper_lower</span> <span class="pre">=</span> <span class="pre">onemkl::uplo::lower</span></code>, the lower triangle   <code class="docutils literal notranslate"><span class="pre">L</span></code> of <code class="docutils literal notranslate"><span class="pre">A</span></code> is stored, where <code class="docutils literal notranslate"><span class="pre">A</span></code> = <code class="docutils literal notranslate"><span class="pre">L</span></code>*<code class="docutils literal notranslate"><span class="pre">L</span></code><sup>T</sup>   for real data, <code class="docutils literal notranslate"><span class="pre">A</span></code> = <code class="docutils literal notranslate"><span class="pre">L</span></code>*<code class="docutils literal notranslate"><span class="pre">L</span></code><sup>H</sup> for complex   data.</p>
+</dd>
+<dt>n</dt><dd><p>The order of matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> (<code class="docutils literal notranslate"><span class="pre">0≤n</span></code>).</p>
+</dd>
+<dt>nrhs</dt><dd><p>The number of right-hand sides (<code class="docutils literal notranslate"><span class="pre">0≤nrhs</span></code>).</p>
+</dd>
+<dt>a</dt><dd><p>Pointer to array containing the factorization of the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>, as    returned by   <a class="reference internal" href="potrf.html#onemkl-lapack-potrf"><span class="std std-ref">onemkl::lapack::potrf</span></a>.   The second dimension of <code class="docutils literal notranslate"><span class="pre">a</span></code> must be at least <code class="docutils literal notranslate"><span class="pre">max(1,</span> <span class="pre">n)</span></code>.</p>
+</dd>
+<dt>lda</dt><dd><p>The leading dimension of <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+</dd>
+<dt>b</dt><dd><p>The array <code class="docutils literal notranslate"><span class="pre">b</span></code> contains the matrix <code class="docutils literal notranslate"><span class="pre">B</span></code> whose columns    are the right-hand sides for the systems of equations. The second   dimension of <code class="docutils literal notranslate"><span class="pre">b</span></code> must be at least <code class="docutils literal notranslate"><span class="pre">max(1,nrhs)</span></code>.</p>
+</dd>
+<dt>ldb</dt><dd><p>The leading dimension of <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+</dd>
+<dt>scratchpad_size</dt><dd><p>Size of scratchpad memory as a number of floating point elements of type T.
+Size should not be less than the value returned by <a class="reference internal" href="potrs_scratchpad_size.html#onemkl-lapack-potrs-scratchpad-size"><span class="std std-ref">onemkl::lapack::potrs_scratchpad_size</span></a> function.</p>
+</dd>
+<dt>events</dt><dd><p>List of events to wait for before starting computation. Defaults to empty list.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Output Parameters</p>
+<dl class="simple">
+<dt>b</dt><dd><p>Overwritten by the solution matrix <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
+</dd>
+<dt>scratchpad</dt><dd><p>Pointer to scratchpad memory to be used by routine for storing intermediate results.</p>
+</dd>
+</dl>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Throws</p>
+<dl>
+<dt>onemkl::lapack::exception</dt><dd><p>Exception is thrown in case of problems happened during calculations. The <code class="docutils literal notranslate"><span class="pre">info</span></code> code of the problem can be obtained by <cite>get_info()</cite> method of exception object:</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info=-i</span></code>, the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th parameter had an illegal value.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info=i</span></code>, the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th diagonal element of the Cholesky factor is zero, and the solve could not be completed.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info</span></code> equals to value passed as scratchpad size, and <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> returns non zero, then passed scratchpad is of insufficient size, and required size should not be less than value return by <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> method of exception object.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Return Values</p>
+<p>Output event to wait on to ensure computation is complete.</p>
+</div>
 </div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">
-<p><strong>Parent topic:</strong> <a class="reference external" href="lapack.html">LAPACK
-Routines</a></p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="lapack.html#onemkl-lapack-linear-equation-routines"><span class="std std-ref">LAPACK Linear Equation Routines</span></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -333,10 +377,10 @@ Routines</a></p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="potrs-usm-version.html" class="btn btn-neutral float-right" title="2.1.3.37. potrs (USM Version)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="potrs_scratchpad_size.html" class="btn btn-neutral float-right" title="2.1.3.1.18. onemkl::lapack::potrs_scratchpad_size" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="potri.html" class="btn btn-neutral float-left" title="2.1.3.35. potri" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="potri_scratchpad_size.html" class="btn btn-neutral float-left" title="2.1.3.1.16. onemkl::lapack::potri_scratchpad_size" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -248,21 +248,21 @@ by explicit call to <code class="docutils literal notranslate"><span class="pre"
 </div>
 <div class="section" id="member-types-and-constants">
 <h2>Member types and constants<a class="headerlink" href="#member-types-and-constants" title="Permalink to this headline">¶</a></h2>
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv49automatic">
 <span id="_CPPv39automatic"></span><span id="_CPPv29automatic"></span><span id="automatic__iC"></span><em class="property">static</em> <em class="property">const</em> int <code class="sig-name descname">automatic</code><a class="headerlink" href="#_CPPv49automatic" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>When passed as <code class="docutils literal notranslate"><span class="pre">max_concurrency</span></code> to the specific constructor, arena
 concurrency will be automatically set based on the hardware configuration.</p>
 </dd></dl>
 
-<dl class="member">
+<dl class="cpp member">
 <dt id="_CPPv415not_initialized">
 <span id="_CPPv315not_initialized"></span><span id="_CPPv215not_initialized"></span><span id="not_initialized__iC"></span><em class="property">static</em> <em class="property">const</em> int <code class="sig-name descname">not_initialized</code><a class="headerlink" href="#_CPPv415not_initialized" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>When returned by a method or function, indicates that there is no active <code class="docutils literal notranslate"><span class="pre">task_arena</span></code>
 or that the <code class="docutils literal notranslate"><span class="pre">task_arena</span></code> object has not yet been initialized.</p>
 </dd></dl>
 
-<dl class="struct">
+<dl class="cpp struct">
 <dt id="_CPPv46attach">
 <span id="_CPPv36attach"></span><span id="_CPPv26attach"></span><span id="attach"></span><em class="property">struct </em><code class="sig-name descname">attach</code><a class="headerlink" href="#_CPPv46attach" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>A tag for constructing a <code class="docutils literal notranslate"><span class="pre">task_arena</span></code> with attach.</p>
@@ -271,7 +271,7 @@ or that the <code class="docutils literal notranslate"><span class="pre">task_ar
 </div>
 <div class="section" id="member-functions">
 <h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv410task_arenaij">
 <span id="_CPPv310task_arenaij"></span><span id="_CPPv210task_arenaij"></span><span id="task_arena__i.unsigned"></span><code class="sig-name descname">task_arena</code><span class="sig-paren">(</span>int <em>max_concurrency</em> = <a class="reference internal" href="#_CPPv49automatic" title="automatic">automatic</a>, unsigned <em>reserved_for_masters</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410task_arenaij" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates a <code class="docutils literal notranslate"><span class="pre">task_arena</span></code> with a certain concurrency limit (<code class="docutils literal notranslate"><span class="pre">max_concurrency</span></code>).
@@ -286,15 +286,15 @@ in such arena. Do not use <code class="docutils literal notranslate"><span class
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv410task_arenaRK10task_arena">
-<span id="_CPPv310task_arenaRK10task_arena"></span><span id="_CPPv210task_arenaRK10task_arena"></span><span id="task_arena__task_arenaCR"></span><code class="sig-name descname">task_arena</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410task_arenaij" title="task_arena">task_arena</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410task_arenaRK10task_arena" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv310task_arenaRK10task_arena"></span><span id="_CPPv210task_arenaRK10task_arena"></span><span id="task_arena__task_arenaCR"></span><code class="sig-name descname">task_arena</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410task_arenaRK10task_arena" title="task_arena">task_arena</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410task_arenaRK10task_arena" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Copies settings from another <code class="docutils literal notranslate"><span class="pre">task_arena</span></code> instance.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv410task_arenaN10task_arena6attachE">
-<span id="_CPPv310task_arenaN10task_arena6attachE"></span><span id="_CPPv210task_arenaN10task_arena6attachE"></span><span id="task_arena__task_arena::attach"></span><em class="property">explicit</em> <code class="sig-name descname">task_arena</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410task_arenaij" title="task_arena">task_arena</a>::attach<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410task_arenaN10task_arena6attachE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv310task_arenaN10task_arena6attachE"></span><span id="_CPPv210task_arenaN10task_arena6attachE"></span><span id="task_arena__task_arena::attach"></span><em class="property">explicit</em> <code class="sig-name descname">task_arena</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410task_arenaN10task_arena6attachE" title="task_arena">task_arena</a>::attach<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410task_arenaN10task_arena6attachE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates an instance of <code class="docutils literal notranslate"><span class="pre">task_arena</span></code> that is connected to the internal task arena representation currently used by the calling thread.
 If no such arena exists yet, creates a <code class="docutils literal notranslate"><span class="pre">task_arena</span></code> with default parameters.</p>
 <div class="admonition note">
@@ -304,7 +304,7 @@ the new <code class="docutils literal notranslate"><span class="pre">task_arena<
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4D0v">
 <span id="_CPPv3D0v"></span><span id="_CPPv2D0v"></span><span id="~task_arena"></span><code class="sig-name descname">~task_arena</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4D0v" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Destroys the <code class="docutils literal notranslate"><span class="pre">task_arena</span></code> instance, but the destruction may not be synchronized with any task execution inside this <code class="docutils literal notranslate"><span class="pre">task_arena</span></code>.
@@ -312,7 +312,7 @@ Which means that an internal task arena representation associated with this <cod
 Not thread safe w.r.t. concurrent invocations of other methods.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv410initializev">
 <span id="_CPPv310initializev"></span><span id="_CPPv210initializev"></span><span id="initialize"></span>void <code class="sig-name descname">initialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410initializev" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Performs actual initialization of internal task arena representation.</p>
@@ -322,13 +322,13 @@ Not thread safe w.r.t. concurrent invocations of other methods.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv410initializeij">
 <span id="_CPPv310initializeij"></span><span id="_CPPv210initializeij"></span><span id="initialize__i.unsigned"></span>void <code class="sig-name descname">initialize</code><span class="sig-paren">(</span>int <em>max_concurrency</em>, unsigned <em>reserved_for_masters</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410initializeij" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Same as above, but overrides previous arena parameters.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv410initializeN10task_arena6attachE">
 <span id="_CPPv310initializeN10task_arena6attachE"></span><span id="_CPPv210initializeN10task_arena6attachE"></span><span id="initialize__task_arena::attach"></span>void <code class="sig-name descname">initialize</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410task_arenaij" title="task_arena">task_arena</a>::attach<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410initializeN10task_arena6attachE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>If an instance of class <code class="docutils literal notranslate"><span class="pre">task_arena::attach</span></code> is specified as the argument, and there exists
@@ -337,27 +337,27 @@ parameters and connects <code class="docutils literal notranslate"><span class="
 The method has no effect when called for an already initialized <code class="docutils literal notranslate"><span class="pre">task_arena</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv49terminatev">
 <span id="_CPPv39terminatev"></span><span id="_CPPv29terminatev"></span><span id="terminate"></span>void <code class="sig-name descname">terminate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49terminatev" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Removes the reference to the internal task arena representation without destroying the
 task_arena object, which can then be re-used. Not thread safe w.r.t. concurrent invocations of other methods.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4NK9is_activeEv">
 <span id="_CPPv3NK9is_activeEv"></span><span id="_CPPv2NK9is_activeEv"></span><span id="is_activeC"></span>bool <code class="sig-name descname">is_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK9is_activeEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the <code class="docutils literal notranslate"><span class="pre">task_arena</span></code> has been initialized, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4NK15max_concurrencyEv">
 <span id="_CPPv3NK15max_concurrencyEv"></span><span id="_CPPv2NK15max_concurrencyEv"></span><span id="max_concurrencyC"></span>int <code class="sig-name descname">max_concurrency</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK15max_concurrencyEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns the concurrency level of the <code class="docutils literal notranslate"><span class="pre">task_arena</span></code>.
 Does not require the <code class="docutils literal notranslate"><span class="pre">task_arena</span></code> to be initialized and does not perform initialization.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I_1FE7enqueuevRR1F">
 <span id="_CPPv3I_1FE7enqueueRR1F"></span><span id="_CPPv2I_1FE7enqueueRR1F"></span>template&lt;F&gt;<br />void <code class="sig-name descname">enqueue</code><span class="sig-paren">(</span>F &amp;&amp;<em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I_1FE7enqueuevRR1F" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Enqueues a task into the <code class="docutils literal notranslate"><span class="pre">task_arena</span></code> to process the specified functor and immediately returns.
@@ -380,7 +380,7 @@ respect to any other tasks there.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt>
 <code class="sig-name descname">template&lt;F&gt; auto execute(F&amp;&amp; f) -&gt; decltype(f())</code></dt>
 <dd><p>Executes the specified functor in the <code class="docutils literal notranslate"><span class="pre">task_arena</span></code> and returns the value returned by the functor.

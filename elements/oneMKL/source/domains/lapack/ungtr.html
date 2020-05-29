@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.3.52. ungtr &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>2.1.3.2.25. onemkl::lapack::ungtr &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.3.53. ungtr_get_lwork" href="ungtr_get_lwork.html" />
-    <link rel="prev" title="2.1.3.51. ungqr_get_lwork" href="ungqr_get_lwork.html" /> 
+    <link rel="next" title="2.1.3.2.26. onemkl::lapack::ungtr_scratchpad_size" href="ungtr_scratchpad_size.html" />
+    <link rel="prev" title="2.1.3.2.24. onemkl::lapack::ungbr_scratchpad_size" href="ungbr_scratchpad_size.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -183,20 +183,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="ungtr">
-<h1><span class="section-number">2.1.3.52. </span>ungtr<a class="headerlink" href="#ungtr" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="onemkl-lapack-ungtr">
+<span id="id1"></span><h1><span class="section-number">2.1.3.2.25. </span>onemkl::lapack::ungtr<a class="headerlink" href="#onemkl-lapack-ungtr" title="Permalink to this headline">¶</a></h1>
 <div class="docutils container">
 <p>Generates the complex unitary matrix Q determined by
-<a class="reference external" href="hetrd.html">hetrd</a>. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code>namespace.</p>
-<div class="section docutils container" id="guid-f63e0af3-10d3-4519-8e52-7d9d036af7f8">
-<p class="sectiontitle rubric">Syntax</p>
-<dl class="function">
-<dt id="_CPPv45ungtrR5queue4uploNSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEER6bufferI1TXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEE">
-<span id="_CPPv35ungtrR5queue4uploNSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEER6bufferI1TXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEE"></span><span id="_CPPv25ungtrR5queue4uploNSt7int64_tER6bufferI1TX1EENSt7int64_tER6bufferI1TX1EER6bufferI1TX1EENSt7int64_tER6bufferINSt7int64_tEX1EE"></span><span id="ungtr__queueR.uplo.std::int64_t.buffer:T.1:R.std::int64_t.buffer:T.1:R.buffer:T.1:R.std::int64_t.buffer:std::int64_t.1:R"></span>void <code class="sig-name descname">ungtr</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, uplo <em>upper_lower</em>, std::int64_t <em>n</em>, buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, buffer&lt;T, 1&gt; &amp;<em>tau</em>, buffer&lt;T, 1&gt; &amp;<em>work</em>, std::int64_t <em>lwork</em>, buffer&lt;std::int64_t, 1&gt; &amp;<em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45ungtrR5queue4uploNSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferI1TXL1EEER6bufferI1TXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p><code class="docutils literal notranslate"><span class="pre">ungtr</span></code> supports the following precisions.</p>
+<a class="reference internal" href="hetrd.html#onemkl-lapack-hetrd"><span class="std std-ref">onemkl::lapack::hetrd</span></a>.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">ungtr</span></code> supports the following precisions.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 100%" />
@@ -212,68 +205,140 @@ routine belongs to the <code class="docutils literal notranslate"><span class="p
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </div>
-</div>
-<div class="section docutils container" id="guid-55a1ae6c-aea9-43cf-8db7-805409488d85">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
 <p>The routine explicitly generates the <code class="docutils literal notranslate"><span class="pre">n</span></code>-by-<code class="docutils literal notranslate"><span class="pre">n</span></code> unitary matrix
 <code class="docutils literal notranslate"><span class="pre">Q</span></code> formed by
-<a class="reference external" href="hetrd.html">?hetrd</a> when
+<a class="reference internal" href="hetrd.html#onemkl-lapack-hetrd"><span class="std std-ref">onemkl::lapack::hetrd</span></a> when
 reducing a complex Hermitian matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> to tridiagonal form:
 <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">Q*T*QH</span></code>. Use this routine after a call to
-<a class="reference external" href="hetrd.html">?hetrd</a>.</p>
+<a class="reference internal" href="hetrd.html#onemkl-lapack-hetrd"><span class="std std-ref">onemkl::lapack::hetrd</span></a>.</p>
 </div>
-<div class="section docutils container" id="guid-26a5866d-0df8-4835-8776-e5e73f0c657a">
+<div class="section" id="onemkl-lapack-ungtr-buffer-version">
+<h2><span class="section-number">2.1.3.2.25.1. </span>onemkl::lapack::ungtr (BUFFER Version)<a class="headerlink" href="#onemkl-lapack-ungtr-buffer-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<dl class="cpp function">
+<dt id="_CPPv4N6onemkl6lapack5ungtrERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tE">
+<span id="_CPPv3N6onemkl6lapack5ungtrERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tE"></span><span id="_CPPv2N6onemkl6lapack5ungtrERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tERN2cl4sycl6bufferI1TX1EEENSt7int64_tERN2cl4sycl6bufferI1TX1EEERN2cl4sycl6bufferI1TX1EEENSt7int64_tE"></span><span id="onemkl::lapack::ungtr__cl::sycl::queueR.onemkl::uplo.std::int64_t.cl::sycl::buffer:T.1:R.std::int64_t.cl::sycl::buffer:T.1:R.cl::sycl::buffer:T.1:R.std::int64_t"></span>void <code class="sig-prename descclassname">onemkl::lapack<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">ungtr</code><span class="sig-paren">(</span>cl::sycl::queue &amp;<em>queue</em>, onemkl::uplo <em>upper_lower</em>, std::int64_t <em>n</em>, cl::sycl::buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, cl::sycl::buffer&lt;T, 1&gt; &amp;<em>tau</em>, cl::sycl::buffer&lt;T, 1&gt; &amp;<em>scratchpad</em>, std::int64_t <em>scratchpad_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl6lapack5ungtrERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters</p>
 <dl class="simple">
-<dt>exec_queue</dt><dd><p>The queue where the routine should be executed.</p>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
 </dd>
 <dt>upper_lower</dt><dd><p>Must be <code class="docutils literal notranslate"><span class="pre">uplo::upper</span></code> or <code class="docutils literal notranslate"><span class="pre">uplo::lower</span></code>. Uses the same
 <code class="docutils literal notranslate"><span class="pre">upper_lower</span></code> as supplied to
-<a class="reference external" href="hetrd.html">hetrd</a></p>
+<a class="reference internal" href="hetrd.html#onemkl-lapack-hetrd"><span class="std std-ref">onemkl::lapack::hetrd</span></a>.</p>
 </dd>
 <dt>n</dt><dd><p>The order of the matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code><code class="docutils literal notranslate"><span class="pre">(0≤n)</span></code>.</p>
 </dd>
-<dt>a</dt><dd><p>The buffer a returned by
-<a class="reference external" href="hetrd.html">hetrd</a>. The
+<dt>a</dt><dd><p>The buffer <code class="docutils literal notranslate"><span class="pre">a</span></code> as returned by
+<a class="reference internal" href="hetrd.html#onemkl-lapack-hetrd"><span class="std std-ref">onemkl::lapack::hetrd</span></a>. The
 second dimension of a must be at least <code class="docutils literal notranslate"><span class="pre">max(1,</span> <span class="pre">n)</span></code>.</p>
 </dd>
 <dt>lda</dt><dd><p>The leading dimension of a<code class="docutils literal notranslate"><span class="pre">(n≤lda)</span></code>.</p>
 </dd>
-<dt>tau</dt><dd><p>The buffer tau returned by
-<a class="reference external" href="hetrd.html">hetrd</a>. The
+<dt>tau</dt><dd><p>The buffer <code class="docutils literal notranslate"><span class="pre">tau</span></code> as returned by
+<a class="reference internal" href="hetrd.html#onemkl-lapack-hetrd"><span class="std std-ref">onemkl::lapack::hetrd</span></a>. The
 dimension of tau must be at least <code class="docutils literal notranslate"><span class="pre">max(1,</span> <span class="pre">n-1)</span></code>.</p>
 </dd>
-<dt>lwork</dt><dd><p>The size of the work array (<code class="docutils literal notranslate"><span class="pre">lwork≥n</span></code>). Should be computed by
-<a class="reference external" href="ungtr_get_lwork.html">ungtr_get_lwork</a>.</p>
+<dt>scratchpad_size</dt><dd><p>Size of scratchpad memory as a number of floating point elements of type T.
+Size should not be less than the value returned by <a class="reference internal" href="ungtr_scratchpad_size.html#onemkl-lapack-ungtr-scratchpad-size"><span class="std std-ref">onemkl::lapack::ungtr_scratchpad_size</span></a> function.</p>
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-f0c3d97d-e883-4070-a1c2-4fe43cc37d12">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters</p>
-<dl>
+<dl class="simple">
 <dt>a</dt><dd><p>Overwritten by the unitary matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code>.</p>
 </dd>
-<dt>work</dt><dd><p>Workspace for internal computations.</p>
+<dt>scratchpad</dt><dd><p>Buffer holding scratchpad memory to be used by routine for storing intermediate results.</p>
 </dd>
-<dt>info</dt><dd><p>Buffer containing error information.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">info=0</span></code>, the execution is successful.</p>
+</dl>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Throws</p>
+<dl>
+<dt>onemkl::lapack::exception</dt><dd><p>Exception is thrown in case of problems happened during calculations. The <code class="docutils literal notranslate"><span class="pre">info</span></code> code of the problem can be obtained by <cite>get_info()</cite> method of exception object:</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">info=-i</span></code>, the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th parameter had an illegal value.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info</span></code> equals to value passed as scratchpad size, and <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> returns non zero, then passed scratchpad is of insufficient size, and required size should not be less than value return by <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> method of exception object.</p>
 </dd>
 </dl>
 </div>
-<div class="section docutils container" id="guid-c97bf68f-b566-4164-95e0-a7adc290dde2">
-<p class="sectiontitle rubric">Example</p>
-<p>An example of how to use <code class="docutils literal notranslate"><span class="pre">ungtr</span></code>can be found in the oneMKL
-installation directory, under:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">examples</span><span class="o">/</span><span class="n">sycl</span><span class="o">/</span><span class="n">lapack</span><span class="o">/</span><span class="n">orgtr</span><span class="o">.</span><span class="n">cpp</span>
-</pre></div>
+</div>
+</div>
+<div class="section" id="onemkl-lapack-ungtr-usm-version">
+<h2><span class="section-number">2.1.3.2.25.2. </span>onemkl::lapack::ungtr (USM Version)<a class="headerlink" href="#onemkl-lapack-ungtr-usm-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<dl class="cpp function">
+<dt id="_CPPv4N6onemkl6lapack5ungtrERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tEP1TNSt7int64_tEP1TP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE">
+<span id="_CPPv3N6onemkl6lapack5ungtrERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tEP1TNSt7int64_tEP1TP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE"></span><span id="_CPPv2N6onemkl6lapack5ungtrERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tEP1TNSt7int64_tEP1TP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE"></span><span id="onemkl::lapack::ungtr__cl::sycl::queueR.onemkl::uplo.std::int64_t.TP.std::int64_t.TP.TP.std::int64_t.cl::sycl::vector_class:cl::sycl::event:CR"></span>cl::sycl::event <code class="sig-prename descclassname">onemkl::lapack<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">ungtr</code><span class="sig-paren">(</span>cl::sycl::queue &amp;<em>queue</em>, onemkl::uplo <em>upper_lower</em>, std::int64_t <em>n</em>, T *<em>a</em>, std::int64_t <em>lda</em>, T *<em>tau</em>, T *<em>scratchpad</em>, std::int64_t <em>scratchpad_size</em>, <em class="property">const</em> cl::sycl::vector_class&lt;cl::sycl::event&gt; &amp;<em>events</em> = {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl6lapack5ungtrERN2cl4sycl5queueEN6onemkl4uploENSt7int64_tEP1TNSt7int64_tEP1TP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Input Parameters</p>
+<dl class="simple">
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
+</dd>
+<dt>upper_lower</dt><dd><p>Must be <code class="docutils literal notranslate"><span class="pre">uplo::upper</span></code> or <code class="docutils literal notranslate"><span class="pre">uplo::lower</span></code>. Uses the same
+<code class="docutils literal notranslate"><span class="pre">upper_lower</span></code> as supplied to
+<a class="reference internal" href="hetrd.html#onemkl-lapack-hetrd"><span class="std std-ref">onemkl::lapack::hetrd</span></a>.</p>
+</dd>
+<dt>n</dt><dd><p>The order of the matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code><code class="docutils literal notranslate"><span class="pre">(0≤n)</span></code>.</p>
+</dd>
+<dt>a</dt><dd><p>The pointer to <code class="docutils literal notranslate"><span class="pre">a</span></code> as returned by
+<a class="reference internal" href="hetrd.html#onemkl-lapack-hetrd"><span class="std std-ref">onemkl::lapack::hetrd</span></a>. The
+second dimension of a must be at least <code class="docutils literal notranslate"><span class="pre">max(1,</span> <span class="pre">n)</span></code>.</p>
+</dd>
+<dt>lda</dt><dd><p>The leading dimension of a<code class="docutils literal notranslate"><span class="pre">(n≤lda)</span></code>.</p>
+</dd>
+<dt>tau</dt><dd><p>The pointer to <code class="docutils literal notranslate"><span class="pre">tau</span></code> as returned by
+<a class="reference internal" href="hetrd.html#onemkl-lapack-hetrd"><span class="std std-ref">onemkl::lapack::hetrd</span></a>. The
+dimension of tau must be at least <code class="docutils literal notranslate"><span class="pre">max(1,</span> <span class="pre">n-1)</span></code>.</p>
+</dd>
+<dt>scratchpad_size</dt><dd><p>Size of scratchpad memory as a number of floating point elements of type T.
+Size should not be less than the value returned by <a class="reference internal" href="ungtr_scratchpad_size.html#onemkl-lapack-ungtr-scratchpad-size"><span class="std std-ref">onemkl::lapack::ungtr_scratchpad_size</span></a> function.</p>
+</dd>
+<dt>events</dt><dd><p>List of events to wait for before starting computation. Defaults to empty list.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Output Parameters</p>
+<dl class="simple">
+<dt>a</dt><dd><p>Overwritten by the unitary matrix <code class="docutils literal notranslate"><span class="pre">Q</span></code>.</p>
+</dd>
+<dt>scratchpad</dt><dd><p>Pointer to scratchpad memory to be used by routine for storing intermediate results.</p>
+</dd>
+</dl>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Throws</p>
+<dl>
+<dt>onemkl::lapack::exception</dt><dd><p>Exception is thrown in case of problems happened during calculations. The <code class="docutils literal notranslate"><span class="pre">info</span></code> code of the problem can be obtained by <cite>get_info()</cite> method of exception object:</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info=-i</span></code>, the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th parameter had an illegal value.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info</span></code> equals to value passed as scratchpad size, and <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> returns non zero, then passed scratchpad is of insufficient size, and required size should not be less than value return by <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> method of exception object.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Return Values</p>
+<p>Output event to wait on to ensure computation is complete.</p>
 </div>
 </div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">
-<p><strong>Parent topic:</strong> <a class="reference external" href="lapack.html">LAPACK
-Routines</a></p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="lapack.html#onemkl-lapack-singular-value-eigenvalue-routines"><span class="std std-ref">LAPACK Singular Value and Eigenvalue Problem Routines</span></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -286,10 +351,10 @@ Routines</a></p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ungtr_get_lwork.html" class="btn btn-neutral float-right" title="2.1.3.53. ungtr_get_lwork" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ungtr_scratchpad_size.html" class="btn btn-neutral float-right" title="2.1.3.2.26. onemkl::lapack::ungtr_scratchpad_size" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ungqr_get_lwork.html" class="btn btn-neutral float-left" title="2.1.3.51. ungqr_get_lwork" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ungbr_scratchpad_size.html" class="btn btn-neutral float-left" title="2.1.3.2.24. onemkl::lapack::ungbr_scratchpad_size" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

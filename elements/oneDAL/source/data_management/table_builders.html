@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Table builders &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>Table Builders &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -112,9 +112,9 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Data management</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="index.html#key-concepts">Key concepts</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html#details">Details</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="data_sources.html">Data sources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tables.html">Tables</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Table builders</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Table Builders</a></li>
 <li class="toctree-l4"><a class="reference internal" href="accessors.html">Accessors</a></li>
 </ul>
 </li>
@@ -203,25 +203,24 @@
            <div itemprop="articleBody">
             
   <div class="section" id="table-builders">
-<span id="id1"></span><h1>Table builders<a class="headerlink" href="#table-builders" title="Permalink to this headline">¶</a></h1>
-<p>This section contains definision of classes that implement <a class="reference internal" href="index.html#table-builder"><span class="std std-ref">Table builder</span></a>
+<span id="id1"></span><h1>Table Builders<a class="headerlink" href="#table-builders" title="Permalink to this headline">¶</a></h1>
+<p>This section contains definitions of classes that implement <a class="reference internal" href="index.html#table-builder"><span class="std std-ref">Table builder</span></a>
 concept.</p>
-<div class="section" id="requirements-on-table-builder-types">
-<h2>Requirements on table builder types<a class="headerlink" href="#requirements-on-table-builder-types" title="Permalink to this headline">¶</a></h2>
-<p>Each implementation of <a class="reference internal" href="index.html#table-builder"><span class="std std-ref">Table builder</span></a> concept in oneDAL shall
-follow next requirements:</p>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>Each implementation of <a class="reference internal" href="index.html#table-builder"><span class="std std-ref">Table builder</span></a> concept shall:</p>
 <ol class="arabic simple">
-<li><p>Provide an ability to create single <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a> concept implementation.
-Every builder shall be asocciated with a single table type.</p></li>
-<li><p>Shall be stateful object, which state can be used to access data inside
+<li><p>Provide the ability to create a single <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a> concept implementation.
+Each builder shall be associated with a single table type.</p></li>
+<li><p>Be a stateful object which state is used to access data inside
 builder via <a class="reference internal" href="accessors.html#accessors"><span class="std std-ref">accessors</span></a> or to create a table object.</p></li>
-<li><p>Shall implement <code class="code docutils literal notranslate"><span class="pre">build()</span></code> member function, that creates a new table
+<li><p>Provide <code class="code docutils literal notranslate"><span class="pre">build()</span></code> member function that creates a new table
 object based on the current snapshot of a builder state.</p></li>
 </ol>
 </div>
-<div class="section" id="table-builder-types-in-dal-short-name">
-<h2>Table builder types in oneDAL<a class="headerlink" href="#table-builder-types-in-dal-short-name" title="Permalink to this headline">¶</a></h2>
-<p>oneDAL defines a set of accessor classes each associated with single
+<div class="section" id="table-builder-types">
+<h2>Table Builder Types<a class="headerlink" href="#table-builder-types" title="Permalink to this headline">¶</a></h2>
+<p>oneDAL defines a set of accessor classes each associated with a single
 <a class="reference internal" href="index.html#table"><span class="std std-ref">Table</span></a> implementation.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -235,20 +234,22 @@ object based on the current snapshot of a builder state.</p></li>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="#simple-homogen-table-builder">simple_homogen_table_builder</a></p></td>
-<td><p>Allows to create <a class="reference internal" href="tables.html#homogen-table"><span class="std std-ref">Homogeneous table</span></a> from standart containers.</p></td>
+<td><p>Allows to create <a class="reference internal" href="tables.html#homogen-table"><span class="std std-ref">Homogeneous table</span></a> from raw pointers and standard C++
+smart pointers.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#simple-soa-table-builder">simple_soa_table_builder</a></p></td>
-<td><p>Allows to create <a class="reference internal" href="tables.html#soa-table"><span class="std std-ref">Structure-of-arrays table</span></a> from standart containers.</p></td>
+<td><p>Allows to create <a class="reference internal" href="tables.html#soa-table"><span class="std std-ref">Structure-of-arrays table</span></a> from raw pointers and standard C++
+smart pointers.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="simple-homogenenous-table-builder">
-<span id="simple-homogen-table-builder"></span><h2>Simple homogenenous table builder<a class="headerlink" href="#simple-homogenenous-table-builder" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="simple-homogeneous-table-builder">
+<span id="simple-homogen-table-builder"></span><h2>Simple Homogeneous Table Builder<a class="headerlink" href="#simple-homogeneous-table-builder" title="Permalink to this headline">¶</a></h2>
 <p>TBD</p>
 </div>
 <div class="section" id="simple-soa-table-builder">
-<span id="id2"></span><h2>Simple soa table builder<a class="headerlink" href="#simple-soa-table-builder" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>Simple SOA Table Builder<a class="headerlink" href="#simple-soa-table-builder" title="Permalink to this headline">¶</a></h2>
 <p>TBD</p>
 </div>
 </div>

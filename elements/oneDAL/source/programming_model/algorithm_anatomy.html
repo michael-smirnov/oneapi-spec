@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Algorithm anatomy &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>Algorithm Anatomy &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -110,8 +110,8 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Programming model</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="basic_usage_scenario.html">Basic usage scenario</a></li>
 <li class="toctree-l3"><a class="reference internal" href="memory_objects.html">Memory objects</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Algorithm anatomy</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#descriptor">Descriptor</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Algorithm Anatomy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#descriptors">Descriptors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#operations">Operations</a></li>
 </ul>
 </li>
@@ -204,17 +204,145 @@
            <div itemprop="articleBody">
             
   <div class="section" id="algorithm-anatomy">
-<h1>Algorithm anatomy<a class="headerlink" href="#algorithm-anatomy" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="descriptor">
-<span id="id1"></span><h2>Descriptor<a class="headerlink" href="#descriptor" title="Permalink to this headline">¶</a></h2>
+<h1>Algorithm Anatomy<a class="headerlink" href="#algorithm-anatomy" title="Permalink to this headline">¶</a></h1>
+<p>oneDAL primarily targets algorithms that are extensively used in data analytics.
+These algorithms typically have many parameters, i.e. knobs to control its
+internal behavior and produced result. In machine learning, those parameters are
+often referred as <em>meta-parameters</em> to distinguish them from the model
+parameters learnt during the training. <a class="reference external" href="https://xgboost.readthedocs.io/en/latest/parameter.html">Some algorithms</a>
+define a dozen meta-parameters, while others depend on another algorithm as, for
+example, the logistic regression training procedure depends on optimization
+algorithm.</p>
+<p>Besides meta-parameters, machine learning algorithms may have different <em>stages</em>,
+such as <a class="reference internal" href="../glossary.html#term-Training"><span class="xref std std-term">training</span></a> and <a class="reference internal" href="../glossary.html#term-Inference"><span class="xref std std-term">inference</span></a>. Moreover,
+the stages of an algorithm may be implemented in a variety of <em>computational
+methods</em>. For instance, a linear regression model could be trained
+by solving a system of linear equations <a class="reference internal" href="../bibliography.html#friedman17" id="id1"><span>[Friedman17]</span></a> or by applying
+an iterative optimization solver directly to the empirical risk function <a class="reference internal" href="../bibliography.html#zhang04" id="id2"><span>[Zhang04]</span></a>.</p>
+<p>From computational perspective, algorithm implementation may rely on different
+<em>floating-point types</em>, such as <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code> or <code class="docutils literal notranslate"><span class="pre">bfloat16</span></code>. Having a
+capability to specify what type is needed is important for the end user as their
+precision requirements vary depending on a workload.</p>
+<p>To best tackle the mentioned challenges, each algorithm is decomposed into
+<a class="reference internal" href="#descriptors">descriptors</a> and <a class="reference internal" href="#operations">operations</a>.</p>
+<div class="section" id="descriptors">
+<span id="id3"></span><h2>Descriptors<a class="headerlink" href="#descriptors" title="Permalink to this headline">¶</a></h2>
+<p><strong>A descriptor</strong> is an object that represents an algorithm including all its
+meta-parameters, dependencies on other algorithms, floating-point types, and
+computational methods. A descriptor serves as:</p>
+<ul class="simple">
+<li><p>A dispatching mechanism for <a class="reference internal" href="#operations">operations</a>. Based on a descriptor
+type, an operation executes a particular algorithm implementation.</p></li>
+<li><p>An aggregator of meta-parameters. It provides an interface for setting up
+meta-parameters at either compile-time or run-time.</p></li>
+<li><p>An object that stores the state of the algorithm. In the general case, a descriptor is
+a stateful object whose state changes after an operation is applied.</p></li>
+</ul>
+<p>Each oneDAL algorithm has its own dedicated namespace, where the corresponding
+descriptor is defined (for more details, see <a class="reference internal" href="../common_interface/header_files_and_namespaces.html#common-namespaces"><span class="std std-ref">Namespaces</span></a>).
+Descriptor, in its turn, defines the following:</p>
+<ul>
+<li><p><strong>Template parameters.</strong> A descriptor is allowed to have any number of template
+parameters, but shall support at least two:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Float</span></code> is a <a class="reference internal" href="#floating-point">floating-point type</a> that the algorithm
+uses for computations. This parameter is defined first and has the
+<code class="docutils literal notranslate"><span class="pre">onedal::default_float_t</span></code> default value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Method</span></code> is a tag-type that specifies the <a class="reference internal" href="#methods">computational method</a>. This parameter is defined second and has the
+<code class="docutils literal notranslate"><span class="pre">method::by_default</span></code> default value.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Properties.</strong> A property is a run-time parameter that can be accessed by
+means of the corresponding <a class="reference internal" href="../glossary.html#term-Getter"><span class="xref std std-term">getter</span></a> and <a class="reference internal" href="../glossary.html#term-Setter"><span class="xref std std-term">setter</span></a>
+methods.</p></li>
+</ul>
+<p><a class="reference internal" href="#descriptor-template">The following code sample</a> shows the common structure
+of a descriptor’s definition for an abstract algorithm. To define a particular
+algorithm, the following strings shall be substituted:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">%ALGORITHM%</span></code> is the name of an algorithm and its namespace. All classes and
+structures related to that algorithm are defined within the namespace.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%PROPERTY_NAME%</span></code> and <code class="docutils literal notranslate"><span class="pre">%PROPERTY_TYPE%</span></code> are the name and the type of one
+of the algorithm’s properties.</p></li>
+</ul>
+<div class="highlight-cpp notranslate" id="descriptor-template"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">onedal</span><span class="o">::%</span><span class="n">ALGORITHM</span><span class="o">%</span> <span class="p">{</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Float</span>  <span class="o">=</span> <span class="n">default_float_t</span><span class="p">,</span>
+          <span class="k">typename</span> <span class="n">Method</span> <span class="o">=</span> <span class="n">method</span><span class="o">::</span><span class="n">by_default</span><span class="p">,</span>
+          <span class="cm">/* more template parameters */</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">descriptor</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+   <span class="cm">/* Getter &amp; Setter for the property called `%PROPERTY_NAME%` */</span>
+   <span class="n">descriptor</span><span class="o">&amp;</span> <span class="n">set_</span><span class="o">%</span><span class="n">PROPERTY_NAME</span><span class="o">%</span><span class="p">(</span><span class="o">%</span><span class="n">PROPERTY_TYPE</span><span class="o">%</span> <span class="n">value</span><span class="p">);</span>
+   <span class="o">%</span><span class="n">PROPERTY_TYPE</span><span class="o">%</span> <span class="n">get_</span><span class="o">%</span><span class="n">PROPERTY_NAME</span><span class="o">%</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+   <span class="cm">/* more properties */</span>
+<span class="p">};</span>
+
+<span class="p">}</span> <span class="c1">// namespace onedal::%ALGORITHM%</span>
+</pre></div>
+</div>
+<p>Each meta-parameter of an algorithm is mapped to a property that shall satisfy
+the following requirements:</p>
+<ul>
+<li><p>Properties are defined with getter and setter methods. The underlying
+class member variable that stores the property’s value is never exposed in the
+descriptor interface.</p></li>
+<li><p>The getter returns the value of the underlying class member variable.</p></li>
+<li><p>The setter accepts only one parameter of the property’s type and assigns it
+to the underlying class member variable.</p></li>
+<li><p>Most of the properties are preset with default values, others
+are initialized by passing the required parameters to the constructor.</p></li>
+<li><p>The setter returns a reference to the descriptor object to allow chaining
+calls as shown in the example below.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span> <span class="n">desc</span> <span class="o">=</span> <span class="n">descriptor</span><span class="p">{}</span>
+   <span class="p">.</span><span class="n">set_property_name_1</span><span class="p">(</span><span class="n">value_1</span><span class="p">)</span>
+   <span class="p">.</span><span class="n">set_property_name_2</span><span class="p">(</span><span class="n">value_2</span><span class="p">)</span>
+   <span class="p">.</span><span class="n">set_property_name_3</span><span class="p">(</span><span class="n">value_3</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="section" id="floating-point-types">
+<span id="floating-point"></span><h3>Floating-point Types<a class="headerlink" href="#floating-point-types" title="Permalink to this headline">¶</a></h3>
+<p>It is required for each algorithm to support at least one implementation-defined
+floating-point type. Other floating-point types are optional, for example <code class="docutils literal notranslate"><span class="pre">float</span></code>,
+<code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">float16</span></code>, and <code class="docutils literal notranslate"><span class="pre">bfloat16</span></code>. It is up to a specific oneDAL
+implementation whether or not to support these types.</p>
+<p>The floating-point type used as a default in descriptors is
+implementation-defined and shall be declared within the top-level namespace.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">onedal</span> <span class="p">{</span>
+   <span class="k">using</span> <span class="n">default_float_t</span> <span class="o">=</span> <span class="cm">/* implementation defined */</span><span class="p">;</span>
+<span class="p">}</span> <span class="c1">// namespace onedal</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="computational-methods">
+<span id="methods"></span><h3>Computational Methods<a class="headerlink" href="#computational-methods" title="Permalink to this headline">¶</a></h3>
+<p>The supported computational methods are declared within the
+<code class="docutils literal notranslate"><span class="pre">%ALGORITHM%::method</span></code> namespace using tag-types. Algorithm shall support at
+least one computational method and declare the <code class="docutils literal notranslate"><span class="pre">by_default</span></code> type alias that
+refers to one of the computational methods as shown in the example below.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">onedal</span><span class="o">::%</span><span class="n">ALGORITHM</span><span class="o">%</span> <span class="p">{</span>
+   <span class="k">namespace</span> <span class="n">method</span> <span class="p">{</span>
+      <span class="k">struct</span> <span class="n">x</span> <span class="p">{};</span>
+      <span class="k">struct</span> <span class="n">y</span> <span class="p">{};</span>
+      <span class="k">using</span> <span class="n">by_default</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+   <span class="p">}</span> <span class="c1">// namespace method</span>
+<span class="p">}</span> <span class="c1">// namespace onedal::%ALGORITHM%</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="operations">
-<h2>Operations<a class="headerlink" href="#operations" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Operations<a class="headerlink" href="#operations" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="input">
-<span id="id2"></span><h3>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="result">
-<span id="id3"></span><h3>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h3>
+<span id="id6"></span><h3>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>

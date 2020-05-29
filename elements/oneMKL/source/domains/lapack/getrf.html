@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.3.8. getrf &mdash; oneAPI Specification 0.7 documentation</title>
+  <title>2.1.3.1.3. onemkl::lapack::getrf &mdash; oneAPI Specification 0.7 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
   <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="2.1.3.9. getrf_batch" href="getrf_batch.html" />
-    <link rel="prev" title="2.1.3.7. gesvd_get_lwork" href="gesvd_get_lwork.html" /> 
+    <link rel="next" title="2.1.3.1.4. onemkl::lapack::getrf_scratchpad_size" href="getrf_scratchpad_size.html" />
+    <link rel="prev" title="2.1.3.1.2. onemkl::lapack::geqrf_scratchpad_size" href="geqrf_scratchpad_size.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -183,19 +183,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="getrf">
-<h1><span class="section-number">2.1.3.8. </span>getrf<a class="headerlink" href="#getrf" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="onemkl-lapack-getrf">
+<span id="id1"></span><h1><span class="section-number">2.1.3.1.3. </span>onemkl::lapack::getrf<a class="headerlink" href="#onemkl-lapack-getrf" title="Permalink to this headline">¶</a></h1>
 <div class="docutils container">
-<p>Computes the LU factorization of a general m-by-n matrix. This
-routine belongs to the <code class="docutils literal notranslate"><span class="pre">onemkl::lapack</span></code>namespace.</p>
-<div class="section docutils container" id="guid-0acc96da-0add-4950-9ac4-cb3294affc48">
-<p class="sectiontitle rubric">Syntax</p>
-<dl class="function">
-<dt id="_CPPv45getrfR5queueNSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEER6bufferINSt7int64_tEXL1EEE">
-<span id="_CPPv35getrfR5queueNSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEER6bufferINSt7int64_tEXL1EEE"></span><span id="_CPPv25getrfR5queueNSt7int64_tENSt7int64_tER6bufferI1TX1EENSt7int64_tER6bufferINSt7int64_tEX1EER6bufferINSt7int64_tEX1EE"></span><span id="getrf__queueR.std::int64_t.std::int64_t.buffer:T.1:R.std::int64_t.buffer:std::int64_t.1:R.buffer:std::int64_t.1:R"></span>void <code class="sig-name descname">getrf</code><span class="sig-paren">(</span>queue &amp;<em>exec_queue</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, buffer&lt;std::int64_t, 1&gt; &amp;<em>ipiv</em>, buffer&lt;std::int64_t, 1&gt; &amp;<em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45getrfR5queueNSt7int64_tENSt7int64_tER6bufferI1TXL1EEENSt7int64_tER6bufferINSt7int64_tEXL1EEER6bufferINSt7int64_tEXL1EEE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p><code class="docutils literal notranslate"><span class="pre">getrf</span></code> supports the following precisions.</p>
+<p>Computes the LU factorization of a general m-by-n matrix.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">getrf</span></code> supports the following precisions.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 100%" />
@@ -215,9 +208,9 @@ routine belongs to the <code class="docutils literal notranslate"><span class="p
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </div>
-</div>
-<div class="section docutils container" id="guid-fa3350dd-9097-43b5-995b-6c2da4aa1749">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
 <p>The routine computes the <code class="docutils literal notranslate"><span class="pre">LU</span></code> factorization of a general
 <code class="docutils literal notranslate"><span class="pre">m</span></code>-by-<code class="docutils literal notranslate"><span class="pre">n</span></code> matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> as</p>
@@ -229,73 +222,119 @@ unit diagonal elements (lower trapezoidal if <code class="docutils literal notra
 upper triangular (upper trapezoidal if <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">&lt;</span> <span class="pre">n</span></code>). The routine uses
 partial pivoting, with row interchanges.</p>
 </div>
-<div class="section docutils container" id="guid-f1a7ccff-5ad0-4c26-a396-f86a1713dba8">
+<div class="section" id="onemkl-lapack-getrf-buffer-version">
+<h2><span class="section-number">2.1.3.1.3.1. </span>onemkl::lapack::getrf (BUFFER Version)<a class="headerlink" href="#onemkl-lapack-getrf-buffer-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<dl class="cpp function">
+<dt id="_CPPv4N6onemkl6lapack5getrfERN2cl4sycl5queueENSt7int64_tENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tERN2cl4sycl6bufferINSt7int64_tEXL1EEEERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tE">
+<span id="_CPPv3N6onemkl6lapack5getrfERN2cl4sycl5queueENSt7int64_tENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tERN2cl4sycl6bufferINSt7int64_tEXL1EEEERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tE"></span><span id="_CPPv2N6onemkl6lapack5getrfERN2cl4sycl5queueENSt7int64_tENSt7int64_tERN2cl4sycl6bufferI1TX1EEENSt7int64_tERN2cl4sycl6bufferINSt7int64_tEX1EEERN2cl4sycl6bufferI1TX1EEENSt7int64_tE"></span><span id="onemkl::lapack::getrf__cl::sycl::queueR.std::int64_t.std::int64_t.cl::sycl::buffer:T.1:R.std::int64_t.cl::sycl::buffer:std::int64_t.1:R.cl::sycl::buffer:T.1:R.std::int64_t"></span>void <code class="sig-prename descclassname">onemkl::lapack<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">getrf</code><span class="sig-paren">(</span>cl::sycl::queue &amp;<em>queue</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, cl::sycl::buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, cl::sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>ipiv</em>, cl::sycl::buffer&lt;T, 1&gt; &amp;<em>scratchpad</em>, std::int64_t <em>scratchpad_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl6lapack5getrfERN2cl4sycl5queueENSt7int64_tENSt7int64_tERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tERN2cl4sycl6bufferINSt7int64_tEXL1EEEERN2cl4sycl6bufferI1TXL1EEEENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
 <p class="sectiontitle rubric">Input Parameters</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>exec_queue</p></th>
-<th class="head"><p>The queue where the routine should be executed.</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>m</p></td>
-<td><p>The number of rows in the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> (<code class="docutils literal notranslate"><span class="pre">0≤m</span></code>).</p></td>
-</tr>
-<tr class="row-odd"><td><p>n</p></td>
-<td><p>The number of columns in <code class="docutils literal notranslate"><span class="pre">A</span></code>(<code class="docutils literal notranslate"><span class="pre">0≤n</span></code>).</p></td>
-</tr>
-<tr class="row-even"><td><p>a</p></td>
-<td><p>Buffer holding input matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>. The buffer a contains    the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>. The second dimension of a must be at least   <code class="docutils literal notranslate"><span class="pre">max(1,</span> <span class="pre">n)</span></code>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>lda</p></td>
-<td><p>The leading dimension of a.</p></td>
-</tr>
-</tbody>
-</table>
+<dl class="simple">
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
+</dd>
+<dt>m</dt><dd><p>The number of rows in the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> (<code class="docutils literal notranslate"><span class="pre">0≤m</span></code>).</p>
+</dd>
+<dt>n</dt><dd><p>The number of columns in <code class="docutils literal notranslate"><span class="pre">A</span></code>(<code class="docutils literal notranslate"><span class="pre">0≤n</span></code>).</p>
+</dd>
+<dt>a</dt><dd><p>Buffer holding input matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>. The buffer a contains    the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>. The second dimension of a must be at least   <code class="docutils literal notranslate"><span class="pre">max(1,</span> <span class="pre">n)</span></code>.</p>
+</dd>
+<dt>lda</dt><dd><p>The leading dimension of a.</p>
+</dd>
+<dt>scratchpad_size</dt><dd><p>Size of scratchpad memory as a number of floating point elements of type T.
+Size should not be less than the value returned by <a class="reference internal" href="getrf_scratchpad_size.html#onemkl-lapack-getrf-scratchpad-size"><span class="std std-ref">onemkl::lapack::getrf_scratchpad_size</span></a> function.</p>
+</dd>
+</dl>
 </div>
-<div class="section docutils container" id="guid-3a62166e-6e38-4fe0-9598-e62232a81937">
+<div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>a</p></th>
-<th class="head"><p>Overwritten by <code class="docutils literal notranslate"><span class="pre">L</span></code> and <code class="docutils literal notranslate"><span class="pre">U</span></code>. The unit diagonal    elements of <code class="docutils literal notranslate"><span class="pre">L</span></code> are not stored.</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>ipiv</p></td>
-<td><p>Array, size at least <code class="docutils literal notranslate"><span class="pre">max(1,min(m,</span> <span class="pre">n))</span></code>. Contains the    pivot indices; for <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">≤i≤min(m,</span> <span class="pre">n)</span></code>,row <code class="docutils literal notranslate"><span class="pre">i</span></code> was interchanged with   row <code class="docutils literal notranslate"><span class="pre">ipiv(i)</span></code>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>info</p></td>
-<td><p>Buffer containing error information.      If    <code class="docutils literal notranslate"><span class="pre">info=0</span></code>, execution is successful.      If <code class="docutils literal notranslate"><span class="pre">info=-i</span></code>,   the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th parameter had an illegal value.      If   <code class="docutils literal notranslate"><span class="pre">info=i</span></code>, <code class="docutils literal notranslate"><span class="pre">uii</span></code> is 0. The factorization has been completed, but   <code class="docutils literal notranslate"><span class="pre">U</span></code> is exactly singular. Division by 0 will occur if you use the   factor <code class="docutils literal notranslate"><span class="pre">U</span></code> for solving a system of linear equations.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section docutils container" id="guid-acc30ba5-5bde-4169-95f6-1390ecd55715">
-<p class="sectiontitle rubric">Example</p>
-<p>An example of how to use <code class="docutils literal notranslate"><span class="pre">getrf</span></code>can be found in the oneMKL
-installation directory, under:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">examples</span><span class="o">/</span><span class="n">sycl</span><span class="o">/</span><span class="n">lapack</span><span class="o">/</span><span class="n">getrf</span><span class="o">.</span><span class="n">cpp</span>
-</pre></div>
+<dl class="simple">
+<dt>a</dt><dd><p>Overwritten by <code class="docutils literal notranslate"><span class="pre">L</span></code> and <code class="docutils literal notranslate"><span class="pre">U</span></code>. The unit diagonal    elements of <code class="docutils literal notranslate"><span class="pre">L</span></code> are not stored.</p>
+</dd>
+<dt>ipiv</dt><dd><p>Array, size at least <code class="docutils literal notranslate"><span class="pre">max(1,min(m,</span> <span class="pre">n))</span></code>. Contains the    pivot indices; for <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">≤i≤min(m,</span> <span class="pre">n)</span></code>,row <code class="docutils literal notranslate"><span class="pre">i</span></code> was interchanged with   row <code class="docutils literal notranslate"><span class="pre">ipiv(i)</span></code>.</p>
+</dd>
+<dt>scratchpad</dt><dd><p>Buffer holding scratchpad memory to be used by routine for storing intermediate results.</p>
+</dd>
+</dl>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Throws</p>
+<dl>
+<dt>onemkl::lapack::exception</dt><dd><p>Exception is thrown in case of problems happened during calculations. The <code class="docutils literal notranslate"><span class="pre">info</span></code> code of the problem can be obtained by <cite>get_info()</cite> method of exception object:</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info=-i</span></code>, the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th parameter had an illegal value.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info=i</span></code>, <code class="docutils literal notranslate"><span class="pre">uii</span></code> is 0. The factorization has been completed, but   <code class="docutils literal notranslate"><span class="pre">U</span></code> is exactly singular. Division by 0 will occur if you use the factor <code class="docutils literal notranslate"><span class="pre">U</span></code> for solving a system of linear equations.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info</span></code> equals to value passed as scratchpad size, and <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> returns non zero, then passed scratchpad is of insufficient size, and required size should not be less than value return by <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> method of exception object.</p>
+</dd>
+</dl>
 </div>
 </div>
-<div class="section docutils container" id="guid-81f25e52-7e8d-4508-8696-46f51f0a972c">
-<p class="sectiontitle rubric">Known Limitations</p>
-<p>For GPU support, errors are reported through the info parameter, but
-computation does not halt for an algorithmic error.</p>
+</div>
+<div class="section" id="onemkl-lapack-getrf-usm-version">
+<h2><span class="section-number">2.1.3.1.3.2. </span>onemkl::lapack::getrf (USM Version)<a class="headerlink" href="#onemkl-lapack-getrf-usm-version" title="Permalink to this headline">¶</a></h2>
+<div class="docutils container">
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<dl class="cpp function">
+<dt id="_CPPv4N6onemkl6lapack5getrfERN2cl4sycl5queueENSt7int64_tENSt7int64_tEP1TNSt7int64_tEPNSt7int64_tEP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE">
+<span id="_CPPv3N6onemkl6lapack5getrfERN2cl4sycl5queueENSt7int64_tENSt7int64_tEP1TNSt7int64_tEPNSt7int64_tEP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE"></span><span id="_CPPv2N6onemkl6lapack5getrfERN2cl4sycl5queueENSt7int64_tENSt7int64_tEP1TNSt7int64_tEPNSt7int64_tEP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE"></span><span id="onemkl::lapack::getrf__cl::sycl::queueR.std::int64_t.std::int64_t.TP.std::int64_t.std::int64_tP.TP.std::int64_t.cl::sycl::vector_class:cl::sycl::event:CR"></span>cl::sycl::event <code class="sig-prename descclassname">onemkl::lapack<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">getrf</code><span class="sig-paren">(</span>cl::sycl::queue &amp;<em>queue</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, T *<em>a</em>, std::int64_t <em>lda</em>, std::int64_t *<em>ipiv</em>, T *<em>scratchpad</em>, std::int64_t <em>scratchpad_size</em>, <em class="property">const</em> cl::sycl::vector_class&lt;cl::sycl::event&gt; &amp;<em>events</em> = {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl6lapack5getrfERN2cl4sycl5queueENSt7int64_tENSt7int64_tEP1TNSt7int64_tEPNSt7int64_tEP1TNSt7int64_tERKN2cl4sycl12vector_classIN2cl4sycl5eventEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Input Parameters</p>
+<dl class="simple">
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
+</dd>
+<dt>m</dt><dd><p>The number of rows in the matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> (<code class="docutils literal notranslate"><span class="pre">0≤m</span></code>).</p>
+</dd>
+<dt>n</dt><dd><p>The number of columns in <code class="docutils literal notranslate"><span class="pre">A</span></code>(<code class="docutils literal notranslate"><span class="pre">0≤n</span></code>).</p>
+</dd>
+<dt>a</dt><dd><p>Pointer to array holding input matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>. The second dimension of <code class="docutils literal notranslate"><span class="pre">a</span></code> must be at least   <code class="docutils literal notranslate"><span class="pre">max(1,</span> <span class="pre">n)</span></code>.</p>
+</dd>
+<dt>lda</dt><dd><p>The leading dimension of a.</p>
+</dd>
+<dt>scratchpad_size</dt><dd><p>Size of scratchpad memory as a number of floating point elements of type T.
+Size should not be less than the value returned by <a class="reference internal" href="getrf_scratchpad_size.html#onemkl-lapack-getrf-scratchpad-size"><span class="std std-ref">onemkl::lapack::getrf_scratchpad_size</span></a> function.</p>
+</dd>
+<dt>events</dt><dd><p>List of events to wait for before starting computation. Defaults to empty list.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Output Parameters</p>
+<dl class="simple">
+<dt>a</dt><dd><p>Overwritten by <code class="docutils literal notranslate"><span class="pre">L</span></code> and <code class="docutils literal notranslate"><span class="pre">U</span></code>. The unit diagonal    elements of <code class="docutils literal notranslate"><span class="pre">L</span></code> are not stored.</p>
+</dd>
+<dt>ipiv</dt><dd><p>Array, size at least <code class="docutils literal notranslate"><span class="pre">max(1,min(m,</span> <span class="pre">n))</span></code>. Contains the    pivot indices; for <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">≤i≤min(m,</span> <span class="pre">n)</span></code>,row <code class="docutils literal notranslate"><span class="pre">i</span></code> was interchanged with   row <code class="docutils literal notranslate"><span class="pre">ipiv(i)</span></code>.</p>
+</dd>
+<dt>scratchpad</dt><dd><p>Pointer to scratchpad memory to be used by routine for storing intermediate results.</p>
+</dd>
+</dl>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Throws</p>
+<dl>
+<dt>onemkl::lapack::exception</dt><dd><p>Exception is thrown in case of problems happened during calculations. The <code class="docutils literal notranslate"><span class="pre">info</span></code> code of the problem can be obtained by <cite>get_info()</cite> method of exception object:</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info=-i</span></code>, the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th parameter had an illegal value.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info=i</span></code>, <code class="docutils literal notranslate"><span class="pre">uii</span></code> is 0. The factorization has been completed, but   <code class="docutils literal notranslate"><span class="pre">U</span></code> is exactly singular. Division by 0 will occur if you use the factor <code class="docutils literal notranslate"><span class="pre">U</span></code> for solving a system of linear equations.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">info</span></code> equals to value passed as scratchpad size, and <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> returns non zero, then passed scratchpad is of insufficient size, and required size should not be less than value return by <code class="docutils literal notranslate"><span class="pre">get_detail()</span></code> method of exception object.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Return Values</p>
+<p>Output event to wait on to ensure computation is complete.</p>
+</div>
 </div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">
-<p><strong>Parent topic:</strong> <a class="reference external" href="lapack.html">LAPACK
-Routines</a></p>
+<p><strong>Parent topic:</strong> <a class="reference internal" href="lapack.html#onemkl-lapack-linear-equation-routines"><span class="std std-ref">LAPACK Linear Equation Routines</span></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -308,10 +347,10 @@ Routines</a></p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="getrf_batch.html" class="btn btn-neutral float-right" title="2.1.3.9. getrf_batch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="getrf_scratchpad_size.html" class="btn btn-neutral float-right" title="2.1.3.1.4. onemkl::lapack::getrf_scratchpad_size" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gesvd_get_lwork.html" class="btn btn-neutral float-left" title="2.1.3.7. gesvd_get_lwork" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="geqrf_scratchpad_size.html" class="btn btn-neutral float-left" title="2.1.3.1.2. onemkl::lapack::geqrf_scratchpad_size" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

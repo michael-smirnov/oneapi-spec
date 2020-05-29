@@ -110,7 +110,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Programming model</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Basic usage scenario</a></li>
 <li class="toctree-l3"><a class="reference internal" href="memory_objects.html">Memory objects</a></li>
-<li class="toctree-l3"><a class="reference internal" href="algorithm_anatomy.html">Algorithm anatomy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithm_anatomy.html">Algorithm Anatomy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="managing_execution_context.html">Managing execution context</a></li>
 <li class="toctree-l3"><a class="reference internal" href="computational_modes.html">Computational modes</a></li>
 </ul>
@@ -213,7 +213,11 @@ The example is provided for Principal Component Analysis algorithm (PCA).</p>
 </ul>
 <ol class="arabic">
 <li><p>Include the following header file to enable the DPC++ interface for
-oneDAL:</p></li>
+oneDAL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &quot;|daal_in_code|_sycl.h&quot;</span>
+</pre></div>
+</div>
+</li>
 <li><p>Create a DPC++ queue with the desired device selector. In this case,
 GPU selector is used:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cl</span><span class="p">::</span><span class="n">sycl</span><span class="p">::</span><span class="n">queue</span> <span class="n">queue</span> <span class="p">{</span> <span class="n">cl</span><span class="p">::</span><span class="n">sycl</span><span class="p">::</span><span class="n">gpu_selector</span><span class="p">()</span> <span class="p">};</span>

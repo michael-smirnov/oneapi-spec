@@ -208,7 +208,7 @@
 <p>A type <cite>Body</cite> satisfies the <cite>ParallelScanBody</cite> if it meets the following requirements:</p>
 <hr class="docutils" />
 <p><strong>ParallelScanBody Requirements: Pseudo-Signature, Semantics</strong></p>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N4BodyclERK5Range12pre_scan_tag">
 <span id="_CPPv3N4BodyclERK5Range12pre_scan_tag"></span><span id="_CPPv2N4BodyclERK5Range12pre_scan_tag"></span><span id="Body::call-operator__RangeCR.pre_scan_tag"></span>void <code class="sig-prename descclassname">Body<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> Range &amp;<em>r</em>, pre_scan_tag<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4BodyclERK5Range12pre_scan_tag" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Accumulate summary for range <code class="docutils literal notranslate"><span class="pre">r</span></code>.
@@ -216,26 +216,26 @@ For example, if computing a running sum of an array,
 the summary for a range <code class="docutils literal notranslate"><span class="pre">r</span></code> is the sum of the array elements corresponding to <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N4BodyclERK5Range14final_scan_tag">
 <span id="_CPPv3N4BodyclERK5Range14final_scan_tag"></span><span id="_CPPv2N4BodyclERK5Range14final_scan_tag"></span><span id="Body::call-operator__RangeCR.final_scan_tag"></span>void <code class="sig-prename descclassname">Body<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> Range &amp;<em>r</em>, final_scan_tag<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4BodyclERK5Range14final_scan_tag" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Compute scan result and summary for range <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N4Body4BodyER4Body5split">
-<span id="_CPPv3N4Body4BodyER4Body5split"></span><span id="_CPPv2N4Body4BodyER4Body5split"></span><span id="Body::Body__BodyR.split"></span><code class="sig-prename descclassname"><a class="reference internal" href="par_for_body.html#_CPPv4N4Body4BodyERK4Body" title="Body::Body">Body</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">Body</code><span class="sig-paren">(</span><a class="reference internal" href="par_for_body.html#_CPPv4N4Body4BodyERK4Body" title="Body::Body">Body</a> &amp;<em>b</em>, split<span class="sig-paren">)</span><br /></dt>
+<span id="_CPPv3N4Body4BodyER4Body5split"></span><span id="_CPPv2N4Body4BodyER4Body5split"></span><span id="Body::Body__BodyR.split"></span><code class="sig-prename descclassname"><a class="reference internal" href="par_reduce_body.html#_CPPv4N4Body4BodyER4Body5split" title="Body::Body">Body</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">Body</code><span class="sig-paren">(</span><a class="reference internal" href="par_reduce_body.html#_CPPv4N4Body4BodyER4Body5split" title="Body::Body">Body</a> &amp;<em>b</em>, split<span class="sig-paren">)</span><br /></dt>
 <dd><p>Split <code class="docutils literal notranslate"><span class="pre">b</span></code> so that <code class="docutils literal notranslate"><span class="pre">this</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> can accumulate summaries separately.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N4Body12reverse_joinER4Body">
 <span id="_CPPv3N4Body12reverse_joinER4Body"></span><span id="_CPPv2N4Body12reverse_joinER4Body"></span><span id="Body::reverse_join__BodyR"></span>void <code class="sig-prename descclassname">Body<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">reverse_join</code><span class="sig-paren">(</span>Body &amp;<em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4Body12reverse_joinER4Body" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Merge summary accumulated by <code class="docutils literal notranslate"><span class="pre">b</span></code> into summary accumulated by <code class="docutils literal notranslate"><span class="pre">this</span></code>,
 where <code class="docutils literal notranslate"><span class="pre">this</span></code> was created earlier from <code class="docutils literal notranslate"><span class="pre">b</span></code> by splitting constructor.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N4Body6assignER4Body">
 <span id="_CPPv3N4Body6assignER4Body"></span><span id="_CPPv2N4Body6assignER4Body"></span><span id="Body::assign__BodyR"></span>void <code class="sig-prename descclassname">Body<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">assign</code><span class="sig-paren">(</span>Body &amp;<em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4Body6assignER4Body" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Assign summary of <code class="docutils literal notranslate"><span class="pre">b</span></code> to <code class="docutils literal notranslate"><span class="pre">this</span></code>.</p>

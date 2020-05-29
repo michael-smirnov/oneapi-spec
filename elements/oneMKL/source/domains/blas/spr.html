@@ -221,13 +221,13 @@ result to a symmetric packed matrix. The operation is defined as</p>
 <p><code class="docutils literal notranslate"><span class="pre">x</span></code> is a vector of length <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 </div>
 <div class="section" id="spr-buffer-version">
-<h2><span class="section-number">2.1.2.2.15.1. </span>spr (BUFFER Version)<a class="headerlink" href="#spr-buffer-version" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1.2.2.15.1. </span>spr (Buffer Version)<a class="headerlink" href="#spr-buffer-version" title="Permalink to this headline">¶</a></h2>
 <div class="docutils container">
 <div class="section docutils container">
 <p class="sectiontitle rubric">Syntax</p>
-<dl class="function">
-<dt id="_CPPv4N6onemkl4blas3sprERN4sycl5queueE4uploNStSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEE">
-<span id="_CPPv3N6onemkl4blas3sprERN4sycl5queueE4uploNStSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEE"></span><span id="_CPPv2N6onemkl4blas3sprERN4sycl5queueE4uploNStSt7int64_tE1TRN4sycl6bufferI1TX1EEENSt7int64_tERN4sycl6bufferI1TX1EEE"></span><span id="onemkl::blas::spr__sycl::queueR.uplo.std::std::int64_t.T.sycl::buffer:T.1:R.std::int64_t.sycl::buffer:T.1:R"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">spr</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, uplo <em>upper_lower</em>, std::std::int64_t <em>n</em>, T <em>alpha</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>x</em>, std::int64_t <em>incx</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>a</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas3sprERN4sycl5queueE4uploNStSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dl class="cpp function">
+<dt id="_CPPv4N6onemkl4blas3sprERN4sycl5queueEN6onemkl4uploENStSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEE">
+<span id="_CPPv3N6onemkl4blas3sprERN4sycl5queueEN6onemkl4uploENStSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEE"></span><span id="_CPPv2N6onemkl4blas3sprERN4sycl5queueEN6onemkl4uploENStSt7int64_tE1TRN4sycl6bufferI1TX1EEENSt7int64_tERN4sycl6bufferI1TX1EEE"></span><span id="onemkl::blas::spr__sycl::queueR.onemkl::uplo.std::std::int64_t.T.sycl::buffer:T.1:R.std::int64_t.sycl::buffer:T.1:R"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">spr</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, onemkl::uplo <em>upper_lower</em>, std::std::int64_t <em>n</em>, T <em>alpha</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>x</em>, std::int64_t <em>incx</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>a</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas3sprERN4sycl5queueEN6onemkl4uploENStSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tERN4sycl6bufferI1TXL1EEEE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 </div>
@@ -259,7 +259,6 @@ more details.</p>
 </div>
 <div class="section docutils container">
 <p class="sectiontitle rubric">Output Parameters</p>
-<p><strong>sycl:</strong></p>
 <dl class="simple">
 <dt>a</dt><dd><p>Buffer holding the updated upper triangular part of the symmetric
 matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> if <code class="docutils literal notranslate"><span class="pre">upper_lower</span> <span class="pre">=upper</span></code>, or the updated lower
@@ -275,9 +274,9 @@ triangular part of the symmetric matrix <code class="docutils literal notranslat
 <div class="section docutils container">
 <p class="sectiontitle rubric">Syntax</p>
 <div class="dlsyntaxpara docutils container">
-<dl class="function">
-<dt id="_CPPv4N6onemkl4blas3sprERN4sycl5queueE4uploNSt7int64_tE1TPK1TNSt7int64_tEP1TRKN4sycl12vector_classIN4sycl5eventEEE">
-<span id="_CPPv3N6onemkl4blas3sprERN4sycl5queueE4uploNSt7int64_tE1TPK1TNSt7int64_tEP1TRKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="_CPPv2N6onemkl4blas3sprERN4sycl5queueE4uploNSt7int64_tE1TPK1TNSt7int64_tEP1TRKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="onemkl::blas::spr__sycl::queueR.uplo.std::int64_t.T.TCP.std::int64_t.TP.sycl::vector_class:sycl::event:CR"></span>sycl::event <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">spr</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, uplo <em>upper_lower</em>, std::int64_t <em>n</em>, T <em>alpha</em>, <em class="property">const</em> T *<em>x</em>, std::int64_t <em>incx</em>, T *<em>a</em>, <em class="property">const</em> sycl::vector_class&lt;sycl::event&gt; &amp;<em>dependencies</em> = {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas3sprERN4sycl5queueE4uploNSt7int64_tE1TPK1TNSt7int64_tEP1TRKN4sycl12vector_classIN4sycl5eventEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dl class="cpp function">
+<dt id="_CPPv4N6onemkl4blas3sprERN4sycl5queueEN6onemkl4uploENSt7int64_tE1TPK1TNSt7int64_tEP1TRKN4sycl12vector_classIN4sycl5eventEEE">
+<span id="_CPPv3N6onemkl4blas3sprERN4sycl5queueEN6onemkl4uploENSt7int64_tE1TPK1TNSt7int64_tEP1TRKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="_CPPv2N6onemkl4blas3sprERN4sycl5queueEN6onemkl4uploENSt7int64_tE1TPK1TNSt7int64_tEP1TRKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="onemkl::blas::spr__sycl::queueR.onemkl::uplo.std::int64_t.T.TCP.std::int64_t.TP.sycl::vector_class:sycl::event:CR"></span>sycl::event <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">spr</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, onemkl::uplo <em>upper_lower</em>, std::int64_t <em>n</em>, T <em>alpha</em>, <em class="property">const</em> T *<em>x</em>, std::int64_t <em>incx</em>, T *<em>a</em>, <em class="property">const</em> sycl::vector_class&lt;sycl::event&gt; &amp;<em>dependencies</em> = {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas3sprERN4sycl5queueEN6onemkl4uploENSt7int64_tE1TPK1TNSt7int64_tEP1TRKN4sycl12vector_classIN4sycl5eventEEE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 </div>

@@ -243,15 +243,15 @@ portand generates a message from each element of the tuple, passing each to them
 <p><code class="docutils literal notranslate"><span class="pre">split_node</span></code> has unlimited concurrency, and behaves as a <code class="docutils literal notranslate"><span class="pre">broadcast_node</span></code> with multiple output ports.</p>
 <div class="section" id="member-functions">
 <h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv410split_nodeR5graph">
 <span id="_CPPv310split_nodeR5graph"></span><span id="_CPPv210split_nodeR5graph"></span><span id="split_node__graphR"></span><em class="property">explicit</em> <code class="sig-name descname">split_node</code><span class="sig-paren">(</span><a class="reference internal" href="graph_cls.html#_CPPv45graphR18task_group_context" title="graph">graph</a> &amp;<em>g</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410split_nodeR5graph" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs a <code class="docutils literal notranslate"><span class="pre">split_node</span></code> registered with graph <code class="docutils literal notranslate"><span class="pre">g</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv410split_nodeRK10split_node">
-<span id="_CPPv310split_nodeRK10split_node"></span><span id="_CPPv210split_nodeRK10split_node"></span><span id="split_node__split_nodeCR"></span><code class="sig-name descname">split_node</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410split_nodeR5graph" title="split_node">split_node</a> &amp;<em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410split_nodeRK10split_node" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv310split_nodeRK10split_node"></span><span id="_CPPv210split_nodeRK10split_node"></span><span id="split_node__split_nodeCR"></span><code class="sig-name descname">split_node</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410split_nodeRK10split_node" title="split_node">split_node</a> &amp;<em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410split_nodeRK10split_node" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs a <code class="docutils literal notranslate"><span class="pre">split_node</span></code> that has the same initial state that
 <code class="docutils literal notranslate"><span class="pre">other</span></code> had when it was constructed. The <code class="docutils literal notranslate"><span class="pre">split_node</span></code> that is
 constructed will have a reference to the same <code class="docutils literal notranslate"><span class="pre">graph</span></code> object as
@@ -259,13 +259,13 @@ constructed will have a reference to the same <code class="docutils literal notr
 copied.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4D0v">
 <span id="_CPPv3D0v"></span><span id="_CPPv2D0v"></span><span id="~split_node"></span><code class="sig-name descname">~split_node</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4D0v" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Destructor</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv47try_putRK9TupleType">
 <span id="_CPPv37try_putRK9TupleType"></span><span id="_CPPv27try_putRK9TupleType"></span><span id="try_put__TupleTypeCR"></span>bool <code class="sig-name descname">try_put</code><span class="sig-paren">(</span><em class="property">const</em> TupleType &amp;<em>v</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv47try_putRK9TupleType" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Broadcasts each element of the incoming tuple to the nodes connected
@@ -274,7 +274,7 @@ to the <code class="docutils literal notranslate"><span class="pre">split_node</
 <p><strong>Returns</strong>: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv412output_portsv">
 <span id="_CPPv312output_portsv"></span><span id="_CPPv212output_portsv"></span><span id="output_ports"></span>output_ports_type &amp;<code class="sig-name descname">output_ports</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
 <dd><p><strong>Returns</strong>: a tuple of output ports.</p>

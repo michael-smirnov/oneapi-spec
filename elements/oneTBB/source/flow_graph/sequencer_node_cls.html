@@ -246,14 +246,14 @@ user-provided <code class="docutils literal notranslate"><span class="pre">Seque
 </div>
 <div class="section" id="member-functions">
 <h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I0E14sequencer_nodeR5graphRK9Sequencer">
 <span id="_CPPv3I0E14sequencer_nodeR5graphRK9Sequencer"></span><span id="_CPPv2I0E14sequencer_nodeR5graphRK9Sequencer"></span>template&lt;typename <code class="sig-name descname">Sequencer</code>&gt;<br /><code class="sig-name descname">sequencer_node</code><span class="sig-paren">(</span><a class="reference internal" href="graph_cls.html#_CPPv45graphR18task_group_context" title="graph">graph</a> &amp;<em>g</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0E14sequencer_nodeR5graphRK9Sequencer" title="sequencer_node::Sequencer">Sequencer</a> &amp;<em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0E14sequencer_nodeR5graphRK9Sequencer" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs an empty <code class="docutils literal notranslate"><span class="pre">sequencer_node</span></code> that belongs to the graph <code class="docutils literal notranslate"><span class="pre">g</span></code> and uses <code class="docutils literal notranslate"><span class="pre">s</span></code> to compute
 sequence numbers for items.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv414sequencer_nodeRK14sequencer_node">
 <span id="_CPPv314sequencer_nodeRK14sequencer_node"></span><span id="_CPPv214sequencer_nodeRK14sequencer_node"></span><span id="sequencer_node__sequencer_nodeCR"></span><code class="sig-name descname">sequencer_node</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv414sequencer_nodeRK14sequencer_node" title="sequencer_node">sequencer_node</a> &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sequencer_nodeRK14sequencer_node" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs an empty <code class="docutils literal notranslate"><span class="pre">sequencer_node</span></code> that belongs to the same graph <code class="docutils literal notranslate"><span class="pre">g</span></code> as <code class="docutils literal notranslate"><span class="pre">src</span></code> and
@@ -267,7 +267,7 @@ provided to <code class="docutils literal notranslate"><span class="pre">src</sp
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv47try_putRK1T">
 <span id="_CPPv37try_putRK1T"></span><span id="_CPPv27try_putRK1T"></span><span id="try_put__TCR"></span>bool <code class="sig-name descname">try_put</code><span class="sig-paren">(</span><em class="property">const</em> T &amp;<em>v</em><span class="sig-paren">)</span><br /></dt>
 <dd><p>Adds <code class="docutils literal notranslate"><span class="pre">v</span></code> to the <code class="docutils literal notranslate"><span class="pre">sequencer_node</span></code>. If <code class="docutils literal notranslate"><span class="pre">v</span></code>’s sequence number is the next item in
@@ -275,7 +275,7 @@ the sequence, a task is spawned to forward the item to a successor.</p>
 <p><strong>Returns</strong>: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv47try_getR1T">
 <span id="_CPPv37try_getR1T"></span><span id="_CPPv27try_getR1T"></span><span id="try_get__TR"></span>bool <code class="sig-name descname">try_get</code><span class="sig-paren">(</span>T &amp;<em>v</em><span class="sig-paren">)</span><br /></dt>
 <dd><p><strong>Returns</strong>: <code class="docutils literal notranslate"><span class="pre">true</span></code> if the next item in the sequence is available in the <code class="docutils literal notranslate"><span class="pre">sequencer_node</span></code>.

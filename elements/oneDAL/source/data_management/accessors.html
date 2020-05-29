@@ -42,7 +42,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Algorithms" href="../algorithms/index.html" />
-    <link rel="prev" title="Table builders" href="table_builders.html" /> 
+    <link rel="prev" title="Table Builders" href="table_builders.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -112,9 +112,9 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Data management</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="index.html#key-concepts">Key concepts</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html#details">Details</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="data_sources.html">Data sources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tables.html">Tables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="table_builders.html">Table builders</a></li>
+<li class="toctree-l4"><a class="reference internal" href="table_builders.html">Table Builders</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Accessors</a></li>
 </ul>
 </li>
@@ -204,40 +204,41 @@
             
   <div class="section" id="accessors">
 <span id="id1"></span><h1>Accessors<a class="headerlink" href="#accessors" title="Permalink to this headline">¶</a></h1>
-<p>This section contain definisions of classes that implement <a class="reference internal" href="index.html#accessor"><span class="std std-ref">Accessor</span></a>
-concept.</p>
-<div class="section" id="requirements-on-accessor-types">
-<h2>Requirements on accessor types<a class="headerlink" href="#requirements-on-accessor-types" title="Permalink to this headline">¶</a></h2>
-<p>Each implementation of <a class="reference internal" href="index.html#accessor"><span class="std std-ref">Accessor</span></a> concept in oneDAL shall follow
-next requirements:</p>
+<p>This section defines <a class="reference internal" href="#accessor-reqs">requirements</a> to an <a class="reference internal" href="index.html#accessor"><span class="std std-ref">accessor</span></a> implementation and introduces several <a class="reference internal" href="#accessor-types">accessor types</a>.</p>
+<div class="section" id="requirements">
+<span id="accessor-reqs"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>Each accessor implementation shall:</p>
 <ol class="arabic simple">
-<li><p>Define single <a class="reference internal" href="../glossary.html#term-data-format"><span class="xref std std-term">format of the data</span></a> of the
-accessor. Every single accessor type shall provide only one <a class="reference internal" href="../glossary.html#term-data-format"><span class="xref std std-term">format of
-the data</span></a> returned from it or put inside it.</p></li>
-<li><p>Allow to make access to at least of one in-memory <a class="reference internal" href="index.html#dataset"><span class="std std-ref">Dataset</span></a>
-implementation (like <code class="code docutils literal notranslate"><span class="pre">table</span></code> or its sub-types or <a class="reference internal" href="index.html#table-builder"><span class="std std-ref">table builders</span></a>).</p></li>
-<li><p>Allow to make read-only, write-only and read-write access to the data. If
+<li><p>Define a single <a class="reference internal" href="../glossary.html#term-Data-format"><span class="xref std std-term">format of the data</span></a> for the
+accessor. Every single accessor type shall return and use only one data
+format.</p></li>
+<li><p>Provide an access to at least one in-memory <a class="reference internal" href="index.html#dataset"><span class="std std-ref">Dataset</span></a> implementation
+(such as <code class="code docutils literal notranslate"><span class="pre">table</span></code>, its sub-types, or <a class="reference internal" href="index.html#table-builder"><span class="std std-ref">table builders</span></a>).</p></li>
+<li><p>Provide read-only, write-only, or read-write access to the data. If an
 accessor supports several <a class="reference internal" href="index.html#dataset"><span class="std std-ref">Dataset</span></a> implementations to be passed in, it
-is not necessary to support all access modes for every input object. For
-example, tables shall support single read-only mode according to their
-<a class="reference internal" href="index.html#table"><span class="std std-ref">concept</span></a> definision.</p></li>
-<li><p>Shall name reading and writing operations consistently. Reading operation
-name shall follow next pattern: <code class="code docutils literal notranslate"><span class="pre">pull_*()</span></code>, while writing operation
-shall be named with accordance to folllowing: <code class="code docutils literal notranslate"><span class="pre">push_*()</span></code>.</p></li>
-<li><p>Shall be lightweight. Its constructors from <a class="reference internal" href="index.html#dataset"><span class="std std-ref">Dataset</span></a> implementations
-shall not have heavy operations like copy of data, reading, writing, any sort
-of convertions. These operations shall be performed by heavy operations
+is not necessary for an accessor to support all access modes for every input
+object. For example, tables shall support a single read-only mode according
+to their <a class="reference internal" href="index.html#table"><span class="std std-ref">concept</span></a> definition.</p></li>
+<li><p>Provide the names for read and write operations following the pattern:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">pull_*()</span></code> for reading</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">push_*()</span></code> for writing</p></li>
+</ul>
+</li>
+<li><p>Be lightweight. Its constructors from <a class="reference internal" href="index.html#dataset"><span class="std std-ref">Dataset</span></a> implementations
+shall not have heavy operations such as copy of data, reading, writing, any
+sort of conversions. These operations shall be performed by heavy operations
 <code class="code docutils literal notranslate"><span class="pre">pull_*()</span></code> and <code class="code docutils literal notranslate"><span class="pre">push_*()</span></code>. It is not necessary to have copy- or
 move- constructors for accessor implementations since it shall be designed
-for use in the local scope.</p></li>
+for use in a local scope.</p></li>
 </ol>
 </div>
-<div class="section" id="accessor-types-in-dal-short-name">
-<h2>Accessor types in oneDAL<a class="headerlink" href="#accessor-types-in-dal-short-name" title="Permalink to this headline">¶</a></h2>
-<p>oneDAL defines a set of accessor classes each associated with single
-way how to interact with data inside a <a class="reference internal" href="index.html#dataset"><span class="std std-ref">Dataset</span></a>. Next table briefly
-explains these classes and shows which <a class="reference internal" href="index.html#dataset"><span class="std std-ref">Dataset</span></a> implementations are
-supported by each accessor.</p>
+<div class="section" id="accessor-types">
+<span id="id2"></span><h2>Accessor Types<a class="headerlink" href="#accessor-types" title="Permalink to this headline">¶</a></h2>
+<p>oneDAL defines a set of accessor classes. Each class is associated
+with a single specific way of interacting with data within a <a class="reference internal" href="index.html#dataset"><span class="std std-ref">Dataset</span></a>. The
+following table briefly explains these classes and shows which <a class="reference internal" href="index.html#dataset"><span class="std std-ref">Dataset</span></a>
+implementations are supported by each accessor type.</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -252,26 +253,26 @@ supported by each accessor.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="#row-accessor">row_accessor</a></p></td>
-<td><p>Provides an access to the range of dataset rows as one <a class="reference internal" href="../glossary.html#term-contiguous-data"><span class="xref std std-term">contiguous</span></a> and <a class="reference internal" href="../glossary.html#term-homogeneous-data"><span class="xref std std-term">homogeneous</span></a> block of memory.</p></td>
+<td><p>Provides access to the range of dataset rows as one <a class="reference internal" href="../glossary.html#term-Contiguous-data"><span class="xref std std-term">contiguous</span></a> <a class="reference internal" href="../glossary.html#term-Homogeneous-data"><span class="xref std std-term">homogeneous</span></a> block of memory.</p></td>
 <td><p><code class="code docutils literal notranslate"><span class="pre">homogen_table</span></code>, <code class="code docutils literal notranslate"><span class="pre">soa_table</span></code>, <code class="code docutils literal notranslate"><span class="pre">aos_table</span></code>,
 <code class="code docutils literal notranslate"><span class="pre">csr_table</span></code>, and their builders.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#column-accessor">column_accessor</a></p></td>
-<td><p>Provides an access to the values range of a single column as one
-<a class="reference internal" href="../glossary.html#term-contiguous-data"><span class="xref std std-term">contiguous</span></a> and <a class="reference internal" href="../glossary.html#term-homogeneous-data"><span class="xref std std-term">homogeneous</span></a> block of memory.</p></td>
+<td><p>Provides access to the range of values within a single column as one
+<a class="reference internal" href="../glossary.html#term-Contiguous-data"><span class="xref std std-term">contiguous</span></a> <a class="reference internal" href="../glossary.html#term-Homogeneous-data"><span class="xref std std-term">homogeneous</span></a> block of memory.</p></td>
 <td><p><code class="code docutils literal notranslate"><span class="pre">homogen_table</span></code>, <code class="code docutils literal notranslate"><span class="pre">soa_table</span></code>, <code class="code docutils literal notranslate"><span class="pre">aos_table</span></code>,
 <code class="code docutils literal notranslate"><span class="pre">csr_table</span></code>, and their builders.</p></td>
 </tr>
 </tbody>
 </table>
-</div>
 <div class="section" id="row-accessor">
-<span id="id2"></span><h2>Row accessor<a class="headerlink" href="#row-accessor" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h3>Row accessor<a class="headerlink" href="#row-accessor" title="Permalink to this headline">¶</a></h3>
 <p>TBD</p>
 </div>
 <div class="section" id="column-accessor">
-<span id="id3"></span><h2>Column accessor<a class="headerlink" href="#column-accessor" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h3>Column accessor<a class="headerlink" href="#column-accessor" title="Permalink to this headline">¶</a></h3>
 <p>TBD</p>
+</div>
 </div>
 </div>
 
@@ -286,7 +287,7 @@ supported by each accessor.</p>
         <a href="../algorithms/index.html" class="btn btn-neutral float-right" title="Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="table_builders.html" class="btn btn-neutral float-left" title="Table builders" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="table_builders.html" class="btn btn-neutral float-left" title="Table Builders" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -207,25 +207,25 @@
 <h1>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h1>
 <p>Class template <code class="docutils literal notranslate"><span class="pre">enumerable_thread_specific</span></code> supports random access iterators,
 which enable iteration over the set of all elements in the container.</p>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv45beginv">
 <span id="_CPPv35beginv"></span><span id="_CPPv25beginv"></span><span id="begin"></span>iterator <code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45beginv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">iterator</span></code> pointing to the beginning of the set of elements.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv43endv">
 <span id="_CPPv33endv"></span><span id="_CPPv23endv"></span><span id="end"></span>iterator <code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv43endv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">iterator</span></code> pointing to the end of the set of elements.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4NK5beginEv">
 <span id="_CPPv3NK5beginEv"></span><span id="_CPPv2NK5beginEv"></span><span id="beginC"></span><a class="reference internal" href="../../algorithms/blocked_ranges/blocked_range_cls.html#_CPPv414const_iterator" title="const_iterator">const_iterator</a> <code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">const_iterator</span></code> pointing to the beginning of the set of elements.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4NK3endEv">
 <span id="_CPPv3NK3endEv"></span><span id="_CPPv2NK3endEv"></span><span id="endC"></span><a class="reference internal" href="../../algorithms/blocked_ranges/blocked_range_cls.html#_CPPv414const_iterator" title="const_iterator">const_iterator</a> <code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">const_iterator</span></code> pointing to the end of the set of elements.</p>
@@ -235,14 +235,14 @@ which enable iteration over the set of all elements in the container.</p>
 which model the <a class="reference internal" href="../../named_requirements/containers/container_range.html"><span class="doc">ContainerRange requirement</span></a>.
 The types differ only in that the bounds for a <code class="docutils literal notranslate"><span class="pre">const_range_type</span></code> are of type <code class="docutils literal notranslate"><span class="pre">const_iterator</span></code>,
 whereas the bounds for a <code class="docutils literal notranslate"><span class="pre">range_type</span></code> are of type iterator.</p>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4NK5rangeE6size_t">
 <span id="_CPPv3NK5rangeE6size_t"></span><span id="_CPPv2NK5rangeE6size_t"></span><span id="range__sC"></span>const_range_type <code class="sig-name descname">range</code><span class="sig-paren">(</span>size_t <em>grainsize</em> = 1<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK5rangeE6size_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><strong>Returns</strong>: A <code class="docutils literal notranslate"><span class="pre">const_range_type</span></code> representing all elements in <code class="docutils literal notranslate"><span class="pre">*this</span></code>.
 The parameter <code class="docutils literal notranslate"><span class="pre">grainsize</span></code> is in units of elements.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv45range6size_t">
 <span id="_CPPv35range6size_t"></span><span id="_CPPv25range6size_t"></span><span id="range__s"></span>range_type <code class="sig-name descname">range</code><span class="sig-paren">(</span>size_t <em>grainsize</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45range6size_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><strong>Returns</strong>: A <code class="docutils literal notranslate"><span class="pre">range_type</span></code> representing all elements in <code class="docutils literal notranslate"><span class="pre">*this</span></code>.

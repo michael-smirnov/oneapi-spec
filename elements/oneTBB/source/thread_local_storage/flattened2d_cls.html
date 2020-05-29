@@ -260,7 +260,7 @@ The class template supports forward iterators only.</p>
 <p>The utility function <code class="docutils literal notranslate"><span class="pre">flatten2d</span></code> creates a <code class="docutils literal notranslate"><span class="pre">flattened2d</span></code> object from a specified container.</p>
 <div class="section" id="member-functions">
 <h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv411flattened2dRK9Container">
 <span id="_CPPv311flattened2dRK9Container"></span><span id="_CPPv211flattened2dRK9Container"></span><span id="flattened2d__ContainerCR"></span><em class="property">explicit</em> <code class="sig-name descname">flattened2d</code><span class="sig-paren">(</span><em class="property">const</em> Container &amp;<em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411flattened2dRK9Container" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs a <code class="docutils literal notranslate"><span class="pre">flattened2d</span></code> representing the sequence of
@@ -268,7 +268,7 @@ elements in the inner containers contained by outer container c.</p>
 <p><strong>Safety</strong>: these operations must not be invoked concurrently on the same <code class="docutils literal notranslate"><span class="pre">flattened2d</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv411flattened2dRK9ContainerN9Container14const_iteratorEN9Container14const_iteratorE">
 <span id="_CPPv311flattened2dRK9ContainerN9Container14const_iteratorEN9Container14const_iteratorE"></span><span id="_CPPv211flattened2dRK9ContainerN9Container14const_iteratorEN9Container14const_iteratorE"></span><span id="flattened2d__ContainerCR.Container::const_iterator.Container::const_iterator"></span><code class="sig-name descname">flattened2d</code><span class="sig-paren">(</span><em class="property">const</em> Container &amp;<em>c</em>, <em class="property">typename</em> Container::const_iterator <em>first</em>, <em class="property">typename</em> Container::const_iterator <em>last</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411flattened2dRK9ContainerN9Container14const_iteratorEN9Container14const_iteratorE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs a <code class="docutils literal notranslate"><span class="pre">flattened2d</span></code> representing the sequence of elements
@@ -276,32 +276,32 @@ in the inner containers in the half-open interval <code class="docutils literal 
 <p><strong>Safety</strong>: these operations must not be invoked concurrently on the same <code class="docutils literal notranslate"><span class="pre">flattened2d</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4NK4sizeEv">
 <span id="_CPPv3NK4sizeEv"></span><span id="_CPPv2NK4sizeEv"></span><span id="sizeC"></span><a class="reference internal" href="../algorithms/blocked_ranges/blocked_range_cls.html#_CPPv49size_type" title="size_type">size_type</a> <code class="sig-name descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
 <dd><p>Returns the sum of the sizes of the inner containers that are viewable in the <code class="docutils literal notranslate"><span class="pre">flattened2d</span></code>.</p>
 <p><strong>Safety</strong>: These operations may be invoked concurrently on the same <code class="docutils literal notranslate"><span class="pre">flattened2d</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv45beginv">
 <span id="_CPPv35beginv"></span><span id="_CPPv25beginv"></span><span id="begin"></span>iterator <code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">iterator</span></code> pointing to the beginning of the set of local copies.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv43endv">
 <span id="_CPPv33endv"></span><span id="_CPPv23endv"></span><span id="end"></span>iterator <code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">iterator</span></code> pointing to the end of the set of local copies.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4NK5beginEv">
 <span id="_CPPv3NK5beginEv"></span><span id="_CPPv2NK5beginEv"></span><span id="beginC"></span><a class="reference internal" href="../algorithms/blocked_ranges/blocked_range_cls.html#_CPPv414const_iterator" title="const_iterator">const_iterator</a> <code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">const_iterator</span></code> pointing to the beginning of the set of local copies.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4NK3endEv">
 <span id="_CPPv3NK3endEv"></span><span id="_CPPv2NK3endEv"></span><span id="endC"></span><a class="reference internal" href="../algorithms/blocked_ranges/blocked_range_cls.html#_CPPv414const_iterator" title="const_iterator">const_iterator</a> <code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">const_iterator</span></code> pointing to the end of the set of local copies.</p>
@@ -310,14 +310,14 @@ in the inner containers in the half-open interval <code class="docutils literal 
 </div>
 <div class="section" id="non-member-functions">
 <h2>Non-member functions<a class="headerlink" href="#non-member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I0E9flatten2d11flattened2dI9ContainerERK9ContainerKN9Container14const_iteratorEKN9Container14const_iteratorE">
 <span id="_CPPv3I0E9flatten2dRK9ContainerKN9Container14const_iteratorEKN9Container14const_iteratorE"></span><span id="_CPPv2I0E9flatten2dRK9ContainerKN9Container14const_iteratorEKN9Container14const_iteratorE"></span>template&lt;typename <code class="sig-name descname">Container</code>&gt;<br /><a class="reference internal" href="#_CPPv411flattened2dRK9Container" title="flattened2d">flattened2d</a>&lt;<a class="reference internal" href="#_CPPv4I0E9flatten2d11flattened2dI9ContainerERK9ContainerKN9Container14const_iteratorEKN9Container14const_iteratorE" title="flatten2d::Container">Container</a>&gt; <code class="sig-name descname">flatten2d</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0E9flatten2d11flattened2dI9ContainerERK9ContainerKN9Container14const_iteratorEKN9Container14const_iteratorE" title="flatten2d::Container">Container</a> &amp;<em>c</em>, <em class="property">const</em> <em class="property">typename</em> <a class="reference internal" href="#_CPPv4I0E9flatten2d11flattened2dI9ContainerERK9ContainerKN9Container14const_iteratorEKN9Container14const_iteratorE" title="flatten2d::Container">Container</a>::const_iterator <em>b</em>, <em class="property">const</em> <em class="property">typename</em> <a class="reference internal" href="#_CPPv4I0E9flatten2d11flattened2dI9ContainerERK9ContainerKN9Container14const_iteratorEKN9Container14const_iteratorE" title="flatten2d::Container">Container</a>::const_iterator <em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0E9flatten2d11flattened2dI9ContainerERK9ContainerKN9Container14const_iteratorEKN9Container14const_iteratorE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs and returns a <code class="docutils literal notranslate"><span class="pre">flattened2d</span></code> object that provides iterators that traverse the elements
 in the containers within the half-open range <code class="docutils literal notranslate"><span class="pre">[b,</span> <span class="pre">e)</span></code> of a container <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I0E11flattened2dRK9Container">
 <span id="_CPPv3I0E11flattened2dRK9Container"></span><span id="_CPPv2I0E11flattened2dRK9Container"></span>template&lt;typename <code class="sig-name descname">Container</code>&gt;<br /><code class="sig-name descname">flattened2d</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0E11flattened2dRK9Container" title="flattened2d::Container">Container</a> &amp;<em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0E11flattened2dRK9Container" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs and returns a <code class="docutils literal notranslate"><span class="pre">flattened2d</span></code> that provides iterators that

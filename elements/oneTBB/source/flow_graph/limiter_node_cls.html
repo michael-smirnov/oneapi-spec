@@ -257,16 +257,16 @@ successors. If it cannot obtain a message from a predecessor, it will
 decrement a counter of broadcasts.</p>
 <div class="section" id="member-functions">
 <h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv412limiter_nodeR5graph6size_t">
 <span id="_CPPv312limiter_nodeR5graph6size_t"></span><span id="_CPPv212limiter_nodeR5graph6size_t"></span><span id="limiter_node__graphR.s"></span><code class="sig-name descname">limiter_node</code><span class="sig-paren">(</span><a class="reference internal" href="graph_cls.html#_CPPv45graphR18task_group_context" title="graph">graph</a> &amp;<em>g</em>, size_t <em>threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412limiter_nodeR5graph6size_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs a <code class="docutils literal notranslate"><span class="pre">limiter_node</span></code> that allows up to <code class="docutils literal notranslate"><span class="pre">threshold</span></code> items
 to pass through before rejecting <code class="docutils literal notranslate"><span class="pre">try_put</span></code>’s.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv412limiter_nodeRK12limiter_node">
-<span id="_CPPv312limiter_nodeRK12limiter_node"></span><span id="_CPPv212limiter_nodeRK12limiter_node"></span><span id="limiter_node__limiter_nodeCR"></span><code class="sig-name descname">limiter_node</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv412limiter_nodeR5graph6size_t" title="limiter_node">limiter_node</a> &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412limiter_nodeRK12limiter_node" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv312limiter_nodeRK12limiter_node"></span><span id="_CPPv212limiter_nodeRK12limiter_node"></span><span id="limiter_node__limiter_nodeCR"></span><code class="sig-name descname">limiter_node</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv412limiter_nodeRK12limiter_node" title="limiter_node">limiter_node</a> &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412limiter_nodeRK12limiter_node" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs a <code class="docutils literal notranslate"><span class="pre">limiter_node</span></code> that has the same initial state that
 <code class="docutils literal notranslate"><span class="pre">src</span></code> had at its construction. The new <code class="docutils literal notranslate"><span class="pre">limiter_node</span></code> will
 belong to the same graph <code class="docutils literal notranslate"><span class="pre">g</span></code> as <code class="docutils literal notranslate"><span class="pre">src</span></code>, have the same
@@ -274,7 +274,7 @@ belong to the same graph <code class="docutils literal notranslate"><span class=
 and the current count of broadcasts are not copied from <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv47try_putRK1T">
 <span id="_CPPv37try_putRK1T"></span><span id="_CPPv27try_putRK1T"></span><span id="try_put__TCR"></span>bool <code class="sig-name descname">try_put</code><span class="sig-paren">(</span><em class="property">const</em> T &amp;<em>v</em><span class="sig-paren">)</span><br /></dt>
 <dd><p>If the broadcast count is below the threshold, <code class="docutils literal notranslate"><span class="pre">v</span></code> is broadcast
@@ -283,7 +283,7 @@ to all successors.</p>
 is not broadcast because the threshold has been reached.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv47try_getR1T">
 <span id="_CPPv37try_getR1T"></span><span id="_CPPv27try_getR1T"></span><span id="try_get__TR"></span>bool <code class="sig-name descname">try_get</code><span class="sig-paren">(</span>T &amp;<em>v</em><span class="sig-paren">)</span><br /></dt>
 <dd><p><strong>Returns</strong>: <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>

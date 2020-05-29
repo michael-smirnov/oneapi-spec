@@ -187,25 +187,12 @@
             
   <div class="section" id="gemm-batch">
 <span id="onemkl-blas-gemm-batch"></span><h1><span class="section-number">2.1.2.4.2. </span>gemm_batch<a class="headerlink" href="#gemm-batch" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="gemm-batch-buffer-version">
-<h2><span class="section-number">2.1.2.4.2.1. </span>gemm_batch (BUFFER Version)<a class="headerlink" href="#gemm-batch-buffer-version" title="Permalink to this headline">¶</a></h2>
 <div class="docutils container">
-<p>Computes groups of matrix-matrix product with general matrices.</p>
-<div class="section docutils container">
-<p class="sectiontitle rubric">Syntax</p>
-<p><strong>Group API</strong></p>
-<dl class="function">
-<dt id="_CPPv4N6onemkl4blas10gemm_batchERN4sycl5queueERN4sycl6bufferI9transposeXL1EEEERN4sycl6bufferI9transposeXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEEN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEEN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEENSt7int64_tERN4sycl6bufferINSt7int64_tEXL1EEEE">
-<span id="_CPPv3N6onemkl4blas10gemm_batchERN4sycl5queueERN4sycl6bufferI9transposeXL1EEEERN4sycl6bufferI9transposeXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEEN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEEN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEENSt7int64_tERN4sycl6bufferINSt7int64_tEXL1EEEE"></span><span id="_CPPv2N6onemkl4blas10gemm_batchERN4sycl5queueERN4sycl6bufferI9transposeX1EEERN4sycl6bufferI9transposeX1EEERN4sycl6bufferINSt7int64_tEX1EEERN4sycl6bufferINSt7int64_tEX1EEERN4sycl6bufferINSt7int64_tEX1EEEN4sycl6bufferI1TX1EEERN4sycl6bufferI1TX1EEERN4sycl6bufferINSt7int64_tEX1EEERN4sycl6bufferI1TX1EEEN4sycl6bufferINSt7int64_tEX1EEERN4sycl6bufferI1TX1EEERN4sycl6bufferI1TX1EEERN4sycl6bufferINSt7int64_tEX1EEENSt7int64_tERN4sycl6bufferINSt7int64_tEX1EEE"></span><span id="onemkl::blas::gemm_batch__sycl::queueR.sycl::buffer:transpose.1:R.sycl::buffer:transpose.1:R.sycl::buffer:std::int64_t.1:R.sycl::buffer:std::int64_t.1:R.sycl::buffer:std::int64_t.1:R.sycl::buffer:T.1:.sycl::buffer:T.1:R.sycl::buffer:std::int64_t.1:R.sycl::buffer:T.1:R.sycl::buffer:std::int64_t.1:.sycl::buffer:T.1:R.sycl::buffer:T.1:R.sycl::buffer:std::int64_t.1:R.std::int64_t.sycl::buffer:std::int64_t.1:R"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">gemm_batch</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, sycl::buffer&lt;transpose, 1&gt; &amp;<em>transa_array</em>, sycl::buffer&lt;transpose, 1&gt; &amp;<em>transb_array</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>m_array</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>n_array</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>k_array</em>, sycl::buffer&lt;T, 1&gt; <em>alpha_array</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>a_array</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>lda_array</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>b_array</em>, sycl::buffer&lt;std::int64_t, 1&gt; <em>ldb_array</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>beta_array</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>c</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>ldc_array</em>, std::int64_t <em>group_count</em>, sycl::buffer&lt;std::int64_t, 1&gt; &amp;<em>group_size_array</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas10gemm_batchERN4sycl5queueERN4sycl6bufferI9transposeXL1EEEERN4sycl6bufferI9transposeXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEEN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEEN4sycl6bufferINSt7int64_tEXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferI1TXL1EEEERN4sycl6bufferINSt7int64_tEXL1EEEENSt7int64_tERN4sycl6bufferINSt7int64_tEXL1EEEE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p><strong>Strided API</strong></p>
-<dl class="function">
-<dt id="_CPPv4N6onemkl4blas10gemm_batchERN4sycl5queueE9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEERNSt7int64_tENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tENSt7int64_tE">
-<span id="_CPPv3N6onemkl4blas10gemm_batchERN4sycl5queueE9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEERNSt7int64_tENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tENSt7int64_tE"></span><span id="_CPPv2N6onemkl4blas10gemm_batchERN4sycl5queueE9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TX1EEERNSt7int64_tENSt7int64_tERN4sycl6bufferI1TX1EEENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TX1EEENSt7int64_tENSt7int64_tENSt7int64_tE"></span><span id="onemkl::blas::gemm_batch__sycl::queueR.transpose.transpose.std::int64_t.std::int64_t.std::int64_t.T.sycl::buffer:T.1:R.std::int64_tR.std::int64_t.sycl::buffer:T.1:R.std::int64_t.std::int64_t.T.sycl::buffer:T.1:R.std::int64_t.std::int64_t.std::int64_t"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">gemm_batch</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, transpose <em>transa</em>, transpose <em>transb</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, T <em>alpha</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t &amp;<em>lda</em>, std::int64_t <em>stridea</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, std::int64_t <em>strideb</em>, T <em>beta</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>c</em>, std::int64_t <em>ldc</em>, std::int64_t <em>stridec</em>, std::int64_t <em>batch_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas10gemm_batchERN4sycl5queueE9transpose9transposeNSt7int64_tENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEERNSt7int64_tENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<p><code class="docutils literal notranslate"><span class="pre">gemm_batch</span></code> supports the following precisions.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">gemm_batch</span></code> routines are batched versions of <a class="reference external" href="gemm.html">gemm</a>, performing
+multiple <code class="docutils literal notranslate"><span class="pre">gemm</span></code> operations in a single call. Each <code class="docutils literal notranslate"><span class="pre">gemm</span></code>
+operation perform a matrix-matrix product with general matrices.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">gemm_batch</span></code> supports the following precisions.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 100%" />
@@ -225,168 +212,49 @@
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </div>
-</div>
+<div class="section" id="gemm-batch-buffer-version">
+<h2><span class="section-number">2.1.2.4.2.1. </span>gemm_batch (Buffer Version)<a class="headerlink" href="#gemm-batch-buffer-version" title="Permalink to this headline">¶</a></h2>
 <div class="section docutils container">
 <p class="sectiontitle rubric">Description</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">gemm_batch</span></code> routines perform a series of matrix-matrix operations
-with general matrices. They are similar to the gemm routine
-counterparts, but the <code class="docutils literal notranslate"><span class="pre">gemm_batch</span></code> routines perform matrix-matrix
-operations with groups of matrices. The groups contain matrices with
-the same parameters.</p>
-<p>For the group API, the operation is defined as</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>offa = 0, offb = 0, offc = 0
-for i = 0 … group_count – 1
-    transa, transb, m, n, k, lda, ldb, ldc, alpha, beta and group_size at position i in transa_array, transb_array, m_array, n_array, k_array, lda_array, ldb_array, ldc_array, alpha_array, beta_array and group_size_array
-    sizea = transa == onemkl::transpose::N ? lda * k : lda * m;
-    sizeb = transb == onemkl::transpose::N ? ldb * n : ldb * k;
-    sizec = ldc * n;
-    for j = 0 … group_size – 1
-        A, B, and C are matrices of size sizea, sizeb and sizec at offset offa, offb and offc in a, b and c.
-        C := alpha * op(A) * op(B) + beta * C
-        offa += sizea, offb += sizeb, offc += sizec
-    end for
-end for
-</pre></div>
-</div>
-<p>For the strided API, the operation is defined as</p>
+<p>The buffer version of <code class="docutils literal notranslate"><span class="pre">gemm_batch</span></code> supports only the strided API.</p>
+<p>The strided API operation is defined as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>for i = 0 … batch_size – 1
     A, B and C are matrices at offset i * stridea, i * strideb, i * stridec in a, b and c.
-    C = alpha * op(A) * op(B) + beta * C
+    C := alpha * op(A) * op(B) + beta * C
 end for
 </pre></div>
 </div>
 <p>where:</p>
-<ul>
-<li><p>op(X) is one of op(X) = X, or op(X) = X<sup>T</sup>, or op(X) =
-X<sup>H</sup></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code> are scalars</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code>, and <code class="docutils literal notranslate"><span class="pre">C</span></code> are matrices</p></li>
-<li><p>The a, b and c buffers contains all the input matrices. The stride
-between matrices is either given by the exact size of the matrix
-(for the group API) or by the stride parameter. The total number
-of matrices in a, b and c buffers is given by the</p>
-<p><img alt="image0" class="img-middle" src="../../../../../_images/GUID-D797E8FA-B0CE-417C-98F1-896CDFB4Fee1.png" /></p>
-<p>for the
-group API or by the <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> parameter for the strided API.</p>
-</li>
-</ul>
-<p>Here, op(<code class="docutils literal notranslate"><span class="pre">A</span></code>) is <code class="docutils literal notranslate"><span class="pre">m</span></code><code class="docutils literal notranslate"><span class="pre">x</span></code><code class="docutils literal notranslate"><span class="pre">k</span></code>, op(<code class="docutils literal notranslate"><span class="pre">B</span></code>) is
+<p>op(X) is one of op(X) = X, or op(X) = X<sup>T</sup>, or op(X) = X<sup>H</sup></p>
+<p><code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code> are scalars</p>
+<p><code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code>, and <code class="docutils literal notranslate"><span class="pre">C</span></code> are matrices</p>
+<p>op(<code class="docutils literal notranslate"><span class="pre">A</span></code>) is <code class="docutils literal notranslate"><span class="pre">m</span></code><code class="docutils literal notranslate"><span class="pre">x</span></code><code class="docutils literal notranslate"><span class="pre">k</span></code>, op(<code class="docutils literal notranslate"><span class="pre">B</span></code>) is
 <code class="docutils literal notranslate"><span class="pre">k</span></code><code class="docutils literal notranslate"><span class="pre">x</span></code><code class="docutils literal notranslate"><span class="pre">n</span></code>, and <code class="docutils literal notranslate"><span class="pre">C</span></code> is <code class="docutils literal notranslate"><span class="pre">m</span></code><code class="docutils literal notranslate"><span class="pre">x</span></code><code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p>The a, b and c buffers contain all the input matrices. The stride
+between matrices is given by the stride parameter. The total number
+of matrices in a, b and c buffers is given by the <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> parameter.</p>
+<p><strong>Strided API</strong></p>
 </div>
 <div class="section docutils container">
-<p class="sectiontitle rubric">Input Parameters - Group API</p>
-<dl>
-<dt>transa_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span> <span class="pre">onemkl::transpose</span></code> value.</p>
-<p>For the group <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">transa</span></code> is the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the
-transa_array buffer and specifies the form of <code class="docutils literal notranslate"><span class="pre">op(A)</span></code> used in
-the matrix multiplication. See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
-</dd>
-<dt>transb_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span> <span class="pre">onemkl::transpose</span></code> value.</p>
-<p>For the group <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">transb</span></code> is the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the
-transb_array buffer and specifies the form of <code class="docutils literal notranslate"><span class="pre">op(B)</span></code> used in
-the matrix multiplication. See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
-</dd>
-<dt>m_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span></code> integer. For the group <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">m</span></code>
-is the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the m_array buffer and specifies the
-number of rows of <code class="docutils literal notranslate"><span class="pre">op(A)</span></code> and <code class="docutils literal notranslate"><span class="pre">C</span></code>. Must be at least zero.</p>
-</dd>
-<dt>n_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span></code> integer. For the group <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>
-is the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the n_array buffer and specifies the
-number of columns of <code class="docutils literal notranslate"><span class="pre">op(B)</span></code> and <code class="docutils literal notranslate"><span class="pre">C</span></code>. Must be at least zero.</p>
-</dd>
-<dt>k_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span></code> integer. For the group <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code>
-is the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the k_array buffer and specifies the
-number of columns of <code class="docutils literal notranslate"><span class="pre">op(A)</span></code> and rows of <code class="docutils literal notranslate"><span class="pre">op(B)</span></code>. Must be at
-least zero.</p>
-</dd>
-<dt>alpha_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span></code> scalar element. For the group
-<code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the alpha_array
-buffer and specifies the scaling factor for the matrix-matrix
-product.</p>
-</dd>
-<dt>a</dt><dd><p>Buffer holding the input matrices <code class="docutils literal notranslate"><span class="pre">A</span></code>. The total size of the
-buffer <code class="docutils literal notranslate"><span class="pre">a</span></code> must be at least the sum of the sizes of all the
-matricies <code class="docutils literal notranslate"><span class="pre">A</span></code>. That is,</p>
-<p><img alt="image1" class="img-middle" src="../../../../../_images/GUID-D797E8FA-B0CE-417C-98F1-896CDFB4Fee2.png" /></p>
-<p>where
-<code class="docutils literal notranslate"><span class="pre">sizeai</span> <span class="pre">=</span> <span class="pre">lda_array[i]</span> <span class="pre">*</span> <span class="pre">(transa</span> <span class="pre">==</span> <span class="pre">onemkl::transpose::N</span> <span class="pre">?</span> <span class="pre">k</span> <span class="pre">:</span> <span class="pre">m)</span></code></p>
-<p>See <a class="reference external" href="../matrix-storage.html">Matrix
-Storage</a> for
-more details.</p>
-</dd>
-<dt>lda_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span></code> integer. For the group <code class="docutils literal notranslate"><span class="pre">i</span></code>,
-<code class="docutils literal notranslate"><span class="pre">lda</span></code> is the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the lda_array buffer and
-specifies the leading dimension of <code class="docutils literal notranslate"><span class="pre">A</span></code>. Must be at least <code class="docutils literal notranslate"><span class="pre">m</span></code>
-if <code class="docutils literal notranslate"><span class="pre">A</span></code> is not transposed, and at least <code class="docutils literal notranslate"><span class="pre">k</span></code> if <code class="docutils literal notranslate"><span class="pre">A</span></code> is
-transposed. Must be positive.</p>
-</dd>
-<dt>b</dt><dd><p>Buffer holding the input matrices <code class="docutils literal notranslate"><span class="pre">B</span></code>. The total size of the
-buffer <code class="docutils literal notranslate"><span class="pre">b</span></code> must be at least the sum of the sizes of all the
-matricies <code class="docutils literal notranslate"><span class="pre">B</span></code>. That is,</p>
-<p><img alt="image2" class="img-middle" src="../../../../../_images/GUID-D797E8FA-B0CE-417C-98F1-896CDFB4Fee3.png" /></p>
-<p>where
-<code class="docutils literal notranslate"><span class="pre">sizebi</span> <span class="pre">=</span> <span class="pre">ldb_array[i]</span> <span class="pre">*</span> <span class="pre">(transb</span> <span class="pre">==</span> <span class="pre">onemkl::transpose::N</span> <span class="pre">?</span> <span class="pre">n</span> <span class="pre">:</span> <span class="pre">k)</span></code></p>
-<p>See <a class="reference external" href="../matrix-storage.html">Matrix
-Storage</a> for
-more details.</p>
-</dd>
-<dt>ldb_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span></code> integer. For the group <code class="docutils literal notranslate"><span class="pre">i</span></code>,
-<code class="docutils literal notranslate"><span class="pre">ldb</span></code> is the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the ldb_array buffer and
-specifies the leading dimension of <code class="docutils literal notranslate"><span class="pre">B</span></code>. Must be at least <code class="docutils literal notranslate"><span class="pre">k</span></code>
-if <code class="docutils literal notranslate"><span class="pre">B</span></code> is not transposed, and at least <code class="docutils literal notranslate"><span class="pre">n</span></code> if <code class="docutils literal notranslate"><span class="pre">B</span></code> is
-transposed. Must be positive.</p>
-</dd>
-<dt>beta_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span></code> scalar element. For the group
-<code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">beta</span></code> is the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the beta_array buffer
-and specifies the scaling factor for matrix C.</p>
-</dd>
-<dt>c</dt><dd><p>Buffer holding the input/output matrices <code class="docutils literal notranslate"><span class="pre">C</span></code>. The total size of
-the buffer <code class="docutils literal notranslate"><span class="pre">c</span></code> must be at least the sum of the sizes of all the
-matricies <code class="docutils literal notranslate"><span class="pre">C</span></code>. That is,</p>
-<p><img alt="image3" class="img-middle" src="../../../../../_images/GUID-D797E8FA-B0CE-417C-98F1-896CDFB4Fee4.png" /></p>
-<p>See <a class="reference external" href="../matrix-storage.html">Matrix
-Storage</a> for
-more details.</p>
-</dd>
-<dt>ldc_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span></code> integer. For the group <code class="docutils literal notranslate"><span class="pre">i</span></code>,
-<code class="docutils literal notranslate"><span class="pre">ldc</span></code> is the <code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the ldc_array buffer and
-specifies the leading dimension of <code class="docutils literal notranslate"><span class="pre">C</span></code>. Must be positive and at
-least <code class="docutils literal notranslate"><span class="pre">m</span></code>.</p>
-</dd>
-<dt>group_count</dt><dd><p>Specifies the number of groups. Must be at least 0.</p>
-</dd>
-<dt>group_size_array</dt><dd><p>Buffer holding <code class="docutils literal notranslate"><span class="pre">group_count</span></code> integer. For the group <code class="docutils literal notranslate"><span class="pre">i</span></code>, the
-<code class="docutils literal notranslate"><span class="pre">i</span></code>th element in the group_size_array buffer specifies the
-number of matrix multiply operations in group <code class="docutils literal notranslate"><span class="pre">i</span></code>. Each element
-in <code class="docutils literal notranslate"><span class="pre">group_size_array</span></code> must be at least 0.</p>
-</dd>
-</dl>
+<p class="sectiontitle rubric">Syntax</p>
+<dl class="cpp function">
+<dt id="_CPPv4N6onemkl4blas10gemm_batchERN4sycl5queueEN6onemkl9transposeEN6onemkl9transposeENSt7int64_tENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tENSt7int64_tE">
+<span id="_CPPv3N6onemkl4blas10gemm_batchERN4sycl5queueEN6onemkl9transposeEN6onemkl9transposeENSt7int64_tENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tENSt7int64_tE"></span><span id="_CPPv2N6onemkl4blas10gemm_batchERN4sycl5queueEN6onemkl9transposeEN6onemkl9transposeENSt7int64_tENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TX1EEENSt7int64_tENSt7int64_tERN4sycl6bufferI1TX1EEENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TX1EEENSt7int64_tENSt7int64_tENSt7int64_tE"></span><span id="onemkl::blas::gemm_batch__sycl::queueR.onemkl::transpose.onemkl::transpose.std::int64_t.std::int64_t.std::int64_t.T.sycl::buffer:T.1:R.std::int64_t.std::int64_t.sycl::buffer:T.1:R.std::int64_t.std::int64_t.T.sycl::buffer:T.1:R.std::int64_t.std::int64_t.std::int64_t"></span>void <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">gemm_batch</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, onemkl::transpose <em>transa</em>, onemkl::transpose <em>transb</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, T <em>alpha</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>a</em>, std::int64_t <em>lda</em>, std::int64_t <em>stridea</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>b</em>, std::int64_t <em>ldb</em>, std::int64_t <em>strideb</em>, T <em>beta</em>, sycl::buffer&lt;T, 1&gt; &amp;<em>c</em>, std::int64_t <em>ldc</em>, std::int64_t <em>stridec</em>, std::int64_t <em>batch_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas10gemm_batchERN4sycl5queueEN6onemkl9transposeEN6onemkl9transposeENSt7int64_tENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tERN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tE1TRN4sycl6bufferI1TXL1EEEENSt7int64_tENSt7int64_tENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section docutils container">
-<p class="sectiontitle rubric">Output Parameters - Group API</p>
+<p class="sectiontitle rubric">Input Parameters</p>
 <dl class="simple">
-<dt>c</dt><dd><p>Overwritten by the <code class="docutils literal notranslate"><span class="pre">m</span></code><sub>i</sub>-by-<code class="docutils literal notranslate"><span class="pre">n</span></code><sub>i</sub> matrix
-<code class="docutils literal notranslate"><span class="pre">(alphai*op(A)*op(B)</span> <span class="pre">+</span> <span class="pre">betai*C)</span></code> for group <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
 </dd>
-</dl>
-</div>
-<div class="section docutils container">
-<p class="sectiontitle rubric">Input Parameters - Strided API</p>
-<dl>
 <dt>transa</dt><dd><p>Specifies <code class="docutils literal notranslate"><span class="pre">op(A)</span></code> the transposition operation applied to the
-matrices A. See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
+matrices <code class="docutils literal notranslate"><span class="pre">A</span></code>. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
 </dd>
 <dt>transb</dt><dd><p>Specifies <code class="docutils literal notranslate"><span class="pre">op(B)</span></code> the transposition operation applied to the
-matrices B. See
-<a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more
-details.</p>
+matrices <code class="docutils literal notranslate"><span class="pre">B</span></code>. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
 </dd>
 <dt>m</dt><dd><p>Number of rows of <code class="docutils literal notranslate"><span class="pre">op(A)</span></code> and <code class="docutils literal notranslate"><span class="pre">C</span></code>. Must be at least zero.</p>
 </dd>
@@ -397,40 +265,29 @@ least zero.</p>
 </dd>
 <dt>alpha</dt><dd><p>Scaling factor for the matrix-matrix products.</p>
 </dd>
-<dt>a</dt><dd><p>Buffer holding the input matrices <code class="docutils literal notranslate"><span class="pre">A</span></code>. Must have size at least
-<code class="docutils literal notranslate"><span class="pre">stridea*batch_size</span></code>.</p>
+<dt>a</dt><dd><p>Buffer holding the input matrices <code class="docutils literal notranslate"><span class="pre">A</span></code> with size <code class="docutils literal notranslate"><span class="pre">stridea*batch_size</span></code>.</p>
 </dd>
 <dt>lda</dt><dd><p>Leading dimension of the matrices <code class="docutils literal notranslate"><span class="pre">A</span></code>. Must be at least <code class="docutils literal notranslate"><span class="pre">m</span></code> if
 the matrices <code class="docutils literal notranslate"><span class="pre">A</span></code> are not transposed, and at least <code class="docutils literal notranslate"><span class="pre">k</span></code> if the
 matrices <code class="docutils literal notranslate"><span class="pre">A</span></code> are transposed. Must be positive.</p>
 </dd>
-<dt>stridea</dt><dd><p>Stride between the different <code class="docutils literal notranslate"><span class="pre">A</span></code> matrices.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">A</span></code> are not transposed, the matrices <code class="docutils literal notranslate"><span class="pre">A</span></code> are <code class="docutils literal notranslate"><span class="pre">m</span></code>-by-<code class="docutils literal notranslate"><span class="pre">k</span></code>
-matrices so stridea must be at least <code class="docutils literal notranslate"><span class="pre">lda*k</span></code>.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">A</span></code> are transposed, the matrices <code class="docutils literal notranslate"><span class="pre">A</span></code> are <code class="docutils literal notranslate"><span class="pre">k</span></code>-by-<code class="docutils literal notranslate"><span class="pre">m</span></code>
-matrices so stridea must be at least <code class="docutils literal notranslate"><span class="pre">lda*m</span></code>.</p>
+<dt>stridea</dt><dd><p>Stride between different <code class="docutils literal notranslate"><span class="pre">A</span></code> matrices.</p>
 </dd>
-<dt>b</dt><dd><p>Buffer holding the input matrices <code class="docutils literal notranslate"><span class="pre">B</span></code>. Must have size at least
-<code class="docutils literal notranslate"><span class="pre">strideb*batch_size</span></code>.</p>
+<dt>b</dt><dd><p>Buffer holding the input matrices <code class="docutils literal notranslate"><span class="pre">B</span></code> with size <code class="docutils literal notranslate"><span class="pre">strideb*batch_size</span></code>.</p>
 </dd>
 <dt>ldb</dt><dd><p>Leading dimension of the matrices <code class="docutils literal notranslate"><span class="pre">B</span></code>. Must be at least <code class="docutils literal notranslate"><span class="pre">k</span></code> if
 the matrices <code class="docutils literal notranslate"><span class="pre">B</span></code> are not transposed, and at least <code class="docutils literal notranslate"><span class="pre">n</span></code> if the
 matrices <code class="docutils literal notranslate"><span class="pre">B</span></code> are transposed. Must be positive.</p>
 </dd>
-<dt>strideb</dt><dd><p>Stride between the different <code class="docutils literal notranslate"><span class="pre">B</span></code> matrices.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">B</span></code> are not transposed, the matrices <code class="docutils literal notranslate"><span class="pre">B</span></code> are <code class="docutils literal notranslate"><span class="pre">k</span></code>-by-<code class="docutils literal notranslate"><span class="pre">n</span></code>
-matrices so strideb must be at least <code class="docutils literal notranslate"><span class="pre">ldb*n</span></code>.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">B</span></code> are transposed, the matrices <code class="docutils literal notranslate"><span class="pre">B</span></code> are <code class="docutils literal notranslate"><span class="pre">n</span></code>-by-<code class="docutils literal notranslate"><span class="pre">k</span></code>
-matrices so strideb must be at least <code class="docutils literal notranslate"><span class="pre">ldb*k</span></code>.</p>
+<dt>strideb</dt><dd><p>Stride between different <code class="docutils literal notranslate"><span class="pre">B</span></code> matrices.</p>
 </dd>
 <dt>beta</dt><dd><p>Scaling factor for the matrices <code class="docutils literal notranslate"><span class="pre">C</span></code>.</p>
 </dd>
-<dt>c</dt><dd><p>Buffer holding input/output matrices <code class="docutils literal notranslate"><span class="pre">C</span></code>. Must have size at
-least <code class="docutils literal notranslate"><span class="pre">stridec*batch_size</span></code>.</p>
+<dt>c</dt><dd><p>Buffer holding input/output matrices <code class="docutils literal notranslate"><span class="pre">C</span></code> with size <code class="docutils literal notranslate"><span class="pre">stridec*batch_size</span></code>.</p>
 </dd>
 <dt>ldc</dt><dd><p>Leading dimension of <code class="docutils literal notranslate"><span class="pre">C</span></code>. Must be positive and at least <code class="docutils literal notranslate"><span class="pre">m</span></code>.</p>
 </dd>
-<dt>stridec</dt><dd><p>Stride between the different <code class="docutils literal notranslate"><span class="pre">C</span></code> matrices. Must be at least
+<dt>stridec</dt><dd><p>Stride between different <code class="docutils literal notranslate"><span class="pre">C</span></code> matrices. Must be at least
 <code class="docutils literal notranslate"><span class="pre">ldc*n</span></code>.</p>
 </dd>
 <dt>batch_size</dt><dd><p>Specifies the number of matrix multiply operations to perform.</p>
@@ -438,7 +295,7 @@ least <code class="docutils literal notranslate"><span class="pre">stridec*batch
 </dl>
 </div>
 <div class="section docutils container">
-<p class="sectiontitle rubric">Output Parameters - Strided API</p>
+<p class="sectiontitle rubric">Output Parameters</p>
 <dl class="simple">
 <dt>c</dt><dd><p>Output buffer, overwritten by <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> matrix multiply
 operations of the form<code class="docutils literal notranslate"><span class="pre">alpha*op(A)*op(B)</span> <span class="pre">+</span> <span class="pre">beta*C</span></code>.</p>
@@ -449,6 +306,209 @@ operations of the form<code class="docutils literal notranslate"><span class="pr
 <p class="sectiontitle rubric">Notes</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">beta</span></code> = 0, matrix <code class="docutils literal notranslate"><span class="pre">C</span></code> does not need to be initialized before
 calling <code class="docutils literal notranslate"><span class="pre">gemm_batch</span></code>.</p>
+</div>
+</div>
+<div class="section" id="gemm-batch-usm-version">
+<h2><span class="section-number">2.1.2.4.2.2. </span>gemm_batch (USM Version)<a class="headerlink" href="#gemm-batch-usm-version" title="Permalink to this headline">¶</a></h2>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Description</p>
+<p>The USM version of <code class="docutils literal notranslate"><span class="pre">gemm_batch</span></code> supports the group API and strided API.</p>
+<p>The group API operation is defined as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>idx = 0
+for i = 0 … group_count – 1
+    for j = 0 … group_size – 1
+        A, B, and C are matrices in a[idx], b[idx] and c[idx]
+        C := alpha[i] * op(A) * op(B) + beta[i] * C
+        idx = idx + 1
+    end for
+end for
+</pre></div>
+</div>
+<p>The strided API operation is defined as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>for i = 0 … batch_size – 1
+    A, B and C are matrices at offset i * stridea, i * strideb, i * stridec in a, b and c.
+    C := alpha * op(A) * op(B) + beta * C
+end for
+</pre></div>
+</div>
+<p>where:</p>
+<p>op(X) is one of op(X) = X, or op(X) = X<sup>T</sup>, or op(X) = X<sup>H</sup></p>
+<p><code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code> are scalars</p>
+<p><code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code>, and <code class="docutils literal notranslate"><span class="pre">C</span></code> are matrices</p>
+<p>op(<code class="docutils literal notranslate"><span class="pre">A</span></code>) is <code class="docutils literal notranslate"><span class="pre">m</span></code><code class="docutils literal notranslate"><span class="pre">x</span></code><code class="docutils literal notranslate"><span class="pre">k</span></code>, op(<code class="docutils literal notranslate"><span class="pre">B</span></code>) is <code class="docutils literal notranslate"><span class="pre">k</span></code><code class="docutils literal notranslate"><span class="pre">x</span></code><code class="docutils literal notranslate"><span class="pre">n</span></code>, and <code class="docutils literal notranslate"><span class="pre">C</span></code> is <code class="docutils literal notranslate"><span class="pre">m</span></code><code class="docutils literal notranslate"><span class="pre">x</span></code><code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p>For group API, a, b and c arrays contain the pointers for all the input matrices.
+The total number of matrices in a, b and c are given by:</p>
+<blockquote>
+<div><p>total_batch_count = sum of all of the group_size entries</p>
+</div></blockquote>
+<p>For strided API, a, b, c arrays contain all the input matrices. The total number of matrices
+in a, b and c are given by the <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> parameter.</p>
+<p><strong>Group API</strong></p>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<div class="dlsyntaxpara docutils container">
+<dl class="cpp function">
+<dt id="_CPPv4N6onemkl4blas10gemm_batchERN4sycl5queueEPN6onemkl9transposeEPN6onemkl9transposeEPNSt7int64_tEPNSt7int64_tEPNSt7int64_tEP1TPPK1TPNSt7int64_tEPPK1TPNSt7int64_tEP1TPP1TPNSt7int64_tENSt7int64_tEPNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE">
+<span id="_CPPv3N6onemkl4blas10gemm_batchERN4sycl5queueEPN6onemkl9transposeEPN6onemkl9transposeEPNSt7int64_tEPNSt7int64_tEPNSt7int64_tEP1TPPK1TPNSt7int64_tEPPK1TPNSt7int64_tEP1TPP1TPNSt7int64_tENSt7int64_tEPNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="_CPPv2N6onemkl4blas10gemm_batchERN4sycl5queueEPN6onemkl9transposeEPN6onemkl9transposeEPNSt7int64_tEPNSt7int64_tEPNSt7int64_tEP1TPPK1TPNSt7int64_tEPPK1TPNSt7int64_tEP1TPP1TPNSt7int64_tENSt7int64_tEPNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="onemkl::blas::gemm_batch__sycl::queueR.onemkl::transposeP.onemkl::transposeP.std::int64_tP.std::int64_tP.std::int64_tP.TP.TCPP.std::int64_tP.TCPP.std::int64_tP.TP.TPP.std::int64_tP.std::int64_t.std::int64_tP.sycl::vector_class:sycl::event:CR"></span>sycl::event <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">gemm_batch</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, onemkl::transpose *<em>transa</em>, onemkl::transpose *<em>transb</em>, std::int64_t *<em>m</em>, std::int64_t *<em>n</em>, std::int64_t *<em>k</em>, T *<em>alpha</em>, <em class="property">const</em> T **<em>a</em>, std::int64_t *<em>lda</em>, <em class="property">const</em> T **<em>b</em>, std::int64_t *<em>ldb</em>, T *<em>beta</em>, T **<em>c</em>, std::int64_t *<em>ldc</em>, std::int64_t <em>group_count</em>, std::int64_t *<em>group_size</em>, <em class="property">const</em> sycl::vector_class&lt;sycl::event&gt; &amp;<em>dependencies</em> = {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas10gemm_batchERN4sycl5queueEPN6onemkl9transposeEPN6onemkl9transposeEPNSt7int64_tEPNSt7int64_tEPNSt7int64_tEP1TPPK1TPNSt7int64_tEPPK1TPNSt7int64_tEP1TPP1TPNSt7int64_tENSt7int64_tEPNSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Input Parameters</p>
+<dl>
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
+</dd>
+<dt>transa</dt><dd><p>Array of <code class="docutils literal notranslate"><span class="pre">group_count</span></code> <code class="docutils literal notranslate"><span class="pre">onemkl::transpose</span></code> values. <code class="docutils literal notranslate"><span class="pre">transa[i]</span></code> specifies the form of <code class="docutils literal notranslate"><span class="pre">op(A)</span></code> used in
+the matrix multiplication in group <code class="docutils literal notranslate"><span class="pre">i</span></code>. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
+</dd>
+<dt>transb</dt><dd><p>Array of <code class="docutils literal notranslate"><span class="pre">group_count</span></code> <code class="docutils literal notranslate"><span class="pre">onemkl::transpose</span></code> values. <code class="docutils literal notranslate"><span class="pre">transb[i]</span></code> specifies the form of <code class="docutils literal notranslate"><span class="pre">op(B)</span></code> used in
+the matrix multiplication in group <code class="docutils literal notranslate"><span class="pre">i</span></code>. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
+</dd>
+<dt>m</dt><dd><p>Array of <code class="docutils literal notranslate"><span class="pre">group_count</span></code> integers. <code class="docutils literal notranslate"><span class="pre">m[i]</span></code> specifies the
+number of rows of <code class="docutils literal notranslate"><span class="pre">op(A)</span></code> and <code class="docutils literal notranslate"><span class="pre">C</span></code> for every matrix in group <code class="docutils literal notranslate"><span class="pre">i</span></code>. All entries must be at least zero.</p>
+</dd>
+<dt>n</dt><dd><p>Array of <code class="docutils literal notranslate"><span class="pre">group_count</span></code> integers. <code class="docutils literal notranslate"><span class="pre">n[i]</span></code> specifies the
+number of columns of <code class="docutils literal notranslate"><span class="pre">op(B)</span></code> and <code class="docutils literal notranslate"><span class="pre">C</span></code> for every matrix in group <code class="docutils literal notranslate"><span class="pre">i</span></code>. All entries must be at least zero.</p>
+</dd>
+<dt>k</dt><dd><p>Array of <code class="docutils literal notranslate"><span class="pre">group_count</span></code> integers. <code class="docutils literal notranslate"><span class="pre">k[i]</span></code> specifies the
+number of columns of <code class="docutils literal notranslate"><span class="pre">op(A)</span></code> and rows of <code class="docutils literal notranslate"><span class="pre">op(B)</span></code> for every matrix in group <code class="docutils literal notranslate"><span class="pre">i</span></code>. All entries must be at
+least zero.</p>
+</dd>
+<dt>alpha</dt><dd><p>Array of <code class="docutils literal notranslate"><span class="pre">group_count</span></code> scalar elements. <code class="docutils literal notranslate"><span class="pre">alpha[i]</span></code> specifies the scaling factor for every matrix-matrix
+product in group <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
+</dd>
+<dt>a</dt><dd><p>Array of pointers to input matrices <code class="docutils literal notranslate"><span class="pre">A</span></code> with size <code class="docutils literal notranslate"><span class="pre">total_batch_count</span></code>.</p>
+<p>See <a class="reference external" href="../matrix-storage.html">Matrix Storage</a> for more details.</p>
+</dd>
+<dt>lda</dt><dd><p>Array of <code class="docutils literal notranslate"><span class="pre">group_count</span></code> integers. <code class="docutils literal notranslate"><span class="pre">lda[i]</span></code> specifies the leading dimension of <code class="docutils literal notranslate"><span class="pre">A</span></code> for every matrix in group <code class="docutils literal notranslate"><span class="pre">i</span></code>.
+All entries must be at least <code class="docutils literal notranslate"><span class="pre">m</span></code>
+if <code class="docutils literal notranslate"><span class="pre">A</span></code> is not transposed, and at least <code class="docutils literal notranslate"><span class="pre">k</span></code> if <code class="docutils literal notranslate"><span class="pre">A</span></code> is
+transposed. All entries must be positive.</p>
+</dd>
+<dt>b</dt><dd><p>Array of pointers to input matrices <code class="docutils literal notranslate"><span class="pre">B</span></code> with size <code class="docutils literal notranslate"><span class="pre">total_batch_count</span></code>.</p>
+<p>See <a class="reference external" href="../matrix-storage.html">Matrix Storage</a> for more details.</p>
+</dd>
+<dt>ldb</dt><dd><p>Array of <code class="docutils literal notranslate"><span class="pre">group_count</span></code> integers. <code class="docutils literal notranslate"><span class="pre">ldb[i]</span></code> specifies the leading dimension of <code class="docutils literal notranslate"><span class="pre">B</span></code> for every matrix in group <code class="docutils literal notranslate"><span class="pre">i</span></code>.
+All entries must be at least <code class="docutils literal notranslate"><span class="pre">k</span></code>
+if <code class="docutils literal notranslate"><span class="pre">B</span></code> is not transposed, and at least <code class="docutils literal notranslate"><span class="pre">n</span></code> if <code class="docutils literal notranslate"><span class="pre">B</span></code> is
+transposed. All entries must be positive.</p>
+</dd>
+<dt>beta</dt><dd><p>Array of <code class="docutils literal notranslate"><span class="pre">group_count</span></code> scalar elements. <code class="docutils literal notranslate"><span class="pre">beta[i]</span></code> specifies the scaling factor for matrix <code class="docutils literal notranslate"><span class="pre">C</span></code>
+for every matrix in group <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
+</dd>
+<dt>c</dt><dd><p>Array of pointers to input/output matrices <code class="docutils literal notranslate"><span class="pre">C</span></code> with size <code class="docutils literal notranslate"><span class="pre">total_batch_count</span></code>.</p>
+<p>See <a class="reference external" href="../matrix-storage.html">Matrix Storage</a> for more details.</p>
+</dd>
+<dt>ldc</dt><dd><p>Array of <code class="docutils literal notranslate"><span class="pre">group_count</span></code> integers. <code class="docutils literal notranslate"><span class="pre">ldc[i]</span></code> specifies the leading dimension of <code class="docutils literal notranslate"><span class="pre">C</span></code> for every matrix in group <code class="docutils literal notranslate"><span class="pre">i</span></code>.
+All entries must be positive and at least <code class="docutils literal notranslate"><span class="pre">m</span></code>.</p>
+</dd>
+<dt>group_count</dt><dd><p>Specifies the number of groups. Must be at least 0.</p>
+</dd>
+<dt>group_size</dt><dd><p>Array of <code class="docutils literal notranslate"><span class="pre">group_count</span></code> integers. <code class="docutils literal notranslate"><span class="pre">group_size[i]</span></code> specifies the
+number of matrix multiply products in group <code class="docutils literal notranslate"><span class="pre">i</span></code>. All entries must be at least 0.</p>
+</dd>
+<dt>dependencies</dt><dd><p>List of events to wait for before starting computation, if any.
+If omitted, defaults to no dependencies.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Output Parameters</p>
+<dl class="simple">
+<dt>c</dt><dd><p>Overwritten by the <code class="docutils literal notranslate"><span class="pre">m[i]</span></code>-by-<code class="docutils literal notranslate"><span class="pre">n[i]</span></code> matrix calculated by
+<code class="docutils literal notranslate"><span class="pre">(alpha[i]*op(A)*op(B)</span> <span class="pre">+</span> <span class="pre">beta[i]*C)</span></code> for group <code class="docutils literal notranslate"><span class="pre">i</span></code>.</p>
+</dd>
+</dl>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Notes</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">beta</span></code> = 0, matrix <code class="docutils literal notranslate"><span class="pre">C</span></code> does not need to be initialized
+before calling <code class="docutils literal notranslate"><span class="pre">gemm_batch</span></code>.</p>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Return Values</p>
+<p>Output event to wait on to ensure computation is complete.</p>
+</div>
+<p><strong>Strided API</strong></p>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Syntax</p>
+<div class="dlsyntaxpara docutils container">
+<dl class="cpp function">
+<dt id="_CPPv4N6onemkl4blas10gemm_batchERN4sycl5queueEN6onemkl9transposeEN6onemkl9transposeENSt7int64_tENSt7int64_tENSt7int64_tE1TPK1TNSt7int64_tENSt7int64_tEPK1TNSt7int64_tENSt7int64_tE1TP1TNSt7int64_tENSt7int64_tENSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE">
+<span id="_CPPv3N6onemkl4blas10gemm_batchERN4sycl5queueEN6onemkl9transposeEN6onemkl9transposeENSt7int64_tENSt7int64_tENSt7int64_tE1TPK1TNSt7int64_tENSt7int64_tEPK1TNSt7int64_tENSt7int64_tE1TP1TNSt7int64_tENSt7int64_tENSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="_CPPv2N6onemkl4blas10gemm_batchERN4sycl5queueEN6onemkl9transposeEN6onemkl9transposeENSt7int64_tENSt7int64_tENSt7int64_tE1TPK1TNSt7int64_tENSt7int64_tEPK1TNSt7int64_tENSt7int64_tE1TP1TNSt7int64_tENSt7int64_tENSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE"></span><span id="onemkl::blas::gemm_batch__sycl::queueR.onemkl::transpose.onemkl::transpose.std::int64_t.std::int64_t.std::int64_t.T.TCP.std::int64_t.std::int64_t.TCP.std::int64_t.std::int64_t.T.TP.std::int64_t.std::int64_t.std::int64_t.sycl::vector_class:sycl::event:CR"></span>sycl::event <code class="sig-prename descclassname">onemkl::blas<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">gemm_batch</code><span class="sig-paren">(</span>sycl::queue &amp;<em>queue</em>, onemkl::transpose <em>transa</em>, onemkl::transpose <em>transb</em>, std::int64_t <em>m</em>, std::int64_t <em>n</em>, std::int64_t <em>k</em>, T <em>alpha</em>, <em class="property">const</em> T *<em>a</em>, std::int64_t <em>lda</em>, std::int64_t <em>stridea</em>, <em class="property">const</em> T *<em>b</em>, std::int64_t <em>ldb</em>, std::int64_t <em>strideb</em>, T <em>beta</em>, T *<em>c</em>, std::int64_t <em>ldc</em>, std::int64_t <em>stridec</em>, std::int64_t <em>batch_size</em>, <em class="property">const</em> sycl::vector_class&lt;sycl::event&gt; &amp;<em>dependencies</em> = {}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onemkl4blas10gemm_batchERN4sycl5queueEN6onemkl9transposeEN6onemkl9transposeENSt7int64_tENSt7int64_tENSt7int64_tE1TPK1TNSt7int64_tENSt7int64_tEPK1TNSt7int64_tENSt7int64_tE1TP1TNSt7int64_tENSt7int64_tENSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Input Parameters</p>
+<dl class="simple">
+<dt>queue</dt><dd><p>The queue where the routine should be executed.</p>
+</dd>
+<dt>transa</dt><dd><p>Specifies <code class="docutils literal notranslate"><span class="pre">op(A)</span></code> the transposition operation applied to the
+matrices <code class="docutils literal notranslate"><span class="pre">A</span></code>. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
+</dd>
+<dt>transb</dt><dd><p>Specifies <code class="docutils literal notranslate"><span class="pre">op(B)</span></code> the transposition operation applied to the
+matrices <code class="docutils literal notranslate"><span class="pre">B</span></code>. See <a class="reference internal" href="../../architecture/architecture.html#onemkl-datatypes"><span class="std std-ref">oneMKL defined datatypes</span></a> for more details.</p>
+</dd>
+<dt>m</dt><dd><p>Number of rows of <code class="docutils literal notranslate"><span class="pre">op(A)</span></code> and <code class="docutils literal notranslate"><span class="pre">C</span></code>. Must be at least zero.</p>
+</dd>
+<dt>n</dt><dd><p>Number of columns of <code class="docutils literal notranslate"><span class="pre">op(B)</span></code> and <code class="docutils literal notranslate"><span class="pre">C</span></code>. Must be at least zero.</p>
+</dd>
+<dt>k</dt><dd><p>Number of columns of <code class="docutils literal notranslate"><span class="pre">op(A)</span></code> and rows of <code class="docutils literal notranslate"><span class="pre">op(B)</span></code>. Must be at
+least zero.</p>
+</dd>
+<dt>alpha</dt><dd><p>Scaling factor for the matrix-matrix products.</p>
+</dd>
+<dt>a</dt><dd><p>Pointer to input matrices <code class="docutils literal notranslate"><span class="pre">A</span></code> with size <code class="docutils literal notranslate"><span class="pre">stridea*batch_size</span></code>.</p>
+</dd>
+<dt>lda</dt><dd><p>Leading dimension of the matrices <code class="docutils literal notranslate"><span class="pre">A</span></code>. Must be at least <code class="docutils literal notranslate"><span class="pre">m</span></code> if
+the matrices <code class="docutils literal notranslate"><span class="pre">A</span></code> are not transposed, and at least <code class="docutils literal notranslate"><span class="pre">k</span></code> if the
+matrices <code class="docutils literal notranslate"><span class="pre">A</span></code> are transposed. Must be positive.</p>
+</dd>
+<dt>stridea</dt><dd><p>Stride between different <code class="docutils literal notranslate"><span class="pre">A</span></code> matrices.</p>
+</dd>
+<dt>b</dt><dd><p>Pointer to input matrices <code class="docutils literal notranslate"><span class="pre">B</span></code> with size <code class="docutils literal notranslate"><span class="pre">strideb*batch_size</span></code>.</p>
+</dd>
+<dt>ldb</dt><dd><p>Leading dimension of the matrices <code class="docutils literal notranslate"><span class="pre">B</span></code>. Must be at least <code class="docutils literal notranslate"><span class="pre">k</span></code> if
+the matrices <code class="docutils literal notranslate"><span class="pre">B</span></code> are not transposed, and at least <code class="docutils literal notranslate"><span class="pre">n</span></code> if the
+matrices <code class="docutils literal notranslate"><span class="pre">B</span></code> are transposed. Must be positive.</p>
+</dd>
+<dt>strideb</dt><dd><p>Stride between different <code class="docutils literal notranslate"><span class="pre">B</span></code> matrices.</p>
+</dd>
+<dt>beta</dt><dd><p>Scaling factor for the matrices <code class="docutils literal notranslate"><span class="pre">C</span></code>.</p>
+</dd>
+<dt>c</dt><dd><p>Pointer to input/output matrices <code class="docutils literal notranslate"><span class="pre">C</span></code> with size <code class="docutils literal notranslate"><span class="pre">stridec*batch_size</span></code>.</p>
+</dd>
+<dt>ldc</dt><dd><p>Leading dimension of <code class="docutils literal notranslate"><span class="pre">C</span></code>. Must be positive and at least <code class="docutils literal notranslate"><span class="pre">m</span></code>.</p>
+</dd>
+<dt>stridec</dt><dd><p>Stride between different <code class="docutils literal notranslate"><span class="pre">C</span></code> matrices.</p>
+</dd>
+<dt>batch_size</dt><dd><p>Specifies the number of matrix multiply operations to perform.</p>
+</dd>
+<dt>dependencies</dt><dd><p>List of events to wait for before starting computation, if any.
+If omitted, defaults to no dependencies.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Output Parameters</p>
+<dl class="simple">
+<dt>c</dt><dd><p>Output matrices, overwritten by <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> matrix multiply
+operations of the form <code class="docutils literal notranslate"><span class="pre">alpha*op(A)*op(B)</span> <span class="pre">+</span> <span class="pre">beta*C</span></code>.</p>
+</dd>
+</dl>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Notes</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">beta</span></code> = 0, matrix <code class="docutils literal notranslate"><span class="pre">C</span></code> does not need to be initialized before
+calling <code class="docutils literal notranslate"><span class="pre">gemm_batch</span></code>.</p>
+</div>
+<div class="section docutils container">
+<p class="sectiontitle rubric">Return Values</p>
+<p>Output event to wait on to ensure computation is complete.</p>
 </div>
 <div class="familylinks docutils container">
 <div class="parentlink docutils container">

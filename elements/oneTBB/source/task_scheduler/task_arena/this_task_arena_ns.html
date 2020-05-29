@@ -218,7 +218,7 @@ with the <code class="docutils literal notranslate"><span class="pre">task_arena
 <span class="p">}</span>
 </pre></div>
 </div>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv420current_thread_indexv">
 <span id="_CPPv320current_thread_indexv"></span><span id="_CPPv220current_thread_indexv"></span><span id="current_thread_index"></span>int <code class="sig-name descname">current_thread_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420current_thread_indexv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns the thread index in a <code class="docutils literal notranslate"><span class="pre">task_arena</span></code> currently used by the calling thread,
@@ -244,7 +244,7 @@ value while preserving the index in the outer arena which will be restored on re
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv415max_concurrencyv">
 <span id="_CPPv315max_concurrencyv"></span><span id="_CPPv215max_concurrencyv"></span><span id="max_concurrency"></span>int <code class="sig-name descname">max_concurrency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415max_concurrencyv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns the concurrency level of the <code class="docutils literal notranslate"><span class="pre">task_arena</span></code> currently used by the calling thread.
@@ -252,7 +252,7 @@ If the thread has not yet initialized the task scheduler, returns the concurrenc
 determined automatically for the hardware configuration.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt>
 <code class="sig-name descname">template&lt;F&gt; auto isolate(F&amp;&amp; f) -&gt; decltype(f())</code></dt>
 <dd><p>Runs the specified functor in isolation by restricting the calling thread to process only tasks

@@ -261,20 +261,20 @@ a reference to a specific input port.</p>
 </div>
 <div class="section" id="member-functions">
 <h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv412indexer_nodeR5graph">
 <span id="_CPPv312indexer_nodeR5graph"></span><span id="_CPPv212indexer_nodeR5graph"></span><span id="indexer_node__graphR"></span><code class="sig-name descname">indexer_node</code><span class="sig-paren">(</span><a class="reference internal" href="graph_cls.html#_CPPv45graphR18task_group_context" title="graph">graph</a> &amp;<em>g</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412indexer_nodeR5graph" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs an <code class="docutils literal notranslate"><span class="pre">indexer_node</span></code> that belongs to the graph <code class="docutils literal notranslate"><span class="pre">g</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv412indexer_nodeRK12indexer_node">
-<span id="_CPPv312indexer_nodeRK12indexer_node"></span><span id="_CPPv212indexer_nodeRK12indexer_node"></span><span id="indexer_node__indexer_nodeCR"></span><code class="sig-name descname">indexer_node</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv412indexer_nodeR5graph" title="indexer_node">indexer_node</a> &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412indexer_nodeRK12indexer_node" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv312indexer_nodeRK12indexer_node"></span><span id="_CPPv212indexer_nodeRK12indexer_node"></span><span id="indexer_node__indexer_nodeCR"></span><code class="sig-name descname">indexer_node</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv412indexer_nodeRK12indexer_node" title="indexer_node">indexer_node</a> &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412indexer_nodeRK12indexer_node" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs an <code class="docutils literal notranslate"><span class="pre">indexer_node</span></code>. The list of predecessors, messages
 in the input ports, and successors are not copied.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv411input_portsv">
 <span id="_CPPv311input_portsv"></span><span id="_CPPv211input_portsv"></span><span id="input_ports"></span>input_ports_type &amp;<code class="sig-name descname">input_ports</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
 <dd><p><strong>Returns</strong>: A <code class="docutils literal notranslate"><span class="pre">std::tuple</span></code> of receivers. Each element inherits
@@ -283,7 +283,7 @@ that input. Each tuple element can be used like any other
 <code class="docutils literal notranslate"><span class="pre">receiver&lt;T&gt;</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv47try_getR11output_type">
 <span id="_CPPv37try_getR11output_type"></span><span id="_CPPv27try_getR11output_type"></span><span id="try_get__output_typeR"></span>bool <code class="sig-name descname">try_get</code><span class="sig-paren">(</span>output_type &amp;<em>v</em><span class="sig-paren">)</span><br /></dt>
 <dd><p>An <code class="docutils literal notranslate"><span class="pre">indexer_node</span></code> contains no buffering and therefore does not

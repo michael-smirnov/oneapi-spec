@@ -239,13 +239,13 @@ that will be merged into a final value.</p>
 </div>
 <div class="section" id="member-functions">
 <h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv410combinablev">
 <span id="_CPPv310combinablev"></span><span id="_CPPv210combinablev"></span><code class="sig-name descname">combinable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410combinablev" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs <code class="docutils literal notranslate"><span class="pre">combinable</span></code> such that thread-local instances of <code class="docutils literal notranslate"><span class="pre">T</span></code> will be default-constructed.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I0E10combinable5FInit">
 <span id="_CPPv3I0E10combinable5FInit"></span><span id="_CPPv2I0E10combinable5FInit"></span>template&lt;typename <code class="sig-name descname">FInit</code>&gt;<br /><em class="property">explicit</em> <code class="sig-name descname">combinable</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0E10combinable5FInit" title="combinable::FInit">FInit</a> <em>finit</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0E10combinable5FInit" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs <code class="docutils literal notranslate"><span class="pre">combinable</span></code> such that thread-local elements will be created by copying the result of <em>finit()</em>.</p>
@@ -256,33 +256,33 @@ It is evaluated each time a new thread-local element is created.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv410combinableRK10combinable">
-<span id="_CPPv310combinableRK10combinable"></span><span id="_CPPv210combinableRK10combinable"></span><span id="combinable__combinableCR"></span><code class="sig-name descname">combinable</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410combinablev" title="combinable">combinable</a> &amp;<em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410combinableRK10combinable" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv310combinableRK10combinable"></span><span id="_CPPv210combinableRK10combinable"></span><span id="combinable__combinableCR"></span><code class="sig-name descname">combinable</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410combinableRK10combinable" title="combinable">combinable</a> &amp;<em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410combinableRK10combinable" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs a copy of <em>other</em>, so that it has copies of each element in <em>other</em> with the same thread mapping.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv410combinableRR10combinable">
-<span id="_CPPv310combinableRR10combinable"></span><span id="_CPPv210combinableRR10combinable"></span><span id="combinable__combinableRR"></span><code class="sig-name descname">combinable</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410combinablev" title="combinable">combinable</a> &amp;&amp;<em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410combinableRR10combinable" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv310combinableRR10combinable"></span><span id="_CPPv210combinableRR10combinable"></span><span id="combinable__combinableRR"></span><code class="sig-name descname">combinable</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410combinableRR10combinable" title="combinable">combinable</a> &amp;&amp;<em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410combinableRR10combinable" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs <code class="docutils literal notranslate"><span class="pre">combinable</span></code> by moving the content of <em>other</em> intact.
 <em>other</em> is left in an unspecified state but can be safely destroyed.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4D0v">
 <span id="_CPPv3D0v"></span><span id="_CPPv2D0v"></span><span id="~combinable"></span><code class="sig-name descname">~combinable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4D0v" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Destroys all elements in <code class="docutils literal notranslate"><span class="pre">*this</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4aSRK10combinable">
 <span id="_CPPv3aSRK10combinable"></span><span id="_CPPv2aSRK10combinable"></span><span id="assign-operator__combinableCR"></span><a class="reference internal" href="#_CPPv410combinablev" title="combinable">combinable</a> &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410combinablev" title="combinable">combinable</a> &amp;<em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4aSRK10combinable" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Sets <code class="docutils literal notranslate"><span class="pre">*this</span></code> to be a copy of <em>other</em>.
 Returns a refernce to <code class="docutils literal notranslate"><span class="pre">*this</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4aSRR10combinable">
 <span id="_CPPv3aSRR10combinable"></span><span id="_CPPv2aSRR10combinable"></span><span id="assign-operator__combinableRR"></span><a class="reference internal" href="#_CPPv410combinablev" title="combinable">combinable</a> &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410combinablev" title="combinable">combinable</a> &amp;&amp;<em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4aSRR10combinable" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Moves the content of <em>other</em> to <code class="docutils literal notranslate"><span class="pre">*this</span></code> intact.
@@ -290,20 +290,20 @@ Returns a refernce to <code class="docutils literal notranslate"><span class="pr
 Returns a reference to <code class="docutils literal notranslate"><span class="pre">*this</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv45clearv">
 <span id="_CPPv35clearv"></span><span id="_CPPv25clearv"></span><span id="clear"></span>void <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
 <dd><p>Removes all elements from <code class="docutils literal notranslate"><span class="pre">*this</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv45localv">
 <span id="_CPPv35localv"></span><span id="_CPPv25localv"></span><span id="local"></span>T &amp;<code class="sig-name descname">local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45localv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>If an element does not exist for the current thread, creates it.</p>
 <p><strong>Returns</strong>: Reference to thread-local element.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv45localRb">
 <span id="_CPPv35localRb"></span><span id="_CPPv25localRb"></span><span id="local__bR"></span>T &amp;<code class="sig-name descname">local</code><span class="sig-paren">(</span>bool &amp;<em>exists</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45localRb" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Similar to <code class="docutils literal notranslate"><span class="pre">local()</span></code>, except that <em>exists</em> is set to true
@@ -311,7 +311,7 @@ if an element was already present for the current thread; false otherwise.</p>
 <p><strong>Returns</strong>: Reference to thread-local element.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I0E7combine1T10BinaryFunc">
 <span id="_CPPv3I0E7combine10BinaryFunc"></span><span id="_CPPv2I0E7combine10BinaryFunc"></span>template&lt;typename <code class="sig-name descname">BinaryFunc</code>&gt;<br />T <code class="sig-name descname">combine</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0E7combine1T10BinaryFunc" title="combine::BinaryFunc">BinaryFunc</a> <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0E7combine1T10BinaryFunc" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><strong>Requires</strong>: A <code class="docutils literal notranslate"><span class="pre">BinaryFunc</span></code> shall meet the <cite>Function Objects</cite> requirements from [function.objects] ISO C++ Standard section.
@@ -323,7 +323,7 @@ If there are no elements, creates the result using the same rules as for creatin
 <p><strong>Returns</strong>: Result of the reduction.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I0E12combine_eachv9UnaryFunc">
 <span id="_CPPv3I0E12combine_each9UnaryFunc"></span><span id="_CPPv2I0E12combine_each9UnaryFunc"></span>template&lt;typename <code class="sig-name descname">UnaryFunc</code>&gt;<br />void <code class="sig-name descname">combine_each</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0E12combine_eachv9UnaryFunc" title="combine_each::UnaryFunc">UnaryFunc</a> <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0E12combine_eachv9UnaryFunc" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><strong>Requires</strong>: An <code class="docutils literal notranslate"><span class="pre">UnaryFunc</span></code> shall meet the <cite>Function Objects</cite> requirements from [function.objects] ISO C++ Standard section.

@@ -258,7 +258,7 @@ A <code class="docutils literal notranslate"><span class="pre">filter</span></co
 </div>
 <div class="section" id="member-functions">
 <h2>Member functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv46filterv">
 <span id="_CPPv36filterv"></span><span id="_CPPv26filterv"></span><code class="sig-name descname">filter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv46filterv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Construct an undefined filter.</p>
@@ -268,7 +268,7 @@ A <code class="docutils literal notranslate"><span class="pre">filter</span></co
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I0E6filter11filter_modeRK4Body">
 <span id="_CPPv3I0E6filter11filter_modeRK4Body"></span><span id="_CPPv2I0E6filter11filter_modeRK4Body"></span>template&lt;typename <code class="sig-name descname">Body</code>&gt;<br /><code class="sig-name descname">filter</code><span class="sig-paren">(</span>filter_mode <em>mode</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0E6filter11filter_modeRK4Body" title="filter::Body">Body</a> &amp;<em>body</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0E6filter11filter_modeRK4Body" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Construct a <code class="docutils literal notranslate"><span class="pre">filter</span></code> that uses a copy of a provided <code class="docutils literal notranslate"><span class="pre">body</span></code> to map an input value
@@ -276,7 +276,7 @@ of type <em>InputType</em> to an output value of type <em>OutputType</em>. Each 
 by <code class="docutils literal notranslate"><span class="pre">filter_mode</span></code> value.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv45clearv">
 <span id="_CPPv35clearv"></span><span id="_CPPv25clearv"></span><span id="clear"></span>void <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv45clearv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set <code class="docutils literal notranslate"><span class="pre">*this</span></code> to an undefined filter.</p>
@@ -285,13 +285,13 @@ by <code class="docutils literal notranslate"><span class="pre">filter_mode</spa
 </div>
 <div class="section" id="non-member-functions">
 <h2>Non-member functions<a class="headerlink" href="#non-member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I000E11make_filter6filterI1T1UEN6filter4modeERK4Func">
 <span id="_CPPv3I000E11make_filterN6filter4modeERK4Func"></span><span id="_CPPv2I000E11make_filterN6filter4modeERK4Func"></span>template&lt;typename <code class="sig-name descname">T</code>, typename <code class="sig-name descname">U</code>, typename <code class="sig-name descname">Func</code>&gt;<br /><a class="reference internal" href="#_CPPv46filterv" title="filter">filter</a>&lt;<a class="reference internal" href="#_CPPv4I000E11make_filter6filterI1T1UEN6filter4modeERK4Func" title="make_filter::T">T</a>, <a class="reference internal" href="#_CPPv4I000E11make_filter6filterI1T1UEN6filter4modeERK4Func" title="make_filter::U">U</a>&gt; <code class="sig-name descname">make_filter</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46filterv" title="filter">filter</a>::mode <em>mode</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I000E11make_filter6filterI1T1UEN6filter4modeERK4Func" title="make_filter::Func">Func</a> &amp;<em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I000E11make_filter6filterI1T1UEN6filter4modeERK4Func" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">filter&lt;T,</span> <span class="pre">U&gt;(mode,</span> <span class="pre">f)</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4I000Ean6filterI1T1UERK6filterI1T1VERK6filterI1V1UE">
 <span id="_CPPv3I000EanRK6filterI1T1VERK6filterI1V1UE"></span><span id="_CPPv2I000EanRK6filterI1T1VERK6filterI1V1UE"></span>template&lt;typename <code class="sig-name descname">T</code>, typename <code class="sig-name descname">V</code>, typename <code class="sig-name descname">U</code>&gt;<br /><a class="reference internal" href="#_CPPv46filterv" title="filter">filter</a>&lt;<a class="reference internal" href="#_CPPv4I000Ean6filterI1T1UERK6filterI1T1VERK6filterI1V1UE" title="operator&amp;::T">T</a>, <a class="reference internal" href="#_CPPv4I000Ean6filterI1T1UERK6filterI1T1VERK6filterI1V1UE" title="operator&amp;::U">U</a>&gt; <code class="sig-name descname">operator&amp;</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv46filterv" title="filter">filter</a>&lt;<a class="reference internal" href="#_CPPv4I000Ean6filterI1T1UERK6filterI1T1VERK6filterI1V1UE" title="operator&amp;::T">T</a>, <a class="reference internal" href="#_CPPv4I000Ean6filterI1T1UERK6filterI1T1VERK6filterI1V1UE" title="operator&amp;::V">V</a>&gt; &amp;<em>left</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv46filterv" title="filter">filter</a>&lt;<a class="reference internal" href="#_CPPv4I000Ean6filterI1T1UERK6filterI1T1VERK6filterI1V1UE" title="operator&amp;::V">V</a>, <a class="reference internal" href="#_CPPv4I000Ean6filterI1T1UERK6filterI1T1VERK6filterI1V1UE" title="operator&amp;::U">U</a>&gt; &amp;<em>right</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I000Ean6filterI1T1UERK6filterI1T1VERK6filterI1V1UE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns a <code class="docutils literal notranslate"><span class="pre">filter</span></code> representing the composition of filters <em>left</em> and <em>right</em>.

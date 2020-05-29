@@ -214,55 +214,55 @@ like <code class="docutils literal notranslate"><span class="pre">parallel_for</
 <li><p>The type <code class="docutils literal notranslate"><span class="pre">CR</span></code> meets the requirements of <a class="reference internal" href="../algorithms/range.html"><span class="doc">Range requirements</span></a>.</p></li>
 <li><p>The type <code class="docutils literal notranslate"><span class="pre">CR</span></code> provides the following member types and functions:</p>
 <blockquote>
-<div><dl class="type">
+<div><dl class="cpp type">
 <dt id="_CPPv4N2CR10value_typeE">
 <span id="_CPPv3N2CR10value_typeE"></span><span id="_CPPv2N2CR10value_typeE"></span><span id="CR::value_type"></span><em class="property">type </em><code class="sig-prename descclassname">CR<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">value_type</code><a class="headerlink" href="#_CPPv4N2CR10value_typeE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>The type of the item in the range.</p>
 </dd></dl>
 
-<dl class="type">
+<dl class="cpp type">
 <dt id="_CPPv4N2CR9referenceE">
 <span id="_CPPv3N2CR9referenceE"></span><span id="_CPPv2N2CR9referenceE"></span><span id="CR::reference"></span><em class="property">type </em><code class="sig-prename descclassname">CR<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">reference</code><a class="headerlink" href="#_CPPv4N2CR9referenceE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Reference type to the item in the range.</p>
 </dd></dl>
 
-<dl class="type">
+<dl class="cpp type">
 <dt id="_CPPv4N2CR15const_referenceE">
 <span id="_CPPv3N2CR15const_referenceE"></span><span id="_CPPv2N2CR15const_referenceE"></span><span id="CR::const_reference"></span><em class="property">type </em><code class="sig-prename descclassname">CR<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">const_reference</code><a class="headerlink" href="#_CPPv4N2CR15const_referenceE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constant reference type to the item in the range.</p>
 </dd></dl>
 
-<dl class="type">
+<dl class="cpp type">
 <dt id="_CPPv4N2CR8iteratorE">
 <span id="_CPPv3N2CR8iteratorE"></span><span id="_CPPv2N2CR8iteratorE"></span><span id="CR::iterator"></span><em class="property">type </em><code class="sig-prename descclassname">CR<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">iterator</code><a class="headerlink" href="#_CPPv4N2CR8iteratorE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Iterator type for range traversal.</p>
 </dd></dl>
 
-<dl class="type">
+<dl class="cpp type">
 <dt id="_CPPv4N2CR9size_typeE">
 <span id="_CPPv3N2CR9size_typeE"></span><span id="_CPPv2N2CR9size_typeE"></span><span id="CR::size_type"></span><em class="property">type </em><code class="sig-prename descclassname">CR<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">size_type</code><a class="headerlink" href="#_CPPv4N2CR9size_typeE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Unsigned integer type for obtaining grainsize.</p>
 </dd></dl>
 
-<dl class="type">
+<dl class="cpp type">
 <dt id="_CPPv4N2CR15difference_typeE">
 <span id="_CPPv3N2CR15difference_typeE"></span><span id="_CPPv2N2CR15difference_typeE"></span><span id="CR::difference_type"></span><em class="property">type </em><code class="sig-prename descclassname">CR<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">difference_type</code><a class="headerlink" href="#_CPPv4N2CR15difference_typeE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>The type of the difference between two iterators</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N2CR5beginEv">
 <span id="_CPPv3N2CR5beginEv"></span><span id="_CPPv2N2CR5beginEv"></span><span id="CR::begin"></span><a class="reference internal" href="#_CPPv4N2CR8iteratorE" title="CR::iterator">iterator</a> <code class="sig-prename descclassname">CR<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2CR5beginEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns iterator to the beginning of the range.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N2CR3endEv">
 <span id="_CPPv3N2CR3endEv"></span><span id="_CPPv2N2CR3endEv"></span><span id="CR::end"></span><a class="reference internal" href="#_CPPv4N2CR8iteratorE" title="CR::iterator">iterator</a> <code class="sig-prename descclassname">CR<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N2CR3endEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns iterator follows the last element in the range.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4NK2CR9grainsizeEv">
 <span id="_CPPv3NK2CR9grainsizeEv"></span><span id="_CPPv2NK2CR9grainsizeEv"></span><span id="CR::grainsizeC"></span><a class="reference internal" href="#_CPPv4N2CR9size_typeE" title="CR::size_type">size_type</a> <code class="sig-prename descclassname">CR<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">grainsize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK2CR9grainsizeEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Retuns the range grainsize.</p>

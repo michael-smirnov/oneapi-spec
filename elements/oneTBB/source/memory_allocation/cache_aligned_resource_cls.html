@@ -224,39 +224,39 @@ to ensure that all allocations are aligned on cache line boundaries to avoid fal
 </div>
 <div class="section" id="member-functions">
 <h2>Member Functions<a class="headerlink" href="#member-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv422cache_aligned_resourcev">
 <span id="_CPPv322cache_aligned_resourcev"></span><span id="_CPPv222cache_aligned_resourcev"></span><span id="cache_aligned_resource"></span><code class="sig-name descname">cache_aligned_resource</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422cache_aligned_resourcev" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs a <code class="docutils literal notranslate"><span class="pre">cache_aligned_resource</span></code> over <code class="docutils literal notranslate"><span class="pre">std::pmr::get_default_resource()</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv422cache_aligned_resourcePNSt3pmr15memory_resourceE">
 <span id="_CPPv322cache_aligned_resourcePNSt3pmr15memory_resourceE"></span><span id="_CPPv222cache_aligned_resourcePNSt3pmr15memory_resourceE"></span><span id="cache_aligned_resource__std::pmr::memory_resourceP"></span><em class="property">explicit</em> <code class="sig-name descname">cache_aligned_resource</code><span class="sig-paren">(</span>std::pmr::memory_resource *<em>r</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422cache_aligned_resourcePNSt3pmr15memory_resourceE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructs a <code class="docutils literal notranslate"><span class="pre">cache_aligned_resource</span></code> over the memory resource <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4NK17upstream_resourceEv">
 <span id="_CPPv3NK17upstream_resourceEv"></span><span id="_CPPv2NK17upstream_resourceEv"></span><span id="upstream_resourceC"></span>std::pmr::memory_resource *<code class="sig-name descname">upstream_resource</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK17upstream_resourceEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns the pointer to the underlying memory resource.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv411do_allocate6size_t6size_t">
 <span id="_CPPv311do_allocate6size_t6size_t"></span><span id="_CPPv211do_allocate6size_t6size_t"></span><span id="do_allocate__s.s"></span>void *<code class="sig-name descname">do_allocate</code><span class="sig-paren">(</span>size_t <em>n</em>, size_t <em>alignment</em><span class="sig-paren">)</span> <em class="property">override</em><a class="headerlink" href="#_CPPv411do_allocate6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Allocates <code class="docutils literal notranslate"><span class="pre">n</span></code> bytes of memory on a cache-line boundary, with alignment not less than requested.
 The allocation may include extra memory for padding. Returns pointer to the allocated memory.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv413do_deallocatePv6size_t6size_t">
 <span id="_CPPv313do_deallocatePv6size_t6size_t"></span><span id="_CPPv213do_deallocatePv6size_t6size_t"></span><span id="do_deallocate__voidP.s.s"></span>void <code class="sig-name descname">do_deallocate</code><span class="sig-paren">(</span>void *<em>p</em>, size_t <em>n</em>, size_t <em>alignment</em><span class="sig-paren">)</span> <em class="property">override</em><a class="headerlink" href="#_CPPv413do_deallocatePv6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Deallocates memory pointed to by p and any extra padding. Pointer <code class="docutils literal notranslate"><span class="pre">p</span></code> must be obtained with <code class="docutils literal notranslate"><span class="pre">do_allocate(n,</span> <span class="pre">alignment)</span></code>.
 The memory must not be deallocated beforehand.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4NK11do_is_equalERKNSt3pmr15memory_resourceE">
 <span id="_CPPv3NK11do_is_equalERKNSt3pmr15memory_resourceE"></span><span id="_CPPv2NK11do_is_equalERKNSt3pmr15memory_resourceE"></span><span id="do_is_equal__std::pmr::memory_resourceCRC"></span>bool <code class="sig-name descname">do_is_equal</code><span class="sig-paren">(</span><em class="property">const</em> std::pmr::memory_resource &amp;<em>other</em><span class="sig-paren">)</span> <em class="property">const</em> <em class="property">noexcept</em> <em class="property">override</em><a class="headerlink" href="#_CPPv4NK11do_is_equalERKNSt3pmr15memory_resourceE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Compares upstream memory resources of <code class="docutils literal notranslate"><span class="pre">*this</span></code> and <code class="docutils literal notranslate"><span class="pre">other</span></code>. If <code class="docutils literal notranslate"><span class="pre">other</span></code> is not a <code class="docutils literal notranslate"><span class="pre">cache_aligned_resource</span></code>, returns false.</p>
