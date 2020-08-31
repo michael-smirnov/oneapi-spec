@@ -1,85 +1,77 @@
+.. highlight:: cpp
+.. default-domain:: cpp
+
 .. _accessors:
 
 =========
 Accessors
 =========
 
-This section contain definisions of classes that implement :ref:`accessor`
-concept.
+This section defines :txtref:`requirements <accessor_reqs>` to an
+:txtref:`accessor` implementation and introduces several
+:txtref:`accessor_types`.
 
-------------------------------
-Requirements on accessor types
-------------------------------
+.. _accessor_reqs:
 
-Each implementation of :ref:`accessor` concept in |dal_short_name| shall follow
-next requirements:
+------------
+Requirements
+------------
 
-1. Define single :term:`format of the data <Data format>` of the
-   accessor. Every single accessor type shall provide only one :term:`format of
-   the data <Data format>` returned from it or put inside it.
+Each accessor implementation shall:
 
-2. Allow to make access to at least of one in-memory :ref:`dataset`
-   implementation (like :code:`table` or its sub-types or :ref:`table builders
-   <table-builder>`).
+1. Define a single :term:`format of the data <Data format>` for the
+   access. Every accessor type shall return and use only one data format.
 
-3. Allow to make read-only, write-only and read-write access to the data. If
-   accessor supports several :ref:`dataset` implementations to be passed in, it
-   is not necessary to support all access modes for every input object. For
-   example, tables shall support single read-only mode according to their
-   :ref:`concept <table>` definision.
+2. Provide read-only access to the data in the :txtref:`table` types.
 
-4. Shall name reading and writing operations consistently. Reading operation
-   name shall follow next pattern: :code:`pull_*()`, while writing operation
-   shall be named with accordance to folllowing: :code:`push_*()`.
+3. Provide the :code:`pull()` method for obtaining the values from the table.
 
-5. Shall be lightweight. Its constructors from :ref:`dataset` implementations
-   shall not have heavy operations like copy of data, reading, writing, any sort
-   of convertions. These operations shall be performed by heavy operations
-   :code:`pull_*()` and :code:`push_*()`. It is not necessary to have copy- or
-   move- constructors for accessor implementations since it shall be designed
-   for use in the local scope.
+4. Be lightweight. Its constructors shall not have computationally intensive
+   operations such data copy, reading, or conversion. These operations shall be
+   performed by method :code:`pull()`. Support of copy- and move- constructors
+   by the accessor is not required since it shall be designed for use in a local
+   scope - directly in a place when it is created.
 
-----------------------------------
-Accessor types in |dal_short_name|
-----------------------------------
+5. The :code:`pull()` method shall avoid data copy and conversion when it is
+   possible to return the pointer to the memory block in the table. This is
+   applicable for cases such as when the :capterm:`data format` and
+   :capterm:`data types <data type>` of the data within the table are the same as the
+   :capterm:`data format` and :capterm:`data type` for the access.
 
-|dal_short_name| defines a set of accessor classes each associated with single
-way how to interact with data inside a :ref:`dataset`. Next table briefly
-explains these classes and shows which :ref:`dataset` implementations are
-supported by each accessor.
+
+.. _accessor_types:
+
+--------------
+Accessor Types
+--------------
+
+|dal_short_name| defines a set of accessor classes. Each class supports one
+specific way of obtaining data from the :txtref:`table`.
+
+All accessor classes in |dal_short_name| are listed below:
 
 .. list-table::
    :header-rows: 1
-   :widths: 10 45 45
+   :widths: 25 50 25
 
    * - Accessor type
      - Description
      - List of supported types
-   * - row_accessor_
-     - Provides an access to the range of dataset rows as one :term:`contiguous
-       <Contiguous data>` and :term:`homogeneous <Homogeneous data>` block of memory.
-     - :code:`homogen_table`, :code:`soa_table`, :code:`aos_table`,
-       :code:`csr_table`, and their builders.
-   * - column_accessor_
-     - Provides an access to the values range of a single column as one
-       :term:`contiguous <Contiguous data>` and :term:`homogeneous <Homogeneous
+   * - :txtref:`row_accessor`
+     - Provides access to the range of rows as one :term:`contiguous
+       <Contiguous data>` :term:`homogeneous <Homogeneous data>` block of memory.
+     - :txtref:`homogen_table`
+   * - :txtref:`column_accessor`
+     - Provides access to the range of values within a single column as one
+       :term:`contiguous <Contiguous data>` :term:`homogeneous <Homogeneous
        data>` block of memory.
-     - :code:`homogen_table`, :code:`soa_table`, :code:`aos_table`,
-       :code:`csr_table`, and their builders.
+     - :txtref:`homogen_table`
 
+-------
+Details
+-------
 
-.. _row_accessor:
+.. toctree::
 
-------------
-Row accessor
-------------
-
-TBD
-
-.. _column_accessor:
-
----------------
-Column accessor
----------------
-
-TBD
+   accessor/column.rst
+   accessor/row.rst

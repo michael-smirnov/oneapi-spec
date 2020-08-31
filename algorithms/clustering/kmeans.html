@@ -40,7 +40,7 @@
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Nearest Neighbors (kNN)" href="../nearest_neighbors/index.html" />
+    <link rel="next" title="K-Means initialization" href="kmeans_init.html" />
     <link rel="prev" title="Clustering" href="index.html" /> 
 </head>
 
@@ -98,6 +98,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Algorithms</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Clustering</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">K-Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kmeans_init.html">K-Means initialization</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nearest_neighbors/index.html">Nearest Neighbors (kNN)</a></li>
@@ -176,10 +177,41 @@
            <div itemprop="articleBody">
             
   <div class="section" id="k-means">
-<h1>K-Means<a class="headerlink" href="#k-means" title="Permalink to this headline">¶</a></h1>
-<p>The K-Means algorithm partitions <span class="math notranslate nohighlight">\(n\)</span> feature vectors into <span class="math notranslate nohighlight">\(k\)</span>
-<em>clusters</em> minimizing some criterion. Each cluster is characterized by a
-representative point, called <em>a centroid</em>.</p>
+<span id="alg-kmeans"></span><h1>K-Means<a class="headerlink" href="#k-means" title="Permalink to this headline">¶</a></h1>
+<p>The K-Means algorithm solves <a class="reference internal" href="../../glossary.html#term-Clustering"><span class="xref std std-term">clustering</span></a> problem by partitioning
+<span class="math notranslate nohighlight">\(n\)</span> feature vectors into <span class="math notranslate nohighlight">\(k\)</span> clusters minimizing some criterion.
+Each cluster is characterized by a representative point, called <em>a centroid</em>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 37%" />
+<col style="width: 11%" />
+<col style="width: 15%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Operation</strong></p></td>
+<td><p><strong>Computational methods</strong></p></td>
+<td colspan="3"><p><strong>Programming Interface</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#kmeans-t-math">Training</a></p></td>
+<td><p><a class="reference internal" href="#kmeans-t-math-lloyd">Lloyd’s</a></p></td>
+<td><p><a class="reference internal" href="#kmeans-t-api">train(…)</a></p></td>
+<td><p><a class="reference internal" href="#kmeans-t-api-input">train_input</a></p></td>
+<td><p><a class="reference internal" href="#kmeans-t-api-result">train_result</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#kmeans-i-math">Inference</a></p></td>
+<td><p><a class="reference internal" href="#kmeans-i-math-lloyd">Lloyd’s</a></p></td>
+<td><p><a class="reference internal" href="#kmeans-i-api">infer(…)</a></p></td>
+<td><p><a class="reference internal" href="#kmeans-i-api-input">infer_input</a></p></td>
+<td><p><a class="reference internal" href="#kmeans-i-api-result">infer_result</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="mathematical-formulation">
+<h2>Mathematical formulation<a class="headerlink" href="#mathematical-formulation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="training">
+<span id="kmeans-t-math"></span><h3>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h3>
 <p>Given the training set <span class="math notranslate nohighlight">\(X = \{ x_1, \ldots, x_n \}\)</span> of
 <span class="math notranslate nohighlight">\(p\)</span>-dimensional feature vectors and a positive integer <span class="math notranslate nohighlight">\(k\)</span>, the
 problem is to find a set <span class="math notranslate nohighlight">\(C = \{ c_1, \ldots, c_k \}\)</span> of
@@ -196,8 +228,8 @@ the closest centroid in <span class="math notranslate nohighlight">\(C\)</span>,
 <p>In the general case, <span class="math notranslate nohighlight">\(d\)</span> may be an arbitrary distance function. Current
 version of the oneDAL spec defines only Euclidean distance case.</p>
 </div>
-<div class="section" id="lloyd-s-method">
-<h2>Lloyd’s method<a class="headerlink" href="#lloyd-s-method" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="training-method-lloyd-s">
+<span id="kmeans-t-math-lloyd"></span><h4>Training method: <em>Lloyd’s</em><a class="headerlink" href="#training-method-lloyd-s" title="Permalink to this headline">¶</a></h4>
 <p>The Lloyd’s method <a class="reference internal" href="../../bibliography.html#lloyd82" id="id1"><span>[Lloyd82]</span></a> consists in iterative updates of centroids by
 applying the alternating <em>Assignment</em> and <em>Update</em> steps, where <span class="math notranslate nohighlight">\(t\)</span>
 denotes a index of the current iteration, e.g., <span class="math notranslate nohighlight">\(C^{(t)} = \{ c_1^{(t)},
@@ -223,17 +255,35 @@ to each cluster.</p>
 <p>is satisfied or number of iterations exceeds the maximal value <span class="math notranslate nohighlight">\(T\)</span> defined
 by the user.</p>
 </div>
+</div>
+<div class="section" id="inference">
+<span id="kmeans-i-math"></span><h3>Inference<a class="headerlink" href="#inference" title="Permalink to this headline">¶</a></h3>
+<p>Given the inference set <span class="math notranslate nohighlight">\(X' = \{ x_1', \ldots, x_m' \}\)</span> of
+<span class="math notranslate nohighlight">\(p\)</span>-dimensional feature vectors and the set <span class="math notranslate nohighlight">\(C = \{ c_1, \ldots, c_k
+\}\)</span> of centroids produced at the training stage, the problem is to predict the
+index <span class="math notranslate nohighlight">\(y_j' \in \{ 0, \ldots, k-1 \}\)</span>, <span class="math notranslate nohighlight">\(1 \leq j \leq m\)</span>, of the
+centroid in accordance with a method-defined rule.</p>
+<div class="section" id="inference-method-lloyd-s">
+<span id="kmeans-i-math-lloyd"></span><h4>Inference method: <em>Lloyd’s</em><a class="headerlink" href="#inference-method-lloyd-s" title="Permalink to this headline">¶</a></h4>
+<p>Lloyd’s inference method computes the <span class="math notranslate nohighlight">\(y_j'\)</span> as an index of the centroid
+closest to the feature vector <span class="math notranslate nohighlight">\(x_j'\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[y_j' = \mathrm{arg}\min_{1 \leq l \leq k} \| x_j' - c_l \|^2, \quad 1 \leq j \leq m.\]</div>
+</div>
+</div>
+</div>
 <div class="section" id="usage-example">
 <h2>Usage example<a class="headerlink" href="#usage-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">onedal</span><span class="o">::</span><span class="n">kmeans</span><span class="o">::</span><span class="n">model</span> <span class="n">run_training</span><span class="p">(</span><span class="k">const</span> <span class="n">onedal</span><span class="o">::</span><span class="n">table</span><span class="o">&amp;</span> <span class="n">data</span><span class="p">,</span>
-                                   <span class="k">const</span> <span class="n">onedal</span><span class="o">::</span><span class="n">table</span><span class="o">&amp;</span> <span class="n">initial_centroids</span><span class="p">)</span> <span class="p">{</span>
-
-   <span class="k">const</span> <span class="k">auto</span> <span class="n">kmeans_desc</span> <span class="o">=</span> <span class="n">onedal</span><span class="o">::</span><span class="n">kmeans</span><span class="o">::</span><span class="n">desc</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">{}</span>
+<div class="section" id="id2">
+<h3>Training<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans</span><span class="o">::</span><span class="n">model</span><span class="o">&lt;&gt;</span> <span class="n">run_training</span><span class="p">(</span><span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">data</span><span class="p">,</span>
+                             <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">initial_centroids</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">const</span> <span class="k">auto</span> <span class="n">kmeans_desc</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">::</span><span class="n">descriptor</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">{}</span>
       <span class="p">.</span><span class="n">set_cluster_count</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
       <span class="p">.</span><span class="n">set_max_iteration_count</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
       <span class="p">.</span><span class="n">set_accuracy_threshold</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">);</span>
 
-   <span class="k">const</span> <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">onedal</span><span class="o">::</span><span class="n">train</span><span class="p">(</span><span class="n">kmeans_desc</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">initial_centroids</span><span class="p">);</span>
+   <span class="k">const</span> <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">kmeans_desc</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">initial_centroids</span><span class="p">);</span>
 
    <span class="n">print_table</span><span class="p">(</span><span class="s">&quot;labels&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">get_labels</span><span class="p">());</span>
    <span class="n">print_table</span><span class="p">(</span><span class="s">&quot;centroids&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">get_model</span><span class="p">().</span><span class="n">get_centroids</span><span class="p">());</span>
@@ -243,178 +293,215 @@ by the user.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">onedal</span><span class="o">::</span><span class="n">table</span> <span class="n">run_inference</span><span class="p">(</span><span class="k">const</span> <span class="n">onedal</span><span class="o">::</span><span class="n">kmeans</span><span class="o">::</span><span class="n">model</span><span class="o">&amp;</span> <span class="n">model</span><span class="p">,</span>
-                            <span class="k">const</span> <span class="n">onedal</span><span class="o">::</span><span class="n">table</span><span class="o">&amp;</span> <span class="n">new_data</span><span class="p">)</span> <span class="p">{</span>
-
-   <span class="k">const</span> <span class="k">auto</span> <span class="n">kmeans_desc</span> <span class="o">=</span> <span class="n">onedal</span><span class="o">::</span><span class="n">kmeans</span><span class="o">::</span><span class="n">desc</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">{}</span>
+</div>
+<div class="section" id="id3">
+<h3>Inference<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">table</span> <span class="nf">run_inference</span><span class="p">(</span><span class="k">const</span> <span class="n">kmeans</span><span class="o">::</span><span class="n">model</span><span class="o">&lt;&gt;&amp;</span> <span class="n">model</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">new_data</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">const</span> <span class="k">auto</span> <span class="n">kmeans_desc</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">::</span><span class="n">descriptor</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">{}</span>
       <span class="p">.</span><span class="n">set_cluster_count</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">get_cluster_count</span><span class="p">());</span>
 
-   <span class="k">const</span> <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">onedal</span><span class="o">::</span><span class="n">infer</span><span class="p">(</span><span class="n">kmeans_desc</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">new_data</span><span class="p">);</span>
+   <span class="k">const</span> <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">infer</span><span class="p">(</span><span class="n">kmeans_desc</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">new_data</span><span class="p">);</span>
 
    <span class="n">print_table</span><span class="p">(</span><span class="s">&quot;labels&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">get_labels</span><span class="p">());</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="api">
-<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="methods">
-<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="programming-interface">
+<h2>Programming Interface<a class="headerlink" href="#programming-interface" title="Permalink to this headline">¶</a></h2>
+<p>All types and functions in this section shall be declared in the
+<code class="docutils literal notranslate"><span class="pre">oneapi::dal::kmeans</span></code> namespace and be available via inclusion of the
+<code class="docutils literal notranslate"><span class="pre">oneapi/dal/algo/kmeans.hpp</span></code> header file.</p>
+<div class="section" id="descriptor">
+<h3>Descriptor<a class="headerlink" href="#descriptor" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Float</span> <span class="o">=</span> <span class="kt">float</span><span class="p">,</span>
+          <span class="k">typename</span> <span class="n">Method</span> <span class="o">=</span> <span class="n">method</span><span class="o">::</span><span class="n">by_default</span><span class="p">,</span>
+          <span class="k">typename</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">task</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">descriptor</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+   <span class="k">explicit</span> <span class="n">descriptor</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span> <span class="n">cluster_count</span> <span class="o">=</span> <span class="mi">2</span><span class="p">);</span>
+
+   <span class="kt">int64_t</span> <span class="nf">get_cluster_count</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+   <span class="n">descriptor</span><span class="o">&amp;</span> <span class="n">set_cluster_count</span><span class="p">(</span><span class="kt">int64_t</span><span class="p">);</span>
+
+   <span class="kt">int64_t</span> <span class="nf">get_max_iteration_count</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+   <span class="n">descriptor</span><span class="o">&amp;</span> <span class="n">set_max_iteration_count</span><span class="p">(</span><span class="kt">int64_t</span><span class="p">);</span>
+
+   <span class="kt">double</span> <span class="nf">get_accuracy_threshold</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+   <span class="n">descriptor</span><span class="o">&amp;</span> <span class="n">set_accuracy_threshold</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4I000EN6oneapi3dal6kmeans10descriptorE">
+<span id="_CPPv3I000EN6oneapi3dal6kmeans10descriptorE"></span><span id="_CPPv2I000EN6oneapi3dal6kmeans10descriptorE"></span>template&lt;typename <code class="sig-name descname">Float</code> = float, typename <code class="sig-name descname">Method</code> = method::<a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans6method10by_defaultE" title="oneapi::dal::kmeans::method::by_default">by_default</a>, typename <code class="sig-name descname">Task</code> = task::<a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans4task10by_defaultE" title="oneapi::dal::kmeans::task::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">descriptor</code><a class="headerlink" href="#_CPPv4I000EN6oneapi3dal6kmeans10descriptorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Float</strong> – The floating-point type that the algorithm uses for intermediate computations. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
+<li><p><strong>Method</strong> – Tag-type that specifies an implementation of algorithm. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">method</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans6method5lloydE" title="oneapi::dal::kmeans::method::lloyd"><span class="pre">lloyd</span></a></code>.</p></li>
+<li><p><strong>Task</strong> – Tag-type that specifies the type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans4task10clusteringE" title="oneapi::dal::kmeans::task::clustering"><span class="pre">clustering</span></a></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal6kmeans10descriptor10descriptorENSt7int64_tE">
+<span id="_CPPv3N6oneapi3dal6kmeans10descriptor10descriptorENSt7int64_tE"></span><span id="_CPPv2N6oneapi3dal6kmeans10descriptor10descriptorENSt7int64_tE"></span><span id="oneapi::dal::kmeans::descriptor::descriptor__std::int64_t"></span><code class="sig-name descname">descriptor</code><span class="sig-paren">(</span>std::int64_t <em>cluster_count</em> = 2<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal6kmeans10descriptor10descriptorENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of the class with the given <code class="docutils literal notranslate"><span class="pre">cluster_count</span></code>.</p>
+</dd></dl>
+
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N39oneapi_dal_kmeans_descriptor_properties13cluster_countE">
+<span id="_CPPv3N39oneapi_dal_kmeans_descriptor_properties13cluster_countE"></span><span id="_CPPv2N39oneapi_dal_kmeans_descriptor_properties13cluster_countE"></span><span id="oneapi_dal_kmeans_descriptor_properties::cluster_count__int64_t"></span>int64_t <code class="sig-name descname">cluster_count</code> = 2<a class="headerlink" href="#_CPPv4N39oneapi_dal_kmeans_descriptor_properties13cluster_countE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The number of clusters <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">int64_t</span> <span class="pre">get_cluster_count()</span> <span class="pre">const</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">descriptor</span> <span class="pre">&amp;</span> <span class="pre">set_cluster_count(int64_t)</span></code></div>
+</div>
+</dd>
+<dt>Invariants</dt><dd><div class="line-block">
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N39oneapi_dal_kmeans_descriptor_properties13cluster_countE" title="oneapi_dal_kmeans_descriptor_properties::cluster_count"><span class="pre">cluster_count</span></a> <span class="pre">&gt;</span> <span class="pre">0</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp member">
+<dt id="_CPPv4N39oneapi_dal_kmeans_descriptor_properties19max_iteration_countE">
+<span id="_CPPv3N39oneapi_dal_kmeans_descriptor_properties19max_iteration_countE"></span><span id="_CPPv2N39oneapi_dal_kmeans_descriptor_properties19max_iteration_countE"></span><span id="oneapi_dal_kmeans_descriptor_properties::max_iteration_count__int64_t"></span>int64_t <code class="sig-name descname">max_iteration_count</code> = 100<a class="headerlink" href="#_CPPv4N39oneapi_dal_kmeans_descriptor_properties19max_iteration_countE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum number of iterations <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">int64_t</span> <span class="pre">get_max_iteration_count()</span> <span class="pre">const</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">descriptor</span> <span class="pre">&amp;</span> <span class="pre">set_max_iteration_count(int64_t)</span></code></div>
+</div>
+</dd>
+<dt>Invariants</dt><dd><div class="line-block">
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N39oneapi_dal_kmeans_descriptor_properties19max_iteration_countE" title="oneapi_dal_kmeans_descriptor_properties::max_iteration_count"><span class="pre">max_iteration_count</span></a> <span class="pre">&gt;=</span> <span class="pre">0</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp member">
+<dt id="_CPPv4N39oneapi_dal_kmeans_descriptor_properties18accuracy_thresholdE">
+<span id="_CPPv3N39oneapi_dal_kmeans_descriptor_properties18accuracy_thresholdE"></span><span id="_CPPv2N39oneapi_dal_kmeans_descriptor_properties18accuracy_thresholdE"></span><span id="oneapi_dal_kmeans_descriptor_properties::accuracy_threshold__double"></span>double <code class="sig-name descname">accuracy_threshold</code> = 0.0<a class="headerlink" href="#_CPPv4N39oneapi_dal_kmeans_descriptor_properties18accuracy_thresholdE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The threshold <span class="math notranslate nohighlight">\(\varepsilon\)</span> for the stop condition.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">get_accuracy_threshold()</span> <span class="pre">const</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">descriptor</span> <span class="pre">&amp;</span> <span class="pre">set_accuracy_threshold(double)</span></code></div>
+</div>
+</dd>
+<dt>Invariants</dt><dd><div class="line-block">
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N39oneapi_dal_kmeans_descriptor_properties18accuracy_thresholdE" title="oneapi_dal_kmeans_descriptor_properties::accuracy_threshold"><span class="pre">accuracy_threshold</span></a> <span class="pre">&gt;=</span> <span class="pre">0.0</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="method-tags">
+<h4>Method tags<a class="headerlink" href="#method-tags" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">method</span> <span class="p">{</span>
    <span class="k">struct</span> <span class="n">lloyd</span> <span class="p">{};</span>
    <span class="k">using</span> <span class="n">by_default</span> <span class="o">=</span> <span class="n">lloyd</span><span class="p">;</span>
 <span class="p">}</span> <span class="c1">// namespace method</span>
 </pre></div>
 </div>
-<dl class="struct">
-<dt id="_CPPv4N6onedal6kmeans6method5lloydE">
-<span id="_CPPv3N6onedal6kmeans6method5lloydE"></span><span id="_CPPv2N6onedal6kmeans6method5lloydE"></span><span id="onedal::kmeans::method::lloyd"></span><em class="property">struct </em><code class="sig-name descname">lloyd</code><a class="headerlink" href="#_CPPv4N6onedal6kmeans6method5lloydE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Tag-type that denotes <a class="reference internal" href="#lloyd-s-method">Lloyd’s method</a>.</p>
+<dl class="cpp struct">
+<dt id="_CPPv4N6oneapi3dal6kmeans6method5lloydE">
+<span id="_CPPv3N6oneapi3dal6kmeans6method5lloydE"></span><span id="_CPPv2N6oneapi3dal6kmeans6method5lloydE"></span><span id="oneapi::dal::kmeans::method::lloyd"></span><em class="property">struct </em><code class="sig-name descname">lloyd</code><a class="headerlink" href="#_CPPv4N6oneapi3dal6kmeans6method5lloydE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tag-type that denotes <a class="reference internal" href="#kmeans-t-math-lloyd">Lloyd’s</a> computational method.</p>
 </dd></dl>
 
-<dl class="type">
-<dt id="_CPPv4N6onedal6kmeans6method10by_defaultE">
-<span id="_CPPv3N6onedal6kmeans6method10by_defaultE"></span><span id="_CPPv2N6onedal6kmeans6method10by_defaultE"></span><em class="property">using </em><code class="sig-name descname">by_default</code> = <a class="reference internal" href="#_CPPv4N6onedal6kmeans6method5lloydE" title="onedal::kmeans::method::lloyd">lloyd</a><a class="headerlink" href="#_CPPv4N6onedal6kmeans6method10by_defaultE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Alias tag-type for the <a class="reference internal" href="#lloyd-s-method">Lloyd’s method</a>.</p>
+<dl class="cpp type">
+<dt id="_CPPv4N6oneapi3dal6kmeans6method10by_defaultE">
+<span id="_CPPv3N6oneapi3dal6kmeans6method10by_defaultE"></span><span id="_CPPv2N6oneapi3dal6kmeans6method10by_defaultE"></span><em class="property">using </em><code class="sig-name descname">by_default</code> = <a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans6method5lloydE" title="oneapi::dal::kmeans::method::lloyd">lloyd</a><a class="headerlink" href="#_CPPv4N6oneapi3dal6kmeans6method10by_defaultE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Alias tag-type for <a class="reference internal" href="#kmeans-t-math-lloyd">Lloyd’s</a> computational method.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="descriptor">
-<h3>Descriptor<a class="headerlink" href="#descriptor" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Float</span> <span class="o">=</span> <span class="kt">float</span><span class="p">,</span>
-          <span class="k">typename</span> <span class="n">Method</span> <span class="o">=</span> <span class="n">method</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">desc</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-   <span class="n">desc</span><span class="p">();</span>
-
-   <span class="kt">int64_t</span> <span class="nf">get_cluster_count</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-   <span class="kt">int64_t</span> <span class="nf">get_max_iteration_count</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-   <span class="kt">double</span> <span class="nf">get_accuracy_threshold</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-
-   <span class="n">desc</span><span class="o">&amp;</span> <span class="n">set_cluster_count</span><span class="p">(</span><span class="kt">int64_t</span><span class="p">);</span>
-   <span class="n">desc</span><span class="o">&amp;</span> <span class="n">set_max_iteration_count</span><span class="p">(</span><span class="kt">int64_t</span><span class="p">);</span>
-   <span class="n">desc</span><span class="o">&amp;</span> <span class="n">set_accuracy_threshold</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span>
-<span class="p">};</span>
+<div class="section" id="task-tags">
+<h4>Task tags<a class="headerlink" href="#task-tags" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">task</span> <span class="p">{</span>
+   <span class="k">struct</span> <span class="n">clustering</span> <span class="p">{};</span>
+   <span class="k">using</span> <span class="n">by_default</span> <span class="o">=</span> <span class="n">clustering</span><span class="p">;</span>
+<span class="p">}</span> <span class="c1">// namespace task</span>
 </pre></div>
 </div>
-<dl class="class">
-<dt id="_CPPv4I00EN6onedal6kmeans4descE">
-<span id="_CPPv3I00EN6onedal6kmeans4descE"></span><span id="_CPPv2I00EN6onedal6kmeans4descE"></span>template&lt;typename <code class="sig-name descname">Float</code> = float, typename <code class="sig-name descname">Method</code> = method::<a class="reference internal" href="#_CPPv4N6onedal6kmeans6method10by_defaultE" title="onedal::kmeans::method::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">desc</code><a class="headerlink" href="#_CPPv4I00EN6onedal6kmeans4descE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Template Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>Float</strong> – The floating-point type that the algorithm uses for
-intermediate computations. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
-<li><p><strong>Method</strong> – Tag-type that specifies an implementation of K-Means
-algorithm. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">method</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6onedal6kmeans6method5lloydE" title="onedal::kmeans::method::lloyd"><span class="pre">lloyd</span></a></code> or
-<code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">method</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6onedal6kmeans6method10by_defaultE" title="onedal::kmeans::method::by_default"><span class="pre">by_default</span></a></code>.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="function">
-<dt id="_CPPv4N6onedal6kmeans4desc4descEv">
-<span id="_CPPv3N6onedal6kmeans4desc4descEv"></span><span id="_CPPv2N6onedal6kmeans4desc4descEv"></span><span id="onedal::kmeans::desc::desc"></span><code class="sig-name descname">desc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans4desc4descEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates new instance of descriptor with the default attribute values.</p>
+<dl class="cpp struct">
+<dt id="_CPPv4N6oneapi3dal6kmeans4task10clusteringE">
+<span id="_CPPv3N6oneapi3dal6kmeans4task10clusteringE"></span><span id="_CPPv2N6oneapi3dal6kmeans4task10clusteringE"></span><span id="oneapi::dal::kmeans::task::clustering"></span><em class="property">struct </em><code class="sig-name descname">clustering</code><a class="headerlink" href="#_CPPv4N6oneapi3dal6kmeans4task10clusteringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tag-type that parametrizes entities used for solving <a class="reference internal" href="../../glossary.html#term-Clustering"><span class="xref std std-term">clustering problem</span></a>.</p>
 </dd></dl>
 
-<dl class="member">
-<dt id="_CPPv4N6onedal6kmeans4desc13cluster_countE">
-<span id="_CPPv3N6onedal6kmeans4desc13cluster_countE"></span><span id="_CPPv2N6onedal6kmeans4desc13cluster_countE"></span><span id="onedal::kmeans::desc::cluster_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">cluster_count</code> = 2<a class="headerlink" href="#_CPPv4N6onedal6kmeans4desc13cluster_countE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The number of clusters <span class="math notranslate nohighlight">\(k\)</span>.</p>
-<dl>
-<dt>Getter &amp; Setter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">std::int64_t</span> <span class="pre">get_cluster_count()</span> <span class="pre">const</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">desc&amp;</span> <span class="pre">set_cluster_count(std::int64_t)</span></code></div>
-</div>
-</dd>
-<dt>Invariants</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans4desc13cluster_countE" title="onedal::kmeans::desc::cluster_count"><span class="pre">cluster_count</span></a> <span class="pre">&gt;</span> <span class="pre">0</span></code></div>
-</div>
-</dd>
-</dl>
+<dl class="cpp type">
+<dt id="_CPPv4N6oneapi3dal6kmeans4task10by_defaultE">
+<span id="_CPPv3N6oneapi3dal6kmeans4task10by_defaultE"></span><span id="_CPPv2N6oneapi3dal6kmeans4task10by_defaultE"></span><em class="property">using </em><code class="sig-name descname">by_default</code> = <a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans4task10clusteringE" title="oneapi::dal::kmeans::task::clustering">clustering</a><a class="headerlink" href="#_CPPv4N6oneapi3dal6kmeans4task10by_defaultE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Alias tag-type for the clustering task.</p>
 </dd></dl>
 
-<dl class="member">
-<dt id="_CPPv4N6onedal6kmeans4desc19max_iteration_countE">
-<span id="_CPPv3N6onedal6kmeans4desc19max_iteration_countE"></span><span id="_CPPv2N6onedal6kmeans4desc19max_iteration_countE"></span><span id="onedal::kmeans::desc::max_iteration_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">max_iteration_count</code> = 100<a class="headerlink" href="#_CPPv4N6onedal6kmeans4desc19max_iteration_countE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The maximum number of iterations <span class="math notranslate nohighlight">\(T\)</span>.</p>
-<dl>
-<dt>Getter &amp; Setter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">std::int64_t</span> <span class="pre">get_max_iteration_count()</span> <span class="pre">const</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">desc&amp;</span> <span class="pre">set_max_iteration_count(std::int64_t)</span></code></div>
 </div>
-</dd>
-<dt>Invariants</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans4desc19max_iteration_countE" title="onedal::kmeans::desc::max_iteration_count"><span class="pre">max_iteration_count</span></a> <span class="pre">&gt;=</span> <span class="pre">0</span></code></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal6kmeans4desc18accuracy_thresholdE">
-<span id="_CPPv3N6onedal6kmeans4desc18accuracy_thresholdE"></span><span id="_CPPv2N6onedal6kmeans4desc18accuracy_thresholdE"></span><span id="onedal::kmeans::desc::accuracy_threshold__double"></span>double <code class="sig-name descname">accuracy_threshold</code> = 0.0<a class="headerlink" href="#_CPPv4N6onedal6kmeans4desc18accuracy_thresholdE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The threshold <span class="math notranslate nohighlight">\(\varepsilon\)</span> for the stop condition.</p>
-<dl>
-<dt>Getter &amp; Setter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">get_accuracy_threshold()</span> <span class="pre">const</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">desc&amp;</span> <span class="pre">set_accuracy_threshold(double)</span></code></div>
-</div>
-</dd>
-<dt>Invariants</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans4desc18accuracy_thresholdE" title="onedal::kmeans::desc::accuracy_threshold"><span class="pre">accuracy_threshold</span></a> <span class="pre">&gt;=</span> <span class="pre">0.0</span></code></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </div>
 <div class="section" id="model">
 <h3>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">model</span> <span class="p">{</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">task</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">model</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
    <span class="n">model</span><span class="p">();</span>
 
    <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_centroids</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
    <span class="kt">int64_t</span> <span class="nf">get_cluster_count</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
-<dt id="_CPPv4N6onedal6kmeans5modelE">
-<span id="_CPPv3N6onedal6kmeans5modelE"></span><span id="_CPPv2N6onedal6kmeans5modelE"></span><span id="onedal::kmeans::model"></span><em class="property">class </em><code class="sig-name descname">model</code><a class="headerlink" href="#_CPPv4N6onedal6kmeans5modelE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
-<dt id="_CPPv4N6onedal6kmeans5model5modelEv">
-<span id="_CPPv3N6onedal6kmeans5model5modelEv"></span><span id="_CPPv2N6onedal6kmeans5model5modelEv"></span><span id="onedal::kmeans::model::model"></span><code class="sig-name descname">model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans5model5modelEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates a model with the default attribute values.</p>
+<dl class="cpp class">
+<dt id="_CPPv4I0EN6oneapi3dal6kmeans5modelE">
+<span id="_CPPv3I0EN6oneapi3dal6kmeans5modelE"></span><span id="_CPPv2I0EN6oneapi3dal6kmeans5modelE"></span>template&lt;typename <code class="sig-name descname">Task</code> = task::<a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans4task10by_defaultE" title="oneapi::dal::kmeans::task::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">model</code><a class="headerlink" href="#_CPPv4I0EN6oneapi3dal6kmeans5modelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans4task10clusteringE" title="oneapi::dal::kmeans::task::clustering"><span class="pre">clustering</span></a></code>.</p>
+</dd>
+</dl>
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal6kmeans5model5modelEv">
+<span id="_CPPv3N6oneapi3dal6kmeans5model5modelEv"></span><span id="_CPPv2N6oneapi3dal6kmeans5model5modelEv"></span><span id="oneapi::dal::kmeans::model::model"></span><code class="sig-name descname">model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal6kmeans5model5modelEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of the class with the default property values.</p>
 </dd></dl>
 
-<dl class="member">
-<dt id="_CPPv4N6onedal6kmeans5model9centroidsE">
-<span id="_CPPv3N6onedal6kmeans5model9centroidsE"></span><span id="_CPPv2N6onedal6kmeans5model9centroidsE"></span><span id="onedal::kmeans::model::centroids__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">centroids</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans5model9centroidsE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><span class="math notranslate nohighlight">\(k \times p\)</span> table with the cluster centroids. Each row of the table
-stores one centroid.</p>
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N34oneapi_dal_kmeans_model_properties9centroidsE">
+<span id="_CPPv3N34oneapi_dal_kmeans_model_properties9centroidsE"></span><span id="_CPPv2N34oneapi_dal_kmeans_model_properties9centroidsE"></span><span id="oneapi_dal_kmeans_model_properties::centroids__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">centroids</code> = table{}<a class="headerlink" href="#_CPPv4N34oneapi_dal_kmeans_model_properties9centroidsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A <span class="math notranslate nohighlight">\(k \times p\)</span> table with the cluster centroids. Each row of the table stores one centroid.</p>
 <dl>
-<dt>Getter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table&amp;</span> <span class="pre">get_centroids()</span> <span class="pre">const</span></code></div>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_centroids()</span> <span class="pre">const</span></code></div>
 </div>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="member">
-<dt id="_CPPv4N6onedal6kmeans5model13cluster_countE">
-<span id="_CPPv3N6onedal6kmeans5model13cluster_countE"></span><span id="_CPPv2N6onedal6kmeans5model13cluster_countE"></span><span id="onedal::kmeans::model::cluster_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">cluster_count</code> = 0<a class="headerlink" href="#_CPPv4N6onedal6kmeans5model13cluster_countE" title="Permalink to this definition">¶</a><br /></dt>
+<dl class="cpp member">
+<dt id="_CPPv4N34oneapi_dal_kmeans_model_properties13cluster_countE">
+<span id="_CPPv3N34oneapi_dal_kmeans_model_properties13cluster_countE"></span><span id="_CPPv2N34oneapi_dal_kmeans_model_properties13cluster_countE"></span><span id="oneapi_dal_kmeans_model_properties::cluster_count__int64_t"></span>int64_t <code class="sig-name descname">cluster_count</code> = 0<a class="headerlink" href="#_CPPv4N34oneapi_dal_kmeans_model_properties13cluster_countE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Number of clusters <span class="math notranslate nohighlight">\(k\)</span> in the trained model.</p>
 <dl>
-<dt>Getter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">std::int64_t</span> <span class="pre">get_cluster_count()</span> <span class="pre">const</span></code></div>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">int64_t</span> <span class="pre">get_cluster_count()</span> <span class="pre">const</span></code></div>
 </div>
 </dd>
 <dt>Invariants</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans5model13cluster_countE" title="onedal::kmeans::model::cluster_count"><span class="pre">cluster_count</span></a> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4N6onedal6kmeans5model9centroidsE" title="onedal::kmeans::model::centroids"><span class="pre">centroids</span></a><span class="pre">.</span><span class="pre">row_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N34oneapi_dal_kmeans_model_properties13cluster_countE" title="oneapi_dal_kmeans_model_properties::cluster_count"><span class="pre">cluster_count</span></a> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4N34oneapi_dal_kmeans_model_properties9centroidsE" title="oneapi_dal_kmeans_model_properties::centroids"><span class="pre">centroids</span></a><span class="pre">.</span><span class="pre">row_count</span></code></div>
 </div>
 </dd>
 </dl>
@@ -423,71 +510,61 @@ stores one centroid.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="training-onedal-train">
-<h3>Training <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">onedal</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train"><span class="pre">train</span></a><span class="sig-paren">(</span><span class="pre">...</span><span class="sig-paren">)</span></code><a class="headerlink" href="#training-onedal-train" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="training-train">
+<span id="kmeans-t-api"></span><h3>Training <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train"><span class="pre">train</span></a><span class="sig-paren">(</span><span class="pre">...</span><span class="sig-paren">)</span></code><a class="headerlink" href="#training-train" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="input">
-<h4>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">train_input</span> <span class="p">{</span>
+<span id="kmeans-t-api-input"></span><h4>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">task</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">train_input</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-   <span class="n">train_input</span><span class="p">();</span>
-   <span class="n">train_input</span><span class="p">(</span><span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">data</span><span class="p">);</span>
-   <span class="n">train_input</span><span class="p">(</span><span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">data</span><span class="p">,</span> <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">initial_centroids</span><span class="p">);</span>
+   <span class="n">train_input</span><span class="p">(</span><span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">table</span><span class="p">{},</span>
+               <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">initial_centroids</span> <span class="o">=</span> <span class="n">table</span><span class="p">{});</span>
 
    <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_data</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-   <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_initial_centroids</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-
    <span class="n">train_input</span><span class="o">&amp;</span> <span class="n">set_data</span><span class="p">(</span><span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span><span class="p">);</span>
+
+   <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_initial_centroids</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
    <span class="n">train_input</span><span class="o">&amp;</span> <span class="n">set_initial_centroids</span><span class="p">(</span><span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span><span class="p">);</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
-<dt id="_CPPv4N6onedal6kmeans11train_inputE">
-<span id="_CPPv3N6onedal6kmeans11train_inputE"></span><span id="_CPPv2N6onedal6kmeans11train_inputE"></span><span id="onedal::kmeans::train_input"></span><em class="property">class </em><code class="sig-name descname">train_input</code><a class="headerlink" href="#_CPPv4N6onedal6kmeans11train_inputE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
-<dt id="_CPPv4N6onedal6kmeans11train_input11train_inputEv">
-<span id="_CPPv3N6onedal6kmeans11train_input11train_inputEv"></span><span id="_CPPv2N6onedal6kmeans11train_input11train_inputEv"></span><span id="onedal::kmeans::train_input::train_input"></span><code class="sig-name descname">train_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans11train_input11train_inputEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates input for the training operation with the default attribute
-values.</p>
+<dl class="cpp class">
+<dt id="_CPPv4I0EN6oneapi3dal6kmeans11train_inputE">
+<span id="_CPPv3I0EN6oneapi3dal6kmeans11train_inputE"></span><span id="_CPPv2I0EN6oneapi3dal6kmeans11train_inputE"></span>template&lt;typename <code class="sig-name descname">Task</code> = task::<a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans4task10by_defaultE" title="oneapi::dal::kmeans::task::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">train_input</code><a class="headerlink" href="#_CPPv4I0EN6oneapi3dal6kmeans11train_inputE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans4task10clusteringE" title="oneapi::dal::kmeans::task::clustering"><span class="pre">clustering</span></a></code>.</p>
+</dd>
+</dl>
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal6kmeans11train_input11train_inputERK5tableRK5table">
+<span id="_CPPv3N6oneapi3dal6kmeans11train_input11train_inputERK5tableRK5table"></span><span id="_CPPv2N6oneapi3dal6kmeans11train_input11train_inputERK5tableRK5table"></span><span id="oneapi::dal::kmeans::train_input::train_input__tableCR.tableCR"></span><code class="sig-name descname">train_input</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6oneapi3dal5tableE" title="oneapi::dal::table">table</a> &amp;<em>data</em> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6oneapi3dal5tableE" title="oneapi::dal::table">table</a>{}, <em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6oneapi3dal5tableE" title="oneapi::dal::table">table</a> &amp;<em>initial_centroids</em> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6oneapi3dal5tableE" title="oneapi::dal::table">table</a>{}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal6kmeans11train_input11train_inputERK5tableRK5table" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of the class with the given <code class="docutils literal notranslate"><span class="pre">data</span></code> and <code class="docutils literal notranslate"><span class="pre">initial_centroids</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="_CPPv4N6onedal6kmeans11train_input11train_inputERK5table">
-<span id="_CPPv3N6onedal6kmeans11train_input11train_inputERK5table"></span><span id="_CPPv2N6onedal6kmeans11train_input11train_inputERK5table"></span><span id="onedal::kmeans::train_input::train_input__tableCR"></span><code class="sig-name descname">train_input</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> &amp;<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans11train_input11train_inputERK5table" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates input for the training operation with the given <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11train_input4dataE" title="onedal::kmeans::train_input::data"><span class="pre">data</span></a></code>, the
-other attributes get default values.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="_CPPv4N6onedal6kmeans11train_input11train_inputERK5tableRK5table">
-<span id="_CPPv3N6onedal6kmeans11train_input11train_inputERK5tableRK5table"></span><span id="_CPPv2N6onedal6kmeans11train_input11train_inputERK5tableRK5table"></span><span id="onedal::kmeans::train_input::train_input__tableCR.tableCR"></span><code class="sig-name descname">train_input</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> &amp;<em>data</em>, <em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> &amp;<em>initial_centroids</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans11train_input11train_inputERK5tableRK5table" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates input for the training operation with the given data and
-<code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11train_input17initial_centroidsE" title="onedal::kmeans::train_input::initial_centroids"><span class="pre">initial_centroids</span></a></code>.</p>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal6kmeans11train_input4dataE">
-<span id="_CPPv3N6onedal6kmeans11train_input4dataE"></span><span id="_CPPv2N6onedal6kmeans11train_input4dataE"></span><span id="onedal::kmeans::train_input::data__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">data</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans11train_input4dataE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><span class="math notranslate nohighlight">\(n \times p\)</span> table with the data to be clustered, where each row
-stores one feature vector.</p>
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N40oneapi_dal_kmeans_train_input_properties4dataE">
+<span id="_CPPv3N40oneapi_dal_kmeans_train_input_properties4dataE"></span><span id="_CPPv2N40oneapi_dal_kmeans_train_input_properties4dataE"></span><span id="oneapi_dal_kmeans_train_input_properties::data__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">data</code><a class="headerlink" href="#_CPPv4N40oneapi_dal_kmeans_train_input_properties4dataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An <span class="math notranslate nohighlight">\(n \times p\)</span> table with the data to be clustered, where each row stores one feature vector.</p>
 <dl>
 <dt>Getter &amp; Setter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table&amp;</span> <span class="pre">get_data()</span> <span class="pre">const</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">train_input&amp;</span> <span class="pre">set_data(const</span> <span class="pre">table&amp;)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_data()</span> <span class="pre">const</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">train_input</span> <span class="pre">&amp;</span> <span class="pre">set_data(const</span> <span class="pre">table</span> <span class="pre">&amp;)</span></code></div>
 </div>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="member">
-<dt id="_CPPv4N6onedal6kmeans11train_input17initial_centroidsE">
-<span id="_CPPv3N6onedal6kmeans11train_input17initial_centroidsE"></span><span id="_CPPv2N6onedal6kmeans11train_input17initial_centroidsE"></span><span id="onedal::kmeans::train_input::initial_centroids__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">initial_centroids</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans11train_input17initial_centroidsE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><span class="math notranslate nohighlight">\(k \times p\)</span> table with the initial centroids, where each row
-stores one centroid.</p>
+<dl class="cpp member">
+<dt id="_CPPv4N40oneapi_dal_kmeans_train_input_properties17initial_centroidsE">
+<span id="_CPPv3N40oneapi_dal_kmeans_train_input_properties17initial_centroidsE"></span><span id="_CPPv2N40oneapi_dal_kmeans_train_input_properties17initial_centroidsE"></span><span id="oneapi_dal_kmeans_train_input_properties::initial_centroids__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">initial_centroids</code><a class="headerlink" href="#_CPPv4N40oneapi_dal_kmeans_train_input_properties17initial_centroidsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A <span class="math notranslate nohighlight">\(k \times p\)</span> table with the initial centroids, where each row stores one centroid.</p>
 <dl>
 <dt>Getter &amp; Setter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table&amp;</span> <span class="pre">get_initial_centroids()</span> <span class="pre">const</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">train_input&amp;</span> <span class="pre">set_initial_centroids(const</span> <span class="pre">table&amp;)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_initial_centroids()</span> <span class="pre">const</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">train_input</span> <span class="pre">&amp;</span> <span class="pre">set_initial_centroids(const</span> <span class="pre">table</span> <span class="pre">&amp;)</span></code></div>
 </div>
 </dd>
 </dl>
@@ -497,106 +574,133 @@ stores one centroid.</p>
 
 </div>
 <div class="section" id="result">
-<h4>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">train_result</span> <span class="p">{</span>
+<span id="kmeans-t-api-result"></span><h4>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">task</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">train_result</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
    <span class="n">train_result</span><span class="p">();</span>
 
-   <span class="k">const</span> <span class="n">model</span><span class="o">&amp;</span> <span class="n">get_model</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+   <span class="k">const</span> <span class="n">model</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;&amp;</span> <span class="n">get_model</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
    <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_labels</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
    <span class="kt">int64_t</span> <span class="nf">get_iteration_count</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
    <span class="kt">double</span> <span class="nf">get_objective_function_value</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
-<dt id="_CPPv4N6onedal6kmeans12train_resultE">
-<span id="_CPPv3N6onedal6kmeans12train_resultE"></span><span id="_CPPv2N6onedal6kmeans12train_resultE"></span><span id="onedal::kmeans::train_result"></span><em class="property">class </em><code class="sig-name descname">train_result</code><a class="headerlink" href="#_CPPv4N6onedal6kmeans12train_resultE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
-<dt id="_CPPv4N6onedal6kmeans12train_result12train_resultEv">
-<span id="_CPPv3N6onedal6kmeans12train_result12train_resultEv"></span><span id="_CPPv2N6onedal6kmeans12train_result12train_resultEv"></span><span id="onedal::kmeans::train_result::train_result"></span><code class="sig-name descname">train_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans12train_result12train_resultEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates result of the training operation with the default attribute
-values.</p>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal6kmeans12train_result5modelE">
-<span id="_CPPv3N6onedal6kmeans12train_result5modelE"></span><span id="_CPPv2N6onedal6kmeans12train_result5modelE"></span><span id="onedal::kmeans::train_result::model__kmeans::model"></span>kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans5modelE" title="onedal::kmeans::model">model</a> <code class="sig-name descname">model</code> = kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans5modelE" title="onedal::kmeans::model">model</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans12train_result5modelE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The trained K-means model.</p>
-<dl>
-<dt>Getter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">model&amp;</span> <span class="pre">get_model()</span> <span class="pre">const</span></code></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal6kmeans12train_result6labelsE">
-<span id="_CPPv3N6onedal6kmeans12train_result6labelsE"></span><span id="_CPPv2N6onedal6kmeans12train_result6labelsE"></span><span id="onedal::kmeans::train_result::labels__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">labels</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans12train_result6labelsE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><span class="math notranslate nohighlight">\(n \times 1\)</span> table with the labels <span class="math notranslate nohighlight">\(y_i\)</span> assigned to the
-samples <span class="math notranslate nohighlight">\(x_i\)</span> in the input data, <span class="math notranslate nohighlight">\(1 \leq 1 \leq n\)</span>.</p>
-<dl>
-<dt>Getter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table&amp;</span> <span class="pre">get_labels()</span> <span class="pre">const</span></code></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal6kmeans12train_result15iteration_countE">
-<span id="_CPPv3N6onedal6kmeans12train_result15iteration_countE"></span><span id="_CPPv2N6onedal6kmeans12train_result15iteration_countE"></span><span id="onedal::kmeans::train_result::iteration_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">iteration_count</code> = 0<a class="headerlink" href="#_CPPv4N6onedal6kmeans12train_result15iteration_countE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The number of iterations performed by the algorithm.</p>
-<dl>
-<dt>Invariants</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans12train_result15iteration_countE" title="onedal::kmeans::train_result::iteration_count"><span class="pre">iteration_count</span></a> <span class="pre">&gt;=</span> <span class="pre">0</span></code></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal6kmeans12train_result24objective_function_valueE">
-<span id="_CPPv3N6onedal6kmeans12train_result24objective_function_valueE"></span><span id="_CPPv2N6onedal6kmeans12train_result24objective_function_valueE"></span><span id="onedal::kmeans::train_result::objective_function_value__double"></span>double <code class="sig-name descname">objective_function_value</code> = 0.0<a class="headerlink" href="#_CPPv4N6onedal6kmeans12train_result24objective_function_valueE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The value of the objective function <span class="math notranslate nohighlight">\(\Phi_X(C)\)</span>, where <span class="math notranslate nohighlight">\(C\)</span> is
-<code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans12train_result5modelE" title="onedal::kmeans::train_result::model"><span class="pre">model</span></a><span class="pre">.</span><span class="pre">centroids</span></code> (see <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">kmeans</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6onedal6kmeans5modelE" title="onedal::kmeans::model"><span class="pre">model</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6onedal6kmeans5model9centroidsE" title="onedal::kmeans::model::centroids"><span class="pre">centroids</span></a></code>).</p>
-<dl>
-<dt>Invariants</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans12train_result24objective_function_valueE" title="onedal::kmeans::train_result::objective_function_value"><span class="pre">objective_function_value</span></a> <span class="pre">&gt;=</span> <span class="pre">0.0</span></code></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="operation-semantics">
-<h4>Operation semantics<a class="headerlink" href="#operation-semantics" title="Permalink to this headline">¶</a></h4>
-<dl class="function">
-<dt id="_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE">
-<span id="_CPPv3I0EN6onedal5trainERK10DescriptorRKN6kmeans11train_inputE"></span><span id="_CPPv2I0EN6onedal5trainERK10DescriptorRKN6kmeans11train_inputE"></span>template&lt;typename <code class="sig-name descname">Descriptor</code>&gt;<br />kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans12train_resultE" title="onedal::kmeans::train_result">train_result</a> <code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::Descriptor">Descriptor</a> &amp;<em>desc</em>, <em class="property">const</em> kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans11train_inputE" title="onedal::kmeans::train_input">train_input</a> &amp;<em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="Permalink to this definition">¶</a><br /></dt>
+<dl class="cpp class">
+<dt id="_CPPv4I0EN6oneapi3dal6kmeans12train_resultE">
+<span id="_CPPv3I0EN6oneapi3dal6kmeans12train_resultE"></span><span id="_CPPv2I0EN6oneapi3dal6kmeans12train_resultE"></span>template&lt;typename <code class="sig-name descname">Task</code> = task::<a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans4task10by_defaultE" title="oneapi::dal::kmeans::task::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">train_result</code><a class="headerlink" href="#_CPPv4I0EN6oneapi3dal6kmeans12train_resultE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Template Parameters</dt>
-<dd class="field-odd"><p><strong>Descriptor</strong> – K-Means algorithm descriptor <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">kmeans</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4I00EN6onedal6kmeans4descE" title="onedal::kmeans::desc"><span class="pre">desc</span></a></code>.</p>
+<dd class="field-odd"><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans4task10clusteringE" title="oneapi::dal::kmeans::task::clustering"><span class="pre">clustering</span></a></code>.</p>
+</dd>
+</dl>
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal6kmeans12train_result12train_resultEv">
+<span id="_CPPv3N6oneapi3dal6kmeans12train_result12train_resultEv"></span><span id="_CPPv2N6oneapi3dal6kmeans12train_result12train_resultEv"></span><span id="oneapi::dal::kmeans::train_result::train_result"></span><code class="sig-name descname">train_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal6kmeans12train_result12train_resultEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of the class with the default property values.</p>
+</dd></dl>
+
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N41oneapi_dal_kmeans_train_result_properties5modelE">
+<span id="_CPPv3N41oneapi_dal_kmeans_train_result_properties5modelE"></span><span id="_CPPv2N41oneapi_dal_kmeans_train_result_properties5modelE"></span><span id="oneapi_dal_kmeans_train_result_properties::model__model:Task:CR"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N41oneapi_dal_kmeans_train_result_properties5modelE" title="oneapi_dal_kmeans_train_result_properties::model">model</a>&lt;Task&gt; &amp;<code class="sig-name descname">model</code> = <a class="reference internal" href="#_CPPv4N41oneapi_dal_kmeans_train_result_properties5modelE" title="oneapi_dal_kmeans_train_result_properties::model">model</a>&lt;Task&gt;{}<a class="headerlink" href="#_CPPv4N41oneapi_dal_kmeans_train_result_properties5modelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The trained K-means model.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">model&lt;</span> <span class="pre">Task</span> <span class="pre">&gt;</span> <span class="pre">&amp;</span> <span class="pre">get_model()</span> <span class="pre">const</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp member">
+<dt id="_CPPv4N41oneapi_dal_kmeans_train_result_properties6labelsE">
+<span id="_CPPv3N41oneapi_dal_kmeans_train_result_properties6labelsE"></span><span id="_CPPv2N41oneapi_dal_kmeans_train_result_properties6labelsE"></span><span id="oneapi_dal_kmeans_train_result_properties::labels__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">labels</code> = table{}<a class="headerlink" href="#_CPPv4N41oneapi_dal_kmeans_train_result_properties6labelsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An <span class="math notranslate nohighlight">\(n \times 1\)</span> table with the labels <span class="math notranslate nohighlight">\(y_i\)</span> assigned to the samples <span class="math notranslate nohighlight">\(x_i\)</span> in the input data, <span class="math notranslate nohighlight">\(1 \leq 1 \leq n\)</span>.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_labels()</span> <span class="pre">const</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp member">
+<dt id="_CPPv4N41oneapi_dal_kmeans_train_result_properties15iteration_countE">
+<span id="_CPPv3N41oneapi_dal_kmeans_train_result_properties15iteration_countE"></span><span id="_CPPv2N41oneapi_dal_kmeans_train_result_properties15iteration_countE"></span><span id="oneapi_dal_kmeans_train_result_properties::iteration_count__int64_t"></span>int64_t <code class="sig-name descname">iteration_count</code> = 0<a class="headerlink" href="#_CPPv4N41oneapi_dal_kmeans_train_result_properties15iteration_countE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The number of iterations performed by the algorithm.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">int64_t</span> <span class="pre">get_iteration_count()</span> <span class="pre">const</span></code></div>
+</div>
+</dd>
+<dt>Invariants</dt><dd><div class="line-block">
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N41oneapi_dal_kmeans_train_result_properties15iteration_countE" title="oneapi_dal_kmeans_train_result_properties::iteration_count"><span class="pre">iteration_count</span></a> <span class="pre">&gt;=</span> <span class="pre">0</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp member">
+<dt id="_CPPv4N41oneapi_dal_kmeans_train_result_properties24objective_function_valueE">
+<span id="_CPPv3N41oneapi_dal_kmeans_train_result_properties24objective_function_valueE"></span><span id="_CPPv2N41oneapi_dal_kmeans_train_result_properties24objective_function_valueE"></span><span id="oneapi_dal_kmeans_train_result_properties::objective_function_value__double"></span>double <code class="sig-name descname">objective_function_value</code><a class="headerlink" href="#_CPPv4N41oneapi_dal_kmeans_train_result_properties24objective_function_valueE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The value of the objective function <span class="math notranslate nohighlight">\(\Phi_X(C)\)</span>, where <span class="math notranslate nohighlight">\(C\)</span> is <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N41oneapi_dal_kmeans_train_result_properties5modelE" title="oneapi_dal_kmeans_train_result_properties::model"><span class="pre">model</span></a><span class="pre">.</span><span class="pre">centroids</span></code> (see <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">kmeans</span><span class="pre">::</span><span class="pre">model</span><span class="pre">::</span><span class="pre">centroids</span></code>).</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">get_objective_function_value()</span> <span class="pre">const</span></code></div>
+</div>
+</dd>
+<dt>Invariants</dt><dd><div class="line-block">
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N41oneapi_dal_kmeans_train_result_properties24objective_function_valueE" title="oneapi_dal_kmeans_train_result_properties::objective_function_value"><span class="pre">objective_function_value</span></a> <span class="pre">&gt;=</span> <span class="pre">0.0</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="operation">
+<h4>Operation<a class="headerlink" href="#operation" title="Permalink to this headline">¶</a></h4>
+<dl class="cpp function">
+<dt id="_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE">
+<span id="_CPPv3I000EN6oneapi3dal6kmeans5trainERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE"></span><span id="_CPPv2I000EN6oneapi3dal6kmeans5trainERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE"></span>template&lt;typename <code class="sig-name descname">Float</code>, typename <code class="sig-name descname">Method</code>, typename <code class="sig-name descname">Task</code>&gt;<br /><a class="reference internal" href="#_CPPv4I0EN6oneapi3dal6kmeans12train_resultE" title="oneapi::dal::kmeans::train_result">train_result</a>&lt;<a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train::Task">Task</a>&gt; <code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans10descriptorE" title="oneapi::dal::kmeans::descriptor">descriptor</a>&lt;<a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train::Float">Float</a>, <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train::Method">Method</a>, <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train::Task">Task</a>&gt; &amp;<em>desc</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6oneapi3dal6kmeans11train_inputE" title="oneapi::dal::kmeans::train_input">train_input</a>&lt;<a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train::Task">Task</a>&gt; &amp;<em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Runs the training operation for K-Means clustering. For more details see <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">oneapi</span><span class="pre">::</span><span class="pre">dal</span><span class="pre">::</span><span class="pre">train</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Float</strong> – The floating-point type that the algorithm uses for intermediate computations. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
+<li><p><strong>Method</strong> – Tag-type that specifies an implementation of algorithm. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">method</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans6method5lloydE" title="oneapi::dal::kmeans::method::lloyd"><span class="pre">lloyd</span></a></code>.</p></li>
+<li><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans4task10clusteringE" title="oneapi::dal::kmeans::task::clustering"><span class="pre">clustering</span></a></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>desc</strong> – Descriptor of the algorithm.</p></li>
+<li><p><strong>input</strong> – Input data for the training operation.</p></li>
+</ul>
 </dd>
 </dl>
 <dl>
 <dt>Preconditions</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">is_empty</span> <span class="pre">==</span> <span class="pre">false</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">initial_centroids</span><span class="pre">.</span><span class="pre">is_empty</span> <span class="pre">==</span> <span class="pre">false</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">initial_centroids</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">cluster_count</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">initial_centroids</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">column_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">has_data</span> <span class="pre">==</span> <span class="pre">true</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">initial_centroids</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">cluster_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">initial_centroids</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">column_count</span></code></div>
 </div>
 </dd>
 <dt>Postconditions</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">labels</span><span class="pre">.</span><span class="pre">is_empty</span> <span class="pre">==</span> <span class="pre">false</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">labels</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">row_count</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">centroids</span><span class="pre">.</span><span class="pre">is_empty</span> <span class="pre">==</span> <span class="pre">false</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">clusters</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">cluster_count</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">clusters</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">column_count</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">iteration_count</span> <span class="pre">&lt;=</span> <a class="reference internal" href="#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">max_iteration_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">labels</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">row_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">labels</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <span class="pre">1</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">labels</span><span class="pre">[</span><span class="pre">i</span><span class="pre">]</span> <span class="pre">&gt;=</span> <span class="pre">0</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">labels</span><span class="pre">[</span><span class="pre">i</span><span class="pre">]</span> <span class="pre">&lt;</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">cluster_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">iteration_count</span> <span class="pre">&lt;=</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">max_iteration_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">clusters</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">cluster_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">clusters</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::kmeans::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">column_count</span></code></div>
 </div>
 </dd>
 </dl>
@@ -604,70 +708,61 @@ samples <span class="math notranslate nohighlight">\(x_i\)</span> in the input d
 
 </div>
 </div>
-<div class="section" id="inference-onedal-infer">
-<h3>Inference <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">onedal</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer"><span class="pre">infer</span></a><span class="sig-paren">(</span><span class="pre">...</span><span class="sig-paren">)</span></code><a class="headerlink" href="#inference-onedal-infer" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id2">
-<h4>Input<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">infer_input</span> <span class="p">{</span>
+<div class="section" id="inference-infer">
+<span id="kmeans-i-api"></span><h3>Inference <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::kmeans::infer"><span class="pre">infer</span></a><span class="sig-paren">(</span><span class="pre">...</span><span class="sig-paren">)</span></code><a class="headerlink" href="#inference-infer" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="kmeans-i-api-input">
+<span id="id4"></span><h4>Input<a class="headerlink" href="#kmeans-i-api-input" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">task</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">infer_input</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-   <span class="n">infer_input</span><span class="p">();</span>
-   <span class="n">infer_input</span><span class="p">(</span><span class="k">const</span> <span class="n">model</span><span class="o">&amp;</span> <span class="n">m</span><span class="p">);</span>
-   <span class="n">infer_input</span><span class="p">(</span><span class="k">const</span> <span class="n">model</span><span class="o">&amp;</span> <span class="n">m</span><span class="p">,</span> <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">data</span><span class="p">);</span>
+   <span class="n">infer_input</span><span class="p">(</span><span class="k">const</span> <span class="n">model</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;&amp;</span> <span class="n">m</span> <span class="o">=</span> <span class="n">model</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span><span class="p">{},</span>
+               <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">table</span><span class="p">{});</span>
 
-   <span class="k">const</span> <span class="n">model</span><span class="o">&amp;</span> <span class="n">get_model</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+   <span class="k">const</span> <span class="n">model</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;&amp;</span> <span class="n">get_model</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+   <span class="n">infer_input</span><span class="o">&amp;</span> <span class="n">set_model</span><span class="p">(</span><span class="k">const</span> <span class="n">model</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;&amp;</span><span class="p">);</span>
+
    <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_data</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-
-   <span class="n">infer_input</span><span class="o">&amp;</span> <span class="n">set_model</span><span class="p">(</span><span class="k">const</span> <span class="n">model</span><span class="o">&amp;</span><span class="p">);</span>
    <span class="n">infer_input</span><span class="o">&amp;</span> <span class="n">set_data</span><span class="p">(</span><span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span><span class="p">);</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
-<dt id="_CPPv4N6onedal6kmeans11infer_inputE">
-<span id="_CPPv3N6onedal6kmeans11infer_inputE"></span><span id="_CPPv2N6onedal6kmeans11infer_inputE"></span><span id="onedal::kmeans::infer_input"></span><em class="property">class </em><code class="sig-name descname">infer_input</code><a class="headerlink" href="#_CPPv4N6onedal6kmeans11infer_inputE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
-<dt id="_CPPv4N6onedal6kmeans11infer_input11infer_inputEv">
-<span id="_CPPv3N6onedal6kmeans11infer_input11infer_inputEv"></span><span id="_CPPv2N6onedal6kmeans11infer_input11infer_inputEv"></span><span id="onedal::kmeans::infer_input::infer_input"></span><code class="sig-name descname">infer_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans11infer_input11infer_inputEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates input for the inference operation with the default attribute
-values.</p>
+<dl class="cpp class">
+<dt id="_CPPv4I0EN6oneapi3dal6kmeans11infer_inputE">
+<span id="_CPPv3I0EN6oneapi3dal6kmeans11infer_inputE"></span><span id="_CPPv2I0EN6oneapi3dal6kmeans11infer_inputE"></span>template&lt;typename <code class="sig-name descname">Task</code> = task::<a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans4task10by_defaultE" title="oneapi::dal::kmeans::task::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">infer_input</code><a class="headerlink" href="#_CPPv4I0EN6oneapi3dal6kmeans11infer_inputE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans4task10clusteringE" title="oneapi::dal::kmeans::task::clustering"><span class="pre">clustering</span></a></code>.</p>
+</dd>
+</dl>
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal6kmeans11infer_input11infer_inputERK5modelI4TaskERK5table">
+<span id="_CPPv3N6oneapi3dal6kmeans11infer_input11infer_inputERK5modelI4TaskERK5table"></span><span id="_CPPv2N6oneapi3dal6kmeans11infer_input11infer_inputERK5modelI4TaskERK5table"></span><span id="oneapi::dal::kmeans::infer_input::infer_input__model:Task:CR.tableCR"></span><code class="sig-name descname">infer_input</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6oneapi3dal6kmeans5modelE" title="oneapi::dal::kmeans::model">model</a>&lt;Task&gt; &amp;<em>m</em> = <a class="reference internal" href="#_CPPv4I0EN6oneapi3dal6kmeans5modelE" title="oneapi::dal::kmeans::model">model</a>&lt;Task&gt;{}, <em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6oneapi3dal5tableE" title="oneapi::dal::table">table</a> &amp;<em>data</em> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6oneapi3dal5tableE" title="oneapi::dal::table">table</a>{}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal6kmeans11infer_input11infer_inputERK5modelI4TaskERK5table" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of the class with the given <code class="docutils literal notranslate"><span class="pre">model</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="_CPPv4N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelE">
-<span id="_CPPv3N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelE"></span><span id="_CPPv2N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelE"></span><span id="onedal::kmeans::infer_input::infer_input__kmeans::modelCR"></span><code class="sig-name descname">infer_input</code><span class="sig-paren">(</span><em class="property">const</em> kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans5modelE" title="onedal::kmeans::model">model</a> &amp;<em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates input for the inference operation with the given <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11infer_input5modelE" title="onedal::kmeans::infer_input::model"><span class="pre">model</span></a></code>, the
-other attributes get default values.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="_CPPv4N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelERK5table">
-<span id="_CPPv3N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelERK5table"></span><span id="_CPPv2N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelERK5table"></span><span id="onedal::kmeans::infer_input::infer_input__kmeans::modelCR.tableCR"></span><code class="sig-name descname">infer_input</code><span class="sig-paren">(</span><em class="property">const</em> kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans5modelE" title="onedal::kmeans::model">model</a> &amp;<em>model</em>, <em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> &amp;<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans11infer_input11infer_inputERKN6kmeans5modelERK5table" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates input for the inference operation with the given <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11infer_input5modelE" title="onedal::kmeans::infer_input::model"><span class="pre">model</span></a></code> and
-<code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11infer_input4dataE" title="onedal::kmeans::infer_input::data"><span class="pre">data</span></a></code>.</p>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal6kmeans11infer_input4dataE">
-<span id="_CPPv3N6onedal6kmeans11infer_input4dataE"></span><span id="_CPPv2N6onedal6kmeans11infer_input4dataE"></span><span id="onedal::kmeans::infer_input::data__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">data</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans11infer_input4dataE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><span class="math notranslate nohighlight">\(n \times p\)</span> table with the data to be assigned to the clusters,
-where each row stores one feature vector.</p>
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N40oneapi_dal_kmeans_infer_input_properties5modelE">
+<span id="_CPPv3N40oneapi_dal_kmeans_infer_input_properties5modelE"></span><span id="_CPPv2N40oneapi_dal_kmeans_infer_input_properties5modelE"></span><span id="oneapi_dal_kmeans_infer_input_properties::model__model:Task:CR"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N40oneapi_dal_kmeans_infer_input_properties5modelE" title="oneapi_dal_kmeans_infer_input_properties::model">model</a>&lt;Task&gt; &amp;<code class="sig-name descname">model</code> = <a class="reference internal" href="#_CPPv4N40oneapi_dal_kmeans_infer_input_properties5modelE" title="oneapi_dal_kmeans_infer_input_properties::model">model</a>&lt;Task&gt;{}<a class="headerlink" href="#_CPPv4N40oneapi_dal_kmeans_infer_input_properties5modelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An <span class="math notranslate nohighlight">\(n \times p\)</span> table with the data to be assigned to the clusters, where each row stores one feature vector.</p>
 <dl>
 <dt>Getter &amp; Setter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table&amp;</span> <span class="pre">get_data()</span> <span class="pre">const</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">infer_input&amp;</span> <span class="pre">set_data(const</span> <span class="pre">table&amp;)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">model&lt;</span> <span class="pre">Task</span> <span class="pre">&gt;</span> <span class="pre">&amp;</span> <span class="pre">get_model()</span> <span class="pre">const</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">infer_input</span> <span class="pre">&amp;</span> <span class="pre">set_model(const</span> <span class="pre">model&lt;</span> <span class="pre">Task</span> <span class="pre">&gt;</span> <span class="pre">&amp;)</span></code></div>
 </div>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="member">
-<dt id="_CPPv4N6onedal6kmeans11infer_input5modelE">
-<span id="_CPPv3N6onedal6kmeans11infer_input5modelE"></span><span id="_CPPv2N6onedal6kmeans11infer_input5modelE"></span><span id="onedal::kmeans::infer_input::model__kmeans::model"></span>kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans5modelE" title="onedal::kmeans::model">model</a> <code class="sig-name descname">model</code> = kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans5modelE" title="onedal::kmeans::model">model</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans11infer_input5modelE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The trained K-Means model (see <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">kmeans</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6onedal6kmeans5modelE" title="onedal::kmeans::model"><span class="pre">model</span></a></code>).</p>
+<dl class="cpp member">
+<dt id="_CPPv4N40oneapi_dal_kmeans_infer_input_properties4dataE">
+<span id="_CPPv3N40oneapi_dal_kmeans_infer_input_properties4dataE"></span><span id="_CPPv2N40oneapi_dal_kmeans_infer_input_properties4dataE"></span><span id="oneapi_dal_kmeans_infer_input_properties::data__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">data</code> = table{}<a class="headerlink" href="#_CPPv4N40oneapi_dal_kmeans_infer_input_properties4dataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The trained K-Means model.</p>
 <dl>
 <dt>Getter &amp; Setter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">kmeans::model&amp;</span> <span class="pre">get_model()</span> <span class="pre">const</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">infer_input&amp;</span> <span class="pre">set_model(const</span> <span class="pre">kmeans::model&amp;)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_data()</span> <span class="pre">const</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">infer_input</span> <span class="pre">&amp;</span> <span class="pre">set_data(const</span> <span class="pre">table</span> <span class="pre">&amp;)</span></code></div>
 </div>
 </dd>
 </dl>
@@ -676,77 +771,99 @@ where each row stores one feature vector.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="id3">
-<h4>Result<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">infer_result</span> <span class="p">{</span>
+<div class="section" id="kmeans-i-api-result">
+<span id="id5"></span><h4>Result<a class="headerlink" href="#kmeans-i-api-result" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">task</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">infer_result</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
    <span class="n">infer_result</span><span class="p">();</span>
 
    <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_labels</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
    <span class="kt">double</span> <span class="nf">get_objective_function_value</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
-<dt id="_CPPv4N6onedal6kmeans12infer_resultE">
-<span id="_CPPv3N6onedal6kmeans12infer_resultE"></span><span id="_CPPv2N6onedal6kmeans12infer_resultE"></span><span id="onedal::kmeans::infer_result"></span><em class="property">class </em><code class="sig-name descname">infer_result</code><a class="headerlink" href="#_CPPv4N6onedal6kmeans12infer_resultE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
-<dt id="_CPPv4N6onedal6kmeans12infer_result12infer_resultEv">
-<span id="_CPPv3N6onedal6kmeans12infer_result12infer_resultEv"></span><span id="_CPPv2N6onedal6kmeans12infer_result12infer_resultEv"></span><span id="onedal::kmeans::infer_result::infer_result"></span><code class="sig-name descname">infer_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal6kmeans12infer_result12infer_resultEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates result of the inference operation with the default attribute
-values.</p>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal6kmeans12infer_result6labelsE">
-<span id="_CPPv3N6onedal6kmeans12infer_result6labelsE"></span><span id="_CPPv2N6onedal6kmeans12infer_result6labelsE"></span><span id="onedal::kmeans::infer_result::labels__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">labels</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal6kmeans12infer_result6labelsE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><span class="math notranslate nohighlight">\(n \times 1\)</span> table with assignments labels to feature vectors in the
-input data.</p>
-<dl>
-<dt>Getter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table&amp;</span> <span class="pre">get_labels()</span> <span class="pre">const</span></code></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal6kmeans12infer_result24objective_function_valueE">
-<span id="_CPPv3N6onedal6kmeans12infer_result24objective_function_valueE"></span><span id="_CPPv2N6onedal6kmeans12infer_result24objective_function_valueE"></span><span id="onedal::kmeans::infer_result::objective_function_value__double"></span>double <code class="sig-name descname">objective_function_value</code> = 0.0<a class="headerlink" href="#_CPPv4N6onedal6kmeans12infer_result24objective_function_valueE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The value of the objective function <span class="math notranslate nohighlight">\(\Phi_X(C)\)</span>, where <span class="math notranslate nohighlight">\(C\)</span> is
-defined by the corresponding <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans11infer_inputE" title="onedal::kmeans::infer_input"><span class="pre">infer_input</span></a><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6onedal6kmeans11infer_input5modelE" title="onedal::kmeans::infer_input::model"><span class="pre">model</span></a><span class="pre">::</span><span class="pre">centroids</span></code>.</p>
-<dl>
-<dt>Invariants</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal6kmeans12infer_result24objective_function_valueE" title="onedal::kmeans::infer_result::objective_function_value"><span class="pre">objective_function_value</span></a> <span class="pre">&gt;=</span> <span class="pre">0.0</span></code></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="id4">
-<h4>Operation semantics<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
-<dl class="function">
-<dt id="_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE">
-<span id="_CPPv3I0EN6onedal5inferERK10DescriptorRKN6kmeans11infer_inputE"></span><span id="_CPPv2I0EN6onedal5inferERK10DescriptorRKN6kmeans11infer_inputE"></span>template&lt;typename <code class="sig-name descname">Descriptor</code>&gt;<br />kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans12infer_resultE" title="onedal::kmeans::infer_result">infer_result</a> <code class="sig-name descname">infer</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::Descriptor">Descriptor</a> &amp;<em>desc</em>, <em class="property">const</em> kmeans::<a class="reference internal" href="#_CPPv4N6onedal6kmeans11infer_inputE" title="onedal::kmeans::infer_input">infer_input</a> &amp;<em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="Permalink to this definition">¶</a><br /></dt>
+<dl class="cpp class">
+<dt id="_CPPv4I0EN6oneapi3dal6kmeans12infer_resultE">
+<span id="_CPPv3I0EN6oneapi3dal6kmeans12infer_resultE"></span><span id="_CPPv2I0EN6oneapi3dal6kmeans12infer_resultE"></span>template&lt;typename <code class="sig-name descname">Task</code> = task::<a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans4task10by_defaultE" title="oneapi::dal::kmeans::task::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">infer_result</code><a class="headerlink" href="#_CPPv4I0EN6oneapi3dal6kmeans12infer_resultE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Template Parameters</dt>
-<dd class="field-odd"><p><strong>Descriptor</strong> – K-Means algorithm descriptor <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">kmeans</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4I00EN6onedal6kmeans4descE" title="onedal::kmeans::desc"><span class="pre">desc</span></a></code>.</p>
+<dd class="field-odd"><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans4task10clusteringE" title="oneapi::dal::kmeans::task::clustering"><span class="pre">clustering</span></a></code>.</p>
+</dd>
+</dl>
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal6kmeans12infer_result12infer_resultEv">
+<span id="_CPPv3N6oneapi3dal6kmeans12infer_result12infer_resultEv"></span><span id="_CPPv2N6oneapi3dal6kmeans12infer_result12infer_resultEv"></span><span id="oneapi::dal::kmeans::infer_result::infer_result"></span><code class="sig-name descname">infer_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal6kmeans12infer_result12infer_resultEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of the class with the default property values.</p>
+</dd></dl>
+
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N41oneapi_dal_kmeans_infer_result_properties6labelsE">
+<span id="_CPPv3N41oneapi_dal_kmeans_infer_result_properties6labelsE"></span><span id="_CPPv2N41oneapi_dal_kmeans_infer_result_properties6labelsE"></span><span id="oneapi_dal_kmeans_infer_result_properties::labels__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">labels</code> = table{}<a class="headerlink" href="#_CPPv4N41oneapi_dal_kmeans_infer_result_properties6labelsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An <span class="math notranslate nohighlight">\(n \times 1\)</span> table with assignments labels to feature vectors in the input data.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_labels()</span> <span class="pre">const</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp member">
+<dt id="_CPPv4N41oneapi_dal_kmeans_infer_result_properties24objective_function_valueE">
+<span id="_CPPv3N41oneapi_dal_kmeans_infer_result_properties24objective_function_valueE"></span><span id="_CPPv2N41oneapi_dal_kmeans_infer_result_properties24objective_function_valueE"></span><span id="oneapi_dal_kmeans_infer_result_properties::objective_function_value__double"></span>double <code class="sig-name descname">objective_function_value</code> = 0.0<a class="headerlink" href="#_CPPv4N41oneapi_dal_kmeans_infer_result_properties24objective_function_valueE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The value of the objective function <span class="math notranslate nohighlight">\(\Phi_X(C)\)</span>, where <span class="math notranslate nohighlight">\(C\)</span> is defined by the corresponding <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">infer_input</span><span class="pre">::</span><span class="pre">model</span><span class="pre">::</span><span class="pre">centroids</span></code>.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">get_objective_function_value()</span> <span class="pre">const</span></code></div>
+</div>
+</dd>
+<dt>Invariants</dt><dd><div class="line-block">
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N41oneapi_dal_kmeans_infer_result_properties24objective_function_valueE" title="oneapi_dal_kmeans_infer_result_properties::objective_function_value"><span class="pre">objective_function_value</span></a> <span class="pre">&gt;=</span> <span class="pre">0.0</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="id6">
+<h4>Operation<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<dl class="cpp function">
+<dt id="_CPPv4I000EN6oneapi3dal6kmeans5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE">
+<span id="_CPPv3I000EN6oneapi3dal6kmeans5inferERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE"></span><span id="_CPPv2I000EN6oneapi3dal6kmeans5inferERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE"></span>template&lt;typename <code class="sig-name descname">Float</code>, typename <code class="sig-name descname">Method</code>, typename <code class="sig-name descname">Task</code>&gt;<br /><a class="reference internal" href="#_CPPv4I0EN6oneapi3dal6kmeans12infer_resultE" title="oneapi::dal::kmeans::infer_result">infer_result</a>&lt;<a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::kmeans::infer::Task">Task</a>&gt; <code class="sig-name descname">infer</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans10descriptorE" title="oneapi::dal::kmeans::descriptor">descriptor</a>&lt;<a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::kmeans::infer::Float">Float</a>, <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::kmeans::infer::Method">Method</a>, <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::kmeans::infer::Task">Task</a>&gt; &amp;<em>desc</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6oneapi3dal6kmeans11infer_inputE" title="oneapi::dal::kmeans::infer_input">infer_input</a>&lt;<a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::kmeans::infer::Task">Task</a>&gt; &amp;<em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I000EN6oneapi3dal6kmeans5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Runs the inference operation for K-Means clustering. For more details see <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">oneapi</span><span class="pre">::</span><span class="pre">dal</span><span class="pre">::</span><span class="pre">infer</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Float</strong> – The floating-point type that the algorithm uses for intermediate computations. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
+<li><p><strong>Method</strong> – Tag-type that specifies an implementation of algorithm. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">method</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans6method5lloydE" title="oneapi::dal::kmeans::method::lloyd"><span class="pre">lloyd</span></a></code>.</p></li>
+<li><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal6kmeans4task10clusteringE" title="oneapi::dal::kmeans::task::clustering"><span class="pre">clustering</span></a></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>desc</strong> – Descriptor of the algorithm.</p></li>
+<li><p><strong>input</strong> – Input data for the inference operation.</p></li>
+</ul>
 </dd>
 </dl>
 <dl>
 <dt>Preconditions</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">is_empty</span> <span class="pre">==</span> <span class="pre">false</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">centroids</span><span class="pre">.</span><span class="pre">is_empty</span> <span class="pre">==</span> <span class="pre">false</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">centroids</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">cluster_count</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">centroids</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">column_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::kmeans::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">has_data</span> <span class="pre">==</span> <span class="pre">true</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::kmeans::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">centroids</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::kmeans::infer::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">cluster_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::kmeans::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">centroids</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::kmeans::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">column_count</span></code></div>
 </div>
 </dd>
 <dt>Postconditions</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">labels</span><span class="pre">.</span><span class="pre">is_empty</span> <span class="pre">==</span> <span class="pre">false</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">labels</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">row_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">labels</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::kmeans::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">row_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">labels</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <span class="pre">1</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">labels</span><span class="pre">[</span><span class="pre">i</span><span class="pre">]</span> <span class="pre">&gt;=</span> <span class="pre">0</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">labels</span><span class="pre">[</span><span class="pre">i</span><span class="pre">]</span> <span class="pre">&lt;</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal6kmeans5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::kmeans::infer::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">cluster_count</span></code></div>
 </div>
 </dd>
 </dl>
@@ -765,7 +882,7 @@ defined by the corresponding <code class="xref cpp cpp-expr docutils literal not
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../nearest_neighbors/index.html" class="btn btn-neutral float-right" title="Nearest Neighbors (kNN)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="kmeans_init.html" class="btn btn-neutral float-right" title="K-Means initialization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Clustering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

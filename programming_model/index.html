@@ -40,7 +40,7 @@
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Basic usage scenario" href="basic_usage_scenario.html" />
+    <link rel="next" title="End-to-end example" href="end_to_end_example.html" />
     <link rel="prev" title="Mathematical Notations" href="../notations.html" /> 
 </head>
 
@@ -93,10 +93,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notations.html">Mathematical Notations</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Programming model</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic_usage_scenario.html">Basic usage scenario</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_objects.html">Memory objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithm_anatomy.html">Algorithm anatomy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managing_execution_context.html">Managing execution context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="end_to_end_example.html">End-to-end example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="descriptors.html">Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operations/index.html">Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="computational_modes.html">Computational modes</a></li>
 </ul>
 </li>
@@ -170,20 +169,51 @@
             
   <div class="section" id="programming-model">
 <h1>Programming model<a class="headerlink" href="#programming-model" title="Permalink to this headline">¶</a></h1>
+<p>oneDAL primarily targets algorithms that are extensively used in data analytics.
+These algorithms typically have many parameters, i.e. knobs to control its
+internal behavior and produced result. In machine learning, those parameters are
+often referred as <em>meta-parameters</em> to distinguish them from the model
+parameters learned during the training. <a class="reference external" href="https://xgboost.readthedocs.io/en/latest/parameter.html">Some algorithms</a>
+define a dozen meta-parameters, while others depend on another algorithm as, for
+example, the logistic regression training procedure depends on an optimization
+algorithm.</p>
+<p>Besides meta-parameters, machine learning algorithms may have different
+<em>stages</em>, such as <a class="reference internal" href="../glossary.html#term-Training"><span class="xref std std-term">training</span></a> and <a class="reference internal" href="../glossary.html#term-Inference"><span class="xref std std-term">inference</span></a>. Moreover, the
+stages of an algorithm may be implemented in a variety of <em>computational
+methods</em>. For instance, a linear regression model could be trained by solving a
+system of linear equations <a class="reference internal" href="../bibliography.html#friedman17" id="id1"><span>[Friedman17]</span></a> or by applying an iterative
+optimization solver directly to the empirical risk function <a class="reference internal" href="../bibliography.html#zhang04" id="id2"><span>[Zhang04]</span></a>.</p>
+<p>The same machine learning techniques are often applied for solving problems of
+different types. In the example with linear regression, the same mathematical
+model used for solving <a class="reference internal" href="../glossary.html#term-Regression"><span class="xref std std-term">regression</span></a> problem is generalized for solving
+a <a class="reference internal" href="../glossary.html#term-Classification"><span class="xref std std-term">classification</span></a> problem, for example, logistic regression. Such
+techniques differ only in few problem-specific aspects, but share the same
+subset of meta-parameters and have a common computational flow. oneDAL does not
+distinguish these techniques into different algorithms. Instead, from oneDAL
+perspective, the same algorithm may perform different <em>computational tasks</em>.</p>
+<p>From computational perspective, algorithm implementation may rely on different
+<em>floating-point types</em>, such as <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code> or <code class="docutils literal notranslate"><span class="pre">bfloat16</span></code>. Having a
+capability to specify what type is needed is important for the end user as their
+precision requirements vary depending on a workload.</p>
+<p>To best tackle the mentioned challenges, each algorithm is decomposed into
+<a class="reference internal" href="descriptors.html#descriptors"><span class="std std-ref">descriptors</span></a> and <a class="reference internal" href="operations/index.html#operations"><span class="std std-ref">operations</span></a>.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="basic_usage_scenario.html">Basic usage scenario</a></li>
-<li class="toctree-l1"><a class="reference internal" href="memory_objects.html">Memory objects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="algorithm_anatomy.html">Algorithm anatomy</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="algorithm_anatomy.html#descriptor">Descriptor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithm_anatomy.html#operations">Operations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="algorithm_anatomy.html#input">Input</a></li>
-<li class="toctree-l3"><a class="reference internal" href="algorithm_anatomy.html#result">Result</a></li>
+<li class="toctree-l1"><a class="reference internal" href="end_to_end_example.html">End-to-end example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="descriptors.html">Descriptors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="descriptors.html#floating-point-types">Floating-point Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="descriptors.html#computational-methods">Computational Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="descriptors.html#computational-tasks">Computational Tasks</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="operations/index.html">Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="operations/index.html#general-operation-definition">General operation definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operations/index.html#operation-shortcuts">Operation shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operations/index.html#input">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operations/index.html#result">Result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operations/index.html#supported-operation">Supported operation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="managing_execution_context.html">Managing execution context</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computational_modes.html">Computational modes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="computational_modes.html#batch">Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="computational_modes.html#online">Online</a></li>
@@ -202,7 +232,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="basic_usage_scenario.html" class="btn btn-neutral float-right" title="Basic usage scenario" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="end_to_end_example.html" class="btn btn-neutral float-right" title="End-to-end example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../notations.html" class="btn btn-neutral float-left" title="Mathematical Notations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

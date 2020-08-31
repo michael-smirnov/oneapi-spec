@@ -40,8 +40,8 @@
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tables" href="tables.html" />
-    <link rel="prev" title="Error handling" href="../common_interface/error_handling.html" /> 
+    <link rel="next" title="Array" href="array.html" />
+    <link rel="prev" title="Memory management" href="../common_interface/memory_management.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,9 +95,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../programming_model/index.html">Programming model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../common_interface/index.html">Common Interface</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tables.html">Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="table_builders.html">Table builders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html">Array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accessors.html">Accessors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tables.html">Tables</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithms/index.html">Algorithms</a></li>
@@ -168,266 +169,262 @@
             
   <div class="section" id="data-management">
 <span id="id1"></span><h1>Data management<a class="headerlink" href="#data-management" title="Permalink to this headline">¶</a></h1>
-<p>This section includes descriptions of concepts and objects that operate with
-data. For oneDAL, such set of operations, or <strong>data management</strong>, is
-distributed among different stages of a <a class="reference internal" href="../introduction.html#data-analytics-pipeline"><span class="std std-ref">data analytics pipeline</span></a>. From data management angle of view, this pipeline
-contains three main steps of data acquisition, preparation, and computation:</p>
+<p>This section includes concepts and objects that operate on data. For
+oneDAL, such set of operations, or <strong>data management</strong>, is distributed
+between different stages of the <a class="reference internal" href="../introduction.html#data-analytics-pipeline"><span class="std std-ref">data analytics pipeline</span></a>. From a perspective of data management, this pipeline
+contains three main steps of data acquisition, preparation, and computation (see
+<a class="reference internal" href="#typical-data-management-flow"><span class="std std-ref">the picture below</span></a>):</p>
 <ol class="arabic simple">
-<li><p>Raw data acquisition.</p></li>
+<li><p>Raw data acquisition</p></li>
 </ol>
 <blockquote>
 <div><ul class="simple">
-<li><p>Transferring out-of-memory data into in-memory representation from sources
-like databases, files, remote storages, etc.</p></li>
+<li><p>Transfer out-of-memory data from various sources (databases, files, remote
+storage) into an in-memory representation.</p></li>
 </ul>
 </div></blockquote>
 <ol class="arabic simple" start="2">
-<li><p>Data preparation.</p></li>
+<li><p>Data preparation</p></li>
 </ol>
 <blockquote>
 <div><ul class="simple">
-<li><p>Performing data normalization, filtering.</p></li>
-<li><p>Recovery of missing values</p></li>
-<li><p>Compression and decompression of the data.</p></li>
-<li><p>Conversion of data to numeric representation.</p></li>
-<li><p>Supporting different in-memory <a class="reference internal" href="../glossary.html#term-data-format"><span class="xref std std-term">data formats</span></a>.</p></li>
-<li><p>Computation of statistics on numerical data like mean, variance,
-covariance, etc.</p></li>
+<li><p>Support different in-memory <a class="reference internal" href="../glossary.html#term-Data-format"><span class="xref std std-term">data formats</span></a>.</p></li>
+<li><p>Compress and decompress the data.</p></li>
+<li><p>Convert the data into numeric representation.</p></li>
+<li><p>Recover missing values.</p></li>
+<li><p>Filter the data and perform data normalization.</p></li>
+<li><p>Compute various statistical metrics for numerical data, such as mean, variance,
+and covariance.</p></li>
 </ul>
 </div></blockquote>
 <ol class="arabic simple" start="3">
-<li><p>Algorithm computation.</p></li>
+<li><p>Algorithm computation</p></li>
 </ol>
 <blockquote>
 <div><ul class="simple">
-<li><p>Streaming in-memory numerical data to the algorithm.</p></li>
+<li><p>Stream in-memory numerical data to the algorithm.</p></li>
 </ul>
 </div></blockquote>
-<p>In complex usage scenarios, data flow can go through these three stages back and
-forth. For example, when the full data are not available at the start of the
-computation, it can be done step-by-step with blocks of data. After computation
-on the current block the next one should be obtained and prepared.</p>
-<a class="reference internal image-reference" href="../_images/data_management_flow.png"><img alt="Typical data management flow" src="../_images/data_management_flow.png" style="width: 800px;" /></a>
+<p>In complex usage scenarios, data flow goes through these three stages back and
+forth. For example, when the data are not fully available at the start of the
+computation, it can be done step-by-step using blocks of data. After the
+computation on the current block is completed, the next block should be obtained
+and prepared.</p>
+<a class="reference internal image-reference" href="../_images/data_management_flow.png" id="typical-data-management-flow"><img alt="Typical data management flow" id="typical-data-management-flow" src="../_images/data_management_flow.png" style="width: 800px;" /></a>
 <div class="section" id="key-concepts">
 <h2>Key concepts<a class="headerlink" href="#key-concepts" title="Permalink to this headline">¶</a></h2>
 <p>oneDAL provides a set of concepts to operate on out-of-memory and
 in-memory data during different stages of the <a class="reference internal" href="../introduction.html#data-analytics-pipeline"><span class="std std-ref">data analytics pipeline</span></a>.</p>
 <div class="section" id="dataset">
 <span id="id2"></span><h3>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h3>
-<p>The most common concept over the data in oneDAL is a <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a>.
-This is an in-memory or out-of-memory tabular view of data, where table rows
-represent <a class="reference internal" href="../glossary.html#term-observation"><span class="xref std std-term">observations</span></a> and columns represent
-<a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">features</span></a>.</p>
+<p>The main data-related concept that oneDAL works with is a
+<a class="reference internal" href="../glossary.html#term-Dataset"><span class="xref std std-term">dataset</span></a>. It is a tabular view of data, where table rows represent the
+<a class="reference internal" href="../glossary.html#term-Observation"><span class="xref std std-term">observations</span></a> and columns represent the
+<a class="reference internal" href="../glossary.html#term-Feature"><span class="xref std std-term">features</span></a>.</p>
 <a class="reference internal image-reference" href="../_images/dataset.png"><img alt="Dataset" src="../_images/dataset.png" style="width: 400px;" /></a>
-<p>The dataset comes across all stages of the data analytics pipeline. For example:</p>
+<p>The dataset is used across all stages of the data analytics pipeline. For
+example:</p>
 <ol class="arabic simple">
-<li><p>On the acquisition stage, it is downloaded into the
-local memory</p></li>
-<li><p>On the preparation stage, it is converted to numerical
-representation</p></li>
-<li><p>On the computation stage, it is used as one of the <a class="reference internal" href="../programming_model/algorithm_anatomy.html#input"><span class="std std-ref">inputs</span></a> or
-<a class="reference internal" href="../programming_model/algorithm_anatomy.html#result"><span class="std std-ref">results</span></a> of an algorithm or even can be found in its
-parameters</p></li>
+<li><p>At the acquisition stage, it is downloaded into the
+local memory.</p></li>
+<li><p>At the preparation stage, it is converted into a numerical
+representation.</p></li>
+<li><p>At the computation stage, it is used as one of the <a class="reference internal" href="../programming_model/operations/index.html#input"><span class="std std-ref">inputs</span></a> or
+<a class="reference internal" href="../programming_model/operations/index.html#result"><span class="std std-ref">results</span></a> of an algorithm or a <a class="reference internal" href="../programming_model/descriptors.html#descriptors"><span class="std std-ref">descriptor</span></a>
+properties.</p></li>
 </ol>
 </div>
 <div class="section" id="data-source">
 <span id="id3"></span><h3>Data source<a class="headerlink" href="#data-source" title="Permalink to this headline">¶</a></h3>
-<p>Data source is a concept of an out-of-memory storage of a <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a>. It is
-used on data acquisition and data preparation stages for:</p>
+<p>Data source is a concept of an out-of-memory storage for a <a class="reference internal" href="../glossary.html#term-Dataset"><span class="xref std std-term">dataset</span></a>.
+It is used at the data acquisition and data preparation stages to:</p>
 <ul class="simple">
-<li><p>Dataset extraction from databases, files, remote storages, etc.</p></li>
-<li><p>Dataset loading into the local memory of the device. Data are not always fit
-the local memory, especially when processing with accelerators. Data source
-provides an ability to load data by batches and orchestrates its efficient
-extraction directly into local memory of the device. Therefore data source
-enables complex scenarios of data analytics, like <a class="reference internal" href="../glossary.html#term-online-mode"><span class="xref std std-term">online computations</span></a>.</p></li>
-<li><p>Filtering or normalization of <a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">feature</span></a> values being extracted.</p></li>
-<li><p>Recovery (emulation) of missing <a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">feature</span></a> values.</p></li>
-<li><p><a class="reference internal" href="../glossary.html#term-outlier"><span class="xref std std-term">outlier</span></a> detection and recovery of the abnormal data.</p></li>
-<li><p>Dataset transformation to numerical representation. Data sources can
-automatically transform non-numeric <a class="reference internal" href="../glossary.html#term-categorical-feature"><span class="xref std std-term">categorical</span></a>
-and <a class="reference internal" href="../glossary.html#term-continuous-feature"><span class="xref std std-term">continuous</span></a> values of data into one of numeric
-<a class="reference internal" href="../glossary.html#term-data-format"><span class="xref std std-term">data formats</span></a>.</p></li>
+<li><p>Extract datasets from external sources such as databases, files, remote
+storage.</p></li>
+<li><p>Load datasets into the device’s local memory. Data do not always fit
+the local memory, especially when processing with accelerators. A data source
+provides the ability to load data by batches and extracts it directly into the
+device’s local memory. Therefore, a data source enables complex data analytics
+scenarios, such as <a class="reference internal" href="../glossary.html#term-Online-mode"><span class="xref std std-term">online computations</span></a>.</p></li>
+<li><p>Transform datasets into their numerical representation. Data source shall
+automatically transform non-numeric <a class="reference internal" href="../glossary.html#term-Categorical-feature"><span class="xref std std-term">categorical</span></a> and <a class="reference internal" href="../glossary.html#term-Continuous-feature"><span class="xref std std-term">continuous</span></a> data values into one
+of the numeric <a class="reference internal" href="../glossary.html#term-Data-format"><span class="xref std std-term">data formats</span></a>.</p></li>
 </ul>
+<p>For details, see <a class="reference internal" href="data_sources.html#data-sources"><span class="std std-ref">data sources</span></a> section.</p>
 </div>
 <div class="section" id="table">
 <span id="id4"></span><h3>Table<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h3>
-<p>Table is a concept of a <a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a> with in-memory numerical data. It is
-used on data-preparation and data-processing stages to:</p>
+<p>Table is a concept of in-memory numerical data that are organized in a tabular
+view with several rows and columns. It is used at the data preparation and data
+processing stages to:</p>
 <ul class="simple">
-<li><p>Store heterogeneous (in the general case) in-memory data with variety of
-<a class="reference internal" href="../glossary.html#term-data-format"><span class="xref std std-term">data formats</span></a> (dense, sparse, chunked, contiguous, etc.)</p></li>
-<li><p>Avoid unnecessary data copies on conversion from external data
+<li><p>Be an in-memory representation of a <a class="reference internal" href="#dataset"><span class="std std-ref">dataset</span></a> or another tabular
+data (for example, matrices, vectors, and scalars).</p></li>
+<li><p>Store heterogeneous data in various
+<a class="reference internal" href="../glossary.html#term-Data-format"><span class="xref std std-term">data formats</span></a>, such as dense, sparse, chunked,
+contiguous.</p></li>
+<li><p>Avoid unnecessary data copies during conversion from external data
 representations.</p></li>
-<li><p>Transfer memory ownership of the data from user responsibility to the table,
-or share it between them</p></li>
-<li><p>Connect with <a class="reference internal" href="#data-source"><span class="std std-ref">Data source</span></a> to convert out-of-memory dataset
-representation to in-memory view</p></li>
-<li><p>Stream the data to the algorithm</p></li>
-<li><p>Access the underlying data on a device in a required <a class="reference internal" href="../glossary.html#term-data-format"><span class="xref std std-term">data format</span></a>, e.g.
-by blocks of defined <a class="reference internal" href="../glossary.html#term-data-layout"><span class="xref std std-term">data layout</span></a>.</p></li>
-</ul>
-<p>Table provide read-only access to the data inside it for thread-safety reasons
-and better integration with external entities, thus, table concept is
-<a class="reference internal" href="../glossary.html#term-immutability"><span class="xref std std-term">immutable</span></a>.</p>
-<p>This concept may also have different logical organization and physical
-<a class="reference internal" href="../glossary.html#term-data-format"><span class="xref std std-term">format of the data</span></a> inside it.</p>
-<ul class="simple">
-<li><p>Logically, table is a <a class="reference internal" href="#dataset"><span class="std std-ref">Dataset</span></a> with <span class="math notranslate nohighlight">\(n\)</span> rows and
-<span class="math notranslate nohighlight">\(p\)</span> columns. Each row represent an <a class="reference internal" href="../glossary.html#term-observation"><span class="xref std std-term">observation</span></a> and each column
-is a <a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">feature</span></a> of a dataset. Thus, table contains <span class="math notranslate nohighlight">\((n \times p)\)</span>
-data elements, while the original (physical) amount of bytes needed to store
-the data can be different.</p></li>
-<li><p>Physically, table can be organized in different ways: as a <a class="reference internal" href="../glossary.html#term-homogeneous-data"><span class="xref std std-term">homogeneous</span></a>, <a class="reference internal" href="../glossary.html#term-contiguous-data"><span class="xref std std-term">contiguous</span></a> array of bytes, as
-<a class="reference internal" href="../glossary.html#term-heterogeneous-data"><span class="xref std std-term">heterogeneous</span></a> list of arrays of different
-<a class="reference internal" href="../glossary.html#term-data-type"><span class="xref std std-term">data types</span></a>, in a compressed-sparse-row format, etc.</p></li>
-</ul>
-<p>For details, see <a class="reference internal" href="tables.html#tables"><span class="std std-ref">Tables</span></a> section.</p>
-</div>
-<div class="section" id="metadata">
-<span id="id5"></span><h3>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h3>
-<p>Metadata concept is assotiated with a <a class="reference internal" href="#dataset"><span class="std std-ref">Dataset</span></a> and holds an information
-about its structure and type. This information shall be enough to determine the
-particular type of a dataset, and helps to understand how to interact with
-dataset in oneDAL (for example, how to use it on a particular stage of
-<a class="reference internal" href="../introduction.html#data-analytics-pipeline"><span class="std std-ref">data analytics pipeline</span></a> or how to access its
-data).</p>
-<p>Metadata for all datasets shall contain:</p>
-<ul class="simple">
-<li><p>The number of rows <span class="math notranslate nohighlight">\(n\)</span> and columns <span class="math notranslate nohighlight">\(p\)</span> in a dataset</p></li>
-<li><p>Type of each <a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">feature</span></a> (e.g. <a class="reference internal" href="../glossary.html#term-nominal-feature"><span class="xref std std-term">nominal</span></a>,
-<a class="reference internal" href="../glossary.html#term-interval-feature"><span class="xref std std-term">interval</span></a>)</p></li>
-<li><p><a class="reference internal" href="../glossary.html#term-data-type"><span class="xref std std-term">data type</span></a> of each feature</p></li>
-<li><p>The kind of a dataset (e.g. <a class="reference internal" href="#table"><span class="std std-ref">Table</span></a> or <a class="reference internal" href="#data-source"><span class="std std-ref">Data source</span></a>)</p></li>
+<li><p>Transfer memory ownership of the data from user application to the table,
+or share it between them.</p></li>
+<li><p>Connect with the <a class="reference internal" href="#data-source"><span class="std std-ref">data source</span></a> to convert data from an
+out-of-memory into an in-memory representation.</p></li>
+<li><p>Support streaming of the data to the algorithm.</p></li>
+<li><p>Access the underlying data on a device in a required <a class="reference internal" href="../glossary.html#term-Data-format"><span class="xref std std-term">data
+format</span></a>, e.g. by blocks with the defined <a class="reference internal" href="../glossary.html#term-Data-layout"><span class="xref std std-term">data layout</span></a>.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Metadata can contain both compile-time and run-time information. For example,
-basic compile-time metadata is the type of a dataset - whether it is a
-particular <a class="reference internal" href="#data-source"><span class="std std-ref">Data source</span></a> or a <a class="reference internal" href="#table"><span class="std std-ref">Table</span></a>. Run-time information can
-contain the <a class="reference internal" href="../glossary.html#term-feature"><span class="xref std std-term">feature</span></a> types and <a class="reference internal" href="../glossary.html#term-data-type"><span class="xref std std-term">data types</span></a> of a
-dataset.</p>
+<p>For thread-safety reasons and better integration with external entities, a
+table provides a read-only access to the data within it, thus, table object
+shall be <a class="reference internal" href="../glossary.html#term-Immutability"><span class="xref std std-term">immutable</span></a>.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Each concept that concretizes a dataset definition (like different tables or
-data sources) shall contain additional metadata which describes this concept
-as the whole. For example, <a class="reference internal" href="#data-source"><span class="std std-ref">Data source</span></a> and <a class="reference internal" href="#table"><span class="std std-ref">Table</span></a> concepts have
-different sets of metadata since they represent different kinds of a
-<a class="reference internal" href="../glossary.html#term-dataset"><span class="xref std std-term">dataset</span></a>.</p>
-</div>
-</div>
-<div class="section" id="table-builder">
-<span id="id6"></span><h3>Table builder<a class="headerlink" href="#table-builder" title="Permalink to this headline">¶</a></h3>
-<p>A table <a class="reference internal" href="../glossary.html#term-builder"><span class="xref std std-term">builder</span></a> is a concept that associated with particular
-<a class="reference internal" href="#table"><span class="std std-ref">Table</span></a> type and is used on data-preparation and data-processing stages
-for:</p>
+<p>This concept has different logical organization and physical <a class="reference internal" href="../glossary.html#term-Data-format"><span class="xref std std-term">format of
+the data</span></a>:</p>
 <ul class="simple">
-<li><p>Iterative (in general case) construction of a <a class="reference internal" href="#table"><span class="std std-ref">Table</span></a> from
-another <a class="reference internal" href="#table"><span class="std std-ref">tables</span></a> or different in-memory <a class="reference internal" href="#dataset"><span class="std std-ref">Dataset</span></a>
-representations</p></li>
-<li><p>Construction of a <a class="reference internal" href="#table"><span class="std std-ref">Table</span></a> from different entities that hold pieces of the
-dataset, like arrays, pointers to the memory, external entities, etc.</p></li>
-<li><p>Changing dataset values. Since <a class="reference internal" href="#table"><span class="std std-ref">Table</span></a> is an
-<a class="reference internal" href="../glossary.html#term-immutability"><span class="xref std std-term">immutable</span></a> dataset, builder provides an ability to
-change the values of data in the dataset under construction.</p></li>
-<li><p>Incapsulating construction process of a <a class="reference internal" href="#table"><span class="std std-ref">Table</span></a>. This is used to hide an
-implementation details, which (1) are unnecessary for user, (2) allow to
-select most appropriate table implementation for every particular case.</p></li>
-<li><p>Providing an additional information how to create a <a class="reference internal" href="#table"><span class="std std-ref">Table</span></a> inside an
-algorithm for <a class="reference internal" href="../programming_model/algorithm_anatomy.html#result"><span class="std std-ref">results</span></a>. This information may include metadata,
-memory allocators need to be used, or even particular implementation of a
-table.</p></li>
+<li><p>Logically, a table contains <span class="math notranslate nohighlight">\(n\)</span> rows and <span class="math notranslate nohighlight">\(p\)</span> columns.
+Every column may have its own type of data values and a set of allowed
+operations.</p></li>
+<li><p>Physically, a table can be organized in different ways: as a
+<a class="reference internal" href="../glossary.html#term-Homogeneous-data"><span class="xref std std-term">homogeneous</span></a>, <a class="reference internal" href="../glossary.html#term-Contiguous-data"><span class="xref std std-term">contiguous</span></a> array of bytes, as a <a class="reference internal" href="../glossary.html#term-Heterogeneous-data"><span class="xref std std-term">heterogeneous</span></a> list
+of arrays of different <a class="reference internal" href="../glossary.html#term-Data-type"><span class="xref std std-term">data types</span></a>, in a
+compressed-sparse-row format. The number of bytes needed to store the data
+differs from the number of elements <span class="math notranslate nohighlight">\(n \times p\)</span> within a table.</p></li>
 </ul>
-<p>Table builder shall be a stateful object which state is updated every call of
-operation which updates data or <a class="reference internal" href="#metadata"><span class="std std-ref">Metadata</span></a> of <a class="reference internal" href="#dataset"><span class="std std-ref">Dataset</span></a> under
-construction. It shall have <cite>build()</cite> member function which takes current
-snapshot of builder state and creates a <a class="reference internal" href="#table"><span class="std std-ref">Table</span></a> object upon it.</p>
-<p>For details, see <a class="reference internal" href="table_builders.html#table-builders"><span class="std std-ref">Table builders</span></a> section.</p>
+<p>For details, see <a class="reference internal" href="tables.html#tables"><span class="std std-ref">tables</span></a> section.</p>
+</div>
+<div class="section" id="table-metadata">
+<span id="id5"></span><h3>Table metadata<a class="headerlink" href="#table-metadata" title="Permalink to this headline">¶</a></h3>
+<p>Table metadata concept provides an additional information about data in the
+table:</p>
+<ol class="arabic simple">
+<li><p>The <a class="reference internal" href="../glossary.html#term-Data-type"><span class="xref std std-term">data types</span></a> of the columns.</p></li>
+<li><p>The logical types of data in the columns:
+<a class="reference internal" href="../glossary.html#term-Nominal-feature"><span class="xref std std-term">nominal</span></a>, <a class="reference internal" href="../glossary.html#term-Ordinal-feature"><span class="xref std std-term">ordinal</span></a>,
+<a class="reference internal" href="../glossary.html#term-Interval-feature"><span class="xref std std-term">interval</span></a>, or <a class="reference internal" href="../glossary.html#term-Ratio-feature"><span class="xref std std-term">ratio</span></a>.</p></li>
+</ol>
+<p>Only the properties of data that do not affect table concept definition shall be
+the part of metadata concept.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>While extending the table concept, specification implementer shall distinguish
+whether a new property they are adding is a property of a particular <code class="docutils literal notranslate"><span class="pre">table</span></code>
+sub-type or a property of table metadata.</p>
+<p>For example, <a class="reference internal" href="../glossary.html#term-Data-layout"><span class="xref std std-term">data layout</span></a> and <a class="reference internal" href="../glossary.html#term-Data-format"><span class="xref std std-term">data format</span></a> are properties
+of table objects since they affect the structure of a table, its contract, and
+behavior. The list of names of features or columns inside the table is the
+example of metadata property.</p>
+</div>
 </div>
 <div class="section" id="accessor">
-<span id="id7"></span><h3>Accessor<a class="headerlink" href="#accessor" title="Permalink to this headline">¶</a></h3>
-<p>Accessor is a concept which defines sinle way how to get the data from a
-in-memory numerical <a class="reference internal" href="#dataset"><span class="std std-ref">Dataset</span></a>. It allows:</p>
+<span id="id6"></span><h3>Accessor<a class="headerlink" href="#accessor" title="Permalink to this headline">¶</a></h3>
+<p>Accessor is a concept that defines a single way to extract the data from a
+<a class="reference internal" href="#table"><span class="std std-ref">table</span></a>. It allows to:</p>
 <ul class="simple">
-<li><p>To make uniform access to the data from various sets of different objects,
-like <a class="reference internal" href="#table"><span class="std std-ref">tables</span></a> or <a class="reference internal" href="#table-builder"><span class="std std-ref">table builders</span></a> without
-exposing their implementation details.</p></li>
-<li><p>To convert a variety of numeric <a class="reference internal" href="../glossary.html#term-data-format"><span class="xref std std-term">data formats</span></a> into a
-smaller set (e.g. for better vectorization).</p></li>
-<li><p>To give an ability to focus on the data acquisition in the desired <a class="reference internal" href="../glossary.html#term-data-format"><span class="xref std std-term">data
-format</span></a> with a wanted set of operations over the data.</p></li>
-<li><p>To make read-only, read-write and write-only access to the data.</p></li>
+<li><p>Have unified access to the data from <a class="reference internal" href="#table"><span class="std std-ref">table</span></a> objects of different
+types, without exposing their implementation details.</p></li>
+<li><p>Provide a <a class="reference internal" href="../glossary.html#term-Flat-data"><span class="xref std std-term">flat</span></a> view on the data blocks of a
+<a class="reference internal" href="#table"><span class="std std-ref">table</span></a> for better data locality. For example, the accessor returns a
+column of the table stored in row-major format as a contiguous array.</p></li>
+<li><p>Acquire data in a desired <a class="reference internal" href="../glossary.html#term-Data-format"><span class="xref std std-term">data format</span></a> for which
+a specific set of operations is defined.</p></li>
+<li><p>Have read-only access to the data.</p></li>
 </ul>
-<p>For details, see <a class="reference internal" href="accessors.html#accessors"><span class="std std-ref">Accessors</span></a> section.</p>
+<p>For details, see <a class="reference internal" href="accessors.html#accessors"><span class="std std-ref">accessors</span></a> section.</p>
 </div>
-<div class="section" id="use-case-example-for-table-accessor-and-table-builder">
-<h3>Use-case example for table, accessor and table builder<a class="headerlink" href="#use-case-example-for-table-accessor-and-table-builder" title="Permalink to this headline">¶</a></h3>
-<p>This section gives an basic usage scenario of <a class="reference internal" href="#table"><span class="std std-ref">Table</span></a>, <a class="reference internal" href="#table-builder"><span class="std std-ref">Table builder</span></a>
-and <a class="reference internal" href="#accessor"><span class="std std-ref">Accessor</span></a> concepts and relations between them. The following diagram
-shows objects of these concepts, which are highlighted by colors:</p>
+<div class="section" id="example-of-interaction-between-table-and-accessor-objects">
+<h3>Example of interaction between table and accessor objects<a class="headerlink" href="#example-of-interaction-between-table-and-accessor-objects" title="Permalink to this headline">¶</a></h3>
+<p>This section provides a basic usage scenario of the <a class="reference internal" href="#table"><span class="std std-ref">table</span></a> and
+<a class="reference internal" href="#accessor"><span class="std std-ref">accessor</span></a> concepts and demonstrates the relations between them.
+<a class="reference internal" href="#table-accessor-usage-example"><span class="std std-ref">The following diagram</span></a> shows objects
+of these concepts, which are highlighted by colors:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#table-builder"><span class="std std-ref">Table builder</span></a> objects are blue</p></li>
-<li><p><a class="reference internal" href="#table"><span class="std std-ref">Table</span></a> objects are cyan</p></li>
-<li><p><a class="reference internal" href="#accessor"><span class="std std-ref">accessors</span></a> are yellow</p></li>
-<li><p>objects with gray background color are not a part of oneDAL
-specification and they are provided just for illustration purposes</p></li>
+<li><p><a class="reference internal" href="#table"><span class="std std-ref">table</span></a> object is dark blue</p></li>
+<li><p><a class="reference internal" href="#accessor"><span class="std std-ref">accessor</span></a> is orange</p></li>
+<li><p><a class="reference internal" href="#table-metadata"><span class="std std-ref">table metadata</span></a> is light blue</p></li>
 </ul>
-<p>To perform some computations based on the dataset, one shall create a
-<a class="reference internal" href="#table"><span class="std std-ref">Table</span></a> object first. It can be done using <a class="reference internal" href="#data-source"><span class="std std-ref">Data source</span></a> or
-<a class="reference internal" href="#table-builder"><span class="std std-ref">Table builder</span></a> objects depending on the situation. The diagram briefly
-shows a situation when <a class="reference internal" href="#table"><span class="std std-ref">Table</span></a> is created from <a class="reference internal" href="#table-builder"><span class="std std-ref">Table builder</span></a>
-interatively with calls of various member functions that update internal state
-of the builder. Then, the <cite>build()</cite> method is called which takes a snapshot of
-current builder state and creates a table from it.</p>
-<p>Once table object created, the data inside it can be accessed using member
-functions of table object or with help of read-only accessor as shown on the
-diagram. Table can be used in the computations as input or parameter of some
-algorithm.</p>
-<p>Algorithms results also contain table objects. If one needs to change the data
-inside some table, builder object can be constructed for this. If table object
-is unique (just only one reference exists), it can be moved inside builder -
-thus no copy operations of data will be performed. Data inside table builder can
-be retrieved by read-only, write-only or read-write accessors.</p>
-<p>Accessors present on the diagram allows to get data uniformly from tables and
-table builders as blocks of rows.</p>
-<p>Internal “access_interface” object present on the diagram depicts how table and
-table builder may share one implementation with different set of operations
-defined upon it on different stages of the lifetime. It shows how accessor
-object might know how to get data from different kind of objects.</p>
-<a class="reference internal image-reference" href="../_images/table_builder_accessor_sequence.png"><img alt="Sequence diagram of accessor-builder-table relations" src="../_images/table_builder_accessor_sequence.png" style="width: 800px;" /></a>
+<a class="reference internal image-reference" href="../_images/table_accessor_usage_example.png" id="table-accessor-usage-example"><img alt="Sequence diagram of accessor-builder-table relations" id="table-accessor-usage-example" src="../_images/table_accessor_usage_example.png" style="width: 800px;" /></a>
+<p>To perform computations on a dataset, one shall create a <a class="reference internal" href="#table"><span class="std std-ref">table</span></a> object
+first. It can be done either using a <a class="reference internal" href="#data-source"><span class="std std-ref">data source</span></a> or directly from
+user-defined memory. The diagram shows the creation of a <a class="reference internal" href="#table"><span class="std std-ref">table</span></a> object
+<cite>t</cite> from the data provided by user (not shown on the diagram). During a table
+creation, an object <cite>tm</cite> of table metadata is constructed and initialized using
+the data.</p>
+<p>Once a table object is created, it can be used as an input in computations or as
+a parameter of some algorithm. The data in the table can be accessed via its own
+interface or via read-only accessor as shown on the diagram.</p>
 </div>
 </div>
 <div class="section" id="details">
 <h2>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+<p>This section includes the detailed descriptions of all data management objects in
+oneDAL.</p>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="array.html">Array</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="array.html#usage-example">Usage example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html#data-ownership-requirements">Data ownership requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html#programming-interface">Programming interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accessors.html">Accessors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accessors.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accessors.html#accessor-types">Accessor Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accessors.html#details">Details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="accessor/column.html">Column accessor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accessor/column.html#usage-example">Usage example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessor/column.html#programming-interface">Programming interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accessor/row.html">Row accessor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accessor/row.html#usage-example">Usage example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessor/row.html#programming-interface">Programming interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data Sources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_sources.html#read">Read</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_sources.html#read-operation-definition">Read operation definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_sources.html#read-operation-shortcuts">Read operation shortcuts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_sources.html#args">Args</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_sources.html#result">Result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_sources.html#data-source-types">Data Source Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_sources.html#details">Details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="csv_data_source.html">CSV data source</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="csv_data_source.html#usage-example">Usage example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csv_data_source.html#programming-interface">Programming Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csv_data_source.html#reading-oneapi-dal-read-object">Reading <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">oneapi</span><span class="pre">::</span><span class="pre">dal</span><span class="pre">::</span><span class="pre">read</span><span class="pre">&lt;</span><span class="pre">Object</span><span class="pre">&gt;</span><span class="sig-paren">(</span><span class="pre">...</span><span class="sig-paren">)</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="csv_data_source.html#args">Args</a></li>
+<li class="toctree-l5"><a class="reference internal" href="csv_data_source.html#operation">Operation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tables.html">Tables</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tables.html#requirements-on-table-types">Requirements on table types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tables.html#table-types-in-dal-short-name">Table types in oneDAL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tables.html#table-api">Table API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#homogeneous-table">Homogeneous table</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#structure-of-arrays-table">Structure-of-arrays table</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#arrays-of-structure-table">Arrays-of-structure table</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#compressed-sparse-row-table">Compressed-sparse-row table</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tables.html#metadata-api">Metadata API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tables.html#table-types">Table types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tables.html#programming-interface">Programming interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tables.html#table">Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tables.html#table-metadata">Table metadata</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tables.html#data-layout">Data layout</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#data-format">Data format</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#feature-info">Feature info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#data-type">Data type</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#feature-type">Feature type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tables.html#feature-type">Feature type</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="table/homogen.html">Homogeneous table</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="table/homogen.html#programming-interface">Programming interface</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="table_builders.html">Table builders</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accessors.html">Accessors</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="accessors.html#requirements-on-accessor-types">Requirements on accessor types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accessors.html#accessor-types-in-dal-short-name">Accessor types in oneDAL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accessors.html#row-accessor">Row accessor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accessors.html#column-accessor">Column accessor</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -443,10 +440,10 @@ object might know how to get data from different kind of objects.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tables.html" class="btn btn-neutral float-right" title="Tables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="array.html" class="btn btn-neutral float-right" title="Array" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../common_interface/error_handling.html" class="btn btn-neutral float-left" title="Error handling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../common_interface/memory_management.html" class="btn btn-neutral float-left" title="Memory management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

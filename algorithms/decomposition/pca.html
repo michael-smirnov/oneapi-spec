@@ -176,36 +176,96 @@
            <div itemprop="articleBody">
             
   <div class="section" id="principal-components-analysis-pca">
-<h1>Principal Components Analysis (PCA)<a class="headerlink" href="#principal-components-analysis-pca" title="Permalink to this headline">¶</a></h1>
+<span id="alg-pca"></span><h1>Principal Components Analysis (PCA)<a class="headerlink" href="#principal-components-analysis-pca" title="Permalink to this headline">¶</a></h1>
 <p>Principal Component Analysis (PCA) is an algorithm for exploratory data analysis
-and dimensionality reduction. PCA transforms a set of feature vectors of
-possibly correlated features to a new set of uncorrelated features, called
+and <a class="reference internal" href="../../glossary.html#term-Dimensionality-reduction"><span class="xref std std-term">dimensionality reduction</span></a>. PCA transforms a set of feature vectors
+of possibly correlated features to a new set of uncorrelated features, called
 principal components. Principal components are the directions of the largest
 variance, that is, the directions where the data is mostly spread out.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 11%" />
+<col style="width: 15%" />
+<col style="width: 17%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Operation</strong></p></td>
+<td colspan="2"><p><strong>Computational methods</strong></p></td>
+<td colspan="3"><p><strong>Programming Interface</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pca-t-math">Training</a></p></td>
+<td><p><a class="reference internal" href="#pca-t-math-cov">Covariance</a></p></td>
+<td><p><a class="reference internal" href="#pca-t-math-svd">SVD</a></p></td>
+<td><p><a class="reference internal" href="#pca-t-api">train(…)</a></p></td>
+<td><p><a class="reference internal" href="#pca-t-api-input">train_input</a></p></td>
+<td><p><a class="reference internal" href="#pca-t-api-result">train_result</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pca-i-math">Inference</a></p></td>
+<td><p><a class="reference internal" href="#pca-i-math-cov">Covariance</a></p></td>
+<td><p><a class="reference internal" href="#pca-i-math-svd">SVD</a></p></td>
+<td><p><a class="reference internal" href="#pca-i-api">infer(…)</a></p></td>
+<td><p><a class="reference internal" href="#pca-i-api-input">infer_input</a></p></td>
+<td><p><a class="reference internal" href="#pca-i-api-result">infer_result</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="mathematical-formulation">
+<h2>Mathematical formulation<a class="headerlink" href="#mathematical-formulation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="training">
+<span id="pca-t-math"></span><h3>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h3>
 <p>Given the training set <span class="math notranslate nohighlight">\(X = \{ x_1, \ldots, x_n \}\)</span> of
 <span class="math notranslate nohighlight">\(p\)</span>-dimensional feature vectors and the number of principal components
 <span class="math notranslate nohighlight">\(r\)</span>, the problem is to compute <span class="math notranslate nohighlight">\(r\)</span> principal directions
-(<span class="math notranslate nohighlight">\(p\)</span>-dimensional eigenvectors) for the training set. The eigenvectors can
-be grouped into the <span class="math notranslate nohighlight">\(r \times p\)</span> matrix <span class="math notranslate nohighlight">\(T\)</span> that contains one
-eigenvector in each row.</p>
-<p>oneDAL specifies two methods for PCA computation:</p>
+(<span class="math notranslate nohighlight">\(p\)</span>-dimensional eigenvectors <a class="reference internal" href="../../bibliography.html#lang87" id="id1"><span>[Lang87]</span></a>) for the training set. The
+eigenvectors can be grouped into the <span class="math notranslate nohighlight">\(r \times p\)</span> matrix <span class="math notranslate nohighlight">\(T\)</span> that
+contains one eigenvector in each row.</p>
+<div class="section" id="training-method-covariance">
+<span id="pca-t-math-cov"></span><h4>Training method: <em>Covariance</em><a class="headerlink" href="#training-method-covariance" title="Permalink to this headline">¶</a></h4>
+<p>This method uses eigenvalue decomposition of the covariance matrix to compute
+the principal components of the datasets. The method relies on the following
+steps:</p>
 <ol class="arabic simple">
-<li><p><a class="reference internal" href="#covariance-based-method">Covariance-based method</a></p></li>
-<li><p><a class="reference internal" href="#svd-based-method">SVD-based method</a></p></li>
+<li><p>Computation of the covariance matrix</p></li>
+<li><p>Computation of the eigenvectors and eigenvalues</p></li>
+<li><p>Formation of the matrices storing the results</p></li>
 </ol>
-<div class="section" id="covariance-based-method">
-<h2>Covariance-based method<a class="headerlink" href="#covariance-based-method" title="Permalink to this headline">¶</a></h2>
-<p>[TBD]</p>
+<p>Covariance matrix computation shall be performed in the following way:</p>
+<ol class="arabic simple">
+<li><p>Compute the vector-column of sums <span class="math notranslate nohighlight">\(s_i = \sum_{j=1}^n x_{i,j}, \quad 1 \leq i \leq p\)</span>.</p></li>
+<li><p>Compute the cross-product <span class="math notranslate nohighlight">\(P = X^TX - s^Ts\)</span>.</p></li>
+<li><p>Compute the covariance matrix <span class="math notranslate nohighlight">\(\Sigma = \frac{1}{n - 1} P\)</span>.</p></li>
+</ol>
+<p>To compute eigenvalues <span class="math notranslate nohighlight">\(\lambda_i\)</span> and eigenvectors <span class="math notranslate nohighlight">\(\upsilon_i\)</span>, the implementer can choose an arbitrary
+method such as <a class="reference internal" href="../../bibliography.html#ping14" id="id2"><span>[Ping14]</span></a>.</p>
+<p>The final step is to sort the set of pairs <span class="math notranslate nohighlight">\((\lambda_i, \upsilon_i)\)</span> in
+the descending order by <span class="math notranslate nohighlight">\(\lambda_i\)</span> and form the resulting matrix <span class="math notranslate nohighlight">\(T
+= (\upsilon_{i,1}, \cdots, \upsilon_{i,r}), \quad 1 \leq i \leq p\)</span>.
+Additionally, the means and variances of the initial dataset shall be returned.</p>
 </div>
-<div class="section" id="svd-based-method">
-<h2>SVD-based method<a class="headerlink" href="#svd-based-method" title="Permalink to this headline">¶</a></h2>
-<p>[TBD]</p>
+<div class="section" id="training-method-svd">
+<span id="pca-t-math-svd"></span><h4>Training method: <em>SVD</em><a class="headerlink" href="#training-method-svd" title="Permalink to this headline">¶</a></h4>
+<p>This method uses singular value decomposition of the dataset to compute its
+principal components. The method relies on the following steps:</p>
+<ol class="arabic simple">
+<li><p>Computation of the singular values and singular vectors</p></li>
+<li><p>Formation of the matrices storing the results</p></li>
+</ol>
+<p>To compute singular values <span class="math notranslate nohighlight">\(\lambda_i\)</span> and singular vectors <span class="math notranslate nohighlight">\(u_i\)</span>
+and <span class="math notranslate nohighlight">\(v_i\)</span>, the implementer can choose an arbitrary method such as
+<a class="reference internal" href="../../bibliography.html#demmel90" id="id3"><span>[Demmel90]</span></a>.</p>
+<p>The final step is to sort the set of pairs <span class="math notranslate nohighlight">\((\lambda_i, v_i)\)</span> in the
+descending order by <span class="math notranslate nohighlight">\(\lambda_i\)</span> and form the resulting matrix <span class="math notranslate nohighlight">\(T =
+(v_{i,1}, \cdots, v_{i,r}), \quad 1 \leq i \leq p\)</span>. Additionally, the means and
+variances of the initial dataset shall be returned.</p>
 </div>
 <div class="section" id="sign-flip-technique">
-<h2>Sign-flip technique<a class="headerlink" href="#sign-flip-technique" title="Permalink to this headline">¶</a></h2>
+<h4>Sign-flip technique<a class="headerlink" href="#sign-flip-technique" title="Permalink to this headline">¶</a></h4>
 <p>Eigenvectors computed by some eigenvalue solvers are not uniquely defined due to
 sign ambiguity. To get the deterministic result, a sign-flip technique should be
-applied. One of the sign-flip techniques proposed in <a class="reference internal" href="../../bibliography.html#bro07" id="id1"><span>[Bro07]</span></a> requires the
+applied. One of the sign-flip techniques proposed in <a class="reference internal" href="../../bibliography.html#bro07" id="id4"><span>[Bro07]</span></a> requires the
 following modification of matrix <span class="math notranslate nohighlight">\(T\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\hat{T}_i = T_i \cdot \mathrm{sgn}(\max_{1 \leq j \leq p } |{T}_{ij}|), \quad 1 \leq i \leq r,\]</div>
@@ -226,42 +286,138 @@ require implementation of this sign-flip technique. Implementer can choose an
 arbitrary technique that modifies the eigenvectors’ signs.</p>
 </div>
 </div>
+</div>
+<div class="section" id="inference">
+<span id="pca-i-math"></span><h3>Inference<a class="headerlink" href="#inference" title="Permalink to this headline">¶</a></h3>
+<p>Given the inference set <span class="math notranslate nohighlight">\(X' = \{ x_1', \ldots, x_m' \}\)</span> of
+<span class="math notranslate nohighlight">\(p\)</span>-dimensional feature vectors and the <span class="math notranslate nohighlight">\(r \times p\)</span> matrix
+<span class="math notranslate nohighlight">\(T\)</span> produced at the training stage, the problem is to transform <span class="math notranslate nohighlight">\(X'\)</span>
+to the set <span class="math notranslate nohighlight">\(X'' = \{ x_1'', \ldots, x_m'' \}\)</span>, where <span class="math notranslate nohighlight">\(x_{j}''\)</span> is an
+<span class="math notranslate nohighlight">\(r\)</span>-dimensional feature vector, <span class="math notranslate nohighlight">\(1 \leq j \leq m\)</span>.</p>
+<p>The feature vector <span class="math notranslate nohighlight">\(x_{j}''\)</span> is computed through applying linear
+transformation <a class="reference internal" href="../../bibliography.html#lang87" id="id5"><span>[Lang87]</span></a> defined by the matrix <span class="math notranslate nohighlight">\(T\)</span> to the feature vector
+<span class="math notranslate nohighlight">\(x_{j}'\)</span>,</p>
+<div class="math notranslate nohighlight" id="equation-x-transform">
+<span class="eqno">(1)<a class="headerlink" href="#equation-x-transform" title="Permalink to this equation">¶</a></span>\[x_{j}'' = T x_{j}', \quad 1 \leq j \leq m.\]</div>
+<div class="section" id="inference-methods-covariance-and-svd">
+<span id="pca-i-math-svd"></span><span id="pca-i-math-cov"></span><h4>Inference methods: <em>Covariance</em> and <em>SVD</em><a class="headerlink" href="#inference-methods-covariance-and-svd" title="Permalink to this headline">¶</a></h4>
+<p>Covariance and SVD inference methods compute <span class="math notranslate nohighlight">\(x_{j}''\)</span> according to
+<a class="reference internal" href="#equation-x-transform">(1)</a>.</p>
+</div>
+</div>
+</div>
 <div class="section" id="usage-example">
 <h2>Usage example<a class="headerlink" href="#usage-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">onedal</span><span class="o">::</span><span class="n">pca</span><span class="o">::</span><span class="n">model</span> <span class="n">run_training</span><span class="p">(</span><span class="k">const</span> <span class="n">onedal</span><span class="o">::</span><span class="n">table</span><span class="o">&amp;</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
-
-   <span class="k">const</span> <span class="k">auto</span> <span class="n">pca_desc</span> <span class="o">=</span> <span class="n">onedal</span><span class="o">::</span><span class="n">pca</span><span class="o">::</span><span class="n">desc</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">{}</span>
+<div class="section" id="id6">
+<h3>Training<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span><span class="o">::</span><span class="n">model</span><span class="o">&lt;&gt;</span> <span class="n">run_training</span><span class="p">(</span><span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">const</span> <span class="k">auto</span> <span class="n">pca_desc</span> <span class="o">=</span> <span class="n">pca</span><span class="o">::</span><span class="n">descriptor</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">{}</span>
       <span class="p">.</span><span class="n">set_component_count</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
       <span class="p">.</span><span class="n">set_deterministic</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 
-   <span class="k">const</span> <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">onedal</span><span class="o">::</span><span class="n">train</span><span class="p">(</span><span class="n">pca_desc</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+   <span class="k">const</span> <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">pca_desc</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
 
    <span class="n">print_table</span><span class="p">(</span><span class="s">&quot;means&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">get_means</span><span class="p">());</span>
    <span class="n">print_table</span><span class="p">(</span><span class="s">&quot;variances&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">get_variances</span><span class="p">());</span>
    <span class="n">print_table</span><span class="p">(</span><span class="s">&quot;eigenvalues&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">get_eigenvalues</span><span class="p">());</span>
-   <span class="n">print_table</span><span class="p">(</span><span class="s">&quot;eigenvectors&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">get_model</span><span class="p">().</span><span class="n">get_eigenvectors</span><span class="p">());</span>
+   <span class="n">print_table</span><span class="p">(</span><span class="s">&quot;eigenvectors&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">get_eigenvectors</span><span class="p">());</span>
 
    <span class="k">return</span> <span class="n">result</span><span class="p">.</span><span class="n">get_model</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">onedal</span><span class="o">::</span><span class="n">table</span> <span class="n">run_inference</span><span class="p">(</span><span class="k">const</span> <span class="n">onedal</span><span class="o">::</span><span class="n">pca</span><span class="o">::</span><span class="n">model</span><span class="o">&amp;</span> <span class="n">model</span><span class="p">,</span>
-                            <span class="k">const</span> <span class="n">onedal</span><span class="o">::</span><span class="n">table</span><span class="o">&amp;</span> <span class="n">new_data</span><span class="p">)</span> <span class="p">{</span>
-
-   <span class="k">const</span> <span class="k">auto</span> <span class="n">pca_desc</span> <span class="o">=</span> <span class="n">onedal</span><span class="o">::</span><span class="n">pca</span><span class="o">::</span><span class="n">desc</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">{}</span>
+</div>
+<div class="section" id="id7">
+<h3>Inference<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">table</span> <span class="nf">run_inference</span><span class="p">(</span><span class="k">const</span> <span class="n">pca</span><span class="o">::</span><span class="n">model</span><span class="o">&lt;&gt;&amp;</span> <span class="n">model</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">new_data</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">const</span> <span class="k">auto</span> <span class="n">pca_desc</span> <span class="o">=</span> <span class="n">pca</span><span class="o">::</span><span class="n">descriptor</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">{}</span>
       <span class="p">.</span><span class="n">set_component_count</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">get_component_count</span><span class="p">());</span>
 
-   <span class="k">const</span> <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">onedal</span><span class="o">::</span><span class="n">infer</span><span class="p">(</span><span class="n">pca_desc</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">new_data</span><span class="p">);</span>
+   <span class="k">const</span> <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">infer</span><span class="p">(</span><span class="n">pca_desc</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">new_data</span><span class="p">);</span>
 
    <span class="n">print_table</span><span class="p">(</span><span class="s">&quot;labels&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">get_transformed_data</span><span class="p">());</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="api">
-<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="methods">
-<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="programming-interface">
+<h2>Programming Interface<a class="headerlink" href="#programming-interface" title="Permalink to this headline">¶</a></h2>
+<p>All types and functions in this section shall be declared in the
+<code class="docutils literal notranslate"><span class="pre">oneapi::dal::pca</span></code> namespace and be available via inclusion of the
+<code class="docutils literal notranslate"><span class="pre">oneapi/dal/algo/pca.hpp</span></code> header file.</p>
+<div class="section" id="descriptor">
+<h3>Descriptor<a class="headerlink" href="#descriptor" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Float</span> <span class="o">=</span> <span class="kt">float</span><span class="p">,</span>
+          <span class="k">typename</span> <span class="n">Method</span> <span class="o">=</span> <span class="n">method</span><span class="o">::</span><span class="n">by_default</span><span class="p">,</span>
+          <span class="k">typename</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">task</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">descriptor</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+   <span class="k">explicit</span> <span class="n">descriptor</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span> <span class="n">component_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+
+   <span class="kt">int64_t</span> <span class="nf">get_component_count</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+   <span class="n">descriptor</span><span class="o">&amp;</span> <span class="n">set_component_count</span><span class="p">(</span><span class="kt">int64_t</span><span class="p">);</span>
+
+   <span class="kt">bool</span> <span class="nf">get_deterministic</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+   <span class="n">descriptor</span><span class="o">&amp;</span> <span class="n">set_deterministic</span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4I000EN6oneapi3dal3pca10descriptorE">
+<span id="_CPPv3I000EN6oneapi3dal3pca10descriptorE"></span><span id="_CPPv2I000EN6oneapi3dal3pca10descriptorE"></span>template&lt;typename <code class="sig-name descname">Float</code> = float, typename <code class="sig-name descname">Method</code> = method::<a class="reference internal" href="#_CPPv4N6oneapi3dal3pca6method10by_defaultE" title="oneapi::dal::pca::method::by_default">by_default</a>, typename <code class="sig-name descname">Task</code> = task::<a class="reference internal" href="#_CPPv4N6oneapi3dal3pca4task10by_defaultE" title="oneapi::dal::pca::task::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">descriptor</code><a class="headerlink" href="#_CPPv4I000EN6oneapi3dal3pca10descriptorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Float</strong> – The floating-point type that the algorithm uses for intermediate computations. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
+<li><p><strong>Method</strong> – Tag-type that specifies an implementation of algorithm. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">method</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal3pca6method3covE" title="oneapi::dal::pca::method::cov"><span class="pre">cov</span></a></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">method</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal3pca6method3svdE" title="oneapi::dal::pca::method::svd"><span class="pre">svd</span></a></code>.</p></li>
+<li><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal3pca4task13dim_reductionE" title="oneapi::dal::pca::task::dim_reduction"><span class="pre">dim_reduction</span></a></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal3pca10descriptor10descriptorENSt7int64_tE">
+<span id="_CPPv3N6oneapi3dal3pca10descriptor10descriptorENSt7int64_tE"></span><span id="_CPPv2N6oneapi3dal3pca10descriptor10descriptorENSt7int64_tE"></span><span id="oneapi::dal::pca::descriptor::descriptor__std::int64_t"></span><code class="sig-name descname">descriptor</code><span class="sig-paren">(</span>std::int64_t <em>component_count</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal3pca10descriptor10descriptorENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of the class with the given <code class="docutils literal notranslate"><span class="pre">component_count</span></code> property value.</p>
+</dd></dl>
+
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N36oneapi_dal_pca_descriptor_properties15component_countE">
+<span id="_CPPv3N36oneapi_dal_pca_descriptor_properties15component_countE"></span><span id="_CPPv2N36oneapi_dal_pca_descriptor_properties15component_countE"></span><span id="oneapi_dal_pca_descriptor_properties::component_count__int64_t"></span>int64_t <code class="sig-name descname">component_count</code> = 0<a class="headerlink" href="#_CPPv4N36oneapi_dal_pca_descriptor_properties15component_countE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The number of principal components <span class="math notranslate nohighlight">\(r\)</span>. If it is zero, the algorithm computes the eigenvectors for all features, <span class="math notranslate nohighlight">\(r = p\)</span>.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">int64_t</span> <span class="pre">get_component_count()</span> <span class="pre">const</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">descriptor</span> <span class="pre">&amp;</span> <span class="pre">set_component_count(int64_t)</span></code></div>
+</div>
+</dd>
+<dt>Invariants</dt><dd><div class="line-block">
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N36oneapi_dal_pca_descriptor_properties15component_countE" title="oneapi_dal_pca_descriptor_properties::component_count"><span class="pre">component_count</span></a> <span class="pre">&gt;=</span> <span class="pre">0</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp member">
+<dt id="_CPPv4N36oneapi_dal_pca_descriptor_properties13deterministicE">
+<span id="_CPPv3N36oneapi_dal_pca_descriptor_properties13deterministicE"></span><span id="_CPPv2N36oneapi_dal_pca_descriptor_properties13deterministicE"></span><span id="oneapi_dal_pca_descriptor_properties::deterministic__b"></span>bool <code class="sig-name descname">deterministic</code> = true<a class="headerlink" href="#_CPPv4N36oneapi_dal_pca_descriptor_properties13deterministicE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Specifies whether the algorithm applies the <a class="reference internal" href="#sign-flip-technique">Sign-flip technique</a>. If it is <cite>true</cite>, the directions of the eigenvectors must be deterministic.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">get_deterministic()</span> <span class="pre">const</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">descriptor</span> <span class="pre">&amp;</span> <span class="pre">set_deterministic(bool)</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="method-tags">
+<h4>Method tags<a class="headerlink" href="#method-tags" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">method</span> <span class="p">{</span>
    <span class="k">struct</span> <span class="n">cov</span> <span class="p">{};</span>
    <span class="k">struct</span> <span class="n">svd</span> <span class="p">{};</span>
@@ -269,142 +425,99 @@ arbitrary technique that modifies the eigenvectors’ signs.</p>
 <span class="p">}</span> <span class="c1">// namespace method</span>
 </pre></div>
 </div>
-<dl class="struct">
-<dt id="_CPPv4N6onedal3pca6method3covE">
-<span id="_CPPv3N6onedal3pca6method3covE"></span><span id="_CPPv2N6onedal3pca6method3covE"></span><span id="onedal::pca::method::cov"></span><em class="property">struct </em><code class="sig-name descname">cov</code><a class="headerlink" href="#_CPPv4N6onedal3pca6method3covE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Tag-type that denotes <a class="reference internal" href="#covariance-based-method">Covariance-based method</a>.</p>
+<dl class="cpp struct">
+<dt id="_CPPv4N6oneapi3dal3pca6method3covE">
+<span id="_CPPv3N6oneapi3dal3pca6method3covE"></span><span id="_CPPv2N6oneapi3dal3pca6method3covE"></span><span id="oneapi::dal::pca::method::cov"></span><em class="property">struct </em><code class="sig-name descname">cov</code><a class="headerlink" href="#_CPPv4N6oneapi3dal3pca6method3covE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tag-type that denotes <a class="reference internal" href="#pca-t-math-cov">Covariance</a> computational method.</p>
 </dd></dl>
 
-<dl class="struct">
-<dt id="_CPPv4N6onedal3pca6method3svdE">
-<span id="_CPPv3N6onedal3pca6method3svdE"></span><span id="_CPPv2N6onedal3pca6method3svdE"></span><span id="onedal::pca::method::svd"></span><em class="property">struct </em><code class="sig-name descname">svd</code><a class="headerlink" href="#_CPPv4N6onedal3pca6method3svdE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Tag-type that denotes <a class="reference internal" href="#svd-based-method">SVD-based method</a>.</p>
+<dl class="cpp struct">
+<dt id="_CPPv4N6oneapi3dal3pca6method3svdE">
+<span id="_CPPv3N6oneapi3dal3pca6method3svdE"></span><span id="_CPPv2N6oneapi3dal3pca6method3svdE"></span><span id="oneapi::dal::pca::method::svd"></span><em class="property">struct </em><code class="sig-name descname">svd</code><a class="headerlink" href="#_CPPv4N6oneapi3dal3pca6method3svdE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tag-type that denotes <a class="reference internal" href="#pca-t-math-svd">SVD</a> computational method.</p>
 </dd></dl>
 
-<dl class="type">
-<dt id="_CPPv4N6onedal3pca6method10by_defaultE">
-<span id="_CPPv3N6onedal3pca6method10by_defaultE"></span><span id="_CPPv2N6onedal3pca6method10by_defaultE"></span><em class="property">using </em><code class="sig-name descname">by_default</code> = <a class="reference internal" href="#_CPPv4N6onedal3pca6method3covE" title="onedal::pca::method::cov">cov</a><a class="headerlink" href="#_CPPv4N6onedal3pca6method10by_defaultE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Alias tag-type for the <a class="reference internal" href="#covariance-based-method">Covariance-based method</a>.</p>
+<dl class="cpp type">
+<dt id="_CPPv4N6oneapi3dal3pca6method10by_defaultE">
+<span id="_CPPv3N6oneapi3dal3pca6method10by_defaultE"></span><span id="_CPPv2N6oneapi3dal3pca6method10by_defaultE"></span><em class="property">using </em><code class="sig-name descname">by_default</code> = <a class="reference internal" href="#_CPPv4N6oneapi3dal3pca6method3covE" title="oneapi::dal::pca::method::cov">cov</a><a class="headerlink" href="#_CPPv4N6oneapi3dal3pca6method10by_defaultE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Alias tag-type for <a class="reference internal" href="#pca-t-math-cov">Covariance</a> computational method.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="descriptor">
-<h3>Descriptor<a class="headerlink" href="#descriptor" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Float</span> <span class="o">=</span> <span class="kt">float</span><span class="p">,</span>
-          <span class="k">typename</span> <span class="n">Method</span> <span class="o">=</span> <span class="n">method</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
-<span class="k">class</span> <span class="nc">desc</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-   <span class="n">desc</span><span class="p">();</span>
-
-   <span class="kt">int64_t</span> <span class="nf">get_component_count</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-   <span class="kt">bool</span> <span class="nf">get_deterministic</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-
-   <span class="n">desc</span><span class="o">&amp;</span> <span class="n">set_component_count</span><span class="p">(</span><span class="kt">int64_t</span><span class="p">);</span>
-   <span class="n">desc</span><span class="o">&amp;</span> <span class="n">set_deterministic</span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span>
-<span class="p">};</span>
+<div class="section" id="task-tags">
+<h4>Task tags<a class="headerlink" href="#task-tags" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">task</span> <span class="p">{</span>
+   <span class="k">struct</span> <span class="n">dim_reduction</span> <span class="p">{};</span>
+   <span class="k">using</span> <span class="n">by_default</span> <span class="o">=</span> <span class="n">dim_reduction</span><span class="p">;</span>
+<span class="p">}</span> <span class="c1">// namespace task</span>
 </pre></div>
 </div>
-<dl class="class">
-<dt id="_CPPv4I00EN6onedal3pca4descE">
-<span id="_CPPv3I00EN6onedal3pca4descE"></span><span id="_CPPv2I00EN6onedal3pca4descE"></span>template&lt;typename <code class="sig-name descname">Float</code> = float, typename <code class="sig-name descname">Method</code> = method::<a class="reference internal" href="#_CPPv4N6onedal3pca6method10by_defaultE" title="onedal::pca::method::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">desc</code><a class="headerlink" href="#_CPPv4I00EN6onedal3pca4descE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Template Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>Float</strong> – The floating-point type that the algorithm uses for
-intermediate computations. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
-<li><p><strong>Method</strong> – Tag-type that specifies an implementation of PCA algorithm.
-Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">method</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6onedal3pca6method3covE" title="onedal::pca::method::cov"><span class="pre">cov</span></a></code>, <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">method</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6onedal3pca6method3svdE" title="onedal::pca::method::svd"><span class="pre">svd</span></a></code> or
-<code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">method</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6onedal3pca6method10by_defaultE" title="onedal::pca::method::by_default"><span class="pre">by_default</span></a></code>.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="function">
-<dt id="_CPPv4N6onedal3pca4desc4descEv">
-<span id="_CPPv3N6onedal3pca4desc4descEv"></span><span id="_CPPv2N6onedal3pca4desc4descEv"></span><span id="onedal::pca::desc::desc"></span><code class="sig-name descname">desc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal3pca4desc4descEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates a new instance of the descriptor with the default attribute
-values.</p>
+<dl class="cpp struct">
+<dt id="_CPPv4N6oneapi3dal3pca4task13dim_reductionE">
+<span id="_CPPv3N6oneapi3dal3pca4task13dim_reductionE"></span><span id="_CPPv2N6oneapi3dal3pca4task13dim_reductionE"></span><span id="oneapi::dal::pca::task::dim_reduction"></span><em class="property">struct </em><code class="sig-name descname">dim_reduction</code><a class="headerlink" href="#_CPPv4N6oneapi3dal3pca4task13dim_reductionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tag-type that parametrizes entities used for solving <a class="reference internal" href="../../glossary.html#term-Dimensionality-reduction"><span class="xref std std-term">dimensionality reduction problem</span></a>.</p>
 </dd></dl>
 
-<dl class="member">
-<dt id="_CPPv4N6onedal3pca4desc15component_countE">
-<span id="_CPPv3N6onedal3pca4desc15component_countE"></span><span id="_CPPv2N6onedal3pca4desc15component_countE"></span><span id="onedal::pca::desc::component_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">component_count</code> = 0<a class="headerlink" href="#_CPPv4N6onedal3pca4desc15component_countE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The number of principal components <span class="math notranslate nohighlight">\(r\)</span>. If it is zero, the algorithm
-computes the eigenvectors for all features, <span class="math notranslate nohighlight">\(r = p\)</span>.</p>
-<dl>
-<dt>Getter &amp; Setter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">std::int64_t</span> <span class="pre">get_component_count()</span> <span class="pre">const</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">desc&amp;</span> <span class="pre">set_component_count(std::int64_t)</span></code></div>
+<dl class="cpp type">
+<dt id="_CPPv4N6oneapi3dal3pca4task10by_defaultE">
+<span id="_CPPv3N6oneapi3dal3pca4task10by_defaultE"></span><span id="_CPPv2N6oneapi3dal3pca4task10by_defaultE"></span><em class="property">using </em><code class="sig-name descname">by_default</code> = <a class="reference internal" href="#_CPPv4N6oneapi3dal3pca4task13dim_reductionE" title="oneapi::dal::pca::task::dim_reduction">dim_reduction</a><a class="headerlink" href="#_CPPv4N6oneapi3dal3pca4task10by_defaultE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Alias tag-type for dimensionality reduction task.</p>
+</dd></dl>
+
 </div>
-</dd>
-<dt>Invariants</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal3pca4desc15component_countE" title="onedal::pca::desc::component_count"><span class="pre">component_count</span></a> <span class="pre">&gt;=</span> <span class="pre">0</span></code></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal3pca4desc17set_deterministicE">
-<span id="_CPPv3N6onedal3pca4desc17set_deterministicE"></span><span id="_CPPv2N6onedal3pca4desc17set_deterministicE"></span><span id="onedal::pca::desc::set_deterministic__b"></span>bool <code class="sig-name descname">set_deterministic</code> = true<a class="headerlink" href="#_CPPv4N6onedal3pca4desc17set_deterministicE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Specifies whether the algorithm applies the <a class="reference internal" href="#sign-flip-technique">Sign-flip technique</a> or uses
-a deterministic eigenvalues solver. If it is <cite>true</cite>, directions of the
-eigenvectors must be deterministic.</p>
-<dl>
-<dt>Getter &amp; Setter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">bool</span> <span class="pre">get_deterministic()</span> <span class="pre">const</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">desc&amp;</span> <span class="pre">set_deterministic(bool)</span></code></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </div>
 <div class="section" id="model">
 <h3>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">model</span> <span class="p">{</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">task</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">model</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
    <span class="n">model</span><span class="p">();</span>
 
    <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_eigenvectors</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
    <span class="kt">int64_t</span> <span class="nf">get_component_count</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
-<dt id="_CPPv4N6onedal3pca5modelE">
-<span id="_CPPv3N6onedal3pca5modelE"></span><span id="_CPPv2N6onedal3pca5modelE"></span><span id="onedal::pca::model"></span><em class="property">class </em><code class="sig-name descname">model</code><a class="headerlink" href="#_CPPv4N6onedal3pca5modelE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
-<dt id="_CPPv4N6onedal3pca5model5modelEv">
-<span id="_CPPv3N6onedal3pca5model5modelEv"></span><span id="_CPPv2N6onedal3pca5model5modelEv"></span><span id="onedal::pca::model::model"></span><code class="sig-name descname">model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal3pca5model5modelEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates a model with the default attribute values.</p>
+<dl class="cpp class">
+<dt id="_CPPv4I0EN6oneapi3dal3pca5modelE">
+<span id="_CPPv3I0EN6oneapi3dal3pca5modelE"></span><span id="_CPPv2I0EN6oneapi3dal3pca5modelE"></span>template&lt;typename <code class="sig-name descname">Task</code> = task::<a class="reference internal" href="#_CPPv4N6oneapi3dal3pca4task10by_defaultE" title="oneapi::dal::pca::task::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">model</code><a class="headerlink" href="#_CPPv4I0EN6oneapi3dal3pca5modelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal3pca4task13dim_reductionE" title="oneapi::dal::pca::task::dim_reduction"><span class="pre">dim_reduction</span></a></code>.</p>
+</dd>
+</dl>
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal3pca5model5modelEv">
+<span id="_CPPv3N6oneapi3dal3pca5model5modelEv"></span><span id="_CPPv2N6oneapi3dal3pca5model5modelEv"></span><span id="oneapi::dal::pca::model::model"></span><code class="sig-name descname">model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal3pca5model5modelEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of the class with the default property values.</p>
 </dd></dl>
 
-<dl class="member">
-<dt id="_CPPv4N6onedal3pca5model12eigenvectorsE">
-<span id="_CPPv3N6onedal3pca5model12eigenvectorsE"></span><span id="_CPPv2N6onedal3pca5model12eigenvectorsE"></span><span id="onedal::pca::model::eigenvectors__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">eigenvectors</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal3pca5model12eigenvectorsE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><span class="math notranslate nohighlight">\(r \times p\)</span> table with the eigenvectors. Each row contains one
-eigenvector.</p>
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N31oneapi_dal_pca_model_properties12eigenvectorsE">
+<span id="_CPPv3N31oneapi_dal_pca_model_properties12eigenvectorsE"></span><span id="_CPPv2N31oneapi_dal_pca_model_properties12eigenvectorsE"></span><span id="oneapi_dal_pca_model_properties::eigenvectors__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">eigenvectors</code> = table{}<a class="headerlink" href="#_CPPv4N31oneapi_dal_pca_model_properties12eigenvectorsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An <span class="math notranslate nohighlight">\(r \times p\)</span> table with the eigenvectors. Each row contains one eigenvector.</p>
 <dl>
-<dt>Getter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table&amp;</span> <span class="pre">get_eigenvectors()</span> <span class="pre">const</span></code></div>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_eigenvectors()</span> <span class="pre">const</span></code></div>
 </div>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="member">
-<dt id="_CPPv4N6onedal3pca5model15component_countE">
-<span id="_CPPv3N6onedal3pca5model15component_countE"></span><span id="_CPPv2N6onedal3pca5model15component_countE"></span><span id="onedal::pca::model::component_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">component_count</code> = 0<a class="headerlink" href="#_CPPv4N6onedal3pca5model15component_countE" title="Permalink to this definition">¶</a><br /></dt>
+<dl class="cpp member">
+<dt id="_CPPv4N31oneapi_dal_pca_model_properties15component_countE">
+<span id="_CPPv3N31oneapi_dal_pca_model_properties15component_countE"></span><span id="_CPPv2N31oneapi_dal_pca_model_properties15component_countE"></span><span id="oneapi_dal_pca_model_properties::component_count__int64_t"></span>int64_t <code class="sig-name descname">component_count</code> = 0<a class="headerlink" href="#_CPPv4N31oneapi_dal_pca_model_properties15component_countE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>The number of components <span class="math notranslate nohighlight">\(r\)</span> in the trained model.</p>
 <dl>
-<dt>Getter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">std::int64_t</span> <span class="pre">get_component_count()</span> <span class="pre">const</span></code></div>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">int64_t</span> <span class="pre">get_component_count()</span> <span class="pre">const</span></code></div>
 </div>
 </dd>
 <dt>Invariants</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal3pca5model15component_countE" title="onedal::pca::model::component_count"><span class="pre">component_count</span></a> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4N6onedal3pca5model12eigenvectorsE" title="onedal::pca::model::eigenvectors"><span class="pre">eigenvectors</span></a><span class="pre">.</span><span class="pre">row_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N31oneapi_dal_pca_model_properties15component_countE" title="oneapi_dal_pca_model_properties::component_count"><span class="pre">component_count</span></a> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4N31oneapi_dal_pca_model_properties12eigenvectorsE" title="oneapi_dal_pca_model_properties::eigenvectors"><span class="pre">eigenvectors</span></a><span class="pre">.</span><span class="pre">row_count</span></code></div>
 </div>
 </dd>
 </dl>
@@ -413,46 +526,44 @@ eigenvector.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="training-onedal-train">
-<h3>Training <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">onedal</span><span class="pre">::</span><a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train"><span class="pre">train</span></a><span class="sig-paren">(</span><span class="pre">...</span><span class="sig-paren">)</span></code><a class="headerlink" href="#training-onedal-train" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="training-train">
+<span id="pca-t-api"></span><h3>Training <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::pca::train"><span class="pre">train</span></a><span class="sig-paren">(</span><span class="pre">...</span><span class="sig-paren">)</span></code><a class="headerlink" href="#training-train" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="input">
-<h4>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">train_input</span> <span class="p">{</span>
+<span id="pca-t-api-input"></span><h4>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">task</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">train_input</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-   <span class="n">train_input</span><span class="p">();</span>
-   <span class="n">train_input</span><span class="p">(</span><span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">data</span><span class="p">);</span>
+   <span class="n">train_input</span><span class="p">(</span><span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">table</span><span class="p">{});</span>
 
    <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_data</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-
    <span class="n">train_input</span><span class="o">&amp;</span> <span class="n">set_data</span><span class="p">(</span><span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span><span class="p">);</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
-<dt id="_CPPv4N6onedal3pca11train_inputE">
-<span id="_CPPv3N6onedal3pca11train_inputE"></span><span id="_CPPv2N6onedal3pca11train_inputE"></span><span id="onedal::pca::train_input"></span><em class="property">class </em><code class="sig-name descname">train_input</code><a class="headerlink" href="#_CPPv4N6onedal3pca11train_inputE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
-<dt id="_CPPv4N6onedal3pca11train_input11train_inputEv">
-<span id="_CPPv3N6onedal3pca11train_input11train_inputEv"></span><span id="_CPPv2N6onedal3pca11train_input11train_inputEv"></span><span id="onedal::pca::train_input::train_input"></span><code class="sig-name descname">train_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal3pca11train_input11train_inputEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates an input for the training operation with the default attribute
-values.</p>
+<dl class="cpp class">
+<dt id="_CPPv4I0EN6oneapi3dal3pca11train_inputE">
+<span id="_CPPv3I0EN6oneapi3dal3pca11train_inputE"></span><span id="_CPPv2I0EN6oneapi3dal3pca11train_inputE"></span>template&lt;typename <code class="sig-name descname">Task</code> = task::<a class="reference internal" href="#_CPPv4N6oneapi3dal3pca4task10by_defaultE" title="oneapi::dal::pca::task::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">train_input</code><a class="headerlink" href="#_CPPv4I0EN6oneapi3dal3pca11train_inputE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal3pca4task13dim_reductionE" title="oneapi::dal::pca::task::dim_reduction"><span class="pre">dim_reduction</span></a></code>.</p>
+</dd>
+</dl>
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal3pca11train_input11train_inputERK5table">
+<span id="_CPPv3N6oneapi3dal3pca11train_input11train_inputERK5table"></span><span id="_CPPv2N6oneapi3dal3pca11train_input11train_inputERK5table"></span><span id="oneapi::dal::pca::train_input::train_input__tableCR"></span><code class="sig-name descname">train_input</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6oneapi3dal5tableE" title="oneapi::dal::table">table</a> &amp;<em>data</em> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6oneapi3dal5tableE" title="oneapi::dal::table">table</a>{}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal3pca11train_input11train_inputERK5table" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of the class with the given <code class="docutils literal notranslate"><span class="pre">data</span></code> property value.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="_CPPv4N6onedal3pca11train_input11train_inputERK5table">
-<span id="_CPPv3N6onedal3pca11train_input11train_inputERK5table"></span><span id="_CPPv2N6onedal3pca11train_input11train_inputERK5table"></span><span id="onedal::pca::train_input::train_input__tableCR"></span><code class="sig-name descname">train_input</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> &amp;<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal3pca11train_input11train_inputERK5table" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates an input for the training operation with the given <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal3pca11train_input4dataE" title="onedal::pca::train_input::data"><span class="pre">data</span></a></code>.</p>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal3pca11train_input4dataE">
-<span id="_CPPv3N6onedal3pca11train_input4dataE"></span><span id="_CPPv2N6onedal3pca11train_input4dataE"></span><span id="onedal::pca::train_input::data__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">data</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal3pca11train_input4dataE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><span class="math notranslate nohighlight">\(n \times p\)</span> table with the training data, where each row stores one
-feature vector.</p>
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N37oneapi_dal_pca_train_input_properties4dataE">
+<span id="_CPPv3N37oneapi_dal_pca_train_input_properties4dataE"></span><span id="_CPPv2N37oneapi_dal_pca_train_input_properties4dataE"></span><span id="oneapi_dal_pca_train_input_properties::data__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">data</code> = table{}<a class="headerlink" href="#_CPPv4N37oneapi_dal_pca_train_input_properties4dataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An <span class="math notranslate nohighlight">\(n \times p\)</span> table with the training data, where each row stores one feature vector.</p>
 <dl>
 <dt>Getter &amp; Setter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table&amp;</span> <span class="pre">get_data()</span> <span class="pre">const</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">train_input&amp;</span> <span class="pre">set_data(const</span> <span class="pre">table&amp;)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_data()</span> <span class="pre">const</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">train_input</span> <span class="pre">&amp;</span> <span class="pre">set_data(const</span> <span class="pre">table</span> <span class="pre">&amp;)</span></code></div>
 </div>
 </dd>
 </dl>
@@ -462,108 +573,144 @@ feature vector.</p>
 
 </div>
 <div class="section" id="result">
-<h4>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">train_result</span> <span class="p">{</span>
+<span id="pca-t-api-result"></span><h4>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">task</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">train_result</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
    <span class="n">train_result</span><span class="p">();</span>
 
-   <span class="k">const</span> <span class="n">model</span><span class="o">&amp;</span> <span class="n">get_model</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+   <span class="k">const</span> <span class="n">model</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;&amp;</span> <span class="n">get_model</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
    <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_means</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
    <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_variances</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
    <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_eigenvalues</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+   <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_eigenvectors</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
-<dt id="_CPPv4N6onedal3pca12train_resultE">
-<span id="_CPPv3N6onedal3pca12train_resultE"></span><span id="_CPPv2N6onedal3pca12train_resultE"></span><span id="onedal::pca::train_result"></span><em class="property">class </em><code class="sig-name descname">train_result</code><a class="headerlink" href="#_CPPv4N6onedal3pca12train_resultE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
-<dt id="_CPPv4N6onedal3pca12train_result12train_resultEv">
-<span id="_CPPv3N6onedal3pca12train_result12train_resultEv"></span><span id="_CPPv2N6onedal3pca12train_result12train_resultEv"></span><span id="onedal::pca::train_result::train_result"></span><code class="sig-name descname">train_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal3pca12train_result12train_resultEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates a result of the training operation with the default attribute
-values.</p>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal3pca12train_result5modelE">
-<span id="_CPPv3N6onedal3pca12train_result5modelE"></span><span id="_CPPv2N6onedal3pca12train_result5modelE"></span><span id="onedal::pca::train_result::model__pca::model"></span>pca::<a class="reference internal" href="#_CPPv4N6onedal3pca5modelE" title="onedal::pca::model">model</a> <code class="sig-name descname">model</code> = pca::<a class="reference internal" href="#_CPPv4N6onedal3pca5modelE" title="onedal::pca::model">model</a>()<a class="headerlink" href="#_CPPv4N6onedal3pca12train_result5modelE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The trained PCA model.</p>
-<dl>
-<dt>Getter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">model&amp;</span> <span class="pre">get_model()</span> <span class="pre">const</span></code></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal3pca12train_result5meansE">
-<span id="_CPPv3N6onedal3pca12train_result5meansE"></span><span id="_CPPv2N6onedal3pca12train_result5meansE"></span><span id="onedal::pca::train_result::means__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">means</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal3pca12train_result5meansE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><span class="math notranslate nohighlight">\(1 \times r\)</span> table that contains mean value for the first <span class="math notranslate nohighlight">\(r\)</span>
-features.</p>
-<dl>
-<dt>Getter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table&amp;</span> <span class="pre">get_means()</span> <span class="pre">const</span></code></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal3pca12train_result9variancesE">
-<span id="_CPPv3N6onedal3pca12train_result9variancesE"></span><span id="_CPPv2N6onedal3pca12train_result9variancesE"></span><span id="onedal::pca::train_result::variances__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">variances</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal3pca12train_result9variancesE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><span class="math notranslate nohighlight">\(1 \times r\)</span> table that contains variance for the first <span class="math notranslate nohighlight">\(r\)</span>
-features.</p>
-<dl>
-<dt>Getter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table&amp;</span> <span class="pre">get_variances()</span> <span class="pre">const</span></code></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal3pca12train_result11eigenvaluesE">
-<span id="_CPPv3N6onedal3pca12train_result11eigenvaluesE"></span><span id="_CPPv2N6onedal3pca12train_result11eigenvaluesE"></span><span id="onedal::pca::train_result::eigenvalues__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">eigenvalues</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal3pca12train_result11eigenvaluesE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><span class="math notranslate nohighlight">\(1 \times r\)</span> table that contains eigenvalue for for the first
-<span class="math notranslate nohighlight">\(r\)</span> features.</p>
-<dl>
-<dt>Getter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table&amp;</span> <span class="pre">get_eigenvalues()</span> <span class="pre">const</span></code></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="operation-semantics">
-<h4>Operation semantics<a class="headerlink" href="#operation-semantics" title="Permalink to this headline">¶</a></h4>
-<dl class="function">
-<dt id="_CPPv4I0EN6onedal5trainEN3pca12train_resultERK10DescriptorRKN3pca11train_inputE">
-<span id="_CPPv3I0EN6onedal5trainERK10DescriptorRKN3pca11train_inputE"></span><span id="_CPPv2I0EN6onedal5trainERK10DescriptorRKN3pca11train_inputE"></span>template&lt;typename <code class="sig-name descname">Descriptor</code>&gt;<br />pca::<a class="reference internal" href="#_CPPv4N6onedal3pca12train_resultE" title="onedal::pca::train_result">train_result</a> <code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::Descriptor">Descriptor</a> &amp;<em>desc</em>, <em class="property">const</em> pca::<a class="reference internal" href="#_CPPv4N6onedal3pca11train_inputE" title="onedal::pca::train_input">train_input</a> &amp;<em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN6onedal5trainEN3pca12train_resultERK10DescriptorRKN3pca11train_inputE" title="Permalink to this definition">¶</a><br /></dt>
+<dl class="cpp class">
+<dt id="_CPPv4I0EN6oneapi3dal3pca12train_resultE">
+<span id="_CPPv3I0EN6oneapi3dal3pca12train_resultE"></span><span id="_CPPv2I0EN6oneapi3dal3pca12train_resultE"></span>template&lt;typename <code class="sig-name descname">Task</code> = task::<a class="reference internal" href="#_CPPv4N6oneapi3dal3pca4task10by_defaultE" title="oneapi::dal::pca::task::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">train_result</code><a class="headerlink" href="#_CPPv4I0EN6oneapi3dal3pca12train_resultE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Template Parameters</dt>
-<dd class="field-odd"><p><strong>Descriptor</strong> – PCA algorithm descriptor <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">pca</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4I00EN6onedal3pca4descE" title="onedal::pca::desc"><span class="pre">desc</span></a></code>.</p>
+<dd class="field-odd"><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal3pca4task13dim_reductionE" title="oneapi::dal::pca::task::dim_reduction"><span class="pre">dim_reduction</span></a></code>.</p>
+</dd>
+</dl>
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal3pca12train_result12train_resultEv">
+<span id="_CPPv3N6oneapi3dal3pca12train_result12train_resultEv"></span><span id="_CPPv2N6oneapi3dal3pca12train_result12train_resultEv"></span><span id="oneapi::dal::pca::train_result::train_result"></span><code class="sig-name descname">train_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal3pca12train_result12train_resultEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of the class with the default property values.</p>
+</dd></dl>
+
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N38oneapi_dal_pca_train_result_properties5modelE">
+<span id="_CPPv3N38oneapi_dal_pca_train_result_properties5modelE"></span><span id="_CPPv2N38oneapi_dal_pca_train_result_properties5modelE"></span><span id="oneapi_dal_pca_train_result_properties::model__model:Task:CR"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N38oneapi_dal_pca_train_result_properties5modelE" title="oneapi_dal_pca_train_result_properties::model">model</a>&lt;Task&gt; &amp;<code class="sig-name descname">model</code> = <a class="reference internal" href="#_CPPv4N38oneapi_dal_pca_train_result_properties5modelE" title="oneapi_dal_pca_train_result_properties::model">model</a>&lt;Task&gt;{}<a class="headerlink" href="#_CPPv4N38oneapi_dal_pca_train_result_properties5modelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The trained PCA model.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">model&lt;</span> <span class="pre">Task</span> <span class="pre">&gt;</span> <span class="pre">&amp;</span> <span class="pre">get_model()</span> <span class="pre">const</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp member">
+<dt id="_CPPv4N38oneapi_dal_pca_train_result_properties5meansE">
+<span id="_CPPv3N38oneapi_dal_pca_train_result_properties5meansE"></span><span id="_CPPv2N38oneapi_dal_pca_train_result_properties5meansE"></span><span id="oneapi_dal_pca_train_result_properties::means__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">means</code> = table{}<a class="headerlink" href="#_CPPv4N38oneapi_dal_pca_train_result_properties5meansE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A <span class="math notranslate nohighlight">\(1 \times r\)</span> table that contains the mean values for the first <span class="math notranslate nohighlight">\(r\)</span> features.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_means()</span> <span class="pre">const</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp member">
+<dt id="_CPPv4N38oneapi_dal_pca_train_result_properties9variancesE">
+<span id="_CPPv3N38oneapi_dal_pca_train_result_properties9variancesE"></span><span id="_CPPv2N38oneapi_dal_pca_train_result_properties9variancesE"></span><span id="oneapi_dal_pca_train_result_properties::variances__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">variances</code> = table{}<a class="headerlink" href="#_CPPv4N38oneapi_dal_pca_train_result_properties9variancesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A <span class="math notranslate nohighlight">\(1 \times r\)</span> table that contains the variances for the first <span class="math notranslate nohighlight">\(r\)</span> features.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_variances()</span> <span class="pre">const</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp member">
+<dt id="_CPPv4N38oneapi_dal_pca_train_result_properties11eigenvaluesE">
+<span id="_CPPv3N38oneapi_dal_pca_train_result_properties11eigenvaluesE"></span><span id="_CPPv2N38oneapi_dal_pca_train_result_properties11eigenvaluesE"></span><span id="oneapi_dal_pca_train_result_properties::eigenvalues__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">eigenvalues</code> = table{}<a class="headerlink" href="#_CPPv4N38oneapi_dal_pca_train_result_properties11eigenvaluesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A <span class="math notranslate nohighlight">\(1 \times r\)</span> table that contains the eigenvalues for for the first <span class="math notranslate nohighlight">\(r\)</span> features.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_eigenvalues()</span> <span class="pre">const</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp member">
+<dt id="_CPPv4N38oneapi_dal_pca_train_result_properties12eigenvectorsE">
+<span id="_CPPv3N38oneapi_dal_pca_train_result_properties12eigenvectorsE"></span><span id="_CPPv2N38oneapi_dal_pca_train_result_properties12eigenvectorsE"></span><span id="oneapi_dal_pca_train_result_properties::eigenvectors__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">eigenvectors</code> = table{}<a class="headerlink" href="#_CPPv4N38oneapi_dal_pca_train_result_properties12eigenvectorsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An <span class="math notranslate nohighlight">\(r \times p\)</span> table with the eigenvectors. Each row contains one eigenvector.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_eigenvectors()</span> <span class="pre">const</span></code></div>
+</div>
+</dd>
+<dt>Invariants</dt><dd><div class="line-block">
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N38oneapi_dal_pca_train_result_properties12eigenvectorsE" title="oneapi_dal_pca_train_result_properties::eigenvectors"><span class="pre">eigenvectors</span></a> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4N38oneapi_dal_pca_train_result_properties5modelE" title="oneapi_dal_pca_train_result_properties::model"><span class="pre">model</span></a><span class="pre">.</span><span class="pre">eigenvectors</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="operation">
+<h4>Operation<a class="headerlink" href="#operation" title="Permalink to this headline">¶</a></h4>
+<dl class="cpp function">
+<dt id="_CPPv4I000EN6oneapi3dal3pca5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE">
+<span id="_CPPv3I000EN6oneapi3dal3pca5trainERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE"></span><span id="_CPPv2I000EN6oneapi3dal3pca5trainERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE"></span>template&lt;typename <code class="sig-name descname">Float</code>, typename <code class="sig-name descname">Method</code>, typename <code class="sig-name descname">Task</code>&gt;<br /><a class="reference internal" href="#_CPPv4I0EN6oneapi3dal3pca12train_resultE" title="oneapi::dal::pca::train_result">train_result</a>&lt;<a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::pca::train::Task">Task</a>&gt; <code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca10descriptorE" title="oneapi::dal::pca::descriptor">descriptor</a>&lt;<a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::pca::train::Float">Float</a>, <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::pca::train::Method">Method</a>, <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::pca::train::Task">Task</a>&gt; &amp;<em>desc</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6oneapi3dal3pca11train_inputE" title="oneapi::dal::pca::train_input">train_input</a>&lt;<a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::pca::train::Task">Task</a>&gt; &amp;<em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I000EN6oneapi3dal3pca5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Runs the training operation for PCA. For more details, see <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">oneapi</span><span class="pre">::</span><span class="pre">dal</span><span class="pre">::</span><span class="pre">train</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Float</strong> – The floating-point type that the algorithm uses for intermediate computations. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
+<li><p><strong>Method</strong> – Tag-type that specifies an implementation of algorithm. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">method</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal3pca6method3covE" title="oneapi::dal::pca::method::cov"><span class="pre">cov</span></a></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">method</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal3pca6method3svdE" title="oneapi::dal::pca::method::svd"><span class="pre">svd</span></a></code>.</p></li>
+<li><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal3pca4task13dim_reductionE" title="oneapi::dal::pca::task::dim_reduction"><span class="pre">dim_reduction</span></a></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>desc</strong> – Descriptor of the algorithm.</p></li>
+<li><p><strong>input</strong> – Input data for the training operation.</p></li>
+</ul>
 </dd>
 </dl>
 <dl>
 <dt>Preconditions</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">is_empty</span> <span class="pre">==</span> <span class="pre">false</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">&gt;=</span> <a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">component_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::pca::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">has_data</span> <span class="pre">==</span> <span class="pre">true</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::pca::train::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">&gt;=</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::pca::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">component_count</span></code></div>
 </div>
 </dd>
 <dt>Postconditions</dt><dd><div class="line-block">
 <div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">means</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <span class="pre">1</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">means</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">component_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">means</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::pca::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">component_count</span></code></div>
 <div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">variances</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <span class="pre">1</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">variances</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">component_count</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">variances</span> <span class="pre">&gt;=</span> <span class="pre">0.0</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">variances</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::pca::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">component_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">variances</span><span class="pre">[</span><span class="pre">i</span><span class="pre">]</span> <span class="pre">&gt;=</span> <span class="pre">0.0</span></code></div>
 <div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">eigenvalues</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <span class="pre">1</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">eigenvalues</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">component_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">eigenvalues</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::pca::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">component_count</span></code></div>
 <div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">eigenvectors</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <span class="pre">1</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">eigenvectors</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5trainEN6kmeans12train_resultERK10DescriptorRKN6kmeans11train_inputE" title="onedal::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">component_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">eigenvectors</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5trainE12train_resultI4TaskERK10descriptorI5Float6Method4TaskERK11train_inputI4TaskE" title="oneapi::dal::pca::train::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">component_count</span></code></div>
 </div>
 </dd>
 </dl>
@@ -571,70 +718,61 @@ features.</p>
 
 </div>
 </div>
-<div class="section" id="inference-onedal-infer">
-<h3>Inference <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">onedal</span><span class="pre">::</span><a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer"><span class="pre">infer</span></a><span class="sig-paren">(</span><span class="pre">...</span><span class="sig-paren">)</span></code><a class="headerlink" href="#inference-onedal-infer" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id2">
-<h4>Input<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">infer_input</span> <span class="p">{</span>
+<div class="section" id="inference-infer">
+<span id="pca-i-api"></span><h3>Inference <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::pca::infer"><span class="pre">infer</span></a><span class="sig-paren">(</span><span class="pre">...</span><span class="sig-paren">)</span></code><a class="headerlink" href="#inference-infer" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pca-i-api-input">
+<span id="id8"></span><h4>Input<a class="headerlink" href="#pca-i-api-input" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">task</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">infer_input</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-   <span class="n">infer_input</span><span class="p">();</span>
-   <span class="n">infer_input</span><span class="p">(</span><span class="k">const</span> <span class="n">model</span><span class="o">&amp;</span> <span class="n">m</span><span class="p">);</span>
-   <span class="n">infer_input</span><span class="p">(</span><span class="k">const</span> <span class="n">model</span><span class="o">&amp;</span> <span class="n">m</span><span class="p">,</span> <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">data</span><span class="p">);</span>
+   <span class="n">infer_input</span><span class="p">(</span><span class="k">const</span> <span class="n">model</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;&amp;</span> <span class="n">m</span> <span class="o">=</span> <span class="n">model</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span><span class="p">{},</span>
+               <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">table</span><span class="p">{});</span>
 
-   <span class="k">const</span> <span class="n">model</span><span class="o">&amp;</span> <span class="n">get_model</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-   <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_data</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
-
+   <span class="k">const</span> <span class="n">model</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;&amp;</span> <span class="n">get_model</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
    <span class="n">infer_input</span><span class="o">&amp;</span> <span class="n">set_model</span><span class="p">(</span><span class="k">const</span> <span class="n">model</span><span class="o">&amp;</span><span class="p">);</span>
+
+   <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_data</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
    <span class="n">infer_input</span><span class="o">&amp;</span> <span class="n">set_data</span><span class="p">(</span><span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span><span class="p">);</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
-<dt id="_CPPv4N6onedal3pca11infer_inputE">
-<span id="_CPPv3N6onedal3pca11infer_inputE"></span><span id="_CPPv2N6onedal3pca11infer_inputE"></span><span id="onedal::pca::infer_input"></span><em class="property">class </em><code class="sig-name descname">infer_input</code><a class="headerlink" href="#_CPPv4N6onedal3pca11infer_inputE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
-<dt id="_CPPv4N6onedal3pca11infer_input11infer_inputEv">
-<span id="_CPPv3N6onedal3pca11infer_input11infer_inputEv"></span><span id="_CPPv2N6onedal3pca11infer_input11infer_inputEv"></span><span id="onedal::pca::infer_input::infer_input"></span><code class="sig-name descname">infer_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal3pca11infer_input11infer_inputEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates an input for the inference operation with the default attribute
-values.</p>
+<dl class="cpp class">
+<dt id="_CPPv4I0EN6oneapi3dal3pca11infer_inputE">
+<span id="_CPPv3I0EN6oneapi3dal3pca11infer_inputE"></span><span id="_CPPv2I0EN6oneapi3dal3pca11infer_inputE"></span>template&lt;typename <code class="sig-name descname">Task</code> = task::<a class="reference internal" href="#_CPPv4N6oneapi3dal3pca4task10by_defaultE" title="oneapi::dal::pca::task::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">infer_input</code><a class="headerlink" href="#_CPPv4I0EN6oneapi3dal3pca11infer_inputE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal3pca4task13dim_reductionE" title="oneapi::dal::pca::task::dim_reduction"><span class="pre">dim_reduction</span></a></code>.</p>
+</dd>
+</dl>
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal3pca11infer_input11infer_inputERK5modelI4TaskERK5table">
+<span id="_CPPv3N6oneapi3dal3pca11infer_input11infer_inputERK5modelI4TaskERK5table"></span><span id="_CPPv2N6oneapi3dal3pca11infer_input11infer_inputERK5modelI4TaskERK5table"></span><span id="oneapi::dal::pca::infer_input::infer_input__model:Task:CR.tableCR"></span><code class="sig-name descname">infer_input</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6oneapi3dal3pca5modelE" title="oneapi::dal::pca::model">model</a>&lt;Task&gt; &amp;<em>m</em> = <a class="reference internal" href="#_CPPv4I0EN6oneapi3dal3pca5modelE" title="oneapi::dal::pca::model">model</a>&lt;Task&gt;{}, <em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6oneapi3dal5tableE" title="oneapi::dal::table">table</a> &amp;<em>data</em> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6oneapi3dal5tableE" title="oneapi::dal::table">table</a>{}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal3pca11infer_input11infer_inputERK5modelI4TaskERK5table" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of the class with the given <code class="docutils literal notranslate"><span class="pre">model</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code> property values.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="_CPPv4N6onedal3pca11infer_input11infer_inputERKN3pca5modelE">
-<span id="_CPPv3N6onedal3pca11infer_input11infer_inputERKN3pca5modelE"></span><span id="_CPPv2N6onedal3pca11infer_input11infer_inputERKN3pca5modelE"></span><span id="onedal::pca::infer_input::infer_input__pca::modelCR"></span><code class="sig-name descname">infer_input</code><span class="sig-paren">(</span><em class="property">const</em> pca::<a class="reference internal" href="#_CPPv4N6onedal3pca5modelE" title="onedal::pca::model">model</a> &amp;<em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal3pca11infer_input11infer_inputERKN3pca5modelE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates an input for the inference operation with the given <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal3pca11infer_input5modelE" title="onedal::pca::infer_input::model"><span class="pre">model</span></a></code>,
-the other attributes get default values.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="_CPPv4N6onedal3pca11infer_input11infer_inputERKN3pca5modelERK5table">
-<span id="_CPPv3N6onedal3pca11infer_input11infer_inputERKN3pca5modelERK5table"></span><span id="_CPPv2N6onedal3pca11infer_input11infer_inputERKN3pca5modelERK5table"></span><span id="onedal::pca::infer_input::infer_input__pca::modelCR.tableCR"></span><code class="sig-name descname">infer_input</code><span class="sig-paren">(</span><em class="property">const</em> pca::<a class="reference internal" href="#_CPPv4N6onedal3pca5modelE" title="onedal::pca::model">model</a> &amp;<em>model</em>, <em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> &amp;<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal3pca11infer_input11infer_inputERKN3pca5modelERK5table" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates an input for the inference operation with the given <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal3pca11infer_input5modelE" title="onedal::pca::infer_input::model"><span class="pre">model</span></a></code>
-and <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6onedal3pca11infer_input4dataE" title="onedal::pca::infer_input::data"><span class="pre">data</span></a></code>.</p>
-</dd></dl>
-
-<dl class="member">
-<dt id="_CPPv4N6onedal3pca11infer_input4dataE">
-<span id="_CPPv3N6onedal3pca11infer_input4dataE"></span><span id="_CPPv2N6onedal3pca11infer_input4dataE"></span><span id="onedal::pca::infer_input::data__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">data</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal3pca11infer_input4dataE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><span class="math notranslate nohighlight">\(n \times p\)</span> table with the data to be projected to the <span class="math notranslate nohighlight">\(r\)</span>
-principal components previously extracted from a training set.</p>
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N37oneapi_dal_pca_infer_input_properties5modelE">
+<span id="_CPPv3N37oneapi_dal_pca_infer_input_properties5modelE"></span><span id="_CPPv2N37oneapi_dal_pca_infer_input_properties5modelE"></span><span id="oneapi_dal_pca_infer_input_properties::model__model:Task:CR"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N37oneapi_dal_pca_infer_input_properties5modelE" title="oneapi_dal_pca_infer_input_properties::model">model</a>&lt;Task&gt; &amp;<code class="sig-name descname">model</code> = <a class="reference internal" href="#_CPPv4N37oneapi_dal_pca_infer_input_properties5modelE" title="oneapi_dal_pca_infer_input_properties::model">model</a>&lt;Task&gt;{}<a class="headerlink" href="#_CPPv4N37oneapi_dal_pca_infer_input_properties5modelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The trained PCA model.</p>
 <dl>
 <dt>Getter &amp; Setter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table&amp;</span> <span class="pre">get_data()</span> <span class="pre">const</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">infer_input&amp;</span> <span class="pre">set_data(const</span> <span class="pre">table&amp;)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">model&lt;</span> <span class="pre">Task</span> <span class="pre">&gt;</span> <span class="pre">&amp;</span> <span class="pre">get_model()</span> <span class="pre">const</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">infer_input</span> <span class="pre">&amp;</span> <span class="pre">set_model(const</span> <span class="pre">model</span> <span class="pre">&amp;)</span></code></div>
 </div>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="member">
-<dt id="_CPPv4N6onedal3pca11infer_input5modelE">
-<span id="_CPPv3N6onedal3pca11infer_input5modelE"></span><span id="_CPPv2N6onedal3pca11infer_input5modelE"></span><span id="onedal::pca::infer_input::model__pca::model"></span>pca::<a class="reference internal" href="#_CPPv4N6onedal3pca5modelE" title="onedal::pca::model">model</a> <code class="sig-name descname">model</code> = pca::<a class="reference internal" href="#_CPPv4N6onedal3pca5modelE" title="onedal::pca::model">model</a>()<a class="headerlink" href="#_CPPv4N6onedal3pca11infer_input5modelE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The trained PCA model (see <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">pca</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6onedal3pca5modelE" title="onedal::pca::model"><span class="pre">model</span></a></code>).</p>
+<dl class="cpp member">
+<dt id="_CPPv4N37oneapi_dal_pca_infer_input_properties4dataE">
+<span id="_CPPv3N37oneapi_dal_pca_infer_input_properties4dataE"></span><span id="_CPPv2N37oneapi_dal_pca_infer_input_properties4dataE"></span><span id="oneapi_dal_pca_infer_input_properties::data__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">data</code> = table{}<a class="headerlink" href="#_CPPv4N37oneapi_dal_pca_infer_input_properties4dataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The dataset for inference <span class="math notranslate nohighlight">\(X'\)</span>.</p>
 <dl>
 <dt>Getter &amp; Setter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">pca::model&amp;</span> <span class="pre">get_model()</span> <span class="pre">const</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">infer_input&amp;</span> <span class="pre">set_model(const</span> <span class="pre">pca::model&amp;)</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_data()</span> <span class="pre">const</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">infer_input</span> <span class="pre">&amp;</span> <span class="pre">set_data(const</span> <span class="pre">table</span> <span class="pre">&amp;)</span></code></div>
 </div>
 </dd>
 </dl>
@@ -643,9 +781,10 @@ principal components previously extracted from a training set.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="id3">
-<h4>Result<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">infer_result</span> <span class="p">{</span>
+<div class="section" id="pca-i-api-result">
+<span id="id9"></span><h4>Result<a class="headerlink" href="#pca-i-api-result" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">task</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">infer_result</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
    <span class="n">infer_result</span><span class="p">();</span>
 
@@ -653,24 +792,29 @@ principal components previously extracted from a training set.</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<dl class="class">
-<dt id="_CPPv4N6onedal3pca12infer_resultE">
-<span id="_CPPv3N6onedal3pca12infer_resultE"></span><span id="_CPPv2N6onedal3pca12infer_resultE"></span><span id="onedal::pca::infer_result"></span><em class="property">class </em><code class="sig-name descname">infer_result</code><a class="headerlink" href="#_CPPv4N6onedal3pca12infer_resultE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="function">
-<dt id="_CPPv4N6onedal3pca12infer_result12infer_resultEv">
-<span id="_CPPv3N6onedal3pca12infer_result12infer_resultEv"></span><span id="_CPPv2N6onedal3pca12infer_result12infer_resultEv"></span><span id="onedal::pca::infer_result::infer_result"></span><code class="sig-name descname">infer_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6onedal3pca12infer_result12infer_resultEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates a result of the inference operation with the default attribute
-values.</p>
+<dl class="cpp class">
+<dt id="_CPPv4I0EN6oneapi3dal3pca12infer_resultE">
+<span id="_CPPv3I0EN6oneapi3dal3pca12infer_resultE"></span><span id="_CPPv2I0EN6oneapi3dal3pca12infer_resultE"></span>template&lt;typename <code class="sig-name descname">Task</code> = task::<a class="reference internal" href="#_CPPv4N6oneapi3dal3pca4task10by_defaultE" title="oneapi::dal::pca::task::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">infer_result</code><a class="headerlink" href="#_CPPv4I0EN6oneapi3dal3pca12infer_resultE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal3pca4task13dim_reductionE" title="oneapi::dal::pca::task::dim_reduction"><span class="pre">dim_reduction</span></a></code>.</p>
+</dd>
+</dl>
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal3pca12infer_result12infer_resultEv">
+<span id="_CPPv3N6oneapi3dal3pca12infer_result12infer_resultEv"></span><span id="_CPPv2N6oneapi3dal3pca12infer_result12infer_resultEv"></span><span id="oneapi::dal::pca::infer_result::infer_result"></span><code class="sig-name descname">infer_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal3pca12infer_result12infer_resultEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of the class with the default property values.</p>
 </dd></dl>
 
-<dl class="member">
-<dt id="_CPPv4N6onedal3pca12infer_result16transformed_dataE">
-<span id="_CPPv3N6onedal3pca12infer_result16transformed_dataE"></span><span id="_CPPv2N6onedal3pca12infer_result16transformed_dataE"></span><span id="onedal::pca::infer_result::transformed_data__table"></span><a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a> <code class="sig-name descname">transformed_data</code> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6onedal5tableE" title="onedal::table">table</a>()<a class="headerlink" href="#_CPPv4N6onedal3pca12infer_result16transformed_dataE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><span class="math notranslate nohighlight">\(n \times r\)</span> table that contains data projected to the <span class="math notranslate nohighlight">\(r\)</span>
-principal components.</p>
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N38oneapi_dal_pca_infer_result_properties16transformed_dataE">
+<span id="_CPPv3N38oneapi_dal_pca_infer_result_properties16transformed_dataE"></span><span id="_CPPv2N38oneapi_dal_pca_infer_result_properties16transformed_dataE"></span><span id="oneapi_dal_pca_infer_result_properties::transformed_data__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">transformed_data</code> = table{}<a class="headerlink" href="#_CPPv4N38oneapi_dal_pca_infer_result_properties16transformed_dataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An <span class="math notranslate nohighlight">\(n \times r\)</span> table that contains data projected to the <span class="math notranslate nohighlight">\(r\)</span> principal components.</p>
 <dl>
-<dt>Getter</dt><dd><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table&amp;</span> <span class="pre">get_transformed_data()</span> <span class="pre">const</span></code></div>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_transformed_data()</span> <span class="pre">const</span></code></div>
 </div>
 </dd>
 </dl>
@@ -679,26 +823,37 @@ principal components.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="id4">
-<h4>Operation semantics<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
-<dl class="function">
-<dt id="_CPPv4I0EN6onedal5inferEN3pca12infer_resultERK10DescriptorRKN3pca11infer_inputE">
-<span id="_CPPv3I0EN6onedal5inferERK10DescriptorRKN3pca11infer_inputE"></span><span id="_CPPv2I0EN6onedal5inferERK10DescriptorRKN3pca11infer_inputE"></span>template&lt;typename <code class="sig-name descname">Descriptor</code>&gt;<br />pca::<a class="reference internal" href="#_CPPv4N6onedal3pca12infer_resultE" title="onedal::pca::infer_result">infer_result</a> <code class="sig-name descname">infer</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::Descriptor">Descriptor</a> &amp;<em>desc</em>, <em class="property">const</em> pca::<a class="reference internal" href="#_CPPv4N6onedal3pca11infer_inputE" title="onedal::pca::infer_input">infer_input</a> &amp;<em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN6onedal5inferEN3pca12infer_resultERK10DescriptorRKN3pca11infer_inputE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><dl class="field-list simple">
+<div class="section" id="id10">
+<h4>Operation<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<dl class="cpp function">
+<dt id="_CPPv4I000EN6oneapi3dal3pca5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE">
+<span id="_CPPv3I000EN6oneapi3dal3pca5inferERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE"></span><span id="_CPPv2I000EN6oneapi3dal3pca5inferERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE"></span>template&lt;typename <code class="sig-name descname">Float</code>, typename <code class="sig-name descname">Method</code>, typename <code class="sig-name descname">Task</code>&gt;<br /><a class="reference internal" href="#_CPPv4I0EN6oneapi3dal3pca12infer_resultE" title="oneapi::dal::pca::infer_result">infer_result</a>&lt;<a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::pca::infer::Task">Task</a>&gt; <code class="sig-name descname">infer</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca10descriptorE" title="oneapi::dal::pca::descriptor">descriptor</a>&lt;<a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::pca::infer::Float">Float</a>, <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::pca::infer::Method">Method</a>, <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::pca::infer::Task">Task</a>&gt; &amp;<em>desc</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6oneapi3dal3pca11infer_inputE" title="oneapi::dal::pca::infer_input">infer_input</a>&lt;<a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::pca::infer::Task">Task</a>&gt; &amp;<em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I000EN6oneapi3dal3pca5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Runs the inference operation for PCA. For more details see <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">oneapi</span><span class="pre">::</span><span class="pre">dal</span><span class="pre">::</span><span class="pre">infer</span></code>.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Template Parameters</dt>
-<dd class="field-odd"><p><strong>Descriptor</strong> – PCA algorithm descriptor <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">pca</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4I00EN6onedal3pca4descE" title="onedal::pca::desc"><span class="pre">desc</span></a></code>.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Float</strong> – The floating-point type that the algorithm uses for intermediate computations. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
+<li><p><strong>Method</strong> – Tag-type that specifies an implementation of algorithm. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">method</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal3pca6method3covE" title="oneapi::dal::pca::method::cov"><span class="pre">cov</span></a></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">method</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal3pca6method3svdE" title="oneapi::dal::pca::method::svd"><span class="pre">svd</span></a></code>.</p></li>
+<li><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal3pca4task13dim_reductionE" title="oneapi::dal::pca::task::dim_reduction"><span class="pre">dim_reduction</span></a></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>desc</strong> – Descriptor of the algorithm.</p></li>
+<li><p><strong>input</strong> – Input data for the inference operation.</p></li>
+</ul>
 </dd>
 </dl>
 <dl>
 <dt>Preconditions</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">is_empty</span> <span class="pre">==</span> <span class="pre">false</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">eigenvectors</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">component_count</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">eigenvectors</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">=</span> <a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">column_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::pca::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">has_data</span> <span class="pre">==</span> <span class="pre">true</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::pca::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">eigenvectors</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::pca::infer::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">component_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::pca::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">model</span><span class="pre">.</span><span class="pre">eigenvectors</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::pca::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">column_count</span></code></div>
 </div>
 </dd>
 <dt>Postconditions</dt><dd><div class="line-block">
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">transformed_data</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">row_count</span></code></div>
-<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">transformed_data</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="../clustering/kmeans.html#_CPPv4I0EN6onedal5inferEN6kmeans12infer_resultERK10DescriptorRKN6kmeans11infer_inputE" title="onedal::infer::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">component_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">transformed_data</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::pca::infer::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">row_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">transformed_data</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal3pca5inferE12infer_resultI4TaskERK10descriptorI5Float6Method4TaskERK11infer_inputI4TaskE" title="oneapi::dal::pca::infer::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">component_count</span></code></div>
 </div>
 </dd>
 </dl>

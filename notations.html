@@ -163,6 +163,78 @@
             
   <div class="section" id="mathematical-notations">
 <span id="math-notations"></span><h1>Mathematical Notations<a class="headerlink" href="#mathematical-notations" title="Permalink to this headline">¶</a></h1>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Notation</p></th>
+<th class="head"><p>Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(n\)</span> or <span class="math notranslate nohighlight">\(m\)</span></p></td>
+<td><p>The number of <a class="reference internal" href="glossary.html#term-Observation"><span class="xref std std-term">observations</span></a> in a
+<a class="reference internal" href="glossary.html#term-Dataset"><span class="xref std std-term">dataset</span></a>. Typically <span class="math notranslate nohighlight">\(n\)</span> is used, but sometimes
+<span class="math notranslate nohighlight">\(m\)</span> is required to distinguish two datasets, e.g., the
+<a class="reference internal" href="glossary.html#term-Training-set"><span class="xref std std-term">training set</span></a> and the <a class="reference internal" href="glossary.html#term-Inference-set"><span class="xref std std-term">inference set</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(p\)</span> or <span class="math notranslate nohighlight">\(r\)</span></p></td>
+<td><p>The number of features in a dataset. Typically <span class="math notranslate nohighlight">\(p\)</span> is used, but
+sometimes <span class="math notranslate nohighlight">\(r\)</span> is required to distinguish two datasets.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(a \times b\)</span></p></td>
+<td><p>The dimensionality of a matrix (dataset) has <span class="math notranslate nohighlight">\(a\)</span> rows
+(observations) and <span class="math notranslate nohighlight">\(b\)</span> columns (features).</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(|A|\)</span></p></td>
+<td><p>Depending on the context may be interpreted as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> is a set, this denotes its cardinality, i.e., the number
+of elements in the set <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> is a real number, this denotes an absolute value of
+<span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\|x\|\)</span></p></td>
+<td><p>The <span class="math notranslate nohighlight">\(L_2\)</span>-norm of a vector <span class="math notranslate nohighlight">\(x \in \mathbb{R}^d\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\|x\| =  \sqrt{ x_1^2 + x_2^2 + \dots + x_d^2 }.\]</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\mathrm{sgn}(x)\)</span></p></td>
+<td><p>Sign function for <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathrm{sgn}(x)=\begin{cases}
+   -1, x &lt; 0,\\
+    0, x = 0,\\
+    1, x &gt; 0.
+\end{cases}\end{split}\]</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(x_i\)</span></p></td>
+<td><p>In the description of an algorithm, this typically denotes the
+<span class="math notranslate nohighlight">\(i\)</span>-th <a class="reference internal" href="glossary.html#term-Feature-vector"><span class="xref std std-term">feature vector</span></a> in the training set.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(x'_i\)</span></p></td>
+<td><p>In the description of an algorithm, this typically denotes the
+<span class="math notranslate nohighlight">\(i\)</span>-th feature vector in the inference set.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(y_i\)</span></p></td>
+<td><p>In the description of an algorithm, this typically denotes the
+<span class="math notranslate nohighlight">\(i\)</span>-th <a class="reference internal" href="glossary.html#term-Response"><span class="xref std std-term">response</span></a> in the training set.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(y'_i\)</span></p></td>
+<td><p>In the description of an algorithm, this typically denotes the
+<span class="math notranslate nohighlight">\(i\)</span>-th response that needs to be predicted by the inference
+algorithm given the feature vector <span class="math notranslate nohighlight">\(x'_i\)</span> from the inference set.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 
 

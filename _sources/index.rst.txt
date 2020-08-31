@@ -1,35 +1,41 @@
-.. sphinx-infodev documentation master file, created by
-   sphinx-quickstart on Sun Aug 11 19:58:43 2019.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+..
+  Copyright 2020 Intel Corporation
 
-oneAPI Specification
-====================
+.. _oneDAL-section:
 
-.. toctree::
-   :maxdepth: 6
+================
+|dal_short_name|
+================
 
-   introduction
-   architecture
-   library-interop
-   elements/elements
-   elements/dpcpp/source/index
-   elements/oneDPL/source/index
-   elements/oneDNN/source/index
-   elements/oneCCL/source/index
-   elements/l0/source/index
-   elements/oneDAL/source/index
-   elements/oneTBB/source/nested-index
-   elements/oneVPL/source/index
-   elements/oneMKL/source/index
-   contributors
-   versions
-   notices
 
-.. sphinx warns about rst files that are not reachable from the top
-   level toc. Put them here:
+.. |default_ctor_doc| replace:: Creates a new instance of class \
+                                with the default property values.
+
+
+.. |github| replace:: oneDAL GitHub\* page
+.. _github: https://github.com/intel/daal
+
+This document specifies requirements for implementations of |dal_full_name| (|dal_short_name|).
+
+|dal_short_name| is a library that helps speed up big data analysis by providing highly optimized
+algorithmic building blocks for all stages of data analytics
+(preprocessing, transformation, analysis, modeling, validation, and
+decision making) in batch, online, and distributed processing modes of
+computation. The current version of |dal_short_name| provides
+Data Parallel C++ (DPC++) API extensions to the traditional C++ interface.
+
+For general information, visit |github|_.
 
 .. toctree::
-   :hidden:
+   :titlesonly:
 
-   404
+   introduction.rst
+   glossary.rst
+   notations.rst
+   programming_model/index.rst
+   common_interface/index.rst
+   data_management/index.rst
+   algorithms/index.rst
+   appendix/index.rst
+   bibliography.rst
+
