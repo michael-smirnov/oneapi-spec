@@ -183,9 +183,10 @@
 <span id="id1"></span><h3>Scalar types<a class="headerlink" href="#scalar-types" title="Permalink to this headline">¶</a></h3>
 <p>oneDAL relies on standard C++ scalar types defined in <code class="docutils literal notranslate"><span class="pre">&lt;cstdint&gt;</span></code>.
 This file shall be included in <code class="docutils literal notranslate"><span class="pre">oneapi/dal/common.hpp</span></code> and all
-oneDAL types shall use this scalar types. For variables indicating
-size, amount, count of entities, <code class="docutils literal notranslate"><span class="pre">std::int64_t</span></code> type shall be used.</p>
-<p>It is recommended to use standard C++ type for applications as well.</p>
+oneDAL types shall use this scalar types.</p>
+<p>For variables indicating size, amount, count of entities, <code class="docutils literal notranslate"><span class="pre">std::int64_t</span></code> type
+shall be used.</p>
+<p>It is recommended to use standard C++ types for applications as well.</p>
 </div>
 <div class="section" id="enum-classes">
 <h3>Enum classes<a class="headerlink" href="#enum-classes" title="Permalink to this headline">¶</a></h3>
@@ -197,8 +198,9 @@ is explicitly specified.</p>
 <h3>Data type<a class="headerlink" href="#data-type" title="Permalink to this headline">¶</a></h3>
 <p>The implementation of <a class="reference internal" href="../glossary.html#term-Data-type"><span class="xref std std-term">data type</span></a> concept. It shall enumerate all the
 data types supported by oneDAL to perform computations. The
-<code class="docutils literal notranslate"><span class="pre">data_type</span></code> class shall contain all the <a class="reference internal" href="#scalar-types"><span class="std std-ref">scalar types</span></a> and can extend
-it.</p>
+<code class="docutils literal notranslate"><span class="pre">data_type</span></code> class shall contain all the base <a class="reference internal" href="#scalar-types"><span class="std std-ref">scalar types</span></a> and can
+extend it. Base scalar types include all which names follow the pattern
+<code class="docutils literal notranslate"><span class="pre">std::int_XX_t</span></code> or <code class="docutils literal notranslate"><span class="pre">std::uint_XX_t</span></code>, where XX is one of 8, 16, 32, or 64.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="k">class</span> <span class="nc">data_type</span> <span class="p">{</span>
     <span class="n">int8</span><span class="p">,</span>
     <span class="n">int16</span><span class="p">,</span>
