@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Homogeneous table &mdash; oneDAL  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Algorithms" href="../../algorithms/index.html" />
+    <link rel="prev" title="Tables" href="../tables.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://oneapi.com" class="icon icon-home"> oneDAL
+          
+
+          
+            
+            <img src="../../_static/oneapi-logo1.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notations.html">Mathematical Notations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming_model/index.html">Programming model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common_interface/index.html">Common Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Data management</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../array.html">Array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessors.html">Accessors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data_sources.html">Data Sources</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../tables.html">Tables</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Homogeneous table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">oneDAL</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">oneAPI Specification</a> &raquo;</li>
+        
+          
+          <li><a href="../index.html">Data management</a> </li>
+          
+        
+          
+        
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/data_management/table/homogen.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="homogeneous-table">
+<span id="homogen-table"></span><h1>Homogeneous table<a class="headerlink" href="#homogeneous-table" title="Permalink to this headline">¶</a></h1>
+<p>Class <code class="docutils literal notranslate"><span class="pre">homogen_table</span></code> is an implementation of a table type
+for which the following is true:</p>
+<ul class="simple">
+<li><p>The data within the table are dense and stored as one contiguous memory block.</p></li>
+<li><p>All the columns have the same <a class="reference internal" href="../../glossary.html#term-Data-type"><span class="xref std std-term">data type</span></a>.</p></li>
+</ul>
+<div class="section" id="programming-interface">
+<h2>Programming interface<a class="headerlink" href="#programming-interface" title="Permalink to this headline">¶</a></h2>
+<p>All types and functions in this section shall be declared in the
+<code class="docutils literal notranslate"><span class="pre">oneapi::dal</span></code> namespace and be available via inclusion of the
+<code class="docutils literal notranslate"><span class="pre">oneapi/dal/table/homogen.hpp</span></code> header file.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">homogen_table</span> <span class="o">:</span> <span class="k">public</span> <span class="n">table</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span> <span class="n">kind</span><span class="p">();</span>
+
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Data</span><span class="o">&gt;</span>
+    <span class="k">static</span> <span class="n">homogen_table</span> <span class="n">wrap</span><span class="p">(</span><span class="k">const</span> <span class="n">sycl</span><span class="o">::</span><span class="n">queue</span><span class="o">&amp;</span> <span class="n">queue</span><span class="p">,</span>
+                              <span class="k">const</span> <span class="n">Data</span><span class="o">*</span> <span class="n">data_pointer</span><span class="p">,</span>
+                              <span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span> <span class="n">row_count</span><span class="p">,</span>
+                              <span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span> <span class="n">column_count</span><span class="p">,</span>
+                              <span class="k">const</span> <span class="n">sycl</span><span class="o">::</span><span class="n">vector_class</span><span class="o">&lt;</span><span class="n">sycl</span><span class="o">::</span><span class="n">event</span><span class="o">&gt;&amp;</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="p">{},</span>
+                              <span class="n">data_layout</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">data_layout</span><span class="o">::</span><span class="n">row_major</span><span class="p">);</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">homogen_table</span><span class="p">();</span>
+
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Data</span><span class="p">,</span> <span class="k">typename</span> <span class="n">ConstDeleter</span><span class="o">&gt;</span>
+    <span class="n">homogen_table</span><span class="p">(</span><span class="k">const</span> <span class="n">sycl</span><span class="o">::</span><span class="n">queue</span><span class="o">&amp;</span> <span class="n">queue</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">Data</span><span class="o">*</span> <span class="n">data_pointer</span><span class="p">,</span>
+                  <span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span> <span class="n">row_count</span><span class="p">,</span>
+                  <span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span> <span class="n">column_count</span><span class="p">,</span>
+                  <span class="n">ConstDeleter</span><span class="o">&amp;&amp;</span> <span class="n">data_deleter</span><span class="p">,</span>
+                  <span class="k">const</span> <span class="n">sycl</span><span class="o">::</span><span class="n">vector_class</span><span class="o">&lt;</span><span class="n">sycl</span><span class="o">::</span><span class="n">event</span><span class="o">&gt;&amp;</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="p">{},</span>
+                  <span class="n">data_layout</span> <span class="n">layout</span>                                  <span class="o">=</span> <span class="n">data_layout</span><span class="o">::</span><span class="n">row_major</span><span class="p">);</span>
+
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Data</span><span class="o">&gt;</span>
+    <span class="k">const</span> <span class="n">Data</span><span class="o">*</span> <span class="n">get_data</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Data</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">get_data</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">get_data</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span> <span class="n">get_kind</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">kind</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N6oneapi3dal13homogen_tableE">
+<span id="_CPPv3N6oneapi3dal13homogen_tableE"></span><span id="_CPPv2N6oneapi3dal13homogen_tableE"></span><span id="oneapi::dal::homogen_table"></span><em class="property">class </em><code class="sig-name descname">homogen_table</code><a class="headerlink" href="#_CPPv4N6oneapi3dal13homogen_tableE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong>Public Static Methods</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal13homogen_table4kindEv">
+<span id="_CPPv3N6oneapi3dal13homogen_table4kindEv"></span><span id="_CPPv2N6oneapi3dal13homogen_table4kindEv"></span><span id="oneapi::dal::homogen_table::kind"></span><em class="property">static</em> std::int64_t <code class="sig-name descname">kind</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal13homogen_table4kindEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the unique id of <cite>homogen_table</cite> class.</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I0EN6oneapi3dal13homogen_table4wrapE13homogen_tableRKN4sycl5queueEPK4DataNSt7int64_tENSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE11data_layout">
+<span id="_CPPv3I0EN6oneapi3dal13homogen_table4wrapERKN4sycl5queueEPK4DataNSt7int64_tENSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE11data_layout"></span><span id="_CPPv2I0EN6oneapi3dal13homogen_table4wrapERKN4sycl5queueEPK4DataNSt7int64_tENSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE11data_layout"></span>template&lt;typename <code class="sig-name descname">Data</code>&gt;<br /><em class="property">static</em> <a class="reference internal" href="#_CPPv4N6oneapi3dal13homogen_tableE" title="oneapi::dal::homogen_table">homogen_table</a> <code class="sig-name descname">wrap</code><span class="sig-paren">(</span><em class="property">const</em> sycl::queue &amp;<em>queue</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6oneapi3dal13homogen_table4wrapE13homogen_tableRKN4sycl5queueEPK4DataNSt7int64_tENSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE11data_layout" title="oneapi::dal::homogen_table::wrap::Data">Data</a> *<em>data_pointer</em>, std::int64_t <em>row_count</em>, std::int64_t <em>column_count</em>, <em class="property">const</em> sycl::vector_class&lt;sycl::event&gt; &amp;<em>dependencies</em> = {}, <a class="reference internal" href="../tables.html#_CPPv4N6oneapi3dal11data_layoutE" title="oneapi::dal::data_layout">data_layout</a> <em>layout</em> = <a class="reference internal" href="../tables.html#_CPPv4N6oneapi3dal11data_layoutE" title="oneapi::dal::data_layout">data_layout</a>::row_major<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN6oneapi3dal13homogen_table4wrapE13homogen_tableRKN4sycl5queueEPK4DataNSt7int64_tENSt7int64_tERKN4sycl12vector_classIN4sycl5eventEEE11data_layout" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new <cite>homogen_table</cite> instance from externally-defined data block. Table object refers to the data but does not own it. The responsibility to free the data remains on the user side. The <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">data</span></code> shall point to the <span class="math notranslate nohighlight">\(data_pointer\)</span> memory block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><p><strong>Data</strong> – The type of elements in the data block that will be stored into the table. The table shall initialize data types of metadata with this data type. The feature types shall be set to default values for <span class="math notranslate nohighlight">\(Data\)</span> type: contiguous for floating-point, ordinal for integer types.</p>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>queue</strong> – The SYCL* queue object.</p></li>
+<li><p><strong>data_pointer</strong> – The pointer to a homogeneous data block.</p></li>
+<li><p><strong>row_count</strong> – The number of rows in the table.</p></li>
+<li><p><strong>column_count</strong> – The number of columns in the table.</p></li>
+<li><p><strong>dependencies</strong> – Events indicating availability of the <span class="math notranslate nohighlight">\(data\)</span> for reading or writing.</p></li>
+<li><p><strong>layout</strong> – The layout of the data. Shall be <cite>data_layout::row_major</cite> or <cite>data_layout::column_major</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal13homogen_table13homogen_tableEv">
+<span id="_CPPv3N6oneapi3dal13homogen_table13homogen_tableEv"></span><span id="_CPPv2N6oneapi3dal13homogen_table13homogen_tableEv"></span><span id="oneapi::dal::homogen_table::homogen_table"></span><code class="sig-name descname">homogen_table</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal13homogen_table13homogen_tableEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new <cite>homogen_table</cite> instance with zero number of rows and columns. The <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N6oneapi3dal13homogen_table4kindEv" title="oneapi::dal::homogen_table::kind"><span class="pre">kind</span></a></code> shall be set to`homogen_table::kind()`. All the properties shall be set to default value (see the Properties section).</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4I00EN6oneapi3dal13homogen_table13homogen_tableERKN4sycl5queueEPK4DataNSt7int64_tENSt7int64_tERR12ConstDeleterRKN4sycl12vector_classIN4sycl5eventEEE11data_layout">
+<span id="_CPPv3I00EN6oneapi3dal13homogen_table13homogen_tableERKN4sycl5queueEPK4DataNSt7int64_tENSt7int64_tERR12ConstDeleterRKN4sycl12vector_classIN4sycl5eventEEE11data_layout"></span><span id="_CPPv2I00EN6oneapi3dal13homogen_table13homogen_tableERKN4sycl5queueEPK4DataNSt7int64_tENSt7int64_tERR12ConstDeleterRKN4sycl12vector_classIN4sycl5eventEEE11data_layout"></span>template&lt;typename <code class="sig-name descname">Data</code>, typename <code class="sig-name descname">ConstDeleter</code>&gt;<br /><code class="sig-name descname">homogen_table</code><span class="sig-paren">(</span><em class="property">const</em> sycl::queue &amp;<em>queue</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I00EN6oneapi3dal13homogen_table13homogen_tableERKN4sycl5queueEPK4DataNSt7int64_tENSt7int64_tERR12ConstDeleterRKN4sycl12vector_classIN4sycl5eventEEE11data_layout" title="oneapi::dal::homogen_table::homogen_table::Data">Data</a> *<em>data_pointer</em>, std::int64_t <em>row_count</em>, std::int64_t <em>column_count</em>, <a class="reference internal" href="#_CPPv4I00EN6oneapi3dal13homogen_table13homogen_tableERKN4sycl5queueEPK4DataNSt7int64_tENSt7int64_tERR12ConstDeleterRKN4sycl12vector_classIN4sycl5eventEEE11data_layout" title="oneapi::dal::homogen_table::homogen_table::ConstDeleter">ConstDeleter</a> &amp;&amp;<em>data_deleter</em>, <em class="property">const</em> sycl::vector_class&lt;sycl::event&gt; &amp;<em>dependencies</em> = {}, <a class="reference internal" href="../tables.html#_CPPv4N6oneapi3dal11data_layoutE" title="oneapi::dal::data_layout">data_layout</a> <em>layout</em> = <a class="reference internal" href="../tables.html#_CPPv4N6oneapi3dal11data_layoutE" title="oneapi::dal::data_layout">data_layout</a>::row_major<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I00EN6oneapi3dal13homogen_table13homogen_tableERKN4sycl5queueEPK4DataNSt7int64_tENSt7int64_tERR12ConstDeleterRKN4sycl12vector_classIN4sycl5eventEEE11data_layout" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new <cite>homogen_table</cite> instance from externally-defined data block. Table object owns the data pointer. The <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">data</span></code> shall point to the <span class="math notranslate nohighlight">\(data_pointer\)</span> memory block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Data</strong> – The type of elements in the data block that will be stored into the table.</p></li>
+<li><p><strong>ConstDeleter</strong> – The type of deleter called on <span class="math notranslate nohighlight">\(data_pointer\)</span> when the last table that refers to it goes out of the scope.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>queue</strong> – The SYCL* queue object.</p></li>
+<li><p><strong>data_pointer</strong> – The pointer to a homogeneous data block.</p></li>
+<li><p><strong>row_count</strong> – The number of rows in the table.</p></li>
+<li><p><strong>column_count</strong> – The number of columns in the table.</p></li>
+<li><p><strong>data_deleter</strong> – The deleter that is called on the <span class="math notranslate nohighlight">\(data_pointer\)</span> when last table that refers to it goes out of the scope.</p></li>
+<li><p><strong>dependencies</strong> – Events indicating availability of the <span class="math notranslate nohighlight">\(data\)</span> for reading or writing.</p></li>
+<li><p><strong>layout</strong> – The layout of the data. Shall be <cite>data_layout::row_major</cite> or <cite>data_layout::column_major</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Public Methods</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4I0ENK6oneapi3dal13homogen_table8get_dataEPK4Datav">
+<span id="_CPPv3I0ENK6oneapi3dal13homogen_table8get_dataEv"></span><span id="_CPPv2I0ENK6oneapi3dal13homogen_table8get_dataEv"></span>template&lt;typename <code class="sig-name descname">Data</code>&gt;<br /><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0ENK6oneapi3dal13homogen_table8get_dataEPK4Datav" title="oneapi::dal::homogen_table::get_data::Data">Data</a> *<code class="sig-name descname">get_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4I0ENK6oneapi3dal13homogen_table8get_dataEPK4Datav" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">data</span></code> pointer casted to the <span class="math notranslate nohighlight">\(Data\)</span> type. No checks are performed that this type is the actual type of the data within the table.</p>
+</dd></dl>
+
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N35oneapi_dal_homogen_table_properties4dataE">
+<span id="_CPPv3N35oneapi_dal_homogen_table_properties4dataE"></span><span id="_CPPv2N35oneapi_dal_homogen_table_properties4dataE"></span><span id="oneapi_dal_homogen_table_properties::data__voidCP"></span><em class="property">const</em> void *<code class="sig-name descname">data</code><a class="headerlink" href="#_CPPv4N35oneapi_dal_homogen_table_properties4dataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The pointer to the data block within the table. Shall be equal to <cite>nullptr</cite> when <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">row_count</span> <span class="pre">==</span> <span class="pre">0</span></code> and <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">column_count</span> <span class="pre">==</span> <span class="pre">0</span></code>.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">void</span> <span class="pre">*</span> <span class="pre">get_data()</span> <span class="pre">const</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp member">
+<dt id="_CPPv4N35oneapi_dal_homogen_table_properties4kindE">
+<span id="_CPPv3N35oneapi_dal_homogen_table_properties4kindE"></span><span id="_CPPv2N35oneapi_dal_homogen_table_properties4kindE"></span><span id="oneapi_dal_homogen_table_properties::kind__std::int64_t"></span>std::int64_t <code class="sig-name descname">kind</code><a class="headerlink" href="#_CPPv4N35oneapi_dal_homogen_table_properties4kindE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The unique id of the homogen table type.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">std::int64_t</span> <span class="pre">get_kind()</span> <span class="pre">const</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../algorithms/index.html" class="btn btn-neutral float-right" title="Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../tables.html" class="btn btn-neutral float-left" title="Tables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

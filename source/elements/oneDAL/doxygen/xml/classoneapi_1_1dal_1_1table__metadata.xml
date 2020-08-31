@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classoneapi_1_1dal_1_1table__metadata" kind="class" language="C++" prot="public">
+    <compoundname>oneapi::dal::table_metadata</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1table__metadata_1a0ed09befbee210aa14dda59232035575" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>table_metadata</definition>
+        <argsstring>()</argsstring>
+        <name>table_metadata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates the metadata instance without information about the features. The :expr:<computeroutput>feature_count</computeroutput> shall be set to zero. The :expr:<computeroutput>data_type</computeroutput> and :expr:<computeroutput>feature_type</computeroutput> properties shall not be initialized. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/common.hpp" line="12" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1table__metadata_1a5d7bb165a72fe723c0b04cb35b93a5c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>table_metadata</definition>
+        <argsstring>(const array&lt; data_type &gt; &amp;dtypes, const array&lt; feature_type &gt; &amp;ftypes)</argsstring>
+        <name>table_metadata</name>
+        <param>
+          <type>const <ref refid="classoneapi_1_1dal_1_1array" kindref="compound">array</ref>&lt; data_type &gt; &amp;</type>
+          <declname>dtypes</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classoneapi_1_1dal_1_1array" kindref="compound">array</ref>&lt; feature_type &gt; &amp;</type>
+          <declname>ftypes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates the metadata instance from external information about the data types and the feature types. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dtypes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data types of the features. Shall be assigned into the :expr:<computeroutput>data_type</computeroutput> property. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ftypes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The feature types. Shall be assigned into the :expr:<computeroutput>feature_type</computeroutput> property. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para>:expr:<computeroutput>dtypes.get_count() == ftypes.get_count()</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/common.hpp" line="19" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1table__metadata_1aa1ebb43260233bb5bf7ea5d7bb87f93a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::int64_t</type>
+        <definition>std::int64_t get_feature_count</definition>
+        <argsstring>() const</argsstring>
+        <name>get_feature_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The number of features that metadata contains information about <simplesect kind="pre"><para>:expr:<computeroutput>feature_count &gt;= 0</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/common.hpp" line="23" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1table__metadata_1a624c27b0d6bea0525385a3a90706af63" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const feature_type &amp;</type>
+        <definition>const feature_type&amp; get_feature_type</definition>
+        <argsstring>(std::int64_t feature_index) const</argsstring>
+        <name>get_feature_type</name>
+        <param>
+          <type>std::int64_t</type>
+          <declname>feature_index</declname>
+        </param>
+        <briefdescription>
+<para>Feature types in the metadata object. Shall be within the range <computeroutput>[0, feature_count)</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/common.hpp" line="26" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1table__metadata_1ab4d41ff8ce0a774b550fb071f00567ba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const data_type &amp;</type>
+        <definition>const data_type&amp; get_data_type</definition>
+        <argsstring>(std::int64_t feature_index) const</argsstring>
+        <name>get_data_type</name>
+        <param>
+          <type>std::int64_t</type>
+          <declname>feature_index</declname>
+        </param>
+        <briefdescription>
+<para>Data types of the features in the metadata object. Shall be within the range <computeroutput>[0, feature_count)</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/common.hpp" line="29" column="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/oneapi/dal/table/common.hpp" line="7" column="21" bodyfile="include/oneapi/dal/table/common.hpp" bodystart="7" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classoneapi_1_1dal_1_1table__metadata_1ab4d41ff8ce0a774b550fb071f00567ba" prot="public" virt="non-virtual"><scope>oneapi::dal::table_metadata</scope><name>get_data_type</name></member>
+      <member refid="classoneapi_1_1dal_1_1table__metadata_1aa1ebb43260233bb5bf7ea5d7bb87f93a" prot="public" virt="non-virtual"><scope>oneapi::dal::table_metadata</scope><name>get_feature_count</name></member>
+      <member refid="classoneapi_1_1dal_1_1table__metadata_1a624c27b0d6bea0525385a3a90706af63" prot="public" virt="non-virtual"><scope>oneapi::dal::table_metadata</scope><name>get_feature_type</name></member>
+      <member refid="classoneapi_1_1dal_1_1table__metadata_1a0ed09befbee210aa14dda59232035575" prot="public" virt="non-virtual"><scope>oneapi::dal::table_metadata</scope><name>table_metadata</name></member>
+      <member refid="classoneapi_1_1dal_1_1table__metadata_1a5d7bb165a72fe723c0b04cb35b93a5c4" prot="public" virt="non-virtual"><scope>oneapi::dal::table_metadata</scope><name>table_metadata</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

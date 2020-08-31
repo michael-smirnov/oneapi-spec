@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classoneapi_1_1dal_1_1column__accessor" kind="class" language="C++" prot="public">
+    <compoundname>oneapi::dal::column_accessor</compoundname>
+    <includes refid="column__accessor_8hpp" local="no">column_accessor.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Data</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classoneapi_1_1dal_1_1column__accessor_1a3df74462acea53522f96baaf6f85d257" prot="public" static="no">
+        <type>std::remove_const_t&lt; Data &gt;</type>
+        <definition>using data_t =  std::remove_const_t&lt;Data&gt;</definition>
+        <argsstring></argsstring>
+        <name>data_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/column_accessor.hpp" line="10" column="5" bodyfile="include/oneapi/dal/table/column_accessor.hpp" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1column__accessor_1a54880a11682d1418da3a827ba480730f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>column_accessor</definition>
+        <argsstring>(const table &amp;obj)</argsstring>
+        <name>column_accessor</name>
+        <param>
+          <type>const <ref refid="classoneapi_1_1dal_1_1table" kindref="compound">table</ref> &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new read-only accessor object from the table. The check that the accessor supports the table kind of $obj$ shall be performed. The reference to the $obj$ table shall be stored within the accessor to obtain data from the table. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/column_accessor.hpp" line="17" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1column__accessor_1af3af9226e515d1af3e4253a5e2c604dd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classoneapi_1_1dal_1_1array" kindref="compound">array</ref>&lt; data_t &gt;</type>
+        <definition>array&lt;data_t&gt; pull</definition>
+        <argsstring>(sycl::queue &amp;queue, std::int64_t column_index, const range &amp;rows={ 0, -1 }, const sycl::usm::alloc &amp;alloc=sycl::usm::alloc::shared) const</argsstring>
+        <name>pull</name>
+        <param>
+          <type>sycl::queue &amp;</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type>std::int64_t</type>
+          <declname>column_index</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structoneapi_1_1dal_1_1range" kindref="compound">range</ref> &amp;</type>
+          <declname>rows</declname>
+          <defval>{ 0, -1 }</defval>
+        </param>
+        <param>
+          <type>const sycl::usm::alloc &amp;</type>
+          <declname>alloc</declname>
+          <defval>sycl::usm::alloc::shared</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Provides access to the column values of the table. The method shall return an array that directly points to the memory within the table if it is possible. In that case, the array shall refer to the memory as to immutable data. Otherwise, the new memory block shall be allocated, the data from the table rows shall be converted and copied into this block. The array shall refer to the block as to mutable data.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">queue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYCL* queue object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">column_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the column from which the data shall be returned by the accessor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rows</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The range of rows that should be read in the $column_index$ block. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The requested kind of USM in the returned block.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para><computeroutput>rows</computeroutput> are within the range of <computeroutput>[0, obj.row_count)</computeroutput>. </para>
+</simplesect>
+<simplesect kind="pre"><para><computeroutput>column_index</computeroutput> is within the range of <computeroutput>[0, obj.column_count)</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/column_accessor.hpp" line="32" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1column__accessor_1a1607ed4d538048b1f303b61178139e73" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Data *</type>
+        <definition>Data* pull</definition>
+        <argsstring>(sycl::queue &amp;queue, array&lt; data_t &gt; &amp;block, std::int64_t column_index, const range &amp;rows={ 0, -1 }, const sycl::usm::alloc &amp;alloc=sycl::usm::alloc::shared) const</argsstring>
+        <name>pull</name>
+        <param>
+          <type>sycl::queue &amp;</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type><ref refid="classoneapi_1_1dal_1_1array" kindref="compound">array</ref>&lt; data_t &gt; &amp;</type>
+          <declname>block</declname>
+        </param>
+        <param>
+          <type>std::int64_t</type>
+          <declname>column_index</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structoneapi_1_1dal_1_1range" kindref="compound">range</ref> &amp;</type>
+          <declname>rows</declname>
+          <defval>{ 0, -1 }</defval>
+        </param>
+        <param>
+          <type>const sycl::usm::alloc &amp;</type>
+          <declname>alloc</declname>
+          <defval>sycl::usm::alloc::shared</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Provides access to the column values of the table. The method shall return the :expr:<computeroutput>block.data</computeroutput> pointer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">queue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYCL* queue object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">block</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The block which memory is reused (if it is possible) to obtain the data from the table. The block memory shall be reset either when its size is not big enough, or when it contains immutable data, or when direct memory from the table can be used. If the block is reset to use a direct memory pointer from the object, it shall refer to this pointer as to immutable memory block. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">column_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the column from which the data shall be returned by the accessor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">rows</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The range of rows that should be read in the $column_index$ block. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The requested kind of USM in the returned block.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para><computeroutput>rows</computeroutput> are within the range of <computeroutput>[0, obj.row_count)</computeroutput>. </para>
+</simplesect>
+<simplesect kind="pre"><para><computeroutput>column_index</computeroutput> is within the range of <computeroutput>[0, obj.column_count)</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/column_accessor.hpp" line="53" column="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of data values in blocks returned by the accessor. Shall be const-qualified for read-only access. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="include/oneapi/dal/table/column_accessor.hpp" line="8" column="22" bodyfile="include/oneapi/dal/table/column_accessor.hpp" bodystart="8" bodyend="58"/>
+    <listofallmembers>
+      <member refid="classoneapi_1_1dal_1_1column__accessor_1a54880a11682d1418da3a827ba480730f" prot="public" virt="non-virtual"><scope>oneapi::dal::column_accessor</scope><name>column_accessor</name></member>
+      <member refid="classoneapi_1_1dal_1_1column__accessor_1a3df74462acea53522f96baaf6f85d257" prot="public" virt="non-virtual"><scope>oneapi::dal::column_accessor</scope><name>data_t</name></member>
+      <member refid="classoneapi_1_1dal_1_1column__accessor_1af3af9226e515d1af3e4253a5e2c604dd" prot="public" virt="non-virtual"><scope>oneapi::dal::column_accessor</scope><name>pull</name></member>
+      <member refid="classoneapi_1_1dal_1_1column__accessor_1a1607ed4d538048b1f303b61178139e73" prot="public" virt="non-virtual"><scope>oneapi::dal::column_accessor</scope><name>pull</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

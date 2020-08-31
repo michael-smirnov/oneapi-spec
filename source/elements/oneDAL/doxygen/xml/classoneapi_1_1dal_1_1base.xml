@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classoneapi_1_1dal_1_1base" kind="class" language="C++" prot="public">
+    <compoundname>oneapi::dal::base</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1base_1a94886fe79cc69cc51ea51e049e872e45" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~base</definition>
+        <argsstring>()=default</argsstring>
+        <name>~base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/common.hpp" line="5" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/oneapi/dal/common.hpp" line="3" column="11" bodyfile="include/oneapi/dal/common.hpp" bodystart="3" bodyend="6"/>
+    <listofallmembers>
+      <member refid="classoneapi_1_1dal_1_1base_1a94886fe79cc69cc51ea51e049e872e45" prot="public" virt="virtual"><scope>oneapi::dal::base</scope><name>~base</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

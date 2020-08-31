@@ -1,0 +1,521 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>K-Means initialization &mdash; oneDAL  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicons.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Nearest Neighbors (kNN)" href="../nearest_neighbors/index.html" />
+    <link rel="prev" title="K-Means" href="kmeans.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://oneapi.com" class="icon icon-home"> oneDAL
+          
+
+          
+            
+            <img src="../../_static/oneapi-logo1.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../notations.html">Mathematical Notations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming_model/index.html">Programming model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common_interface/index.html">Common Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_management/index.html">Data management</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Algorithms</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Clustering</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="kmeans.html">K-Means</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">K-Means initialization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../nearest_neighbors/index.html">Nearest Neighbors (kNN)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../decomposition/index.html">Decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">oneDAL</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">oneAPI Specification</a> &raquo;</li>
+        
+          
+          <li><a href="../index.html">Algorithms</a> </li>
+          
+        
+          
+        
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/algorithms/clustering/kmeans_init.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="k-means-initialization">
+<span id="alg-kmeans-init"></span><h1>K-Means initialization<a class="headerlink" href="#k-means-initialization" title="Permalink to this headline">¶</a></h1>
+<p>The K-Means initialization algorithm receives <span class="math notranslate nohighlight">\(n\)</span> feature vectors as input
+and chooses <span class="math notranslate nohighlight">\(k\)</span> initial centroids. After initialization, K-Means algorithm
+uses the initialization result to partition input data into <span class="math notranslate nohighlight">\(k\)</span> clusters.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 37%" />
+<col style="width: 11%" />
+<col style="width: 15%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Operation</strong></p></td>
+<td><p><strong>Computational methods</strong></p></td>
+<td colspan="3"><p><strong>Programming Interface</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#kmeans-init-c-math">Computing</a></p></td>
+<td><p><a class="reference internal" href="#kmeans-init-c-math-dense">Dense</a></p></td>
+<td><p><a class="reference internal" href="#kmeans-init-c-api">compute(…)</a></p></td>
+<td><p><a class="reference internal" href="#kmeans-init-c-api-input">compute_input</a></p></td>
+<td><p><a class="reference internal" href="#kmeans-init-c-api-result">compute_result</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="mathematical-formulation">
+<h2>Mathematical formulation<a class="headerlink" href="#mathematical-formulation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="computing">
+<span id="kmeans-init-c-math"></span><h3>Computing<a class="headerlink" href="#computing" title="Permalink to this headline">¶</a></h3>
+<p>Given the training set <span class="math notranslate nohighlight">\(X = \{ x_1, \ldots, x_n \}\)</span> of
+<span class="math notranslate nohighlight">\(p\)</span>-dimensional feature vectors and a positive integer <span class="math notranslate nohighlight">\(k\)</span>, the
+problem is to find a set <span class="math notranslate nohighlight">\(C = \{ c_1, \ldots, c_k \}\)</span> of
+<span class="math notranslate nohighlight">\(p\)</span>-dimensional initial centroids.</p>
+</div>
+<div class="section" id="computing-method-dense">
+<span id="kmeans-init-c-math-dense"></span><h3>Computing method: <em>dense</em><a class="headerlink" href="#computing-method-dense" title="Permalink to this headline">¶</a></h3>
+<p>The method chooses first <span class="math notranslate nohighlight">\(k\)</span> feature vectors from the training set
+<span class="math notranslate nohighlight">\(X\)</span>.</p>
+</div>
+</div>
+<div class="section" id="usage-example">
+<h2>Usage example<a class="headerlink" href="#usage-example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Computing<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">table</span> <span class="nf">run_compute</span><span class="p">(</span><span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">const</span> <span class="k">auto</span> <span class="n">kmeans_desc</span> <span class="o">=</span> <span class="n">kmeans_init</span><span class="o">::</span><span class="n">descriptor</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span>
+                                                    <span class="n">kmeans_init</span><span class="o">::</span><span class="n">method</span><span class="o">::</span><span class="n">dense</span><span class="o">&gt;</span><span class="p">{}</span>
+      <span class="p">.</span><span class="n">set_cluster_count</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+   <span class="k">const</span> <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">compute</span><span class="p">(</span><span class="n">kmeans_desc</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+
+   <span class="n">print_table</span><span class="p">(</span><span class="s">&quot;centroids&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">get_centroids</span><span class="p">());</span>
+
+   <span class="k">return</span> <span class="n">result</span><span class="p">.</span><span class="n">get_centroids</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="programming-interface">
+<h2>Programming Interface<a class="headerlink" href="#programming-interface" title="Permalink to this headline">¶</a></h2>
+<p>All types and functions in this section shall be declared in the
+<code class="docutils literal notranslate"><span class="pre">oneapi::dal::kmeans_init</span></code> namespace and be available via inclusion of the
+<code class="docutils literal notranslate"><span class="pre">oneapi/dal/algo/kmeans_init.hpp</span></code> header file.</p>
+<div class="section" id="descriptor">
+<h3>Descriptor<a class="headerlink" href="#descriptor" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Float</span> <span class="o">=</span> <span class="kt">float</span><span class="p">,</span>
+          <span class="k">typename</span> <span class="n">Method</span> <span class="o">=</span> <span class="n">method</span><span class="o">::</span><span class="n">by_default</span><span class="p">,</span>
+          <span class="k">typename</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">task</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">descriptor</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+
+   <span class="k">explicit</span> <span class="n">descriptor</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span> <span class="n">cluster_count</span> <span class="o">=</span> <span class="mi">2</span><span class="p">);</span>
+
+   <span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span> <span class="n">get_cluster_count</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+   <span class="n">descriptor</span><span class="o">&amp;</span> <span class="n">set_cluster_count</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">int64_t</span><span class="p">);</span>
+
+<span class="p">};</span>
+</pre></div>
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4I000EN6oneapi3dal11kmeans_init10descriptorE">
+<span id="_CPPv3I000EN6oneapi3dal11kmeans_init10descriptorE"></span><span id="_CPPv2I000EN6oneapi3dal11kmeans_init10descriptorE"></span>template&lt;typename <code class="sig-name descname">Float</code> = float, typename <code class="sig-name descname">Method</code> = method::<a class="reference internal" href="#_CPPv4N6oneapi3dal11kmeans_init6method10by_defaultE" title="oneapi::dal::kmeans_init::method::by_default">by_default</a>, typename <code class="sig-name descname">Task</code> = task::<a class="reference internal" href="#_CPPv4N6oneapi3dal11kmeans_init4task10by_defaultE" title="oneapi::dal::kmeans_init::task::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">descriptor</code><a class="headerlink" href="#_CPPv4I000EN6oneapi3dal11kmeans_init10descriptorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Float</strong> – The floating-point type that the algorithm uses for intermediate computations. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
+<li><p><strong>Method</strong> – Tag-type that specifies an implementation of K-Means Initialization algorithm.</p></li>
+<li><p><strong>Task</strong> – Tag-type that specifies the type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal11kmeans_init4task4initE" title="oneapi::dal::kmeans_init::task::init"><span class="pre">init</span></a></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal11kmeans_init10descriptor10descriptorENSt7int64_tE">
+<span id="_CPPv3N6oneapi3dal11kmeans_init10descriptor10descriptorENSt7int64_tE"></span><span id="_CPPv2N6oneapi3dal11kmeans_init10descriptor10descriptorENSt7int64_tE"></span><span id="oneapi::dal::kmeans_init::descriptor::descriptor__std::int64_t"></span><code class="sig-name descname">descriptor</code><span class="sig-paren">(</span>std::int64_t <em>cluster_count</em> = 2<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal11kmeans_init10descriptor10descriptorENSt7int64_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of the class with the given <code class="docutils literal notranslate"><span class="pre">cluster_count</span></code>.</p>
+</dd></dl>
+
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N44oneapi_dal_kmeans_init_descriptor_properties13cluster_countE">
+<span id="_CPPv3N44oneapi_dal_kmeans_init_descriptor_properties13cluster_countE"></span><span id="_CPPv2N44oneapi_dal_kmeans_init_descriptor_properties13cluster_countE"></span><span id="oneapi_dal_kmeans_init_descriptor_properties::cluster_count__std::int64_t"></span>std::int64_t <code class="sig-name descname">cluster_count</code> = 2<a class="headerlink" href="#_CPPv4N44oneapi_dal_kmeans_init_descriptor_properties13cluster_countE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The number of clusters <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">std::int64_t</span> <span class="pre">get_cluster_count()</span> <span class="pre">const</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">descriptor</span> <span class="pre">&amp;</span> <span class="pre">set_cluster_count(std::int64_t)</span></code></div>
+</div>
+</dd>
+<dt>Invariants</dt><dd><div class="line-block">
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4N44oneapi_dal_kmeans_init_descriptor_properties13cluster_countE" title="oneapi_dal_kmeans_init_descriptor_properties::cluster_count"><span class="pre">cluster_count</span></a> <span class="pre">&gt;</span> <span class="pre">0</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="method-tags">
+<h4>Method tags<a class="headerlink" href="#method-tags" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">method</span> <span class="p">{</span>
+   <span class="k">struct</span> <span class="n">dense</span> <span class="p">{};</span>
+   <span class="k">using</span> <span class="n">by_default</span> <span class="o">=</span> <span class="n">dense</span><span class="p">;</span>
+<span class="p">}</span> <span class="c1">// namespace method</span>
+</pre></div>
+</div>
+<dl class="cpp struct">
+<dt id="_CPPv4N6oneapi3dal11kmeans_init6method5denseE">
+<span id="_CPPv3N6oneapi3dal11kmeans_init6method5denseE"></span><span id="_CPPv2N6oneapi3dal11kmeans_init6method5denseE"></span><span id="oneapi::dal::kmeans_init::method::dense"></span><em class="property">struct </em><code class="sig-name descname">dense</code><a class="headerlink" href="#_CPPv4N6oneapi3dal11kmeans_init6method5denseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tag-type that denotes <a class="reference internal" href="#kmeans-init-c-math-dense">dense</a> computational method.</p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N6oneapi3dal11kmeans_init6method10by_defaultE">
+<span id="_CPPv3N6oneapi3dal11kmeans_init6method10by_defaultE"></span><span id="_CPPv2N6oneapi3dal11kmeans_init6method10by_defaultE"></span><em class="property">using </em><code class="sig-name descname">by_default</code> = <a class="reference internal" href="#_CPPv4N6oneapi3dal11kmeans_init6method5denseE" title="oneapi::dal::kmeans_init::method::dense">dense</a><a class="headerlink" href="#_CPPv4N6oneapi3dal11kmeans_init6method10by_defaultE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="task-tags">
+<h4>Task tags<a class="headerlink" href="#task-tags" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="n">task</span> <span class="p">{</span>
+   <span class="k">struct</span> <span class="n">init</span> <span class="p">{};</span>
+   <span class="k">using</span> <span class="n">by_default</span> <span class="o">=</span> <span class="n">init</span><span class="p">;</span>
+<span class="p">}</span> <span class="c1">// namespace task</span>
+</pre></div>
+</div>
+<dl class="cpp struct">
+<dt id="_CPPv4N6oneapi3dal11kmeans_init4task4initE">
+<span id="_CPPv3N6oneapi3dal11kmeans_init4task4initE"></span><span id="_CPPv2N6oneapi3dal11kmeans_init4task4initE"></span><span id="oneapi::dal::kmeans_init::task::init"></span><em class="property">struct </em><code class="sig-name descname">init</code><a class="headerlink" href="#_CPPv4N6oneapi3dal11kmeans_init4task4initE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tag-type that parametrizes entities used for obtaining the initial K-Means centroids.</p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt id="_CPPv4N6oneapi3dal11kmeans_init4task10by_defaultE">
+<span id="_CPPv3N6oneapi3dal11kmeans_init4task10by_defaultE"></span><span id="_CPPv2N6oneapi3dal11kmeans_init4task10by_defaultE"></span><em class="property">using </em><code class="sig-name descname">by_default</code> = <a class="reference internal" href="#_CPPv4N6oneapi3dal11kmeans_init4task4initE" title="oneapi::dal::kmeans_init::task::init">init</a><a class="headerlink" href="#_CPPv4N6oneapi3dal11kmeans_init4task10by_defaultE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Alias tag-type for the initialization task.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="computing-compute">
+<h3>Computing <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal11kmeans_init7computeE14compute_resultI4TaskERK10descriptorI5Float6Method4TaskERK13compute_inputI4TaskE" title="oneapi::dal::kmeans_init::compute"><span class="pre">compute</span></a><span class="sig-paren">(</span><span class="pre">...</span><span class="sig-paren">)</span></code><a class="headerlink" href="#computing-compute" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="input">
+<span id="kmeans-init-c-api-input"></span><h4>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">task</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">compute_input</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+
+   <span class="n">compute_input</span><span class="p">(</span><span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">table</span><span class="p">{});</span>
+
+   <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_data</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+   <span class="n">compute_input</span><span class="o">&amp;</span> <span class="n">set_data</span><span class="p">(</span><span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4I0EN6oneapi3dal11kmeans_init13compute_inputE">
+<span id="_CPPv3I0EN6oneapi3dal11kmeans_init13compute_inputE"></span><span id="_CPPv2I0EN6oneapi3dal11kmeans_init13compute_inputE"></span>template&lt;typename <code class="sig-name descname">Task</code> = task::<a class="reference internal" href="#_CPPv4N6oneapi3dal11kmeans_init4task10by_defaultE" title="oneapi::dal::kmeans_init::task::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">compute_input</code><a class="headerlink" href="#_CPPv4I0EN6oneapi3dal11kmeans_init13compute_inputE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal11kmeans_init4task4initE" title="oneapi::dal::kmeans_init::task::init"><span class="pre">init</span></a></code>.</p>
+</dd>
+</dl>
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal11kmeans_init13compute_input13compute_inputERK5table">
+<span id="_CPPv3N6oneapi3dal11kmeans_init13compute_input13compute_inputERK5table"></span><span id="_CPPv2N6oneapi3dal11kmeans_init13compute_input13compute_inputERK5table"></span><span id="oneapi::dal::kmeans_init::compute_input::compute_input__tableCR"></span><code class="sig-name descname">compute_input</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6oneapi3dal5tableE" title="oneapi::dal::table">table</a> &amp;<em>data</em> = <a class="reference internal" href="../../data_management/tables.html#_CPPv4N6oneapi3dal5tableE" title="oneapi::dal::table">table</a>{}<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal11kmeans_init13compute_input13compute_inputERK5table" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of the class with the given <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+</dd></dl>
+
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N47oneapi_dal_kmeans_init_compute_input_properties4dataE">
+<span id="_CPPv3N47oneapi_dal_kmeans_init_compute_input_properties4dataE"></span><span id="_CPPv2N47oneapi_dal_kmeans_init_compute_input_properties4dataE"></span><span id="oneapi_dal_kmeans_init_compute_input_properties::data__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">data</code> = table{}<a class="headerlink" href="#_CPPv4N47oneapi_dal_kmeans_init_compute_input_properties4dataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An <span class="math notranslate nohighlight">\(n \times p\)</span> table with the data to be clustered, where each row stores one feature vector.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_data()</span> <span class="pre">const</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">compute_input</span> <span class="pre">&amp;</span> <span class="pre">set_data(const</span> <span class="pre">table</span> <span class="pre">&amp;)</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="result">
+<span id="kmeans-init-c-api-result"></span><h4>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">task</span><span class="o">::</span><span class="n">by_default</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">compute_result</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+
+   <span class="n">compute_result</span><span class="p">();</span>
+
+   <span class="k">const</span> <span class="n">table</span><span class="o">&amp;</span> <span class="n">get_centroids</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4I0EN6oneapi3dal11kmeans_init14compute_resultE">
+<span id="_CPPv3I0EN6oneapi3dal11kmeans_init14compute_resultE"></span><span id="_CPPv2I0EN6oneapi3dal11kmeans_init14compute_resultE"></span>template&lt;typename <code class="sig-name descname">Task</code> = task::<a class="reference internal" href="#_CPPv4N6oneapi3dal11kmeans_init4task10by_defaultE" title="oneapi::dal::kmeans_init::task::by_default">by_default</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">compute_result</code><a class="headerlink" href="#_CPPv4I0EN6oneapi3dal11kmeans_init14compute_resultE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><span class="pre">clustering</span></code>.</p>
+</dd>
+</dl>
+<p><strong>Constructors</strong></p>
+<dl class="cpp function">
+<dt id="_CPPv4N6oneapi3dal11kmeans_init14compute_result14compute_resultEv">
+<span id="_CPPv3N6oneapi3dal11kmeans_init14compute_result14compute_resultEv"></span><span id="_CPPv2N6oneapi3dal11kmeans_init14compute_result14compute_resultEv"></span><span id="oneapi::dal::kmeans_init::compute_result::compute_result"></span><code class="sig-name descname">compute_result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6oneapi3dal11kmeans_init14compute_result14compute_resultEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of the class with the default property values.</p>
+</dd></dl>
+
+<p><strong>Properties</strong></p>
+<dl class="cpp member">
+<dt id="_CPPv4N48oneapi_dal_kmeans_init_compute_result_properties9centroidsE">
+<span id="_CPPv3N48oneapi_dal_kmeans_init_compute_result_properties9centroidsE"></span><span id="_CPPv2N48oneapi_dal_kmeans_init_compute_result_properties9centroidsE"></span><span id="oneapi_dal_kmeans_init_compute_result_properties::centroids__tableCR"></span><em class="property">const</em> table &amp;<code class="sig-name descname">centroids</code> = table{}<a class="headerlink" href="#_CPPv4N48oneapi_dal_kmeans_init_compute_result_properties9centroidsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A <span class="math notranslate nohighlight">\(k \times p\)</span> table with the initial centroids. Each row of the table stores one centroid.</p>
+<dl>
+<dt>Getter &amp; Setter</dt><dd><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">table</span> <span class="pre">&amp;</span> <span class="pre">get_centroids()</span> <span class="pre">const</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="operation">
+<span id="kmeans-init-c-api"></span><h4>Operation<a class="headerlink" href="#operation" title="Permalink to this headline">¶</a></h4>
+<dl class="cpp function">
+<dt id="_CPPv4I000EN6oneapi3dal11kmeans_init7computeE14compute_resultI4TaskERK10descriptorI5Float6Method4TaskERK13compute_inputI4TaskE">
+<span id="_CPPv3I000EN6oneapi3dal11kmeans_init7computeERK10descriptorI5Float6Method4TaskERK13compute_inputI4TaskE"></span><span id="_CPPv2I000EN6oneapi3dal11kmeans_init7computeERK10descriptorI5Float6Method4TaskERK13compute_inputI4TaskE"></span>template&lt;typename <code class="sig-name descname">Float</code>, typename <code class="sig-name descname">Method</code>, typename <code class="sig-name descname">Task</code>&gt;<br /><a class="reference internal" href="#_CPPv4I0EN6oneapi3dal11kmeans_init14compute_resultE" title="oneapi::dal::kmeans_init::compute_result">compute_result</a>&lt;<a class="reference internal" href="#_CPPv4I000EN6oneapi3dal11kmeans_init7computeE14compute_resultI4TaskERK10descriptorI5Float6Method4TaskERK13compute_inputI4TaskE" title="oneapi::dal::kmeans_init::compute::Task">Task</a>&gt; <code class="sig-name descname">compute</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal11kmeans_init10descriptorE" title="oneapi::dal::kmeans_init::descriptor">descriptor</a>&lt;<a class="reference internal" href="#_CPPv4I000EN6oneapi3dal11kmeans_init7computeE14compute_resultI4TaskERK10descriptorI5Float6Method4TaskERK13compute_inputI4TaskE" title="oneapi::dal::kmeans_init::compute::Float">Float</a>, <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal11kmeans_init7computeE14compute_resultI4TaskERK10descriptorI5Float6Method4TaskERK13compute_inputI4TaskE" title="oneapi::dal::kmeans_init::compute::Method">Method</a>, <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal11kmeans_init7computeE14compute_resultI4TaskERK10descriptorI5Float6Method4TaskERK13compute_inputI4TaskE" title="oneapi::dal::kmeans_init::compute::Task">Task</a>&gt; &amp;<em>desc</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN6oneapi3dal11kmeans_init13compute_inputE" title="oneapi::dal::kmeans_init::compute_input">compute_input</a>&lt;<a class="reference internal" href="#_CPPv4I000EN6oneapi3dal11kmeans_init7computeE14compute_resultI4TaskERK10descriptorI5Float6Method4TaskERK13compute_inputI4TaskE" title="oneapi::dal::kmeans_init::compute::Task">Task</a>&gt; &amp;<em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I000EN6oneapi3dal11kmeans_init7computeE14compute_resultI4TaskERK10descriptorI5Float6Method4TaskERK13compute_inputI4TaskE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Runs the computing operation for K-Means initialization. For more details, see <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">oneapi</span><span class="pre">::</span><span class="pre">dal</span><span class="pre">::</span><span class="pre">compute</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Float</strong> – The floating-point type that the algorithm uses for intermediate computations. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">double</span></code>.</p></li>
+<li><p><strong>Method</strong> – Tag-type that specifies an implementation of K-Means Initialization algorithm.</p></li>
+<li><p><strong>Task</strong> – Tag-type that specifies type of the problem to solve. Can be <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">task</span><span class="pre">::</span><a class="reference internal" href="#_CPPv4N6oneapi3dal11kmeans_init4task4initE" title="oneapi::dal::kmeans_init::task::init"><span class="pre">init</span></a></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>desc</strong> – The descriptor of the algorithm.</p></li>
+<li><p><strong>input</strong> – Input data for the computing operation.</p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt>Preconditions</dt><dd><div class="line-block">
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal11kmeans_init7computeE14compute_resultI4TaskERK10descriptorI5Float6Method4TaskERK13compute_inputI4TaskE" title="oneapi::dal::kmeans_init::compute::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">has_data</span> <span class="pre">==</span> <span class="pre">true</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I000EN6oneapi3dal11kmeans_init7computeE14compute_resultI4TaskERK10descriptorI5Float6Method4TaskERK13compute_inputI4TaskE" title="oneapi::dal::kmeans_init::compute::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal11kmeans_init7computeE14compute_resultI4TaskERK10descriptorI5Float6Method4TaskERK13compute_inputI4TaskE" title="oneapi::dal::kmeans_init::compute::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">cluster_count</span></code></div>
+</div>
+</dd>
+<dt>Postconditions</dt><dd><div class="line-block">
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">centroids</span><span class="pre">.</span><span class="pre">has_data</span> <span class="pre">==</span> <span class="pre">true</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">centroids</span><span class="pre">.</span><span class="pre">row_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal11kmeans_init7computeE14compute_resultI4TaskERK10descriptorI5Float6Method4TaskERK13compute_inputI4TaskE" title="oneapi::dal::kmeans_init::compute::desc"><span class="pre">desc</span></a><span class="pre">.</span><span class="pre">cluster_count</span></code></div>
+<div class="line"><code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">result</span><span class="pre">.</span><span class="pre">centroids</span><span class="pre">.</span><span class="pre">column_count</span> <span class="pre">==</span> <a class="reference internal" href="#_CPPv4I000EN6oneapi3dal11kmeans_init7computeE14compute_resultI4TaskERK10descriptorI5Float6Method4TaskERK13compute_inputI4TaskE" title="oneapi::dal::kmeans_init::compute::input"><span class="pre">input</span></a><span class="pre">.</span><span class="pre">data</span><span class="pre">.</span><span class="pre">column_count</span></code></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../nearest_neighbors/index.html" class="btn btn-neutral float-right" title="Nearest Neighbors (kNN)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="kmeans.html" class="btn btn-neutral float-left" title="K-Means" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Intel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

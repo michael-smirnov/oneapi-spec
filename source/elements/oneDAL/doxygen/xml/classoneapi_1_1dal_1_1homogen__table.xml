@@ -1,0 +1,365 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classoneapi_1_1dal_1_1homogen__table" kind="class" language="C++" prot="public">
+    <compoundname>oneapi::dal::homogen_table</compoundname>
+    <basecompoundref refid="classoneapi_1_1dal_1_1table" prot="public" virt="non-virtual">table</basecompoundref>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1homogen__table_1a9ab6fb97fb3e9768781054d12edbaec5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::int64_t</type>
+        <definition>static std::int64_t kind</definition>
+        <argsstring>()</argsstring>
+        <name>kind</name>
+        <briefdescription>
+<para>Returns the unique id of <computeroutput><ref refid="classoneapi_1_1dal_1_1homogen__table" kindref="compound">homogen_table</ref></computeroutput> class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/homogen.hpp" line="8" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1homogen__table_1ab98681387057f8aac7044922e538ce3c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Data</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classoneapi_1_1dal_1_1homogen__table" kindref="compound">homogen_table</ref></type>
+        <definition>static homogen_table wrap</definition>
+        <argsstring>(const sycl::queue &amp;queue, const Data *data_pointer, std::int64_t row_count, std::int64_t column_count, const sycl::vector_class&lt; sycl::event &gt; &amp;dependencies={}, data_layout layout=data_layout::row_major)</argsstring>
+        <name>wrap</name>
+        <param>
+          <type>const sycl::queue &amp;</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type>const Data *</type>
+          <declname>data_pointer</declname>
+        </param>
+        <param>
+          <type>std::int64_t</type>
+          <declname>row_count</declname>
+        </param>
+        <param>
+          <type>std::int64_t</type>
+          <declname>column_count</declname>
+        </param>
+        <param>
+          <type>const sycl::vector_class&lt; sycl::event &gt; &amp;</type>
+          <declname>dependencies</declname>
+          <defval>{}</defval>
+        </param>
+        <param>
+          <type>data_layout</type>
+          <declname>layout</declname>
+          <defval>data_layout::row_major</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new <computeroutput><ref refid="classoneapi_1_1dal_1_1homogen__table" kindref="compound">homogen_table</ref></computeroutput> instance from externally-defined data block. Table object refers to the data but does not own it. The responsibility to free the data remains on the user side. The :expr:<computeroutput>data</computeroutput> shall point to the $data_pointer$ memory block.</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of elements in the data block that will be stored into the table. The table shall initialize data types of metadata with this data type. The feature types shall be set to default values for $Data$ type: contiguous for floating-point, ordinal for integer types. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>queue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYCL* queue object </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data_pointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointer to a homogeneous data block. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>row_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of rows in the table. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>column_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of columns in the table. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dependencies</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Events indicating availability of the $data$ for reading or writing. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>layout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The layout of the data. Shall be <computeroutput>data_layout::row_major</computeroutput> or <computeroutput>data_layout::column_major</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/homogen.hpp" line="27" column="26"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1homogen__table_1a3daf8b465cf9de3b698f00a03c785e9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>homogen_table</definition>
+        <argsstring>()</argsstring>
+        <name>homogen_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new <computeroutput><ref refid="classoneapi_1_1dal_1_1homogen__table" kindref="compound">homogen_table</ref></computeroutput> instance with zero number of rows and columns. The :expr:<computeroutput>kind</computeroutput> shall be set to<computeroutput><ref refid="classoneapi_1_1dal_1_1homogen__table_1a9ab6fb97fb3e9768781054d12edbaec5" kindref="member">homogen_table::kind()</ref></computeroutput>. All the properties shall be set to default value (see the Properties section). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/homogen.hpp" line="38" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1homogen__table_1a6d47b013476413fa85dfd57044db6b79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Data</type>
+          </param>
+          <param>
+            <type>typename ConstDeleter</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>homogen_table</definition>
+        <argsstring>(const sycl::queue &amp;queue, const Data *data_pointer, std::int64_t row_count, std::int64_t column_count, ConstDeleter &amp;&amp;data_deleter, const sycl::vector_class&lt; sycl::event &gt; &amp;dependencies={}, data_layout layout=data_layout::row_major)</argsstring>
+        <name>homogen_table</name>
+        <param>
+          <type>const sycl::queue &amp;</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type>const Data *</type>
+          <declname>data_pointer</declname>
+        </param>
+        <param>
+          <type>std::int64_t</type>
+          <declname>row_count</declname>
+        </param>
+        <param>
+          <type>std::int64_t</type>
+          <declname>column_count</declname>
+        </param>
+        <param>
+          <type>ConstDeleter &amp;&amp;</type>
+          <declname>data_deleter</declname>
+        </param>
+        <param>
+          <type>const sycl::vector_class&lt; sycl::event &gt; &amp;</type>
+          <declname>dependencies</declname>
+          <defval>{}</defval>
+        </param>
+        <param>
+          <type>data_layout</type>
+          <declname>layout</declname>
+          <defval>data_layout::row_major</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new <computeroutput><ref refid="classoneapi_1_1dal_1_1homogen__table" kindref="compound">homogen_table</ref></computeroutput> instance from externally-defined data block. Table object owns the data pointer. The :expr:<computeroutput>data</computeroutput> shall point to the $data_pointer$ memory block.</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of elements in the data block that will be stored into the table. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ConstDeleter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of deleter called on $data_pointer$ when the last table that refers to it goes out of the scope.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>queue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SYCL* queue object </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data_pointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointer to a homogeneous data block. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>row_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of rows in the table. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>column_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of columns in the table. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data_deleter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The deleter that is called on the $data_pointer$ when last table that refers to it goes out of the scope. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dependencies</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Events indicating availability of the $data$ for reading or writing. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>layout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The layout of the data. Shall be <computeroutput>data_layout::row_major</computeroutput> or <computeroutput>data_layout::column_major</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/homogen.hpp" line="58" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1homogen__table_1ae7cf7f40fdffca79658241b04520a3ed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Data</type>
+          </param>
+        </templateparamlist>
+        <type>const Data *</type>
+        <definition>const Data* get_data</definition>
+        <argsstring>() const</argsstring>
+        <name>get_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the :expr:<computeroutput>data</computeroutput> pointer casted to the $Data$ type. No checks are performed that this type is the actual type of the data within the table. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/homogen.hpp" line="69" column="16" bodyfile="include/oneapi/dal/table/homogen.hpp" bodystart="69" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1homogen__table_1a40e399d3de55764e21af1b23a6d88f09" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const void *</type>
+        <definition>const void* get_data</definition>
+        <argsstring>() const</argsstring>
+        <name>get_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The pointer to the data block within the table. Shall be equal to <computeroutput>nullptr</computeroutput> when :expr:<computeroutput>row_count == 0</computeroutput> and :expr:<computeroutput>column_count == 0</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/homogen.hpp" line="75" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1homogen__table_1a07b5fdf1f97bc88ab939443e4dc7f3a5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::int64_t</type>
+        <definition>std::int64_t get_kind</definition>
+        <argsstring>() const</argsstring>
+        <name>get_kind</name>
+        <briefdescription>
+<para>The unique id of the homogen table type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/table/homogen.hpp" line="78" column="18" bodyfile="include/oneapi/dal/table/homogen.hpp" bodystart="78" bodyend="80"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>homogen_table</label>
+        <link refid="classoneapi_1_1dal_1_1homogen__table"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>table</label>
+        <link refid="classoneapi_1_1dal_1_1table"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>homogen_table</label>
+        <link refid="classoneapi_1_1dal_1_1homogen__table"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>table</label>
+        <link refid="classoneapi_1_1dal_1_1table"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/oneapi/dal/table/homogen.hpp" line="5" column="33" bodyfile="include/oneapi/dal/table/homogen.hpp" bodystart="5" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classoneapi_1_1dal_1_1table_1ad34b0800ecaa0895cd108af5dcd7bc5f" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>get_column_count</name></member>
+      <member refid="classoneapi_1_1dal_1_1homogen__table_1ae7cf7f40fdffca79658241b04520a3ed" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>get_data</name></member>
+      <member refid="classoneapi_1_1dal_1_1homogen__table_1a40e399d3de55764e21af1b23a6d88f09" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>get_data</name></member>
+      <member refid="classoneapi_1_1dal_1_1table_1a3f81d641450d208d120975d47eb0ffdc" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>get_data_layout</name></member>
+      <member refid="classoneapi_1_1dal_1_1homogen__table_1a07b5fdf1f97bc88ab939443e4dc7f3a5" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>get_kind</name></member>
+      <member refid="classoneapi_1_1dal_1_1table_1a7ccebd2aeed7dde5460b4a64fa1014ac" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>get_metadata</name></member>
+      <member refid="classoneapi_1_1dal_1_1table_1ac3b1b36ddf172f1cf880c4eba11458de" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>get_row_count</name></member>
+      <member refid="classoneapi_1_1dal_1_1table_1af1c5bdc5bbce021f9e961d76b4a96332" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>has_data</name></member>
+      <member refid="classoneapi_1_1dal_1_1homogen__table_1a3daf8b465cf9de3b698f00a03c785e9e" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>homogen_table</name></member>
+      <member refid="classoneapi_1_1dal_1_1homogen__table_1a6d47b013476413fa85dfd57044db6b79" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>homogen_table</name></member>
+      <member refid="classoneapi_1_1dal_1_1homogen__table_1a9ab6fb97fb3e9768781054d12edbaec5" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>kind</name></member>
+      <member refid="classoneapi_1_1dal_1_1table_1a42768e938e622343de12443477cad5ca" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>operator=</name></member>
+      <member refid="classoneapi_1_1dal_1_1table_1a332d87163f953ae72239f24cc03800aa" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>operator=</name></member>
+      <member refid="classoneapi_1_1dal_1_1table_1a5aa7b43c8ec77df216a71a27da0a321c" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>table</name></member>
+      <member refid="classoneapi_1_1dal_1_1table_1a9afed25f2629fe792a03c2d3c371b101" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>table</name></member>
+      <member refid="classoneapi_1_1dal_1_1table_1ae3f752b5c860253fbe3a854d98664702" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>table</name></member>
+      <member refid="classoneapi_1_1dal_1_1homogen__table_1ab98681387057f8aac7044922e538ce3c" prot="public" virt="non-virtual"><scope>oneapi::dal::homogen_table</scope><name>wrap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

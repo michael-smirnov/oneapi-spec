@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classoneapi_1_1dal_1_1pca_1_1model" kind="class" language="C++" prot="public">
+    <compoundname>oneapi::dal::pca::model</compoundname>
+    <includes refid="pca_8hpp" local="no">pca.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Task</type>
+        <defval><ref refid="structoneapi_1_1dal_1_1pca_1_1task_1_1dim__reduction" kindref="compound">task::by_default</ref></defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1pca_1_1model_1af758be52317607e28c2b633561d322f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>model</definition>
+        <argsstring>()</argsstring>
+        <name>model</name>
+        <briefdescription>
+<para>Creates a new instance of the class with the default property values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/pca.hpp" line="65" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1pca_1_1model_1ae20abbd21562416ede19dcdf54bd18d3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classoneapi_1_1dal_1_1table" kindref="compound">table</ref> &amp;</type>
+        <definition>const table&amp; get_eigenvectors</definition>
+        <argsstring>() const</argsstring>
+        <name>get_eigenvectors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>An $r \times p$ table with the eigenvectors. Each row contains one eigenvector. <simplesect kind="remark"><para>default = table{} </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/pca.hpp" line="70" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1pca_1_1model_1adeddbe77f71efb63255fc85fb5ae21e2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t get_component_count</definition>
+        <argsstring>() const</argsstring>
+        <name>get_component_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The number of components $r$ in the trained model. <simplesect kind="invariant"><para>:expr:<computeroutput>component_count == eigenvectors.row_count</computeroutput> </para>
+</simplesect>
+<simplesect kind="remark"><para>default = 0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/pca.hpp" line="75" column="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tag-type that specifies type of the problem to solve. Can be :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1pca_1_1task_1_1dim__reduction" kindref="compound">task::dim_reduction</ref></computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="include/oneapi/dal/algo/pca.hpp" line="62" column="12" bodyfile="include/oneapi/dal/algo/pca.hpp" bodystart="62" bodyend="76"/>
+    <listofallmembers>
+      <member refid="classoneapi_1_1dal_1_1pca_1_1model_1adeddbe77f71efb63255fc85fb5ae21e2" prot="public" virt="non-virtual"><scope>oneapi::dal::pca::model</scope><name>get_component_count</name></member>
+      <member refid="classoneapi_1_1dal_1_1pca_1_1model_1ae20abbd21562416ede19dcdf54bd18d3" prot="public" virt="non-virtual"><scope>oneapi::dal::pca::model</scope><name>get_eigenvectors</name></member>
+      <member refid="classoneapi_1_1dal_1_1pca_1_1model_1af758be52317607e28c2b633561d322f6" prot="public" virt="non-virtual"><scope>oneapi::dal::pca::model</scope><name>model</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
