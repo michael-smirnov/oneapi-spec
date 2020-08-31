@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="knn_8hpp" kind="file" language="C++">
+    <compoundname>knn.hpp</compoundname>
+    <includes local="no">cstdint</includes>
+    <includes refid="table_2common_8hpp" local="yes">oneapi/dal/table/common.hpp</includes>
+    <includes refid="train_8hpp" local="yes">oneapi/dal/train.hpp</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>cstdint</label>
+      </node>
+      <node id="3">
+        <label>oneapi/dal/table/common.hpp</label>
+        <link refid="table_2common_8hpp_source"/>
+      </node>
+      <node id="1">
+        <label>include/oneapi/dal/algo/knn.hpp</label>
+        <link refid="knn_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>oneapi/dal/train.hpp</label>
+        <link refid="train_8hpp_source"/>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structoneapi_1_1dal_1_1knn_1_1method_1_1bruteforce" prot="public">oneapi::dal::knn::method::bruteforce</innerclass>
+    <innerclass refid="structoneapi_1_1dal_1_1knn_1_1method_1_1kd__tree" prot="public">oneapi::dal::knn::method::kd_tree</innerclass>
+    <innerclass refid="structoneapi_1_1dal_1_1knn_1_1task_1_1classification" prot="public">oneapi::dal::knn::task::classification</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1knn_1_1descriptor" prot="public">oneapi::dal::knn::descriptor</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1knn_1_1model" prot="public">oneapi::dal::knn::model</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1knn_1_1train__input" prot="public">oneapi::dal::knn::train_input</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1knn_1_1train__result" prot="public">oneapi::dal::knn::train_result</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1knn_1_1infer__input" prot="public">oneapi::dal::knn::infer_input</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1knn_1_1infer__result" prot="public">oneapi::dal::knn::infer_result</innerclass>
+    <innernamespace refid="namespaceoneapi">oneapi</innernamespace>
+    <innernamespace refid="namespaceoneapi_1_1dal">oneapi::dal</innernamespace>
+    <innernamespace refid="namespaceoneapi_1_1dal_1_1knn">oneapi::dal::knn</innernamespace>
+    <innernamespace refid="namespaceoneapi_1_1dal_1_1knn_1_1method">oneapi::dal::knn::method</innernamespace>
+    <innernamespace refid="namespaceoneapi_1_1dal_1_1knn_1_1task">oneapi::dal::knn::task</innernamespace>
+    <innernamespace refid="namespaceoneapi_1_1dal_1_1knn_1_1example">oneapi::dal::knn::example</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/oneapi/dal/algo/knn.hpp"/>
+  </compounddef>
+</doxygen>

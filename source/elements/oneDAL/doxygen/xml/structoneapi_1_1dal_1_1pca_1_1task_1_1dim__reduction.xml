@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structoneapi_1_1dal_1_1pca_1_1task_1_1dim__reduction" kind="struct" language="C++" prot="public">
+    <compoundname>oneapi::dal::pca::task::dim_reduction</compoundname>
+    <includes refid="pca_8hpp" local="no">pca.hpp</includes>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Tag-type that parametrizes entities used for solving :capterm:<computeroutput>dimensionality reduction problem &lt;dimensionality reduction&gt;</computeroutput>. </para>
+    </detaileddescription>
+    <location file="include/oneapi/dal/algo/pca.hpp" line="23" column="23" bodyfile="include/oneapi/dal/algo/pca.hpp" bodystart="23" bodyend="23"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

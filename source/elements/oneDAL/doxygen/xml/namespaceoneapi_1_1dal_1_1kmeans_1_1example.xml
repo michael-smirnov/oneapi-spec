@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceoneapi_1_1dal_1_1kmeans_1_1example" kind="namespace" language="C++">
+    <compoundname>oneapi::dal::kmeans::example</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="kmeans_8hpp_1ad175a1f920a23c83c3cef6fee188073d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classoneapi_1_1dal_1_1kmeans_1_1model" kindref="compound">kmeans::model</ref></type>
+        <definition>kmeans::model oneapi::dal::kmeans::example::run_training</definition>
+        <argsstring>(const table &amp;data, const table &amp;initial_centroids)</argsstring>
+        <name>run_training</name>
+        <param>
+          <type>const <ref refid="classoneapi_1_1dal_1_1table" kindref="compound">table</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classoneapi_1_1dal_1_1table" kindref="compound">table</ref> &amp;</type>
+          <declname>initial_centroids</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/kmeans.hpp" line="230" column="2" bodyfile="include/oneapi/dal/algo/kmeans.hpp" bodystart="230" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="kmeans_8hpp_1ae3a6e0accd35c6c817c45ea5c601a8a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classoneapi_1_1dal_1_1table" kindref="compound">table</ref></type>
+        <definition>table oneapi::dal::kmeans::example::run_inference</definition>
+        <argsstring>(const kmeans::model&lt;&gt; &amp;model, const table &amp;new_data)</argsstring>
+        <name>run_inference</name>
+        <param>
+          <type>const <ref refid="classoneapi_1_1dal_1_1kmeans_1_1model" kindref="compound">kmeans::model</ref>&lt;&gt; &amp;</type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classoneapi_1_1dal_1_1table" kindref="compound">table</ref> &amp;</type>
+          <declname>new_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/kmeans.hpp" line="246" column="7" bodyfile="include/oneapi/dal/algo/kmeans.hpp" bodystart="246" bodyend="254"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/oneapi/dal/algo/kmeans.hpp" line="228" column="38"/>
+  </compounddef>
+</doxygen>

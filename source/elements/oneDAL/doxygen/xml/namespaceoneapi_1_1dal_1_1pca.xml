@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceoneapi_1_1dal_1_1pca" kind="namespace" language="C++">
+    <compoundname>oneapi::dal::pca</compoundname>
+    <innerclass refid="classoneapi_1_1dal_1_1pca_1_1descriptor" prot="public">oneapi::dal::pca::descriptor</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1pca_1_1infer__input" prot="public">oneapi::dal::pca::infer_input</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1pca_1_1infer__result" prot="public">oneapi::dal::pca::infer_result</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1pca_1_1model" prot="public">oneapi::dal::pca::model</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1pca_1_1train__input" prot="public">oneapi::dal::pca::train_input</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1pca_1_1train__result" prot="public">oneapi::dal::pca::train_result</innerclass>
+    <innernamespace refid="namespaceoneapi_1_1dal_1_1pca_1_1example">oneapi::dal::pca::example</innernamespace>
+    <innernamespace refid="namespaceoneapi_1_1dal_1_1pca_1_1method">oneapi::dal::pca::method</innernamespace>
+    <innernamespace refid="namespaceoneapi_1_1dal_1_1pca_1_1task">oneapi::dal::pca::task</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="pca_8hpp_1aab465d1a4df4f1a7bebf300afcdaea9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Float</type>
+          </param>
+          <param>
+            <type>typename Method</type>
+          </param>
+          <param>
+            <type>typename Task</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classoneapi_1_1dal_1_1pca_1_1train__result" kindref="compound">train_result</ref>&lt; Task &gt;</type>
+        <definition>train_result&lt;Task&gt; oneapi::dal::pca::train</definition>
+        <argsstring>(const descriptor&lt; Float, Method, Task &gt; &amp;desc, const train_input&lt; Task &gt; &amp;input)</argsstring>
+        <name>train</name>
+        <param>
+          <type>const <ref refid="classoneapi_1_1dal_1_1pca_1_1descriptor" kindref="compound">descriptor</ref>&lt; Float, Method, Task &gt; &amp;</type>
+          <declname>desc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classoneapi_1_1dal_1_1pca_1_1train__input" kindref="compound">train_input</ref>&lt; Task &gt; &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Runs the training operation for PCA. For more details, see :expr:<computeroutput>oneapi::dal::train</computeroutput>.</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Float</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The floating-point type that the algorithm uses for intermediate computations. Can be :expr:<computeroutput>float</computeroutput> or :expr:<computeroutput>double</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Method</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tag-type that specifies an implementation of algorithm. Can be :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1pca_1_1method_1_1cov" kindref="compound">method::cov</ref></computeroutput> or :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1pca_1_1method_1_1svd" kindref="compound">method::svd</ref></computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tag-type that specifies type of the problem to solve. Can be :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1pca_1_1task_1_1dim__reduction" kindref="compound">task::dim_reduction</ref></computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Descriptor of the algorithm </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input data for the training operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>result Result of the training operation</para>
+</simplesect>
+<simplesect kind="pre"><para>:expr:<computeroutput>input.data.has_data == true</computeroutput> </para>
+</simplesect>
+<simplesect kind="pre"><para>:expr:<computeroutput>input.data.column_count &gt;= desc.component_count</computeroutput> </para>
+</simplesect>
+<simplesect kind="post"><para>:expr:<computeroutput>result.means.row_count == 1</computeroutput> </para>
+</simplesect>
+<simplesect kind="post"><para>:expr:<computeroutput>result.means.column_count == desc.component_count</computeroutput> </para>
+</simplesect>
+<simplesect kind="post"><para>:expr:<computeroutput>result.variances.row_count == 1</computeroutput> </para>
+</simplesect>
+<simplesect kind="post"><para>:expr:<computeroutput>result.variances.column_count == desc.component_count</computeroutput> </para>
+</simplesect>
+<simplesect kind="post"><para>:expr:<computeroutput>result.variances[i] &gt;= 0.0</computeroutput> </para>
+</simplesect>
+<simplesect kind="post"><para>:expr:<computeroutput>result.eigenvalues.row_count == 1</computeroutput> </para>
+</simplesect>
+<simplesect kind="post"><para>:expr:<computeroutput>result.eigenvalues.column_count == desc.component_count</computeroutput> </para>
+</simplesect>
+<simplesect kind="post"><para>:expr:<computeroutput>result.model.eigenvectors.row_count == 1</computeroutput> </para>
+</simplesect>
+<simplesect kind="post"><para>:expr:<computeroutput>result.model.eigenvectors.column_count == desc.component_count</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/pca.hpp" line="155" column="14" declfile="include/oneapi/dal/algo/pca.hpp" declline="155" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="pca_8hpp_1a0361009056b5ebd264613aef6764c78a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Float</type>
+          </param>
+          <param>
+            <type>typename Method</type>
+          </param>
+          <param>
+            <type>typename Task</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classoneapi_1_1dal_1_1pca_1_1infer__result" kindref="compound">infer_result</ref>&lt; Task &gt;</type>
+        <definition>infer_result&lt;Task&gt; oneapi::dal::pca::infer</definition>
+        <argsstring>(const descriptor&lt; Float, Method, Task &gt; &amp;desc, const infer_input&lt; Task &gt; &amp;input)</argsstring>
+        <name>infer</name>
+        <param>
+          <type>const <ref refid="classoneapi_1_1dal_1_1pca_1_1descriptor" kindref="compound">descriptor</ref>&lt; Float, Method, Task &gt; &amp;</type>
+          <declname>desc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classoneapi_1_1dal_1_1pca_1_1infer__input" kindref="compound">infer_input</ref>&lt; Task &gt; &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Runs the inference operation for PCA. For more details see :expr:<computeroutput>oneapi::dal::infer</computeroutput>.</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Float</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The floating-point type that the algorithm uses for intermediate computations. Can be :expr:<computeroutput>float</computeroutput> or :expr:<computeroutput>double</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Method</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tag-type that specifies an implementation of algorithm. Can be :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1pca_1_1method_1_1cov" kindref="compound">method::cov</ref></computeroutput> or :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1pca_1_1method_1_1svd" kindref="compound">method::svd</ref></computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tag-type that specifies type of the problem to solve. Can be :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1pca_1_1task_1_1dim__reduction" kindref="compound">task::dim_reduction</ref></computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Descriptor of the algorithm </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input data for the inference operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>result Result of the inference operation</para>
+</simplesect>
+<simplesect kind="pre"><para>:expr:<computeroutput>input.data.has_data == true</computeroutput> </para>
+</simplesect>
+<simplesect kind="pre"><para>:expr:<computeroutput>input.model.eigenvectors.row_count == desc.component_count</computeroutput> </para>
+</simplesect>
+<simplesect kind="pre"><para>:expr:<computeroutput>input.model.eigenvectors.column_count == input.data.column_count</computeroutput> </para>
+</simplesect>
+<simplesect kind="post"><para>:expr:<computeroutput>result.transformed_data.row_count == input.data.row_count</computeroutput> </para>
+</simplesect>
+<simplesect kind="post"><para>:expr:<computeroutput>result.transformed_data.column_count == desc.component_count</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/pca.hpp" line="214" column="14" declfile="include/oneapi/dal/algo/pca.hpp" declline="214" declcolumn="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/oneapi/dal/algo/pca.hpp" line="5" column="26"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classoneapi_1_1dal_1_1knn_1_1infer__result" kind="class" language="C++" prot="public">
+    <compoundname>oneapi::dal::knn::infer_result</compoundname>
+    <includes refid="knn_8hpp" local="no">knn.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Task</type>
+        <defval><ref refid="structoneapi_1_1dal_1_1knn_1_1task_1_1classification" kindref="compound">task::by_default</ref></defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1knn_1_1infer__result_1a9fbe9b8ec16d2a03c897292626f1742d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>infer_result</definition>
+        <argsstring>()</argsstring>
+        <name>infer_result</name>
+        <briefdescription>
+<para>Creates a new instance of the class with the default property values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/knn.hpp" line="152" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1knn_1_1infer__result_1adcb882323bce6ff2519d1faec189b496" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classoneapi_1_1dal_1_1table" kindref="compound">table</ref> &amp;</type>
+        <definition>const table&amp; get_labels</definition>
+        <argsstring>() const</argsstring>
+        <name>get_labels</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The predicted labels <simplesect kind="remark"><para>default = table{} </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/knn.hpp" line="156" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tag-type that specifies type of the problem to solve. Can be :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1knn_1_1task_1_1classification" kindref="compound">task::classification</ref></computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="include/oneapi/dal/algo/knn.hpp" line="149" column="19" bodyfile="include/oneapi/dal/algo/knn.hpp" bodystart="149" bodyend="157"/>
+    <listofallmembers>
+      <member refid="classoneapi_1_1dal_1_1knn_1_1infer__result_1adcb882323bce6ff2519d1faec189b496" prot="public" virt="non-virtual"><scope>oneapi::dal::knn::infer_result</scope><name>get_labels</name></member>
+      <member refid="classoneapi_1_1dal_1_1knn_1_1infer__result_1a9fbe9b8ec16d2a03c897292626f1742d" prot="public" virt="non-virtual"><scope>oneapi::dal::knn::infer_result</scope><name>infer_result</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

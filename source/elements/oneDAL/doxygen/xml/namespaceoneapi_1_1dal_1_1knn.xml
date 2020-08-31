@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceoneapi_1_1dal_1_1knn" kind="namespace" language="C++">
+    <compoundname>oneapi::dal::knn</compoundname>
+    <innerclass refid="classoneapi_1_1dal_1_1knn_1_1descriptor" prot="public">oneapi::dal::knn::descriptor</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1knn_1_1infer__input" prot="public">oneapi::dal::knn::infer_input</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1knn_1_1infer__result" prot="public">oneapi::dal::knn::infer_result</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1knn_1_1model" prot="public">oneapi::dal::knn::model</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1knn_1_1train__input" prot="public">oneapi::dal::knn::train_input</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1knn_1_1train__result" prot="public">oneapi::dal::knn::train_result</innerclass>
+    <innernamespace refid="namespaceoneapi_1_1dal_1_1knn_1_1example">oneapi::dal::knn::example</innernamespace>
+    <innernamespace refid="namespaceoneapi_1_1dal_1_1knn_1_1method">oneapi::dal::knn::method</innernamespace>
+    <innernamespace refid="namespaceoneapi_1_1dal_1_1knn_1_1task">oneapi::dal::knn::task</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="knn_8hpp_1ac96e85085eb47f1a9476a018b4b9b4eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Float</type>
+          </param>
+          <param>
+            <type>typename Method</type>
+          </param>
+          <param>
+            <type>typename Task</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classoneapi_1_1dal_1_1knn_1_1train__result" kindref="compound">train_result</ref>&lt; Task &gt;</type>
+        <definition>train_result&lt;Task&gt; oneapi::dal::knn::train</definition>
+        <argsstring>(const descriptor&lt; Float, Method, Task &gt; &amp;desc, const train_input&lt; Task &gt; &amp;input)</argsstring>
+        <name>train</name>
+        <param>
+          <type>const <ref refid="classoneapi_1_1dal_1_1knn_1_1descriptor" kindref="compound">descriptor</ref>&lt; Float, Method, Task &gt; &amp;</type>
+          <declname>desc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classoneapi_1_1dal_1_1knn_1_1train__input" kindref="compound">train_input</ref>&lt; Task &gt; &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Runs the training operation for $k$-NN classifier. For more details see :expr:<computeroutput>oneapi::dal::train</computeroutput>.</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Float</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The floating-point type that the algorithm uses for intermediate computations. Can be :expr:<computeroutput>float</computeroutput> or :expr:<computeroutput>double</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Method</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tag-type that specifies an implementation of algorithm. Can be :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1knn_1_1method_1_1bruteforce" kindref="compound">method::bruteforce</ref></computeroutput> or :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1knn_1_1method_1_1kd__tree" kindref="compound">method::kd_tree</ref></computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tag-type that specifies type of the problem to solve. Can be :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1knn_1_1task_1_1classification" kindref="compound">task::classification</ref></computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Descriptor of the algorithm </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input data for the training operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>result Result of the training operation</para>
+</simplesect>
+<simplesect kind="pre"><para>:expr:<computeroutput>input.data.has_data == true</computeroutput> </para>
+</simplesect>
+<simplesect kind="pre"><para>:expr:<computeroutput>input.labels.has_data == true</computeroutput> </para>
+</simplesect>
+<simplesect kind="pre"><para>:expr:<computeroutput>input.data.row_count == input.labels.row_count</computeroutput> </para>
+</simplesect>
+<simplesect kind="pre"><para>:expr:<computeroutput>input.labels.column_count == 1</computeroutput> </para>
+</simplesect>
+<simplesect kind="pre"><para>:expr:<computeroutput>input.labels[i] &gt;= 0</computeroutput> </para>
+</simplesect>
+<simplesect kind="pre"><para>:expr:<computeroutput>input.labels[i] &lt; desc.class_count</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/knn.hpp" line="122" column="14" declfile="include/oneapi/dal/algo/knn.hpp" declline="122" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="knn_8hpp_1aaa0026fc4ae5f87f335cc628ae756d31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Float</type>
+          </param>
+          <param>
+            <type>typename Method</type>
+          </param>
+          <param>
+            <type>typename Task</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classoneapi_1_1dal_1_1knn_1_1infer__result" kindref="compound">infer_result</ref>&lt; Task &gt;</type>
+        <definition>infer_result&lt;Task&gt; oneapi::dal::knn::infer</definition>
+        <argsstring>(const descriptor&lt; Float, Method, Task &gt; &amp;desc, const infer_input&lt; Task &gt; &amp;input)</argsstring>
+        <name>infer</name>
+        <param>
+          <type>const <ref refid="classoneapi_1_1dal_1_1knn_1_1descriptor" kindref="compound">descriptor</ref>&lt; Float, Method, Task &gt; &amp;</type>
+          <declname>desc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classoneapi_1_1dal_1_1knn_1_1infer__input" kindref="compound">infer_input</ref>&lt; Task &gt; &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Runs the inference operation for $k$-NN classifier. For more details see :expr:<computeroutput>oneapi::dal::infer</computeroutput>.</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Float</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The floating-point type that the algorithm uses for intermediate computations. Can be :expr:<computeroutput>float</computeroutput> or :expr:<computeroutput>double</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Method</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tag-type that specifies an implementation of algorithm. Can be :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1knn_1_1method_1_1bruteforce" kindref="compound">method::bruteforce</ref></computeroutput> or :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1knn_1_1method_1_1kd__tree" kindref="compound">method::kd_tree</ref></computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tag-type that specifies type of the problem to solve. Can be :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1knn_1_1task_1_1classification" kindref="compound">task::classification</ref></computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">desc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Descriptor of the algorithm </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input data for the inference operation </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>result Result of the inference operation</para>
+</simplesect>
+<simplesect kind="pre"><para>:expr:<computeroutput>input.data.has_data == true</computeroutput> </para>
+</simplesect>
+<simplesect kind="post"><para>:expr:<computeroutput>result.labels.row_count == input.data.row_count</computeroutput> </para>
+</simplesect>
+<simplesect kind="post"><para>:expr:<computeroutput>result.labels.column_count == 1</computeroutput> </para>
+</simplesect>
+<simplesect kind="post"><para>:expr:<computeroutput>result.labels[i] &gt;= 0</computeroutput> </para>
+</simplesect>
+<simplesect kind="post"><para>:expr:<computeroutput>result.labels[i] &lt; desc.class_count</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/knn.hpp" line="181" column="14" declfile="include/oneapi/dal/algo/knn.hpp" declline="181" declcolumn="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/oneapi/dal/algo/knn.hpp" line="5" column="26"/>
+  </compounddef>
+</doxygen>

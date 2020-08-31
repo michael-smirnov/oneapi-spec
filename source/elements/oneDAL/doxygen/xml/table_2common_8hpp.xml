@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="table_2common_8hpp" kind="file" language="C++">
+    <compoundname>common.hpp</compoundname>
+    <includedby refid="kmeans_8hpp" local="yes">include/oneapi/dal/algo/kmeans.hpp</includedby>
+    <includedby refid="kmeans__init_8hpp" local="yes">include/oneapi/dal/algo/kmeans_init.hpp</includedby>
+    <includedby refid="knn_8hpp" local="yes">include/oneapi/dal/algo/knn.hpp</includedby>
+    <includedby refid="pca_8hpp" local="yes">include/oneapi/dal/algo/pca.hpp</includedby>
+    <includedby refid="homogen_8hpp" local="yes">include/oneapi/dal/table/homogen.hpp</includedby>
+    <invincdepgraph>
+      <node id="5">
+        <label>include/oneapi/dal/algo/pca.hpp</label>
+        <link refid="pca_8hpp_source"/>
+      </node>
+      <node id="6">
+        <label>include/oneapi/dal/table/homogen.hpp</label>
+        <link refid="homogen_8hpp_source"/>
+      </node>
+      <node id="1">
+        <label>include/oneapi/dal/table/common.hpp</label>
+        <link refid="table_2common_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>include/oneapi/dal/algo/knn.hpp</label>
+        <link refid="knn_8hpp_source"/>
+      </node>
+      <node id="3">
+        <label>include/oneapi/dal/algo/kmeans_init.hpp</label>
+        <link refid="kmeans__init_8hpp_source"/>
+      </node>
+      <node id="2">
+        <label>include/oneapi/dal/algo/kmeans.hpp</label>
+        <link refid="kmeans_8hpp_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classoneapi_1_1dal_1_1table__metadata" prot="public">oneapi::dal::table_metadata</innerclass>
+    <innerclass refid="classoneapi_1_1dal_1_1table" prot="public">oneapi::dal::table</innerclass>
+    <innernamespace refid="namespaceoneapi">oneapi</innernamespace>
+    <innernamespace refid="namespaceoneapi_1_1dal">oneapi::dal</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/oneapi/dal/table/common.hpp"/>
+  </compounddef>
+</doxygen>

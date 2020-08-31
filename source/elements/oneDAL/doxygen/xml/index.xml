@@ -1,0 +1,345 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classoneapi_1_1dal_1_1array" kind="class"><name>oneapi::dal::array</name>
+    <member refid="classoneapi_1_1dal_1_1array_1a547d2696ec69facdab7a86ae682d0f84" kind="typedef"><name>data_t</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1a422b3a90148a555deca02b6edc300328" kind="function"><name>empty</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1a985b1e485ad65c42b5a523739bb01c54" kind="function"><name>full</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1a2c55cdee514c066230f5689ce7aa75b6" kind="function"><name>zeros</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1aa08dc9df37f54cf90cc55e47228f458e" kind="function"><name>wrap</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1afad9adefb34a73c5fc5b2fb18e0fc533" kind="function"><name>wrap</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1a9cbcfcbf0173e1edaf4094bb36b34b31" kind="function"><name>array</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1aafe7dd9fdb1baa4058048d25cdec9b52" kind="function"><name>array</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1abfde33736177e2595562efec2e9eed5a" kind="function"><name>array</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1aa618a10ee51094f972ed7417c1f47e47" kind="function"><name>array</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1a47b093f28368cee71449728fd9891c06" kind="function"><name>array</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1a613c71b94c0de1f67e4de9401ae495c5" kind="function"><name>array</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1ae2a62054fa693a5708e32625f6f6375d" kind="function"><name>operator=</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1a39e9ff86c5d039e02c44dc8ffa8f2bfc" kind="function"><name>operator=</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1ae4b660a59411e4e3e3c46ae4d70e1943" kind="function"><name>get_mutable_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1ad6839735432602607a1403baf91b6a03" kind="function"><name>get_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1abf3eee4b8c629fc34e7b9ecd3a0460ed" kind="function"><name>has_mutable_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1a9c0ff14ba5172db332021f762e464fba" kind="function"><name>need_mutable_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1a3f1207c28eca55d0d45ba1a131eacacd" kind="function"><name>get_count</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1a166b39e55d0cd37657028e5dda117158" kind="function"><name>get_size</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1ad20897c5c8bd47f5d4005989bead0e55" kind="function"><name>reset</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1ac607b8725723eb1714df52f315886d47" kind="function"><name>reset</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1ae85d5ee4341aaf8296010bb4e6135305" kind="function"><name>reset</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1a112c8af9f4fc0a14b518813183cba19b" kind="function"><name>reset</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1a9df3c848ec90e2e9bc0208071b734ed1" kind="function"><name>reset</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1a6f71a66f10bee6e352250a6a23082f2b" kind="function"><name>reset</name></member>
+    <member refid="classoneapi_1_1dal_1_1array_1a6a620f6c2a9060e6d47ea2604acc3d86" kind="function"><name>operator[]</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1base" kind="class"><name>oneapi::dal::base</name>
+    <member refid="classoneapi_1_1dal_1_1base_1a94886fe79cc69cc51ea51e049e872e45" kind="function"><name>~base</name></member>
+  </compound>
+  <compound refid="structoneapi_1_1dal_1_1knn_1_1method_1_1bruteforce" kind="struct"><name>oneapi::dal::knn::method::bruteforce</name>
+  </compound>
+  <compound refid="structoneapi_1_1dal_1_1knn_1_1task_1_1classification" kind="struct"><name>oneapi::dal::knn::task::classification</name>
+  </compound>
+  <compound refid="structoneapi_1_1dal_1_1kmeans_1_1task_1_1clustering" kind="struct"><name>oneapi::dal::kmeans::task::clustering</name>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1column__accessor" kind="class"><name>oneapi::dal::column_accessor</name>
+    <member refid="classoneapi_1_1dal_1_1column__accessor_1a3df74462acea53522f96baaf6f85d257" kind="typedef"><name>data_t</name></member>
+    <member refid="classoneapi_1_1dal_1_1column__accessor_1a54880a11682d1418da3a827ba480730f" kind="function"><name>column_accessor</name></member>
+    <member refid="classoneapi_1_1dal_1_1column__accessor_1af3af9226e515d1af3e4253a5e2c604dd" kind="function"><name>pull</name></member>
+    <member refid="classoneapi_1_1dal_1_1column__accessor_1a1607ed4d538048b1f303b61178139e73" kind="function"><name>pull</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1kmeans__init_1_1compute__input" kind="class"><name>oneapi::dal::kmeans_init::compute_input</name>
+    <member refid="classoneapi_1_1dal_1_1kmeans__init_1_1compute__input_1af4978da7c36983faf35493a9df81f29e" kind="function"><name>compute_input</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans__init_1_1compute__input_1a8084b2fd7da5fd507077b6da7fbdbe30" kind="function"><name>get_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans__init_1_1compute__input_1a9199f834e4482b0b320007edef1f576c" kind="function"><name>set_data</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1kmeans__init_1_1compute__result" kind="class"><name>oneapi::dal::kmeans_init::compute_result</name>
+    <member refid="classoneapi_1_1dal_1_1kmeans__init_1_1compute__result_1a3f06753002a2523730ed42a2d5150903" kind="function"><name>compute_result</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans__init_1_1compute__result_1abd1fbe92c7d9b1ef56b3c9a2842eeb92" kind="function"><name>get_centroids</name></member>
+  </compound>
+  <compound refid="structoneapi_1_1dal_1_1pca_1_1method_1_1cov" kind="struct"><name>oneapi::dal::pca::method::cov</name>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1default__delete" kind="class"><name>oneapi::dal::default_delete</name>
+    <member refid="classoneapi_1_1dal_1_1default__delete_1afa660c8ec0ef4e234c8a1626a9c4d5dd" kind="function"><name>operator()</name></member>
+  </compound>
+  <compound refid="structoneapi_1_1dal_1_1kmeans__init_1_1method_1_1dense" kind="struct"><name>oneapi::dal::kmeans_init::method::dense</name>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1knn_1_1descriptor" kind="class"><name>oneapi::dal::knn::descriptor</name>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1descriptor_1a9d315fc7c49bc9d41b5afbd4c940eb20" kind="function"><name>descriptor</name></member>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1descriptor_1aa71e9f4f7d270a3c90972bbac4e67158" kind="function"><name>get_class_count</name></member>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1descriptor_1ae73de6e282f1f9d8f14dc069584493e6" kind="function"><name>set_class_count</name></member>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1descriptor_1a848e3bd896ce77eb8f6773085944348a" kind="function"><name>get_neighbor_count</name></member>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1descriptor_1a552e270cedd85b6291debc93a9766aa4" kind="function"><name>set_neighbor_count</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1kmeans__init_1_1descriptor" kind="class"><name>oneapi::dal::kmeans_init::descriptor</name>
+    <member refid="classoneapi_1_1dal_1_1kmeans__init_1_1descriptor_1ad201cfab697668dfbdab66f6cc03a8b3" kind="function"><name>descriptor</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans__init_1_1descriptor_1aaee07906243be08f1a9b5ef9dbaca1e8" kind="function"><name>get_cluster_count</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans__init_1_1descriptor_1a84ffb90af1b67ced7bc63b4bdbbcb01f" kind="function"><name>set_cluster_count</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor" kind="class"><name>oneapi::dal::kmeans::descriptor</name>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1ad201cfab697668dfbdab66f6cc03a8b3" kind="function"><name>descriptor</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1a598a96b1ba2dd43de34b4883349bf1ff" kind="function"><name>get_cluster_count</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1a9a0e057e26242b9a4628842d2deff232" kind="function"><name>set_cluster_count</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1a6bcc9b2a7a0e7099491ed9d84643a306" kind="function"><name>get_max_iteration_count</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1abc2768183b8e6d6dad07f46941eede36" kind="function"><name>set_max_iteration_count</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1a4d5b1b8ea76ea67bad2ae31c097c12cb" kind="function"><name>get_accuracy_threshold</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1a3c190019e1fb09e94c8d231a5f00d625" kind="function"><name>set_accuracy_threshold</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1pca_1_1descriptor" kind="class"><name>oneapi::dal::pca::descriptor</name>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1descriptor_1a6e9e7da5ba8a199a5f6c9f8970fdce35" kind="function"><name>descriptor</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1descriptor_1adeddbe77f71efb63255fc85fb5ae21e2" kind="function"><name>get_component_count</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1descriptor_1a00a3b52a645ef695d970315951392adb" kind="function"><name>set_component_count</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1descriptor_1af8d48499d6f98f38530ddb2582b5c8e5" kind="function"><name>get_deterministic</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1descriptor_1a9cd80d12ad34a37eb0b328f79282de3b" kind="function"><name>set_deterministic</name></member>
+  </compound>
+  <compound refid="structoneapi_1_1dal_1_1pca_1_1task_1_1dim__reduction" kind="struct"><name>oneapi::dal::pca::task::dim_reduction</name>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1empty__delete" kind="class"><name>oneapi::dal::empty_delete</name>
+    <member refid="classoneapi_1_1dal_1_1empty__delete_1a2aae2311fb600d66147d84143be2b40b" kind="function"><name>operator()</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1homogen__table" kind="class"><name>oneapi::dal::homogen_table</name>
+    <member refid="classoneapi_1_1dal_1_1homogen__table_1a9ab6fb97fb3e9768781054d12edbaec5" kind="function"><name>kind</name></member>
+    <member refid="classoneapi_1_1dal_1_1homogen__table_1ab98681387057f8aac7044922e538ce3c" kind="function"><name>wrap</name></member>
+    <member refid="classoneapi_1_1dal_1_1homogen__table_1a3daf8b465cf9de3b698f00a03c785e9e" kind="function"><name>homogen_table</name></member>
+    <member refid="classoneapi_1_1dal_1_1homogen__table_1a6d47b013476413fa85dfd57044db6b79" kind="function"><name>homogen_table</name></member>
+    <member refid="classoneapi_1_1dal_1_1homogen__table_1ae7cf7f40fdffca79658241b04520a3ed" kind="function"><name>get_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1homogen__table_1a40e399d3de55764e21af1b23a6d88f09" kind="function"><name>get_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1homogen__table_1a07b5fdf1f97bc88ab939443e4dc7f3a5" kind="function"><name>get_kind</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1knn_1_1infer__input" kind="class"><name>oneapi::dal::knn::infer_input</name>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1infer__input_1acee3e7f57bbf0eb5182d3ad56ff363c0" kind="function"><name>infer_input</name></member>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1infer__input_1a496e356753d8a11678ab227af49dc3cb" kind="function"><name>get_model</name></member>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1infer__input_1a9646e6ce493efe229183f227edfd2083" kind="function"><name>set_model</name></member>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1infer__input_1a8084b2fd7da5fd507077b6da7fbdbe30" kind="function"><name>get_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1infer__input_1a2a40415ce953042cee491ef3d91f7b0b" kind="function"><name>set_data</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1kmeans_1_1infer__input" kind="class"><name>oneapi::dal::kmeans::infer_input</name>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1infer__input_1acee3e7f57bbf0eb5182d3ad56ff363c0" kind="function"><name>infer_input</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1infer__input_1a496e356753d8a11678ab227af49dc3cb" kind="function"><name>get_model</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1infer__input_1a5b9fa61cd3b67dacd88a6402dc7f55f6" kind="function"><name>set_model</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1infer__input_1a8084b2fd7da5fd507077b6da7fbdbe30" kind="function"><name>get_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1infer__input_1a2a40415ce953042cee491ef3d91f7b0b" kind="function"><name>set_data</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1pca_1_1infer__input" kind="class"><name>oneapi::dal::pca::infer_input</name>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1infer__input_1acee3e7f57bbf0eb5182d3ad56ff363c0" kind="function"><name>infer_input</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1infer__input_1a496e356753d8a11678ab227af49dc3cb" kind="function"><name>get_model</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1infer__input_1a9646e6ce493efe229183f227edfd2083" kind="function"><name>set_model</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1infer__input_1a8084b2fd7da5fd507077b6da7fbdbe30" kind="function"><name>get_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1infer__input_1a2a40415ce953042cee491ef3d91f7b0b" kind="function"><name>set_data</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1pca_1_1infer__result" kind="class"><name>oneapi::dal::pca::infer_result</name>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1infer__result_1a9fbe9b8ec16d2a03c897292626f1742d" kind="function"><name>infer_result</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1infer__result_1a476e54c91af5611c5c6c5520d258ca01" kind="function"><name>get_transformed_data</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1knn_1_1infer__result" kind="class"><name>oneapi::dal::knn::infer_result</name>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1infer__result_1a9fbe9b8ec16d2a03c897292626f1742d" kind="function"><name>infer_result</name></member>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1infer__result_1adcb882323bce6ff2519d1faec189b496" kind="function"><name>get_labels</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1kmeans_1_1infer__result" kind="class"><name>oneapi::dal::kmeans::infer_result</name>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1infer__result_1a9fbe9b8ec16d2a03c897292626f1742d" kind="function"><name>infer_result</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1infer__result_1adcb882323bce6ff2519d1faec189b496" kind="function"><name>get_labels</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1infer__result_1a6de2e96ffd0fd96c438072ad7c7acdfe" kind="function"><name>get_objective_function_value</name></member>
+  </compound>
+  <compound refid="structoneapi_1_1dal_1_1kmeans__init_1_1task_1_1init" kind="struct"><name>oneapi::dal::kmeans_init::task::init</name>
+  </compound>
+  <compound refid="structoneapi_1_1dal_1_1knn_1_1method_1_1kd__tree" kind="struct"><name>oneapi::dal::knn::method::kd_tree</name>
+  </compound>
+  <compound refid="structoneapi_1_1dal_1_1kmeans_1_1method_1_1lloyd" kind="struct"><name>oneapi::dal::kmeans::method::lloyd</name>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1kmeans_1_1model" kind="class"><name>oneapi::dal::kmeans::model</name>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1model_1af758be52317607e28c2b633561d322f6" kind="function"><name>model</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1model_1abd1fbe92c7d9b1ef56b3c9a2842eeb92" kind="function"><name>get_centroids</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1model_1a598a96b1ba2dd43de34b4883349bf1ff" kind="function"><name>get_cluster_count</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1knn_1_1model" kind="class"><name>oneapi::dal::knn::model</name>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1model_1af758be52317607e28c2b633561d322f6" kind="function"><name>model</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1pca_1_1model" kind="class"><name>oneapi::dal::pca::model</name>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1model_1af758be52317607e28c2b633561d322f6" kind="function"><name>model</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1model_1ae20abbd21562416ede19dcdf54bd18d3" kind="function"><name>get_eigenvectors</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1model_1adeddbe77f71efb63255fc85fb5ae21e2" kind="function"><name>get_component_count</name></member>
+  </compound>
+  <compound refid="structoneapi_1_1dal_1_1range" kind="struct"><name>oneapi::dal::range</name>
+    <member refid="structoneapi_1_1dal_1_1range_1a21b47721d3378713a943d0bbe0c95a2b" kind="variable"><name>start_idx</name></member>
+    <member refid="structoneapi_1_1dal_1_1range_1ae876f639b67a442e976ab75800326963" kind="variable"><name>end_idx</name></member>
+    <member refid="structoneapi_1_1dal_1_1range_1a5221e20d837f28b7bb430d8d63f85615" kind="function"><name>range</name></member>
+    <member refid="structoneapi_1_1dal_1_1range_1abf617a448898589898946d769a7ffa1e" kind="function"><name>get_element_count</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1row__accessor" kind="class"><name>oneapi::dal::row_accessor</name>
+    <member refid="classoneapi_1_1dal_1_1row__accessor_1a3df74462acea53522f96baaf6f85d257" kind="typedef"><name>data_t</name></member>
+    <member refid="classoneapi_1_1dal_1_1row__accessor_1ae55f4a1db0c2236721c928ba5b646ac9" kind="function"><name>row_accessor</name></member>
+    <member refid="classoneapi_1_1dal_1_1row__accessor_1ab6b71724ca008501e0f07fcc8b542289" kind="function"><name>pull</name></member>
+    <member refid="classoneapi_1_1dal_1_1row__accessor_1a1319e1e87b2c4cbd9d4fd5260d561351" kind="function"><name>pull</name></member>
+  </compound>
+  <compound refid="structoneapi_1_1dal_1_1pca_1_1method_1_1svd" kind="struct"><name>oneapi::dal::pca::method::svd</name>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1table" kind="class"><name>oneapi::dal::table</name>
+    <member refid="classoneapi_1_1dal_1_1table_1a5aa7b43c8ec77df216a71a27da0a321c" kind="function"><name>table</name></member>
+    <member refid="classoneapi_1_1dal_1_1table_1a9afed25f2629fe792a03c2d3c371b101" kind="function"><name>table</name></member>
+    <member refid="classoneapi_1_1dal_1_1table_1ae3f752b5c860253fbe3a854d98664702" kind="function"><name>table</name></member>
+    <member refid="classoneapi_1_1dal_1_1table_1a42768e938e622343de12443477cad5ca" kind="function"><name>operator=</name></member>
+    <member refid="classoneapi_1_1dal_1_1table_1a332d87163f953ae72239f24cc03800aa" kind="function"><name>operator=</name></member>
+    <member refid="classoneapi_1_1dal_1_1table_1af1c5bdc5bbce021f9e961d76b4a96332" kind="function"><name>has_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1table_1ad34b0800ecaa0895cd108af5dcd7bc5f" kind="function"><name>get_column_count</name></member>
+    <member refid="classoneapi_1_1dal_1_1table_1ac3b1b36ddf172f1cf880c4eba11458de" kind="function"><name>get_row_count</name></member>
+    <member refid="classoneapi_1_1dal_1_1table_1a7ccebd2aeed7dde5460b4a64fa1014ac" kind="function"><name>get_metadata</name></member>
+    <member refid="classoneapi_1_1dal_1_1table_1a07b5fdf1f97bc88ab939443e4dc7f3a5" kind="function"><name>get_kind</name></member>
+    <member refid="classoneapi_1_1dal_1_1table_1a3f81d641450d208d120975d47eb0ffdc" kind="function"><name>get_data_layout</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1table__metadata" kind="class"><name>oneapi::dal::table_metadata</name>
+    <member refid="classoneapi_1_1dal_1_1table__metadata_1a0ed09befbee210aa14dda59232035575" kind="function"><name>table_metadata</name></member>
+    <member refid="classoneapi_1_1dal_1_1table__metadata_1a5d7bb165a72fe723c0b04cb35b93a5c4" kind="function"><name>table_metadata</name></member>
+    <member refid="classoneapi_1_1dal_1_1table__metadata_1aa1ebb43260233bb5bf7ea5d7bb87f93a" kind="function"><name>get_feature_count</name></member>
+    <member refid="classoneapi_1_1dal_1_1table__metadata_1a624c27b0d6bea0525385a3a90706af63" kind="function"><name>get_feature_type</name></member>
+    <member refid="classoneapi_1_1dal_1_1table__metadata_1ab4d41ff8ce0a774b550fb071f00567ba" kind="function"><name>get_data_type</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1pca_1_1train__input" kind="class"><name>oneapi::dal::pca::train_input</name>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1train__input_1a47cec6e73dbb1a9c779b5951db34dc4b" kind="function"><name>train_input</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1train__input_1a8084b2fd7da5fd507077b6da7fbdbe30" kind="function"><name>get_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1train__input_1a25de6c91238297ca5fc6dcc253ed63e8" kind="function"><name>set_data</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1kmeans_1_1train__input" kind="class"><name>oneapi::dal::kmeans::train_input</name>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1train__input_1a05c4400819e38b35156d5afa69d9698a" kind="function"><name>train_input</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1train__input_1a8084b2fd7da5fd507077b6da7fbdbe30" kind="function"><name>get_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1train__input_1a25de6c91238297ca5fc6dcc253ed63e8" kind="function"><name>set_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1train__input_1a5277cd55ce77a252886d539340c7fc44" kind="function"><name>get_initial_centroids</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1train__input_1a1599f6c4da4c84f71017d810b9abce59" kind="function"><name>set_initial_centroids</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1knn_1_1train__input" kind="class"><name>oneapi::dal::knn::train_input</name>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1train__input_1a6351d17dcba34aa475b68e67ca557f72" kind="function"><name>train_input</name></member>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1train__input_1a8084b2fd7da5fd507077b6da7fbdbe30" kind="function"><name>get_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1train__input_1a25de6c91238297ca5fc6dcc253ed63e8" kind="function"><name>set_data</name></member>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1train__input_1adcb882323bce6ff2519d1faec189b496" kind="function"><name>get_labels</name></member>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1train__input_1a2d773f2d0d24262dd4721b7faf1b4fad" kind="function"><name>set_labels</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1kmeans_1_1train__result" kind="class"><name>oneapi::dal::kmeans::train_result</name>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1train__result_1a88c5cfbeed393e8157984e8f363a742e" kind="function"><name>train_result</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1train__result_1a496e356753d8a11678ab227af49dc3cb" kind="function"><name>get_model</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1train__result_1adcb882323bce6ff2519d1faec189b496" kind="function"><name>get_labels</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1train__result_1a153816cc380d858eb89e81f717272cf2" kind="function"><name>get_iteration_count</name></member>
+    <member refid="classoneapi_1_1dal_1_1kmeans_1_1train__result_1a6de2e96ffd0fd96c438072ad7c7acdfe" kind="function"><name>get_objective_function_value</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1knn_1_1train__result" kind="class"><name>oneapi::dal::knn::train_result</name>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1train__result_1a88c5cfbeed393e8157984e8f363a742e" kind="function"><name>train_result</name></member>
+    <member refid="classoneapi_1_1dal_1_1knn_1_1train__result_1a496e356753d8a11678ab227af49dc3cb" kind="function"><name>get_model</name></member>
+  </compound>
+  <compound refid="classoneapi_1_1dal_1_1pca_1_1train__result" kind="class"><name>oneapi::dal::pca::train_result</name>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1train__result_1a88c5cfbeed393e8157984e8f363a742e" kind="function"><name>train_result</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1train__result_1a496e356753d8a11678ab227af49dc3cb" kind="function"><name>get_model</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1train__result_1a24e4db63ea5ea03914483a85dd4f8767" kind="function"><name>get_means</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1train__result_1a1c3770c4b7429b72209cccb35759abd3" kind="function"><name>get_variances</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1train__result_1a48f34edd06202e138a2f9443bd473908" kind="function"><name>get_eigenvalues</name></member>
+    <member refid="classoneapi_1_1dal_1_1pca_1_1train__result_1ae20abbd21562416ede19dcdf54bd18d3" kind="function"><name>get_eigenvectors</name></member>
+  </compound>
+  <compound refid="namespaceoneapi" kind="namespace"><name>oneapi</name>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal" kind="namespace"><name>oneapi::dal</name>
+    <member refid="common_8hpp_1ac2ad7f431e3446fddcd9b6b9f93c4c14" kind="enum"><name>data_type</name></member>
+    <member refid="common_8hpp_1ac2ad7f431e3446fddcd9b6b9f93c4c14a27c006cc56b1ba88f960cf8b5144fcac" kind="enumvalue"><name>int8</name></member>
+    <member refid="common_8hpp_1ac2ad7f431e3446fddcd9b6b9f93c4c14ace80d5ec65b1d2a2f1049eadc100db23" kind="enumvalue"><name>int16</name></member>
+    <member refid="common_8hpp_1ac2ad7f431e3446fddcd9b6b9f93c4c14a0241adbbd83925f051b694d40f02747f" kind="enumvalue"><name>int32</name></member>
+    <member refid="common_8hpp_1ac2ad7f431e3446fddcd9b6b9f93c4c14aff9b3f96d37353c528517bc3656a00a8" kind="enumvalue"><name>int64</name></member>
+    <member refid="common_8hpp_1ac2ad7f431e3446fddcd9b6b9f93c4c14a5f423e669d0a8f4ab7c4c3e6da27161a" kind="enumvalue"><name>uint8</name></member>
+    <member refid="common_8hpp_1ac2ad7f431e3446fddcd9b6b9f93c4c14aa00ef2ef85ff67b7b39339886f19044f" kind="enumvalue"><name>uint16</name></member>
+    <member refid="common_8hpp_1ac2ad7f431e3446fddcd9b6b9f93c4c14a3de84ad0700f2a1571f633d399e1900e" kind="enumvalue"><name>uint32</name></member>
+    <member refid="common_8hpp_1ac2ad7f431e3446fddcd9b6b9f93c4c14a2e8d31865e5d4b9d8611e1b991baed07" kind="enumvalue"><name>uint64</name></member>
+    <member refid="common_8hpp_1ac2ad7f431e3446fddcd9b6b9f93c4c14ad33ec2b0bbea6d471a4706cea030e1e3" kind="enumvalue"><name>float32</name></member>
+    <member refid="common_8hpp_1ac2ad7f431e3446fddcd9b6b9f93c4c14afb7fa22ede616c04c68a7663d0f81e92" kind="enumvalue"><name>float64</name></member>
+    <member refid="common_8hpp_1ac2ad7f431e3446fddcd9b6b9f93c4c14a444fe01f3a7a54d1809aef0912846a47" kind="enumvalue"><name>bfloat16</name></member>
+    <member refid="table_2common_8hpp_1ab81a05673a4361b6af7829772fe8f10c" kind="enum"><name>feature_type</name></member>
+    <member refid="table_2common_8hpp_1ab81a05673a4361b6af7829772fe8f10ca1f7b4f1dbe8fa53089854e0ffa829523" kind="enumvalue"><name>nominal</name></member>
+    <member refid="table_2common_8hpp_1ab81a05673a4361b6af7829772fe8f10ca281858037f7dcf7ed49271bb92c60526" kind="enumvalue"><name>ordinal</name></member>
+    <member refid="table_2common_8hpp_1ab81a05673a4361b6af7829772fe8f10cad2e16d3f793e62737a6cdf2d54b0d9c1" kind="enumvalue"><name>interval</name></member>
+    <member refid="table_2common_8hpp_1ab81a05673a4361b6af7829772fe8f10ca8283014e6e586d80b0fbaf92ba85082f" kind="enumvalue"><name>ratio</name></member>
+    <member refid="table_2common_8hpp_1a786677cbfb3f5677b4d84f3056eb08db" kind="enum"><name>data_layout</name></member>
+    <member refid="table_2common_8hpp_1a786677cbfb3f5677b4d84f3056eb08dbaad921d60486366258809553a3db49a4a" kind="enumvalue"><name>unknown</name></member>
+    <member refid="table_2common_8hpp_1a786677cbfb3f5677b4d84f3056eb08dba641fabb8e5e7d1d0333e2c9c384f959c" kind="enumvalue"><name>row_major</name></member>
+    <member refid="table_2common_8hpp_1a786677cbfb3f5677b4d84f3056eb08dba8c23f260f0ec1479d3bfaf3a1305a347" kind="enumvalue"><name>column_major</name></member>
+    <member refid="memory_8hpp_1a0518407355173f143baad2fd1efe0e78" kind="function"><name>make_default_delete</name></member>
+    <member refid="train_8hpp_1a1cdaee50e3a21f1fe8f3fe5f513f12a9" kind="function"><name>train</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1kmeans" kind="namespace"><name>oneapi::dal::kmeans</name>
+    <member refid="kmeans_8hpp_1a262f3b8121dfbc25bc9e61ec0c893743" kind="function"><name>train</name></member>
+    <member refid="kmeans_8hpp_1ac4675c2831fd6d44939bfa006e59f717" kind="function"><name>infer</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1kmeans_1_1example" kind="namespace"><name>oneapi::dal::kmeans::example</name>
+    <member refid="kmeans_8hpp_1ad175a1f920a23c83c3cef6fee188073d" kind="function"><name>run_training</name></member>
+    <member refid="kmeans_8hpp_1ae3a6e0accd35c6c817c45ea5c601a8a4" kind="function"><name>run_inference</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1kmeans_1_1method" kind="namespace"><name>oneapi::dal::kmeans::method</name>
+    <member refid="kmeans_8hpp_1a436aafe720e1c4a99f6e0a1c8e7bbc3e" kind="typedef"><name>by_default</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1kmeans_1_1task" kind="namespace"><name>oneapi::dal::kmeans::task</name>
+    <member refid="kmeans_8hpp_1a2342bed2b5676ab5b6f3c57474cf4caa" kind="typedef"><name>by_default</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1kmeans__init" kind="namespace"><name>oneapi::dal::kmeans_init</name>
+    <member refid="kmeans__init_8hpp_1ad416bdc89dc7e80e4ce9e55bf854b0d3" kind="function"><name>compute</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1kmeans__init_1_1example" kind="namespace"><name>oneapi::dal::kmeans_init::example</name>
+    <member refid="kmeans__init_8hpp_1a7c60cff389759acd65895b2f2c36693e" kind="function"><name>run_compute</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1kmeans__init_1_1method" kind="namespace"><name>oneapi::dal::kmeans_init::method</name>
+    <member refid="kmeans__init_8hpp_1ad11a85bc4dcc7cb5e9355e0dd6b8da14" kind="typedef"><name>by_default</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1kmeans__init_1_1task" kind="namespace"><name>oneapi::dal::kmeans_init::task</name>
+    <member refid="kmeans__init_8hpp_1a65672eaac14d798446e194ae9f126f79" kind="typedef"><name>by_default</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1knn" kind="namespace"><name>oneapi::dal::knn</name>
+    <member refid="knn_8hpp_1ac96e85085eb47f1a9476a018b4b9b4eb" kind="function"><name>train</name></member>
+    <member refid="knn_8hpp_1aaa0026fc4ae5f87f335cc628ae756d31" kind="function"><name>infer</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1knn_1_1example" kind="namespace"><name>oneapi::dal::knn::example</name>
+    <member refid="knn_8hpp_1a61c77d51309bc94e4eae2dba6c53ac11" kind="function"><name>run_training</name></member>
+    <member refid="knn_8hpp_1a8608a9f58959cf957b401e730f249537" kind="function"><name>run_inference</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1knn_1_1method" kind="namespace"><name>oneapi::dal::knn::method</name>
+    <member refid="knn_8hpp_1a2c0434c97fcf83c718010ea34738b86f" kind="typedef"><name>by_default</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1knn_1_1task" kind="namespace"><name>oneapi::dal::knn::task</name>
+    <member refid="knn_8hpp_1a1fa7aa5475161c51e11c704e381871b9" kind="typedef"><name>by_default</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1pca" kind="namespace"><name>oneapi::dal::pca</name>
+    <member refid="pca_8hpp_1aab465d1a4df4f1a7bebf300afcdaea9a" kind="function"><name>train</name></member>
+    <member refid="pca_8hpp_1a0361009056b5ebd264613aef6764c78a" kind="function"><name>infer</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1pca_1_1example" kind="namespace"><name>oneapi::dal::pca::example</name>
+    <member refid="pca_8hpp_1a9d5d167d53d6457297e299f3ab6dd32d" kind="function"><name>run_training</name></member>
+    <member refid="pca_8hpp_1a53eb653ca74835183f5f51d3590335ac" kind="function"><name>run_inference</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1pca_1_1method" kind="namespace"><name>oneapi::dal::pca::method</name>
+    <member refid="pca_8hpp_1a2358af2839dc842364b7180be5fc9914" kind="typedef"><name>by_default</name></member>
+  </compound>
+  <compound refid="namespaceoneapi_1_1dal_1_1pca_1_1task" kind="namespace"><name>oneapi::dal::pca::task</name>
+    <member refid="pca_8hpp_1a1650d1984b8de957fe2317ecb2f84bb0" kind="typedef"><name>by_default</name></member>
+  </compound>
+  <compound refid="kmeans_8hpp" kind="file"><name>kmeans.hpp</name>
+  </compound>
+  <compound refid="kmeans__init_8hpp" kind="file"><name>kmeans_init.hpp</name>
+  </compound>
+  <compound refid="knn_8hpp" kind="file"><name>knn.hpp</name>
+  </compound>
+  <compound refid="pca_8hpp" kind="file"><name>pca.hpp</name>
+  </compound>
+  <compound refid="array_8hpp" kind="file"><name>array.hpp</name>
+  </compound>
+  <compound refid="common_8hpp" kind="file"><name>common.hpp</name>
+  </compound>
+  <compound refid="table_2common_8hpp" kind="file"><name>common.hpp</name>
+  </compound>
+  <compound refid="memory_8hpp" kind="file"><name>memory.hpp</name>
+  </compound>
+  <compound refid="column__accessor_8hpp" kind="file"><name>column_accessor.hpp</name>
+  </compound>
+  <compound refid="homogen_8hpp" kind="file"><name>homogen.hpp</name>
+  </compound>
+  <compound refid="row__accessor_8hpp" kind="file"><name>row_accessor.hpp</name>
+  </compound>
+  <compound refid="train_8hpp" kind="file"><name>train.hpp</name>
+  </compound>
+  <compound refid="dir_bfd5205bf4061b14266836622194b840" kind="dir"><name>include/oneapi/dal/algo</name>
+  </compound>
+  <compound refid="dir_e8af72fe40f4bf3d644e58e7a3b1c389" kind="dir"><name>include/oneapi/dal</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_7f527ff8120a8d3724d7c3775f8803a1" kind="dir"><name>include/oneapi</name>
+  </compound>
+  <compound refid="dir_158737b1840cd8f6e3219508647c2742" kind="dir"><name>include/oneapi/dal/table</name>
+  </compound>
+</doxygenindex>

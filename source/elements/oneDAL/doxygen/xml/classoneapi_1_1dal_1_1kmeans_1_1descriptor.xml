@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classoneapi_1_1dal_1_1kmeans_1_1descriptor" kind="class" language="C++" prot="public">
+    <compoundname>oneapi::dal::kmeans::descriptor</compoundname>
+    <includes refid="kmeans_8hpp" local="no">kmeans.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Float</type>
+        <defval>float</defval>
+      </param>
+      <param>
+        <type>typename Method</type>
+        <defval><ref refid="structoneapi_1_1dal_1_1kmeans_1_1method_1_1lloyd" kindref="compound">method::by_default</ref></defval>
+      </param>
+      <param>
+        <type>typename Task</type>
+        <defval><ref refid="structoneapi_1_1dal_1_1kmeans_1_1task_1_1clustering" kindref="compound">task::by_default</ref></defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1ad201cfab697668dfbdab66f6cc03a8b3" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>descriptor</definition>
+        <argsstring>(std::int64_t cluster_count=2)</argsstring>
+        <name>descriptor</name>
+        <param>
+          <type>std::int64_t</type>
+          <declname>cluster_count</declname>
+          <defval>2</defval>
+        </param>
+        <briefdescription>
+<para>Creates a new instance of the class with the given :literal:<computeroutput>cluster_count</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/kmeans.hpp" line="39" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1a598a96b1ba2dd43de34b4883349bf1ff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t get_cluster_count</definition>
+        <argsstring>() const</argsstring>
+        <name>get_cluster_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The number of clusters $k$ <simplesect kind="invariant"><para>:expr:<computeroutput>cluster_count &gt; 0</computeroutput> </para>
+</simplesect>
+<simplesect kind="remark"><para>default = 2 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/kmeans.hpp" line="44" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1a9a0e057e26242b9a4628842d2deff232" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor" kindref="compound">descriptor</ref> &amp;</type>
+        <definition>descriptor&amp; set_cluster_count</definition>
+        <argsstring>(int64_t)</argsstring>
+        <name>set_cluster_count</name>
+        <param>
+          <type>int64_t</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/kmeans.hpp" line="45" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1a6bcc9b2a7a0e7099491ed9d84643a306" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t get_max_iteration_count</definition>
+        <argsstring>() const</argsstring>
+        <name>get_max_iteration_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The maximum number of iterations $T$ <simplesect kind="invariant"><para>:expr:<computeroutput>max_iteration_count &gt;= 0</computeroutput> </para>
+</simplesect>
+<simplesect kind="remark"><para>default = 100 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/kmeans.hpp" line="50" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1abc2768183b8e6d6dad07f46941eede36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor" kindref="compound">descriptor</ref> &amp;</type>
+        <definition>descriptor&amp; set_max_iteration_count</definition>
+        <argsstring>(int64_t)</argsstring>
+        <name>set_max_iteration_count</name>
+        <param>
+          <type>int64_t</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/kmeans.hpp" line="51" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1a4d5b1b8ea76ea67bad2ae31c097c12cb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double get_accuracy_threshold</definition>
+        <argsstring>() const</argsstring>
+        <name>get_accuracy_threshold</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The threshold $\varepsilon$ for the stop condition <simplesect kind="invariant"><para>:expr:<computeroutput>accuracy_threshold &gt;= 0.0</computeroutput> </para>
+</simplesect>
+<simplesect kind="remark"><para>default = 0.0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/kmeans.hpp" line="56" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1a3c190019e1fb09e94c8d231a5f00d625" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor" kindref="compound">descriptor</ref> &amp;</type>
+        <definition>descriptor&amp; set_accuracy_threshold</definition>
+        <argsstring>(double)</argsstring>
+        <name>set_accuracy_threshold</name>
+        <param>
+          <type>double</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/oneapi/dal/algo/kmeans.hpp" line="57" column="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Float</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The floating-point type that the algorithm uses for intermediate computations. Can be :expr:<computeroutput>float</computeroutput> or :expr:<computeroutput>double</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Method</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tag-type that specifies an implementation of algorithm. Can be :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1kmeans_1_1method_1_1lloyd" kindref="compound">method::lloyd</ref></computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tag-type that specifies the type of the problem to solve. Can be :expr:<computeroutput><ref refid="structoneapi_1_1dal_1_1kmeans_1_1task_1_1clustering" kindref="compound">task::clustering</ref></computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="include/oneapi/dal/algo/kmeans.hpp" line="36" column="17" bodyfile="include/oneapi/dal/algo/kmeans.hpp" bodystart="36" bodyend="58"/>
+    <listofallmembers>
+      <member refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1ad201cfab697668dfbdab66f6cc03a8b3" prot="public" virt="non-virtual"><scope>oneapi::dal::kmeans::descriptor</scope><name>descriptor</name></member>
+      <member refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1a4d5b1b8ea76ea67bad2ae31c097c12cb" prot="public" virt="non-virtual"><scope>oneapi::dal::kmeans::descriptor</scope><name>get_accuracy_threshold</name></member>
+      <member refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1a598a96b1ba2dd43de34b4883349bf1ff" prot="public" virt="non-virtual"><scope>oneapi::dal::kmeans::descriptor</scope><name>get_cluster_count</name></member>
+      <member refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1a6bcc9b2a7a0e7099491ed9d84643a306" prot="public" virt="non-virtual"><scope>oneapi::dal::kmeans::descriptor</scope><name>get_max_iteration_count</name></member>
+      <member refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1a3c190019e1fb09e94c8d231a5f00d625" prot="public" virt="non-virtual"><scope>oneapi::dal::kmeans::descriptor</scope><name>set_accuracy_threshold</name></member>
+      <member refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1a9a0e057e26242b9a4628842d2deff232" prot="public" virt="non-virtual"><scope>oneapi::dal::kmeans::descriptor</scope><name>set_cluster_count</name></member>
+      <member refid="classoneapi_1_1dal_1_1kmeans_1_1descriptor_1abc2768183b8e6d6dad07f46941eede36" prot="public" virt="non-virtual"><scope>oneapi::dal::kmeans::descriptor</scope><name>set_max_iteration_count</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
