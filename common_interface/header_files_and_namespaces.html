@@ -97,8 +97,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Header files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#namespaces">Namespaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="error_handling.html">Error handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="common_types.html">Common types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_management.html">Memory management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common_type_definitions.html">Common type definitions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../data_management/index.html">Data management</a></li>
@@ -189,14 +188,18 @@
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">oneapi/dal.hpp</span></code></p></td>
 <td><p>The main header file of oneDAL library.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">oneapi/dal/algo/%ALGO%.hpp</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">oneapi/dal/%FILE%.hpp</span></code></p></td>
+<td><p>The common type definitions used in other oneDAL layers.
+For example, <code class="docutils literal notranslate"><span class="pre">data_type</span></code> or <code class="docutils literal notranslate"><span class="pre">range</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">oneapi/dal/algo/%ALGO%.hpp</span></code></p></td>
 <td><p>A header file for a particular algorithm.
 The folder for the algorithm itself is <code class="docutils literal notranslate"><span class="pre">oneapi/dal/algo/%ALGO%/</span></code>.</p>
 <p>The string %ALGO% should be substituted with the name of the algorithm,
 for example, <code class="docutils literal notranslate"><span class="pre">kmeans</span></code> or <code class="docutils literal notranslate"><span class="pre">knn</span></code>.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">oneapi/dal/algo/misc/%FUNC%.hpp</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">oneapi/dal/algo/misc/%FUNC%.hpp</span></code></p></td>
 <td><p>A header file for miscellaneous data types and functionality that is
 intended to be used by oneDAL algorithms and applications
 of the analytical pipeline.</p>
@@ -204,7 +207,7 @@ of the analytical pipeline.</p>
 functionality, for example, <code class="docutils literal notranslate"><span class="pre">mt19937</span></code> or <code class="docutils literal notranslate"><span class="pre">cross_enthropy_loss</span></code>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">oneapi/dal/table/%FILE%.hpp</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">oneapi/dal/table/%FILE%.hpp</span></code></p></td>
 <td><p>A header file for the types related to the <a class="reference internal" href="../data_management/index.html#table"><span class="std std-ref">table</span></a> concept.</p>
 <p>The string %FILE% should be substituted with the name of the
 functionality, for example, <code class="docutils literal notranslate"><span class="pre">common</span></code> for key concepts related to table
@@ -214,13 +217,13 @@ header file shall not contain this suffix in its name, for example,
 <code class="docutils literal notranslate"><span class="pre">homogen</span></code> for <code class="docutils literal notranslate"><span class="pre">homogen_table</span></code> class.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">oneapi/dal/io/%FILE%.hpp</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">oneapi/dal/io/%FILE%.hpp</span></code></p></td>
 <td><p>A header file for the types and entities of input-output functionality.</p>
 <p>The string %FILE% should be substituted with the name of the
 functionality, for example, <code class="docutils literal notranslate"><span class="pre">csv</span></code> for reading and writing csv files.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">oneapi/dal/util/%UTIL%.hpp`</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">oneapi/dal/util/%UTIL%.hpp`</span></code></p></td>
 <td><p>A header file for auxiliary functionality, such as memory allocators or
 type traits, that is intended to be used for the design of classes and
 implementation of various methods.</p>
