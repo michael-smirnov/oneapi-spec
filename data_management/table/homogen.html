@@ -272,7 +272,7 @@ for which the following is true:</p>
 <dt class="field-odd">Template Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Data</strong> – The type of elements in the data block that will be stored into the table. The <span class="math notranslate nohighlight">\(Data\)</span> type shall be at least <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">double</span></code> or <code class="xref cpp cpp-expr docutils literal notranslate"><span class="pre">std</span><span class="pre">::</span><span class="pre">int32_t</span></code>.</p></li>
-<li><p><strong>ConstDeleter</strong> – The type of deleter called on <cite>data_pointer</cite> when the last table that refers to it goes out of the scope.</p></li>
+<li><p><strong>ConstDeleter</strong> – The type of a deleter called on <cite>data_pointer</cite> when the last table that refers it is out of the scope.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Parameters</dt>
@@ -281,7 +281,7 @@ for which the following is true:</p>
 <li><p><strong>data_pointer</strong> – The pointer to a homogeneous data block.</p></li>
 <li><p><strong>row_count</strong> – The number of rows in the table.</p></li>
 <li><p><strong>column_count</strong> – The number of columns in the table.</p></li>
-<li><p><strong>data_deleter</strong> – The deleter that is called on the <cite>data_pointer</cite> when last table that refers to it goes out of the scope.</p></li>
+<li><p><strong>data_deleter</strong> – The deleter that is called on the <cite>data_pointer</cite> when the last table that refers it is out of the scope.</p></li>
 <li><p><strong>dependencies</strong> – Events indicating availability of the <span class="math notranslate nohighlight">\(data\)</span> for reading or writing.</p></li>
 <li><p><strong>layout</strong> – The layout of the data. Shall be <cite>data_layout::row_major</cite> or <cite>data_layout::column_major</cite>.</p></li>
 </ul>
