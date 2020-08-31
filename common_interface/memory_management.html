@@ -215,9 +215,7 @@ oneDAL objects and their data.</p>
 <span class="k">class</span> <span class="nc">default_delete</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
 
-    <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="n">Data</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
-        <span class="n">detail</span><span class="o">::</span><span class="n">free</span><span class="p">(</span><span class="n">policy_</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
-    <span class="p">}</span>
+    <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="n">Data</span><span class="o">*</span> <span class="n">data</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 </div>
@@ -242,7 +240,7 @@ oneDAL objects and their data.</p>
 
 </dd></dl>
 
-<p>The helper function that creates <code class="docutils literal notranslate"><span class="pre">default_delete</span></code> object using SYCL* queue.</p>
+<p>The helper function that creates <code class="xref cpp cpp-expr docutils literal notranslate"><a class="reference internal" href="#_CPPv4I0EN6oneapi3dal14default_deleteE" title="oneapi::dal::default_delete"><span class="pre">default_delete</span></a></code> object using SYCL* queue.</p>
 <dl class="cpp function">
 <dt id="_CPPv4I0EN6oneapi3dal19make_default_deleteEDaRKN4sycl5queueE">
 <span id="_CPPv3I0EN6oneapi3dal19make_default_deleteERKN4sycl5queueE"></span><span id="_CPPv2I0EN6oneapi3dal19make_default_deleteERKN4sycl5queueE"></span>template&lt;typename <code class="sig-name descname">Data</code>&gt;<br />auto <code class="sig-name descname">make_default_delete</code><span class="sig-paren">(</span><em class="property">const</em> sycl::queue &amp;<em>queue</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN6oneapi3dal19make_default_deleteEDaRKN4sycl5queueE" title="Permalink to this definition">¶</a><br /></dt>
